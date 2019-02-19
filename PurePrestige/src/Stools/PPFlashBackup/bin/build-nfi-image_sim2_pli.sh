@@ -218,8 +218,8 @@ fi
 	echo "---------------------------------------------------------------"
 DATE=`date +%Y-%m-%d@%H.%M.%S`
 PLUGINPATH=/usr/lib/enigma2/python/Plugins/Extensions/PurePrestige/Stools/PPFlashBackup
-MKFS=/usr/lib/enigma2/python/Plugins/Extensions/PurePrestige/Stools/PPFlashBackup/bin/mkfs.jffs2
-BUILDIMAGE=/usr/lib/enigma2/python/Plugins/Extensions/PurePrestige/Stools/PPFlashBackup/bin/buildimage
+MKFS=/usr/sbin/mkfs.jffs2
+BUILDIMAGE=/usr/bin/buildimage
 BACKUPIMAGE=$SWAPDIR/$IMAGEINFO-$GP3$BOXTYPE-$DATE-sim2-SSL-$VSND.nfi
 SND=secondstage-sim2-$BOXTYPE-$VSND.bin
 
