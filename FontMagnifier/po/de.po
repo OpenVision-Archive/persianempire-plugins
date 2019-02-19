@@ -11,11 +11,9 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Poedit-SourceCharset: UTF-8\n"
-"X-Poedit-Basepath: Z:\\dreambox\\usr\\lib\\enigma2\\python\\Plugins"
-"\\Extensions\\FontMagnifier\n"
+"X-Poedit-Basepath: Z:\\dreambox\\usr\\lib\\enigma2\\python\\Plugins\\Extensions\\FontMagnifier\n"
 "X-Generator: Poedit 1.5.3\n"
-"X-Poedit-SearchPath-0: Z:\\dreambox\\usr\\lib\\enigma2\\python\\Plugins"
-"\\Extensions\\FontMagnifier\n"
+"X-Poedit-SearchPath-0: Z:\\dreambox\\usr\\lib\\enigma2\\python\\Plugins\\Extensions\\FontMagnifier\n"
 
 #: Z:\dreambox\usr\lib\enigma2\python\Plugins\Extensions\FontMagnifier/plugin.py:52
 msgid "Tool to change font sizes easily."
@@ -240,8 +238,7 @@ msgstr "Konnte in /usr/lib/enigma2/python/Components/EpgList.py nicht parsen."
 
 #: Z:\dreambox\usr\lib\enigma2\python\Plugins\Extensions\FontMagnifier/plugin.py:1052
 msgid "Sorry, unable to parse /usr/lib/enigma2/python/Components/MovieList.py"
-msgstr ""
-"Konnte in /usr/lib/enigma2/python/Components/MovieList.py nicht parsen."
+msgstr "Konnte in /usr/lib/enigma2/python/Components/MovieList.py nicht parsen."
 
 #: Z:\dreambox\usr\lib\enigma2\python\Plugins\Extensions\FontMagnifier/plugin.py:1054
 msgid ""
@@ -254,23 +251,3 @@ msgstr ""
 #: Z:\dreambox\usr\lib\enigma2\python\Plugins\Extensions\FontMagnifier/plugin.py:1055
 msgid "Restart GUI now?"
 msgstr "System Neustart?"
-
-#~ msgid "Restore failed: unknown attribute '%s'"
-#~ msgstr "Wiederherstellung fehlgeschlagen: unknown attribute '%s'"
-
-#~ msgid "Restore failed: XML attribute error '%s'"
-#~ msgstr "Wiederherstellung fehlgeschlagen: XML attribute error '%s'"
-
-#~ msgid "font magnifier plugin"
-#~ msgstr "Font Magnifier Plugin"
-
-#~ msgid ""
-#~ "Sorry, unable to parse /usr/lib/enigma2/python/Components/ServiceList.py"
-#~ msgstr ""
-#~ "Konnte in /usr/lib/enigma2/python/Components/ServiceList.py nicht parsen."
-
-#~ msgid "Sorry, no screens found!"
-#~ msgstr "Leider keine Screens gefunden!"
-
-#~ msgid "Restart Enigma 2 and check result!"
-#~ msgstr "Starte Enigma 2 neu und prüfe das Ergebnis!"

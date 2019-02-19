@@ -117,14 +117,10 @@ msgid "Sorry, unable modify skin_user.xml"
 msgstr "Sorry, niet mogelijk om skin_user.xml aan te passen"
 
 msgid "Sorry, unable to parse /usr/lib/enigma2/python/Components/EpgList.py"
-msgstr ""
-"Sorry, niet mogelijk om /usr/lib/enigma2/python/Components/EpgList.py te "
-"ontleden"
+msgstr "Sorry, niet mogelijk om /usr/lib/enigma2/python/Components/EpgList.py te ontleden"
 
 msgid "Sorry, unable to parse /usr/lib/enigma2/python/Components/MovieList.py"
-msgstr ""
-"Sorry, niet mogelijk om /usr/lib/enigma2/python/Components/MovieList.py te "
-"ontleden"
+msgstr "Sorry, niet mogelijk om /usr/lib/enigma2/python/Components/MovieList.py te ontleden"
 
 msgid "Sorry, unable to parse /usr/share/enigma2/%s."
 msgstr "Sorry, niet mogelijk om /usr/share/enigma2/%s te ontleden"

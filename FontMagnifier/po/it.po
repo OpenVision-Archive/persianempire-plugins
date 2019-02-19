@@ -202,4 +202,3 @@ msgstr ""
 #: /home/dario/Plugins/FontMagnifier/plugin.py:848
 msgid "Restart GUI now?"
 msgstr "Riavviare la GUI?"
-

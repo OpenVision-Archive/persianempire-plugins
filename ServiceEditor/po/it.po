@@ -44,8 +44,7 @@ msgstr "Ok"
 msgid "Name"
 msgstr "Nome"
 
-#: plugin.py:269
-#: plugin.py:1075
+#: plugin.py:269 plugin.py:1075
 msgid "Provider"
 msgstr "Provider"
 
@@ -170,9 +169,7 @@ msgstr "Pos"
 msgid "Service"
 msgstr "Canale"
 
-#: plugin.py:1083
-#: plugin.py:1091
-#: plugin.py:1100
+#: plugin.py:1083 plugin.py:1091 plugin.py:1100
 msgid ""
 "Frequency\n"
 "MHz"
@@ -180,24 +177,6 @@ msgstr ""
 "Frequenza\n"
 "MHz"
 
-#: plugin.py:1176
-#: plugin.py:1181
+#: plugin.py:1176 plugin.py:1181
 msgid "Services Editor"
 msgstr "Editor Canali"
-
-#, fuzzy
-#~ msgid "hide all Services from %s"
-#~ msgstr "Nascondere il canale"
-
-#, fuzzy
-#~ msgid "unhide all Services from %s"
-#~ msgstr "Nascondere il canale"
-
-#, fuzzy
-#~ msgid "new service"
-#~ msgstr "Nascondere il canale"
-
-#, fuzzy
-#~ msgid "new provider"
-#~ msgstr "Provider"
-

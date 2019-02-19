@@ -45,8 +45,7 @@ msgstr ""
 msgid "Name"
 msgstr ""
 
-#: plugin.py:269
-#: plugin.py:1075
+#: plugin.py:269 plugin.py:1075
 msgid "Provider"
 msgstr "Anbieter"
 
@@ -171,25 +170,12 @@ msgstr ""
 msgid "Service"
 msgstr "Kanal"
 
-#: plugin.py:1083
-#: plugin.py:1091
-#: plugin.py:1100
+#: plugin.py:1083 plugin.py:1091 plugin.py:1100
 msgid ""
 "Frequency\n"
 "MHz"
 msgstr ""
 
-#: plugin.py:1176
-#: plugin.py:1181
+#: plugin.py:1176 plugin.py:1181
 msgid "Services Editor"
 msgstr "Service Editor"
-
-#~ msgid "hide all Services from %s"
-#~ msgstr "Verstecken aller Sender von %s"
-#~ msgid "unhide all Services from %s"
-#~ msgstr "Sichtbar machen aller Sender von %s"
-#~ msgid "new service"
-#~ msgstr "neuer Sender"
-#~ msgid "new provider"
-#~ msgstr "neuer Anbieter"
-

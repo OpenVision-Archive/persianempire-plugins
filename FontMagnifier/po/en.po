@@ -11,11 +11,9 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Poedit-SourceCharset: UTF-8\n"
-"X-Poedit-Basepath: Z:\\dreambox\\usr\\lib\\enigma2\\python\\Plugins"
-"\\Extensions\\FontMagnifier\n"
+"X-Poedit-Basepath: Z:\\dreambox\\usr\\lib\\enigma2\\python\\Plugins\\Extensions\\FontMagnifier\n"
 "X-Generator: Poedit 1.5.3\n"
-"X-Poedit-SearchPath-0: Z:\\dreambox\\usr\\lib\\enigma2\\python\\Plugins"
-"\\Extensions\\FontMagnifier\n"
+"X-Poedit-SearchPath-0: Z:\\dreambox\\usr\\lib\\enigma2\\python\\Plugins\\Extensions\\FontMagnifier\n"
 
 #: Z:\dreambox\usr\lib\enigma2\python\Plugins\Extensions\FontMagnifier/plugin.py:57
 msgid "Tool to change font sizes easily."
@@ -254,23 +252,3 @@ msgstr ""
 #: Z:\dreambox\usr\lib\enigma2\python\Plugins\Extensions\FontMagnifier/plugin.py:1059
 msgid "Restart GUI now?"
 msgstr "Restart GUI now?"
-
-#~ msgid "Restore failed: unknown attribute '%s'"
-#~ msgstr "Restore failed: unknown attribute '%s'"
-
-#~ msgid "Restore failed: XML attribute error '%s'"
-#~ msgstr "Restore failed: XML attribute error '%s'"
-
-#~ msgid "font magnifier plugin"
-#~ msgstr "Font Magnifier Plugin"
-
-#~ msgid ""
-#~ "Sorry, unable to parse /usr/lib/enigma2/python/Components/ServiceList.py"
-#~ msgstr ""
-#~ "Sorry, unable to parse /usr/lib/enigma2/python/Components/ServiceList.py"
-
-#~ msgid "Sorry, no screens found!"
-#~ msgstr "Sorry, no screens found!"
-
-#~ msgid "Restart Enigma 2 and check result!"
-#~ msgstr "Restart Enigma 2 and check result!"
