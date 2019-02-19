@@ -1,0 +1,358 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: cccam\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-07-25 10:37+0200\n"
+"PO-Revision-Date: 2009-02-15 12:21+0100\n"
+"Last-Translator: Titovich <yo@mismo.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "About"
+msgstr "Acerca de"
+
+msgid "Activate"
+msgstr "Activar"
+
+msgid "Active clients"
+msgstr "Clientes activos"
+
+msgid "All"
+msgstr "Todos"
+
+msgid "Available shares:"
+msgstr "Compartidos disponibles:"
+
+msgid ""
+"CCcam Info %s\n"
+"by AliAbdul %s\n"
+"\n"
+"This plugin shows you the status of your CCcam."
+msgstr ""
+"CCcam Info %s\n"
+"por AliAbdul %s\n"
+"\n"
+"Este plugin te muestra el estado de tu CCcam."
+
+msgid "CaID: "
+msgstr "CaID:"
+
+msgid "Cancel"
+msgstr "Cancelar"
+
+msgid "Cards: "
+msgstr "Tarjetas:"
+
+msgid "Cards: 0"
+msgstr "Tarjetas: 0"
+
+msgid "Cardserial"
+msgstr "Nº serie tarjeta"
+
+msgid "Clients"
+msgstr "Clientes"
+
+msgid "Configfile %s saved."
+msgstr "Archivo de configuración %s salvado."
+
+msgid "Connected clients"
+msgstr "Clientes Conectados"
+
+msgid "Connected: "
+msgstr "Conectado:"
+
+msgid "Content"
+msgstr "Contenido"
+
+msgid "Could not open the file %s!"
+msgstr "No se puede abrir el archivo %s!"
+
+msgid "Could not save configfile %s!"
+msgstr "No se puede salvar el archivo de configuración %s!"
+
+msgid "Current time"
+msgstr "Tiempo actual"
+
+msgid "Cut servername after (x) letters:"
+msgstr "Cortar el nombre de canal después de (x) letras:"
+
+msgid "Delete"
+msgstr "Borrar"
+
+msgid "Delete %s?"
+msgstr "Borrar %s?"
+
+msgid "Delete failed!"
+msgstr "Falló la eliminación"
+
+msgid "Deleted %s!"
+msgstr "Borrado %s!"
+
+msgid "Ecm Info"
+msgstr "Información de ecm"
+
+msgid "Ecm time:"
+msgstr "Tiempo Ecm:"
+
+msgid "Entitlements"
+msgstr "Tarjetas"
+
+msgid "Error reading webpage!"
+msgstr "Error leyendo la página Web!"
+
+msgid "Extended Shares"
+msgstr "Compartidos avanzado"
+
+msgid "Free memory"
+msgstr "Memoria libre"
+
+msgid "Free memory:"
+msgstr "Memoria libre:"
+
+msgid "Free to Air"
+msgstr "Abierto"
+
+msgid "Free:"
+msgstr "Libre:"
+
+msgid "General"
+msgstr "Información General"
+
+msgid "Hide ecm.info after (x) seconds:"
+msgstr "Ocultar ecm.info después de (x) segundos:"
+
+msgid "Hide ecm.info with InfoBar:"
+msgstr "Ocultar ecm.info con la barra de información:"
+
+msgid "Hops:"
+msgstr "Saltos:"
+
+msgid "Hostname: "
+msgstr "Nombre de Host:"
+
+msgid "IP:"
+msgstr "IP:"
+
+msgid "Idle Time: "
+msgstr "Tiempo de conexión:"
+
+msgid "Last used share: "
+msgstr "Última tarjeta usada:"
+
+msgid "Local box"
+msgstr "Deco local"
+
+msgid "Maxdown +"
+msgstr "Saltos +"
+
+msgid "Maxdown -"
+msgstr "Saltos -"
+
+msgid "Maxdown: "
+msgstr "Máximo:"
+
+msgid "Menu config"
+msgstr "Configuración de menú"
+
+msgid "New profile: "
+msgstr "Nuevo perfil:"
+
+msgid "No card inserted!"
+msgstr "No hay tarjeta insertada!"
+
+msgid "NodeID"
+msgstr "Identidad de Nodo"
+
+msgid "NodeID: "
+msgstr "Identidad de Nodo:"
+
+msgid "Password:"
+msgstr "Contraseña:"
+
+msgid "Peak load (max queued requests per workerthread)"
+msgstr "Carga Máxima"
+
+msgid "Port:"
+msgstr "Puerto:"
+
+msgid "Position:"
+msgstr "Posición:"
+
+msgid "Profile: Local box"
+msgstr "Perfil: Deco local"
+
+msgid "Provider Name: "
+msgstr "Nombre de Proveedor:"
+
+msgid "Provider: "
+msgstr "Proveedor:"
+
+msgid "Providers"
+msgstr "Proveedores"
+
+msgid "Providers:"
+msgstr "Proveedores:"
+
+msgid "Remote box"
+msgstr "Deco remoto"
+
+msgid "Rename"
+msgstr "Renombrar:"
+
+msgid "Rename failed!"
+msgstr "Falló el renombrado!"
+
+msgid "Rename to:"
+msgstr "Renombrar a:"
+
+msgid "Renamed %s!"
+msgstr "Renombrado %s!"
+
+msgid "Reshare:"
+msgstr "Recompartir:"
+
+msgid "Save"
+msgstr "Salvar"
+
+msgid "Servers"
+msgstr "Servidores"
+
+msgid "Servers:"
+msgstr "Servidores:"
+
+msgid "Share View"
+msgstr "Vista a Compartidos"
+
+msgid "Shares"
+msgstr "Compartidos"
+
+msgid "Show ecm.info:"
+msgstr "Mostrar ecm.info"
+
+msgid "Switch config"
+msgstr "Configuración de switch"
+
+msgid "System: "
+msgstr "Sistema:"
+
+msgid "This plugin shows you the status of your CCcam"
+msgstr "Este plugin te muestra el estado de tu CCcam"
+
+msgid "Total cards:"
+msgstr "Tarjetas Totales:"
+
+msgid "Total handled client ecm's"
+msgstr "Total ecms de clientes manejadas"
+
+msgid "Total handled client emm's"
+msgstr "Total emms de clientes manejadas"
+
+msgid "Total:"
+msgstr "Total:"
+
+msgid "Type: "
+msgstr "Tipo:"
+
+msgid "Uphops +"
+msgstr "Distancias +"
+
+msgid "Uphops -"
+msgstr "Distancias -"
+
+msgid "Uphops: "
+msgstr "Saltos:"
+
+msgid "Uptime"
+msgstr "Tiempo de actividad"
+
+msgid "Used:"
+msgstr "Usado:"
+
+msgid "Username:"
+msgstr "Usuario:"
+
+msgid "Using old profile: "
+msgstr "Usando viejo perfil:"
+
+msgid "Version: "
+msgstr "Versión:"
+
+msgid "address:"
+msgstr "dirección:"
+
+msgid "caid:"
+msgstr "Id Proveedor:"
+
+msgid "card"
+msgstr "tarjeta"
+
+msgid "card reader"
+msgstr "Lector de tarjetas"
+
+msgid "close share view"
+msgstr "cerrar vista compartidos"
+
+msgid "decrease uphop by 1"
+msgstr "disminuir el salto en 1"
+
+msgid "ecm.info"
+msgstr "Información de ecm"
+
+msgid "get the cards' server"
+msgstr "obtener servidor de tarjetas"
+
+msgid "handled"
+msgstr "manejadas"
+
+msgid "increase uphop by 1"
+msgstr "incrementa el salto en 1"
+
+msgid "no or unknown card inserted"
+msgstr "No hay tarjeta insertada o es desconocida"
+
+msgid "pid:"
+msgstr "pid:"
+
+msgid "provid:"
+msgstr "Id Proveedor:"
+
+msgid "share:"
+msgstr "Compartido:"
+
+msgid "show all cards"
+msgstr "Mostrar todas las tarjetas"
+
+msgid "show cards with uphop 0"
+msgstr "Mostrar tarjetas con 0 saltos"
+
+msgid "show cards with uphop 1"
+msgstr "Mostrar tarjetas con 1 salto"
+
+msgid "show cards with uphop 2"
+msgstr "Mostrar tarjetas con 2 saltos"
+
+msgid "show cards with uphop 3"
+msgstr "Mostrar tarjetas con 3 saltos"
+
+msgid "show cards with uphop 4"
+msgstr "Mostrar tarjetas con 4 saltos"
+
+msgid "show cards with uphop 5"
+msgstr "Mostrar tarjetas con 5 saltos"
+
+msgid "show cards with uphop 6"
+msgstr "Mostrar tarjetas con 6 saltos"
+
+msgid "show cards with uphop 7"
+msgstr "Mostrar tarjetas con 7 saltos"
+
+msgid "show cards with uphop 8"
+msgstr "Mostrar tarjetas con 8 saltos"
+
+msgid "show cards with uphop 9"
+msgstr "Mostrar tarjetas con 9 saltos"
+
+msgid "using:"
+msgstr "usando:"

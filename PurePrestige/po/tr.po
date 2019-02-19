@@ -1,0 +1,135 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: ServiceEditor 20090419\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2009-04-17 19:22+0200\n"
+"PO-Revision-Date: 2009-04-19 23:45+0200\n"
+"Last-Translator: Zülfikar VEYİSOĞLU <z.veyisoglu@hobiagaci.com>\n"
+"Language-Team: http://www.hobiagaci.com <z.veyisoglu@hobiagaci.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Turkish\n"
+"X-Poedit-Country: TURKEY\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+msgid "AC3 Delay (ms)"
+msgstr "AC3 gecikmesi (ms)"
+
+msgid "AC3 PID (hex)"
+msgstr "AC3 PID (hex)"
+
+msgid "Audio PID (hex)"
+msgstr "Ses PID (hex)"
+
+msgid "Audiochannel"
+msgstr "Ses kanalı"
+
+msgid "DVB-C"
+msgstr "DVB-C"
+
+msgid "DVB-T"
+msgstr "DVB-T"
+
+msgid "E"
+msgstr "D"
+
+msgid "Error"
+msgstr "Hata"
+
+msgid ""
+"Frequency\n"
+"MHz"
+msgstr ""
+"Frekans\n"
+"MHz"
+
+msgid "Name"
+msgstr "Ad"
+
+msgid "Options for hide"
+msgstr "Gizleme seçenekleri"
+
+msgid "PCM Delay (ms)"
+msgstr "PCM gecikmesi (ms)"
+
+msgid "PCR PID (hex)"
+msgstr "PCR PID (hex)"
+
+msgid "Pos"
+msgstr "Poz"
+
+msgid "Provider"
+msgstr "Yayıncı"
+
+msgid "Providers"
+msgstr "Yayıncılar"
+
+msgid "SID (hex)"
+msgstr "SID (hex)"
+
+msgid "Service"
+msgstr "Kanal"
+
+msgid "Services"
+msgstr "Kanallar"
+
+msgid "Services Editor"
+msgstr "Kanal düzenleyici"
+
+msgid "Subtitle PID (hex)"
+msgstr "Altyazı PID (hex)"
+
+msgid "TXT PID (hex)"
+msgstr "Teleteks PID (hex)"
+
+msgid "Video PID (hex)"
+msgstr "Video PID (hex)"
+
+msgid "Video Type"
+msgstr "Video Tipi"
+
+msgid "W"
+msgstr "B"
+
+msgid "dont use SDT"
+msgstr "SDT kullanma!"
+
+msgid "edit"
+msgstr "düzenle"
+
+msgid "hide Provider %s"
+msgstr "%s yayıncısını gizle"
+
+msgid "hide Service"
+msgstr "Kanalı gizle"
+
+msgid "hide Service %s"
+msgstr "%s kanalını gizle"
+
+msgid "hide/unhide"
+msgstr "gizle/göster"
+
+msgid "keep Servicename"
+msgstr "Değişen kanal adını koru "
+
+msgid "no standart service"
+msgstr "standart kanal değil!"
+
+msgid "ok"
+msgstr "tamam"
+
+msgid "sign as new Service"
+msgstr "Yeni kanal olarak işaretle"
+
+msgid "sort"
+msgstr "sırala"
+
+msgid "toggle hide attibutes for %s"
+msgstr "%s kanalını gizle/göster"
+
+msgid "unhide Provider %s"
+msgstr "%s yayıncısını göster"
+
+msgid "unhide Service %s"
+msgstr "%s kanalını göster"

@@ -1,0 +1,388 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: CCcam Info\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-07-25 10:37+0200\n"
+"PO-Revision-Date: 2009-09-13 08:45-0000\n"
+"Last-Translator: aliabdul <aliabdul1978@hotmail.de>\n"
+"Language-Team: AliAbdul <aliabdul1978@hotmail.de>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: German\n"
+"X-Poedit-Country: GERMANY\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SearchPath-0: /home/aliabdul/Desktop/CCcamInfo/usr/lib/enigma2/"
+"python/Plugins/Extensions/CCcamInfo\n"
+
+msgid " and"
+msgstr " und"
+
+msgid "About"
+msgstr "Über"
+
+msgid "Activate"
+msgstr "Aktiviere"
+
+msgid "Active clients"
+msgstr "Aktive Klienten"
+
+msgid "All"
+msgstr "Alle"
+
+msgid "Available shares:"
+msgstr "Karten:"
+
+msgid ""
+"CCcam Info %s\n"
+"by AliAbdul %s\n"
+"\n"
+"This plugin shows you the status of your CCcam."
+msgstr ""
+"CCcam Info %s\n"
+"von AliAbdul %s\n"
+"\n"
+"Dieses Plugin zeigt dir den Status deines CCcam share"
+
+msgid "CaID: "
+msgstr "CaID: "
+
+msgid "Cancel"
+msgstr "Abbruch"
+
+msgid "Cards: "
+msgstr "Karten: "
+
+msgid "Cards: 0"
+msgstr "Karten: 0"
+
+msgid "Cardserial"
+msgstr "Kartenserial"
+
+msgid "Clients"
+msgstr "Klienten"
+
+msgid "Configfile %s saved."
+msgstr "Konfigurationsdatei %s gespeichert."
+
+msgid "Connected clients"
+msgstr "Verbundene Klienten"
+
+msgid "Connected: "
+msgstr "Verbunden seit: "
+
+msgid "Content"
+msgstr "Inhalt"
+
+msgid "Could not open the file %s!"
+msgstr "Konnte %s nicht öffnen!"
+
+msgid "Could not save configfile %s!"
+msgstr "Konnte die Konfigurationsdatei %s nicht speichern!"
+
+msgid "Current time"
+msgstr "Jetzige Zeit"
+
+msgid "Cut servername after (x) letters:"
+msgstr "Servername nach (x) Buchstaben kürzen:"
+
+msgid "Delete"
+msgstr "Lösche"
+
+msgid "Delete %s?"
+msgstr "%s löschen?"
+
+msgid "Delete failed!"
+msgstr "Löschen fehlgeschlagen!"
+
+msgid "Deleted %s!"
+msgstr "%s gelöscht!"
+
+msgid "Ecm Info"
+msgstr "Ecm Info"
+
+msgid "Ecm time:"
+msgstr "Ecm sec:"
+
+msgid "Edit"
+msgstr "Editiere"
+
+msgid "Entitlements"
+msgstr "Kartendaten Slot 1 u. 2"
+
+msgid "Error reading webpage!"
+msgstr "Keine Infodatei in /tmp vorhanden ! CCcam schon gestartet ?"
+
+msgid "Extended Shares"
+msgstr "Erweiterte Shares"
+
+msgid "Free memory"
+msgstr "Arbeitsspeicher"
+
+msgid "Free memory:"
+msgstr "Arbeitsspeicher"
+
+msgid "Free to Air"
+msgstr "Free To Air"
+
+msgid "Free:"
+msgstr "Noch freier Arbeitsspeicher:"
+
+msgid "General"
+msgstr "Übersicht"
+
+msgid "Hide ecm.info after (x) seconds:"
+msgstr "ecm.info nach (x) Sekunden ausblenden:"
+
+msgid "Hide ecm.info with InfoBar:"
+msgstr "ecm.info mit InfoBar verstecken:"
+
+msgid "Hops:"
+msgstr "Hops:"
+
+msgid "Hostname: "
+msgstr "Hostname: "
+
+msgid "IP:"
+msgstr "IP:"
+
+msgid "Idle Time: "
+msgstr "Untätig seit: "
+
+msgid "Last used share: "
+msgstr "Letzte benutzte Karte: "
+
+msgid "Local box"
+msgstr "Meine Box"
+
+msgid "Location"
+msgstr "Ort"
+
+msgid "Maxdown +"
+msgstr "Maxdown +"
+
+msgid "Maxdown -"
+msgstr "Maxdown -"
+
+msgid "Maxdown: "
+msgstr "Maxdown: "
+
+msgid "Menu config"
+msgstr "Menü Konfiguration"
+
+msgid "Name:"
+msgstr "Name:"
+
+msgid "New"
+msgstr "Neu"
+
+msgid "New profile: "
+msgstr "Neues Profil: "
+
+msgid "No card inserted!"
+msgstr "Keine Karte im Slot!"
+
+msgid "NodeID"
+msgstr "NodeID"
+
+msgid "NodeID: "
+msgstr "NodeID: "
+
+msgid "Password:"
+msgstr "Passwort:"
+
+msgid "Port:"
+msgstr "Port:"
+
+msgid "Position:"
+msgstr "Position:"
+
+msgid "Profile: Local box"
+msgstr "Profil: Meine Box"
+
+msgid "Provider Name: "
+msgstr "Providername: "
+
+msgid "Provider: "
+msgstr "Provider: "
+
+msgid "Providers"
+msgstr "Provider Übersicht"
+
+msgid "Providers:"
+msgstr "Provider:"
+
+msgid "Remote box"
+msgstr "Klient Box"
+
+msgid "Rename"
+msgstr "Umbenennen"
+
+msgid "Rename failed!"
+msgstr "Umbenennen fehlgeschlagen!"
+
+msgid "Rename to:"
+msgstr "Umbenennen zu:"
+
+msgid "Renamed %s!"
+msgstr "%s umbenannt!"
+
+msgid "Reshare:"
+msgstr "Reshare:"
+
+msgid "Save"
+msgstr "Speichern"
+
+msgid "Servers"
+msgstr "Server"
+
+msgid "Servers:"
+msgstr "Server:"
+
+msgid "Share View"
+msgstr "Share Übersicht"
+
+msgid "Shares"
+msgstr "Shares"
+
+msgid "Show ecm.info:"
+msgstr "Zeige ecm.info:"
+
+msgid "Switch config"
+msgstr "Config wechseln"
+
+msgid "System: "
+msgstr "System: "
+
+msgid "This plugin shows you the status of your CCcam"
+msgstr "Dieses Plugin zeigt dir den Status deines CCcam share."
+
+msgid "Total cards:"
+msgstr "Gesamte Karten:"
+
+msgid "Total handled client ecm's"
+msgstr "Anzahl behandelter Klient ecm's"
+
+msgid "Total handled client emm's"
+msgstr "Anzahl behandelter Klient emm's"
+
+msgid "Total:"
+msgstr "Gesamter Arbeitsspeicher:"
+
+msgid "Type: "
+msgstr "Typ: "
+
+msgid "Uphops +"
+msgstr "Uphops +"
+
+msgid "Uphops -"
+msgstr "Uphops -"
+
+msgid "Uphops: "
+msgstr "Uphops: "
+
+msgid "Uptime"
+msgstr "Laufzeit"
+
+msgid "Used:"
+msgstr "Benutzter Arbeitsspeicher:"
+
+msgid "Username:"
+msgstr "Benutzername:"
+
+msgid "Using old profile: "
+msgstr "Benutze altes Profil: "
+
+msgid "Version: "
+msgstr "CCcam Version: "
+
+msgid "address:"
+msgstr "Adresse:"
+
+msgid "caid:"
+msgstr "CaID:"
+
+msgid "card"
+msgstr "Karte"
+
+msgid "card reader"
+msgstr "Kartenleser"
+
+msgid "close share view"
+msgstr "Share Übersicht schliessen"
+
+msgid "decrease uphop by 1"
+msgstr "uphop um 1 verringern"
+
+msgid "ecm time:"
+msgstr "Ecm Zeit:"
+
+msgid "ecm.info"
+msgstr "ecm.info"
+
+msgid "get the cards' server"
+msgstr "Ermittle den Kartenserver"
+
+msgid "handled"
+msgstr "behandelt"
+
+msgid "hops:"
+msgstr "Hops:"
+
+msgid "increase uphop by 1"
+msgstr "uphop um 1 erhöhen"
+
+msgid "no or unknown card inserted"
+msgstr "Keine oder unbekannte Karte im Slot!"
+
+msgid "pid:"
+msgstr "Pid:"
+
+msgid "provid:"
+msgstr "Provider ID: "
+
+msgid "provider:"
+msgstr "Provider:"
+
+msgid "share:"
+msgstr "Share:"
+
+msgid "show all cards"
+msgstr "Zeige alle Karten"
+
+msgid "show cards with uphop 0"
+msgstr "Zeige Karten mit uphop 0"
+
+msgid "show cards with uphop 1"
+msgstr "Zeige Karten mit uphop 1"
+
+msgid "show cards with uphop 2"
+msgstr "Zeige Karten mit uphop 2"
+
+msgid "show cards with uphop 3"
+msgstr "Zeige Karten mit uphop 3"
+
+msgid "show cards with uphop 4"
+msgstr "Zeige Karten mit uphop 4"
+
+msgid "show cards with uphop 5"
+msgstr "Zeige Karten mit uphop 5"
+
+msgid "show cards with uphop 6"
+msgstr "Zeige Karten mit uphop 6"
+
+msgid "show cards with uphop 7"
+msgstr "Zeige Karten mit uphop 7"
+
+msgid "show cards with uphop 8"
+msgstr "Zeige Karten mit uphop 8"
+
+msgid "show cards with uphop 9"
+msgstr "Zeige Karten mit uphop 9"
+
+msgid "system:"
+msgstr "System:"
+
+msgid "using:"
+msgstr "Benutze:"

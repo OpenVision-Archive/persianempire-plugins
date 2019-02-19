@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<feeds>
+    <feed>
+        <name>Narenji</name>
+        <url>http://feeds.narenji.ir/narenji</url>
+    </feed>
+    <feed>
+        <name>Gadget News</name>
+        <url>http://gadgetnews.ir/rss</url>
+    </feed>
+    <feed>
+        <name>GSM Aria</name>
+        <url>http://www.gsmaria.com/News/RSS/</url>
+    </feed>
+    <feed>
+        <name>IT Gozar</name>
+        <url>http://www.itgozar.ir/feed/</url>
+    </feed>
+    <feed>
+        <name>MobileIR</name>
+        <url>http://www.mobile.ir/news/rss.aspx?full=true</url>
+    </feed>
+    <feed>
+        <name>Mobna News</name>
+        <url>http://www.mobna.com/Handler/News.ashx</url>
+    </feed>
+    <feed>
+        <name>Mobna Reviews</name>
+        <url>http://www.mobna.com/Handler/Review.ashx</url>
+    </feed>
+    <feed>
+		<name>ZoomIt</name>
+		<url>http://feeds.zoomit.ir/zoomit-it</url>
+	</feed>
+	<feed>
+		<name>Goal</name>
+		<url>http://www.goal.com/iran/feeds/news?fmt=rss</url>
+	</feed>
+	<feed>
+		<name>Varzesh 3</name>
+		<url>http://www.varzesh3.com/rss/</url>
+	</feed>
+	<feed>
+		<name>Caffe Cinema</name>
+		<url>http://caffecinema.com/index.php?format=feed&#38;type=rss</url>
+	</feed>
+	<feed>
+		<name>Cinema Negar</name>
+		<url>http://www.cinemanegar.com/rss.php</url>
+	</feed>
+	<feed>
+		<name>CINET Mag</name>
+		<url>http://www.cinetmag.com/RSS/</url>
+	</feed>
+	<feed>
+		<name>Film News</name>
+		<url>http://www.filmnews.ir/RSS/</url>
+	</feed>
+	<feed>
+		<name>Iran Music News</name>
+		<url>http://www.iranmusicnews.net/index.php?format=feed&#38;type=rss</url>
+	</feed>
+	<feed>
+		<name>Musicema</name>
+		<url>http://www.musicema.com/module-pagesetter-xmllist-tid-1-tpl-RSS.html</url>
+	</feed>
+	<feed>    
+		<name>Bazi Center</name>
+		<url>http://www.bazicenter.com/news-rss.xml</url>
+	</feed>
+	<feed>
+		<name>Game News</name>
+		<url>http://www.gamenews.ir/index.php?format=feed&#38;type=rss</url>
+	</feed>
+	<feed>
+		<name>DBazi</name>
+		<url>http://news.dbazi.com/feed/</url>
+	</feed>
+</feeds>

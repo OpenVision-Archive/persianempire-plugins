@@ -1,0 +1,205 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: enigma2 - fontmagnifier\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-05-01 16:04+0100\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Spaeleus <spaeleus@croci.org>\n"
+"Language-Team: www.linsat.net <spaeleus@croci.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-Language: Italian\n"
+"X-Poedit-Country: ITALY\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-Basepath: /home/dario/Plugins/FontMagnifier\n"
+"X-Poedit-SearchPath-0: /home/dario/Plugins/FontMagnifier\n"
+
+#: /home/dario/Plugins/FontMagnifier/plugin.py:52
+msgid "font magnifier plugin"
+msgstr "Plugin font magnifier"
+
+#: /home/dario/Plugins/FontMagnifier/plugin.py:52
+msgid "Tool to change easily font sizes."
+msgstr "Gestire facilmente la dimensione dei caratteri."
+
+#: /home/dario/Plugins/FontMagnifier/plugin.py:73
+msgid "Cancel"
+msgstr "Annull."
+
+#: /home/dario/Plugins/FontMagnifier/plugin.py:74
+msgid "OK"
+msgstr "Ok"
+
+#: /home/dario/Plugins/FontMagnifier/plugin.py:352
+msgid "Enable display options"
+msgstr "Opzioni relative al display"
+
+#: /home/dario/Plugins/FontMagnifier/plugin.py:355
+msgid "Enable service number in display"
+msgstr "Abilitare il numero canale sul display"
+
+#: /home/dario/Plugins/FontMagnifier/plugin.py:357
+msgid "Enter service number font size in pixel"
+msgstr "Dimensione carattere per numero canale (pixel)"
+
+#: /home/dario/Plugins/FontMagnifier/plugin.py:358
+msgid "Show only time in display when box is in standby"
+msgstr "In standby, sul display mostrare solo l'ora"
+
+#: /home/dario/Plugins/FontMagnifier/plugin.py:360
+msgid "Enter font size for epg description in pixel"
+msgstr "Dimensione carattere per descrizione epg (pixel)"
+
+#: /home/dario/Plugins/FontMagnifier/plugin.py:361
+msgid "Enter font size for epg description in single epg"
+msgstr "Epg singolo: dimensione carattere per descrizione epg"
+
+#: /home/dario/Plugins/FontMagnifier/plugin.py:363
+msgid "Enter font size for channel list in single epg"
+msgstr "Epg singolo: dimensione carattere per elenco canali"
+
+#: /home/dario/Plugins/FontMagnifier/plugin.py:365
+msgid "Enter font size for date/time in multi epg"
+msgstr "Multi epg: dimensione carattere per data/ora"
+
+#: /home/dario/Plugins/FontMagnifier/plugin.py:367
+msgid "Font size for epg description in channel list"
+msgstr "Elenco canali: dimensione carattere per descrizione epg"
+
+#: /home/dario/Plugins/FontMagnifier/plugin.py:369
+msgid "Font size for channel list"
+msgstr "Elenco canali: dimensione carattere"
+
+#: /home/dario/Plugins/FontMagnifier/plugin.py:371
+msgid "Font size for movie list"
+msgstr "Elenco registrazioni: dimensione carattere"
+
+#: /home/dario/Plugins/FontMagnifier/plugin.py:373
+msgid "Font size for infobar event now"
+msgstr "Eventi: dimensione carattere per \"in onda\""
+
+#: /home/dario/Plugins/FontMagnifier/plugin.py:375
+msgid "Font size for infobar event next"
+msgstr "Eventi: dimensione carattere per \"prossimi\""
+
+#: /home/dario/Plugins/FontMagnifier/plugin.py:378
+msgid "show subtitle options"
+msgstr "Opzioni relative ai sottotitoli"
+
+#: /home/dario/Plugins/FontMagnifier/plugin.py:381
+msgid "Font size for subtitles (Teletext)"
+msgstr "Sottotitoli: dimensione carattere per teletext"
+
+#: /home/dario/Plugins/FontMagnifier/plugin.py:383
+msgid "Font size for subtitles (Regular)"
+msgstr "Sottotitoli: dimensione carattere per \"regular\""
+
+#: /home/dario/Plugins/FontMagnifier/plugin.py:385
+msgid "Font size for subtitles (Bold)"
+msgstr "Sottotitoli: dimensione carattere per \"bold\""
+
+#: /home/dario/Plugins/FontMagnifier/plugin.py:387
+msgid "Font size for subtitles (Italic)"
+msgstr "Sottotitoli: dimensione carattere per \"italic\""
+
+#: /home/dario/Plugins/FontMagnifier/plugin.py:405
+msgid ""
+"Font magnifier plugin\n"
+"\n"
+"This plugin helps you to\n"
+"set up different font sizes.\n"
+"\n"
+"(c) 2010 - BigReaper"
+msgstr ""
+"Plugin Font Magnifier\n"
+"\n"
+"Plugin per configurare\n"
+"le dimensioni dei caratteri.\n"
+"\n"
+"(c) 2010 BigReaper"
+
+#: /home/dario/Plugins/FontMagnifier/plugin.py:406
+#: /home/dario/Plugins/FontMagnifier/plugin.py:443
+#: /home/dario/Plugins/FontMagnifier/plugin.py:475
+#: /home/dario/Plugins/FontMagnifier/plugin.py:497
+msgid "Info..."
+msgstr "Info..."
+
+#: /home/dario/Plugins/FontMagnifier/plugin.py:428
+#: /home/dario/Plugins/FontMagnifier/plugin.py:461
+msgid "restore skin.xml"
+msgstr "Ripristinare skin.xml"
+
+#: /home/dario/Plugins/FontMagnifier/plugin.py:430
+#: /home/dario/Plugins/FontMagnifier/plugin.py:463
+msgid "restore EpgList.py"
+msgstr "Ripristinare EpgList.py"
+
+#: /home/dario/Plugins/FontMagnifier/plugin.py:432
+#: /home/dario/Plugins/FontMagnifier/plugin.py:465
+msgid "restore MovieList.py"
+msgstr "Ripristinare MovieList.py"
+
+#: /home/dario/Plugins/FontMagnifier/plugin.py:434
+#: /home/dario/Plugins/FontMagnifier/plugin.py:467
+msgid "restore ServiceList.py"
+msgstr "Ripristinare ServiceList.py"
+
+#: /home/dario/Plugins/FontMagnifier/plugin.py:436
+#: /home/dario/Plugins/FontMagnifier/plugin.py:469
+msgid "restore skin_user.xml"
+msgstr "Ripristinare skin_user.xml"
+
+#: /home/dario/Plugins/FontMagnifier/plugin.py:441
+#: /home/dario/Plugins/FontMagnifier/plugin.py:454
+msgid "No files to restore!"
+msgstr "Nessun file da ripristinare!"
+
+#: /home/dario/Plugins/FontMagnifier/plugin.py:446
+msgid "restore options"
+msgstr "Opzioni di ripristino"
+
+#: /home/dario/Plugins/FontMagnifier/plugin.py:473
+#: /home/dario/Plugins/FontMagnifier/plugin.py:494
+msgid " not restored."
+msgstr " non ripristinato."
+
+#: /home/dario/Plugins/FontMagnifier/plugin.py:491
+msgid " restored."
+msgstr " ripristinato"
+
+#: /home/dario/Plugins/FontMagnifier/plugin.py:511
+msgid "Please wait..."
+msgstr "Attendere..."
+
+#: /home/dario/Plugins/FontMagnifier/plugin.py:571
+msgid "Sorry, unable modify skin_user.xml"
+msgstr "Impossibile modificare skin_user.xml!"
+
+#: /home/dario/Plugins/FontMagnifier/plugin.py:785
+#, python-format
+msgid "Sorry, unable to parse /usr/share/enigma2/%s."
+msgstr "Impossibile analizzare /usr/share/enigma2/%s!"
+
+#: /home/dario/Plugins/FontMagnifier/plugin.py:822
+msgid "Sorry, unable to parse /usr/lib/enigma2/python/Components/EpgList.py"
+msgstr "Impossibile analizzare /usr/lib/enigma2/python/Components/EpgList.py!"
+
+#: /home/dario/Plugins/FontMagnifier/plugin.py:845
+msgid "Sorry, unable to parse /usr/lib/enigma2/python/Components/MovieList.py"
+msgstr "Impossibile analizzare /usr/lib/enigma2/python/Components/MovieList.py!"
+
+#: /home/dario/Plugins/FontMagnifier/plugin.py:847
+msgid ""
+"GUI needs a restart to apply a new settings\n"
+"Do you want to Restart the GUI now?"
+msgstr ""
+"L'attivazione della nuova configurazione richiede\n"
+"il riavvio di enigma2. Riavviare ora?"
+
+#: /home/dario/Plugins/FontMagnifier/plugin.py:848
+msgid "Restart GUI now?"
+msgstr "Riavviare la GUI?"
+

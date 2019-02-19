@@ -1,0 +1,138 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: enigma2 - serviceeditor\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2009-04-17 19:22+0200\n"
+"PO-Revision-Date: 2009-04-17 22:58+0100\n"
+"Last-Translator: Spaeleus <spaeleus@croci.org>\n"
+"Language-Team: www.linsat.net <spaeleus@croci.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-Language: Italian\n"
+"X-Poedit-Country: ITALY\n"
+"X-Poedit-SourceCharset: iso-8859-1\n"
+"X-Poedit-Basepath: /home/dario/Plugins/ServiceEditor\n"
+"X-Poedit-SearchPath-0: /home/dario/Plugins/ServiceEditor\n"
+
+msgid "AC3 Delay (ms)"
+msgstr "Ritardo AC3 (ms)"
+
+msgid "AC3 PID (hex)"
+msgstr "PID AC3 (hex)"
+
+msgid "Audio PID (hex)"
+msgstr "PID audio (hex)"
+
+msgid "Audiochannel"
+msgstr "Canale audio"
+
+msgid "DVB-C"
+msgstr "DVB-C"
+
+msgid "DVB-T"
+msgstr "DVB-T"
+
+msgid "E"
+msgstr "E"
+
+msgid "Error"
+msgstr "Errore"
+
+msgid ""
+"Frequency\n"
+"MHz"
+msgstr ""
+"Frequenza\n"
+"MHz"
+
+msgid "Name"
+msgstr "Nome"
+
+msgid "Options for hide"
+msgstr "Opzioni per nascondere"
+
+msgid "PCM Delay (ms)"
+msgstr "Ritardo PCM (ms)"
+
+msgid "PCR PID (hex)"
+msgstr "PID PCR (hex)"
+
+msgid "Pos"
+msgstr "Pos"
+
+msgid "Provider"
+msgstr "Provider"
+
+msgid "Providers"
+msgstr "Provider"
+
+msgid "SID (hex)"
+msgstr "SID (hex)"
+
+msgid "Service"
+msgstr "Canale"
+
+msgid "Services"
+msgstr "Canali"
+
+msgid "Services Editor"
+msgstr "Editor Canali"
+
+msgid "Subtitle PID (hex)"
+msgstr "PID sottotitoli (hex)"
+
+msgid "TXT PID (hex)"
+msgstr "PID TXT (hex)"
+
+msgid "Video PID (hex)"
+msgstr "PID video (hex)"
+
+msgid "Video Type"
+msgstr "Tipo video"
+
+msgid "W"
+msgstr "O"
+
+msgid "dont use SDT"
+msgstr "Non utilizzare SDT"
+
+msgid "edit"
+msgstr "Modificare"
+
+msgid "hide Provider %s"
+msgstr "Nascondere il provider %s"
+
+msgid "hide Service"
+msgstr "Nascondere il canale"
+
+msgid "hide Service %s"
+msgstr "Nascondere il canale %s"
+
+msgid "hide/unhide"
+msgstr "Nasc./Mostr."
+
+msgid "keep Servicename"
+msgstr "Mantenere nome canale"
+
+msgid "no standart service"
+msgstr "Canale non standard"
+
+msgid "ok"
+msgstr "Ok"
+
+msgid "sign as new Service"
+msgstr "Marcare come nuovo canale"
+
+msgid "sort"
+msgstr "Ord."
+
+msgid "toggle hide attibutes for %s"
+msgstr "Mostrare <-> Nascondere %s"
+
+msgid "unhide Provider %s"
+msgstr "Mostrare il provider %s"
+
+msgid "unhide Service %s"
+msgstr "Mostrare il canale %s"

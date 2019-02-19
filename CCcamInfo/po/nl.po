@@ -1,0 +1,235 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: CCcam Info\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-07-25 10:37+0200\n"
+"PO-Revision-Date: 2008-12-25 09:51+0100\n"
+"Last-Translator: Nabil Hanna <nabil1978@web.de>\n"
+"Language-Team: AliAbdul <aliabdul1978@hotmail.de>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Dutch\n"
+"X-Poedit-Country: DUTCH\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SearchPath-0: /home/aliabdul/Desktop/CCcamInfo/usr/lib/enigma2/"
+"python/Plugins/Extensions/CCcamInfo\n"
+
+msgid "About"
+msgstr "Over"
+
+msgid "Activate"
+msgstr "Aktiveer"
+
+msgid "All"
+msgstr "Allemaal"
+
+msgid "Available shares:"
+msgstr "Kaarten:"
+
+msgid ""
+"CCcam Info %s\n"
+"by AliAbdul %s\n"
+"\n"
+"This plugin shows you the status of your CCcam."
+msgstr ""
+"CCcam Info %s\n"
+"door AliAbdul %s\n"
+"\n"
+"Deze plugin toont je de CCcam status"
+
+msgid "CaID: "
+msgstr "CaID: "
+
+msgid "Cards: "
+msgstr "Kaarten: "
+
+msgid "Cards: 0"
+msgstr "Kaarten: 0"
+
+msgid "Clients"
+msgstr "Klanten"
+
+msgid "Connected: "
+msgstr "Verbonden sinds: "
+
+msgid "Content"
+msgstr "Inhoud"
+
+msgid "Could not open the file %s!"
+msgstr "Kan bestand %s niet openen!"
+
+msgid "Cut servername after (x) letters:"
+msgstr "Servernaam na (x) tekens afbreken:"
+
+msgid "Delete"
+msgstr "Verwijder"
+
+msgid "Delete %s?"
+msgstr "%s verwijderen?"
+
+msgid "Delete failed!"
+msgstr "Verwijderen mislukt!"
+
+msgid "Deleted %s!"
+msgstr "%s verwijderd!"
+
+msgid "Ecm Info"
+msgstr "Ecm Info"
+
+msgid "Ecm time:"
+msgstr "Ecm sec:"
+
+msgid "Entitlements"
+msgstr "Info lokale kaarten"
+
+msgid "Error reading webpage!"
+msgstr "Geen info bestand in /tmp gevonden ! Is CCcam wel gestart ?"
+
+msgid "Extended Shares"
+msgstr "Uitgebreidde Shares"
+
+msgid "Free memory"
+msgstr "Vrij geheugen"
+
+msgid "Free memory:"
+msgstr "Vrij geheugen"
+
+msgid "Free to Air"
+msgstr "Free To Air"
+
+msgid "Free:"
+msgstr "Vrij:"
+
+msgid "General"
+msgstr "Algemeen"
+
+msgid "Hide ecm.info after (x) seconds:"
+msgstr "ecm.info na (x) seconden verbergen:"
+
+msgid "Hops:"
+msgstr "Hops:"
+
+msgid "Hostname: "
+msgstr "Hostname: "
+
+msgid "IP:"
+msgstr "IP:"
+
+msgid "Idle Time: "
+msgstr "Ongebruikte tijd: "
+
+msgid "Last used share: "
+msgstr "Laatst gebruikte share kaart: "
+
+msgid "Local box"
+msgstr "Mijn box (lokaal)"
+
+msgid "Maxdown +"
+msgstr "Maxdown +"
+
+msgid "Maxdown -"
+msgstr "Maxdown -"
+
+msgid "Maxdown: "
+msgstr "Maxdown: "
+
+msgid "New profile: "
+msgstr "Nieuw profiel: "
+
+msgid "No card inserted!"
+msgstr "Geen lokale kaart in slot!"
+
+msgid "NodeID: "
+msgstr "NodeID: "
+
+msgid "Password:"
+msgstr "Wachtwoord:"
+
+msgid "Port:"
+msgstr "Poort:"
+
+msgid "Position:"
+msgstr "Positie:"
+
+msgid "Profile: Local box"
+msgstr "Profiel: Mijn loakle box"
+
+msgid "Provider Name: "
+msgstr "Providernaam: "
+
+msgid "Provider: "
+msgstr "Provider: "
+
+msgid "Providers"
+msgstr "Provider Overzicht"
+
+msgid "Remote box"
+msgstr "Klant Box (remote)"
+
+msgid "Rename"
+msgstr "Hernoemen"
+
+msgid "Rename failed!"
+msgstr "Hernoemen mislukt!"
+
+msgid "Rename to:"
+msgstr "Hernoem naar:"
+
+msgid "Renamed %s!"
+msgstr "%s hernoemd!"
+
+msgid "Servers"
+msgstr "Server"
+
+msgid "Share View"
+msgstr "Share Overzicht"
+
+msgid "Shares"
+msgstr "Shares"
+
+msgid "Show ecm.info:"
+msgstr "Toon ecm.info:"
+
+msgid "Switch config"
+msgstr "Configuratie wisselen"
+
+msgid "System: "
+msgstr "Systeem: "
+
+msgid "This plugin shows you the status of your CCcam"
+msgstr "Deze plugin toont je de CCcam status."
+
+msgid "Total cards:"
+msgstr "Totaal aantal kaarten:"
+
+msgid "Total:"
+msgstr "Totaal:"
+
+msgid "Type: "
+msgstr "Type: "
+
+msgid "Uphops +"
+msgstr "Uphops +"
+
+msgid "Uphops -"
+msgstr "Uphops -"
+
+msgid "Uphops: "
+msgstr "Uphops: "
+
+msgid "Used:"
+msgstr "Gebruikt:"
+
+msgid "Username:"
+msgstr "Gebruikersnaam:"
+
+msgid "Using old profile: "
+msgstr "Gebruik oude profiel: "
+
+msgid "Version: "
+msgstr "CCcam Versie: "
+
+msgid "ecm.info"
+msgstr "ecm.info"

@@ -1,0 +1,158 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2008-02-28 19:54+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <Dima-73@inbox.lv>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "'Cancel"
+msgstr "'Отмена"
+
+msgid "'Save"
+msgstr "Сохранить"
+
+msgid "1 minute"
+msgstr "1 минута"
+
+msgid "12 hours"
+msgstr "12 часов"
+
+msgid "15 minutes"
+msgstr "15 минут"
+
+msgid "2 hours"
+msgstr "2 часа"
+
+msgid "24 hours"
+msgstr "24 часа"
+
+msgid "3 hours"
+msgstr "3 часа"
+
+msgid "30 minutes"
+msgstr "30 минут"
+
+msgid "45 minutes"
+msgstr "45 минут"
+
+msgid "5 minutes"
+msgstr "5 минут"
+
+msgid "6 hours"
+msgstr "6 часов"
+
+msgid "60 minutes"
+msgstr "60 минут"
+
+msgid "<< change password >>"
+msgstr "<< сменить пароль >>"
+
+msgid "<< setup password (4 digits) >>"
+msgstr "<< установка пароля (4 цифры) >>"
+
+msgid "Advanced:"
+msgstr "Дополнительно:"
+
+msgid "All hidden services"
+msgstr "Все скрытые сервисы"
+
+msgid "Bouquet Protection Setup"
+msgstr "Меню настроек защиты фаворитов..."
+
+msgid "Bouquets Protection"
+msgstr "Защита фаворитов"
+
+msgid "Bouquets protection"
+msgstr "Защита фаворитов"
+
+msgid "Bouquets protection:"
+msgstr "Защита фаворитов:"
+
+msgid "Change password"
+msgstr "Смена пароля"
+
+msgid "Enter new password"
+msgstr "Введите новый пароль"
+
+msgid "Password setup:"
+msgstr "Установка пароля:"
+
+msgid "Reenter new password"
+msgstr "Повторите новый пароль"
+
+msgid "Sorry, hide current service failed :("
+msgstr "К сожалению, текущий сервис скрыть не удалось: ("
+
+msgid "The password has been changed successfully."
+msgstr "Пароль был успешно изменен."
+
+msgid "The password you entered is wrong."
+msgstr "Вы ввели пароль неправильно."
+
+msgid "The passwords you entered are different."
+msgstr "Введенные вами пароли разные."
+
+msgid "add to bouquets protection"
+msgstr "добавить к защите фаворитов"
+
+msgid "advanced parental control for user bouquets"
+msgstr "дополнительный родительский контроль сервисов"
+
+msgid "enable bouquets protection"
+msgstr "включить плагин защиты фаворитов"
+
+msgid "enable password on protection"
+msgstr "применить пароль для защиты"
+
+msgid "hide all as unwanted services"
+msgstr "скрыть все нежелательные сервисы"
+
+msgid "hide as unwanted service"
+msgstr "скрыть нежелательный сервис"
+
+msgid "hide unwanted services in channellist"
+msgstr "скрыть нежелательные сервисы в списке каналов"
+
+msgid "lock protected services"
+msgstr "скрыть защищеные сервисы"
+
+msgid "long AUDIO"
+msgstr "длинная AUDIO"
+
+msgid "long VIDEO(Vkey)"
+msgstr "длинная VIDEO(Vkey)"
+
+msgid "none"
+msgstr "никакая"
+
+msgid "please enter the old password"
+msgstr "пожалуйста, введите старый пароль"
+
+msgid "please enter the password"
+msgstr "пожалуйста, введите пароль"
+
+msgid "remember entered password"
+msgstr "запомнить введенный пароль"
+
+msgid "remove from bouquets protection"
+msgstr "удалить из защиты фаворитов"
+
+msgid "restore all hidden services"
+msgstr "восстановить все скрытые сервисы"
+
+msgid "restore hidden service"
+msgstr "восстановить скрытый сервис"
+
+msgid "show unwanted services list on key press"
+msgstr "показать нежелательный список на кнопке"
+
+msgid "unlock protected services"
+msgstr "показать защищеные сервисы"
+
+msgid "until standby/restart"
+msgstr "до режима ожидания/перезагрузки"

@@ -1,0 +1,158 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: FontMagnifier 0.5.2\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-02-26 18:45+0100\n"
+"PO-Revision-Date: \n"
+"Last-Translator: kosmacz <anteneczka@gmail.com>\n"
+"Language-Team: BigReaper <BigReaper@gmx.net>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: English\n"
+"X-Poedit-Country: UNITED KINGDOM\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-Basepath: D:\\dreambox\\usr\\lib\\enigma2\\python\\Plugins"
+"\\Extensions\\FontMagnifier\n"
+"X-Poedit-SearchPath-0: D:\\dreambox\\usr\\lib\\enigma2\\python\\Plugins"
+"\\Extensions\\FontMagnifier\n"
+
+msgid " not restored."
+msgstr "nie przywrócone."
+
+msgid " restored."
+msgstr "przywrócone."
+
+msgid "Cancel"
+msgstr "Anuluj"
+
+msgid "Enable display options"
+msgstr "Włącz opcje wyświetlania"
+
+msgid "Enable service number in display"
+msgstr "Włącz numer kanału na wyświetlaczu"
+
+msgid "Enter font size for channel list in single epg"
+msgstr "Wpisz rozmiar czcionki dla listy kanałów w single EPG"
+
+msgid "Enter font size for date/time in multi epg"
+msgstr "Wpisz rozmiar czcionki dla daty/czasu w multi EPG"
+
+msgid "Enter font size for epg description in pixel"
+msgstr "Wpisz rozmiar czcionki dla EPG w pikselach"
+
+msgid "Enter font size for epg description in single epg"
+msgstr "Wpisz rozmiar czcionki dla EPG w single EPG"
+
+msgid "Enter service number font size in pixel"
+msgstr "Wprowadź rozmiar czcionki dla numeru kanałów w pikselach"
+
+msgid ""
+"Font magnifier plugin\n"
+"\n"
+"This plugin helps you to\n"
+"set up different font sizes.\n"
+"\n"
+"(c) 2010 - BigReaper"
+msgstr ""
+"Wtyczka Font Magnifier\n"
+"\n"
+"Wtyczka ta pomoże Ci łatwo\n"
+"skonfigurować różne rozmiary czcionek.\n"
+"\n"
+"(c) 2010 - BigReaper"
+
+msgid "Font size for channel list"
+msgstr "Wpisz rozmiar czcionki na liście kanałów w pikselach"
+
+msgid "Font size for epg description in channel list"
+msgstr "Rozmiar czcionki dla EPG opis w liście kanałów"
+
+msgid "Font size for infobar event next"
+msgstr "Rozmiar czcionki na pasku InfoBar - Następny"
+
+msgid "Font size for infobar event now"
+msgstr "Rozmiar czcionki na pasku InfoBar - Teraz"
+
+msgid "Font size for movie list"
+msgstr "Rozmiar czcionki na liście filmy"
+
+msgid "Font size for subtitles (Bold)"
+msgstr "Rozmiar czcionki napisów (Pogrubione)"
+
+msgid "Font size for subtitles (Italic)"
+msgstr "Rozmiar czcionki napisów (Kursywa)"
+
+msgid "Font size for subtitles (Regular)"
+msgstr "Rozmiar czcionki napisów (Normalne)"
+
+msgid "Font size for subtitles (Teletext)"
+msgstr "Rozmiar czcionki napisów (Teletext)"
+
+msgid ""
+"GUI needs a restart to apply a new settings\n"
+"Do you want to Restart the GUI now?"
+msgstr ""
+"Zrestartuj GUI  w celu zastosowania nowych ustawień\n"
+"Czy chcesz teraz zrestartować GUI?"
+
+msgid "Info..."
+msgstr "Info..."
+
+msgid "No files to restore!"
+msgstr "Brak plików do przywrócenia!"
+
+msgid "OK"
+msgstr "OK"
+
+msgid "Please wait..."
+msgstr "Proszę czekać..."
+
+msgid "Restart GUI now?"
+msgstr "Zrestartować GUI teraz?"
+
+msgid "Show only time in display when box is in standby"
+msgstr "Pokaż tylko czas na wyśw. gdy tuner w Standby"
+
+msgid "Sorry, unable modify skin_user.xml"
+msgstr "Przepraszamy, nie można modyfikować skin_user.xml"
+
+msgid "Sorry, unable to parse /usr/lib/enigma2/python/Components/EpgList.py"
+msgstr ""
+"Przepraszamy, nie można przetworzyć /usr/lib/enigma2/python/Components/"
+"EpgList.py"
+
+msgid "Sorry, unable to parse /usr/lib/enigma2/python/Components/MovieList.py"
+msgstr ""
+"Przepraszamy, nie można przetworzyć /usr/lib/enigma2/python/Components/"
+"MovieList.py"
+
+msgid "Sorry, unable to parse /usr/share/enigma2/%s."
+msgstr "Przepraszamy, nie można przetworzyć /usr/share/enigma2/%s."
+
+msgid "Tool to change easily font sizes."
+msgstr "Narzędzie do zmiany wielkości czcionek."
+
+msgid "font magnifier plugin"
+msgstr "Wtyczka Font Magnifier"
+
+msgid "restore EpgList.py"
+msgstr "Przywróć EpgList.py"
+
+msgid "restore MovieList.py"
+msgstr "Przywróć MovieList.py"
+
+msgid "restore ServiceList.py"
+msgstr "Przywróć ServiceList.py"
+
+msgid "restore options"
+msgstr "Opcje przywracania"
+
+msgid "restore skin.xml"
+msgstr "Przywróć skin.xml"
+
+msgid "restore skin_user.xml"
+msgstr "Przywróć skin_user.xml"
+
+msgid "show subtitle options"
+msgstr "Pokaż opcje napisów"

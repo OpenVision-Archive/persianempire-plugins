@@ -1,0 +1,134 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: plugin\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2009-04-17 19:22+0200\n"
+"PO-Revision-Date: 2009-04-18 12:59+0100\n"
+"Last-Translator: Titovich\n"
+"Language-Team: Deutsch\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 1.11.4\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "AC3 Delay (ms)"
+msgstr "Retardo AC3 (ms)"
+
+msgid "AC3 PID (hex)"
+msgstr "PID AC3 (hex)"
+
+msgid "Audio PID (hex)"
+msgstr "PID de Audio (hex)"
+
+msgid "Audiochannel"
+msgstr "Canal de Audio"
+
+msgid "DVB-C"
+msgstr "DVB-C"
+
+msgid "DVB-T"
+msgstr "DVB-T"
+
+msgid "E"
+msgstr "E"
+
+msgid "Error"
+msgstr "Error"
+
+msgid ""
+"Frequency\n"
+"MHz"
+msgstr ""
+"Frecuencia\n"
+"MHz"
+
+msgid "Name"
+msgstr "Nombre"
+
+msgid "Options for hide"
+msgstr "Opciones para ocultar"
+
+msgid "PCM Delay (ms)"
+msgstr "Retardo PCM (ms)"
+
+msgid "PCR PID (hex)"
+msgstr "PID de PCR (hex)"
+
+msgid "Pos"
+msgstr "Pos."
+
+msgid "Provider"
+msgstr "Proveedor"
+
+msgid "Providers"
+msgstr "Proveedores"
+
+msgid "SID (hex)"
+msgstr "SID (hex)"
+
+msgid "Service"
+msgstr "Canal"
+
+msgid "Services"
+msgstr "Canales"
+
+msgid "Services Editor"
+msgstr "Rditor de Canales"
+
+msgid "Subtitle PID (hex)"
+msgstr "PID de Subtítulos (hex)"
+
+msgid "TXT PID (hex)"
+msgstr "TXT PID (hex)"
+
+msgid "Video PID (hex)"
+msgstr "PID de Video (hex)"
+
+msgid "Video Type"
+msgstr "Tipo de Video"
+
+msgid "W"
+msgstr "O"
+
+msgid "dont use SDT"
+msgstr "No usar SDT"
+
+msgid "edit"
+msgstr "editar"
+
+msgid "hide Provider %s"
+msgstr "ocultar Proveedor %s"
+
+msgid "hide Service"
+msgstr "Ocultar Canal"
+
+msgid "hide Service %s"
+msgstr "ocultar Canal %s"
+
+msgid "hide/unhide"
+msgstr "ocultar/mostrar"
+
+msgid "keep Servicename"
+msgstr "Mantener Nombre de Canal"
+
+msgid "no standart service"
+msgstr "No hay canal estándar"
+
+msgid "ok"
+msgstr "ok"
+
+msgid "sign as new Service"
+msgstr "marcar como \"nuevo Canal\""
+
+msgid "sort"
+msgstr "aleatorio"
+
+msgid "toggle hide attibutes for %s"
+msgstr "alternar ocultar atributos para %s"
+
+msgid "unhide Provider %s"
+msgstr "mostrar Proveedor %s"
+
+msgid "unhide Service %s"
+msgstr "mostrar Canal %s"

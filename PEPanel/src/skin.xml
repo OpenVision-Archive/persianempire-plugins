@@ -1,0 +1,575 @@
+<skin>
+	<screen name="PEMainMenu" position="center,110" size="530,420" title="PE Panel" >
+		<widget source="list" render="Listbox" position="5,5" size="520,410" scrollbarMode="showOnDemand">
+			<convert type="TemplatedMultiContent">
+				{"template": [
+						MultiContentEntryText(pos = (110, 2), size = (440, 26), font=0, flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER, text = 0), # index 2 is the description
+						MultiContentEntryText(pos = (110, 28), size = (440, 26), font=1, flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER, text = 2), # index 2 is the description
+						MultiContentEntryPixmapAlphaTest(pos = (2, 1), size = (100, 50), png = 3), # index 4 is the status pixmap
+						MultiContentEntryPixmapAlphaTest(pos = (0, 54), size = (510, 2), png = 4), # index 4 is the div pixmap
+					],
+				"fonts": [gFont("Regular", 24),gFont("Regular", 16)],
+				"itemHeight": 58
+				}
+			</convert>
+		</widget>
+	</screen>
+	<screen name="PESubMenu" position="center,110" size="460,360" title="PE Sub Menu" >
+		<ePixmap pixmap="~/pictures/red.png" position="5,5" size="150,50" alphatest="on" />
+		<widget source="key_red" render="Label" position="5,5" zPosition="1" size="150,50" font="Regular;20" halign="center" valign="center" backgroundColor="#9f1313" transparent="1" />
+		<widget source="list" render="Listbox" position="15,65" size="430,240" scrollbarMode="showOnDemand">
+			<convert type="TemplatedMultiContent">
+				{"template": [
+						MultiContentEntryPixmapAlphaTest(pos = (2, 2), size = (44, 44), png = 3), # index 4 is the status pixmap
+						MultiContentEntryText(pos = (52, 2), size = (380, 24), font=0, flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER, text = 1), # index 0 is the MenuText,
+						MultiContentEntryText(pos = (52, 26), size = (380, 20), font=1, flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER, text = 2), # index 0 is the MenuText,
+					],
+				"fonts": [gFont("Regular", 22),gFont("Regular", 16)],
+				"itemHeight": 48
+				}
+			</convert>
+		</widget>
+	</screen>
+	<screen name="PEStatusListMenu" position="center,110" size="625,360"  title="PE Status List Menu" >
+		<widget name="pic_red" pixmap="~/pictures/red.png" position="5,5" size="150,50" alphatest="on" />
+		<widget name="pic_green" pixmap="~/pictures/green.png" position="160,5" size="150,50" alphatest="on" />
+		<widget name="pic_yellow" pixmap="~/pictures/yellow.png" position="315,5" size="150,50" alphatest="on" />
+		<widget name="pic_blue" pixmap="~/pictures/blue.png" position="470,5" size="150,50" alphatest="on" />		
+		<widget name="key_red" position="5,5" zPosition="1" size="150,50" font="Regular;20" halign="center" valign="center" backgroundColor="#9f1313" transparent="1" />
+		<widget name="key_green" position="160,5" zPosition="1" size="150,50" font="Regular;20" halign="center" valign="center" backgroundColor="#1f771f" transparent="1" />
+		<widget name="key_yellow" position="315,5" zPosition="1" size="150,50" font="Regular;20" halign="center" valign="center" backgroundColor="#9f1313" transparent="1" />
+		<widget name="key_blue" position="470,5" zPosition="1" size="150,50" font="Regular;20" halign="center" valign="center" backgroundColor="#1f771f" transparent="1" />
+		<widget source="list" render="Listbox" position="15,65" size="595,280" scrollbarMode="showOnDemand">
+			<convert type="TemplatedMultiContent">
+				{"template": [
+							MultiContentEntryText(pos = (30, 0), size = (450, 28), font=0, flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER, text = 0),
+							MultiContentEntryPixmapAlphaTest(pos = (1, 1), size = (24, 24), png = 3) # index 4 is the status pixmap
+					],
+				"fonts": [gFont("Regular", 24),gFont("Regular", 16)],
+				"itemHeight": 28
+				}
+			</convert>
+		</widget>
+	</screen>
+	<screen title="SundtekControlCenter" position="center,center" size="570,400" name="SundtekControlCenter">
+		<ePixmap pixmap="~/pictures/red.png" position="0,0" size="140,40" alphatest="on" />
+		<ePixmap pixmap="~/pictures/green.png" position="140,0" size="140,40" alphatest="on" />
+		<ePixmap pixmap="~/pictures/yellow.png" position="280,0" size="140,40" alphatest="on" />
+		<ePixmap pixmap="~/pictures/blue.png" position="420,0" size="140,40" alphatest="on" />
+		<widget name="btt_red" position="0,0" zPosition="1" size="140,40" font="Regular;20" halign="center" valign="center" backgroundColor="#9f1313" transparent="1" />
+		<widget name="btt_green" position="140,0" zPosition="1" size="140,40" font="Regular;20" halign="center" valign="center" backgroundColor="#9f1313" transparent="1" />
+		<widget name="btt_yellow" position="280,0" zPosition="1" size="140,40" font="Regular;20" halign="center" valign="center" backgroundColor="#1f771f" transparent="1" />
+		<widget name="btt_blue" position="420,0" zPosition="1" size="140,40" font="Regular;20" halign="center" valign="center" backgroundColor="#1f771f" transparent="1" /> 
+		<widget name="ok" position="10,292" zPosition="1" size="550,40" font="Regular;20" halign="left" valign="center" transparent="1" />
+		<widget name="infos" position="10,316" zPosition="1" size="450,40" font="Regular;20" halign="left" valign="center" transparent="1" />
+		<widget name="bouquets" position="10,340" zPosition="1" size="450,40" font="Regular;20" halign="left" valign="center" transparent="1" />
+		<widget name="netservers" position="10,364" zPosition="1" size="450,40" font="Regular;20" halign="left" valign="center" transparent="1" />
+		<widget name="config" position="100,100" size="370,200" scrollbarMode="showOnDemand" zPosition="1"/>
+		</screen>
+	<screen name="USBTunerSetupScreen" position="center,center" size="400,250" title="Nova WinTV USBTuner Setup">
+		<widget name="config" position="10,10" size="350,150" />
+		<ePixmap pixmap="~/pictures/green.png" position="145,45" zPosition="0" size="140,40" alphatest="on" />
+		<ePixmap pixmap="~/pictures/red.png" position="5,45" zPosition="0" size="140,40" alphatest="on" />
+		<widget name="ok" position="145,45" size="140,40" valign="center" halign="center" zPosition="1" font="Regular;20" transparent="1" backgroundColor="green" />
+		<widget name="cancel" position="5,45" size="140,40" valign="center" halign="center" zPosition="1" font="Regular;20" transparent="1" backgroundColor="red" />
+	</screen>
+	<screen name="RCSetupScreen" position="center,center" size="400,200" title="Remote Setup">
+		<widget name="config" position="10,10" size="350,150" />
+		<ePixmap pixmap="~/pictures/green.png" position="145,45" zPosition="0" size="140,40" alphatest="on" />
+		<ePixmap pixmap="~/pictures/red.png" position="5,45" zPosition="0" size="140,40" alphatest="on" />
+		<widget name="ok" position="145,45" size="140,40" valign="center" halign="center" zPosition="1" font="Regular;20" transparent="1" backgroundColor="green" />
+		<widget name="cancel" position="5,45" size="140,40" valign="center" halign="center" zPosition="1" font="Regular;20" transparent="1" backgroundColor="red" />
+	</screen>
+	<screen name="VFDSetupScreen" position="center,center" size="400,200" title="Display Setup">
+		<widget name="config" position="10,10" size="350,150" />
+		<ePixmap pixmap="~/pictures/green.png" position="145,95" zPosition="0" size="140,40" alphatest="on" />
+		<ePixmap pixmap="~/pictures/red.png" position="5,95" zPosition="0" size="140,40" alphatest="on" />
+		<widget name="ok" position="145,95" size="140,40" valign="center" halign="center" zPosition="1" font="Regular;20" transparent="1" backgroundColor="green" />
+		<widget name="cancel" position="5,95" size="140,40" valign="center" halign="center" zPosition="1" font="Regular;20" transparent="1" backgroundColor="red" />
+	</screen>
+	<screen name="HddSetup" position="360,160" size="560,400" title="Hard Drive Setup">
+		<widget name="menu" position="0,10" scrollbarMode="showOnDemand" size="560,340"/>
+		<ePixmap position="0,360"   zPosition="1" size="140,40" pixmap="~/pictures/red.png" transparent="1" alphatest="on" />
+		<ePixmap position="140,360" zPosition="1" size="140,40" pixmap="~/pictures/green.png" transparent="1" alphatest="on" />
+		<ePixmap position="280,360" zPosition="1" size="140,40" pixmap="~/pictures/yellow.png" transparent="1" alphatest="on" />
+		<ePixmap position="420,360" zPosition="1" size="140,40" pixmap="~/pictures/blue.png" transparent="1" alphatest="on" />
+                <widget name="key_red" position="0,360" zPosition="2" size="140,40" valign="center" halign="center" font="Regular;21" transparent="1" shadowColor="black" shadowOffset="-1,-1" />
+                <widget name="key_green" position="140,360" zPosition="2" size="140,40" valign="center" halign="center" font="Regular;21" transparent="1" shadowColor="black" shadowOffset="-1,-1" />
+                <widget name="key_yellow" position="280,360" zPosition="2" size="140,40" valign="center" halign="center" font="Regular;21" transparent="1" shadowColor="black" shadowOffset="-1,-1" />
+                <widget name="key_blue" position="420,360" zPosition="2" size="140,40" valign="center" halign="center" font="Regular;21" transparent="1" shadowColor="black" shadowOffset="-1,-1" />
+	</screen>
+	<screen name="HddPartitions" position="360,160" size="560,400" title="Hard Drive Partitions">
+		<widget name="menu" position="0,10" scrollbarMode="showOnDemand" size="560,340"/>
+		<ePixmap position="0,360"   zPosition="1" size="140,40" pixmap="~/pictures/red.png" transparent="1" alphatest="on" />
+		<ePixmap position="140,360" zPosition="1" size="140,40" pixmap="~/pictures/green.png" transparent="1" alphatest="on" />
+		<ePixmap position="280,360" zPosition="1" size="140,40" pixmap="~/pictures/yellow.png" transparent="1" alphatest="on" />
+		<ePixmap position="420,360" zPosition="1" size="140,40" pixmap="~/pictures/blue.png" transparent="1" alphatest="on" />
+                <widget name="key_red" position="0,360" zPosition="2" size="140,40" valign="center" halign="center" font="Regular;21" transparent="1" shadowColor="black" shadowOffset="-1,-1" />
+                <widget name="key_green" position="140,360" zPosition="2" size="140,40" valign="center" halign="center" font="Regular;21" transparent="1" shadowColor="black" shadowOffset="-1,-1" />
+                <widget name="key_yellow" position="280,360" zPosition="2" size="140,40" valign="center" halign="center" font="Regular;21" transparent="1" shadowColor="black" shadowOffset="-1,-1" />
+                <widget name="key_blue" position="420,360" zPosition="2" size="140,40" valign="center" halign="center" font="Regular;21" transparent="1" shadowColor="black" shadowOffset="-1,-1" />
+	</screen>
+	<screen name="HddInfo" position="360,160" size="560,400" title="Hard Drive Info">
+		<widget font="Regular;18" halign="center" name="model" position="0,10" size="560,25" valign="center"/>
+		<widget font="Regular;18" halign="center" name="serial" position="0,40" size="560,25" valign="center"/>
+		<widget font="Regular;18" halign="center" name="firmware" position="0,70" size="560,25" valign="center"/>
+		<widget font="Regular;18" halign="center" name="cylinders" position="0,100" size="560,25" valign="center"/>
+		<widget font="Regular;18" halign="center" name="heads" position="0,130" size="560,25" valign="center"/>
+		<widget font="Regular;18" halign="center" name="sectors" position="0,160" size="560,25" valign="center"/>
+		<widget font="Regular;18" halign="center" name="readDisk" position="0,190" size="560,25" valign="center"/>
+		<widget font="Regular;18" halign="center" name="readCache" position="0,220" size="560,25" valign="center"/>
+		<widget font="Regular;18" halign="center" name="temp" position="0,250" size="560,25" valign="center"/>
+		<widget name="config" position="0,290" scrollbarMode="showOnDemand" size="560,30"/>
+		<ePixmap position="0,360"   zPosition="1" size="140,40" pixmap="~/pictures/red.png" transparent="1" alphatest="on" />
+		<ePixmap position="140,360" zPosition="1" size="140,40" pixmap="~/pictures/green.png" transparent="1" alphatest="on" />
+		<ePixmap position="280,360" zPosition="1" size="140,40" pixmap="~/pictures/yellow.png" transparent="1" alphatest="on" />
+		<ePixmap position="420,360" zPosition="1" size="140,40" pixmap="~/pictures/blue.png" transparent="1" alphatest="on" />
+                <widget name="key_red" position="0,360" zPosition="2" size="140,40" valign="center" halign="center" font="Regular;21" transparent="1" shadowColor="black" shadowOffset="-1,-1" />
+                <widget name="key_green" position="140,360" zPosition="2" size="140,40" valign="center" halign="center" font="Regular;21" transparent="1" shadowColor="black" shadowOffset="-1,-1" />
+                <widget name="key_yellow" position="280,360" zPosition="2" size="140,40" valign="center" halign="center" font="Regular;21" transparent="1" shadowColor="black" shadowOffset="-1,-1" />
+                <widget name="key_blue" position="420,360" zPosition="2" size="140,40" valign="center" halign="center" font="Regular;21" transparent="1" shadowColor="black" shadowOffset="-1,-1" />
+	</screen>
+	<screen name="HddMount" position="360,160" size="560,400" title="Hard Drive Mount">
+		<widget name="menu" position="10,10" scrollbarMode="showOnDemand" size="540,320"/>
+		<ePixmap position="0,360"   zPosition="1" size="140,40" pixmap="~/pictures/red.png" transparent="1" alphatest="on" />
+		<ePixmap position="140,360" zPosition="1" size="140,40" pixmap="~/pictures/green.png" transparent="1" alphatest="on" />
+		<ePixmap position="280,360" zPosition="1" size="140,40" pixmap="~/pictures/yellow.png" transparent="1" alphatest="on" />
+		<ePixmap position="420,360" zPosition="1" size="140,40" pixmap="~/pictures/blue.png" transparent="1" alphatest="on" />
+                <widget name="key_red" position="0,360" zPosition="2" size="140,40" valign="center" halign="center" font="Regular;21" transparent="1" shadowColor="black" shadowOffset="-1,-1" />
+                <widget name="key_green" position="140,360" zPosition="2" size="140,40" valign="center" halign="center" font="Regular;21" transparent="1" shadowColor="black" shadowOffset="-1,-1" />
+                <widget name="key_yellow" position="280,360" zPosition="2" size="140,40" valign="center" halign="center" font="Regular;21" transparent="1" shadowColor="black" shadowOffset="-1,-1" />
+                <widget name="key_blue" position="420,360" zPosition="2" size="140,40" valign="center" halign="center" font="Regular;21" transparent="1" shadowColor="black" shadowOffset="-1,-1" />
+	</screen>
+	<screen name="ExtraActionBox" position="360,325" size="560,70" title=" ">
+		<widget alphatest="on" name="logo" position="10,10" size="48,48" transparent="1" zPosition="2"/>
+		<widget font="Regular;20" halign="center" name="message" position="60,10" size="490,48" valign="center"/>
+	</screen>
+	<screen name="ExtraMessageBox" position="80,100" size="560,400" title=" ">
+		<widget name="message" position="10,10" size="540,25" font="Regular;20"/>
+		<widget name="menu" position="10,90" size="540,360" scrollbarMode="showOnDemand" />
+		<applet type="onLayoutFinish">
+# this should be factored out into some helper code, but currently demonstrates applets.
+from enigma import eSize, ePoint
+
+orgwidth = self.instance.size().width()
+orgpos = self.instance.position()
+textsize = self[&quot;message&quot;].getSize()
+
+# y size still must be fixed in font stuff...
+if self[&quot;message&quot;].getText() != "":
+	textsize = (textsize[0] + 80, textsize[1] + 60)
+else:
+	textsize = (textsize[0] + 80, textsize[1] + 4)
+
+count = len(self.list)
+if count &gt; 7:
+	count = 7
+offset = 48 * count
+wsizex = textsize[0] + 80
+wsizey = textsize[1] + offset + 20
+
+if (640 &gt; wsizex):
+	wsizex = 640
+wsize = (wsizex, wsizey)
+
+# resize
+self.instance.resize(eSize(*wsize))
+
+# resize label
+self[&quot;message&quot;].instance.resize(eSize(*textsize))
+
+# move list
+listsize = (wsizex - 20, 48 * count)
+self[&quot;menu&quot;].instance.move(ePoint(10, textsize[1] + 10))
+self[&quot;menu&quot;].instance.resize(eSize(*listsize))
+
+# center window
+newwidth = wsize[0]
+self.instance.move(ePoint((1280-wsizex)/2, (720-wsizey)/(count &gt; 7 and 2 or 3)))
+		</applet>
+	</screen>
+        <screen name="Scripts" position="360,160" size="560,400" title="Scripts">
+                <widget name="list" position="0,10" scrollbarMode="showOnDemand" size="560,300"/>
+                <widget font="Regular;20" halign="center" name="statuslab" position="0,320" size="560,25" valign="center"/>
+                <ePixmap position="0,360"   zPosition="1" size="140,40" pixmap="~/pictures/red.png" transparent="1" alphatest="on" />
+                <ePixmap position="140,360" zPosition="1" size="140,40" pixmap="~/pictures/green.png" transparent="1" alphatest="on" />
+                <ePixmap position="280,360" zPosition="1" size="140,40" pixmap="~/pictures/yellow.png" transparent="1" alphatest="on" />
+                <ePixmap position="420,360" zPosition="1" size="140,40" pixmap="~/pictures/blue.png" transparent="1" alphatest="on" />
+                <widget name="key_red" position="0,360" zPosition="2" size="140,40" valign="center" halign="center" font="Regular;21" transparent="1" shadowColor="black" shadowOffset="-1,-1" />
+                <widget name="key_green" position="140,360" zPosition="2" size="140,40" valign="center" halign="center" font="Regular;21" transparent="1" shadowColor="black" shadowOffset="-1,-1" />
+                <widget name="key_yellow" position="280,360" zPosition="2" size="140,40" valign="center" halign="center" font="Regular;21" transparent="1" shadowColor="black" shadowOffset="-1,-1" />
+                <widget name="key_blue" position="420,360" zPosition="2" size="140,40" valign="center" halign="center" font="Regular;21" transparent="1" shadowColor="black" shadowOffset="-1,-1" />
+        </screen>
+        <screen name="AboutTeam" position="360,160" size="660,460" title="About">
+                <widget name="about" font="Regular;21" position="40,5" size="660,440"/>
+        </screen>
+        <screen name="DaemonsList" position="360,160" size="560,400" title="Daemons">
+                <widget name="menu" position="0,10" scrollbarMode="showOnDemand" size="560,340"/>
+                <ePixmap position="0,360"   zPosition="1" size="140,40" pixmap="~/pictures/red.png" transparent="1" alphatest="on" />
+                <ePixmap position="140,360" zPosition="1" size="140,40" pixmap="~/pictures/green.png" transparent="1" alphatest="on" />
+                <ePixmap position="280,360" zPosition="1" size="140,40" pixmap="~/pictures/yellow.png" transparent="1" alphatest="on" />
+                <ePixmap position="420,360" zPosition="1" size="140,40" pixmap="~/pictures/blue.png" transparent="1" alphatest="on" />
+                <widget name="key_red" position="0,360" zPosition="2" size="140,40" valign="center" halign="center" font="Regular;21" transparent="1" shadowColor="black" shadowOffset="-1,-1" />
+                <widget name="key_green" position="140,360" zPosition="2" size="140,40" valign="center" halign="center" font="Regular;21" transparent="1" shadowColor="black" shadowOffset="-1,-1" />
+                <widget name="key_yellow" position="280,360" zPosition="2" size="140,40" valign="center" halign="center" font="Regular;21" transparent="1" shadowColor="black" shadowOffset="-1,-1" />
+                <widget name="key_blue" position="420,360" zPosition="2" size="140,40" valign="center" halign="center" font="Regular;21" transparent="1" shadowColor="black" shadowOffset="-1,-1" />
+        </screen>
+        <screen name="Swap" position="360,160" size="560,400" title="Swap">
+                <widget name="config" position="0,10" scrollbarMode="showOnDemand" size="560,100"/>
+                <widget font="Regular;20" halign="center" name="status" position="0,320" size="560,25" valign="center"/>
+                <ePixmap position="0,360"   zPosition="1" size="140,40" pixmap="~/pictures/red.png" transparent="1" alphatest="on" />
+                <ePixmap position="140,360" zPosition="1" size="140,40" pixmap="~/pictures/green.png" transparent="1" alphatest="on" />
+                <ePixmap position="280,360" zPosition="1" size="140,40" pixmap="~/pictures/yellow.png" transparent="1" alphatest="on" />
+                <ePixmap position="420,360" zPosition="1" size="140,40" pixmap="~/pictures/blue.png" transparent="1" alphatest="on" />
+                <widget name="key_red" position="0,360" zPosition="2" size="140,40" valign="center" halign="center" font="Regular;21" transparent="1" shadowColor="black" shadowOffset="-1,-1" />
+                <widget name="key_green" position="140,360" zPosition="2" size="140,40" valign="center" halign="center" font="Regular;21" transparent="1" shadowColor="black" shadowOffset="-1,-1" />
+                <widget name="key_yellow" position="280,360" zPosition="2" size="140,40" valign="center" halign="center" font="Regular;21" transparent="1" shadowColor="black" shadowOffset="-1,-1" />
+                <widget name="key_blue" position="420,360" zPosition="2" size="140,40" valign="center" halign="center" font="Regular;21" transparent="1" shadowColor="black" shadowOffset="-1,-1" />
+        </screen>
+	<screen name="PEProcInfo" position="center,center" size="820,615" title="Running Process Info">
+		<widget name="pibartit" zPosition="2" position="10,20" size="810,30" font="Regular;22" valign="center" transparent="1" foregroundColor="white" backgroundColor="transpBlack" />
+		<widget name="infotext" position="10,70" size="810,605" font="Regular;20" />
+	</screen>
+	<screen name="PEEnsetInfo" position="center,center" size="820,615" title="E2 Enigma Settings Info">
+		<widget name="infotext" position="20,20" size="810,605" font="Regular;20" />
+	</screen>
+	<screen name="DmesgInfo" position="center,center" size="820,615" title="Kernel Debugging Infos">
+	<widget name="config" position="5,5" size="810,605" font="Console;18" />
+	</screen>
+	<screen name="MemInfo" position="center,center" size="820,615" title="Memory Infos">
+	<widget name="config" position="5,5" size="810,605" font="Console;18" />
+	</screen>
+	<screen name="CpuInfo" position="center,center" size="820,615" title="CPU Infos">
+	<widget name="config" position="5,5" size="810,605" font="Console;18" />
+	</screen>
+	<screen name="TopInfo" position="center,center" size="820,615" title="System CPU Usage Infos">
+	<widget name="config" position="5,5" size="810,605" font="Console;18" />
+	</screen>
+	<screen name="PEDoStartCam" position="center,center" size="484,250" title="Start CAM" flags="wfNoBorder">
+		<widget name="connect" position="0,0" size="484,250" zPosition="-1" pixmaps="~/pictures/startcam_1.png" transparent="1" />
+		<widget name="lab1" position="10,148" halign="center" size="460,80" zPosition="1" font="Regular;20" valign="top" transparent="1" />
+	</screen>
+    <screen name="PEKernelModules" position="center,center" size="800,340" title="Manage Kernel Modules">
+        <widget name="config" position="20,20" size="760,280" scrollbarMode="showOnDemand" />
+       <ePixmap position="100,280" size="250,40" pixmap="~/pictures/red.png" alphatest="on" zPosition="1" />
+        <ePixmap position="450,280" size="250,40" pixmap="~/pictures/yellow.png" alphatest="on" zPosition="1" />
+		<widget name="key_red" position="100,288" zPosition="2" size="250,40" font="Regular;24" halign="center" valign="center" backgroundColor="transpBlack" transparent="1" />
+		<widget name="key_yellow" position="450,288" zPosition="2" size="250,40" font="Regular;24" halign="center" valign="center" backgroundColor="transpBlack" transparent="1" />
+    </screen>
+    <screen name="PEKernelModShow" position="center,center" size="800,460" title="Active Kernel Modules">
+        <widget source="list" render="Listbox" position="20,20" size="760,270" zPosition="1" scrollbarMode="showOnDemand" transparent="1">
+            <convert type="TemplatedMultiContent">
+                {"template": [
+                MultiContentEntryText(pos = (20, 2), size = (570, 30), flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER, text = 0),
+                ],
+                "fonts": [gFont("Regular", 24)],
+                "itemHeight": 30
+                }
+            </convert>
+        </widget>
+        <widget name="statuslab" position="110,340" size="580,70" font="Regular;22" valign="center" backgroundColor="#333f3f3f" foregroundColor="#FFC000" shadowOffset="-3,-3" shadowColor="black"/>
+    </screen>
+	<screen name="PECronMang" position="center,center" size="710,520" title="Cron Manager">
+        <widget source="list" render="Listbox" position="20,20" size="670,460" scrollbarMode="showOnDemand"   >
+            <convert type="StringList" />
+        </widget>
+        <ePixmap position="70,460" size="250,40" pixmap="~/pictures/red.png" alphatest="on" zPosition="1" />
+        <ePixmap position="390,460" size="250,40" pixmap="~/pictures/yellow.png" alphatest="on" zPosition="1" />
+		<widget name="key_red" position="70,468" zPosition="2" size="250,40" font="Regular;24" halign="center" valign="center" backgroundColor="transpBlack" transparent="1" />
+		<widget name="key_yellow" position="390,468" zPosition="2" size="250,40" font="Regular;24" halign="center" valign="center" backgroundColor="transpBlack" transparent="1" />
+        </screen>
+       <screen name="PESetupCronConf" position="center,center" size="710,340" title="Cron Setup">
+        <widget name="config" position="20,20" size="670,420" scrollbarMode="showOnDemand"  />
+        <ePixmap position="70,280" size="250,40" pixmap="~/pictures/green.png" alphatest="on" zPosition="1" />
+        <ePixmap position="390,280" size="250,40" pixmap="~/pictures/red.png" alphatest="on" zPosition="1" />
+		<widget name="key_red" position="390,288" size="250,40" zPosition="2" font="Regular;24" halign="center" valign="center" backgroundColor="transpBlack" transparent="1" />
+		<widget name="key_green" position="70,288" size="250,40" zPosition="2" font="Regular;24" halign="center" valign="center" foregroundColor="white" backgroundColor="transpBlack" transparent="1" />
+    </screen>
+	<screen name="PEInfo" position="0,0" size="1280,720" title="System Info" flags="wfNoBorder" >
+		<ePixmap pixmap="~/pictures/frame_1.1-fs8.png" position="0,0" size="1280,720" alphatest="on"  transparent="1" />
+		<ePixmap position="850,360"  size="300,14" pixmap="~/pictures/chan_p1_bar.png" alphatest="on" />        
+	    	<ePixmap position="832,81"  size="378,216" pixmap="~/pictures/tv_2-fs8.png" alphatest="on" />
+      	<widget source="session.VideoPicture" render="Pig" position=" 836,84" size="370,208" zPosition="3" backgroundColor="#ff000000"/>
+		<widget name="uptime" position="560,50" size="32,32" zPosition="2" pixmap="~/pictures/clock.png" transparent="1" alphatest="on" />
+	   	<eLabel text="Uptime:" position="610,48" size="100,100" font="Regular;17" halign="left" foregroundColor="white" transparent="1"/>
+		<widget name="utday" position="560,80" size="100,100" font="Regular;17" valign="top" halign="left" zPosition="2" backgroundColor="#333333" transparent="1"/>
+		<widget name="uthour" position="560,100" size="100,100" font="Regular;17" valign="top" halign="left" zPosition="2" backgroundColor="#333333" transparent="1"/>
+		<widget name="utmin" position="560,120" size="100,100" font="Regular;17" valign="top" halign="left" zPosition="2" backgroundColor="#333333" transparent="1"/>
+		<widget name="utsec" position="560,140" size="100,100" font="Regular;17" valign="top" halign="left" zPosition="2" backgroundColor="#333333" transparent="1"/>
+		<widget name="utdayval" position="640,80" size="100,100" font="Regular;17" valign="top" halign="right" zPosition="2" backgroundColor="#333333" transparent="1"/>
+		<widget name="uthourval" position="640,100" size="100,100" font="Regular;17" valign="top" halign="right" zPosition="2" backgroundColor="#333333" transparent="1"/>
+		<widget name="utminval" position="640,120" size="100,100" font="Regular;17" valign="top" halign="right" zPosition="2" backgroundColor="#333333" transparent="1"/>
+		<widget name="utsecval" position="640,140" size="100,100" font="Regular;17" valign="top" halign="right" zPosition="2" backgroundColor="#333333" transparent="1"/>
+	   	<eLabel text="Kernelversion:" position="560,185" size="140,140" font="Regular;18" halign="left" foregroundColor="white" transparent="1"/>
+		<widget name="kernelversion" position="560,225" size="213,154" font="Regular;17" halign="left" zPosition="2" backgroundColor="#333333" transparent="1" />
+		<widget name="key1" position="560,380" size="32,32" zPosition="2" pixmap="~/pictures/key_1.png" transparent="1" alphatest="on" />
+	   	<eLabel text="E2 Settings" position="595,380" size="100,100" font="Regular;17" halign="left" foregroundColor="white" transparent="1"/>
+		<widget name="key2" position="560,425" size="32,32" zPosition="2" pixmap="~/pictures/key_2.png" transparent="1" alphatest="on" />
+	   	<eLabel text="Service Info" position="595,425" size="100,100" font="Regular;17" halign="left" foregroundColor="white" transparent="1"/>
+		<widget name="key3" position="560,465" size="32,32" zPosition="2" pixmap="~/pictures/key_3.png" transparent="1" alphatest="on" />
+	   	<eLabel text="Dmesg Info" position="595,465" size="100,100" font="Regular;17" halign="left" foregroundColor="white" transparent="1"/>
+		<widget name="key4" position="560,505" size="32,32" zPosition="2" pixmap="~/pictures/key_4.png" transparent="1" alphatest="on" />
+	   	<eLabel text="Top Process Info" position="595,505" size="180,100" font="Regular;17" halign="left" foregroundColor="white" transparent="1"/>
+		<widget name="key5" position="560,545" size="32,32" zPosition="2" pixmap="~/pictures/key_5.png" transparent="1" alphatest="on" />
+	   	<eLabel text="Process info" position="595,545" size="140,100" font="Regular;17" halign="left" foregroundColor="white" transparent="1"/>
+		<widget name="key6" position="560,585" size="32,32" zPosition="2" pixmap="~/pictures/key_6.png" transparent="1" alphatest="on" />
+	   	<eLabel text="About" position="595,585" size="100,100" font="Regular;17" halign="left" foregroundColor="white" transparent="1"/>
+		<widget name="mem_labels" font="Regular;17" position="50,50" zPosition="5" size="100,100" valign="top" halign="left" backgroundColor="#31000000" foregroundColor="#666666" transparent="1" />
+		<widget name="ram" font="Regular;17" position="163,50" zPosition="3" size="90,100" valign="top" halign="left" backgroundColor="#31000000" transparent="1" />
+		<widget name="root" font="Regular;17" position="264,50" zPosition="3" size="90,100" valign="top" halign="left" backgroundColor="#31000000" transparent="1" />
+		<widget name="swap" font="Regular;17" position="359,50" zPosition="4" size="90,100" valign="top" halign="left" backgroundColor="#31000000" transparent="1" />      
+		<widget name="mem_tot" font="Regular;17" position="454,50" zPosition="5" size="90,100" valign="top" halign="left" backgroundColor="#31000000" transparent="1" />
+		<widget name="membar" position="148,70" size="5,75" pixmap="~/pictures/bar.png" orientation="orBottomToTop" zPosition="2" backgroundColor="#41000000" transparent="1" />
+		<widget name="rootbar" position="249,70" size="5,75" pixmap="~/pictures/bar.png" orientation="orBottomToTop" zPosition="2" backgroundColor="#41000000" transparent="1" />
+		<widget name="swapbar" position="342,70" size="5,75" pixmap="~/pictures/bar.png" orientation="orBottomToTop" zPosition="2" backgroundColor="#41000000" transparent="1" />
+		<widget name="memtotalbar" position="437,70" size="5,75" pixmap="~/pictures/bar.png" orientation="orBottomToTop" zPosition="2" backgroundColor="#41000000" transparent="1" />
+		<ePixmap pixmap="~/pictures/bar_back.png" position="148,70" size="5,75" zPosition="1" backgroundColor="#31000000" alphatest="on"/>
+		<ePixmap pixmap="~/pictures/bar_back.png" position="249,70" size="5,75" zPosition="1" backgroundColor="#31000000" alphatest="on"/>
+		<ePixmap pixmap="~/pictures/bar_back.png" position="342,70" size="5,75" zPosition="1" backgroundColor="#31000000" alphatest="on"/>
+		<ePixmap pixmap="~/pictures/bar_back.png" position="437,70" size="5,75" zPosition="1" backgroundColor="#31000000" alphatest="on"/>
+		<ePixmap pixmap="~/pictures/mem.png" position="163,170" size="40,80" zPosition="2" backgroundColor="#31000000" alphatest="on"/>
+		<ePixmap pixmap="~/pictures/root.png" position="264,170" size="40,80" zPosition="2" backgroundColor="#31000000" alphatest="on"/>                      
+		<ePixmap pixmap="~/pictures/swap.png" position="359,170" size="40,80" zPosition="2" backgroundColor="#31000000" alphatest="on"/>
+		<ePixmap pixmap="~/pictures/summ.png" position="460,170" size="40,80" zPosition="2" backgroundColor="#31000000" alphatest="on"/>
+		<widget name="space_labels" font="Regular;17" position="50,250" zPosition="5" size="100,100" valign="top" halign="left" backgroundColor="#31000000" foregroundColor="#666666" transparent="1" />
+		<widget name="hdd" font="Regular;17" position="163,250" zPosition="3" size="90,100" valign="top" halign="left" backgroundColor="#31000000" transparent="1" />
+		<widget name="usb" font="Regular;17" position="264,250" zPosition="4" size="90,100" valign="top" halign="left" backgroundColor="#31000000" transparent="1" />      
+		<widget name="usb1" font="Regular;17" position="359,250" zPosition="5" size="90,100" valign="top" halign="left" backgroundColor="#31000000" transparent="1" />      
+		<widget name="usb2" font="Regular;17" position="454,250" zPosition="5" size="90,100" valign="top" halign="left" backgroundColor="#31000000" transparent="1" />
+		<widget name="hddbar" position="148,270" size="5,75" pixmap="~/pictures/bar.png" orientation="orBottomToTop" zPosition="2" backgroundColor="#41000000" transparent="1" />
+		<widget name="usbbar" position="249,270" size="5,75" pixmap="~/pictures/bar.png" orientation="orBottomToTop" zPosition="2" backgroundColor="#41000000" transparent="1" />
+		<widget name="usb1bar" position="342,270" size="5,75" pixmap="~/pictures/bar.png" orientation="orBottomToTop" zPosition="2" backgroundColor="#41000000" transparent="1" />
+		<widget name="usb2bar" position="435,270" size="5,75" pixmap="~/pictures/bar.png" orientation="orBottomToTop" zPosition="2" backgroundColor="#41000000" transparent="1" />
+		<ePixmap pixmap="~/pictures/bar_back.png" position="148,270" size="5,75" zPosition="1" backgroundColor="#31000000" alphatest="on"/>
+		<ePixmap pixmap="~/pictures/bar_back.png" position="249,270" size="5,75" zPosition="1" backgroundColor="#31000000" alphatest="on"/>
+		<ePixmap pixmap="~/pictures/bar_back.png" position="342,270" size="5,75" zPosition="1" backgroundColor="#31000000" alphatest="on"/>
+		<ePixmap pixmap="~/pictures/bar_back.png" position="435,270" size="5,75" zPosition="1" backgroundColor="#31000000" alphatest="on"/>
+		<ePixmap pixmap="~/pictures/hdd.png" position="163,370" size="40,80" zPosition="2" backgroundColor="#31000000" alphatest="on"/>
+		<ePixmap pixmap="~/pictures/usbmem.png" position="264,370" size="40,80" zPosition="2" backgroundColor="#31000000" alphatest="on"/>
+		<ePixmap pixmap="~/pictures/usbmem.png" position="359,370" size="40,80" zPosition="2" backgroundColor="#31000000" alphatest="on"/>
+		<ePixmap pixmap="~/pictures/usbmem.png" position="454,370" size="40,80" zPosition="2" backgroundColor="#31000000" alphatest="on"/>
+		<widget name="HDDCPULabels"  noWrap="1" position="50,450" size="100,100" font="Regular;17" halign="left" valign="top" zPosition="5" backgroundColor="#31000000" foregroundColor="#666666" transparent="1" />
+		<widget name="usb3" font="Regular;17" position="163,450" zPosition="5" size="90,100" valign="top" halign="left" backgroundColor="#31000000" transparent="1" />  
+		<widget name="hddtemperature" font="Regular;17" position="229,450" zPosition="2" size="110,90" valign="top" halign="center" backgroundColor="#31000000" transparent="1" />  
+		<widget name="cpusys" font="Regular;17" position="327,450" zPosition="2" size="110,90" valign="top" halign="center" backgroundColor="#31000000" transparent="1" />      
+		<widget name="cpuusr" font="Regular;17" position="423,450" zPosition="2" size="110,90" valign="top" halign="center" backgroundColor="#31000000" transparent="1" />
+		<ePixmap pixmap="~/pictures/hdd_temp.png" position="264,500" size="40,80" zPosition="2" backgroundColor="#31000000" alphatest="on"/>
+		<ePixmap pixmap="~/pictures/summ.png" position="359,500" size="40,80" zPosition="2" backgroundColor="#31000000" alphatest="on"/>
+		<ePixmap pixmap="~/pictures/summ.png" position="454,500" size="40,80" zPosition="2" backgroundColor="#31000000" alphatest="on"/>
+		<widget name="usb3bar" position="148,470" size="5,75" pixmap="~/pictures/bar.png" orientation="orBottomToTop" zPosition="2" backgroundColor="#41000000" transparent="1" />
+		<widget name="hddtempbar" position="246,490" size="5,44" pixmap="~/pictures/bar.png" orientation="orBottomToTop" zPosition="2" backgroundColor="#41000000" transparent="1" />
+		<widget name="cpusysbar" position="341,490" size="5,44" pixmap="~/pictures/bar.png" orientation="orBottomToTop" zPosition="2" backgroundColor="#41000000" transparent="1" />
+		<widget name="cpuusrbar" position="436,490" size="5,44" pixmap="~/pictures/bar.png" orientation="orBottomToTop" zPosition="2" backgroundColor="#41000000" transparent="1" />
+		<ePixmap pixmap="~/pictures/bar_back.png" position="148,470" size="5,75" zPosition="1" backgroundColor="#31000000" alphatest="on"/>
+		<ePixmap pixmap="~/pictures/bar_back.png" position="246,490" size="5,44" zPosition="1" backgroundColor="#31000000" alphatest="on"/>
+		<ePixmap pixmap="~/pictures/bar_back.png" position="341,490" size="5,44" zPosition="1" backgroundColor="#31000000" alphatest="on"/>
+		<ePixmap pixmap="~/pictures/bar_back.png" position="436,490" size="5,44" zPosition="1" backgroundColor="#31000000" alphatest="on"/>
+                <eLabel text="Services:" font="Regular;17" position="50,583" zPosition="0" size="100,100" valign="top" halign="left" backgroundColor="#31000000" foregroundColor="#666666" transparent="1" />
+                <widget name="ftp_on" position="150,585" size="40,80" pixmap="~/pictures/ftp_on.png" zPosition="2" alphatest="on" />
+                <widget name="telnet_on" position="226,585" size="40,80" pixmap="~/pictures/telnet_on.png" zPosition="2" alphatest="on" />
+		<widget name="ssh_on" position="302,585" size="40,80" pixmap="~/pictures/ssh_on.png" zPosition="2" alphatest="on" />
+                <widget name="smb_on" position="378,585" size="40,80" pixmap="~/pictures/smb_on.png" zPosition="2" alphatest="on" />
+                <widget name="nfs_on" position="454,585" size="40,80" pixmap="~/pictures/nfs_on.png" zPosition="2" alphatest="on" />
+                <ePixmap pixmap="~/pictures/ftp.png" position="150,585" size="40,80" zPosition="1" backgroundColor="#31000000" alphatest="on"/>
+                <ePixmap pixmap="~/pictures/telnet.png" position="226,585" size="40,80" zPosition="1" backgroundColor="#31000000" alphatest="on"/>
+                <ePixmap pixmap="~/pictures/ssh.png" position="302,585" size="40,80" zPosition="1" backgroundColor="#31000000" alphatest="on"/>
+                <ePixmap pixmap="~/pictures/smb.png" position="378,585" size="40,80" zPosition="1" backgroundColor="#31000000" alphatest="on"/>
+                <ePixmap pixmap="~/pictures/nfs.png" position="454,585" size="40,80" zPosition="1" backgroundColor="#31000000" alphatest="on"/>
+		<ePixmap pixmap="~/pictures/red_key.png" position="50,655" size="20,20" alphatest="on" />
+		<ePixmap pixmap="~/pictures/green_key.png" position="170,655" size="20,20" alphatest="on" />
+		<ePixmap pixmap="~/pictures/yellow_key.png" position="310,655" size="20,20" alphatest="on" />
+		<ePixmap pixmap="~/pictures/blue_key.png" position="430,655" size="20,20" alphatest="on" />
+                <widget name="key_redtxt" position="80,655" font="Regular;17" zPosition="2" size="100,100" valign="top" halign="left" backgroundColor="#31000000" transparent="1" />
+                <widget name="key_greentxt" position="200,655" font="Regular;17" zPosition="2" size="100,100" valign="top" halign="left" backgroundColor="#31000000" transparent="1" />
+                <widget name="key_yellowtxt" position="340,655" font="Regular;17" zPosition="2" size="100,100" valign="top" halign="left" backgroundColor="#31000000" transparent="1" />
+                <widget name="key_bluetxt" position="460,655" font="Regular;17" zPosition="2" size="100,100" valign="top" halign="left" backgroundColor="#31000000" transparent="1" />
+		<widget source="video" render="Label" position="850,480" zPosition="2" backgroundColor="#333333" transparent="1" size="80,20" font="Regular;20" />
+		<widget source="min" render="Label" position="850,510" zPosition="2" backgroundColor="#333333" transparent="1" size="80,20" font="Regular;20" />
+		<widget name="vmin" position="850,540" size="80,20" font="Regular;20" zPosition="2" backgroundColor="#333333" transparent="1" />
+		<widget source="max" render="Label" position="920,510" zPosition="2" backgroundColor="#333333" transparent="1" size="80,20" font="Regular;20" />
+		<widget name="vmax" position="920,540" size="80,20" font="Regular;20" zPosition="2" backgroundColor="#333333" transparent="1" />
+		<widget source="avg" render="Label" position="990,510" zPosition="2" backgroundColor="#333333" transparent="1" size="80,20" font="Regular;20" />
+		<widget name="vavg" position="990,540" size="80,20" font="Regular;20" zPosition="2" backgroundColor="#333333" transparent="1" />
+		<widget source="cur" render="Label" position="1090,510" zPosition="2" backgroundColor="#333333" transparent="1" size="80,20" font="Regular;20" />
+		<widget name="vcur" position="1090,540" size="80,20" font="Regular;20" zPosition="2" backgroundColor="#333333" transparent="1" />
+		<widget source="audio" render="Label" position="850,570" zPosition="2" backgroundColor="#333333" transparent="1" size="80,20" font="Regular;20" />
+		<widget source="min" render="Label" position="850,600" zPosition="2" backgroundColor="#333333" transparent="1" size="80,20" font="Regular;20" />
+		<widget name="amin" position="850,630" size="80,20" font="Regular;20" zPosition="2" backgroundColor="#333333" transparent="1" />
+		<widget source="max" render="Label" position="920,600" zPosition="2" backgroundColor="#333333" transparent="1" size="80,20" font="Regular;20" />
+		<widget name="amax" position="920,630" size="80,20" font="Regular;20" zPosition="2" backgroundColor="#333333" transparent="1" />
+		<widget source="avg" render="Label" position="990,600" zPosition="2" backgroundColor="#333333" transparent="1" size="80,20" font="Regular;20" />
+		<widget name="aavg" position="990,630" size="80,20" font="Regular;20" zPosition="2" backgroundColor="#333333" transparent="1" />
+		<widget source="cur" render="Label" position="1090,600" zPosition="2" backgroundColor="#333333" transparent="1" size="80,20" font="Regular;20" />
+		<widget name="acur" position="1090,630" size="80,20" font="Regular;20" zPosition="2" backgroundColor="#333333" transparent="1" />
+		<widget source="session.Event_Now" render="Label" position="850,380" size="350,100" zPosition="1" halign="left" font="Regular;24" foregroundColor="white" backgroundColor="transpBlack" transparent="1" >
+			<convert type="EventName">Name</convert>
+		 </widget>		
+		<widget source="session.Event_Now" render="Progress" pixmap="~/pictures/chan_p_bar.png" size="850,14" position="850,360" zPosition="1"  backgroundColor="darkgrey" transparent="1">
+			<convert type="EventTime">Progress</convert>
+        </widget>
+	</screen>
+	<screen name="PEHdd" position="center,center" size="950,480" title="Hard Disk Settings">
+		<widget name="infotext" position="20,20" size="910,380" font="Regular;20" />
+		<widget name="lab1" position="20,400" size="100,32" font="Regular;24" valign="center" transparent="1"/>
+		<widget name="labstop" position="400,400" size="150,32" font="Regular;24" valign="center"  halign="center" backgroundColor="red"/>
+		<widget name="labrun" position="400,400" size="150,32" zPosition="1" font="Regular;24" valign="center"  halign="center" backgroundColor="green"/>
+	<ePixmap position="680,180" size="250,40" pixmap="~/pictures/red.png" alphatest="on" zPosition="1" />
+        <ePixmap position="680,240" size="250,40" pixmap="~/pictures/green.png" alphatest="on" zPosition="1" />
+        <ePixmap position="680,300" size="250,40" pixmap="~/pictures/yellow.png" alphatest="on" zPosition="1" />
+		<widget name="key_red" position="680,188" zPosition="2" size="250,40" font="Regular;24" halign="center" valign="center" backgroundColor="transpBlack" transparent="1" />
+		<widget name="key_green" position="680,248" zPosition="2" size="250,40" font="Regular;24" halign="center" valign="center" backgroundColor="transpBlack" transparent="1" />
+		<widget name="key_yellow" position="680,308" zPosition="2" size="250,40" font="Regular;24" halign="center" valign="center" backgroundColor="transpBlack" transparent="1" />
+	</screen>
+    	<screen name="ECMBluePanel" position="0,0" size="1280,720"  title="ECM Infos" backgroundColor="transparent" flags="wfNoBorder">
+	    <ePixmap position="0,0" zPosition="-1" size="1280,720" pixmap="~/pictures/frame_1.1-fs8.png"  />
+	    <ePixmap position="650,435" zPosition="-1" size="630,200" pixmap="~/pictures/icons_bp.png" alphatest="on" />
+	    <ePixmap position="850,360" zPosition="-1" size="300,14" pixmap="~/pictures/chan_p1_bar.png" alphatest="on" />
+	    <ePixmap position="109,165" zPosition="-1" size="253,25" pixmap="~/pictures/buttons_cam.png" alphatest="blend" transparent="1" />
+	    <ePixmap position="480,116" zPosition="-1" size="60,40" pixmap="~/pictures/button_ok.png" alphatest="blend" transparent="1" />
+	    <ePixmap position="832,81" zPosition="-1" size="378,216" pixmap="~/pictures/tv_2-fs8.png" alphatest="on" />
+	    <eLabel text="Channel and ECM" position="80,26" size="400,36" font="Regular;32" halign="left" foregroundColor="white" transparent="1"/>
+	    <widget source="session.VideoPicture" render="Pig" position=" 836,84" size="370,208" zPosition="3" backgroundColor="#ff000000"/>
+	    <widget name="lab1" position="129,80" size="230,25" font="Regular;24" zPosition="2" backgroundColor="#333333" transparent="1"/>
+	    <widget name="list" position="75,116" size="320,36" zPosition="2" selectionPixmap="~/pictures/listselection320x36-fs8.png"  transparent="1"/> 
+	    <widget name="lab2" position="139,162" size="190,24" font="Regular;20" halign="center" valign="center" zPosition="2" backgroundColor="#333333" transparent="1"/>
+	    <widget name="lab3" position="79,191" size="120,28" font="Regular;24" halign="left" zPosition="2" backgroundColor="#333333" transparent="1"/> 
+	    <widget name="activecam" position="199,191" size="350,28" font="Regular;24" halign="left" zPosition="2" backgroundColor="#333333" transparent="1"/> 
+	    <widget name="Ilab1" position="79,217" size="350,28" font="Regular;24" zPosition="2" backgroundColor="#333333" transparent="1"/>
+	    <widget name="Ilab2" position="79,250" size="350,28" font="Regular;24" zPosition="2" backgroundColor="#333333" transparent="1"/>
+	    <widget name="Ilab3" position="79,275" size="350,28" font="Regular;24" zPosition="2" backgroundColor="#333333" transparent="1"/>
+	    <widget name="Ilab4" position="79,304" size="350,28" font="Regular;24" zPosition="2" backgroundColor="#333333" transparent="1"/>
+	    <widget name="Ecmtext" position="79,340" size="440,300" font="Regular;20" zPosition="2" backgroundColor="#333333" transparent="1"/>
+	    <applet type="onLayoutFinish">
+		    self[&quot;list&quot;].instance.setItemHeight(36)
+	    </applet>
+	    <widget source="session.Event_Now" render="Label" position="850,380" size="350,100" zPosition="2" halign="left" font="Regular;24" foregroundColor="white" backgroundColor="transpBlack" transparent="1" >
+		    <convert type="EventName">Name</convert>
+	    </widget>		
+	    <widget source="session.Event_Now" render="Progress" pixmap="~/pictures/chan_p_bar.png" size="850,14" position="850,360" zPosition="1"  backgroundColor="darkgrey" transparent="1">
+		    <convert type="EventTime">Progress</convert>
+	    </widget>
+    	</screen>
+	<screen name="BackupScreen" position="135,144" size="350,310" title="Backup is running" >
+		<widget name="config" position="10,10" size="330,250" transparent="1" scrollbarMode="showOnDemand" />
+	</screen>
+	<screen name="BackupSelection" position="center,110" size="560,400" title="Select files/folders to backup">
+		<ePixmap pixmap="~/pictures/red.png" position="0,0" size="140,40" alphatest="on" />
+		<ePixmap pixmap="~/pictures/green.png" position="140,0" size="140,40" alphatest="on" />
+		<ePixmap pixmap="~/pictures/yellow.png" position="280,0" size="140,40" alphatest="on" />
+		<widget source="key_red" render="Label" position="0,0" zPosition="1" size="140,40" font="Regular;20" halign="center" valign="center" backgroundColor="#9f1313" transparent="1" />
+		<widget source="key_green" render="Label" position="140,0" zPosition="1" size="140,40" font="Regular;20" halign="center" valign="center" backgroundColor="#1f771f" transparent="1" />
+		<widget source="key_yellow" render="Label" position="280,0" zPosition="1" size="140,40" font="Regular;20" halign="center" valign="center" backgroundColor="#a08500" transparent="1" />
+		<widget name="checkList" position="5,50" size="550,250" transparent="1" scrollbarMode="showOnDemand" />
+	</screen>
+	<screen name="RestoreMenu" position="center,110" size="560,400" title="Restore backups" >
+		<ePixmap pixmap="~/pictures/red.png" position="0,0" size="140,40" alphatest="on" />
+		<ePixmap pixmap="~/pictures/green.png" position="140,0" size="140,40" alphatest="on" />
+		<ePixmap pixmap="~/pictures/yellow.png" position="280,0" size="140,40" alphatest="on" />
+		<widget source="key_red" render="Label" position="0,0" zPosition="1" size="140,40" font="Regular;20" halign="center" valign="center" backgroundColor="#9f1313" transparent="1" />
+		<widget source="key_green" render="Label" position="140,0" zPosition="1" size="140,40" font="Regular;20" halign="center" valign="center" backgroundColor="#1f771f" transparent="1" />
+		<widget source="key_yellow" render="Label" position="280,0" zPosition="1" size="140,40" font="Regular;20" halign="center" valign="center" backgroundColor="#a08500" transparent="1" />
+		<widget name="filelist" position="5,50" size="550,230" scrollbarMode="showOnDemand" />
+	</screen>
+	<screen position="135,144" size="350,310" title="Restore is running..." >
+		<widget name="config" position="10,10" size="330,250" transparent="1" scrollbarMode="showOnDemand" />
+	</screen>
+	<screen name="PEPacketManager" position="center,110" size="530,420" title="PE Packetmanager" >
+		<ePixmap pixmap="~/pictures/red.png" position="5,5" size="150,50" alphatest="on" />
+		<ePixmap pixmap="~/pictures/green.png" position="160,5" size="150,50" alphatest="on" />
+		<widget source="key_red" render="Label" position="5,5" zPosition="1" size="150,50" font="Regular;20" halign="center" valign="center" backgroundColor="#9f1313" transparent="1" />
+		<widget source="key_green" render="Label" position="160,5" zPosition="1" size="150,50" font="Regular;20" halign="center" valign="center" backgroundColor="#1f771f" transparent="1" />
+		<widget source="list" render="Listbox" position="5,65" size="520,365" scrollbarMode="showOnDemand">
+			<convert type="TemplatedMultiContent">
+				{"template": [
+						MultiContentEntryText(pos = (5, 28), size = (440, 20), font=1, flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER, text = 0), # index 0 is the name
+						MultiContentEntryText(pos = (5, 2), size = (440, 26), font=0, flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER, text = 2), # index 2 is the description
+						MultiContentEntryPixmapAlphaTest(pos = (445, 2), size = (48, 48), png = 4), # index 4 is the status pixmap
+						MultiContentEntryPixmapAlphaTest(pos = (5, 50), size = (510, 2), png = 5), # index 4 is the div pixmap
+					],
+				"fonts": [gFont("Regular", 22),gFont("Regular", 14)],
+				"itemHeight": 52
+				}
+			</convert>
+		</widget>
+	</screen>
+        <screen name="AddonsFileBrowser" position="80,100" size="1120,560" title="Manual Addon Installer Filebrowser" >
+                <widget name="filelist" position="10,10" size="1100,500" scrollbarMode="showOnDemand" />          
+                <ePixmap pixmap="~/pictures/red_key.png"    position="10,520" zPosition="1" size="20,20" alphatest="on" />
+                <ePixmap pixmap="~/pictures/green_key.png"  position="280,520" zPosition="1" size="20,20" alphatest="on" />
+                <ePixmap pixmap="~/pictures/yellow_key.png" position="560,520" zPosition="1" size="20,20" alphatest="on" />
+                <ePixmap pixmap="~/pictures/blue_key.png"   position="840,520" zPosition="1" size="20,20" alphatest="on" />
+                <widget name="key_red" position="20,520" zPosition="2" size="280,40" valign="center" halign="center" font="Regular;24" transparent="1" shadowColor="black" shadowOffset="-1,-1" />
+                <widget name="key_green" position="320,520" zPosition="2" size="280,40" valign="center" halign="center" font="Regular;24" transparent="1" shadowColor="black" shadowOffset="-1,-1" />
+                <widget name="key_yellow" position="600,520" zPosition="2" size="280,40" valign="center" halign="center" font="Regular;24" transparent="1" shadowColor="black" shadowOffset="-1,-1" />
+                <widget name="key_blue" position="850,520" zPosition="2" size="280,40" valign="center" halign="center" font="Regular;24" transparent="1" shadowColor="black" shadowOffset="-1,-1" />
+        </screen>
+	<screen name="PEOpenvpn" position="center,center" size="950,340" title="OpenVpn Setup">
+		<widget name="lab1" position="20,20" size="310,64" font="Regular;24" valign="center" transparent="1"/>
+		<widget name="lab1a" position="190,20" size="530,64" font="Regular;24" valign="center" transparent="1"/>
+		<widget name="lab2" position="20,80" size="360,32" font="Regular;24" valign="center" transparent="1"/>
+		<widget name="labactive" position="260,80" size="310,32" font="Regular;24" valign="center" transparent="1"/>
+		<widget name="lab3" position="20,260" size="200,32" font="Regular;24" valign="center" transparent="1"/>
+		<widget name="labstop" position="260,260" size="150,32" font="Regular;24" valign="center"  halign="center" backgroundColor="red"/>
+		<widget name="labrun" position="240,260" size="150,32" zPosition="1" font="Regular;24" valign="center"  halign="center" backgroundColor="green"/>
+	<ePixmap position="680,60" size="250,40" pixmap="skin_default/buttons/red.png" alphatest="on" zPosition="1" />
+        <ePixmap position="680,120" size="250,40" pixmap="skin_default/buttons/green.png" alphatest="on" zPosition="1" />
+        <ePixmap position="680,180" size="250,40" pixmap="skin_default/buttons/yellow.png" alphatest="on" zPosition="1" />
+        <ePixmap position="680,240" size="250,40" pixmap="skin_default/buttons/blue.png" alphatest="on" zPosition="1" />
+		<widget name="key_red" position="680,68" zPosition="2" size="250,40" font="Regular;24" halign="center" valign="center" backgroundColor="transpBlack" transparent="1" />
+		<widget name="key_green" position="680,128" zPosition="2" size="250,40" font="Regular;24" halign="center" valign="center" backgroundColor="transpBlack" transparent="1" />
+		<widget name="key_yellow" position="680,188" zPosition="2" size="250,40" font="Regular;24" halign="center" valign="center" backgroundColor="transpBlack" transparent="1" />
+		<widget name="key_blue" position="680,248" zPosition="2" size="250,40" font="Regular;24" halign="center" valign="center" backgroundColor="transpBlack" transparent="1" />
+	</screen>
+	<screen name="PEVpnLog" position="center,center" size="820,615" title="OpenVpn Log">
+		<widget name="infotext" position="20,20" size="810,605" font="Regular;20" />
+	</screen>
+	<screen name="PasswdScreen" position="center,145" size="625,260" title="Change root password" >
+		<ePixmap pixmap="~/pictures/red.png" position="5,5" size="150,50" alphatest="on" />
+		<ePixmap pixmap="~/pictures/green.png" position="160,5" size="150,50" alphatest="on" />
+		<ePixmap pixmap="~/pictures/yellow.png" position="315,5" size="150,50" alphatest="on" />
+		<ePixmap pixmap="~/pictures/blue.png" position="470,5" size="150,50" alphatest="on" />
+		<widget source="key_red" render="Label" position="5,5" zPosition="1" size="150,50" font="Regular;20" halign="center" valign="center" backgroundColor="#9f1313" transparent="1" />
+		<widget source="key_green" render="Label" position="160,5" zPosition="1" size="150,50" font="Regular;20" halign="center" valign="center" backgroundColor="#1f771f" transparent="1" />
+		<widget source="key_yellow" render="Label" position="315,5" zPosition="1" size="150,50" font="Regular;20" halign="center" valign="center" backgroundColor="#9f1313" transparent="1" />
+		<widget source="key_blue" render="Label" position="470,5" zPosition="1" size="150,50" font="Regular;20" halign="center" valign="center" backgroundColor="#1f771f" transparent="1" />
+		<widget name="passwd" position="10,85" size="605,30" scrollbarMode="showOnDemand" />
+	</screen>
+        <screen name="PEDVBNTPTime" position="center,center" size="1280,720" title=" " flags="wfNoBorder">
+        <widget source="Title" render="Label" position="80,80" size="350,30" zPosition="3" font="Regular;26" transparent="1"/>
+        <ePixmap pixmap="skin_default/buttons/button_red.png"    position="80,450" size="15,16" alphatest="on" />
+        <ePixmap pixmap="skin_default/buttons/button_green.png"  position="80,500" size="15,16" alphatest="on" />
+        <ePixmap pixmap="skin_default/buttons/button_yellow.png" position="80,550" size="15,16" alphatest="on" />
+        <ePixmap pixmap="skin_default/buttons/button_blue.png"   position="80,600" size="15,16" alphatest="on" />
+        <widget name="key_red"    position="100,446" zPosition="1" size="400,225" font="Regular;22" halign="left" transparent="1" />
+        <widget name="key_green"  position="100,496" zPosition="1" size="400,225" font="Regular;22" halign="left" transparent="1" />
+        <widget name="key_yellow" position="100,546" zPosition="1" size="400,225" font="Regular;22" halign="left" transparent="1" />
+        <widget name="key_blue"   position="100,596" zPosition="1" size="500,225" font="Regular;22" halign="left" transparent="1" />
+        <widget source="session.VideoPicture" render="Pig"  position="80,120" size="380,215" zPosition="3" backgroundColor="#ff000000"/>
+        <widget source="menu" render="Listbox" position="550,100" size="610,260" zPosition="3" scrollbarMode="showNever">
+                <convert type="TemplatedMultiContent">
+                    {"template": [
+                            MultiContentEntryText(pos = (10,  5), size = (608, 26), flags = RT_HALIGN_LEFT, text = 1), # index 0 is the MenuText,
+                        ],
+                    "fonts": [gFont("Regular", 22)],
+                    "itemHeight": 35
+                    }
+            </convert>
+        </widget>
+        <widget source="menu" render="Listbox"     position="550,350" size="610,250" zPosition="3" scrollbarMode="showNever" selectionDisabled="1" transparent="1">
+            <convert type="TemplatedMultiContent">
+                {"template": [
+                        MultiContentEntryText(pos = (0, 0), size = (610, 250), flags = RT_HALIGN_CENTER|RT_VALIGN_TOP|RT_WRAP, text = 2), # index 0 is the MenuText,
+                    ],
+                "fonts": [gFont("Regular", 19)],
+                "itemHeight": 250
+                }
+            </convert>
+        </widget>
+        </screen>
+           <screen name="Downloads" position="center,center" size="840,605" title="Download Manager" flags="wfNoBorder">
+  <ePixmap position="0,0" zPosition="-10" size="840,605" pixmap="~/pictures/pedm.png" />
+   <eLabel text="Persian Professionals" position="17,20" size="400,36" font="Regular;32" halign="left" foregroundColor="white" transparent="1" />
+  <widget name="list" position="25,119" size="500,350" scrollbarMode="showOnDemand" transparent="1" />
+  <widget name="info" position="42,136" zPosition="4" size="350,300" font="Regular;18" foregroundColor="white" transparent="1" halign="left" valign="center" />
+</screen>
+</skin>

@@ -1,0 +1,389 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: CCcamInfo Persian Translation\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2009-12-24 11:09+0100\n"
+"PO-Revision-Date: 2011-05-14 23:46+0330\n"
+"Last-Translator: Ali Khavari <yekseda@gmail.com>\n"
+"Language-Team: Persian Professionals <persianprince@persianpros.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Persian\n"
+"X-Poedit-Country: IRAN, ISLAMIC REPUBLIC OF\n"
+"X-Poedit-Basepath: /home/dario/Plugins/CCcamInfo\n"
+"X-Poedit-SearchPath-0: /home/dario/Plugins/CCcamInfo\n"
+
+msgid " and"
+msgstr "و"
+
+msgid "About"
+msgstr "در مورد"
+
+msgid "Activate"
+msgstr "فعال کردن"
+
+msgid "Active clients"
+msgstr "كلاینتهای فعال"
+
+msgid "All"
+msgstr "همه"
+
+msgid "Available shares:"
+msgstr "شیرهای فعال:"
+
+msgid ""
+"CCcam Info %s\n"
+"by AliAbdul %s\n"
+"\n"
+"This plugin shows you the status of your CCcam."
+msgstr ""
+"CCcam اطلاعات %s\n"
+"by AliAbdul %s\n"
+"\n"
+"این پلاگین اطلاعات  سی سی كم را نمایش میدهد"
+
+msgid "CaID: "
+msgstr "CaID: "
+
+msgid "Cancel"
+msgstr "كنسل"
+
+msgid "Cards: "
+msgstr "كارتها:"
+
+msgid "Cards: 0"
+msgstr "كارتها: 0"
+
+msgid "Cardserial"
+msgstr "كارت سریال"
+
+msgid "Clients"
+msgstr "كلاینتها"
+
+msgid "Configfile %s saved."
+msgstr "ذخیره شد %s فایل پیكربندی"
+
+msgid "Connected clients"
+msgstr "كلاینتهای متصل شده"
+
+msgid "Connected: "
+msgstr "متصل شده:"
+
+msgid "Content"
+msgstr "شامل"
+
+msgid "Could not open the file %s!"
+msgstr "وجود ندارد %s امكان باز كردن فایل "
+
+msgid "Could not save configfile %s!"
+msgstr " وجود ندارد %s امكان ذخیره كردن فایل  پیكربندی"
+
+msgid "Current time"
+msgstr "زمان فعلی"
+
+msgid "Cut servername after (x) letters:"
+msgstr "حرف پاك كن (x) نام سرور را پس از"
+
+msgid "Delete"
+msgstr "حذف"
+
+msgid "Delete %s?"
+msgstr "حذف شود %s?"
+
+msgid "Delete failed!"
+msgstr "حذف انجام نشد!"
+
+msgid "Deleted %s!"
+msgstr " حذف شد! %s "
+
+msgid "Ecm Info"
+msgstr "Ecm اطلاعات"
+
+msgid "Ecm time:"
+msgstr "Ecm زمان: "
+
+msgid "Edit"
+msgstr "ویرایش"
+
+msgid "Entitlements"
+msgstr "عنوان گذاریها"
+
+msgid "Error reading webpage!"
+msgstr "خطا در خواندن صفحه وب!"
+
+msgid "Extended Shares"
+msgstr "شیرهای توسعه یافته"
+
+msgid "Free memory"
+msgstr "حافظه آزاد"
+
+msgid "Free memory:"
+msgstr "حافظه آزاد:"
+
+msgid "Free to Air"
+msgstr "غیر كارتی"
+
+msgid "Free:"
+msgstr "غیر كارتی:"
+
+msgid "General"
+msgstr "كلی"
+
+msgid "Hide ecm.info after (x) seconds:"
+msgstr "ثانیه (x) پس از Ecm مخفی كردن اطلاعات: "
+
+msgid "Hide ecm.info with InfoBar:"
+msgstr "اطلاعات ای سی ام را همزمان با میله اطلاعات مخفی كن"
+
+msgid "Hops:"
+msgstr "هاپ:"
+
+msgid "Hostname: "
+msgstr "نام هاست:"
+
+msgid "IP:"
+msgstr "IP: "
+
+msgid "Idle Time: "
+msgstr "زمان بیكاری:"
+
+msgid "Last used share: "
+msgstr "آخرین شیر استفاده شده:"
+
+msgid "Local box"
+msgstr "دستگاه محلی"
+
+msgid "Location"
+msgstr "محل"
+
+msgid "Maxdown +"
+msgstr "Maxdown +"
+
+msgid "Maxdown -"
+msgstr "Maxdown -"
+
+msgid "Maxdown: "
+msgstr "Maxdown: "
+
+msgid "Menu config"
+msgstr "تنظیمات منو"
+
+msgid "Name:"
+msgstr "نام:"
+
+msgid "New"
+msgstr "جدید"
+
+msgid "New profile: "
+msgstr "پروفایل جدید:"
+
+msgid "No card inserted!"
+msgstr "كارتی وارد دستگاه نشده است!"
+
+msgid "NodeID"
+msgstr "NodeID"
+
+msgid "NodeID: "
+msgstr "NodeID: "
+
+msgid "Password:"
+msgstr "كلمه عبور"
+
+msgid "Peak load (max queued requests per workerthread)"
+msgstr "زمان پیك (حداكثر درخواست در یك دوره كاری)"
+
+msgid "Port:"
+msgstr "پورت:"
+
+msgid "Position:"
+msgstr "موقعیت:"
+
+msgid "Profile: Local box"
+msgstr "پروفایل: دستگاه محلی"
+
+msgid "Provider Name: "
+msgstr "نام پروایدر:"
+
+msgid "Provider: "
+msgstr "پروایدر:"
+
+msgid "Providers"
+msgstr "پروایدرها"
+
+msgid "Providers:"
+msgstr "پروایدرها:"
+
+msgid "Remote box"
+msgstr "ریسیور از راه دور"
+
+msgid "Rename"
+msgstr "تغییر نام"
+
+msgid "Rename failed!"
+msgstr "تغییر نام انجام نشد"
+
+msgid "Rename to:"
+msgstr "تغییر نام به:"
+
+msgid "Renamed %s!"
+msgstr "تغییر نام داده شد %s به"
+
+msgid "Reshare:"
+msgstr "Reshare: "
+
+msgid "Save"
+msgstr "ذخیره"
+
+msgid "Servers"
+msgstr "سرورها"
+
+msgid "Servers:"
+msgstr "سرورها:"
+
+msgid "Share View"
+msgstr "وضعیت شیر"
+
+msgid "Shares"
+msgstr "به اشتراك گذاریها"
+
+msgid "Show ecm.info:"
+msgstr "ecm نمایش اطلاعات:"
+
+msgid "Switch config"
+msgstr "تنظیم سوییچ"
+
+msgid "System: "
+msgstr "سیستم:"
+
+msgid "This plugin shows you the status of your CCcam"
+msgstr "این پلاگین وضعیت سی سی كم را نشان میدهد"
+
+msgid "Total cards:"
+msgstr "كل كارتها:"
+
+msgid "Total handled client ecm's"
+msgstr "كلاینتهای در دست ecmكل "
+
+msgid "Total handled client emm's"
+msgstr "كلاینتهای در دست emmكل "
+
+msgid "Total:"
+msgstr "كل:"
+
+msgid "Type: "
+msgstr "نوع:"
+
+msgid "Uphops +"
+msgstr "Uphops +"
+
+msgid "Uphops -"
+msgstr "Uphops -"
+
+msgid "Uphops: "
+msgstr "Uphops: "
+
+msgid "Uptime"
+msgstr "Uptime"
+
+msgid "Used:"
+msgstr "استفاده شده:"
+
+msgid "Username:"
+msgstr "نام كاربری:"
+
+msgid "Using old profile: "
+msgstr "استفاده از پروفایل قدیمی:"
+
+msgid "Version: "
+msgstr "نسخه:"
+
+msgid "address:"
+msgstr "آدرس:"
+
+msgid "caid:"
+msgstr "Caid:"
+
+msgid "card"
+msgstr "كارت"
+
+msgid "card reader"
+msgstr "كارتخوان"
+
+msgid "close share view"
+msgstr "بستن وضعیت شیر"
+
+msgid "decrease uphop by 1"
+msgstr "یك به یك uphop كاهش"
+
+msgid "ecm time:"
+msgstr "Ecm زمان: "
+
+msgid "ecm.info"
+msgstr "Ecm اطلاعات"
+
+msgid "get the cards' server"
+msgstr "سرور كارتها را بگیر"
+
+msgid "handled"
+msgstr "تحت كنترل"
+
+msgid "hops:"
+msgstr "هاپها:"
+
+msgid "increase uphop by 1"
+msgstr "یك به یك uphop افزایش"
+
+msgid "no or unknown card inserted"
+msgstr "كارت ناشناخته / هیچ كارتی قرار ندارد"
+
+msgid "pid:"
+msgstr "Pid: "
+
+msgid "provid:"
+msgstr "provid:"
+
+msgid "provider:"
+msgstr "پروایدر: "
+
+msgid "share:"
+msgstr "شیر: "
+
+msgid "show all cards"
+msgstr "نمایش همه كارتها"
+
+msgid "show cards with uphop 0"
+msgstr "صفر uphop نمایش كارتها با "
+
+msgid "show cards with uphop 1"
+msgstr "یك uphop نمایش كارتها با "
+
+msgid "show cards with uphop 2"
+msgstr "دو uphop نمایش كارتها با "
+
+msgid "show cards with uphop 3"
+msgstr "سه uphop نمایش كارتها با "
+
+msgid "show cards with uphop 4"
+msgstr "چهار uphop نمایش كارتها با "
+
+msgid "show cards with uphop 5"
+msgstr "پنج uphop نمایش كارتها با "
+
+msgid "show cards with uphop 6"
+msgstr "شش uphop نمایش كارتها با "
+
+msgid "show cards with uphop 7"
+msgstr "هفت uphop نمایش كارتها با "
+
+msgid "show cards with uphop 8"
+msgstr "هشت uphop نمایش كارتها با "
+
+msgid "show cards with uphop 9"
+msgstr "نه uphop نمایش كارتها با "
+
+msgid "system:"
+msgstr "سیستم:"
+
+msgid "using:"
+msgstr "در حال استفاده از:"

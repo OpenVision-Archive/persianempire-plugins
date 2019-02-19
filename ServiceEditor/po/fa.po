@@ -1,0 +1,135 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Services Editor Persian Translation\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2009-04-17 19:22+0200\n"
+"PO-Revision-Date: 2011-05-16 21:38+0330\n"
+"Last-Translator: Farshadmb <farshad1151@hotmail.com>\n"
+"Language-Team: Persian Professionals <persianprince@persianpros.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 1.11.4\n"
+"X-Poedit-Language: Persian\n"
+"X-Poedit-Country: IRAN, ISLAMIC REPUBLIC OF\n"
+
+msgid "AC3 Delay (ms)"
+msgstr "AC3 تاخیر ms)"
+
+msgid "AC3 PID (hex)"
+msgstr "AC3 PID (hex)"
+
+msgid "Audio PID (hex)"
+msgstr "Audio PID (hex)"
+
+msgid "Audiochannel"
+msgstr "صدای كانال"
+
+msgid "DVB-C"
+msgstr "DVB-C"
+
+msgid "DVB-T"
+msgstr "DVB-T"
+
+msgid "E"
+msgstr "E"
+
+msgid "Error"
+msgstr "خطا"
+
+msgid ""
+"Frequency\n"
+"MHz"
+msgstr ""
+"فركانس\n"
+"مگاهرتز"
+
+msgid "Name"
+msgstr "اسم"
+
+msgid "Options for hide"
+msgstr "گزینه های مخفی كردن"
+
+msgid "PCM Delay (ms)"
+msgstr "PCM تاخیر (ms)"
+
+msgid "PCR PID (hex)"
+msgstr "PCR PID (hex)"
+
+msgid "Pos"
+msgstr "Pos"
+
+msgid "Provider"
+msgstr "Provider"
+
+msgid "Providers"
+msgstr "فراهم کنندگان "
+
+msgid "SID (hex)"
+msgstr "SID (hex)"
+
+msgid "Service"
+msgstr "خدمات"
+
+msgid "Services"
+msgstr "خدمات"
+
+msgid "Services Editor"
+msgstr "خدمات ویرایشگر "
+
+msgid "Subtitle PID (hex)"
+msgstr "زیرنویس PID (hex)"
+
+msgid "TXT PID (hex)"
+msgstr "TXT PID (hex)"
+
+msgid "Video PID (hex)"
+msgstr "Video PID (hex)"
+
+msgid "Video Type"
+msgstr "نوع ویدیو"
+
+msgid "W"
+msgstr "W"
+
+msgid "dont use SDT"
+msgstr "SDTغیر قابل استفاده"
+
+msgid "edit"
+msgstr "ویرایش"
+
+msgid "hide Provider %s"
+msgstr "مخفی كردن پروایدر %s"
+
+msgid "hide Service"
+msgstr "مخفی كردن خدمات"
+
+msgid "hide Service %s"
+msgstr "مخفی كردن خدمات%s"
+
+msgid "hide/unhide"
+msgstr "مخفی/آشكار كردن"
+
+msgid "keep Servicename"
+msgstr "حفظ اسم خدمات"
+
+msgid "no standart service"
+msgstr "خدمات غیر استاندارد"
+
+msgid "ok"
+msgstr "بله"
+
+msgid "sign as new Service"
+msgstr "ثبت خدمات جدید "
+
+msgid "sort"
+msgstr "ردیف"
+
+msgid "toggle hide attibutes for %s"
+msgstr "ضامن ویژگی برای مخفی کردن %s"
+
+msgid "unhide Provider %s"
+msgstr "نشان دادن پرووایدر %s"
+
+msgid "unhide Service %s"
+msgstr "آشكار كردن خدمات %s"

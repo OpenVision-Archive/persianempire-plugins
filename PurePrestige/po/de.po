@@ -1,0 +1,79 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: plugin\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2009-04-17 19:22+0200\n"
+"PO-Revision-Date: 2009-04-17 19:29+0100\n"
+"Last-Translator: adenin <adenin@i-have-a-dreambox.com>\n"
+"Language-Team: Deutsch\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 1.11.4\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Audiochannel"
+msgstr "Audiokanal"
+
+msgid "E"
+msgstr "O"
+
+msgid "Error"
+msgstr "Fehler"
+
+msgid "Provider"
+msgstr "Anbieter"
+
+msgid "Providers"
+msgstr "Anbieter"
+
+msgid "Service"
+msgstr "Kanal"
+
+msgid "Services"
+msgstr "Kanäle"
+
+msgid "Services Editor"
+msgstr "Service Editor"
+
+msgid "Subtitle PID (hex)"
+msgstr "Untertitel PID (hex)"
+
+msgid "dont use SDT"
+msgstr "SDT nicht benutzen"
+
+msgid "edit"
+msgstr "ändern"
+
+msgid "hide Provider %s"
+msgstr "Verstecke %s"
+
+msgid "hide Service"
+msgstr "Sender verstecken"
+
+msgid "hide Service %s"
+msgstr "Verstecke %s"
+
+msgid "hide/unhide"
+msgstr "un-/sichtbar"
+
+msgid "keep Servicename"
+msgstr "Sendername behalten"
+
+msgid "no standart service"
+msgstr "kein Standart Sender"
+
+msgid "sign as new Service"
+msgstr "Kennzeichnen als \"neuer Sender\""
+
+msgid "sort"
+msgstr "sortieren"
+
+msgid "toggle hide attibutes for %s"
+msgstr "vertausche sichtbar<=> unsichtbar für %s"
+
+msgid "unhide Provider %s"
+msgstr "Sichtbar machen von %s"
+
+msgid "unhide Service %s"
+msgstr "Sichtbar machen von %s"

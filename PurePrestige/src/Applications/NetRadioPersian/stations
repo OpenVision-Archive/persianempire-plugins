@@ -1,0 +1,117 @@
+<?xml version="1.0"  encoding="UTF-8" ?>
+<!--List of radio stations -->
+<xml>
+    <stations>
+        <station name = "Radio Online">
+            <url>http://uk1-vn.mixstream.net:8154/</url>
+        </station>
+        <station name = "Iranian Radio">
+            <url>http://213.73.255.244:10500/</url>
+        </station>
+        <station name = "Persian/Iranina">
+            <url>http://192.12.90.11:8030</url>
+        </station>
+        <station name = "Bia2 Music">
+            <url>http://radio.bia2.com:8000/</url>
+        </station>
+        <station name = "Radio Darvish">
+            <url>http://207.200.96.228:8078/</url>
+        </station>
+        <station name = "KIRN">
+            <url>http://174.36.167.220:9000/</url>
+        </station>
+        <station name = "Iran On Air">
+            <url>http://iranonair.no-ip.biz:8000/</url>
+        </station>
+        <station name = "Radio Zanan">
+            <url>http://87.117.250.3:9066/</url>
+        </station>
+        <station name = "Frosty">
+            <url>http://81.169.153.103:2012</url>
+        </station>
+        <station name = "Radio Hambastegi 1">
+            <url>http://hambastegione.mine.nu:9600/</url>
+        </station>
+        <station name = "Radio Hambastegi 1">
+            <url>http://radiostreamone.no-ip.org:9400/</url>
+        </station>
+        <station name = "RadioRadical Mix">
+            <url>http://108.163.177.42:9974</url>
+        </station>
+        <station name = "IranOnAir 90.5 Stockholm">
+            <url>http://85.229.238.185:8000</url>
+        </station>
+        <station name = "TASVIR IRAN 2AUDIO">
+            <url>http://63.234.245.14:8000</url>
+        </station>
+        <station name = "BaseTrax.FM Main Stream">
+            <url>http://81.169.157.246:8000</url>
+        </station>
+        <station name = "RadioMojdeh - Iranian Farsi/Persian Christian music and talk">
+            <url>http://72.13.81.35:5166</url>
+        </station>
+        <station name = "RadioMojdeh - Iranian Farsi/Persian Christian music and talk">
+            <url>http://72.13.81.35:5154</url>
+        </station>
+        <station name = "Prolocation: IranianRadio.com - Persian Traditional Music (Sonati">
+            <url>http://213.251.176.52:5700</url>
+        </station>
+        <station name = "Prolocation: IranianRadio.com - Persian Dance Party - High-Speed">
+            <url>http://213.251.176.52:5600</url>
+        </station>
+        <station name = "Radio Doost  (Persian/Farsi Voice of Tehranto Iranians">
+            <url>http://174.36.206.217:8507</url>
+        </station>
+        <station name = "RadioAli - Iranian/ Persian/ Farsi">
+            <url>http://204.9.190.80:8000</url>
+        </station>
+        <station name = "Radio Shahab - 100% The Best Persian Music - Mix">
+            <url>http://85.25.176.122:36328</url>
+        </station>
+        <station name = "Rangarang Flashback Persian Farsi Iranian Radio">
+            <url>http://159.253.143.4:8267</url>
+        </station>
+        <station name = "RadioDarvish.com - Persian Traditional Music - HiFi">
+            <url>http://207.200.96.228:8078</url>
+        </station>
+        <station name = "Madar Radio Persian Farsi Programming">
+            <url>http://67.159.28.74:8706</url>
+        </station>
+        <station name = "Rangarang Persian Iranian Farsi Radio">
+            <url>http://199.16.186.34:8350</url>
+        </station>
+        <station name = "~Persian-Cats Radio~">
+            <url>http://89.42.136.5:8000</url>
+        </station>
+        <station name = "Stockholmian - Persian - International Music">
+            <url>http://195.198.42.217:8000</url>
+        </station>
+        <station name = "LPR (London Persian Radio">
+            <url>http://178.159.0.13:7574</url>
+        </station>
+        <station name = "Radio Zamaneh">
+            <url>http://icecast.xs4all.nl:8000/zamaneh</url>
+        </station>
+        <station name = "LPR (London Persian Radio">
+            <url>http://178.159.0.13:7574</url>
+        </station>
+        <station name = "Radio Javan (Low)">
+            <url>http://stream.radiojavan.com/radiojavan_low</url>
+        </station>
+        <station name = "Radio Javan (High)">
+            <url>http://stream.radiojavan.com/radiojavan</url>
+        </station>
+        <station name = "Radio Javan">
+            <url>http://209.9.238.66/radiojavan</url>
+        </station>
+        <station name = "Radio Golha">
+            <url>http://145.99.210.194:8001/radiogolha</url>
+        </station>
+        <station name = "Live Persian Radio">
+            <url>http://sams.serverroom.us:5374</url>
+        </station>
+        <station name = "Radio Pasargad">
+            <url>http://184.107.141.82:9001</url>
+        </station>
+    </stations>
+</xml>

@@ -1,0 +1,158 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: cccam\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-07-25 10:37+0200\n"
+"PO-Revision-Date: 2008-12-10 14:48+0100\n"
+"Last-Translator: Michael <admin@dreamboxforum.eu>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "About"
+msgstr "O programu"
+
+msgid "Active clients"
+msgstr "Aktivni klienti"
+
+msgid "All"
+msgstr "Vsechny"
+
+msgid "Available shares:"
+msgstr "Mozne sdileni:"
+
+msgid "CaID: "
+msgstr "CaID:"
+
+msgid "Cards: "
+msgstr "Karty:"
+
+msgid "Cards: 0"
+msgstr "Karet: 0"
+
+msgid "Clients"
+msgstr "Klienti"
+
+msgid "Connected: "
+msgstr "Pripojeno:"
+
+msgid "Could not open the file %s!"
+msgstr "Nemohu otevrit soubor %s!"
+
+msgid "Entitlements"
+msgstr "Slot info"
+
+msgid "Error reading webpage!"
+msgstr "Chyba pri cteni Webu!"
+
+msgid "Extended Shares"
+msgstr "Rozsirene sdileni"
+
+msgid "Free memory"
+msgstr "Volna pamet"
+
+msgid "Free memory:"
+msgstr "Volna pamet:"
+
+msgid "Free:"
+msgstr "Volne:"
+
+msgid "General"
+msgstr "Zakladni informace"
+
+msgid "Hostname: "
+msgstr "Jmeno hosta:"
+
+msgid "IP:"
+msgstr "IP:"
+
+msgid "Idle Time: "
+msgstr "Doba pripojeni:"
+
+msgid "Last used share: "
+msgstr "Posledni pouzite sdileni:"
+
+msgid "Local box"
+msgstr "Lokalni box"
+
+msgid "Maxdown +"
+msgstr "Maxdown +"
+
+msgid "Maxdown -"
+msgstr "Maxdown -"
+
+msgid "Maxdown: "
+msgstr "Maxdown:"
+
+msgid "New profile: "
+msgstr "Novy profil"
+
+msgid "No card inserted!"
+msgstr "Karta neni vlozena!"
+
+msgid "NodeID: "
+msgstr "NodeID:"
+
+msgid "Password:"
+msgstr "Heslo:"
+
+msgid "Port:"
+msgstr "Port:"
+
+msgid "Profile: Local box"
+msgstr "Profil: Lokalni box"
+
+msgid "Provider Name: "
+msgstr "Jmeno poskytovateler:"
+
+msgid "Provider: "
+msgstr "Poskytovatel:"
+
+msgid "Providers"
+msgstr "Poskytovatele"
+
+msgid "Remote box"
+msgstr "Vzdaleny box"
+
+msgid "Servers"
+msgstr "Servery"
+
+msgid "Shares"
+msgstr "Sdileni"
+
+msgid "System: "
+msgstr "System: "
+
+msgid "This plugin shows you the status of your CCcam"
+msgstr "Tento plugin Vam sdeli status emulatoru CCcam"
+
+msgid "Total:"
+msgstr "Celkem:"
+
+msgid "Type: "
+msgstr "Typ:"
+
+msgid "Uphops +"
+msgstr "Vzdalenost +"
+
+msgid "Uphops -"
+msgstr "Vzdalenost -"
+
+msgid "Uphops: "
+msgstr "Vzdalenost:"
+
+msgid "Used:"
+msgstr "Pouzito:"
+
+msgid "Username:"
+msgstr "Uzivatelske jmeno:"
+
+msgid "Using old profile: "
+msgstr "Pouzivam stary profil:"
+
+msgid "Version: "
+msgstr "Verze:"
+
+msgid "ecm.info"
+msgstr "ECM Info"

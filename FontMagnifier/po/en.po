@@ -1,0 +1,276 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: FontMagnifier 0.6.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-10-09 21:31+0100\n"
+"PO-Revision-Date: \n"
+"Last-Translator: BigReaper <abc@aol.com>\n"
+"Language-Team: BigReaper <BigReaper@gmx.net>\n"
+"Language: en_GB\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-Basepath: Z:\\dreambox\\usr\\lib\\enigma2\\python\\Plugins"
+"\\Extensions\\FontMagnifier\n"
+"X-Generator: Poedit 1.5.3\n"
+"X-Poedit-SearchPath-0: Z:\\dreambox\\usr\\lib\\enigma2\\python\\Plugins"
+"\\Extensions\\FontMagnifier\n"
+
+#: Z:\dreambox\usr\lib\enigma2\python\Plugins\Extensions\FontMagnifier/plugin.py:57
+msgid "Tool to change font sizes easily."
+msgstr "Tool to change easily font sizes."
+
+#: Z:\dreambox\usr\lib\enigma2\python\Plugins\Extensions\FontMagnifier/plugin.py:83
+msgid "Cancel"
+msgstr "Cancel"
+
+#: Z:\dreambox\usr\lib\enigma2\python\Plugins\Extensions\FontMagnifier/plugin.py:84
+msgid "OK"
+msgstr "OK"
+
+#: Z:\dreambox\usr\lib\enigma2\python\Plugins\Extensions\FontMagnifier/plugin.py:389
+msgid "Enable display options"
+msgstr "Display options"
+
+#: Z:\dreambox\usr\lib\enigma2\python\Plugins\Extensions\FontMagnifier/plugin.py:392
+msgid "Enable service number in display"
+msgstr "Use service number in display"
+
+#: Z:\dreambox\usr\lib\enigma2\python\Plugins\Extensions\FontMagnifier/plugin.py:394
+msgid "Enter service number font size in pixel"
+msgstr "service number font size in pixel"
+
+#: Z:\dreambox\usr\lib\enigma2\python\Plugins\Extensions\FontMagnifier/plugin.py:395
+msgid "Show only time in display when box is in standby"
+msgstr "Show only time in display when box is in standby"
+
+#: Z:\dreambox\usr\lib\enigma2\python\Plugins\Extensions\FontMagnifier/plugin.py:398
+msgid "Select regular font"
+msgstr "Select \"Regular\" font"
+
+#: Z:\dreambox\usr\lib\enigma2\python\Plugins\Extensions\FontMagnifier/plugin.py:400
+msgid "Enter font size for epg description in pixel"
+msgstr "Enter font size for epg description in pixel"
+
+#: Z:\dreambox\usr\lib\enigma2\python\Plugins\Extensions\FontMagnifier/plugin.py:401
+msgid "Enter font size for epg description in single epg"
+msgstr "Enter font size for epg description in single epg"
+
+#: Z:\dreambox\usr\lib\enigma2\python\Plugins\Extensions\FontMagnifier/plugin.py:403
+msgid "Enter font size for channel list in single epg"
+msgstr "Enter font size for epg list in single epg"
+
+#: Z:\dreambox\usr\lib\enigma2\python\Plugins\Extensions\FontMagnifier/plugin.py:405
+msgid "Enter font size for date/time in multi epg"
+msgstr "Enter font size in pixel for date/time in multi epg"
+
+#: Z:\dreambox\usr\lib\enigma2\python\Plugins\Extensions\FontMagnifier/plugin.py:407
+msgid "Font size for epg description in channel list"
+msgstr "Channel list: Font size for epg description"
+
+#: Z:\dreambox\usr\lib\enigma2\python\Plugins\Extensions\FontMagnifier/plugin.py:409
+msgid "Font size for channel list"
+msgstr "Enter font size for channel list in pixel"
+
+#: Z:\dreambox\usr\lib\enigma2\python\Plugins\Extensions\FontMagnifier/plugin.py:411
+msgid "Font size for movie list"
+msgstr "movie list: Font size for recording in pixel"
+
+#: Z:\dreambox\usr\lib\enigma2\python\Plugins\Extensions\FontMagnifier/plugin.py:413
+msgid "Font size for infobar event now"
+msgstr "Infobar: Font size for current event in pixel"
+
+#: Z:\dreambox\usr\lib\enigma2\python\Plugins\Extensions\FontMagnifier/plugin.py:415
+msgid "Font size for infobar event next"
+msgstr "Infobar: Font size for next event in pixel"
+
+#: Z:\dreambox\usr\lib\enigma2\python\Plugins\Extensions\FontMagnifier/plugin.py:418
+msgid "show subtitle options"
+msgstr "Show subtitle options"
+
+#: Z:\dreambox\usr\lib\enigma2\python\Plugins\Extensions\FontMagnifier/plugin.py:421
+msgid "Font size for subtitles (Teletext)"
+msgstr "Subtitles: Font size in pixel (Teletext)"
+
+#: Z:\dreambox\usr\lib\enigma2\python\Plugins\Extensions\FontMagnifier/plugin.py:423
+msgid "Font size for subtitles (Regular)"
+msgstr "Subtitles: Font size in pixel (regular)"
+
+#: Z:\dreambox\usr\lib\enigma2\python\Plugins\Extensions\FontMagnifier/plugin.py:425
+msgid "Font size for subtitles (Bold)"
+msgstr "Subtitles: Font size in pixel (bold)"
+
+#: Z:\dreambox\usr\lib\enigma2\python\Plugins\Extensions\FontMagnifier/plugin.py:427
+msgid "Font size for subtitles (Italic)"
+msgstr "Subtitles: Font size in pixel (italic)"
+
+#: Z:\dreambox\usr\lib\enigma2\python\Plugins\Extensions\FontMagnifier/plugin.py:445
+msgid ""
+"Font magnifier plugin\n"
+"\n"
+"This plugin helps you to\n"
+"set up different font sizes.\n"
+"\n"
+"(c) 2012 - BigReaper"
+msgstr ""
+"Font magnifier plugin\n"
+"\n"
+"This plugin helps you to\n"
+"set up different font sizes.\n"
+"\n"
+"(c) 2012 - BigReaper"
+
+#: Z:\dreambox\usr\lib\enigma2\python\Plugins\Extensions\FontMagnifier/plugin.py:446
+#: Z:\dreambox\usr\lib\enigma2\python\Plugins\Extensions\FontMagnifier/plugin.py:492
+#: Z:\dreambox\usr\lib\enigma2\python\Plugins\Extensions\FontMagnifier/plugin.py:527
+#: Z:\dreambox\usr\lib\enigma2\python\Plugins\Extensions\FontMagnifier/plugin.py:549
+#: Z:\dreambox\usr\lib\enigma2\python\Plugins\Extensions\FontMagnifier/plugin.py:582
+#: Z:\dreambox\usr\lib\enigma2\python\Plugins\Extensions\FontMagnifier/plugin.py:618
+#: Z:\dreambox\usr\lib\enigma2\python\Plugins\Extensions\FontMagnifier/plugin.py:653
+msgid "Info..."
+msgstr "Info..."
+
+#: Z:\dreambox\usr\lib\enigma2\python\Plugins\Extensions\FontMagnifier/plugin.py:468
+#: Z:\dreambox\usr\lib\enigma2\python\Plugins\Extensions\FontMagnifier/plugin.py:513
+msgid "restore skin.xml"
+msgstr "restore skin.xml"
+
+#: Z:\dreambox\usr\lib\enigma2\python\Plugins\Extensions\FontMagnifier/plugin.py:470
+#: Z:\dreambox\usr\lib\enigma2\python\Plugins\Extensions\FontMagnifier/plugin.py:515
+msgid "restore EpgList.py"
+msgstr "restore EpgList.py"
+
+#: Z:\dreambox\usr\lib\enigma2\python\Plugins\Extensions\FontMagnifier/plugin.py:472
+#: Z:\dreambox\usr\lib\enigma2\python\Plugins\Extensions\FontMagnifier/plugin.py:517
+msgid "restore MovieList.py"
+msgstr "restore MovieList.py"
+
+#: Z:\dreambox\usr\lib\enigma2\python\Plugins\Extensions\FontMagnifier/plugin.py:474
+#: Z:\dreambox\usr\lib\enigma2\python\Plugins\Extensions\FontMagnifier/plugin.py:519
+msgid "restore ServiceList.py"
+msgstr "restore ServiceList.py"
+
+#: Z:\dreambox\usr\lib\enigma2\python\Plugins\Extensions\FontMagnifier/plugin.py:476
+#: Z:\dreambox\usr\lib\enigma2\python\Plugins\Extensions\FontMagnifier/plugin.py:521
+msgid "restore skin_user.xml"
+msgstr "restore skin_user.xml"
+
+#: Z:\dreambox\usr\lib\enigma2\python\Plugins\Extensions\FontMagnifier/plugin.py:479
+#: Z:\dreambox\usr\lib\enigma2\python\Plugins\Extensions\FontMagnifier/plugin.py:505
+msgid "Save settings"
+msgstr "Save settings"
+
+#: Z:\dreambox\usr\lib\enigma2\python\Plugins\Extensions\FontMagnifier/plugin.py:482
+#: Z:\dreambox\usr\lib\enigma2\python\Plugins\Extensions\FontMagnifier/plugin.py:507
+msgid "Restore settings"
+msgstr "Restore settings"
+
+#: Z:\dreambox\usr\lib\enigma2\python\Plugins\Extensions\FontMagnifier/plugin.py:490
+#: Z:\dreambox\usr\lib\enigma2\python\Plugins\Extensions\FontMagnifier/plugin.py:503
+#: Z:\dreambox\usr\lib\enigma2\python\Plugins\Extensions\FontMagnifier/plugin.py:616
+#: Z:\dreambox\usr\lib\enigma2\python\Plugins\Extensions\FontMagnifier/plugin.py:629
+msgid "No files to restore!"
+msgstr "No files to restore!"
+
+#: Z:\dreambox\usr\lib\enigma2\python\Plugins\Extensions\FontMagnifier/plugin.py:495
+msgid "restore options"
+msgstr "restore options"
+
+#: Z:\dreambox\usr\lib\enigma2\python\Plugins\Extensions\FontMagnifier/plugin.py:525
+#: Z:\dreambox\usr\lib\enigma2\python\Plugins\Extensions\FontMagnifier/plugin.py:546
+msgid " not restored."
+msgstr " not restored."
+
+#: Z:\dreambox\usr\lib\enigma2\python\Plugins\Extensions\FontMagnifier/plugin.py:543
+msgid " restored."
+msgstr " restored."
+
+#: Z:\dreambox\usr\lib\enigma2\python\Plugins\Extensions\FontMagnifier/plugin.py:579
+msgid "Settins saved to "
+msgstr "Settins saved to "
+
+#: Z:\dreambox\usr\lib\enigma2\python\Plugins\Extensions\FontMagnifier/plugin.py:585
+msgid "Saving settings failed!"
+msgstr "Saving settings failed!"
+
+#: Z:\dreambox\usr\lib\enigma2\python\Plugins\Extensions\FontMagnifier/plugin.py:587
+#: Z:\dreambox\usr\lib\enigma2\python\Plugins\Extensions\FontMagnifier/plugin.py:657
+#: Z:\dreambox\usr\lib\enigma2\python\Plugins\Extensions\FontMagnifier/plugin.py:682
+msgid "Error..."
+msgstr "Error..."
+
+#: Z:\dreambox\usr\lib\enigma2\python\Plugins\Extensions\FontMagnifier/plugin.py:621
+msgid "Please select settings to restore"
+msgstr "Please select settings to restore"
+
+#: Z:\dreambox\usr\lib\enigma2\python\Plugins\Extensions\FontMagnifier/plugin.py:651
+#, python-format
+msgid ""
+"Saved settings restored!\n"
+"(%s)"
+msgstr ""
+"Saved settings restored!\n"
+"(%s)"
+
+#: Z:\dreambox\usr\lib\enigma2\python\Plugins\Extensions\FontMagnifier/plugin.py:655
+#, python-format
+msgid ""
+"Saved settings restored with errors!\n"
+"(%s)"
+msgstr ""
+"Saved settings restored with errors!\n"
+"(%s)"
+
+#: Z:\dreambox\usr\lib\enigma2\python\Plugins\Extensions\FontMagnifier/plugin.py:697
+msgid "Please wait..."
+msgstr "Please wait..."
+
+#: Z:\dreambox\usr\lib\enigma2\python\Plugins\Extensions\FontMagnifier/plugin.py:774
+msgid "Sorry, unable modify skin_user.xml"
+msgstr "Sorry, unable modify skin_user.xml."
+
+#: Z:\dreambox\usr\lib\enigma2\python\Plugins\Extensions\FontMagnifier/plugin.py:996
+#, python-format
+msgid "Sorry, unable to parse /usr/share/enigma2/%s."
+msgstr "Sorry, unable to parse /usr/share/enigma2/%s."
+
+#: Z:\dreambox\usr\lib\enigma2\python\Plugins\Extensions\FontMagnifier/plugin.py:1033
+msgid "Sorry, unable to parse /usr/lib/enigma2/python/Components/EpgList.py"
+msgstr "Sorry, unable to parse /usr/lib/enigma2/python/Components/EpgList.py"
+
+#: Z:\dreambox\usr\lib\enigma2\python\Plugins\Extensions\FontMagnifier/plugin.py:1056
+msgid "Sorry, unable to parse /usr/lib/enigma2/python/Components/MovieList.py"
+msgstr "Sorry, unable to parse /usr/lib/enigma2/python/Components/MovieList.py"
+
+#: Z:\dreambox\usr\lib\enigma2\python\Plugins\Extensions\FontMagnifier/plugin.py:1058
+msgid ""
+"GUI needs a restart to apply a new settings\n"
+"Do you want to Restart the GUI now?"
+msgstr ""
+"GUI needs a restart to apply a new settings\n"
+"Do you want to Restart the GUI now?"
+
+#: Z:\dreambox\usr\lib\enigma2\python\Plugins\Extensions\FontMagnifier/plugin.py:1059
+msgid "Restart GUI now?"
+msgstr "Restart GUI now?"
+
+#~ msgid "Restore failed: unknown attribute '%s'"
+#~ msgstr "Restore failed: unknown attribute '%s'"
+
+#~ msgid "Restore failed: XML attribute error '%s'"
+#~ msgstr "Restore failed: XML attribute error '%s'"
+
+#~ msgid "font magnifier plugin"
+#~ msgstr "Font Magnifier Plugin"
+
+#~ msgid ""
+#~ "Sorry, unable to parse /usr/lib/enigma2/python/Components/ServiceList.py"
+#~ msgstr ""
+#~ "Sorry, unable to parse /usr/lib/enigma2/python/Components/ServiceList.py"
+
+#~ msgid "Sorry, no screens found!"
+#~ msgstr "Sorry, no screens found!"
+
+#~ msgid "Restart Enigma 2 and check result!"
+#~ msgstr "Restart Enigma 2 and check result!"

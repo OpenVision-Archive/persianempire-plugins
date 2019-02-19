@@ -1,0 +1,155 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Font Magnifier Persian Translation\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-02-26 18:44+0100\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Farshadmb <farshad1151@hotmail.com>\n"
+"Language-Team: Persian Professionals <persianprince@persianpros.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Persian\n"
+"X-Poedit-Country: IRAN, ISLAMIC REPUBLIC OF\n"
+"X-Poedit-Basepath: D:\\dreambox\\usr\\lib\\enigma2\\python\\Plugins"
+"\\Extensions\\FontMagnifier\n"
+"X-Poedit-SearchPath-0: D:\\dreambox\\usr\\lib\\enigma2\\python\\Plugins"
+"\\Extensions\\FontMagnifier\n"
+
+msgid " not restored."
+msgstr "بازسازی نشده است."
+
+msgid " restored."
+msgstr "بازسازی شد."
+
+msgid "Cancel"
+msgstr "لغو"
+
+msgid "Enable display options"
+msgstr "فعال کردن گزینه های نمایش"
+
+msgid "Enable service number in display"
+msgstr "فعال کردن شماره سرویس در صفحه نمایش "
+
+msgid "Enter font size for channel list in single epg"
+msgstr " وارد کنید epgاندازه فونت برای لیست کانال را در یك  "
+
+msgid "Enter font size for date/time in multi epg"
+msgstr " وارد کنید epgاندازه فونت برای روز/وقت را در یك  "
+
+msgid "Enter font size for epg description in pixel"
+msgstr " کنید epg وارد توضیحات در پیکسل را اندازه فونت برای"
+
+msgid "Enter font size for epg description in single epg"
+msgstr "را وارد کنید epg توضیحات یك epgیك اندازه فونت برای"
+
+msgid "Enter service number font size in pixel"
+msgstr " وارد کنید  اندازه فونت شماره سرویس در پیکسل را"
+
+msgid ""
+"Font magnifier plugin\n"
+"\n"
+"This plugin helps you to\n"
+"set up different font sizes.\n"
+"\n"
+"(c) 2010 - BigReaper"
+msgstr ""
+"ذره بین فونت پلاگین\n"
+"\n"
+"این پلاگین به شما کمک میکند\n"
+"برای تنظیم اندازه فونتهای مختلف\n"
+"\n"
+"(c) 2010 - BigReaper"
+
+msgid "Font size for channel list"
+msgstr "اندازه فونت برای فهرست کانال "
+
+msgid "Font size for epg description in channel list"
+msgstr "اندازه فونت برای شرح در فهرست کانال "
+
+msgid "Font size for infobar event next"
+msgstr "اندازه فونت برای نواراطلاعات بعدی "
+
+msgid "Font size for infobar event now"
+msgstr "اندازه فونت برای نواراطلاعات جاری "
+
+msgid "Font size for movie list"
+msgstr "اندازه فونت برای لیست فیلم "
+
+msgid "Font size for subtitles (Bold)"
+msgstr "اندازه فونت برای زیرنویسها (Bold)"
+
+msgid "Font size for subtitles (Italic)"
+msgstr "اندازه فونت برای زیرنویسها (Italic)"
+
+msgid "Font size for subtitles (Regular)"
+msgstr "اندازه فونت برای زیرنویسها(Normal)"
+
+msgid "Font size for subtitles (Teletext)"
+msgstr "اندازه فونت برای زیرنویسها (Teletext)"
+
+msgid ""
+"GUI needs a restart to apply a new settings\n"
+"Do you want to Restart the GUI now?"
+msgstr ""
+"GUIنیاز به یک راه اندازی مجدد به اعمال تنظیمات جدید.\n"
+"آیا اكنون میخواهید ؟"
+
+msgid "Info..."
+msgstr "اطلاعات"
+
+msgid "No files to restore!"
+msgstr "بدون فایل برای راه اندازی مجدد!"
+
+msgid "OK"
+msgstr "بله"
+
+msgid "Please wait..."
+msgstr "منتظر بمانید ..."
+
+msgid "Restart GUI now?"
+msgstr "GUIراه اندازی مجدد"
+
+msgid "Show only time in display when box is in standby"
+msgstr "نمایش زمان تنها وقتی كه دستگاه آماده بكار است ."
+
+msgid "Sorry, unable modify skin_user.xml"
+msgstr "فعال نیست skin_user.xml متاسفانه اصلاح"
+
+msgid "Sorry, unable to parse /usr/lib/enigma2/python/Components/EpgList.py"
+msgstr ""
+"متاسفانه /usr/lib/enigma2/python/Components/EpgList.قادر به اصلاح نیست."
+
+msgid "Sorry, unable to parse /usr/lib/enigma2/python/Components/MovieList.py"
+msgstr ""
+"متاسفانه /usr/lib/enigma2/python/Components/MovieList.pyقادر به اصلاح نیست"
+
+msgid "Sorry, unable to parse /usr/share/enigma2/%s."
+msgstr "متاسفانه /usr/share/enigma2/%s قادر به اصلاح نیست."
+
+msgid "Tool to change easily font sizes."
+msgstr "ابزاری برای راحتی تغییر اندازه قلم."
+
+msgid "font magnifier plugin"
+msgstr "ذره بین فونت پلاگین"
+
+msgid "restore EpgList.py"
+msgstr "EpgList.py راه اندازی مجدد"
+
+msgid "restore MovieList.py"
+msgstr "MovieList.py راه اندازی مجدد"
+
+msgid "restore ServiceList.py"
+msgstr "ServiceList.pyراه اندازی مجدد"
+
+msgid "restore options"
+msgstr "گزینه های راه اندازی مجدد"
+
+msgid "restore skin.xml"
+msgstr "skin.xml راه اندازی مجدد"
+
+msgid "restore skin_user.xml"
+msgstr "skin_user.xml راه اندازی مجدد"
+
+msgid "show subtitle options"
+msgstr "نمایش گزینه های زیرنویس"
