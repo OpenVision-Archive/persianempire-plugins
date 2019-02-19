@@ -121,7 +121,6 @@ PEInfo/src/Makefile
 PEInfo/src/icons/Makefile
 
 PEPanel/Makefile
-PEPanel/binary/Makefile
 PEPanel/src/Makefile
 PEPanel/src/Daemons/Makefile
 PEPanel/src/Extra/Makefile

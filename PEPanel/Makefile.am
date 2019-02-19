@@ -1,1 +1,1 @@
-SUBDIRS = binary src
+SUBDIRS = src
