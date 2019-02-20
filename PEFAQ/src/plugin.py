@@ -291,20 +291,8 @@ class PEFaqs(Screen):
         self.close(True)
 
 
-def PELock():
-    try:
-        from pe import gettitle
-        petitle = gettitle()
-        return petitle
-    except:
-        return False
-
-
 def main(session, **kwargs):
-        if PELock()==False:
-            return
-     	else:
-	    session.open(PEFaqs)
+        session.open(PEFaqs)
 
 
 def Plugins(**kwargs):

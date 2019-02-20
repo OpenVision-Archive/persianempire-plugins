@@ -119,19 +119,9 @@ class SoftCamUpdater(ConfigListScreen, Screen):
 		except:
 			self.mbox = self.session.open(MessageBox,(_("Download Failed")), MessageBox.TYPE_INFO, timeout = 3 )
 
-def PELock():
-    try:
-        from pe import gettitle
-        petitle = gettitle()
-        return petitle
-    except:
-        return False
 
 def main(session, **kwargs):
-	if PELock()==False:
-		return
-	else:
-		session.open(SoftCamUpdater)
+	session.open(SoftCamUpdater)
 
 def Plugins(**kwargs):
 	return PluginDescriptor(

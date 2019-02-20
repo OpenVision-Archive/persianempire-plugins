@@ -4258,19 +4258,9 @@ def startPEmenu(menuid):
           2)]
     return []
 
-def PELock():
-    try:
-        from pe import gettitle
-        petitle = gettitle()
-        return petitle
-    except:
-        return False
 
 def main(session, **kwargs):
-    if PELock() == False:
-        return
-    else:
-        session.open(PEMainMenu)
+    session.open(PEMainMenu)
 
 def Plugins(path, **kwargs):
     global plugin_path

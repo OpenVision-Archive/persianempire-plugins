@@ -67,19 +67,9 @@ class DeviceInfo(Screen):
 				"ok": self.close,
 			})		
 
-def PELock():
-    try:
-        from pe import gettitle
-        petitle = gettitle()
-        return petitle
-    except:
-        return False
 
 def startinfo(session, **kwargs):
-	if PELock()==False:
-		return
-	else:
-		session.open(DeviceInfo)
+	session.open(DeviceInfo)
 
 def mainconf(menuid):
     if menuid != "information":                                                  

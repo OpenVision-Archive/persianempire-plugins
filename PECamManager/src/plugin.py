@@ -13,19 +13,9 @@ config.plugins.PECam.camdir = ConfigText(default="/usr/camd",
 
 checkconfigdir()
 
-def PELock():
-    try:
-        from pe import gettitle
-        petitle = gettitle()
-        return petitle
-    except:
-        return False
 
 def main(session, **kwargs):
-    if PELock() == False:
-        return
-    else:
-	session.open(PECamManager)
+    session.open(PECamManager)
 
 EnigmaStart = False
 

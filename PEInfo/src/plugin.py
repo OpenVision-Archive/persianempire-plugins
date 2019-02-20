@@ -1718,20 +1718,8 @@ def start_from_mainmenu(menuid, **kwargs):
     return []
 
 
-def PELock():
-    try:
-        from pe import gettitle
-        petitle = gettitle()
-        return petitle
-    except:
-        return False
-
-
 def iniciainfo(session, **kwargs):
-	if PELock()==False:
-		return
-	else:
-		session.open(PEInfo)
+	session.open(PEInfo)
 
 
 def Plugins(**kwargs):

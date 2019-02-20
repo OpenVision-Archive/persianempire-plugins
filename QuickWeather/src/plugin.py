@@ -120,10 +120,7 @@ def WeatherInfoBar__init__(self, session):
 	self.Weatherinfobar = WeatherInfoBar(session, self)
 
 def main(session,**kwargs):
-	if PELock() == False:
-		return
-	else:
-		session.open(WeatherPluginMenu)
+	session.open(WeatherPluginMenu)
 
 def sessionstart(reason, **kwargs):
 	global gInfoBarWeather__init__
@@ -196,15 +193,6 @@ def autostart(reason, **kwargs):
 			baseInfoBar__init__ = InfoBar.__init__
 		InfoBar.__init__ = WeatherInfoBar__init__
 
-
-def PELock():
-    try:
-        from pe import gettitle
-        petitle = gettitle()
-        return petitle
-    except:
-        return False
-	
 
 def Plugins(**kwargs):
         return [

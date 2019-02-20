@@ -553,19 +553,7 @@ class PurePrestigebootlogo(Screen):
         self.timer.start(2000, True)
 
     def disappear(self):
-        if PELock() == False:
-            self.close()
-            return
         self.session.openWithCallback(self.close, showPurePrestigescreen)
-
-
-def PELock():
-    try:
-        from pe import gettitle
-        petitle = gettitle()
-        return petitle
-    except:
-        return False
 
 
 class PurePrestigeAboutScreen(Screen):
