@@ -86,6 +86,9 @@ DeviceInfo/converter/Makefile
 DeviceInfo/src/Makefile
 DeviceInfo/src/images/Makefile
 
+DownloadManager/Makefile
+DownloadManager/src/Makefile
+
 FontMagnifier/Makefile
 FontMagnifier/po/Makefile
 FontMagnifier/src/Makefile
