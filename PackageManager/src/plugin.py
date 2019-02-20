@@ -9,7 +9,6 @@ from Screens.Console import Console
 from Components.Label import Label
 from Components.MenuList import MenuList
 from Plugins.Plugin import PluginDescriptor
-from Plugins.Extensions.PersianPalace import *
 from Components.Language import language
 from Tools.Directories import resolveFilename, SCOPE_PLUGINS, SCOPE_LANGUAGE
 from os import environ
@@ -30,7 +29,7 @@ def _(txt):
 	
 class PackageManagerScreen(Screen):
 	skin = """
-	<screen name="ipktoolsscreen" position="center,160" size="750,400" title="Package Manager For Persian Empire">
+	<screen name="ipktoolsscreen" position="center,160" size="750,400" title="Package Manager for Open Vision">
 	<ePixmap position="20,385" zPosition="1" size="170,2" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/PackageManager/images/red.png" transparent="1" alphatest="on" />
 	<ePixmap position="190,385" zPosition="1" size="230,2" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/PackageManager/images/green.png" transparent="1" alphatest="on" />
 	<ePixmap position="420,385" zPosition="1" size="170,2" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/PackageManager/images/yellow.png" transparent="1" alphatest="on" />	
@@ -499,17 +498,17 @@ class InstallRar(Screen):
 		try:
 			item = self["menu"].getCurrent()
 			name = item[0]
-			pecommand1 = ("/usr/lib/enigma2/python/Plugins/Extensions/PersianPalace/.Binary/.unrar x -u /tmp/%s /" % name)
-			pecommand2 = ("/usr/lib/enigma2/python/Plugins/Extensions/PersianPalace/.Binary/.unrar x -u /media/usb/%s /" % name)
-			pecommand3 = ("/usr/lib/enigma2/python/Plugins/Extensions/PersianPalace/.Binary/.unrar x -u /media/hdd/%s /" % name)
-			pecommand4 = ("/usr/lib/enigma2/python/Plugins/Extensions/PersianPalace/.Binary/.unrar x -u /media/cf/%s /" % name)
+			pecommand1 = ("unrar x -u /tmp/%s /" % name)
+			pecommand2 = ("unrar x -u /media/usb/%s /" % name)
+			pecommand3 = ("unrar x -u /media/hdd/%s /" % name)
+			pecommand4 = ("unrar x -u /media/cf/%s /" % name)
 			self.session.open(Console,title = _("Install rar"), cmdlist = [pecommand1, pecommand2, pecommand3, pecommand4])
 		except:
 			pass
 			
 	def okInstAll(self):
 			ipklist = os.popen("ls -1  /tmp/*.rar /media/usb/*.rar /media/hdd/*.rar /media/cf/*.rar")
-			self.session.open(Console,title = _("Install rar"), cmdlist = ["/usr/lib/enigma2/python/Plugins/Extensions/PersianPalace/.Binary/.unrar x -u /tmp/*.rar /", "/usr/lib/enigma2/python/Plugins/Extensions/PersianPalace/.Binary/.unrar x -u /media/usb/*.rar /", "/usr/lib/enigma2/python/Plugins/Extensions/PersianPalace/.Binary/.unrar x -u /media/hdd/*.rar /", "/usr/lib/enigma2/python/Plugins/Extensions/PersianPalace/.Binary/.unrar x -u /media/cf/*.rar /"])
+			self.session.open(Console,title = _("Install rar"), cmdlist = ["unrar x -u /tmp/*.rar /", "unrar x -u /media/usb/*.rar /", "unrar x -u /media/hdd/*.rar /", "unrar x -u /media/cf/*.rar /"])
 
 	def cancel(self):
 		self.close()		
@@ -667,7 +666,7 @@ def main(session, **kwargs):
 def Plugins(**kwargs):
 	return PluginDescriptor(
 			name = _("Package Manager"),
-			description = _("Special Version For Persian Empire"),
+			description = _("Special version for Open Vision"),
 			where = [PluginDescriptor.WHERE_PLUGINMENU, PluginDescriptor.WHERE_EXTENSIONSMENU],
 			icon="PackageManager.png",
 			fnc=main)

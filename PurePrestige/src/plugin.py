@@ -11,7 +11,6 @@ from Components.ActionMap import ActionMap, NumberActionMap
 from Components.Sources.StaticText import StaticText
 from Components.AVSwitch import AVSwitch
 from Components.Sources.List import List
-from Plugins.Extensions.PersianPalace import *
 from Components.ConfigList import ConfigList, ConfigListScreen
 from Components.ScrollLabel import ScrollLabel
 from Components.config import config, ConfigSubsection, ConfigInteger, ConfigSelection, ConfigText, ConfigEnableDisable, KEY_LEFT, KEY_RIGHT, KEY_0, getConfigListEntry
@@ -375,8 +374,8 @@ class showPurePrestigescreen(Screen):
         self.serversnames = []
         self.serversurls = []
         try:
-            self.serversnames.append('Persian Empire Server')
-            self.serversurls.append('http://panel.e2pe.com/pureprestige/mips32el/pureprestige.xml')
+            self.serversnames.append('Open Vision Server')
+            self.serversurls.append('https://openvision.tech/pureprestige/mips32el/pureprestige.xml')
             self.serversnames.append('DreamOEM Server')
             self.serversurls.append('http://mfaraj57.dreamoem.net/sim201-server_addons.xml')
             return
@@ -419,7 +418,7 @@ class checkupdateScreen(Screen):
          'red': self.close,
          'yellow': self.runupdate}, -1)
         try:
-            fp = urllib.urlopen('http://panel.e2pe.com/pureprestige/mips32el/update.txt')
+            fp = urllib.urlopen('https://openvision.tech/pureprestige/mips32el/update.txt')
             count = 0
             self.labeltext = ''
             s1 = fp.readline()

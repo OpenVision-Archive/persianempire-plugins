@@ -49,7 +49,7 @@ class AddonsFileBrowser(Screen):
         self.unzipret = os.system('unzip -o -d / "%s"' % self.filename)
 
     def unrar(self):
-        self.unrarret = os.system('/usr/lib/enigma2/python/Plugins/Extensions/PersianPalace/.Binary/.unrar x -u "%s" /' % self.filename)
+        self.unrarret = os.system('unrar x -u "%s" /' % self.filename)
 
     def ok(self):
         if self['filelist'].canDescent():

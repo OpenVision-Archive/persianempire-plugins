@@ -41,4 +41,4 @@ def startMountManager(menuid):
 	return [(_("Mount Manager"), main, "mount_manager", None)]
 
 def Plugins(**kwargs):
-	return PluginDescriptor(name=_("Mount Manager"), description="Special Version For Persian Empire", where = PluginDescriptor.WHERE_MENU, fnc=startMountManager)
+	return PluginDescriptor(name=_("Mount Manager"), description="Special version for Open Vision", where = PluginDescriptor.WHERE_MENU, fnc=startMountManager)

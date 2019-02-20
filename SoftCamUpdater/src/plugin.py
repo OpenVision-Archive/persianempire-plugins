@@ -10,7 +10,6 @@ from Components.Language import language
 from Tools.Directories import resolveFilename, SCOPE_PLUGINS, SCOPE_LANGUAGE
 from Screens.PluginBrowser import PluginBrowser
 from Components.ScrollLabel import ScrollLabel
-from Plugins.Extensions.PersianPalace import *
 from Screens.MessageBox import MessageBox
 from Components.Sources.StaticText import StaticText
 from os import environ
@@ -18,7 +17,7 @@ import os
 import gettext
 
 adress = "http://www.satsharing.net/files/SoftCam.Key"
-bissaddress = "http://panel.e2pe.com/persianpalace/Persian.BISS"
+bissaddress = "https://openvision.tech/persianpalace/Persian.BISS"
 ownbiss = "Persian.BISS"
 
 config.plugins.SoftCamUpdater = ConfigSubsection()
@@ -63,7 +62,7 @@ config.plugins.SoftCamUpdater.keyname = ConfigSelection(default = "SoftCam.Key",
 		])
 class SoftCamUpdater(ConfigListScreen, Screen):
 	skin = """
-<screen name="SoftCamUpdater" position="center,160" size="670,200" title="SoftCam Updater For Persian Palace">
+<screen name="SoftCamUpdater" position="center,160" size="670,200" title="SoftCam Updater for Persian Palace">
 		<widget position="15,10" size="640,50" name="config" scrollbarMode="showOnDemand" />
 		<ePixmap position="80,170" zPosition="1" size="165,2" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/SoftCamUpdater/images/red.png" alphatest="blend" />
 		<widget source="Redkey" render="Label" position="80,170" zPosition="2" size="165,30" font="Regular;20" halign="center" valign="center" backgroundColor="background" foregroundColor="foreground" transparent="1" />
@@ -77,7 +76,7 @@ class SoftCamUpdater(ConfigListScreen, Screen):
 	def __init__(self, session):
 		self.session = session
 		Screen.__init__(self, session)
-		self["information"] = Label(_("Latest Persian.BISS Will Be Automatically Merged\nhttp://e2pe.com"))
+		self["information"] = Label(_("Latest Persian.BISS will be automatically merged."))
 		self.list = []
 		self.list.append(getConfigListEntry(_("Path"), config.plugins.SoftCamUpdater.path))
 		self.list.append(getConfigListEntry(_("File Name"), config.plugins.SoftCamUpdater.keyname))		
@@ -137,7 +136,7 @@ def main(session, **kwargs):
 def Plugins(**kwargs):
 	return PluginDescriptor(
 			name = _("SoftCam Updater 3.1"),
-			description = _("Special Version For Persian Palace"),
+			description = _("Special version for Persian Palace"),
 			where = [PluginDescriptor.WHERE_PLUGINMENU, PluginDescriptor.WHERE_EXTENSIONSMENU],
 			icon="/usr/lib/enigma2/python/Plugins/Extensions/SoftCamUpdater/softcamupdater.png",
 			fnc=main)

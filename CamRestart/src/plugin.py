@@ -15,7 +15,6 @@ from Components.Sources.StaticText import StaticText
 import os
 import gettext
 from Components.PluginComponent import plugins
-from Plugins.Extensions.PersianPalace import *
 
 if fileExists("/usr/lib/enigma2/python/Plugins/Extensions/PECamManager/Softcam.py"):
 	from Plugins.Extensions.PECamManager.Softcam import getcamcmd
@@ -149,7 +148,7 @@ def Plugins(**kwargs):
 		),
 		PluginDescriptor(
 			name=_("Cam Restart"),
-			description = _("Special Version For Persian Empire"),
+			description = _("Special version for Open Vision"),
 			where = PluginDescriptor.WHERE_PLUGINMENU,
 			icon = 'camrestart.png',
 			fnc = main

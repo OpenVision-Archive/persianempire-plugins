@@ -210,7 +210,7 @@ def Plugins(**kwargs):
         return [
              PluginDescriptor(where=[PluginDescriptor.WHERE_SESSIONSTART], fnc=sessionstart),
              PluginDescriptor(where=[PluginDescriptor.WHERE_AUTOSTART], fnc=autostart),
-	     PluginDescriptor(name=_("Quick Weather"), description=_("Special Version For Persian Empire"), where = [PluginDescriptor.WHERE_PLUGINMENU], icon="icon-fs8.png", fnc=main)]
+	     PluginDescriptor(name=_("Quick Weather"), description=_("Special version for Open Vision"), where = [PluginDescriptor.WHERE_PLUGINMENU], icon="icon-fs8.png", fnc=main)]
 
 
 HDSkn = False

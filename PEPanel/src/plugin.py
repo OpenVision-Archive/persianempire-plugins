@@ -20,7 +20,6 @@ from Components.ConfigList import ConfigList, ConfigListScreen
 from Components.Harddisk import harddiskmanager
 from Components.Input import Input
 from Components.Ipkg import IpkgComponent
-from Plugins.Extensions.PersianPalace import *
 from Components.Label import Label
 from Components.MenuList import MenuList
 from Components.MultiContent import MultiContentEntryText, MultiContentEntryPixmapAlphaTest

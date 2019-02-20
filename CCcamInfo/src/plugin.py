@@ -523,7 +523,7 @@ class EcmInfoPositioner(Screen):
 
 class EcmInfoConfigMenu(ConfigListScreen, Screen):
 	skin = """
-	<screen position="center,center" size="560,180" title="CCcam Info For Persian Palace">
+	<screen position="center,center" size="560,180" title="CCcam Info for Persian Palace">
 		<widget name="config" position="10,10" size="540,160" scrollbarMode="showOnDemand" />
 	</screen>"""
 
@@ -592,7 +592,7 @@ def startEcmInfoConfig(menuid):
 
 def Plugins(**kwargs):
 	return [
-		PluginDescriptor(name="CCcam Info %s" % VERSION, description=_("Special Version For Persian Palace"), where=[PluginDescriptor.WHERE_EXTENSIONSMENU, PluginDescriptor.WHERE_PLUGINMENU], icon="CCcamInfo.png", fnc=main),
+		PluginDescriptor(name="CCcam Info %s" % VERSION, description=_("Special version for Open Vision"), where=[PluginDescriptor.WHERE_EXTENSIONSMENU, PluginDescriptor.WHERE_PLUGINMENU], icon="CCcamInfo.png", fnc=main),
 		PluginDescriptor(where=[PluginDescriptor.WHERE_SESSIONSTART], fnc=sessionstart),
 		PluginDescriptor(name="ECM Info", where=PluginDescriptor.WHERE_MENU, fnc=startEcmInfoConfig)]
 
@@ -704,7 +704,7 @@ def CCcamMenuConfigListEntry(name, blacklisted):
 
 class CCcamInfoMain(Screen):
 	skin = """
-	<screen position="center,center" size="500,420" title="CCcam Info For Persian Palace" >
+	<screen position="center,center" size="500,420" title="CCcam Info for Persian Palace" >
 		<widget name="menu" position="0,0" size="500,420" scrollbarMode="showOnDemand" />
 	</screen>"""
 
@@ -874,7 +874,7 @@ class CCcamInfoMain(Screen):
 				self.session.openWithCallback(self.workingFinished, CCcamInfoConfigSwitcher)
 			
 			else:
-				self.showInfo(_("CCcam Info %s\nby AliAbdul\nSpecial Version For Persian Palace\n%s\n\nThis plugin shows you the status of your CCcam.") % (VERSION, DATE))
+				self.showInfo(_("CCcam Info %s\nby AliAbdul\nSpecial version for Open Vision\n%s\n\nThis plugin shows you the status of your CCcam.") % (VERSION, DATE))
 
 	def red(self):
 		self.keyNumberGlobal(10)
@@ -1131,7 +1131,7 @@ class CCcamInfoMain(Screen):
 
 class CCcamInfoEcmInfoSelection(Screen):
 	skin = """
-	<screen position="center,center" size="500,420" title="CCcam Info For Persian Palace" >
+	<screen position="center,center" size="500,420" title="CCcam Info for Persian Palace" >
 		<widget name="list" position="0,0" size="500,420" scrollbarMode="showOnDemand" />
 	</screen>"""
 
@@ -1153,7 +1153,7 @@ class CCcamInfoEcmInfoSelection(Screen):
 
 class CCcamInfoInfoScreen(Screen):
 	skin = """
-	<screen position="center,center" size="500,420" title="CCcam Info For Persian Palace" >
+	<screen position="center,center" size="500,420" title="CCcam Info for Persian Palace" >
 		<widget name="text" position="0,0" size="500,420" font="Regular;20" />
 	</screen>"""
 
@@ -1175,7 +1175,7 @@ class CCcamInfoInfoScreen(Screen):
 
 class CCcamShareViewMenu(Screen, HelpableScreen):
 	skin = """
-	<screen position="center,center" size="560,430" title="CCcam Info For Persian Palace" >
+	<screen position="center,center" size="560,430" title="CCcam Info for Persian Palace" >
 		<widget name="list" position="0,0" size="560,320" scrollbarMode="showOnDemand" />
 		<eLabel text="" position="10,322" size="540,2" font="Regular;14" backgroundColor="#ffffff" />
 		<widget name="uphops" position="10,340" size="260,25" font="Regular;20" />
@@ -1494,7 +1494,7 @@ class CCcamShareViewMenu(Screen, HelpableScreen):
 
 class CCcamInfoSubMenu(Screen):
 	skin = """
-	<screen position="center,center" size="500,420" title="CCcam Info For Persian Palace" >
+	<screen position="center,center" size="500,420" title="CCcam Info for Persian Palace" >
 		<widget name="list" position="0,0" size="500,250" scrollbarMode="showOnDemand" />
 		<eLabel text="" position="10,252" size="480,2" font="Regular;14" backgroundColor="#ffffff" />
 		<widget name="info" position="0,255" size="500,165" font="Regular;16" transparent="1" />
@@ -1538,7 +1538,7 @@ class CCcamInfoSubMenu(Screen):
 
 class CCcamInfoServerMenu(Screen):
 	skin = """
-	<screen position="center,center" size="500,420" title="CCcam Info For Persian Palace" >
+	<screen position="center,center" size="500,420" title="CCcam Info for Persian Palace" >
 		<widget name="list" position="0,0" size="500,250" scrollbarMode="showOnDemand" />
 		<eLabel text="" position="10,252" size="480,2" font="Regular;14" backgroundColor="#ffffff" />
 		<widget name="info" position="0,255" size="500,165" font="Regular;16" transparent="1" />
@@ -1601,7 +1601,7 @@ class CCcamInfoRemoteBox:
 
 class CCcamInfoConfigMenu(ConfigListScreen, Screen):
 	skin = """
-	<screen position="center,center" size="560,150" title="CCcam Info For Persian Palace">
+	<screen position="center,center" size="560,150" title="CCcam Info for Persian Palace">
 		<widget name="config" position="0,0" size="560,150" scrollbarMode="showOnDemand" />
 	</screen>"""
 
@@ -1632,7 +1632,7 @@ class CCcamInfoConfigMenu(ConfigListScreen, Screen):
 
 class CCcamInfoRemoteBoxMenu(Screen):
 	skin = """
-	<screen position="center,center" size="560,420" title="CCcam Info For Persian Palace" >
+	<screen position="center,center" size="560,420" title="CCcam Info for Persian Palace" >
 		<ePixmap pixmap="skin_default/buttons/red.png" position="0,0" size="140,40" transparent="1" alphatest="on" />
 		<ePixmap pixmap="skin_default/buttons/green.png" position="140,0" size="140,40" transparent="1" alphatest="on" />
 		<ePixmap pixmap="skin_default/buttons/yellow.png" position="280,0" size="140,40" transparent="1" alphatest="on" />
@@ -1765,7 +1765,7 @@ class CCcamInfoRemoteBoxMenu(Screen):
 
 class CCcamInfoShareInfo(Screen):
 	skin = """
-	<screen position="center,center" size="560,420" title="CCcam Info For Persian Palace" >
+	<screen position="center,center" size="560,420" title="CCcam Info for Persian Palace" >
 		<ePixmap pixmap="skin_default/buttons/red.png" position="0,0" size="140,40" transparent="1" alphatest="on" />
 		<ePixmap pixmap="skin_default/buttons/green.png" position="140,0" size="140,40" transparent="1" alphatest="on" />
 		<ePixmap pixmap="skin_default/buttons/yellow.png" position="280,0" size="140,40" transparent="1" alphatest="on" />
@@ -1927,7 +1927,7 @@ class CCcamInfoShareInfo(Screen):
 
 class CCcamInfoConfigSwitcher(Screen):
 	skin = """
-	<screen position="center,center" size="560,420" title="CCcam Info For Persian Palace" >
+	<screen position="center,center" size="560,420" title="CCcam Info for Persian Palace" >
 		<ePixmap pixmap="skin_default/buttons/red.png" position="0,0" size="140,40" transparent="1" alphatest="on" />
 		<ePixmap pixmap="skin_default/buttons/green.png" position="140,0" size="140,40" transparent="1" alphatest="on" />
 		<ePixmap pixmap="skin_default/buttons/yellow.png" position="280,0" size="140,40" transparent="1" alphatest="on" />
@@ -2050,7 +2050,7 @@ class CCcamInfoConfigSwitcher(Screen):
 
 class CCcamInfoMenuConfig(Screen):
 	skin = """
-	<screen position="center,center" size="560,420" title="CCcam Info For Persian Palace" >
+	<screen position="center,center" size="560,420" title="CCcam Info for Persian Palace" >
 		<ePixmap pixmap="skin_default/buttons/red.png" position="0,0" size="140,40" transparent="1" alphatest="on" />
 		<ePixmap pixmap="skin_default/buttons/green.png" position="140,0" size="140,40" transparent="1" alphatest="on" />
 		<ePixmap pixmap="skin_default/buttons/yellow.png" position="280,0" size="140,40" transparent="1" alphatest="on" />

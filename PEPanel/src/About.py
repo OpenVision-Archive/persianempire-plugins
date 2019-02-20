@@ -9,7 +9,7 @@ class AboutTeam(Screen):
 
     def __init__(self, session, args = 0):
         Screen.__init__(self, session)
-        abouttxt = '\nPersian Professionals Team Proudly Presents\n\nPersian Empire Enigma2 Images\nMips32el\n\nOfficial Website :\nhttp://e2pe.com\n\nEMail :\npersianpros@live.com\npersianpros@gmail.com\npersianpros@yahoo.com\n'
+        abouttxt = '\nOpen Vision\n\nhttps://openvision.tech\n'
         self['about'] = Label(abouttxt)
         self['actions'] = ActionMap(['OkCancelActions', 'ColorActions'], {'cancel': self.quit}, -2)
 

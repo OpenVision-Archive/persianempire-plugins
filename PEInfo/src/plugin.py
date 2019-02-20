@@ -462,7 +462,7 @@ class PEInfoTexto(Screen):
             if fileExists('/usr/lib/enigma2/python/Plugins/Extensions/PersianPalace/plugin.pyo'):
                 self.muestra('green', 'Persian Palace')
             if fileExists('/usr/lib/enigma2/python/Plugins/Extensions/DownloadManager/plugin.pyo'):
-                self.muestra('blue', 'DM 4.0')
+                self.muestra('blue', 'DM 5.0')
             if fileExists('/usr/lib/enigma2/python/Plugins/Extensions/CCcamInfo/plugin.pyo'):
                 self.muestra('yellow', 'CCcam Info')
         elif self.inicio == 5:
@@ -1415,10 +1415,10 @@ class PEInfoTexto(Screen):
                 texto = texto + _('Status') + ' : ' + _('Running') + ''
             else:
                 texto = texto + _('Status') + ' : ' + _('Not Running') + '\n\n'
-                texto = texto + _('Install CCcam Emulator From Download Manager 5.0') + '\n\n'
-                texto = texto + _('Put Your CCcam Files In /etc (CHMOD 755)') + '\n\n'
-                texto = texto + _('Go To Persian Palace Plugin') + '\n\n'
-                texto = texto + _('From Emulator Manager Section Choose Single Cams Then Select CCcam And Start/Enable It') + '\n\n'
+                texto = texto + _('Install CCcam emulator from Download Manager 5.0') + '\n\n'
+                texto = texto + _('Put your CCcam files in /etc (CHMOD 755)') + '\n\n'
+                texto = texto + _('Go to Persian Palace plugin') + '\n\n'
+                texto = texto + _('From Emulator Manager section choose Single Cams then select CCcam and Start/Enable it') + '\n\n'
                 self.actualizar = True
             if not nomcam == '':
                 nomcam = nomcam.replace('\n', '')
@@ -1441,7 +1441,7 @@ class PEInfoTexto(Screen):
                 texto = texto + '\n' + _('Card Info') + ' :\n ' + cargaosinfo('cat /tmp/cardinfo')
                 self.actualizar = True
             if texto == '':
-                texto = '\n' + _('No Info Available For SoftCams')
+                texto = '\n' + _('No info available for SoftCams')
             if not self.tarea == '':
                 self.actualizar = False
             self.tarea = ''
@@ -1542,13 +1542,13 @@ class PEInfoTexto(Screen):
             texto = '   '
             self.actualizar = True
         elif self.inicio == 10:
-            texto = '\n\n' + _('PE Info') + '\n\n' + _('Advanced Information Panel')
-            texto = texto + '\n\n' + _('For More Information Visit http://e2pe.com')
-            texto = texto + '\n\n' + _('You Can Control Your PE Via Our Android 4 App')
-            texto = texto + '\n\n' + _('But First Take A Look At : http://e2pe.com/petable.html')
-            texto = texto + '\n\n' + _('Then Search For Persian Grandeur On Google Play')
-            texto = texto + '\n\n' + _('Or Download It From : https://www.mediafire.com/persianempire')
-            texto = texto + '\n\n' + _('Developed For Persian Empire Images')
+            texto = '\n\n' + _('PE Info') + '\n\n' + _('Advanced information panel')
+            texto = texto + '\n\n' + _('For more information visit https://openvision.tech')
+            texto = texto + '\n\n' + _('You can control your Open Vision via our android app')
+            texto = texto + '\n\n' + _('But first take a look at : https://openvision.tech/openvision-table.html')
+            texto = texto + '\n\n' + _('Then search for Persian Grandeur on Google Play')
+            texto = texto + '\n\n' + _('Or download it from : https://openvision.tech')
+            texto = texto + '\n\n' + _('Developed for Open Vision images')
             lenguaje = 'en'
         self['textoinfo'].setText(texto)
         if self.actualizar:

@@ -22,7 +22,7 @@ from Tools import Notifications
 currentVersion = getImageVersionString()
 
 config.plugins.airplayer.startuptype = ConfigYesNo(default=True)
-config.plugins.airplayer.name = ConfigText(default='Persian Empire', fixed_size=False)
+config.plugins.airplayer.name = ConfigText(default='Open Vision', fixed_size=False)
 config.plugins.airplayer.path = ConfigText(default='/media/hdd/', fixed_size=False)
 config.plugins.airplayer.audioBackend = ConfigSelection(default='alsa', choices={'proxy': _('proxy'),
  'alsa': _('ALSA')})
@@ -59,7 +59,7 @@ class AP_MainMenu(Screen, ConfigListScreen):
          'yellow': self.keyStart,
          'cancel': self.close}, -2)
         self['text'] = Label()
-        self['text'].setText('AirPlayer Enigma2 Plugin (PE Edition)\nVersion: %s\n\nThis plugin is based on AirPlayer from PascalW(https://github.com/PascalW/Airplayer)\n\nFor More Information Visit http://e2pe.com\n\nIf you like this project and want to support it\n please consider donating via PayPal to\ntoeppe@t-online.de' % config.plugins.airplayer.version.value)
+        self['text'].setText('AirPlayer enigma2 plugin (Open Vision edition)\nVersion: %s\n\nThis plugin is based on AirPlayer from PascalW (https://github.com/PascalW/Airplayer)\n\nFor more information visit https://openvision.tech' % config.plugins.airplayer.version.value)
         self.onLayoutFinish.append(self.setCustomTitle)
 
     def _changed(self):
@@ -208,4 +208,4 @@ def main(session, **kwargs):
 
 
 def Plugins(**kwargs):
-    return [PluginDescriptor(where=[PluginDescriptor.WHERE_SESSIONSTART], fnc=sessionstart), PluginDescriptor(where=[PluginDescriptor.WHERE_NETWORKCONFIG_READ], fnc=networkstart), PluginDescriptor(name='AirPlayer', description='Special Version For Persian Empire', where=PluginDescriptor.WHERE_PLUGINMENU, icon='plugin.png', fnc=main)]
+    return [PluginDescriptor(where=[PluginDescriptor.WHERE_SESSIONSTART], fnc=sessionstart), PluginDescriptor(where=[PluginDescriptor.WHERE_NETWORKCONFIG_READ], fnc=networkstart), PluginDescriptor(name='AirPlayer', description='Special version for Open Vision', where=PluginDescriptor.WHERE_PLUGINMENU, icon='plugin.png', fnc=main)]

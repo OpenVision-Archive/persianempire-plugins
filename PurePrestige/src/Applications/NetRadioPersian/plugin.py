@@ -188,7 +188,7 @@ class persianAboutScreen(Screen):
 
     def __init__(self, session):
         Screen.__init__(self, session)
-        info = '\n Persian Radio  version v.3.0-Stations file version 3.0- Programmer-Mahmoud Faraj\n --------------------------- \n  Persian Radio \n enjoy more than top 50 Persian internet radio stations\n Thanks for Persian prince and Persian empire image team and for dreamoem team  for continuous support \n --------------------------- \n                      WWW.DREAMOEM.COM\n HTTP://PERSIANPROS.ORG'
+        info = '\n Persian Radio  version v.3.0-Stations file version 3.0- Programmer-Mahmoud Faraj\n --------------------------- \n  Persian Radio \n enjoy more than top 50 Persian internet radio stations\n Thanks to Persian Prince and dreamoem team for continuous support \n --------------------------- \n                      WWW.DREAMOEM.COM\n https://openvision.tech'
         self['text'] = ScrollLabel(info)
         self['actions'] = ActionMap(['SetupActions'], {'ok': self.close,
          'cancel': self.close}, -1)

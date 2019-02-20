@@ -5,7 +5,6 @@ from Components.ActionMap import ActionMap
 from Components.Label import Label
 from Plugins.Plugin import PluginDescriptor
 from Components.Pixmap import Pixmap
-from Plugins.Extensions.PersianPalace import *
 from Components.ConfigList import ConfigListScreen
 from Components.config import getConfigListEntry, config, ConfigSelection, NoSave
 from Components.Sources.List import List
@@ -324,4 +323,4 @@ def main(session, **kwargs):
 
 
 def Plugins(**kwargs):
-    return PluginDescriptor(name='PE Speed Up', description=_('Special Version For Persian Empire'), where=[PluginDescriptor.WHERE_EXTENSIONSMENU, PluginDescriptor.WHERE_PLUGINMENU], icon='pespeedup.png', fnc=main)
+    return PluginDescriptor(name='PE Speed Up', description=_('Special version for Open Vision'), where=[PluginDescriptor.WHERE_EXTENSIONSMENU, PluginDescriptor.WHERE_PLUGINMENU], icon='pespeedup.png', fnc=main)

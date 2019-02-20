@@ -3,7 +3,6 @@ from Components.config import config, ConfigSubsection, ConfigText
 from Plugins.Plugin import PluginDescriptor
 from Softcam import checkconfigdir
 from Manager import PECamManager
-from Plugins.Extensions.PersianPalace import *
 
 config.plugins.PECam = ConfigSubsection()
 config.plugins.PECam.actcam = ConfigText(default="none")
@@ -43,7 +42,7 @@ def startcam(reason, **kwargs):
 
 def Plugins(**kwargs):
 	return [PluginDescriptor(name = _("PE Cam Manager"),
-		description = _("Special Version For Persian Empire"),
+		description = _("Special version for Open Vision"),
 		where = [PluginDescriptor.WHERE_PLUGINMENU,
 		PluginDescriptor.WHERE_EXTENSIONSMENU],
 		icon = "pecammanager.png", fnc = main),

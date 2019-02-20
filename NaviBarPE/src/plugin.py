@@ -34,7 +34,6 @@ from enigma import eListboxPythonMultiContent, eListbox, gFont, RT_HALIGN_LEFT, 
 from Tools.Directories import pathExists, fileExists, SCOPE_SKIN_IMAGE, resolveFilename
 import sys, os, base64, re, time, sha, shutil, inspect
 from dirSelect import dirSelectDlg1
-from Plugins.Extensions.PersianPalace import *
 found_new = False
 version = '1.8.1'
 config.plugins.navibar = ConfigSubsection()
@@ -1653,4 +1652,4 @@ if config.plugins.navibar.blue.value:
 def Plugins(path, **kwargs):
     global plugin_path
     plugin_path = path
-    return [PluginDescriptor(name='NaviBarPE', description='Special Version For Persian Empire', where=[PluginDescriptor.WHERE_PLUGINMENU], fnc=main, icon='navibarpe.png')]
+    return [PluginDescriptor(name='NaviBarPE', description='Special version for Open Vision', where=[PluginDescriptor.WHERE_PLUGINMENU], fnc=main, icon='navibarpe.png')]

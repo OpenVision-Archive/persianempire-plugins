@@ -225,7 +225,7 @@ def StartSamba(reason, **kwargs):
 def Plugins(**kwargs):
 	return [
 	PluginDescriptor(name = _("Samba Server"),
-		description = _("Special Version For Persian Empire"),
+		description = _("Special version for Open Vision"),
 		where = PluginDescriptor.WHERE_PLUGINMENU, fnc = main ),
 	PluginDescriptor(where = PluginDescriptor.WHERE_AUTOSTART,
 		needsRestart = True, fnc = StartSamba)]

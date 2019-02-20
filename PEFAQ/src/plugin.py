@@ -13,7 +13,6 @@ from Components.Pixmap import Pixmap, MovingPixmap
 from Tools.LoadPixmap import LoadPixmap
 import calendar, keymapparser
 from keyids import KEYIDS
-from Plugins.Extensions.PersianPalace import *
 from Plugins.Plugin import PluginDescriptor
 from Tools.KeyBindings import addKeyBinding
 from Screens.Screen import Screen
@@ -153,7 +152,7 @@ class PEVerfaq(Screen):
 
 
 class PEFaqs(Screen):
-    skin = '\n\t<screen name="PEFaqsScr" position="center,center" size="1000,610" title="%s">\n\n\t<widget name="list" position="8,67" size="970,490" scrollbarMode="showOnDemand" zPosition="12" />\n\t<widget name="mode" position="8,31" size="970,30" backgroundColor="#ffffff" foregroundColor="#000000" text=" " font="Regular; 22" />\n\n\t<ePixmap name="new ePixmap" position="620,584" size="35,25" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/PEFAQ/img/red.png" alphatest="blend" transparent="1" />\n\t<widget name="key_red" position="654,585" size="162,22" transparent="1" text="Exit" font="Regular; 16"/>\n\t<ePixmap name="new ePixmap" position="715,584" size="35,25" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/PEFAQ/img/green.png" alphatest="blend" transparent="1" />\n\t<widget name="key_green" position="749,585" size="462,22" transparent="1" text="Update" font="Regular; 16"/>\n\t<widget name="key_mode" position="8,8" size="685,22" transparent="1" text=" " font="Regular; 15" halign="center" />\n\t</screen>' % _('Persian Empire FAQs - http://e2pe.com')
+    skin = '\n\t<screen name="PEFaqsScr" position="center,center" size="1000,610" title="%s">\n\n\t<widget name="list" position="8,67" size="970,490" scrollbarMode="showOnDemand" zPosition="12" />\n\t<widget name="mode" position="8,31" size="970,30" backgroundColor="#ffffff" foregroundColor="#000000" text=" " font="Regular; 22" />\n\n\t<ePixmap name="new ePixmap" position="620,584" size="35,25" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/PEFAQ/img/red.png" alphatest="blend" transparent="1" />\n\t<widget name="key_red" position="654,585" size="162,22" transparent="1" text="Exit" font="Regular; 16"/>\n\t<ePixmap name="new ePixmap" position="715,584" size="35,25" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/PEFAQ/img/green.png" alphatest="blend" transparent="1" />\n\t<widget name="key_green" position="749,585" size="462,22" transparent="1" text="Update" font="Regular; 16"/>\n\t<widget name="key_mode" position="8,8" size="685,22" transparent="1" text=" " font="Regular; 15" halign="center" />\n\t</screen>' % _('Open Vision FAQs - https://openvision.tech')
 
     def __init__(self, session, instance = None, args = 0):
         self.session = session
@@ -187,7 +186,7 @@ class PEFaqs(Screen):
         self.onLayoutFinish.append(self.buildList)
 
     def update(self):
-        self.session.open(Console,title = _("Persian Empire FAQs Update"), cmdlist = ["echo Downloading Latest FAQs , Please Wait", "wget http://panel.e2pe.com/PEFAQs.zip -O /tmp/PEFAQs.zip > /dev/null 2>&1", "echo Extracting Update File", "unzip -o /tmp/PEFAQs.zip -d /usr/lib/enigma2/python/Plugins/Extensions/PEFAQ > /dev/null 2>&1", "rm -rf /tmp/PEFAQs.zip > /dev/null 2>&1", "echo Done !"])
+        self.session.open(Console,title = _("Open Vision FAQs update"), cmdlist = ["echo Downloading latest FAQs , Please wait", "wget https://openvision.tech/PEFAQs.zip -O /tmp/PEFAQs.zip > /dev/null 2>&1", "echo Extracting update file", "unzip -o /tmp/PEFAQs.zip -d /usr/lib/enigma2/python/Plugins/Extensions/PEFAQ > /dev/null 2>&1", "rm -rf /tmp/PEFAQs.zip > /dev/null 2>&1", "echo Done!"])
 
     def cargaquestions(self, filtrado = None):
         self.categorys = ['All']
@@ -263,10 +262,10 @@ class PEFaqs(Screen):
 
     def key_info(self):
         info1 = 'FAQs'
-        info2 = 'by Persian Professionals team , http://e2pe.com'
-        cmens = _(info1) + ' [' + nommodelo + ']\n' + _(info2).replace('spazeTeam', 'Persian Empire')
+        info2 = 'by Open Vision team , https://openvision.tech'
+        cmens = _(info1) + ' [' + nommodelo + ']\n' + _(info2).replace('spazeTeam', 'Open Vision')
         dei = self.session.open(MessageBox, cmens, MessageBox.TYPE_INFO)
-        dei.setTitle(_('Persian Empire') + ' ' + _('Help'))
+        dei.setTitle(_('Open Vision') + ' ' + _('Help'))
 
     def key_left(self):
         self.modeactivo -= 1
@@ -311,7 +310,7 @@ def main(session, **kwargs):
 def Plugins(**kwargs):
 	return PluginDescriptor(
 			name = _("PE FAQ"),
-			description = _("FAQs For Persian Empire Image"),
+			description = _("FAQs for Open Vision"),
 			where = [PluginDescriptor.WHERE_PLUGINMENU, PluginDescriptor.WHERE_EXTENSIONSMENU],
 			icon="pefaq.png",
 			fnc=main)
