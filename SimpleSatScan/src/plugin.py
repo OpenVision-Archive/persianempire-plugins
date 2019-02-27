@@ -1,7 +1,6 @@
 from Screens.Screen import Screen
 from Plugins.Plugin import PluginDescriptor
-from Components.config import config, ConfigSubsection, ConfigSelection, \
-	ConfigYesNo, ConfigInteger, getConfigListEntry, ConfigEnableDisable
+from Components.config import config, ConfigSubsection, ConfigSelection, ConfigYesNo, ConfigInteger, getConfigListEntry, ConfigEnableDisable
 from Components.ActionMap import NumberActionMap, ActionMap
 from Components.ConfigList import ConfigListScreen
 from Components.NimManager import nimmanager, getConfigSatlist
@@ -17,7 +16,7 @@ from ServiceScan import SimpleServiceScan
 
 class SimpleSatScan(ConfigListScreen, Screen):
 	skin = """
-	<screen position="center,center" size="520,480" title="Simple Satellite Scan">
+	<screen position="center,center" size="520,480" title="Simple satellite scan">
 		<!-- little tune status -->
 		<eLabel name="pos" text="Current position:" position="10,10" size="210,20" font="Regular;19" halign="right" transparent="1" />
 		<widget name="status" position="230,10" size="260,20" font="Console;19" valign="center" foregroundColor="#f8f711" transparent="1" />
@@ -106,7 +105,7 @@ class SimpleSatScan(ConfigListScreen, Screen):
 			if len(self.satList) > self.feid and len(self.scan_satselection) > self.feid and len(self.satList[self.feid]):
 				orbpos = self.OrbToStr(self.satList[self.feid][self.scan_satselection[self.feid].index][0])
 			self["status"] = Label(orbpos + ": " + str(self.scan_sat.frequency.value) + " " + self.PolToStr(self.scan_sat.polarization.value))
-			self["introduction"] = Label(_("Press OK to start the scan"))
+			self["introduction"] = Label(_("Press OK to start the scan."))
 		else:
 			self["introduction"] = Label(_("Nothing to scan!\nPlease setup your tuner settings before you start a service scan."))
 			self["status"] = Label("")
@@ -157,7 +156,7 @@ class SimpleSatScan(ConfigListScreen, Screen):
 				self.tpslist_idx += 1
 				if self.tpslist_idx >= len(self.tpslist):
 					stop = True
-					self["status"].setText("search failed!")
+					self["status"].setText("Search failed!")
 					self.tpslist_idx = 0
 			elif dict["tuner_state"] == "LOCKED":
 				stop = True
@@ -238,7 +237,7 @@ class SimpleSatScan(ConfigListScreen, Screen):
 							multi_tune = True
 							break
 			else:
-				status_text = "multiscanlist empty!"
+				status_text = "Multiscanlist empty!"
 				SatList = nimmanager.getSatListForNim(index_to_scan)
 				for sat in SatList:
 					tps = nimmanager.getTransponders(sat[0])
@@ -323,7 +322,7 @@ class SimpleSatScan(ConfigListScreen, Screen):
 				self.list.append(getConfigListEntry(_('Satellite'), self.scan_satselection[index_to_scan]))
 				self.list.append(getConfigListEntry(_('Frequency'), self.scan_sat.frequency))
 				self.list.append(getConfigListEntry(_('Inversion'), self.scan_sat.inversion))
-				self.list.append(getConfigListEntry(_('Symbol Rate'), self.scan_sat.symbolrate))
+				self.list.append(getConfigListEntry(_('Symbol rate'), self.scan_sat.symbolrate))
 				self.list.append(getConfigListEntry(_("Polarity"), self.scan_sat.polarization))
 				if self.scan_sat.system.value == eDVBFrontendParametersSatellite.System_DVB_S:
 					self.list.append(getConfigListEntry(_("FEC"), self.scan_sat.fec))
@@ -414,7 +413,7 @@ class SimpleSatScan(ConfigListScreen, Screen):
 
 		self.scan_type = ConfigSelection(default = "single_transponder", choices = [("single_transponder", _("Single transponder")), ("predefined_transponder", _("Predefined transponder")), ("single_satellite", _("Single satellite")), ("multisat", _("Multisat"))])
 		self.scan_transponders = None
-		self.scan_clearallservices = ConfigSelection(default = "no", choices = [("no", _("no")), ("yes", _("yes")), ("yes_hold_feeds", _("yes (keep feeds)"))])
+		self.scan_clearallservices = ConfigSelection(default = "no", choices = [("no", _("No")), ("yes", _("Yes")), ("yes_hold_feeds", _("Yes (keep feeds)"))])
 		self.scan_onlyfree = ConfigYesNo(default = False)
 		self.scan_networkScan = ConfigYesNo(default = False)
 
@@ -462,6 +461,7 @@ class SimpleSatScan(ConfigListScreen, Screen):
 			(eDVBFrontendParametersSatellite.FEC_3_5, "3/5"),
 			(eDVBFrontendParametersSatellite.FEC_4_5, "4/5"),
 			(eDVBFrontendParametersSatellite.FEC_5_6, "5/6"),
+			(eDVBFrontendParametersSatellite.FEC_6_7, "6/7"),
 			(eDVBFrontendParametersSatellite.FEC_7_8, "7/8"),
 			(eDVBFrontendParametersSatellite.FEC_8_9, "8/9"),
 			(eDVBFrontendParametersSatellite.FEC_9_10, "9/10")])
@@ -667,12 +667,12 @@ def SimpleSatScanMain(session, **kwargs):
 
 def SimpleSatScanStart(menuid, **kwargs):
 	if menuid == "scan":
-		return [(_("Simple Satellite Scan"), SimpleSatScanMain, "simple_sat_scan", None)]
+		return [(_("Simple satellite scan"), SimpleSatScanMain, "simple_sat_scan", None)]
 	else:
 		return []
 
 def Plugins(**kwargs):
 	if (nimmanager.hasNimType("DVB-S")):
-		return PluginDescriptor(name=_("Simple Satellite Scan"), description="simple satellite scan", where = PluginDescriptor.WHERE_MENU, fnc=SimpleSatScanStart)
+		return PluginDescriptor(name=_("Simple satellite scan"), description="simple satellite scan", where = PluginDescriptor.WHERE_MENU, fnc=SimpleSatScanStart)
 	else:
 		return []

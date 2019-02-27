@@ -79,7 +79,7 @@ class SoftCamUpdater(ConfigListScreen, Screen):
 		self["information"] = Label(_("Latest Persian.BISS will be automatically merged."))
 		self.list = []
 		self.list.append(getConfigListEntry(_("Path"), config.plugins.SoftCamUpdater.path))
-		self.list.append(getConfigListEntry(_("File Name"), config.plugins.SoftCamUpdater.keyname))		
+		self.list.append(getConfigListEntry(_("File name"), config.plugins.SoftCamUpdater.keyname))		
 		ConfigListScreen.__init__(self, self.list)
 		self["Redkey"] = StaticText(_("Close"))
 		self["Greenkey"] = StaticText(_("Save"))
@@ -101,7 +101,7 @@ class SoftCamUpdater(ConfigListScreen, Screen):
 	def save(self):
 		for i in self["config"].list:
 			i[1].save()
-		self.mbox = self.session.open(MessageBox,(_("Saved Successfull")), MessageBox.TYPE_INFO, timeout = 3 )
+		self.mbox = self.session.open(MessageBox,(_("Saved successfull!")), MessageBox.TYPE_INFO, timeout = 3 )
 		
 	def downkey(self):
 		try:
@@ -115,9 +115,9 @@ class SoftCamUpdater(ConfigListScreen, Screen):
 			os.system("cp -f /tmp/keyfile.tmp %s%s" % (config.plugins.SoftCamUpdater.path.value, config.plugins.SoftCamUpdater.keyname.value))
 			os.system("rm -rf /tmp/keyfile.tmp")
 			os.system("rm -rf /tmp/%s" % (ownbiss))
-			self.mbox = self.session.open(MessageBox,(_("Downloaded Successfull")), MessageBox.TYPE_INFO, timeout = 3 )
+			self.mbox = self.session.open(MessageBox,(_("Downloaded successfull!")), MessageBox.TYPE_INFO, timeout = 3 )
 		except:
-			self.mbox = self.session.open(MessageBox,(_("Download Failed")), MessageBox.TYPE_INFO, timeout = 3 )
+			self.mbox = self.session.open(MessageBox,(_("Download failed!")), MessageBox.TYPE_INFO, timeout = 3 )
 
 
 def main(session, **kwargs):

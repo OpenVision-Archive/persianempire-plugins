@@ -1,10 +1,11 @@
 import enigma
 from enigma import eTimer, eDVBCI_UI, eDVBCIInterfaces, iServiceInformation
 from Plugins.Plugin import PluginDescriptor
+
 autoStartTimer = None
 
 def Plugins(**kwargs):
-    return [PluginDescriptor(name='vusolo2 CI High Bitrate Fix', description='CI High Bitrate Fix For VuPlus Solo 2', where=PluginDescriptor.WHERE_SESSIONSTART, fnc=autostart)]
+    return [PluginDescriptor(name='vusolo2 CI high bitrate fix', description='CI high bitrate fix for VuPlus Solo 2', where=PluginDescriptor.WHERE_SESSIONSTART, fnc=autostart)]
 
 
 def autostart(reason, session = None):

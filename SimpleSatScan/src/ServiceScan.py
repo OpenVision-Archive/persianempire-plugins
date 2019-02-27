@@ -31,7 +31,7 @@ class SimpleServiceScanSummary(Screen):
 
 class SimpleServiceScan(Screen):
 	skin = """
-		<screen name="SimpleServiceScan" position="340,134" size="600,502" title="Simple Service Scan">
+		<screen name="SimpleServiceScan" position="340,134" size="600,502" title="Simple service scan">
 			<widget source="FrontendInfo" render="Pixmap" pixmap="skin_default/icons/scan-s.png" position="15,15" size="64,64" transparent="1" alphatest="on">
 				<convert type="FrontendInfo">TYPE</convert>
 				<convert type="ValueRange">0,0</convert>
@@ -96,7 +96,7 @@ class SimpleServiceScan(Screen):
 		self.session.nav.stopService()
 
 		self["scan_progress"] = ProgressBar()
-		self["scan_state"] = Label(_("scan state"))
+		self["scan_state"] = Label(_("Scan state"))
 		self["network"] = Label()
 		self["transponder"] = Label()
 
