@@ -4258,9 +4258,19 @@ def startPEmenu(menuid):
           2)]
     return []
 
+def OVLock():
+    try:
+        from ov import gettitle
+        ovtitle = gettitle()
+        return ovtitle
+    except:
+        return False
 
 def main(session, **kwargs):
-    session.open(PEMainMenu)
+    if OVLock() == False:
+        return
+    else:
+        session.open(PEMainMenu)
 
 def Plugins(path, **kwargs):
     global plugin_path

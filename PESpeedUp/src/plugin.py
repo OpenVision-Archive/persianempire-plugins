@@ -20,7 +20,7 @@ class PESpeedUp(Screen, ConfigListScreen):
         Screen.__init__(self, session)
         self.list = []
         ConfigListScreen.__init__(self, self.list)
-        self['lab1'] = Label("Remove All The Plugins You Don't Need\nThis Will Speed Up The Performance")
+        self['lab1'] = Label("Remove all the plugins you don't need.\nThis will speed up the performance.")
         self['key_red'] = Label(_('Save'))
         self['key_green'] = Label(_('Cancel'))
         self['actions'] = ActionMap(['WizardActions', 'ColorActions'], {'red': self.saveMypoints,
@@ -147,8 +147,6 @@ class PESpeedUp(Screen, ConfigListScreen):
             self.pluglist.append(['PEFAQ', 'enigma2-plugin-extensions-pefaq'])
         if pathExists('/usr/lib/enigma2/python/Plugins/Extensions/PEInfo'):
             self.pluglist.append(['PEInfo', 'enigma2-plugin-extensions-peinfo'])
-        if pathExists('/usr/lib/enigma2/python/Plugins/Extensions/PEMultiBoot'):
-            self.pluglist.append(['PEMultiBoot', 'enigma2-plugin-extensions-pemultiboot'])
         if pathExists('/usr/lib/enigma2/python/Plugins/Extensions/PermanentClock'):
             self.pluglist.append(['PermanentClock', 'enigma2-plugin-extensions-permanentclock'])
         if pathExists('/usr/lib/enigma2/python/Plugins/Extensions/PEWeather'):
@@ -287,7 +285,7 @@ class PESpeedUp(Screen, ConfigListScreen):
                 cmd = self.RemovePlug(x[0])
                 self.mycmdlist.append(cmd)
         if len(self.mycmdlist) > 0:
-            self.session.open(Console, title=_('PE Speed Up Is Working - Please Wait'), cmdlist=self.mycmdlist, finishedCallback=self.allDone)
+            self.session.open(Console, title=_('PE Speed Up is working, Please wait.'), cmdlist=self.mycmdlist, finishedCallback=self.allDone)
         else:
             self.close()
 
@@ -295,20 +293,29 @@ class PESpeedUp(Screen, ConfigListScreen):
         cmd = ''
         for plug in self.pluglist:
             if plug[0] == name:
-                cmd = 'opkg remove --force-depends %s' % plug[1]
+                cmd = 'opkg remove %s' % plug[1]
         return cmd
 
     def allDone(self):
-        mybox = self.session.openWithCallback(self.RestartGUI, MessageBox, 'Plugin(s) Removed !\n\nYou Can Install It(Them) Again From Download Manager 5.0\n\nYour STB Will Be Restarted\n\nPress OK To Continue', MessageBox.TYPE_INFO)
+        mybox = self.session.openWithCallback(self.RestartGUI, MessageBox, 'Plugin(s) removed!\n\nYou could install it(them) again from online feeds.\n\nYour STB will be restarted!\n\nPress OK to continue.', MessageBox.TYPE_INFO)
         mybox.setTitle('Info')
 
     def RestartGUI(self, answer):
         self.session.open(TryQuitMainloop, 3)
 
+def OVLock():
+    try:
+        from ov import gettitle
+        ovtitle = gettitle()
+        return ovtitle
+    except:
+        return False
 
 def main(session, **kwargs):
-    session.open(PESpeedUp)
-
+    if OVLock() == False:
+        return
+    else:
+        session.open(PESpeedUp)
 
 def Plugins(**kwargs):
     return PluginDescriptor(name='PE Speed Up', description=_('Special version for Open Vision'), where=[PluginDescriptor.WHERE_EXTENSIONSMENU, PluginDescriptor.WHERE_PLUGINMENU], icon='pespeedup.png', fnc=main)

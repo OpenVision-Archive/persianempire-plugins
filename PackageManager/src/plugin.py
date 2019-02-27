@@ -649,9 +649,19 @@ class downfeed(Screen):
 		msg  = _("%s Installed" % name)
 		self.mbox = self.session.open(MessageBox, msg, MessageBox.TYPE_INFO, timeout = 3 )
 
+def OVLock():
+    try:
+        from ov import gettitle
+        ovtitle = gettitle()
+        return ovtitle
+    except:
+        return False
 
 def main(session, **kwargs):
-	session.open(PackageManagerScreen)
+    if OVLock()==False:
+        return
+    else:
+        session.open(PackageManagerScreen)
 
 def Plugins(**kwargs):
 	return PluginDescriptor(

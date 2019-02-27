@@ -1717,9 +1717,19 @@ def start_from_mainmenu(menuid, **kwargs):
           1)]
     return []
 
+def OVLock():
+    try:
+        from ov import gettitle
+        ovtitle = gettitle()
+        return ovtitle
+    except:
+        return False
 
 def iniciainfo(session, **kwargs):
-	session.open(PEInfo)
+    if OVLock()==False:
+        return
+    else:
+        session.open(PEInfo)
 
 
 def Plugins(**kwargs):

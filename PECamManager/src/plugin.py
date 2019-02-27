@@ -13,9 +13,19 @@ config.plugins.PECam.camdir = ConfigText(default="/usr/camd",
 
 checkconfigdir()
 
+def OVLock():
+    try:
+        from ov import gettitle
+        ovtitle = gettitle()
+        return ovtitle
+    except:
+        return False
 
 def main(session, **kwargs):
-    session.open(PECamManager)
+    if OVLock() == False:
+        return
+    else:
+        session.open(PECamManager)
 
 EnigmaStart = False
 

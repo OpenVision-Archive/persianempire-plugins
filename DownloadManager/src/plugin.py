@@ -384,9 +384,19 @@ class Getipk(Screen):
     def keyNumberGlobal(self, number):
         self['text'].number(number)
 
+def OVLock():
+    try:
+        from ov import gettitle
+        ovtitle = gettitle()
+        return ovtitle
+    except:
+        return False
 
 def main(session, **kwargs):
-    session.open(Downloads)
+    if OVLock() == False:
+        return
+    else:
+        session.open(Downloads)
 
 def Plugins(**kwargs):
     return PluginDescriptor(name=_('Download Manager 5.0'), description=_('Special version for Open Vision'), where=[PluginDescriptor.WHERE_PLUGINMENU, PluginDescriptor.WHERE_EXTENSIONSMENU], icon='DownloadManager.png', fnc=main)

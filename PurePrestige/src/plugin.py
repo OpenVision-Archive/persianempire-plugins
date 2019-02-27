@@ -553,8 +553,18 @@ class PurePrestigebootlogo(Screen):
         self.timer.start(2000, True)
 
     def disappear(self):
+        if OVLock() == False:
+            self.close()
+            return
         self.session.openWithCallback(self.close, showPurePrestigescreen)
 
+def OVLock():
+    try:
+        from ov import gettitle
+        ovtitle = gettitle()
+        return ovtitle
+    except:
+        return False
 
 class PurePrestigeAboutScreen(Screen):
     global HD_Res

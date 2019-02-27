@@ -370,10 +370,19 @@ class BhMeteoSelectCity(Screen):
             out.close()
             self.close()
 
+def OVLock():
+    try:
+        from ov import gettitle
+        ovtitle = gettitle()
+        return ovtitle
+    except:
+        return False
 
 def main(session, **kwargs):
-    session.open(PEMeteoMain)
-
+    if OVLock()==False:
+        return
+    else:
+        session.open(PEMeteoMain)
 
 def Plugins(path, **kwargs):
     global pluginpath

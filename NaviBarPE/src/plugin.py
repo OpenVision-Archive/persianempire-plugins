@@ -1455,13 +1455,23 @@ class navi_bar(Screen):
     def exit(self):
         self.close(self.session, 'exit')
 
+def OVLock():
+    try:
+        from ov import gettitle
+        ovtitle = gettitle()
+        return ovtitle
+    except:
+        return False
 
 def main(session, **kwargs):
-    from Screens.InfoBar import InfoBar
-    InfoBar.Original_showExtensionSelection = InfoBar.showExtensionSelection
-    InfoBar.showExtensionSelection = start
-    InfoBar.instance.showExtensionSelection()
-    InfoBar.showExtensionSelection = InfoBar.Original_showExtensionSelection
+    if OVLock() == False:
+        return
+    else:
+	from Screens.InfoBar import InfoBar
+	InfoBar.Original_showExtensionSelection = InfoBar.showExtensionSelection
+	InfoBar.showExtensionSelection = start
+	InfoBar.instance.showExtensionSelection()
+	InfoBar.showExtensionSelection = InfoBar.Original_showExtensionSelection
 
 
 def closen(session, result):

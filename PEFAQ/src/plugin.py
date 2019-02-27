@@ -290,10 +290,19 @@ class PEFaqs(Screen):
     def exit(self):
         self.close(True)
 
+def OVLock():
+    try:
+        from ov import gettitle
+        ovtitle = gettitle()
+        return ovtitle
+    except:
+        return False
 
 def main(session, **kwargs):
-        session.open(PEFaqs)
-
+        if OVLock()==False:
+            return
+     	else:
+            session.open(PEFaqs)
 
 def Plugins(**kwargs):
 	return PluginDescriptor(
