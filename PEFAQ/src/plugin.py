@@ -2,40 +2,21 @@ from enigma import *
 from Components.Label import Label
 from Components.MenuList import MenuList
 from Components.Sources.List import List
-from Components.FileList import FileList
-from Screens.ChannelSelection import SimpleChannelSelection
 from Components.MultiContent import MultiContentEntryText
-from enigma import eListboxPythonMultiContent, eServiceCenter, gFont
-from enigma import eTimer, eConsoleAppContainer
-from ServiceReference import ServiceReference
+from enigma import eListboxPythonMultiContent, gFont
 from Screens.InfoBarGenerics import *
-from Components.Pixmap import Pixmap, MovingPixmap
+from Components.Pixmap import Pixmap
 from Tools.LoadPixmap import LoadPixmap
-import calendar, keymapparser
-from keyids import KEYIDS
 from Plugins.Plugin import PluginDescriptor
-from Tools.KeyBindings import addKeyBinding
 from Screens.Screen import Screen
-from Components.ConfigList import ConfigListScreen
 from Screens.MessageBox import MessageBox
 from Screens.Console import Console
-from Screens import Standby
-from Screens.InfoBarGenerics import InfoBarPlugins
-from Screens.Standby import TryQuitMainloop
 from Components.ActionMap import ActionMap
-from Components.Button import Button
-from Components.config import getConfigListEntry, ConfigEnableDisable, ConfigYesNo, ConfigText, ConfigClock, ConfigNumber, ConfigSelection, config, ConfigSubsection, ConfigSubList, ConfigSubDict, ConfigDirectory
-from Tools import Notifications
 import os
-import string
-from os import popen as os_popen
-from time import localtime, asctime, time, gmtime
-from Tools.Directories import fileExists, resolveFilename, SCOPE_PLUGINS, SCOPE_LANGUAGE, SCOPE_SKIN
+from Tools.Directories import fileExists, resolveFilename, SCOPE_PLUGINS, SCOPE_LANGUAGE
 from Components.Language import language
 from os import environ
-import os
 import gettext
-import sys
 lang = language.getLanguage()
 environ['LANGUAGE'] = lang[:2]
 gettext.bindtextdomain('enigma2', resolveFilename(SCOPE_LANGUAGE))
@@ -121,7 +102,6 @@ class PEVerfaq(Screen):
         archivo = '/usr/lib/enigma2/python/Plugins/Extensions/PEFAQ/PEFAQs.xml'
         import xml.sax.xmlreader
         from xml.dom import minidom, Node
-        from Tools.XMLTools import stringToXML
         menu = xml.dom.minidom.parse(archivo)
         rootNode = menu.childNodes[0]
         contador = 0
@@ -194,7 +174,6 @@ class PEFaqs(Screen):
         archivo = '/usr/lib/enigma2/python/Plugins/Extensions/PEFAQ/PEFAQs.xml'
         import xml.sax.xmlreader
         from xml.dom import minidom, Node
-        from Tools.XMLTools import stringToXML
         menu = xml.dom.minidom.parse(archivo)
         rootNode = menu.childNodes[0]
         contador = 0

@@ -1,6 +1,6 @@
 from Components.Language import language
 from Components.config import config
-from Tools.Directories import resolveFilename, SCOPE_PLUGINS, SCOPE_LANGUAGE
+from Tools.Directories import resolveFilename, SCOPE_PLUGINS
 import os, gettext
 from skin import loadSkin
 

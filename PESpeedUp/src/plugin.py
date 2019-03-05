@@ -8,9 +8,7 @@ from Components.Pixmap import Pixmap
 from Components.ConfigList import ConfigListScreen
 from Components.config import getConfigListEntry, config, ConfigSelection, NoSave
 from Components.Sources.List import List
-from Tools.LoadPixmap import LoadPixmap
-from Tools.Directories import fileExists, pathExists
-from os import remove as os_remove
+from Tools.Directories import pathExists
 from Screens.Console import Console
 
 class PESpeedUp(Screen, ConfigListScreen):

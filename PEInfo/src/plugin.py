@@ -1,8 +1,7 @@
 from Components.Label import Label
 from Components.MenuList import MenuList
-from Screens.ChannelSelection import SimpleChannelSelection
 from Components.MultiContent import MultiContentEntryText
-from enigma import eListboxPythonMultiContent, eServiceCenter, gFont, eServiceReference, iServiceInformation, RT_HALIGN_RIGHT, RT_HALIGN_LEFT, RT_HALIGN_CENTER, eTimer, eConsoleAppContainer, getBoxType, getImageVersionString
+from enigma import eListboxPythonMultiContent, eServiceCenter, gFont, eServiceReference, iServiceInformation, RT_HALIGN_RIGHT, RT_HALIGN_LEFT, RT_HALIGN_CENTER, eTimer, getBoxType, getImageVersionString
 from ServiceReference import ServiceReference
 from Screens.InfoBarGenerics import *
 from Screens.InfoBar import InfoBar
@@ -15,26 +14,19 @@ from Screens.ChoiceBox import ChoiceBox
 from Screens.TimerEdit import TimerEditList
 from Screens.NetworkSetup import NetworkAdapterSelection
 from Screens.RecordPaths import RecordPathsSettings
-from keyids import KEYIDS
 from Plugins.Plugin import PluginDescriptor
-from Tools.KeyBindings import addKeyBinding
 from Screens.Screen import Screen
-from Components.ConfigList import ConfigListScreen
 from Screens.MessageBox import MessageBox
-from Screens.Console import Console
-from Screens import Standby
 from Screens.Standby import TryQuitMainloop
 from Components.ActionMap import ActionMap
-from Components.Button import Button
 from Components.ScrollLabel import ScrollLabel
 from Tools.FuzzyDate import FuzzyTime
 import NavigationInstance
-from Components.config import getConfigListEntry, ConfigEnableDisable, ConfigYesNo, ConfigText, ConfigClock, ConfigNumber, ConfigSelection, config, ConfigSubsection, ConfigSubList, ConfigSubDict, ConfigDirectory
-from Tools import Notifications
+from Components.config import config
 import os
-from os import popen as os_popen, path as os_path, system as os_system, unlink, environ
+from os import path as os_path, unlink, environ
 import string
-from time import localtime, asctime, time, gmtime
+from time import time
 from Tools.Directories import fileExists, resolveFilename, SCOPE_PLUGINS, SCOPE_LANGUAGE, SCOPE_SKIN
 from Components.Language import language
 import gettext

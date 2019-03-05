@@ -1,24 +1,18 @@
 from enigma import *
-from Plugins.Plugin import PluginDescriptor
 from Screens.Screen import Screen
 from Components.ActionMap import ActionMap
-from Components.MenuList import MenuList
-from Components.GUIComponent import GUIComponent
-from Components.HTMLComponent import HTMLComponent
-from Tools.Directories import fileExists, crawlDirectory
+from Tools.Directories import fileExists
 from Components.MultiContent import MultiContentEntryText, MultiContentEntryPixmapAlphaTest
 from Components.Button import Button
-from Components.Label import Label
 from Extra.ExtrasList import ExtrasList
 from Screens.MessageBox import MessageBox
 from Extra.Disks import Disks
-from Extra.ExtraMessageBox import ExtraMessageBox
 from Extra.ExtraActionBox import ExtraActionBox
 from Extra.MountPoints import MountPoints
 from HddMount import HddMount
 import os
 import sys
-from __init__ import _, loadPluginSkin
+from __init__ import _
 
 def PartitionEntry(description, size):
     res = [(description, size)]

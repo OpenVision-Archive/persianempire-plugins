@@ -7,7 +7,6 @@ from Components.Sources.List import List
 from Tools.LoadPixmap import LoadPixmap
 from Screens.Console import Console
 from Components.Label import Label
-from Components.MenuList import MenuList
 from Plugins.Plugin import PluginDescriptor
 from Components.Language import language
 from Tools.Directories import resolveFilename, SCOPE_PLUGINS, SCOPE_LANGUAGE

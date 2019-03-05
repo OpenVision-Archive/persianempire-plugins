@@ -1,19 +1,14 @@
 from . import _
-from Plugins.Plugin import PluginDescriptor
 from Screens.Screen import Screen
 from Screens.Console import Console
-from Screens.ChoiceBox import ChoiceBox
 from Screens.MessageBox import MessageBox
-from Components.ActionMap import ActionMap, HelpableActionMap
+from Components.ActionMap import ActionMap
 from Components.Label import Label
-from Components.Language import language
 from Components.Button import Button
 from Components.MenuList import MenuList
 from Components.Sources.List import List
-from Screens.Standby import TryQuitMainloop
-from Tools.Directories import resolveFilename, SCOPE_PLUGINS, SCOPE_CURRENT_SKIN
-from os import listdir, remove, mkdir, path, access, X_OK, chmod
-import datetime, time
+from os import listdir, mkdir, path, access, X_OK, chmod
+import time
 
 class Scripts(Screen):
 	skin = """<screen name="ScriptRunner" position="center,center" size="560,400" title="Script Runner" flags="wfBorder" >

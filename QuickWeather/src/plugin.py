@@ -9,26 +9,23 @@ from Components.Label import Label
 from Components.Language import language
 from Components.Pixmap import Pixmap
 from Components.ConfigList import ConfigList, ConfigListScreen
-from Components.AVSwitch import AVSwitch
-from Tools.Directories import fileExists, resolveFilename, SCOPE_LANGUAGE, SCOPE_PLUGINS
+from Tools.Directories import fileExists, resolveFilename, SCOPE_PLUGINS
 from Tools.LoadPixmap import LoadPixmap 
 from Components.MenuList import MenuList
-from urllib2 import Request, urlopen, URLError, HTTPError
-from xml.dom import minidom, Node
-from enigma import loadPic, eTimer, ePicLoad, ePoint, getDesktop, ePixmap, eActionMap
+from urllib2 import Request, urlopen
+from xml.dom import minidom
+from enigma import loadPic, eTimer, ePoint, getDesktop, ePixmap, eActionMap
 from Screens.VirtualKeyBoard import VirtualKeyBoard
-from Components.config import config, configfile, ConfigInteger, ConfigSubsection, ConfigYesNo, getConfigListEntry, config, ConfigSelection
+from Components.config import config, configfile, ConfigInteger, ConfigSubsection, ConfigYesNo, getConfigListEntry, ConfigSelection
 from os import environ as os_environ
 from os import system
 import gettext
-from Screens.InfoBarGenerics import InfoBarShowHide, InfoBarPlugins
-from Screens.Screen import Screen
+from Screens.InfoBarGenerics import InfoBarPlugins
 from Screens.InfoBar import InfoBar
 from time import localtime, strftime
 import os
 import re
 import time
-import datetime
 from keyids import KEYIDS
 import xml.parsers.expat
 import urllib2

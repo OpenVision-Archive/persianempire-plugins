@@ -1,22 +1,10 @@
 from enigma import *
-from Plugins.Plugin import PluginDescriptor
 from Screens.Screen import Screen
 from Screens.MessageBox import MessageBox
 from Components.ActionMap import ActionMap
-from Components.MenuList import MenuList
-from Components.GUIComponent import GUIComponent
-from Components.HTMLComponent import HTMLComponent
-from Components.MultiContent import MultiContentEntryText, MultiContentEntryPixmapAlphaTest
 from Components.Button import Button
-from Components.ScrollLabel import ScrollLabel
-from Components.Label import Label
-from Components.ProgressBar import ProgressBar
-from Tools.Directories import fileExists
-from Components.Pixmap import Pixmap
 from Components.FileList import FileList
 from Components.config import config
-from Extra.ExtrasList import ExtrasList, SimpleEntry
-from Extra.ExtraMessageBox import ExtraMessageBox
 from Extra.ExtraActionBox import ExtraActionBox
 import re
 import os

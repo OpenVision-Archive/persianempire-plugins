@@ -1,14 +1,9 @@
 from enigma import *
-from Plugins.Plugin import PluginDescriptor
 from Screens.Screen import Screen
 from Components.ActionMap import ActionMap
-from Components.MenuList import MenuList
-from Components.GUIComponent import GUIComponent
-from Components.HTMLComponent import HTMLComponent
-from Tools.Directories import fileExists, crawlDirectory
+from Tools.Directories import fileExists
 from Components.MultiContent import MultiContentEntryText, MultiContentEntryPixmapAlphaTest
 from Components.Button import Button
-from Components.Label import Label
 from Extra.ExtrasList import ExtrasList
 from Screens.MessageBox import MessageBox
 from HddPartitions import HddPartitions
@@ -19,7 +14,7 @@ from Extra.ExtraActionBox import ExtraActionBox
 from Extra.MountPoints import MountPoints
 import os
 import sys
-from __init__ import _, loadPluginSkin
+from __init__ import _
 
 def DiskEntry(model, size, removable):
     res = [(model, size, removable)]

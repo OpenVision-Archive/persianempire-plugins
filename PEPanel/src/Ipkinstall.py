@@ -1,17 +1,8 @@
-import urllib
-from urllib2 import urlopen
 from Components.MenuList import MenuList
 from Components.Label import Label
 from Screens.Screen import Screen
-from Screens.MessageBox import MessageBox
-from Components.ActionMap import NumberActionMap
-from Components.Input import Input
 from Components.Pixmap import Pixmap
-from Components.FileList import FileList
-from Screens.ChoiceBox import ChoiceBox
-from Plugins.Plugin import PluginDescriptor
 from Components.ActionMap import ActionMap
-from Screens.InputBox import InputBox
 import os
 import gettext
 

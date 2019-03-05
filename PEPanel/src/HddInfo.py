@@ -1,21 +1,15 @@
 from enigma import *
-from Plugins.Plugin import PluginDescriptor
 from Screens.Screen import Screen
 from Components.ActionMap import ActionMap
-from Components.MenuList import MenuList
-from Components.GUIComponent import GUIComponent
-from Components.HTMLComponent import HTMLComponent
-from Tools.Directories import fileExists, crawlDirectory
-from Components.MultiContent import MultiContentEntryText, MultiContentEntryPixmapAlphaTest
 from Components.Button import Button
 from Components.Label import Label
 from Components.ConfigList import ConfigListScreen
-from Components.config import ConfigSelection, getConfigListEntry, config
+from Components.config import getConfigListEntry, config
 from Extra.BoxInfo import BoxInfo
 import os
 import sys
 import re
-from __init__ import _, loadPluginSkin
+from __init__ import _
 
 class HddInfo(ConfigListScreen, Screen):
 

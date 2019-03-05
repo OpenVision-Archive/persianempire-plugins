@@ -32,15 +32,11 @@ from Components.SelectionList import SelectionList
 from Components.Sources.List import List
 from Components.Sources.StaticText import StaticText
 from Plugins.Plugin import PluginDescriptor
-from Tools.Directories import pathExists, fileExists, resolveFilename, SCOPE_PLUGINS, SCOPE_CURRENT_PLUGIN, SCOPE_CURRENT_SKIN, SCOPE_METADIR
-from Tools.HardwareInfo import HardwareInfo
+from Tools.Directories import fileExists, resolveFilename, SCOPE_PLUGINS, SCOPE_CURRENT_PLUGIN, SCOPE_CURRENT_SKIN
 from Tools.LoadPixmap import LoadPixmap
 from Tools.NumericalTextInput import NumericalTextInput
 from ServiceReference import ServiceReference
-from enigma import eConsoleAppContainer, eTimer, quitMainloop, RT_HALIGN_LEFT, RT_VALIGN_CENTER, eListboxPythonMultiContent, eListbox, gFont, getDesktop, ePicLoad, iServiceInformation
-from enigma import ePoint, eSize, eTimer, eEnv, eRCInput, getPrevAsciiCode
-from random import randint
-from skin import loadSkin
+from enigma import eConsoleAppContainer, eTimer, quitMainloop, iServiceInformation, ePoint, eSize, eEnv, eRCInput, getPrevAsciiCode
 from cPickle import dump, load
 from os import system, listdir, symlink, unlink, readlink, path as os_path, stat, mkdir, popen, makedirs, access, rename, remove, W_OK, R_OK, F_OK, chmod, walk, getcwd, chdir, statvfs
 from random import Random

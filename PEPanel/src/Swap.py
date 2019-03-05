@@ -1,17 +1,15 @@
 from enigma import *
-from Plugins.Plugin import PluginDescriptor
 from Screens.Screen import Screen
 from Components.Label import Label
 from Components.Button import Button
-from Components.ActionMap import ActionMap, NumberActionMap
+from Components.ActionMap import ActionMap
 from Components.config import *
 from Components.ConfigList import *
-from Tools.Directories import fileExists
 from Extra.BoxInfo import BoxInfo
 import os
 import re
 import string
-from __init__ import _, loadPluginSkin
+from __init__ import _
 
 class Swap(ConfigListScreen, Screen):
 

@@ -1,9 +1,8 @@
 from enigma import *
 from Screens.Screen import Screen
-from Components.Button import Button
 from Components.Label import Label
 from Components.ActionMap import ActionMap
-from __init__ import _, loadPluginSkin
+from __init__ import _
 
 class AboutTeam(Screen):
 
