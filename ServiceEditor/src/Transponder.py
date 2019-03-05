@@ -155,7 +155,7 @@ class Transponder:
 	
 	def transponderDoctor(self,transponder):
 		if not isinstance(transponder, dict):
-			print "transponderDoctor: Transponderdaten muessen vom Type DICT sein"
+			print "transponderDoctor: Transponder data must be from Type DICT"
 			print transponder
 			return
 
@@ -173,12 +173,12 @@ class Transponder:
 			if x not in transParam:
 				missing.append(x)
 		if len(missing):
-			print "transponderDoctor: Folgende Parameter fehlen:", missing
+			print "transponderDoctor: The following Parameter is absence:", missing
 			return
 		
 		self.polarisation = self.transPolarisation.get(transponder.get(transParam.get("polarization"),"i").lower())
 		if self.polarisation == "i":
-			print "transponderDoctor: unbekannter Wert fuer Polarisation (%s)" %transParam.get("polarization")
+			print "transponderDoctor: unknown value for Polarisation (%s)" %transParam.get("polarization")
 			return
 		
 		self.__frequency = transponder.get(transParam.get("frequency"),"i").lower()

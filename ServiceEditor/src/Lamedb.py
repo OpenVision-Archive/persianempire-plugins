@@ -25,7 +25,7 @@ class Lamedb:
 		elif lamedb[0].find("/4/") != -1:
 			self.version = 4
 		else:
-			print "unbekante Version: ",lamedb[0]
+			print "unknown Version: ",lamedb[0]
 			return
 		print "import version %d" % self.version
 		return lamedb
@@ -72,7 +72,6 @@ class Lamedb:
 					tmp += ",f:" + flags
 				puffer.append(("p:%s%s\n")%(service["provider"],tmp))
 		puffer.append("end\n")
-		puffer.append("Have a lot of girls\n")
 		f = file("/etc/enigma2/lamedb","w")
 		f.writelines(puffer)
 		f.close()
@@ -104,7 +103,7 @@ class Lamedb:
 								break
 						else:
 							services.append((lamedb[x],lamedb[x+1],lamedb[x+2],))
-		print " fertig"
+		print " finished"
 		return services
 	
 	
@@ -115,7 +114,7 @@ class Lamedb:
 		service = {}
 		tp_data = serviceData[0].strip().lower().split(":")
 		if len(tp_data) > len(t1):
-			print "falsche Anzahl Parameter (6 erwartet) in ",serviceData[0]
+			print "wrong number Parameter (6 expected) in ",serviceData[0]
 			return
 		for y in xrange(len(t1)):
 			service.update({t1[y]:tp_data[y]})
@@ -141,7 +140,7 @@ class Lamedb:
 			elif raw[0]=="f":
 				service["flags"] = raw[1].strip().lower()
 			else:
-				print "unbekanter Parameter:",raw[0]
+				print "unknown Parameter:",raw[0]
 				print "in:",y
 		else:
 			uniqueTransponder = service["namespace"]+service["tsid"]+service["onid"]
@@ -234,17 +233,17 @@ class Lamedb:
 			return
 		for x in transponders:
 			if len(x[0]) > len(t1):
-				print "zu viele Parameter (t1) in ",x[0]
+				print "too many Parameter (t1) in ",x[0]
 				continue
 			freq = x[1][0].split()
 			if len(freq) != 2:
-				print "zwei Parameter erwartet in ",freq
+				print "two Parameter expected in ",freq
 				continue
 			tp = {"services":[]}
 			x[1][0] = freq[1]
 			if freq[0] == "s":
 				if ((self.version == 3) and len(x[1]) > len(t2_sv3)) or ((self.version == 4) and len(x[1]) > len(t2_sv4)):
-					print "zu viele Parameter (t2) in ",x[1]
+					print "too many Parameter (t2) in ",x[1]
 					continue
 				for y in xrange(len(x[0])):
 					tp.update({t1[y]:x[0][y]})
@@ -257,14 +256,14 @@ class Lamedb:
 				if pos > 1799:
 					pos -= 3600
 				if pos != int(tp.get("position")):
-					print "Namespace %s und Position %s sind  nicht identisch"% (tp.get("namespace"), tp.get("position"))
+					print "Namespace %s and Position %s are not identical"% (tp.get("namespace"), tp.get("position"))
 					continue
 				self.database[tp["namespace"]+tp["tsid"]+tp["onid"]] = tp
 				self.database[tp["namespace"]+tp["tsid"]+tp["onid"]]["services"] = {}
 				self.databaseState=1
 			elif freq[0] == "c":
 				if len(x[1]) > len(t2_c):
-					print "zu viele Parameter (t2) in ",x[1]
+					print "too many Parameter (t2) in ",x[1]
 					continue
 				for y in xrange(len(x[0])):
 					tp.update({t1[y]:x[0][y]})
@@ -275,7 +274,7 @@ class Lamedb:
 				self.databaseState=1
 			elif freq[0] == "t":
 				if len(x[1]) > len(t2_t):
-					print "zu viele Parameter (t2) in ",x[1]
+					print "too many Parameter (t2) in ",x[1]
 					continue
 				for y in xrange(len(x[0])):
 					tp.update({t1[y]:x[0][y]})

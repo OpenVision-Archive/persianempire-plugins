@@ -310,7 +310,7 @@ class ServiceEditor(Screen,ConfigListScreen):
 		self.list.append(getConfigListEntry(_("Subtitle PID (hex)"), self.configServiceSPid))
 		self.list.append(getConfigListEntry(_("dont use SDT"), self.configServiceFlag_dxNoSDT))
 		self.list.append(getConfigListEntry(_("hide Service"), self.configServiceFlag_dxDontshow))
-		self.list.append(getConfigListEntry(_("no standart service"), self.configServiceFlag_dxNoDVB))
+		self.list.append(getConfigListEntry(_("no standard service"), self.configServiceFlag_dxNoDVB))
 		self.list.append(getConfigListEntry(_("keep Servicename"), self.configServiceFlag_dxHoldName))
 		self.list.append(getConfigListEntry(_("sign as new Service"), self.configServiceFlag_dxNewFound))
 		self["config"].list = self.list
@@ -413,11 +413,11 @@ class ServiceEditor(Screen,ConfigListScreen):
 				uniqueService += cacheID
 		tmp["usk"] = uniqueService
 		if tmp["usk"] != self.service["usk"]:
-			print_rd("usk verschieden => neuer Sender!!!")
+			print_rd("usk different => new Sender!!!")
 			flags |= dxNewFound
 		else:
 			flags |= tmpFlagdxNoSDT
-			print_gr("usk identisch !!!")
+			print_gr("usk identical !!!")
 			if tmp["name"] != self.service["name"]:
 				flags |= dxHoldName
 			if tmp["provider"] != self.service["provider"]:
@@ -426,7 +426,7 @@ class ServiceEditor(Screen,ConfigListScreen):
 		self.service = tmp
 		self.close(self.service)
 
-class Laufschrift(HTMLComponent, GUIComponent):
+class Newscaster(HTMLComponent, GUIComponent):
 	def __init__(self):
 		GUIComponent.__init__(self)
 		self.l = eListboxPythonMultiContent()
@@ -439,7 +439,7 @@ class Laufschrift(HTMLComponent, GUIComponent):
 			path += (path_raw[x] + "/")
 		self.type_pixmap = LoadPixmap(path + 'type.png')
 		self.myTimer = eTimer()
-		self.myTimer.callback.append(self.laufschrift)
+		self.myTimer.callback.append(self.newscaster)
 		self.myTimer.start(60)
 		self.offset = 24
 		self.mylist = None
@@ -449,7 +449,7 @@ class Laufschrift(HTMLComponent, GUIComponent):
 	def postWidgetCreate(self, instance):
 		instance.setContent(self.l)
 
-	def laufschrift(self):
+	def newscaster(self):
 		if self.mylist is None:
 			return
 		self.offset=-((abs(self.offset)+1)%43)
@@ -568,7 +568,7 @@ class ServicesEditor(Screen):
 		<widget name="key_green" position="140,0" zPosition="1" size="140,40" font="Regular;20" halign="center" valign="center" backgroundColor="#1f771f" transparent="1" />
 		<widget name="key_yellow" position="280,0" zPosition="1" size="140,40" font="Regular;20" halign="center" valign="center" backgroundColor="#a08500" transparent="1" />
 		<widget name="key_blue" position="420,0" zPosition="1" size="140,40" font="Regular;20" halign="center" valign="center" backgroundColor="#18188b" transparent="1" />
-		<widget name="laufschrift" position="0,40" size="24,24" scrollbarMode="showNever" />
+		<widget name="newscaster" position="0,40" size="24,24" scrollbarMode="showNever" />
 		<widget name="head" position="24,40" size="536,24" scrollbarMode="showNever" />
 		<widget name="list" position="0,64" size="560,240" scrollbarMode="showOnDemand" />
 		<widget name="infolist" position="0,334" size="560,96" />
@@ -623,7 +623,7 @@ class ServicesEditor(Screen):
 		self["infolist"].l.setItemHeight(24);
 		self["infolist"].l.setFont(0, gFont("Regular", 20))
 		
-		self["laufschrift"] = Laufschrift()
+		self["newscaster"] = Newscaster()
 		self["head"] = Head()
 		self["list"] = ServiceList()
 		self.onLayoutFinish.append(self.layoutFinished)
@@ -680,7 +680,7 @@ class ServicesEditor(Screen):
 			if len(self.row[x])>3:
 				head[x].append(True)
 				
-		self["laufschrift"].setEntry()
+		self["newscaster"].setEntry()
 		self["head"].setEntries(head)
 		if self.currentSelectedColumn:
 			data = self["head"].getCurrent()
@@ -1082,7 +1082,7 @@ class ServicesEditor(Screen):
 					service["flags"]=hex(int(service.get("flags","0")) ^ dxDontshow)[2:].zfill(4)
 					self.newServiceList[idx] = self["list"].buildEntry(service)
 		else:
-			print "Menüfehler:",result
+			print "Menu error:",result
 			return
 		self.updateSelection()
 
