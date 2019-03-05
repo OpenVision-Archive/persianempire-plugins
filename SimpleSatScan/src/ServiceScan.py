@@ -4,7 +4,6 @@ from Components.ProgressBar import ProgressBar
 from Components.Label import Label
 from Components.ActionMap import ActionMap
 from Components.FIFOList import FIFOList
-from Components.ScrollLabel import ScrollLabel
 from Components.Sources.FrontendInfo import FrontendInfo
 from enigma import eServiceCenter
 

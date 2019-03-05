@@ -1,20 +1,15 @@
 from Components.ActionMap import ActionMap
-from Components.config import config, getConfigListEntry, ConfigText, ConfigPassword, ConfigSelection, ConfigSubsection
+from Components.config import config, getConfigListEntry, ConfigSelection, ConfigSubsection
 from Components.ConfigList import ConfigListScreen
 from Components.Label import Label
 from Plugins.Plugin import PluginDescriptor
 from Screens.Screen import Screen
 from Components.Sources.List import List
 from Tools.Directories import fileExists
-from Components.Language import language
-from Tools.Directories import resolveFilename, SCOPE_PLUGINS, SCOPE_LANGUAGE
 from Screens.PluginBrowser import PluginBrowser
-from Components.ScrollLabel import ScrollLabel
 from Screens.MessageBox import MessageBox
 from Components.Sources.StaticText import StaticText
-from os import environ
 import os
-import gettext
 
 adress = "http://www.satsharing.net/files/SoftCam.Key"
 bissaddress = "https://openvision.tech/persianpalace/Persian.BISS"

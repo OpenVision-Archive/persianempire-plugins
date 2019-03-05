@@ -1,31 +1,23 @@
 from Components.ActionMap import ActionMap
 from Components.Button import Button
-from Components.config import config, ConfigBoolean, ConfigFloat, ConfigInteger, ConfigSelection, ConfigText, ConfigYesNo, getConfigListEntry, KEY_NUMBERS, KEY_ASCII, getKeyNumber, KEY_LEFT, KEY_RIGHT
+from Components.config import config, ConfigBoolean, ConfigInteger, ConfigText, ConfigYesNo, getConfigListEntry, KEY_LEFT, KEY_RIGHT
 from Components.ConfigList import ConfigListScreen
-from Components.FileList import FileList
 from Components.GUIComponent import GUIComponent
 from Components.HTMLComponent import HTMLComponent
-from Components.Label import Label
 from Components.MenuList import MenuList
 from Components.MultiContent import MultiContentEntryText, MultiContentEntryPixmapAlphaTest
-from Components.NimManager import nimmanager, getConfigSatlist
 from Components.Pixmap import Pixmap
-from enigma import eDVBDB, eListbox, gFont, eListboxPythonMultiContent, \
-	RT_HALIGN_LEFT, RT_HALIGN_RIGHT, RT_HALIGN_CENTER, RT_VALIGN_CENTER, RT_VALIGN_TOP, RT_WRAP, eRect, eTimer
+from enigma import eDVBDB, eListbox, gFont, eListboxPythonMultiContent, RT_HALIGN_LEFT, RT_HALIGN_CENTER, RT_VALIGN_TOP, eRect, eTimer
 from Plugins.Plugin import PluginDescriptor
-from Screens.MessageBox import MessageBox
 from Screens.Screen import Screen
-from time import strftime, time, localtime, mktime
-from Tools.Directories import resolveFilename, SCOPE_SKIN_IMAGE
+from time import strftime, time
 from Tools.LoadPixmap import LoadPixmap
 from . import _, print_rd, print_gr, print_ye, print_mg, print_cy, print_bl
 from .ConfigHexNumber import ConfigHexNumber
-from .Lamedb import Lamedb, VIDEO_PID,AUDIO_PID,TXT_PID,PCR_PID,AC3_PID,VIDEOTYPE,AUDIOCHANNEL,AC3_DELAY,PCM_DELAY,SUBTITLE_PID, \
-	dxNoSDT,dxDontshow,dxNoDVB,dxHoldName,dxNewFound
+from .Lamedb import Lamedb, VIDEO_PID, AUDIO_PID, TXT_PID, PCR_PID, AC3_PID, VIDEOTYPE, AUDIOCHANNEL, AC3_DELAY, PCM_DELAY, SUBTITLE_PID, dxNoSDT, dxDontshow, dxNoDVB, dxHoldName, dxNewFound
 from Plugins.SystemPlugins.SatelliteEditor.plugin import SatellitesEditor
 from .Transponder import Transponder
 import os
-import thread
 import time
 
 class ServiceList(MenuList):
