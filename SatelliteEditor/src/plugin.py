@@ -1,21 +1,18 @@
 from Components.ActionMap import ActionMap
 from Components.Button import Button
-from Components.config import config, ConfigBoolean, ConfigFloat, ConfigInteger, ConfigSelection, ConfigText, ConfigYesNo, getConfigListEntry
+from Components.config import config, ConfigFloat, ConfigInteger, ConfigSelection, ConfigText, ConfigYesNo, getConfigListEntry
 from Components.ConfigList import ConfigListScreen
-from Components.FileList import FileList
 from Components.GUIComponent import GUIComponent
 from Components.HTMLComponent import HTMLComponent
-from Components.Label import Label
 from Components.MenuList import MenuList
-from Components.MultiContent import MultiContentEntryText, MultiContentEntryPixmapAlphaTest
-from Components.NimManager import nimmanager, getConfigSatlist
+from Components.MultiContent import MultiContentEntryText
+from Components.NimManager import nimmanager
 from Components.Pixmap import Pixmap
-from enigma import eListbox, gFont, eListboxPythonMultiContent, \
-	RT_HALIGN_LEFT, RT_HALIGN_RIGHT, RT_HALIGN_CENTER, RT_VALIGN_CENTER, RT_VALIGN_TOP, RT_WRAP, eRect, eTimer
+from enigma import eListbox, gFont, eListboxPythonMultiContent, RT_HALIGN_LEFT, RT_HALIGN_RIGHT, RT_HALIGN_CENTER, RT_VALIGN_CENTER, RT_VALIGN_TOP, eRect, eTimer
 from Plugins.Plugin import PluginDescriptor
 from Screens.MessageBox import MessageBox
 from Screens.Screen import Screen
-from time import strftime, time, localtime, mktime
+from time import time
 import os
 import time
 import thread
@@ -284,287 +281,6 @@ class SatelliteImport(Screen):
 
 	def getSatellites(self, dummy):
 		pass
-	
-
-class SatcoDX(SatelliteImport):
-	thread_is_off = 0
-	thread_is_running = 1
-	thread_is_done	= 2
-	
-	transFec = {
-			"1/2":"1",
-			"2/3":"2",
-			"3/4":"3",
-			"5/6":"4",
-			"7/8":"5",
-			"8/9":"6",
-			"3/5":"7",
-			"4/5":"8",
-			"9/10":"9",
-			}
-	
-	listFec2 = ("8/9","3/5","4/5","9/10")
-	listFec = ("1/2","2/3","3/4","4/5","5/6","7/8","?")
-	listFecAll = ("1/2","2/3","3/4","4/5","5/6","7/8","8/9","3/5","4/5","9/10","?")
-	
-
-	def __init__(self,session):
-		SatelliteImport.__init__(self,session)
-		
-		self.mainTitle = "SatcoDX Import (www.satcodx.com)"
-		self.urlRegions = (
-			"http://www.satcodx1.com",
-			"http://www.satcodx2.com",
-			"http://www.satcodx3.com",
-			"http://www.satcodx4.com",
-			"http://www.satcodx5.com",
-			"http://www.satcodx6.com",
-			"http://www.satcodx7.com",
-			"http://www.satcodx8.com",
-			"http://www.satcodx9.com",
-			)
-		
-		self.siteLanguages = ("eng", "deu",)
-	
-	def getTransponders(self, dummy = None):
-		print "getTransponders"
-		
-		transSystem = {"dvb-s":"0","dvb-s2":"1",}
-		transPolarisation = {"h":"0","v":"1","l":"2","r":"3",}
-		transModulation = {"dvb-s":"1","dvb-s2":"2",}
-		
-		idle = False
-		while idle != True:
-			idle = True
-			for satellite in self.satelliteslist:
-				if satellite[0].get("selected", False):
-					idle = False
-					if len(satellite) == 1:
-						url = satellite[0].get("url","")
-						try:
-							f = urllib2.urlopen(url)
-						except:
-							print "connection failed:", url
-							return
-						self.setTitle(_("get %s") %url)
-						print "get:",url
-						state = False
-						td_state = False
-						l = []
-						for row in f.readlines():
-							if state == False:
-								if row.lower().find("<th") != -1:
-									state = True
-									td_state = False
-									l.append(row.lower().replace("<br>","").replace("<b>","").replace("</b>","").replace("</th>","").replace("</td>",""))
-								else:
-									if td_state == False:
-										if row.lower().find("<td") != -1:
-											if row.lower().find("</td") == -1:
-												td_state = True
-											l.append(row.lower().replace("<br>","").replace("<b>","").replace("</b>","").replace("</th>","").replace("</td>",""))
-									else:
-										if row.lower().find("td>") != -1:
-											td_state = False
-										l.append(row.lower().replace("<br>","").replace("<b>","").replace("</b>","").replace("</th>","").replace("</td>",""))
-							else:
-								if row.lower().find("th>") != -1:
-									state = False
-								if row.lower().find("<th") != -1:
-									state = False
-								l.append(row.lower().replace("<br>","").replace("<b>","").replace("</b>","").replace("</th>","").replace("</td>",""))
-						f.close()
-						tp = {}
-						for x in range(0, len(l)-5):
-							try:
-								freq = str(int(float(l[x+1].split()[0])*1000000))
-							except:
-								continue
-							href = None
-							fec = None
-							pol = l[x+2].split()[0]
-							if pol not in ("v","h","l","r"):
-								continue
-							if l[x].find("dvb")!=-1:
-								sym = l[x+3].split()[0]
-								if not sym.isdigit():
-									print("fail 6")
-									continue
-								sys = l[x].split()[0]
-								href_raw = l[x+5].split()
-								href = None
-								for y in href_raw:
-									if y.find("href=")!=-1:
-										href = y.replace("href=","").replace("\"","")
-							else:
-								print "keine DVB Kennung"
-								sys = "dvb-s"
-								if l[x+6].find("tv-dig")!=-1 or l[x+6].find("r-dig")!=-1 or l[x+6].find("data")!=-1 or l[x+6].find("tv-hd")!=-1:
-									print "offset 6"
-									fec = l[x+18].strip()
-									if l[x+13].find("mpeg-2")!=-1:
-										sym = l[x+17].split(">")
-										sym = sym[len(sym)-1].strip()
-										if not sym.isdigit():
-											print("fail 1")
-											continue
-									elif l[x+8].find("mpeg-2")!=-1:
-										sym = l[x+12].split(">")
-										sym = sym[len(sym)-1].strip()
-										if not sym.isdigit():
-											print("fail 5")
-											continue
-										fec = l[x+13].strip()
-									elif fec in ("1/2","2/3","3/4","4/5","5/6","7/8"):
-										sym = l[x+17].split(">")
-										sym = sym[len(sym)-1].strip()
-										if not sym.isdigit():
-											print("fail 2")
-											continue
-									else:
-										fec = l[x+13].strip()
-										if fec in ("1/2","2/3","3/4","4/5","5/6","7/8"):
-											sym = l[x+12].split(">")
-											sym = sym[len(sym)-1].strip()
-											if not sym.isdigit():
-												print("fail 3")
-												continue
-										else:
-											sym = l[x+18].split(">")
-											sym = sym[len(sym)-1].strip()
-											if not sym.isdigit():
-												sym = l[x+17].split(">")
-												sym = sym[len(sym)-1].strip()
-												if not sym.isdigit():
-													print("fail 4")
-													continue
-									href_raw = l[x+4].split()
-									for y in href_raw:
-										if y.find("href=")!=-1:
-											href = y.replace("href=","").replace("\"","")
-								
-								elif l[x+5].find("tv-dig")!=-1 or l[x+5].find("r-dig")!=-1 or l[x+5].find("data")!=-1:
-									print "offset 5"
-									fec = l[x+17].strip()
-									sym = l[x+16].split(">")
-									sym = sym[len(sym)-1].strip()
-									if not sym.isdigit():
-										continue
-									if fec in ("1/2","2/3","3/4","4/5","5/6","7/8"):
-										pass
-									elif l[x+12].find("mpeg-2")!=-1:
-										pass
-									else:
-										continue	
-									print "old Format ???"
-									sys = "dvb-s"
-									print "sym",sym
-									print "fec",fec
-								elif l[x-1].find("tv-dig")!=-1 or l[x-1].find("r-dig")!=-1 or l[x-1].find("data")!=-1:
-									print "offset -1"
-									fec = l[x+11].strip()
-									sym = l[x+10].split(">")
-									sym = sym[len(sym)-1].strip()
-									if not sym.isdigit():
-										continue
-									if l[x+7].find("mpeg-2")!=-1:
-										pass
-									elif fec in ("1/2","2/3","3/4","4/5","5/6","7/8"):
-										pass
-									else:
-										continue
-									print "very old Format ???"
-									sys = "dvb-s"
-									print "sym",sym
-									print "fec",fec
-									href_raw = l[x+5].split()
-									for y in href_raw:
-										if y.find("src=")!=-1:
-											href = y.replace("src=","").replace("\"","").replace(".gif",".jpg")
-
-								else:
-									continue
-							try:
-								sym = str(int(sym)*1000)
-							except:
-								for xx in range(0,25):
-									print "%d"%xx,l[x+xx]
-							tp.update({freq+transPolarisation.get(pol):{
-								"frequency":freq,
-								"system":transSystem.get(sys,"0"),
-								"polarization":transPolarisation.get(pol),
-								"symbol_rate":sym,
-								"modulation":transModulation.get(sys,"0"),
-								"fec_inner":self.transFec.get(fec,"0"),
-								"import":0x0048d1cc,
-								}})
-						transponders = []
-						for key in tp:
-							transponders.append(tp[key])
-						transponders.sort(key = self.compareFrequency)
-						satellite.append(transponders)
-					satellite[0].update({"selected":False})
-					self.requestSatelliteslistRefresh = True
-		self.getTransponders_state = self.thread_is_done
-
-	def getSatellites(self, dummy):
-		print "getSatellites"
-		satellites = []
-		self.satelliteslist = satellites
-		l = []
-		for url in self.urlRegions:
-			try:
-				f = urllib2.urlopen(url + "/" + self.siteLanguages[0])
-			except:
-				print "connection failed:", url + "/" + self.siteLanguages[0]
-				continue
-			self.setTitle(_("get %s") %url + "/" + self.siteLanguages[0])
-			for row in f.readlines():
-				if row.find("<td")!=-1 and row.find("<a")!=-1 and row.find(".cgi?")==-1 and row.find("http")==-1:
-					satellite_raw = row.split("<a")[1].split("/>")
-					href = satellite_raw[0].replace("href=","").strip()
-					satellite = satellite_raw[1].split("<b>")[1].split("/>")[0].split("</a>")[0].strip()
-					tmp = href.split("/")
-					if len(tmp) == 3 and tmp[1].isdigit() and tmp[2] == u"eng" and satellite is not None:
-						pos_raw = satellite.split()
-						pos_raw = pos_raw[len(pos_raw)-1]
-						pos_raw = pos_raw.split("-")
-						pos_raw = pos_raw[len(pos_raw)-1].replace(")","").replace("(", "").lower()
-						west = False
-						if pos_raw.find("w") != -1:
-							west = True
-						pos = int(float(pos_raw.replace("e", "").replace("w", ""))*10)
-						if west:
-							pos = -pos
-						elif pos > 1799:
-							pos -= 3600
-							west = True
-						satellites.append([{"name": str(satellite), "position": str(pos), "url": url + href}])
-						self.requestSatelliteslistRefresh = True
-			f.close()
-		self.setTitle(self.mainTitle)
-		self.getSatellites_state = self.thread_is_done
-
-	def exitSatelliteImport(self):
-		posList = {}
-		for sat in self.satelliteslist:
-			if len(sat) > 1:
-				pos = sat[0].get("position")
-				if  pos in posList:
-					posList.get(pos)[1].extend(sat[1])
-				else:
-					posList.update({pos:sat})
-		cleanList = []
-		for sat in posList:
-			a = posList.get(sat)
-			del a[0]["selected"]
-			newName = a[0]["name"].replace("C-Band:","").split("-")
-			newPos = newName[len(newName)-1].split()
-			newPos = newPos[len(newPos)-1].replace(")","").replace("(", "").strip()
-			newName = newName[0].strip() + " (" + newPos + ")"
-			a[0].update({"name":newName})
-			cleanList.append(a)
-		self.close(cleanList)
 
 
 class KingOfSat(SatelliteImport):
@@ -2334,7 +2050,6 @@ class MenuSelection(Screen):
 
 		actionList = []
 		actionList.append(_("Import lamedb"))
-		actionList.append(_("Import from SatcoDX"))
 		actionList.append(_("Import from KingOfSat"))
 		actionList.append(_("Import from LyngSat"))
 
@@ -2854,8 +2569,6 @@ class SatellitesEditor(Screen):
 			self.session.openWithCallback(self.finishedSatImport, KingOfSat)
 		elif result == "Import from LyngSat":
 			self.session.openWithCallback(self.finishedSatImport, LyngSat)
-		elif result == "Import from SatcoDX":
-			self.session.openWithCallback(self.finishedSatImport, SatcoDX)
 	
 	def finishedSatImport(self, result):
 		print "finishedSatImport"
