@@ -10,9 +10,6 @@ from Components.ConfigList import ConfigListScreen
 from Tools.BoundFunction import boundFunction
 
 
-
-
-
 class BouquetProtectSetup(Screen, ConfigListScreen):
 	def __init__(self, session):
 		Screen.__init__(self, session)

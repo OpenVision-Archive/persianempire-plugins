@@ -697,7 +697,7 @@ class fmWaitScreen(Screen):
                     skin_user_xml_file = open("/etc/enigma2/skin_user.xml", "w")
                     skin_user_xml_text = "<skin>\n"
                     if config.plugins.fm.active.value:
-                        if getBoxType() in in ("dm800se"):
+                        if getBoxType() in ("dm800se"):
                             skin_user_xml_text = skin_user_xml_text + "\t<screen name=\"InfoBarSummary\" position=\"0,0\" size=\"96,64\" id=\"2\">\n"
                             skin_user_xml_text = skin_user_xml_text + "\t\t<widget font=\"Regular;%s\" halign=\"center\" position=\"1,1\" render=\"Label\" size=\"92,64\" source=\"session.CurrentService\" valign=\"center\">\n" % (config.plugins.fm.fontsize.value)
                         else:
@@ -707,7 +707,7 @@ class fmWaitScreen(Screen):
                         skin_user_xml_text = skin_user_xml_text + "\t\t</widget>\n"
                         skin_user_xml_text = skin_user_xml_text + "\t</screen>\n"
                     if config.plugins.fm.show_only_clock.value:
-                        if getBoxType() in in ("dm800se"):
+                        if getBoxType() in ("dm800se"):
                             skin_user_xml_text = skin_user_xml_text + "\t<screen name=\"StandbySummary\" position=\"0,0\" size=\"96,64\">\n"
                             skin_user_xml_text = skin_user_xml_text + "\t\t<widget font=\"Regular;40\" halign=\"center\" position=\"0,0\" render=\"Label\" size=\"96,64\" source=\"global.CurrentTime\" valign=\"center\">\n"
                             skin_user_xml_text = skin_user_xml_text + "\t\t\t<convert type=\"ClockToText\">Format:%H:%M</convert>\n"

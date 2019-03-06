@@ -2,21 +2,20 @@ from Components.ActionMap import ActionMap
 from Screens.MessageBox import MessageBox
 from Tools.Directories import fileExists
 from GlobalActions import globalActionMap
-from keymapparser import readKeymap, removeKeymap
+from keymapparser import readKeymap
 from os import environ
 from Plugins.Plugin import PluginDescriptor
 from Screens.Screen import Screen
 from Components.Console import Console
 from Components.Language import language
-from Components.config import config, getConfigListEntry, ConfigText, ConfigInteger, ConfigClock, ConfigSelection, ConfigSubsection, ConfigYesNo, configfile, NoSave
+from Components.config import config, getConfigListEntry, ConfigSelection, ConfigSubsection, configfile
 from Components.ConfigList import ConfigListScreen
 from Tools.Directories import resolveFilename, SCOPE_PLUGINS, SCOPE_LANGUAGE
 from Components.Sources.StaticText import StaticText
-import os
 import gettext
 from Components.PluginComponent import plugins
 
-if fileExists("/usr/lib/enigma2/python/Plugins/Extensions/PECamManager/Softcam.py"):
+if fileExists("/usr/lib/enigma2/python/Plugins/Extensions/PECamManager/Softcam.pyo"):
 	from Plugins.Extensions.PECamManager.Softcam import getcamcmd
 	
 lang = language.getLanguage()
@@ -59,7 +58,7 @@ class QuickEmu():
 		if fileExists("/etc/rc3.d/S99camd-persianpalace.sh"):
 			self.Console.ePopen("/etc/rc3.d/S99camd-persianpalace.sh restart")
 
-		elif fileExists("/usr/lib/enigma2/python/Plugins/Extensions/PECamManager/Softcam.py"):
+		elif fileExists("/usr/lib/enigma2/python/Plugins/Extensions/PECamManager/Softcam.pyo"):
 			service = self.session.nav.getCurrentlyPlayingServiceReference()
 			emunam = config.plugins.PECam.actcam.value
 			if emunam != "none":
@@ -83,7 +82,7 @@ class QuickEmu():
 			except:
 				return None
 
-		elif fileExists("/usr/lib/enigma2/python/Plugins/Extensions/PECamManager/plugin.py"): 
+		elif fileExists("/usr/lib/enigma2/python/Plugins/Extensions/PECamManager/plugin.pyo"): 
 			if config.plugins.PECam.actcam.value != "none": 
 				return config.plugins.PECam.actcam.value 
 			else: 

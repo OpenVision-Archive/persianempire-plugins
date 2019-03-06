@@ -5,17 +5,14 @@ blockcontent_version="0.15"
 from RecordTimer import parseEvent
 from Components.ServiceEventTracker import ServiceEventTracker        
 from Plugins.Plugin import PluginDescriptor
-from Components.config import config, ConfigSubsection, ConfigEnableDisable, ConfigInteger, ConfigBoolean, ConfigText, ConfigPIN, getConfigListEntry
-from enigma import eTimer,  eServiceReference, eServiceCenter, iServiceInformation, iPlayableService
+from Components.config import config, ConfigSubsection, ConfigInteger, ConfigBoolean, ConfigPIN, getConfigListEntry
+from enigma import eTimer, eServiceCenter, iPlayableService
 from Screens.Screen import Screen
 from Components.ConfigList import ConfigListScreen
-from Screens.Setup import SetupSummary
 from Components.ActionMap import ActionMap
 from Components.Label import Label
 from Screens.MessageBox import MessageBox
-from Screens.InputBox import InputBox, PinInput
-from Screens.ChoiceBox import ChoiceBox
-from Screens.TimerSelection import TimerSelection
+from Screens.InputBox import PinInput
 from ServiceReference import ServiceReference
 from Screens.ParentalControlSetup import ProtectedScreen     
 from time import time, localtime, strftime

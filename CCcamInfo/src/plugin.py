@@ -25,7 +25,7 @@ from twisted.web.client import HTTPClientFactory
 from urlparse import urlparse, urlunparse
 import gettext
 
-if fileExists("/usr/lib/enigma2/python/Components/Console.py"):
+if fileExists("/usr/lib/enigma2/python/Components/Console.pyo"):
 	from Components.Console import Console
 	NEW_CVS = True
 else:

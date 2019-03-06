@@ -3,10 +3,9 @@ from . import _
 from Plugins.Plugin import PluginDescriptor
 from Screens.MessageBox import MessageBox
 from Screens.ChannelSelection import ChannelSelectionBase, ChannelContextMenu
-from Components.config import config, ConfigSubsection, ConfigSelection, ConfigYesNo, ConfigPIN, ConfigInteger, ConfigNumber
+from Components.config import config, ConfigSubsection, ConfigSelection, ConfigYesNo, ConfigPIN, ConfigInteger
 from enigma import eServiceReference, eServiceCenter, eDVBDB, eTimer
 from Components.ChoiceList import ChoiceEntryComponent
-from Tools import Notifications
 from Tools.BoundFunction import boundFunction
 from Tools.Directories import resolveFilename, SCOPE_CONFIG
 import BouquetProtect
