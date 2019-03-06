@@ -3,37 +3,28 @@ from Components.Label import Label
 from Components.MenuList import MenuList
 from Components.MultiContent import MultiContentEntryText, MultiContentEntryPixmap, MultiContentEntryPixmapAlphaTest
 from Components.config import config
-from Components.GUIComponent import GUIComponent
 from enigma import ePicLoad
 from Components.Pixmap import Pixmap, MovingPixmap
 from Tools.LoadPixmap import LoadPixmap
-from Tools import Notifications
 from Components.AVSwitch import AVSwitch
-from Screens.InfoBar import MoviePlayer
 from Components.PluginComponent import plugins
-from Components.PluginList import PluginEntryComponent, PluginList
+from Components.PluginList import PluginList
 from Components.Button import Button
 from Screens.Screen import Screen
 from Plugins.Plugin import PluginDescriptor
-from Components.ServicePosition import ServicePositionGauge
-from Tools.NumericalTextInput import NumericalTextInput
-from Components.ConfigList import *
-from Components.config import *
 from Components.ConfigList import ConfigList, ConfigListScreen
-from Components.config import config, ConfigSubsection, ConfigText, getConfigListEntry, ConfigSelection, ConfigPIN
+from Components.config import config, ConfigSubsection, ConfigText, getConfigListEntry, ConfigSelection, ConfigPIN, ConfigYesNo
 from Screens.HelpMenu import HelpableScreen
-from Screens.InputBox import InputBox
 from Screens.InputBox import PinInput
-from Screens.ChoiceBox import ChoiceBox
 from Screens.VirtualKeyBoard import VirtualKeyBoard
-from Screens.Screen import Screen
 from Screens.MessageBox import MessageBox
 from Tools.BoundFunction import boundFunction
 from Screens.InfoBarGenerics import InfoBarChannelSelection
-from enigma import eListboxPythonMultiContent, eListbox, gFont, RT_HALIGN_LEFT, RT_HALIGN_RIGHT, RT_HALIGN_CENTER, loadPNG, RT_WRAP, eServiceReference, getDesktop, loadJPG
-from Tools.Directories import pathExists, fileExists, SCOPE_SKIN_IMAGE, resolveFilename
-import sys, os, base64, re, time, sha, shutil, inspect
+from enigma import eListboxPythonMultiContent, eListbox, gFont, RT_HALIGN_LEFT, loadPNG
+from Tools.Directories import fileExists
+import os, re, time, shutil, inspect
 from dirSelect import dirSelectDlg1
+
 found_new = False
 version = '1.8.1'
 config.plugins.navibar = ConfigSubsection()

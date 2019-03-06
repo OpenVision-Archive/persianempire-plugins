@@ -11,11 +11,9 @@ from Tools.Directories import resolveFilename, SCOPE_PLUGINS
 from Components.Label import Label
 from Components.MenuList import MenuList
 from Screens.MessageBox import MessageBox
-from enigma import eTimer
+from enigma import eTimer, getBoxType
 from time import *
 from __init__ import _
-from Tools.HardwareInfo import HardwareInfo 
-import gettext
 import os
 import xml.etree.cElementTree
 import glob
@@ -48,7 +46,7 @@ def Plugins(**kwargs):
     return [PluginDescriptor(name=("Font Magnifier 0.6.1"), description=_("Tool to change font sizes easily."), where = PluginDescriptor.WHERE_PLUGINMENU, icon="fm.png", fnc=main)]
 
 def main(session, **kwargs):
-        hw_type_string = HardwareInfo().get_device_name()
+        hw_type_string = getBoxType()
         hw_type_string = hw_type_string + "\n";
         hw_type_file = open("/tmp/fontmagnifier_hw_type.txt", "w")
         hw_type_file.write(hw_type_string)
@@ -699,7 +697,7 @@ class fmWaitScreen(Screen):
                     skin_user_xml_file = open("/etc/enigma2/skin_user.xml", "w")
                     skin_user_xml_text = "<skin>\n"
                     if config.plugins.fm.active.value:
-                        if "800se" in HardwareInfo().get_device_name():
+                        if getBoxType() in in ("dm800se"):
                             skin_user_xml_text = skin_user_xml_text + "\t<screen name=\"InfoBarSummary\" position=\"0,0\" size=\"96,64\" id=\"2\">\n"
                             skin_user_xml_text = skin_user_xml_text + "\t\t<widget font=\"Regular;%s\" halign=\"center\" position=\"1,1\" render=\"Label\" size=\"92,64\" source=\"session.CurrentService\" valign=\"center\">\n" % (config.plugins.fm.fontsize.value)
                         else:
@@ -709,7 +707,7 @@ class fmWaitScreen(Screen):
                         skin_user_xml_text = skin_user_xml_text + "\t\t</widget>\n"
                         skin_user_xml_text = skin_user_xml_text + "\t</screen>\n"
                     if config.plugins.fm.show_only_clock.value:
-                        if "800se" in HardwareInfo().get_device_name():
+                        if getBoxType() in in ("dm800se"):
                             skin_user_xml_text = skin_user_xml_text + "\t<screen name=\"StandbySummary\" position=\"0,0\" size=\"96,64\">\n"
                             skin_user_xml_text = skin_user_xml_text + "\t\t<widget font=\"Regular;40\" halign=\"center\" position=\"0,0\" render=\"Label\" size=\"96,64\" source=\"global.CurrentTime\" valign=\"center\">\n"
                             skin_user_xml_text = skin_user_xml_text + "\t\t\t<convert type=\"ClockToText\">Format:%H:%M</convert>\n"

@@ -1,23 +1,17 @@
 from Plugins.Plugin import PluginDescriptor
 from Components.Sources.List import List
 from Components.MultiContent import MultiContentEntryText, MultiContentEntryPixmapAlphaTest
-from enigma import eTimer, quitMainloop, RT_HALIGN_LEFT, RT_VALIGN_CENTER, eListboxPythonMultiContent, eListbox, gFont, getDesktop, ePicLoad, getBoxType
+from enigma import quitMainloop, eListboxPythonMultiContent, gFont, getDesktop, getBoxType
 from Tools.LoadPixmap import LoadPixmap
-import urllib
-from urllib2 import urlopen
 from Components.MenuList import MenuList
 from Components.Label import Label
 from Tools.Directories import fileExists, resolveFilename, SCOPE_SKIN
 from Screens.Screen import Screen
 from Screens.MessageBox import MessageBox
 from Components.ActionMap import NumberActionMap
-from Components.Input import Input
 from Components.Pixmap import Pixmap
-from Components.FileList import FileList
-from Screens.ChoiceBox import ChoiceBox
 from Components.ActionMap import ActionMap
-from Screens.InputBox import InputBox
-from twisted.web.client import getPage, downloadPage
+from twisted.web.client import getPage
 import os
 from Components.Button import Button
 from Screens.Console import Console

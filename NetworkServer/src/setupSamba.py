@@ -7,10 +7,7 @@ from Components.Pixmap import Pixmap
 from Components.Label import Label
 from Components.Button import Button
 from Components.ConfigList import ConfigListScreen
-from Components.config import NoSave
-from Components.config import ConfigEnableDisable
-from Components.config import ConfigText
-from Components.config import getConfigListEntry
+from Components.config import NoSave, ConfigEnableDisable, ConfigText, getConfigListEntry
 from enigma import eConsoleAppContainer
 import os
 from os import path

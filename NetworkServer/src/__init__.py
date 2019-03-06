@@ -1,6 +1,6 @@
 # -*- coding: ISO-8859-1 -*-
 from Components.Language import language
-from Tools.Directories import resolveFilename, SCOPE_PLUGINS, SCOPE_LANGUAGE
+from Tools.Directories import resolveFilename, SCOPE_PLUGINS
 import os,gettext
 PluginLanguageDomain = "NetworkServer"
 PluginLanguagePath = "SystemPlugins/NetworkServer/locale"

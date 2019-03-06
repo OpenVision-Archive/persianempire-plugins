@@ -5,7 +5,7 @@ from Components.Label import Label
 from Components.config import ConfigSubsection, ConfigSelection, ConfigYesNo, ConfigDirectory, getConfigListEntry, NoSave, config
 from Components.ConfigList import ConfigListScreen, ConfigList
 from Components.Language import language
-from Tools.Directories import resolveFilename, fileExists, pathExists, SCOPE_LANGUAGE, SCOPE_PLUGINS
+from Tools.Directories import resolveFilename, pathExists, SCOPE_LANGUAGE, SCOPE_PLUGINS
 import os
 from Screens.LocationBox import LocationBox
 
