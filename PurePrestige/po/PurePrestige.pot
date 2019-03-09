@@ -1,0 +1,121 @@
+msgid ""
+msgstr ""
+
+msgid "AC3 Delay (ms)"
+msgstr ""
+
+msgid "AC3 PID (hex)"
+msgstr ""
+
+msgid "Audio PID (hex)"
+msgstr ""
+
+msgid "Audiochannel"
+msgstr ""
+
+msgid "DVB-C"
+msgstr ""
+
+msgid "DVB-T"
+msgstr ""
+
+msgid "E"
+msgstr ""
+
+msgid "Error"
+msgstr ""
+
+msgid ""
+"Frequency\n"
+"MHz"
+msgstr ""
+
+msgid "Name"
+msgstr ""
+
+msgid "Options for hide"
+msgstr ""
+
+msgid "PCM Delay (ms)"
+msgstr ""
+
+msgid "PCR PID (hex)"
+msgstr ""
+
+msgid "Pos"
+msgstr ""
+
+msgid "Provider"
+msgstr ""
+
+msgid "Providers"
+msgstr ""
+
+msgid "SID (hex)"
+msgstr ""
+
+msgid "Service"
+msgstr ""
+
+msgid "Services"
+msgstr ""
+
+msgid "Services Editor"
+msgstr ""
+
+msgid "Subtitle PID (hex)"
+msgstr ""
+
+msgid "TXT PID (hex)"
+msgstr ""
+
+msgid "Video PID (hex)"
+msgstr ""
+
+msgid "Video Type"
+msgstr ""
+
+msgid "W"
+msgstr ""
+
+msgid "dont use SDT"
+msgstr ""
+
+msgid "edit"
+msgstr ""
+
+msgid "hide Provider %s"
+msgstr ""
+
+msgid "hide Service"
+msgstr ""
+
+msgid "hide Service %s"
+msgstr ""
+
+msgid "hide/unhide"
+msgstr ""
+
+msgid "keep Servicename"
+msgstr ""
+
+msgid "no standart service"
+msgstr ""
+
+msgid "ok"
+msgstr ""
+
+msgid "sign as new Service"
+msgstr ""
+
+msgid "sort"
+msgstr ""
+
+msgid "toggle hide attibutes for %s"
+msgstr ""
+
+msgid "unhide Provider %s"
+msgstr ""
+
+msgid "unhide Service %s"
+msgstr ""

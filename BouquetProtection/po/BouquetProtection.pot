@@ -1,0 +1,149 @@
+msgid ""
+msgstr ""
+
+msgid "'Cancel"
+msgstr ""
+
+msgid "'Save"
+msgstr ""
+
+msgid "1 minute"
+msgstr ""
+
+msgid "12 hours"
+msgstr ""
+
+msgid "15 minutes"
+msgstr ""
+
+msgid "2 hours"
+msgstr ""
+
+msgid "24 hours"
+msgstr ""
+
+msgid "3 hours"
+msgstr ""
+
+msgid "30 minutes"
+msgstr ""
+
+msgid "45 minutes"
+msgstr ""
+
+msgid "5 minutes"
+msgstr ""
+
+msgid "6 hours"
+msgstr ""
+
+msgid "60 minutes"
+msgstr ""
+
+msgid "<< change password >>"
+msgstr ""
+
+msgid "<< setup password (4 digits) >>"
+msgstr ""
+
+msgid "Advanced:"
+msgstr ""
+
+msgid "All hidden services"
+msgstr ""
+
+msgid "Bouquet Protection Setup"
+msgstr ""
+
+msgid "Bouquets Protection"
+msgstr ""
+
+msgid "Bouquets protection"
+msgstr ""
+
+msgid "Bouquets protection:"
+msgstr ""
+
+msgid "Change password"
+msgstr ""
+
+msgid "Enter new password"
+msgstr ""
+
+msgid "Password setup:"
+msgstr ""
+
+msgid "Reenter new password"
+msgstr ""
+
+msgid "Sorry, hide current service failed :("
+msgstr ""
+
+msgid "The password has been changed successfully."
+msgstr ""
+
+msgid "The password you entered is wrong."
+msgstr ""
+
+msgid "The passwords you entered are different."
+msgstr ""
+
+msgid "add to bouquets protection"
+msgstr ""
+
+msgid "advanced parental control for user bouquets"
+msgstr ""
+
+msgid "enable bouquets protection"
+msgstr ""
+
+msgid "enable password on protection"
+msgstr ""
+
+msgid "hide all as unwanted services"
+msgstr ""
+
+msgid "hide as unwanted service"
+msgstr ""
+
+msgid "hide unwanted services in channellist"
+msgstr ""
+
+msgid "lock protected services"
+msgstr ""
+
+msgid "long AUDIO"
+msgstr ""
+
+msgid "long VIDEO(Vkey)"
+msgstr ""
+
+msgid "none"
+msgstr ""
+
+msgid "please enter the old password"
+msgstr ""
+
+msgid "please enter the password"
+msgstr ""
+
+msgid "remember entered password"
+msgstr ""
+
+msgid "remove from bouquets protection"
+msgstr ""
+
+msgid "restore all hidden services"
+msgstr ""
+
+msgid "restore hidden service"
+msgstr ""
+
+msgid "show unwanted services list on key press"
+msgstr ""
+
+msgid "unlock protected services"
+msgstr ""
+
+msgid "until standby/restart"
+msgstr ""

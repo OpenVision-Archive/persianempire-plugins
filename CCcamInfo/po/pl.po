@@ -6,9 +6,13 @@ msgstr ""
 "PO-Revision-Date: 2008-12-11 11:25+0100\n"
 "Last-Translator:Tasiorsa <tasiorsa@gmail.com>\n"
 "Language-Team: \n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+
+msgid " and"
+msgstr ""
 
 msgid "About"
 msgstr "O programie"
@@ -96,6 +100,9 @@ msgstr "Ecm Info"
 msgid "Ecm time:"
 msgstr "Czas ecm'a:"
 
+msgid "Edit"
+msgstr ""
+
 msgid "Entitlements"
 msgstr "Uprawnienia odbioru"
 
@@ -144,6 +151,9 @@ msgstr "Ostatnia używana karta: "
 msgid "Local box"
 msgstr "Lokalny dekoder"
 
+msgid "Location"
+msgstr ""
+
 msgid "Maxdown +"
 msgstr "Maxdown +"
 
@@ -155,6 +165,12 @@ msgstr "Maxdown: "
 
 msgid "Menu config"
 msgstr "Menu konfiguracji"
+
+msgid "Name:"
+msgstr ""
+
+msgid "New"
+msgstr ""
 
 msgid "New profile: "
 msgstr "Nowy profil: "
@@ -332,6 +348,36 @@ msgstr "Karta wirtualna:"
 
 msgid "show all cards"
 msgstr "Pokaż wszystkie karty"
+
+msgid "show cards with uphop 0"
+msgstr ""
+
+msgid "show cards with uphop 1"
+msgstr ""
+
+msgid "show cards with uphop 2"
+msgstr ""
+
+msgid "show cards with uphop 3"
+msgstr ""
+
+msgid "show cards with uphop 4"
+msgstr ""
+
+msgid "show cards with uphop 5"
+msgstr ""
+
+msgid "show cards with uphop 6"
+msgstr ""
+
+msgid "show cards with uphop 7"
+msgstr ""
+
+msgid "show cards with uphop 8"
+msgstr ""
+
+msgid "show cards with uphop 9"
+msgstr ""
 
 msgid "system:"
 msgstr "System:"

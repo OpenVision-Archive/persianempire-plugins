@@ -11,171 +11,133 @@ msgstr ""
 "PO-Revision-Date: 2009-04-17 19:29+0100\n"
 "Last-Translator: adenin <adenin@i-have-a-dreambox.com>\n"
 "Language-Team: Deutsch\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: KBabel 1.11.4\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: plugin.py:53
-msgid "E"
-msgstr "O"
-
-#: plugin.py:54
-msgid "W"
-msgstr ""
-
-#: plugin.py:55
-msgid "DVB-C"
-msgstr ""
-
-#: plugin.py:56
-msgid "DVB-T"
-msgstr ""
-
-#: plugin.py:122
-msgid "Error"
-msgstr "Fehler"
-
-#: plugin.py:231
-msgid "ok"
-msgstr ""
-
-#: plugin.py:268
-msgid "Name"
-msgstr ""
-
-#: plugin.py:269 plugin.py:1075
-msgid "Provider"
-msgstr "Anbieter"
-
-#: plugin.py:270
-msgid "SID (hex)"
-msgstr ""
-
-#: plugin.py:271
-msgid "PCR PID (hex)"
-msgstr ""
-
-#: plugin.py:272
-msgid "Video PID (hex)"
-msgstr ""
-
-#: plugin.py:273
-msgid "Video Type"
-msgstr ""
-
-#: plugin.py:274
-msgid "Audio PID (hex)"
-msgstr ""
-
-#: plugin.py:275
-msgid "AC3 PID (hex)"
-msgstr ""
-
-#: plugin.py:276
-msgid "Audiochannel"
-msgstr "Audiokanal"
-
-#: plugin.py:278
 msgid "AC3 Delay (ms)"
 msgstr ""
 
-#: plugin.py:279
-msgid "PCM Delay (ms)"
+msgid "AC3 PID (hex)"
 msgstr ""
 
-#: plugin.py:281
-msgid "TXT PID (hex)"
+msgid "Audio PID (hex)"
 msgstr ""
 
-#: plugin.py:282
-msgid "Subtitle PID (hex)"
-msgstr "Untertitel PID (hex)"
+msgid "Audiochannel"
+msgstr "Audiokanal"
 
-#: plugin.py:283
-msgid "dont use SDT"
-msgstr "SDT nicht benutzen"
-
-#: plugin.py:284
-msgid "hide Service"
-msgstr "Sender verstecken"
-
-#: plugin.py:285
-msgid "no standart service"
-msgstr "kein Standart Sender"
-
-#: plugin.py:286
-msgid "keep Servicename"
-msgstr "Sendername behalten"
-
-#: plugin.py:287
-msgid "sign as new Service"
-msgstr "Kennzeichnen als \"neuer Sender\""
-
-#: plugin.py:456
-#, python-format
-msgid "unhide Service %s"
-msgstr "Sichtbar machen von %s"
-
-#: plugin.py:458
-#, python-format
-msgid "hide Service %s"
-msgstr "Verstecke %s"
-
-#: plugin.py:459
-#, python-format
-msgid "hide Provider %s"
-msgstr "Verstecke %s"
-
-#: plugin.py:460
-#, python-format
-msgid "unhide Provider %s"
-msgstr "Sichtbar machen von %s"
-
-#: plugin.py:461
-#, python-format
-msgid "toggle hide attibutes for %s"
-msgstr "vertausche sichtbar<=> unsichtbar für %s"
-
-#: plugin.py:473
-msgid "Options for hide"
+msgid "DVB-C"
 msgstr ""
 
-#: plugin.py:540
-msgid "hide/unhide"
-msgstr "un-/sichtbar"
-
-#: plugin.py:541
-msgid "edit"
-msgstr "ändern"
-
-#: plugin.py:543
-msgid "sort"
-msgstr "sortieren"
-
-#: plugin.py:559
-msgid "Services"
-msgstr "Kanäle"
-
-#: plugin.py:560
-msgid "Providers"
-msgstr "Anbieter"
-
-#: plugin.py:561
-msgid "Pos"
+msgid "DVB-T"
 msgstr ""
 
-#: plugin.py:1065
-msgid "Service"
-msgstr "Kanal"
+msgid "E"
+msgstr "O"
 
-#: plugin.py:1083 plugin.py:1091 plugin.py:1100
+msgid "Error"
+msgstr "Fehler"
+
 msgid ""
 "Frequency\n"
 "MHz"
 msgstr ""
 
-#: plugin.py:1176 plugin.py:1181
+msgid "Name"
+msgstr ""
+
+msgid "Options for hide"
+msgstr ""
+
+msgid "PCM Delay (ms)"
+msgstr ""
+
+msgid "PCR PID (hex)"
+msgstr ""
+
+msgid "Pos"
+msgstr ""
+
+msgid "Provider"
+msgstr "Anbieter"
+
+msgid "Providers"
+msgstr "Anbieter"
+
+msgid "SID (hex)"
+msgstr ""
+
+msgid "Service"
+msgstr "Kanal"
+
+msgid "Services"
+msgstr "Kanäle"
+
 msgid "Services Editor"
 msgstr "Service Editor"
+
+msgid "Subtitle PID (hex)"
+msgstr "Untertitel PID (hex)"
+
+msgid "TXT PID (hex)"
+msgstr ""
+
+msgid "Video PID (hex)"
+msgstr ""
+
+msgid "Video Type"
+msgstr ""
+
+msgid "W"
+msgstr ""
+
+msgid "dont use SDT"
+msgstr "SDT nicht benutzen"
+
+msgid "edit"
+msgstr "ändern"
+
+#, python-format
+msgid "hide Provider %s"
+msgstr "Verstecke %s"
+
+msgid "hide Service"
+msgstr "Sender verstecken"
+
+#, python-format
+msgid "hide Service %s"
+msgstr "Verstecke %s"
+
+msgid "hide/unhide"
+msgstr "un-/sichtbar"
+
+msgid "keep Servicename"
+msgstr "Sendername behalten"
+
+msgid "no standart service"
+msgstr "kein Standart Sender"
+
+msgid "ok"
+msgstr ""
+
+msgid "sign as new Service"
+msgstr "Kennzeichnen als \"neuer Sender\""
+
+msgid "sort"
+msgstr "sortieren"
+
+#, python-format
+msgid "toggle hide attibutes for %s"
+msgstr "vertausche sichtbar<=> unsichtbar für %s"
+
+#, python-format
+msgid "unhide Provider %s"
+msgstr "Sichtbar machen von %s"
+
+#, python-format
+msgid "unhide Service %s"
+msgstr "Sichtbar machen von %s"

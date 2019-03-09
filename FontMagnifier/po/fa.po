@@ -6,6 +6,7 @@ msgstr ""
 "PO-Revision-Date: \n"
 "Last-Translator: Farshadmb <farshad1151@hotmail.com>\n"
 "Language-Team: Persian Professionals <persianprince@persianpros.com>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -44,13 +45,17 @@ msgstr "را وارد کنید epg توضیحات یك epgیك اندازه فو
 msgid "Enter service number font size in pixel"
 msgstr " وارد کنید  اندازه فونت شماره سرویس در پیکسل را"
 
+msgid "Error..."
+msgstr ""
+
+#, fuzzy
 msgid ""
 "Font magnifier plugin\n"
 "\n"
 "This plugin helps you to\n"
 "set up different font sizes.\n"
 "\n"
-"(c) 2010 - BigReaper"
+"(c) 2012 - BigReaper"
 msgstr ""
 "ذره بین فونت پلاگین\n"
 "\n"
@@ -102,11 +107,42 @@ msgstr "بدون فایل برای راه اندازی مجدد!"
 msgid "OK"
 msgstr "بله"
 
+msgid "Please select settings to restore"
+msgstr ""
+
 msgid "Please wait..."
 msgstr "منتظر بمانید ..."
 
 msgid "Restart GUI now?"
 msgstr "GUIراه اندازی مجدد"
+
+#, fuzzy
+msgid "Restore settings"
+msgstr "گزینه های راه اندازی مجدد"
+
+msgid "Save settings"
+msgstr ""
+
+#, python-format
+msgid ""
+"Saved settings restored with errors!\n"
+"(%s)"
+msgstr ""
+
+#, python-format
+msgid ""
+"Saved settings restored!\n"
+"(%s)"
+msgstr ""
+
+msgid "Saving settings failed!"
+msgstr ""
+
+msgid "Select regular font"
+msgstr ""
+
+msgid "Settins saved to "
+msgstr ""
 
 msgid "Show only time in display when box is in standby"
 msgstr "نمایش زمان تنها وقتی كه دستگاه آماده بكار است ."
@@ -120,14 +156,13 @@ msgstr "متاسفانه /usr/lib/enigma2/python/Components/EpgList.قادر ب�
 msgid "Sorry, unable to parse /usr/lib/enigma2/python/Components/MovieList.py"
 msgstr "متاسفانه /usr/lib/enigma2/python/Components/MovieList.pyقادر به اصلاح نیست"
 
+#, python-format
 msgid "Sorry, unable to parse /usr/share/enigma2/%s."
 msgstr "متاسفانه /usr/share/enigma2/%s قادر به اصلاح نیست."
 
-msgid "Tool to change easily font sizes."
+#, fuzzy
+msgid "Tool to change font sizes easily."
 msgstr "ابزاری برای راحتی تغییر اندازه قلم."
-
-msgid "font magnifier plugin"
-msgstr "ذره بین فونت پلاگین"
 
 msgid "restore EpgList.py"
 msgstr "EpgList.py راه اندازی مجدد"

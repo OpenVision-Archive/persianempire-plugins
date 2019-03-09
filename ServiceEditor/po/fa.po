@@ -6,6 +6,7 @@ msgstr ""
 "PO-Revision-Date: 2011-05-16 21:38+0330\n"
 "Last-Translator: Farshadmb <farshad1151@hotmail.com>\n"
 "Language-Team: Persian Professionals <persianprince@persianpros.com>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -98,12 +99,14 @@ msgstr "SDTغیر قابل استفاده"
 msgid "edit"
 msgstr "ویرایش"
 
+#, python-format
 msgid "hide Provider %s"
 msgstr "مخفی كردن پروایدر %s"
 
 msgid "hide Service"
 msgstr "مخفی كردن خدمات"
 
+#, python-format
 msgid "hide Service %s"
 msgstr "مخفی كردن خدمات%s"
 
@@ -125,11 +128,14 @@ msgstr "ثبت خدمات جدید "
 msgid "sort"
 msgstr "ردیف"
 
+#, python-format
 msgid "toggle hide attibutes for %s"
 msgstr "ضامن ویژگی برای مخفی کردن %s"
 
+#, python-format
 msgid "unhide Provider %s"
 msgstr "نشان دادن پرووایدر %s"
 
+#, python-format
 msgid "unhide Service %s"
 msgstr "آشكار كردن خدمات %s"

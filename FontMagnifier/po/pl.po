@@ -6,6 +6,7 @@ msgstr ""
 "PO-Revision-Date: \n"
 "Last-Translator: kosmacz <anteneczka@gmail.com>\n"
 "Language-Team: BigReaper <BigReaper@gmx.net>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -45,13 +46,17 @@ msgstr "Wpisz rozmiar czcionki dla EPG w single EPG"
 msgid "Enter service number font size in pixel"
 msgstr "Wprowadź rozmiar czcionki dla numeru kanałów w pikselach"
 
+msgid "Error..."
+msgstr ""
+
+#, fuzzy
 msgid ""
 "Font magnifier plugin\n"
 "\n"
 "This plugin helps you to\n"
 "set up different font sizes.\n"
 "\n"
-"(c) 2010 - BigReaper"
+"(c) 2012 - BigReaper"
 msgstr ""
 "Wtyczka Font Magnifier\n"
 "\n"
@@ -103,11 +108,42 @@ msgstr "Brak plików do przywrócenia!"
 msgid "OK"
 msgstr "OK"
 
+msgid "Please select settings to restore"
+msgstr ""
+
 msgid "Please wait..."
 msgstr "Proszę czekać..."
 
 msgid "Restart GUI now?"
 msgstr "Zrestartować GUI teraz?"
+
+#, fuzzy
+msgid "Restore settings"
+msgstr "Opcje przywracania"
+
+msgid "Save settings"
+msgstr ""
+
+#, python-format
+msgid ""
+"Saved settings restored with errors!\n"
+"(%s)"
+msgstr ""
+
+#, python-format
+msgid ""
+"Saved settings restored!\n"
+"(%s)"
+msgstr ""
+
+msgid "Saving settings failed!"
+msgstr ""
+
+msgid "Select regular font"
+msgstr ""
+
+msgid "Settins saved to "
+msgstr ""
 
 msgid "Show only time in display when box is in standby"
 msgstr "Pokaż tylko czas na wyśw. gdy tuner w Standby"
@@ -121,14 +157,13 @@ msgstr "Przepraszamy, nie można przetworzyć /usr/lib/enigma2/python/Components
 msgid "Sorry, unable to parse /usr/lib/enigma2/python/Components/MovieList.py"
 msgstr "Przepraszamy, nie można przetworzyć /usr/lib/enigma2/python/Components/MovieList.py"
 
+#, python-format
 msgid "Sorry, unable to parse /usr/share/enigma2/%s."
 msgstr "Przepraszamy, nie można przetworzyć /usr/share/enigma2/%s."
 
-msgid "Tool to change easily font sizes."
+#, fuzzy
+msgid "Tool to change font sizes easily."
 msgstr "Narzędzie do zmiany wielkości czcionek."
-
-msgid "font magnifier plugin"
-msgstr "Wtyczka Font Magnifier"
 
 msgid "restore EpgList.py"
 msgstr "Przywróć EpgList.py"

@@ -6,12 +6,16 @@ msgstr ""
 "PO-Revision-Date: 2009-06-07 06:22-0000\n"
 "Last-Translator: Nabil Hanna <nabil1978@web.de>\n"
 "Language-Team: http://hobiagaci.com <z.veyisoglu@hobiagaci.com>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Poedit-Language: Turkish\n"
 "X-Poedit-Country: TURKEY\n"
 "X-Poedit-SourceCharset: utf-8\n"
+
+msgid " and"
+msgstr ""
 
 msgid "About"
 msgstr "Hakkında"
@@ -99,6 +103,9 @@ msgstr "Ecm bilgisi"
 msgid "Ecm time:"
 msgstr "Ecm süresi:"
 
+msgid "Edit"
+msgstr ""
+
 msgid "Entitlements"
 msgstr "Yerel Kartlar"
 
@@ -147,6 +154,9 @@ msgstr "Son kullanılan paylaşım: "
 msgid "Local box"
 msgstr "Yerel cihaz"
 
+msgid "Location"
+msgstr ""
+
 msgid "Maxdown +"
 msgstr "HOP limiti +"
 
@@ -158,6 +168,12 @@ msgstr "Alt HOP limiti:"
 
 msgid "Menu config"
 msgstr "Menü ayarları"
+
+msgid "Name:"
+msgstr ""
+
+msgid "New"
+msgstr ""
 
 msgid "New profile: "
 msgstr "Yeni profil: "

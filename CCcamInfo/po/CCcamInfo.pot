@@ -1,38 +1,23 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: CCcam Info\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-07-25 10:37+0200\n"
-"PO-Revision-Date: 2008-12-25 09:51+0100\n"
-"Last-Translator: Nabil Hanna <nabil1978@web.de>\n"
-"Language-Team: AliAbdul <aliabdul1978@hotmail.de>\n"
-"Language: \n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"X-Poedit-Language: Dutch\n"
-"X-Poedit-Country: DUTCH\n"
-"X-Poedit-SourceCharset: utf-8\n"
-"X-Poedit-Basepath: .\n"
-"X-Poedit-SearchPath-0: /home/aliabdul/Desktop/CCcamInfo/usr/lib/enigma2/python/Plugins/Extensions/CCcamInfo\n"
 
 msgid " and"
 msgstr ""
 
 msgid "About"
-msgstr "Over"
+msgstr ""
 
 msgid "Activate"
-msgstr "Aktiveer"
+msgstr ""
 
 msgid "Active clients"
 msgstr ""
 
 msgid "All"
-msgstr "Allemaal"
+msgstr ""
 
 msgid "Available shares:"
-msgstr "Kaarten:"
+msgstr ""
 
 msgid ""
 "CCcam Info %s\n"
@@ -40,136 +25,129 @@ msgid ""
 "\n"
 "This plugin shows you the status of your CCcam."
 msgstr ""
-"CCcam Info %s\n"
-"door AliAbdul %s\n"
-"\n"
-"Deze plugin toont je de CCcam status"
 
 msgid "CaID: "
-msgstr "CaID: "
+msgstr ""
 
 msgid "Cancel"
 msgstr ""
 
 msgid "Cards: "
-msgstr "Kaarten: "
+msgstr ""
 
 msgid "Cards: 0"
-msgstr "Kaarten: 0"
+msgstr ""
 
 msgid "Cardserial"
 msgstr ""
 
 msgid "Clients"
-msgstr "Klanten"
+msgstr ""
 
 msgid "Configfile %s saved."
 msgstr ""
 
-#, fuzzy
 msgid "Connected clients"
-msgstr "Verbonden sinds: "
+msgstr ""
 
 msgid "Connected: "
-msgstr "Verbonden sinds: "
+msgstr ""
 
 msgid "Content"
-msgstr "Inhoud"
+msgstr ""
 
 msgid "Could not open the file %s!"
-msgstr "Kan bestand %s niet openen!"
+msgstr ""
 
-#, fuzzy
 msgid "Could not save configfile %s!"
-msgstr "Kan bestand %s niet openen!"
+msgstr ""
 
 msgid "Current time"
 msgstr ""
 
 msgid "Cut servername after (x) letters:"
-msgstr "Servernaam na (x) tekens afbreken:"
+msgstr ""
 
 msgid "Delete"
-msgstr "Verwijder"
+msgstr ""
 
 msgid "Delete %s?"
-msgstr "%s verwijderen?"
+msgstr ""
 
 msgid "Delete failed!"
-msgstr "Verwijderen mislukt!"
+msgstr ""
 
 msgid "Deleted %s!"
-msgstr "%s verwijderd!"
+msgstr ""
 
 msgid "Ecm Info"
-msgstr "Ecm Info"
+msgstr ""
 
 msgid "Ecm time:"
-msgstr "Ecm sec:"
+msgstr ""
 
 msgid "Edit"
 msgstr ""
 
 msgid "Entitlements"
-msgstr "Info lokale kaarten"
+msgstr ""
 
 msgid "Error reading webpage!"
-msgstr "Geen info bestand in /tmp gevonden ! Is CCcam wel gestart ?"
+msgstr ""
 
 msgid "Extended Shares"
-msgstr "Uitgebreidde Shares"
+msgstr ""
 
 msgid "Free memory"
-msgstr "Vrij geheugen"
+msgstr ""
 
 msgid "Free memory:"
-msgstr "Vrij geheugen"
+msgstr ""
 
 msgid "Free to Air"
-msgstr "Free To Air"
+msgstr ""
 
 msgid "Free:"
-msgstr "Vrij:"
+msgstr ""
 
 msgid "General"
-msgstr "Algemeen"
+msgstr ""
 
 msgid "Hide ecm.info after (x) seconds:"
-msgstr "ecm.info na (x) seconden verbergen:"
+msgstr ""
 
-#, fuzzy
 msgid "Hide ecm.info with InfoBar:"
-msgstr "ecm.info na (x) seconden verbergen:"
+msgstr ""
 
 msgid "Hops:"
-msgstr "Hops:"
+msgstr ""
 
 msgid "Hostname: "
-msgstr "Hostname: "
+msgstr ""
 
 msgid "IP:"
-msgstr "IP:"
+msgstr ""
 
 msgid "Idle Time: "
-msgstr "Ongebruikte tijd: "
+msgstr ""
 
 msgid "Last used share: "
-msgstr "Laatst gebruikte share kaart: "
+msgstr ""
 
 msgid "Local box"
-msgstr "Mijn box (lokaal)"
+msgstr ""
 
 msgid "Location"
 msgstr ""
 
 msgid "Maxdown +"
-msgstr "Maxdown +"
+msgstr ""
 
 msgid "Maxdown -"
-msgstr "Maxdown -"
+msgstr ""
 
 msgid "Maxdown: "
-msgstr "Maxdown: "
+msgstr ""
 
 msgid "Menu config"
 msgstr ""
@@ -181,60 +159,58 @@ msgid "New"
 msgstr ""
 
 msgid "New profile: "
-msgstr "Nieuw profiel: "
+msgstr ""
 
 msgid "No card inserted!"
-msgstr "Geen lokale kaart in slot!"
+msgstr ""
 
-#, fuzzy
 msgid "NodeID"
-msgstr "NodeID: "
+msgstr ""
 
 msgid "NodeID: "
-msgstr "NodeID: "
+msgstr ""
 
 msgid "Password:"
-msgstr "Wachtwoord:"
+msgstr ""
 
 msgid "Peak load (max queued requests per workerthread)"
 msgstr ""
 
 msgid "Port:"
-msgstr "Poort:"
+msgstr ""
 
 msgid "Position:"
-msgstr "Positie:"
+msgstr ""
 
 msgid "Profile: Local box"
-msgstr "Profiel: Mijn loakle box"
+msgstr ""
 
 msgid "Provider Name: "
-msgstr "Providernaam: "
+msgstr ""
 
 msgid "Provider: "
-msgstr "Provider: "
+msgstr ""
 
 msgid "Providers"
-msgstr "Provider Overzicht"
+msgstr ""
 
-#, fuzzy
 msgid "Providers:"
-msgstr "Provider Overzicht"
+msgstr ""
 
 msgid "Remote box"
-msgstr "Klant Box (remote)"
+msgstr ""
 
 msgid "Rename"
-msgstr "Hernoemen"
+msgstr ""
 
 msgid "Rename failed!"
-msgstr "Hernoemen mislukt!"
+msgstr ""
 
 msgid "Rename to:"
-msgstr "Hernoem naar:"
+msgstr ""
 
 msgid "Renamed %s!"
-msgstr "%s hernoemd!"
+msgstr ""
 
 msgid "Reshare:"
 msgstr ""
@@ -243,32 +219,31 @@ msgid "Save"
 msgstr ""
 
 msgid "Servers"
-msgstr "Server"
+msgstr ""
 
-#, fuzzy
 msgid "Servers:"
-msgstr "Server"
+msgstr ""
 
 msgid "Share View"
-msgstr "Share Overzicht"
+msgstr ""
 
 msgid "Shares"
-msgstr "Shares"
+msgstr ""
 
 msgid "Show ecm.info:"
-msgstr "Toon ecm.info:"
+msgstr ""
 
 msgid "Switch config"
-msgstr "Configuratie wisselen"
+msgstr ""
 
 msgid "System: "
-msgstr "Systeem: "
+msgstr ""
 
 msgid "This plugin shows you the status of your CCcam"
-msgstr "Deze plugin toont je de CCcam status."
+msgstr ""
 
 msgid "Total cards:"
-msgstr "Totaal aantal kaarten:"
+msgstr ""
 
 msgid "Total handled client ecm's"
 msgstr ""
@@ -277,34 +252,34 @@ msgid "Total handled client emm's"
 msgstr ""
 
 msgid "Total:"
-msgstr "Totaal:"
+msgstr ""
 
 msgid "Type: "
-msgstr "Type: "
+msgstr ""
 
 msgid "Uphops +"
-msgstr "Uphops +"
+msgstr ""
 
 msgid "Uphops -"
-msgstr "Uphops -"
+msgstr ""
 
 msgid "Uphops: "
-msgstr "Uphops: "
+msgstr ""
 
 msgid "Uptime"
 msgstr ""
 
 msgid "Used:"
-msgstr "Gebruikt:"
+msgstr ""
 
 msgid "Username:"
-msgstr "Gebruikersnaam:"
+msgstr ""
 
 msgid "Using old profile: "
-msgstr "Gebruik oude profiel: "
+msgstr ""
 
 msgid "Version: "
-msgstr "CCcam Versie: "
+msgstr ""
 
 msgid "address:"
 msgstr ""
@@ -318,19 +293,17 @@ msgstr ""
 msgid "card reader"
 msgstr ""
 
-#, fuzzy
 msgid "close share view"
-msgstr "Share Overzicht"
+msgstr ""
 
 msgid "decrease uphop by 1"
 msgstr ""
 
-#, fuzzy
 msgid "ecm time:"
-msgstr "Ecm sec:"
+msgstr ""
 
 msgid "ecm.info"
-msgstr "ecm.info"
+msgstr ""
 
 msgid "get the cards' server"
 msgstr ""
@@ -338,35 +311,29 @@ msgstr ""
 msgid "handled"
 msgstr ""
 
-#, fuzzy
 msgid "hops:"
-msgstr "Hops:"
+msgstr ""
 
 msgid "increase uphop by 1"
 msgstr ""
 
-#, fuzzy
 msgid "no or unknown card inserted"
-msgstr "Geen lokale kaart in slot!"
+msgstr ""
 
 msgid "pid:"
 msgstr ""
 
-#, fuzzy
 msgid "provid:"
-msgstr "Provider: "
+msgstr ""
 
-#, fuzzy
 msgid "provider:"
-msgstr "Provider: "
+msgstr ""
 
-#, fuzzy
 msgid "share:"
-msgstr "Shares"
+msgstr ""
 
-#, fuzzy
 msgid "show all cards"
-msgstr "Totaal aantal kaarten:"
+msgstr ""
 
 msgid "show cards with uphop 0"
 msgstr ""
@@ -398,9 +365,8 @@ msgstr ""
 msgid "show cards with uphop 9"
 msgstr ""
 
-#, fuzzy
 msgid "system:"
-msgstr "Systeem: "
+msgstr ""
 
 msgid "using:"
 msgstr ""

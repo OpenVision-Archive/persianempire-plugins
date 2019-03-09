@@ -6,6 +6,7 @@ msgstr ""
 "PO-Revision-Date: 2009-09-13 08:45-0000\n"
 "Last-Translator: aliabdul <aliabdul1978@hotmail.de>\n"
 "Language-Team: AliAbdul <aliabdul1978@hotmail.de>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -190,6 +191,9 @@ msgstr "NodeID: "
 
 msgid "Password:"
 msgstr "Passwort:"
+
+msgid "Peak load (max queued requests per workerthread)"
+msgstr ""
 
 msgid "Port:"
 msgstr "Port:"

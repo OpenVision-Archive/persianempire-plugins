@@ -26,12 +26,6 @@ msgstr "Включить Quick Weather"
 msgid "Auto update (30-150min):"
 msgstr "Автоматическое обновление (30-150 мин):"
 
-msgid "Basic settings plugin Quick Weather"
-msgstr "Основные настройки плагина Quick Weather"
-
-msgid "Before update:"
-msgstr "До обновл.:"
-
 msgid "Buttons for Weather plugin:"
 msgstr "Кнопки для вывода плагина погоды:"
 
@@ -40,12 +34,6 @@ msgstr "Выбор позиции Quick Weather"
 
 msgid "Change background image"
 msgstr "Смена фоновой картинки"
-
-msgid "Choice keymap for plugin"
-msgstr "Выбор кеймапа для плагина"
-
-msgid "Choosing the path to animated icons:"
-msgstr "Выбор пути хранения анимаций погоды"
 
 msgid "Clearing the cache:"
 msgstr "Очистка кэша:"
@@ -59,35 +47,12 @@ msgstr "Соединяюсь... "
 msgid "Deactivate Quick Weather"
 msgstr "Отключить Quick Weather"
 
-msgid "Display the weather for:"
-msgstr "Вывести погоду за:"
-
-msgid "Enter an alternative name for the city in infobare plugin-not to find weather"
-msgstr "Ввод альтернативного имени для города в инфобаре плагина - не для поиска погоды!"
-
-msgid "Enter an alternative name for the output of its plug-in infobare."
-msgstr "Введите альтернативное название города для вывода его в инфобаре плагина"
-
-msgid "Enter city for infobar"
+#, fuzzy
+msgid "Enter city"
 msgstr "Ввод города для инфобара"
-
-msgid "Enter city for server weather.co.ua"
-msgstr "Выбор города для сервера weather.co.ua"
-
-msgid "Enter city for server worldweatheronline.com"
-msgstr "Введите город для сервера worldweatheronline.com"
-
-msgid "Enter city to find weather from the server weather.co.ua"
-msgstr "Ввод города для поиска и вывода погоды с сервера weather.co.ua"
-
-msgid "Enter city to find weather from the server worldweatheronline.com"
-msgstr "Ввод города для поиска и вывода погоды с сервера worldweatheronline.com"
 
 msgid "Enter only the English name of the city!!!"
 msgstr "Введите только английское название города!!!"
-
-msgid "Enter your way to the storage of icons"
-msgstr "Ввод вашего пути к хранению иконок"
 
 msgid "None"
 msgstr "Нет данных"
@@ -95,38 +60,11 @@ msgstr "Нет данных"
 msgid "Page not available !"
 msgstr "Страница не доступна!"
 
-msgid "Positioning infobar plugin on the screen"
-msgstr "Выбор позиции инфобара плагина на экране"
-
 msgid "Quick Weather Menu"
 msgstr "Меню Quick Weather"
 
-msgid "Select your city and press the green button to save"
-msgstr "Выберите город и нажмите зеленую кнопку, чтобы сохранить"
-
-msgid "Select your country, and then press OK"
-msgstr "Выберите вашу страну, а затем нажмите клавишу OK"
-
-msgid "Select your server:"
-msgstr "Выберите нужный сервер:"
-
-msgid "Selection keys on which the plugin is called"
-msgstr "Смена кеймапа для вызова плагина вместе с инфобаром"
-
-msgid "Selection of background images for the plugin Quick Weather"
-msgstr "Выбор фоновой картинки для плагина Quick Weather"
-
-msgid "Selection of weather icons"
-msgstr "Выбор иконок погоды"
-
-msgid "Selection of weather icons and their storage"
-msgstr "Выбор значков погоды и места их хранение"
-
 msgid "Setup Quick Weather"
 msgstr "Настройки Quick Weather"
-
-msgid "Show a picture of the Black Sea temperature"
-msgstr "Показать картинкой температуру воды Черного моря"
 
 msgid "Show animation for icons now:"
 msgstr "Включить анимацию для погоды сейчас:"
@@ -134,29 +72,18 @@ msgstr "Включить анимацию для погоды сейчас:"
 msgid "Show animation for the other days:"
 msgstr "Включить анимацию для других дней:"
 
-msgid "Show city of:"
-msgstr "Показать город из:"
-
 msgid "Show humidity:"
 msgstr "Показать влажность:"
 
 msgid "Show wind:"
 msgstr "Показать ветер:"
 
-msgid "Temperature of the Black Sea"
-msgstr "Температура воды Черного моря"
-
 msgid "Use buttons for show Weather"
 msgstr "Использовать кнопки для показа Погоды"
-
-msgid "Use time in the plugin:"
-msgstr "Выводить время в плагине:"
 
 msgid "Weather languages:"
 msgstr "Язык описания погоды:"
 
-msgid "Weather.co.ua Select City"
-msgstr "Выбор города для Weather.co"
-
-msgid "You have changed the menu Activate Quick Weather or Display the weather for"
+#, fuzzy
+msgid "You have changed the menu Activate Quick Weather"
 msgstr "Вы изменили пункт меню Включить Quick Weather или Вывести погоду за:"

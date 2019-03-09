@@ -1,0 +1,77 @@
+msgid ""
+msgstr ""
+
+msgid " (%s times)\n"
+msgstr ""
+
+msgid " Started"
+msgstr ""
+
+msgid "Activate Poster Preview"
+msgstr ""
+
+msgid "Activate Quick Weather"
+msgstr ""
+
+msgid "Auto update (30-150min):"
+msgstr ""
+
+msgid "Buttons for Weather plugin:"
+msgstr ""
+
+msgid "Change Quick Weather position"
+msgstr ""
+
+msgid "Change background image"
+msgstr ""
+
+msgid "Clearing the cache:"
+msgstr ""
+
+msgid "Connection failed !"
+msgstr ""
+
+msgid "Connection..."
+msgstr ""
+
+msgid "Deactivate Quick Weather"
+msgstr ""
+
+msgid "Enter city"
+msgstr ""
+
+msgid "Enter only the English name of the city!!!"
+msgstr ""
+
+msgid "None"
+msgstr ""
+
+msgid "Page not available !"
+msgstr ""
+
+msgid "Quick Weather Menu"
+msgstr ""
+
+msgid "Setup Quick Weather"
+msgstr ""
+
+msgid "Show animation for icons now:"
+msgstr ""
+
+msgid "Show animation for the other days:"
+msgstr ""
+
+msgid "Show humidity:"
+msgstr ""
+
+msgid "Show wind:"
+msgstr ""
+
+msgid "Use buttons for show Weather"
+msgstr ""
+
+msgid "Weather languages:"
+msgstr ""
+
+msgid "You have changed the menu Activate Quick Weather"
+msgstr ""
