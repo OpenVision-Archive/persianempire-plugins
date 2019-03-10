@@ -65,6 +65,7 @@ AirPlayer/src/1280x720/Makefile
 AirPlayer/src/lib/Makefile
 AirPlayer/src/lib/biplist/Makefile
 AirPlayer/src/mediabackends/Makefile
+AirPlayer/src/zeroconf/Makefile
 
 BlockContent/Makefile
 BlockContent/src/Makefile
