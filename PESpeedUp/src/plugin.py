@@ -1,3 +1,5 @@
+# for localized messages
+from . import _
 from Screens.Screen import Screen
 from Screens.MessageBox import MessageBox
 from Screens.Standby import TryQuitMainloop
@@ -18,9 +20,9 @@ class PESpeedUp(Screen, ConfigListScreen):
         Screen.__init__(self, session)
         self.list = []
         ConfigListScreen.__init__(self, self.list)
-        self['lab1'] = Label("Remove all the packages you don't need.\nThis will speed up the performance.")
-        self['key_red'] = Label(_('Save'))
-        self['key_green'] = Label(_('Cancel'))
+        self['lab1'] = Label(_("Remove all the packages you don't need.\nThis will speed up the performance."))
+        self['key_red'] = Label(_("Save"))
+        self['key_green'] = Label(_("Cancel"))
         self['actions'] = ActionMap(['WizardActions', 'ColorActions'], {'red': self.saveMypoints,
          'green': self.close,
          'back': self.close})
@@ -124,7 +126,7 @@ class PESpeedUp(Screen, ConfigListScreen):
     def updateList(self):
         self.list = []
         for package in self.packagelist:
-            item = NoSave(ConfigSelection(default='Installed', choices=[('Installed', 'Installed'), ('Remove', 'Remove')]))
+            item = NoSave(ConfigSelection(default='Installed', choices=[("Installed", _("Installed")), ("Remove", _("Remove"))]))
             res = getConfigListEntry(package[0], item)
             self.list.append(res)
         self['config'].list = self.list
@@ -137,7 +139,7 @@ class PESpeedUp(Screen, ConfigListScreen):
                 cmd = self.RemovePlug(x[0])
                 self.mycmdlist.append(cmd)
         if len(self.mycmdlist) > 0:
-            self.session.open(Console, title=_('PE Speed Up is working, please wait...'), cmdlist=self.mycmdlist, finishedCallback=self.allDone)
+            self.session.open(Console, title=_("PE Speed Up is working, please wait..."), cmdlist=self.mycmdlist, finishedCallback=self.allDone)
         else:
             self.close()
 
@@ -149,7 +151,7 @@ class PESpeedUp(Screen, ConfigListScreen):
         return cmd
 
     def allDone(self):
-        mybox = self.session.openWithCallback(self.RestartGUI, MessageBox, 'Package(s) removed!\n\nYou could install it(them) again from online feeds.\n\nYour STB will be restarted!\n\nPress OK to continue.', MessageBox.TYPE_INFO)
+        mybox = self.session.openWithCallback(self.RestartGUI, MessageBox, _("Package(s) removed!\nYou could install it(them) again from online feeds.\nYour STB will be restarted!\nPress OK to continue."), MessageBox.TYPE_INFO)
         mybox.setTitle('Info')
 
     def RestartGUI(self, answer):
@@ -170,4 +172,4 @@ def main(session, **kwargs):
         session.open(PESpeedUp)
 
 def Plugins(**kwargs):
-    return PluginDescriptor(name='PE Speed Up', description=_('Special version for Open Vision'), where=[PluginDescriptor.WHERE_EXTENSIONSMENU, PluginDescriptor.WHERE_PLUGINMENU], icon='pespeedup.png', fnc=main)
+    return PluginDescriptor(name = _("PE Speed Up"), description = _("Special version for Open Vision"), where=[PluginDescriptor.WHERE_EXTENSIONSMENU, PluginDescriptor.WHERE_PLUGINMENU], icon='pespeedup.png', fnc=main)
