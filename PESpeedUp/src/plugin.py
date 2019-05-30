@@ -151,7 +151,7 @@ class PESpeedUp(Screen, ConfigListScreen):
         return cmd
 
     def allDone(self):
-        mybox = self.session.openWithCallback(self.RestartGUI, MessageBox, _("Package(s) removed!\n\nYou could install it(them) again from online feeds.\n\nYour STB will be restarted!\n\nPress OK to continue."), MessageBox.TYPE_INFO)
+        mybox = self.session.openWithCallback(self.RestartGUI, MessageBox, _("Package(s) removed!\nYou could install it(them) again from online feeds.\nYour STB will be restarted!\nPress OK to continue."), MessageBox.TYPE_INFO)
         mybox.setTitle('Info')
 
     def RestartGUI(self, answer):
