@@ -124,6 +124,7 @@ PEPanel/src/Extra/Makefile
 PEPanel/src/pictures/Makefile
 
 PESpeedUp/Makefile
+PESpeedUp/po/Makefile
 PESpeedUp/src/Makefile
 
 PEWeather/Makefile
