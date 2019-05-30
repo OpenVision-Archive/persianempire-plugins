@@ -31,8 +31,12 @@ class PESpeedUp(Screen, ConfigListScreen):
             self.pluglist.append(['AutoBackup', 'enigma2-plugin-extensions-autobackup'])
         if pathExists('/usr/lib/enigma2/python/Plugins/Extensions/BackupSuite'):
             self.pluglist.append(['BackupSuite', 'enigma2-plugin-extensions-backupsuite'])
+        if pathExists('/usr/lib/enigma2/python/Plugins/Extensions/BTDevicesManager'):	
+            self.pluglist.append(['BTDevicesManager', 'enigma2-plugin-extensions-btdevicesmanager'])
         if pathExists('/usr/lib/enigma2/python/Plugins/Extensions/CacheFlush'):
             self.pluglist.append(['CacheFlush', 'enigma2-plugin-extensions-cacheflush'])
+        if pathExists('/usr/lib/enigma2/python/Plugins/Extensions/CDInfo'):	
+            self.pluglist.append(['CDInfo', 'enigma2-plugin-extensions-cdinfo'])
         if pathExists('/usr/lib/enigma2/python/Plugins/Extensions/CutListEditor'):
             self.pluglist.append(['CutListEditor', 'enigma2-plugin-extensions-cutlisteditor'])
         if pathExists('/usr/lib/enigma2/python/Plugins/Extensions/DLNABrowser'):
@@ -59,6 +63,8 @@ class PESpeedUp(Screen, ConfigListScreen):
             self.pluglist.append(['Modem', 'enigma2-plugin-extensions-modem'])
         if pathExists('/usr/lib/enigma2/python/Plugins/Extensions/MovieCut'):
             self.pluglist.append(['MovieCut', 'enigma2-plugin-extensions-moviecut'])
+        if pathExists('/usr/lib/enigma2/python/Plugins/Extensions/PluginSkinMover'):
+            self.pluglist.append(['PluginSkinMover', 'enigma2-plugin-extensions-pluginskinmover'])
         if pathExists('/usr/lib/enigma2/python/Plugins/Extensions/TunerServer'):
             self.pluglist.append(['TunerServer', 'enigma2-plugin-extensions-tunerserver'])
         if pathExists('/usr/lib/enigma2/python/Plugins/Extensions/VlcPlayer'):
@@ -67,14 +73,30 @@ class PESpeedUp(Screen, ConfigListScreen):
             self.pluglist.append(['3DSettings', 'enigma2-plugin-systemplugins-3dsettings'])
         if pathExists('/usr/lib/enigma2/python/Plugins/SystemPlugins/3GModemManager'):
             self.pluglist.append(['3GModemManager', 'enigma2-plugin-systemplugins-3gmodemmanager'])
+        if pathExists('/usr/lib/enigma2/python/Plugins/SystemPlugins/AnimationSetup'):
+            self.pluglist.append(['AnimationSetup', 'enigma2-plugin-systemplugins-animationsetup'])
+        if pathExists('/usr/lib/enigma2/python/Plugins/SystemPlugins/FSBLUpdater'):
+            self.pluglist.append(['FSBLUpdater', 'enigma2-plugin-systemplugins-fsblupdater'])
+        if pathExists('/usr/lib/enigma2/python/Plugins/SystemPlugins/HdmiCEC'):
+            self.pluglist.append(['HdmiCEC', 'enigma2-plugin-systemplugins-hdmicec'])
+        if pathExists('/usr/lib/enigma2/python/Plugins/SystemPlugins/KeymapManager'):
+            self.pluglist.append(['KeymapManager', 'enigma2-plugin-systemplugins-keymapmanager'])      
+        if pathExists('/usr/lib/enigma2/python/Plugins/SystemPlugins/MultiTransCodingSetup'):
+            self.pluglist.append(['MultiTransCodingSetup', 'enigma2-plugin-systemplugins-multitranscodingsetup']) 
         if pathExists('/usr/lib/enigma2/python/Plugins/SystemPlugins/OSD3DSetup'):
             self.pluglist.append(['OSD3DSetup', 'enigma2-plugin-systemplugins-osd3dsetup'])
         if pathExists('/usr/lib/enigma2/python/Plugins/SystemPlugins/OSDPositionSetup'):
             self.pluglist.append(['OSDPositionSetup', 'enigma2-plugin-systemplugins-osdpositionsetup'])
+        if pathExists('/usr/lib/enigma2/python/Plugins/SystemPlugins/SatipClient'):
+            self.pluglist.append(['SatipClient', 'enigma2-plugin-systemplugins-satipclient'])
         if pathExists('/usr/lib/enigma2/python/Plugins/SystemPlugins/SetPasswd'):
             self.pluglist.append(['SetPasswd', 'enigma2-plugin-systemplugins-setpasswd'])
         if pathExists('/usr/lib/enigma2/python/Plugins/SystemPlugins/SH4BoosterControl'):
             self.pluglist.append(['SH4BoosterControl', 'enigma2-plugin-systemplugins-sh4boostercontrol'])
+        if pathExists('/usr/lib/enigma2/python/Plugins/SystemPlugins/SH4OSDAdjustment'):
+            self.pluglist.append(['SH4OSDAdjustment', 'enigma2-plugin-systemplugins-sh4osdadjustment'])
+        if pathExists('/usr/lib/enigma2/python/Plugins/SystemPlugins/SparkUnionTunerType'):
+            self.pluglist.append(['SparkUnionTunerType', 'enigma2-plugin-systemplugins-sparkuniontunertype'])
         if pathExists('/usr/lib/enigma2/python/Plugins/SystemPlugins/SystemTime'):
             self.pluglist.append(['SystemTime', 'enigma2-plugin-systemplugins-systemtime'])
         if pathExists('/usr/lib/enigma2/python/Plugins/SystemPlugins/VideoEnhancement'):
