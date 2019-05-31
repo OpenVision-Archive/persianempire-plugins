@@ -23,9 +23,11 @@ class PESpeedUp(Screen, ConfigListScreen):
         self['lab1'] = Label(_("Remove all the packages you don't need.\nThis will speed up the performance."))
         self['key_red'] = Label(_("Save"))
         self['key_green'] = Label(_("Cancel"))
-        self['actions'] = ActionMap(['WizardActions', 'ColorActions'], {'red': self.saveMypoints,
-         'green': self.close,
-         'back': self.close})
+        self['actions'] = ActionMap(['WizardActions','ColorActions','OkCancelActions'], {'red': self.saveList,
+         'green': self.cancel,
+         'stop': self.cancel,
+         'cancel': self.cancel,
+         'back': self.cancel})
         self.packagelist = []
         if fileExists('/usr/bin/astra'):
             self.packagelist.append(['astra-sm', 'astra-sm'])
@@ -123,6 +125,9 @@ class PESpeedUp(Screen, ConfigListScreen):
             self.packagelist.append(['PLi-HD', 'enigma2-plugin-skins-pli-hd'])
         self.updateList()
 
+    def cancel(self):
+        self.close()
+
     def updateList(self):
         self.list = []
         for package in self.packagelist:
@@ -132,18 +137,18 @@ class PESpeedUp(Screen, ConfigListScreen):
         self['config'].list = self.list
         self['config'].l.setList(self.list)
 
-    def saveMypoints(self):
+    def saveList(self):
         self.mycmdlist = []
         for x in self['config'].list:
             if x[1].value == 'Remove':
-                cmd = self.RemovePlug(x[0])
+                cmd = self.removePackages(x[0])
                 self.mycmdlist.append(cmd)
         if len(self.mycmdlist) > 0:
             self.session.open(Console, title=_("PE Speed Up is working, please wait..."), cmdlist=self.mycmdlist, finishedCallback=self.allDone)
         else:
             self.close()
 
-    def RemovePlug(self, name):
+    def removePackages(self, name):
         cmd = ''
         for package in self.packagelist:
             if package[0] == name:
