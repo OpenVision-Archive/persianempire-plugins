@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plugin\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-04-17 19:22+0200\n"
+"POT-Creation-Date: 2019-05-31 14:34+0430\n"
 "PO-Revision-Date: 2009-04-18 12:59+0100\n"
 "Last-Translator: Titovich\n"
 "Language-Team: Deutsch\n"
@@ -17,6 +17,9 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: KBabel 1.11.4\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid " "
+msgstr ""
 
 msgid "AC3 Delay (ms)"
 msgstr "Retardo AC3 (ms)"
@@ -49,8 +52,14 @@ msgstr ""
 "Frecuencia\n"
 "MHz"
 
+msgid "Lets you edit services in your STB"
+msgstr ""
+
 msgid "Name"
 msgstr "Nombre"
+
+msgid "O"
+msgstr ""
 
 msgid "Options for hide"
 msgstr "Opciones para ocultar"
@@ -88,6 +97,9 @@ msgstr "PID de Subtítulos (hex)"
 msgid "TXT PID (hex)"
 msgstr "TXT PID (hex)"
 
+msgid "Transponder"
+msgstr ""
+
 msgid "Video PID (hex)"
 msgstr "PID de Video (hex)"
 
@@ -120,11 +132,22 @@ msgstr "ocultar/mostrar"
 msgid "keep Servicename"
 msgstr "Mantener Nombre de Canal"
 
-msgid "no standart service"
+#, fuzzy
+msgid "no standard service"
 msgstr "No hay canal estándar"
 
 msgid "ok"
 msgstr "ok"
+
+msgid "reading lamedb - please wait - build database"
+msgstr ""
+
+#, python-format
+msgid "reading lamedb - please wait - get services %s"
+msgstr ""
+
+msgid "reading lamedb - please wait - get transponders"
+msgstr ""
 
 msgid "sign as new Service"
 msgstr "marcar como \"nuevo Canal\""

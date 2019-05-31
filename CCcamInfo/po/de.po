@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: CCcam Info\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-07-25 10:37+0200\n"
+"POT-Creation-Date: 2019-05-31 14:34+0430\n"
 "PO-Revision-Date: 2009-09-13 08:45-0000\n"
 "Last-Translator: aliabdul <aliabdul1978@hotmail.de>\n"
 "Language-Team: AliAbdul <aliabdul1978@hotmail.de>\n"
@@ -34,9 +34,12 @@ msgstr "Alle"
 msgid "Available shares:"
 msgstr "Karten:"
 
+#, fuzzy, python-format
 msgid ""
 "CCcam Info %s\n"
-"by AliAbdul %s\n"
+"by AliAbdul\n"
+"Special version for Open Vision\n"
+"%s\n"
 "\n"
 "This plugin shows you the status of your CCcam."
 msgstr ""
@@ -63,6 +66,7 @@ msgstr "Kartenserial"
 msgid "Clients"
 msgstr "Klienten"
 
+#, python-format
 msgid "Configfile %s saved."
 msgstr "Konfigurationsdatei %s gespeichert."
 
@@ -75,9 +79,11 @@ msgstr "Verbunden seit: "
 msgid "Content"
 msgstr "Inhalt"
 
+#, python-format
 msgid "Could not open the file %s!"
 msgstr "Konnte %s nicht öffnen!"
 
+#, python-format
 msgid "Could not save configfile %s!"
 msgstr "Konnte die Konfigurationsdatei %s nicht speichern!"
 
@@ -90,16 +96,19 @@ msgstr "Servername nach (x) Buchstaben kürzen:"
 msgid "Delete"
 msgstr "Lösche"
 
+#, python-format
 msgid "Delete %s?"
 msgstr "%s löschen?"
 
 msgid "Delete failed!"
 msgstr "Löschen fehlgeschlagen!"
 
+#, python-format
 msgid "Deleted %s!"
 msgstr "%s gelöscht!"
 
-msgid "Ecm Info"
+#, fuzzy
+msgid "ECM Info"
 msgstr "Ecm Info"
 
 msgid "Ecm time:"
@@ -228,6 +237,7 @@ msgstr "Umbenennen fehlgeschlagen!"
 msgid "Rename to:"
 msgstr "Umbenennen zu:"
 
+#, python-format
 msgid "Renamed %s!"
 msgstr "%s umbenannt!"
 
@@ -252,14 +262,14 @@ msgstr "Shares"
 msgid "Show ecm.info:"
 msgstr "Zeige ecm.info:"
 
+msgid "Special version for Open Vision"
+msgstr ""
+
 msgid "Switch config"
 msgstr "Config wechseln"
 
 msgid "System: "
 msgstr "System: "
-
-msgid "This plugin shows you the status of your CCcam"
-msgstr "Dieses Plugin zeigt dir den Status deines CCcam share."
 
 msgid "Total cards:"
 msgstr "Gesamte Karten:"

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: enigma2 - serviceeditor\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-04-17 19:22+0200\n"
+"POT-Creation-Date: 2019-05-31 14:34+0430\n"
 "PO-Revision-Date: 2009-04-17 22:58+0100\n"
 "Last-Translator: Spaeleus <spaeleus@croci.org>\n"
 "Language-Team: www.linsat.net <spaeleus@croci.org>\n"
@@ -16,6 +16,9 @@ msgstr ""
 "X-Poedit-SourceCharset: iso-8859-1\n"
 "X-Poedit-Basepath: /home/dario/Plugins/ServiceEditor\n"
 "X-Poedit-SearchPath-0: /home/dario/Plugins/ServiceEditor\n"
+
+msgid " "
+msgstr ""
 
 msgid "AC3 Delay (ms)"
 msgstr "Ritardo AC3 (ms)"
@@ -48,8 +51,14 @@ msgstr ""
 "Frequenza\n"
 "MHz"
 
+msgid "Lets you edit services in your STB"
+msgstr ""
+
 msgid "Name"
 msgstr "Nome"
+
+msgid "O"
+msgstr ""
 
 msgid "Options for hide"
 msgstr "Opzioni per nascondere"
@@ -87,6 +96,9 @@ msgstr "PID sottotitoli (hex)"
 msgid "TXT PID (hex)"
 msgstr "PID TXT (hex)"
 
+msgid "Transponder"
+msgstr ""
+
 msgid "Video PID (hex)"
 msgstr "PID video (hex)"
 
@@ -119,11 +131,22 @@ msgstr "Nasc./Mostr."
 msgid "keep Servicename"
 msgstr "Mantenere nome canale"
 
-msgid "no standart service"
+#, fuzzy
+msgid "no standard service"
 msgstr "Canale non standard"
 
 msgid "ok"
 msgstr "Ok"
+
+msgid "reading lamedb - please wait - build database"
+msgstr ""
+
+#, python-format
+msgid "reading lamedb - please wait - get services %s"
+msgstr ""
+
+msgid "reading lamedb - please wait - get transponders"
+msgstr ""
 
 msgid "sign as new Service"
 msgstr "Marcare come nuovo canale"

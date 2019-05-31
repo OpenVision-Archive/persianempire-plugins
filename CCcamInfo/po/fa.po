@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: CCcamInfo Persian Translation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-12-24 11:09+0100\n"
+"POT-Creation-Date: 2019-05-31 14:34+0430\n"
 "PO-Revision-Date: 2011-05-14 23:46+0330\n"
 "Last-Translator: Ali Khavari <yekseda@gmail.com>\n"
 "Language-Team: Persian Professionals <persianprince@persianpros.com>\n"
@@ -33,9 +33,12 @@ msgstr "همه"
 msgid "Available shares:"
 msgstr "شیرهای فعال:"
 
+#, fuzzy, python-format
 msgid ""
 "CCcam Info %s\n"
-"by AliAbdul %s\n"
+"by AliAbdul\n"
+"Special version for Open Vision\n"
+"%s\n"
 "\n"
 "This plugin shows you the status of your CCcam."
 msgstr ""
@@ -62,6 +65,7 @@ msgstr "كارت سریال"
 msgid "Clients"
 msgstr "كلاینتها"
 
+#, python-format
 msgid "Configfile %s saved."
 msgstr "ذخیره شد %s فایل پیكربندی"
 
@@ -74,9 +78,11 @@ msgstr "متصل شده:"
 msgid "Content"
 msgstr "شامل"
 
+#, python-format
 msgid "Could not open the file %s!"
 msgstr "وجود ندارد %s امكان باز كردن فایل "
 
+#, python-format
 msgid "Could not save configfile %s!"
 msgstr " وجود ندارد %s امكان ذخیره كردن فایل  پیكربندی"
 
@@ -89,16 +95,19 @@ msgstr "حرف پاك كن (x) نام سرور را پس از"
 msgid "Delete"
 msgstr "حذف"
 
+#, python-format
 msgid "Delete %s?"
 msgstr "حذف شود %s?"
 
 msgid "Delete failed!"
 msgstr "حذف انجام نشد!"
 
+#, python-format
 msgid "Deleted %s!"
 msgstr " حذف شد! %s "
 
-msgid "Ecm Info"
+#, fuzzy
+msgid "ECM Info"
 msgstr "Ecm اطلاعات"
 
 msgid "Ecm time:"
@@ -227,6 +236,7 @@ msgstr "تغییر نام انجام نشد"
 msgid "Rename to:"
 msgstr "تغییر نام به:"
 
+#, python-format
 msgid "Renamed %s!"
 msgstr "تغییر نام داده شد %s به"
 
@@ -251,14 +261,14 @@ msgstr "به اشتراك گذاریها"
 msgid "Show ecm.info:"
 msgstr "ecm نمایش اطلاعات:"
 
+msgid "Special version for Open Vision"
+msgstr ""
+
 msgid "Switch config"
 msgstr "تنظیم سوییچ"
 
 msgid "System: "
 msgstr "سیستم:"
-
-msgid "This plugin shows you the status of your CCcam"
-msgstr "این پلاگین وضعیت سی سی كم را نشان میدهد"
 
 msgid "Total cards:"
 msgstr "كل كارتها:"

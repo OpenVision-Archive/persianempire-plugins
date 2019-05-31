@@ -2,16 +2,140 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Services Editor Persian Translation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-04-17 19:22+0200\n"
+"POT-Creation-Date: 2019-05-31 14:34+0430\n"
 "PO-Revision-Date: 2011-05-16 21:38+0330\n"
 "Last-Translator: Farshadmb <farshad1151@hotmail.com>\n"
 "Language-Team: Persian Professionals <persianprince@persianpros.com>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: KBabel 1.11.4\n"
 "X-Poedit-Language: Persian\n"
 "X-Poedit-Country: IRAN, ISLAMIC REPUBLIC OF\n"
+
+msgid ""
+"\n"
+"Adjustments for Swap and Enigma 2 update."
+msgstr ""
+
+msgid ""
+"\n"
+"Press OK on your remote control to continue."
+msgstr ""
+
+msgid ""
+"\n"
+"Select your backup device."
+msgstr ""
+
+msgid ""
+"\n"
+"Starts backup from yours Flash-Image."
+msgstr ""
+
+msgid ""
+"\n"
+"Starts backup with console from yours Flash-Image."
+msgstr ""
+
+msgid ""
+"\n"
+"System will restart after the restore!"
+msgstr ""
+
+msgid "/media/hdd"
+msgstr ""
+
+msgid "/tmp"
+msgstr ""
+
+msgid "0.20"
+msgstr ""
+
+msgid "0.25"
+msgstr ""
+
+msgid "0.35"
+msgstr ""
+
+msgid "1"
+msgstr ""
+
+msgid "1/2"
+msgstr ""
+
+msgid "10"
+msgstr ""
+
+msgid "11"
+msgstr ""
+
+msgid "1920*1080"
+msgstr ""
+
+msgid "2"
+msgstr ""
+
+msgid "2/3"
+msgstr ""
+
+msgid "3"
+msgstr ""
+
+msgid "3/4"
+msgstr ""
+
+msgid "3/5"
+msgstr ""
+
+msgid "4"
+msgstr ""
+
+msgid "4/5"
+msgstr ""
+
+msgid "5"
+msgstr ""
+
+msgid "5/6"
+msgstr ""
+
+msgid "6"
+msgstr ""
+
+msgid "600*337"
+msgstr ""
+
+msgid "7"
+msgstr ""
+
+msgid "7/8"
+msgstr ""
+
+msgid "8"
+msgstr ""
+
+msgid "8/9"
+msgstr ""
+
+msgid "800*450"
+msgstr ""
+
+msgid "8PSK"
+msgstr ""
+
+msgid "9"
+msgstr ""
+
+msgid "9/10"
+msgstr ""
+
+#, python-format
+msgid ""
+"A configuration file (%s) was modified since Installation.\n"
+"Do you want to keep your version?"
+msgstr ""
 
 msgid "AC3 Delay (ms)"
 msgstr "AC3 تاخیر ms)"
@@ -19,23 +143,359 @@ msgstr "AC3 تاخیر ms)"
 msgid "AC3 PID (hex)"
 msgstr "AC3 PID (hex)"
 
+msgid "About"
+msgstr ""
+
+msgid "Add"
+msgstr ""
+
+msgid "Add after time"
+msgstr ""
+
+msgid "Add language"
+msgstr ""
+
+msgid "Add station"
+msgstr ""
+
+msgid "Add station to favorites "
+msgstr ""
+
+msgid "Add with time"
+msgstr ""
+
+msgid "Add-update"
+msgstr ""
+
+msgid "Advanced"
+msgstr ""
+
+msgid "Always ask"
+msgstr ""
+
+msgid "Application is not available,install now?"
+msgstr ""
+
+msgid "Arabic"
+msgstr ""
+
+msgid ""
+"Are you sure you want to delete\n"
+"following backup:\n"
+msgstr ""
+
+msgid ""
+"Are you sure you want to restore\n"
+"following backup:\n"
+msgstr ""
+
+msgid ""
+"Are you sure you want to restore your Enigma2 backup?\n"
+"Enigma2 will restart after the restore"
+msgstr ""
+
 msgid "Audio PID (hex)"
 msgstr "Audio PID (hex)"
 
 msgid "Audiochannel"
 msgstr "صدای كانال"
 
+msgid "BAT"
+msgstr ""
+
+msgid "Back"
+msgstr ""
+
+msgid "Backup  is running..."
+msgstr ""
+
+msgid "Backup done."
+msgstr ""
+
+msgid "Backup failed."
+msgstr ""
+
+msgid "Backup is running,please wait..."
+msgstr ""
+
+msgid "Backup is running..."
+msgstr ""
+
+msgid "Backup system settings"
+msgstr ""
+
+msgid "Band"
+msgstr ""
+
+msgid "Bicubic picture resize:"
+msgstr ""
+
+msgid "Bulgarian"
+msgstr ""
+
+msgid "By updating or adding satellites all changes made to satellites.xml will be lost,continue?"
+msgstr ""
+
+msgid "C"
+msgstr ""
+
+msgid "Cancel"
+msgstr ""
+
+msgid "Cannot download VHANNIBAL list"
+msgstr ""
+
+msgid "Cannot download cyrus list"
+msgstr ""
+
+msgid "Cannot download morpheus883 list"
+msgstr ""
+
+#, python-format
+msgid "Cannot download settings (%s)"
+msgstr ""
+
+msgid "Cannot download settings list"
+msgstr ""
+
+msgid "Catalan"
+msgstr ""
+
+msgid "Change"
+msgstr ""
+
+#, python-format
+msgid "Change Systemtime was canceled, because %s"
+msgstr ""
+
+msgid "Check for Enigma 2 Update after Backup: "
+msgstr ""
+
+msgid "Chinese"
+msgstr ""
+
+msgid "Chineseh"
+msgstr ""
+
+msgid "Choose backup files"
+msgstr ""
+
+msgid "Choose backup location"
+msgstr ""
+
+msgid "Chose Spinner"
+msgstr ""
+
+msgid "Close"
+msgstr ""
+
+msgid "Configuring"
+msgstr ""
+
+msgid "CornflowerBlue"
+msgstr ""
+
+msgid "Croatian"
+msgstr ""
+
+msgid "Cron added successfully"
+msgstr ""
+
+msgid "Crondmanager"
+msgstr ""
+
+msgid "Current Swapsize (0 is off): "
+msgstr ""
+
+msgid "Czech"
+msgstr ""
+
 msgid "DVB-C"
+msgstr "DVB-C"
+
+#, fuzzy
+msgid "DVB-S"
+msgstr "DVB-C"
+
+#, fuzzy
+msgid "DVB-S2"
 msgstr "DVB-C"
 
 msgid "DVB-T"
 msgstr "DVB-T"
 
+msgid "Danish"
+msgstr ""
+
+msgid "Delete"
+msgstr ""
+
+msgid "Description"
+msgstr ""
+
+msgid "Deselect"
+msgstr ""
+
+#, python-format
+msgid "Display Crush Logfile %s"
+msgstr ""
+
+msgid "Do not install any skin unless you are sure it is compatible with your image.Are you sure?"
+msgstr ""
+
+msgid "Do you want to reboot your Dreambox?"
+msgstr ""
+
+#, python-format
+msgid "Done - Installed or upgraded %d packages"
+msgstr ""
+
+msgid "Download"
+msgstr ""
+
+msgid "Download satellites.xml file"
+msgstr ""
+
+msgid "Downloading"
+msgstr ""
+
+msgid "Downloading ..."
+msgstr ""
+
+msgid "Downloading VHANNIBAL list"
+msgstr ""
+
+msgid "Downloading cyrus list"
+msgstr ""
+
+msgid "Downloading morpheus883 list"
+msgstr ""
+
+msgid "Downloading settings"
+msgstr ""
+
+msgid "Downloading settings list"
+msgstr ""
+
+msgid "Dutch"
+msgstr ""
+
 msgid "E"
 msgstr "E"
 
+msgid "East"
+msgstr ""
+
+msgid "Enabled"
+msgstr ""
+
+msgid "English"
+msgstr ""
+
+msgid "Enigma2 will restart to change Systemtime - OK ?"
+msgstr ""
+
+msgid "Enter addon name-partial or complete"
+msgstr ""
+
+msgid "Enter cron syntax to execute script "
+msgstr ""
+
+msgid "Enter new Systemtime - OK will restart enigma2 !"
+msgstr ""
+
+msgid "Enter time to execute script "
+msgstr ""
+
+msgid "Enter your search term(s)"
+msgstr ""
+
 msgid "Error"
 msgstr "خطا"
+
+msgid "Error processing feeds"
+msgstr ""
+
+msgid "Estonian"
+msgstr ""
+
+msgid "Execution Progress:"
+msgstr ""
+
+msgid "Execution finished!!"
+msgstr ""
+
+msgid "Exit"
+msgstr ""
+
+msgid "Exit plugin"
+msgstr ""
+
+msgid "FEC"
+msgstr ""
+
+msgid "Failed saving file!"
+msgstr ""
+
+msgid "Favorites"
+msgstr ""
+
+msgid "Feed added"
+msgstr ""
+
+msgid "Feed already exists!"
+msgstr ""
+
+msgid "Feed not found in config"
+msgstr ""
+
+msgid "Feed updated"
+msgstr ""
+
+msgid "Files"
+msgstr ""
+
+msgid "Finnish"
+msgstr ""
+
+msgid "Fixed Aspect ratio 4:3:"
+msgstr ""
+
+msgid "Fixed Aspect ratio:"
+msgstr ""
+
+msgid "FlashExpander is used,no FlashBackup possible."
+msgstr ""
+
+msgid "Flashimage-Backup on storage device"
+msgstr ""
+
+msgid "Force depends"
+msgstr ""
+
+msgid "Force noaction"
+msgstr ""
+
+msgid "Force overwrite"
+msgstr ""
+
+msgid "Force reinstall"
+msgstr ""
+
+msgid "Free Memory"
+msgstr ""
+
+msgid "Free Space"
+msgstr ""
+
+msgid "French"
+msgstr ""
+
+#, fuzzy
+msgid "Freqency"
+msgstr ""
+"فركانس\n"
+"مگاهرتز"
 
 msgid ""
 "Frequency\n"
@@ -44,11 +504,187 @@ msgstr ""
 "فركانس\n"
 "مگاهرتز"
 
+msgid "Frisian"
+msgstr ""
+
+msgid ""
+"GUI needs a restart to apply a new spinner.\n"
+"Do you want to restart the GUI now ?"
+msgstr ""
+
+msgid "General Info"
+msgstr ""
+
+msgid "German"
+msgstr ""
+
+msgid "Grab All"
+msgstr ""
+
+msgid "Greek"
+msgstr ""
+
+msgid "Help"
+msgstr ""
+
+msgid "Hungarian"
+msgstr ""
+
+msgid "Icelandic"
+msgstr ""
+
+msgid "Image Info"
+msgstr ""
+
+msgid "Info"
+msgstr ""
+
+msgid "Install"
+msgstr ""
+
+msgid "Install with config values overwrite"
+msgstr ""
+
+msgid "Install without depends"
+msgstr ""
+
+msgid "Installing"
+msgstr ""
+
+#, python-format
+msgid "Installing: %s"
+msgstr ""
+
+msgid "Internet Settings loader"
+msgstr ""
+
+msgid "Invalid Location"
+msgstr ""
+
+msgid "Inversion"
+msgstr ""
+
+msgid ""
+"It is sometimes necessary to disable the Swap function if the backup is done on a network mount!\n"
+"Attention: A working Swap must be active on the box."
+msgstr ""
+
+msgid "Italian"
+msgstr ""
+
+msgid "Keep cables.xml:"
+msgstr ""
+
+msgid "Keep currently installed bouquets:"
+msgstr ""
+
+msgid "Keep satellites.xml:"
+msgstr ""
+
+msgid "Keep terrestrial settings:"
+msgstr ""
+
+msgid "Keep terrestrial.xml:"
+msgstr ""
+
+msgid "Kernel Modules"
+msgstr ""
+
+msgid "KingOfSat Import"
+msgstr ""
+
+msgid "Kingofsat-Feeds"
+msgstr ""
+
+msgid "Kingofsat-recommonded"
+msgstr ""
+
+msgid "Ku"
+msgstr ""
+
+msgid "Language selection"
+msgstr ""
+
+msgid "Latvian"
+msgstr ""
+
+msgid "Listen to your favorites from Persian Radio"
+msgstr ""
+
+msgid "Lithuanian"
+msgstr ""
+
+msgid "Local: "
+msgstr ""
+
+msgid "Location not available!"
+msgstr ""
+
+msgid "LyngSat-All satellites"
+msgstr ""
+
+msgid "LyngSat-America satellites"
+msgstr ""
+
+msgid "LyngSat-Asia satellites"
+msgstr ""
+
+msgid "LyngSat-Atlantic satellites"
+msgstr ""
+
+msgid "LyngSat-Europe satellites"
+msgstr ""
+
+msgid "Modulation"
+msgstr ""
+
+msgid "Mountpoints"
+msgstr ""
+
+msgid "Mute"
+msgstr ""
+
 msgid "Name"
 msgstr "اسم"
 
+msgid "Network scan"
+msgstr ""
+
+msgid "No ipk package found"
+msgstr ""
+
+msgid "No packages were upgraded yet. So you can check your network and try again."
+msgstr ""
+
+msgid "No, never"
+msgstr ""
+
+msgid "Norwegian"
+msgstr ""
+
+msgid "Not assigned"
+msgstr ""
+
+msgid "OK"
+msgstr ""
+
+msgid "ONID"
+msgstr ""
+
+msgid "ONIT"
+msgstr ""
+
+msgid "OSD only"
+msgstr ""
+
+msgid "Off"
+msgstr ""
+
 msgid "Options for hide"
 msgstr "گزینه های مخفی كردن"
+
+msgid "Orientation"
+msgstr ""
 
 msgid "PCM Delay (ms)"
 msgstr "PCM تاخیر (ms)"
@@ -56,8 +692,80 @@ msgstr "PCM تاخیر (ms)"
 msgid "PCR PID (hex)"
 msgstr "PCR PID (hex)"
 
+msgid "PNG"
+msgstr ""
+
+msgid "Package list update"
+msgstr ""
+
+msgid "Password was reset to blank"
+msgstr ""
+
+msgid "Persian"
+msgstr ""
+
+msgid "Persian live soccer"
+msgstr ""
+
+msgid "Picture size:"
+msgstr ""
+
+msgid "Pilot"
+msgstr ""
+
+msgid "Play"
+msgstr ""
+
+msgid "Please Enter new Systemtime - OK will restart enigma2 !"
+msgstr ""
+
+msgid "Please enter a description for the new feed"
+msgstr ""
+
+msgid "Please enter a name for the new feed"
+msgstr ""
+
+msgid "Please enter a url for the new feed"
+msgstr ""
+
+msgid "Please select medium to use as backup location"
+msgstr ""
+
+msgid "Please use the UP and DOWN keys to select your language. Afterwards press the OK button."
+msgstr ""
+
+msgid "Polarisation"
+msgstr ""
+
+msgid "Polish"
+msgstr ""
+
+msgid "Portuguese"
+msgstr ""
+
 msgid "Pos"
 msgstr "Pos"
+
+msgid "Position"
+msgstr ""
+
+msgid "Press Menu for advanced install"
+msgstr ""
+
+msgid "Press OK on your remote control to continue."
+msgstr ""
+
+msgid "Press OK to add to favorites"
+msgstr ""
+
+msgid "Press menu for advanced options"
+msgstr ""
+
+msgid "Preview"
+msgstr ""
+
+msgid "Process List"
+msgstr ""
 
 msgid "Provider"
 msgstr "Provider"
@@ -65,8 +773,169 @@ msgstr "Provider"
 msgid "Providers"
 msgstr "فراهم کنندگان "
 
+msgid "Pure Prestige"
+msgstr ""
+
+msgid "Pure Prestige FlashBackup"
+msgstr ""
+
+msgid "Pure Prestige FlashBackup Settings"
+msgstr ""
+
+msgid "Pure Prestige FlashBackup failed."
+msgstr ""
+
+msgid "Pure Prestige shortcut button:"
+msgstr ""
+
+msgid "PurePrestige FlashBackup"
+msgstr ""
+
+msgid "PurePrestige-Restore backups"
+msgstr ""
+
+msgid "PurePrestige-Settings backup&restore"
+msgstr ""
+
+msgid "PurePrestige-Settings backup-restore"
+msgstr ""
+
+msgid "Purge satellites.xml file"
+msgstr ""
+
+msgid "QAM16"
+msgstr ""
+
+msgid "QPSK"
+msgstr ""
+
+msgid "Radio"
+msgstr ""
+
+#, python-format
+msgid "Reading: %s"
+msgstr ""
+
+msgid "Remote screenshot button:"
+msgstr ""
+
+msgid "Remove"
+msgstr ""
+
+#, python-format
+msgid "Remove Satellite %s?"
+msgstr ""
+
+msgid "Remove Transponder?"
+msgstr ""
+
+msgid "Remove crashlogs"
+msgstr ""
+
+msgid "Remove languages"
+msgstr ""
+
+msgid "Remove plugin folder"
+msgstr ""
+
+msgid "Remove skin"
+msgstr ""
+
+msgid "Removing"
+msgstr ""
+
+#, python-format
+msgid "Removing: %s"
+msgstr ""
+
+msgid "Reset"
+msgstr ""
+
+msgid "Restart enigma2 to load languages?"
+msgstr ""
+
+msgid "Restart enigma2 to load new settings?"
+msgstr ""
+
+msgid "Restore"
+msgstr ""
+
+msgid "Restore from file"
+msgstr ""
+
+msgid "Restore is running..."
+msgstr ""
+
+msgid "Restore running"
+msgstr ""
+
+msgid "Restore system settings"
+msgstr ""
+
+msgid "RollOff"
+msgstr ""
+
+msgid "Run cron"
+msgstr ""
+
+msgid "Russian"
+msgstr ""
+
 msgid "SID (hex)"
 msgstr "SID (hex)"
+
+msgid "Satbeams"
+msgstr ""
+
+msgid "Satellites"
+msgstr ""
+
+msgid "Save"
+msgstr ""
+
+msgid ""
+"Save satellites.xml? \n"
+"(This take some seconds.)"
+msgstr ""
+
+msgid "Saved to Favorites"
+msgstr ""
+
+msgid "ScreenShot:"
+msgstr ""
+
+msgid "ScreenShots Storing Folder:"
+msgstr ""
+
+msgid "Screenshot shortcut button:"
+msgstr ""
+
+msgid "Search"
+msgstr ""
+
+msgid "Select"
+msgstr ""
+
+msgid "Select all"
+msgstr ""
+
+msgid "Select files/folders to backup"
+msgstr ""
+
+msgid "Select/deselect satellite"
+msgstr ""
+
+msgid "Selected Backuplocation:"
+msgstr ""
+
+msgid "Selected memory place:"
+msgstr ""
+
+msgid "Serbian"
+msgstr ""
+
+msgid "Server updates"
+msgstr ""
 
 msgid "Service"
 msgstr "خدمات"
@@ -77,11 +946,163 @@ msgstr "خدمات"
 msgid "Services Editor"
 msgstr "خدمات ویرایشگر "
 
+msgid "Settings"
+msgstr ""
+
+msgid "Settings installation failed,format may be not supported"
+msgstr ""
+
+msgid "Settings installation failed,format may be not supported or files in server corrupted"
+msgstr ""
+
+msgid "Skin resolution"
+msgstr ""
+
+msgid "Slovakian"
+msgstr ""
+
+msgid "Slovenian"
+msgstr ""
+
+msgid "Sorry no backups found!"
+msgstr ""
+
+msgid ""
+"Sorry your backup destination is not writeable.\n"
+"Please choose an other one."
+msgstr ""
+
+msgid ""
+"Sorry, your backup destination is not writeable.\n"
+"\n"
+"Please choose another one."
+msgstr ""
+
+msgid "Sorting down"
+msgstr ""
+
+msgid "Sorting up"
+msgstr ""
+
+msgid "Spanish"
+msgstr ""
+
+msgid "Start Backup"
+msgstr ""
+
+msgid "Start Backup with console"
+msgstr ""
+
+msgid "Stop cron"
+msgstr ""
+
+msgid "Storing Folder:"
+msgstr ""
+
+msgid "Storing directory is not available"
+msgstr ""
+
 msgid "Subtitle PID (hex)"
 msgstr "زیرنویس PID (hex)"
 
+msgid "Swapsize: "
+msgstr ""
+
+msgid "Swedish"
+msgstr ""
+
+msgid "Symbolrate"
+msgstr ""
+
+msgid "System"
+msgstr ""
+
+msgid ""
+"TS FlashBackup failed.\n"
+"FlashBackup Log created in /tmp/ as file FlashBackupLog."
+msgstr ""
+
+msgid "TS FlashBackup successfully created in"
+msgstr ""
+
+#, fuzzy
+msgid "TS-Satellites Editor"
+msgstr "خدمات ویرایشگر "
+
+msgid "TSID"
+msgstr ""
+
 msgid "TXT PID (hex)"
 msgstr "TXT PID (hex)"
+
+msgid "Text"
+msgstr ""
+
+msgid ""
+"There might not be enough Space on the selected Partition.\n"
+"Do you really want to continue?"
+msgstr ""
+
+msgid "Turkish"
+msgstr ""
+
+msgid "Ukrainian"
+msgstr ""
+
+#, python-format
+msgid ""
+"Unable to copy temp file.\n"
+"%s"
+msgstr ""
+
+#, python-format
+msgid ""
+"Unable to delete temp file.\n"
+"%s"
+msgstr ""
+
+#, python-format
+msgid ""
+"Unable to download satellite file. Please try again later.\n"
+"%s"
+msgstr ""
+
+#, python-format
+msgid ""
+"Unable to open file.\n"
+"%s"
+msgstr ""
+
+msgid "Unable to save download to temp satellite file.\n"
+msgstr ""
+
+msgid "Uninstall"
+msgstr ""
+
+msgid "Uninstall package"
+msgstr ""
+
+msgid "Update"
+msgstr ""
+
+msgid "Update-add"
+msgstr ""
+
+msgid "Updating opkg list:"
+msgstr ""
+
+msgid "Upgrade finished."
+msgstr ""
+
+msgid "Upgrading"
+msgstr ""
+
+msgid "Upgrading Dreambox... Please wait"
+msgstr ""
+
+#, fuzzy
+msgid "Video"
+msgstr "نوع ویدیو"
 
 msgid "Video PID (hex)"
 msgstr "Video PID (hex)"
@@ -89,47 +1110,334 @@ msgstr "Video PID (hex)"
 msgid "Video Type"
 msgstr "نوع ویدیو"
 
+#, fuzzy
+msgid "Video only"
+msgstr "نوع ویدیو"
+
 msgid "W"
 msgstr "W"
+
+msgid "West"
+msgstr ""
+
+msgid "Yes, always"
+msgstr ""
+
+msgid "You selected to backup flash image for original dream multimedia dreambox,continue?"
+msgstr ""
+
+msgid "You selected to backup flash image for sim2 dreambox,continue?"
+msgstr ""
+
+msgid "Your dreambox isn't connected to the internet properly. Please check it and try again."
+msgstr ""
+
+msgid "add"
+msgstr ""
+
+msgid "add new feed"
+msgstr ""
+
+msgid "adding cron failed"
+msgstr ""
+
+#, python-format
+msgid ""
+"adding feed failed!\n"
+"\n"
+"%s"
+msgstr ""
+
+#, python-format
+msgid "adding script %s to crontab after time"
+msgstr ""
+
+#, python-format
+msgid "adding script %s to crontab with time"
+msgstr ""
+
+msgid "answer is None"
+msgstr ""
+
+#, python-format
+msgid "are you sure to %s"
+msgstr ""
+
+#, python-format
+msgid "are you sure to add this script to crontab: %s ?"
+msgstr ""
+
+#, python-format
+msgid ""
+"are you sure to delete this feed?\n"
+"\n"
+"%s"
+msgstr ""
+
+msgid "auto"
+msgstr ""
+
+msgid "better"
+msgstr ""
+
+msgid "black"
+msgstr ""
+
+msgid "blue"
+msgstr ""
+
+msgid "change feed"
+msgstr ""
+
+#, python-format
+msgid ""
+"changing feed failed!\n"
+"\n"
+"%s"
+msgstr ""
+
+msgid "circular left"
+msgstr ""
+
+msgid "circular right"
+msgstr ""
+
+#, python-format
+msgid "delay script to crontab was canceled, because %s"
+msgstr ""
+
+msgid "delete"
+msgstr ""
+
+msgid "delete all"
+msgstr ""
+
+msgid "delete feed"
+msgstr ""
 
 msgid "dont use SDT"
 msgstr "SDTغیر قابل استفاده"
 
+msgid "downloading-"
+msgstr ""
+
+#, python-format
+msgid "downloading-installing: %s"
+msgstr ""
+
 msgid "edit"
 msgstr "ویرایش"
 
+msgid "executing command on Dreambox"
+msgstr ""
+
+msgid "for select sublist!"
+msgstr ""
+
+#, python-format
+msgid "get %s"
+msgstr ""
+
+msgid "green"
+msgstr ""
+
+msgid "halt Dreambox"
+msgstr ""
+
+#, python-format
 msgid "hide Provider %s"
 msgstr "مخفی كردن پروایدر %s"
 
 msgid "hide Service"
 msgstr "مخفی كردن خدمات"
 
+#, python-format
 msgid "hide Service %s"
 msgstr "مخفی كردن خدمات%s"
 
 msgid "hide/unhide"
 msgstr "مخفی/آشكار كردن"
 
+msgid "horizontal"
+msgstr ""
+
+msgid "info"
+msgstr ""
+
+msgid "info if cron daemon is running"
+msgstr ""
+
+#, python-format
+msgid "invalid day %s"
+msgstr ""
+
+msgid "invalid format"
+msgstr ""
+
+#, python-format
+msgid "invalid hour %s"
+msgstr ""
+
+#, python-format
+msgid "invalid minute %s"
+msgstr ""
+
+#, python-format
+msgid "invalid month %s"
+msgstr ""
+
+#, python-format
+msgid "invalid year %s"
+msgstr ""
+
+msgid "jpg100"
+msgstr ""
+
+msgid "jpg20"
+msgstr ""
+
+msgid "jpg40"
+msgstr ""
+
+msgid "jpg60"
+msgstr ""
+
+msgid "jpg80"
+msgstr ""
+
 msgid "keep Servicename"
 msgstr "حفظ اسم خدمات"
+
+msgid "left"
+msgstr ""
+
+msgid "new time string too short"
+msgstr ""
+
+msgid "no"
+msgstr ""
+
+msgid "no command passed, skipping restart"
+msgstr ""
+
+msgid "no new time"
+msgstr ""
 
 msgid "no standart service"
 msgstr "خدمات غیر استاندارد"
 
+msgid "nothing entered"
+msgstr ""
+
+msgid "off"
+msgstr ""
+
 msgid "ok"
 msgstr "بله"
+
+msgid "on"
+msgstr ""
+
+msgid "opkg update"
+msgstr ""
+
+msgid "please wait, loading picture..."
+msgstr ""
+
+msgid "plugin to do manage cron daemon"
+msgstr ""
+
+msgid "reboot Dreambox"
+msgstr ""
+
+msgid "red"
+msgstr ""
+
+msgid "remove"
+msgstr ""
+
+#, python-format
+msgid "removing: %s"
+msgstr ""
+
+msgid "restart Enigma on Dreambox"
+msgstr ""
+
+msgid "restart cron daemon"
+msgstr ""
+
+msgid "right"
+msgstr ""
+
+msgid "screenshot format/quality:"
+msgstr ""
+
+msgid "select bouquets to keep"
+msgstr ""
+
+msgid "select command"
+msgstr ""
+
+msgid "select restart command to be executed"
+msgstr ""
+
+#, fuzzy
+msgid "service editor"
+msgstr "خدمات ویرایشگر "
+
+msgid "show full"
+msgstr ""
+
+msgid "show short"
+msgstr ""
 
 msgid "sign as new Service"
 msgstr "ثبت خدمات جدید "
 
+msgid "simple"
+msgstr ""
+
 msgid "sort"
 msgstr "ردیف"
 
+msgid "start cron daemon"
+msgstr ""
+
+msgid "stop cron daemon"
+msgstr ""
+
+#, python-format
 msgid "toggle hide attibutes for %s"
 msgstr "ضامن ویژگی برای مخفی کردن %s"
 
+#, python-format
 msgid "unhide Provider %s"
 msgstr "نشان دادن پرووایدر %s"
 
+#, python-format
 msgid "unhide Service %s"
 msgstr "آشكار كردن خدمات %s"
+
+msgid "update"
+msgstr ""
+
+msgid "use onid"
+msgstr ""
+
+msgid "use tsid"
+msgstr ""
+
+msgid "vertical"
+msgstr ""
+
+msgid "yellow"
+msgstr ""
+
+msgid "yes"
+msgstr ""
+
+msgid "you were not confirming"
+msgstr ""
+
+msgid "your dreambox might be unusable now. Please consult the manual for further assistance before rebooting your dreambox."
+msgstr ""

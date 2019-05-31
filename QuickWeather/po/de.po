@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Enigma 2 QuickWeather Plugin\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-09-24 16:16+0200\n"
+"POT-Creation-Date: 2019-05-31 14:34+0430\n"
 "PO-Revision-Date: 2012-02-20 16:41+0100\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -11,23 +11,51 @@ msgstr ""
 "X-Poedit-Country: Germany\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 
-msgid " (%s times)\n"
-msgstr " (%s раз)\n"
+msgid "/media/hdd/"
+msgstr ""
 
-msgid " Started"
-msgstr " Старт..."
+msgid "/media/usb/"
+msgstr ""
 
-msgid "Activate Poster Preview"
-msgstr "Vorschau Poster Aktiviieren"
+msgid "/usr/share/enigma2/"
+msgstr ""
 
 msgid "Activate Quick Weather"
 msgstr "Quick Weather Einschalten"
 
+msgid "Animated icons"
+msgstr ""
+
+msgid "Apr"
+msgstr ""
+
+msgid "Aug"
+msgstr ""
+
 msgid "Auto update (30-150min):"
 msgstr "Auto update (30-150min):"
 
+#, fuzzy
+msgid "Basic settings plugin Quick Weather"
+msgstr "Setup Quick Weather"
+
+msgid "Before update:"
+msgstr ""
+
+msgid "Blizzard"
+msgstr ""
+
+msgid "Blowing snow"
+msgstr ""
+
 msgid "Buttons for Weather plugin:"
 msgstr "Buttons für Weather plugin"
+
+msgid "Cancel"
+msgstr ""
+
+msgid "Change Keymap"
+msgstr ""
 
 msgid "Change Quick Weather position"
 msgstr "Quick Weather position Ändern"
@@ -35,32 +63,292 @@ msgstr "Quick Weather position Ändern"
 msgid "Change background image"
 msgstr "Hintergrund Bild Ändern"
 
+msgid "Choice keymap for plugin"
+msgstr ""
+
+msgid "Choosing the path to animated icons:"
+msgstr ""
+
+msgid "Clear"
+msgstr ""
+
 msgid "Clearing the cache:"
 msgstr "Cache Leeren:"
 
-msgid "Connection failed !"
+msgid "Cloudy"
+msgstr ""
+
+msgid "Config file"
+msgstr ""
+
+#, fuzzy
+msgid "Connection failed!"
 msgstr "Verbindung fehlgeschlagen!"
 
 msgid "Connection..."
 msgstr "Verbunden... "
 
-msgid "Deactivate Quick Weather"
-msgstr "Quick Weather deaktivieren"
+msgid "Dec"
+msgstr ""
 
-msgid "Enter city"
+msgid "Display the weather for:"
+msgstr ""
+
+msgid "Do you want restart GUI now?"
+msgstr ""
+
+msgid "Drizzle nearby"
+msgstr ""
+
+msgid "E"
+msgstr ""
+
+msgid "ENE"
+msgstr ""
+
+msgid "ESE"
+msgstr ""
+
+msgid "English"
+msgstr ""
+
+msgid "Enter an alternative name for the city in infobare plugin-not to find weather"
+msgstr ""
+
+msgid "Enter an alternative name for the output of its plug-in infobare."
+msgstr ""
+
+#, fuzzy
+msgid "Enter city for infobar"
 msgstr "Stadt eingeben"
+
+msgid "Enter city for worldweatheronline.com"
+msgstr ""
+
+msgid "Enter city to find weather from the server worldweatheronline.com"
+msgstr ""
 
 msgid "Enter only the English name of the city!!!"
 msgstr "Geben Sie nur den englischen Namen von der Stadt ein!!!"
 
+msgid "Enter your way to the storage of icons"
+msgstr ""
+
+msgid "Error getting XML document!"
+msgstr ""
+
+msgid "Feb"
+msgstr ""
+
+msgid "Fog"
+msgstr ""
+
+msgid "Freezing drizzle"
+msgstr ""
+
+msgid "Freezing fog"
+msgstr ""
+
+msgid "Freezing rain"
+msgstr ""
+
+msgid "GREEN"
+msgstr ""
+
+msgid "HELP"
+msgstr ""
+
+msgid "Hail"
+msgstr ""
+
+msgid "Heavy freezing rain"
+msgstr ""
+
+msgid "Heavy rain"
+msgstr ""
+
+msgid "Heavy rain and hail"
+msgstr ""
+
+msgid "Heavy rain shower"
+msgstr ""
+
+msgid "Heavy sleet showers"
+msgstr ""
+
+msgid "Heavy snow"
+msgstr ""
+
+msgid "Ice pellets"
+msgstr ""
+
+msgid "Icons+animation"
+msgstr ""
+
+msgid "Invalid city"
+msgstr ""
+
+msgid "Jan"
+msgstr ""
+
+msgid "Jul"
+msgstr ""
+
+msgid "Jun"
+msgstr ""
+
+msgid "Kmph"
+msgstr ""
+
+msgid "Light drizzle"
+msgstr ""
+
+msgid "Light rain"
+msgstr ""
+
+msgid "Light sleet"
+msgstr ""
+
+msgid "Light snow"
+msgstr ""
+
+msgid "Light snow showers"
+msgstr ""
+
+msgid "Mar"
+msgstr ""
+
+msgid "May"
+msgstr ""
+
+msgid "Mist"
+msgstr ""
+
+msgid "Moderate rain"
+msgstr ""
+
+msgid "Mostly sunny"
+msgstr ""
+
+msgid "N"
+msgstr ""
+
+msgid "NE"
+msgstr ""
+
+msgid "NNE"
+msgstr ""
+
+msgid "NNW"
+msgstr ""
+
+msgid "NW"
+msgstr ""
+
 msgid "None"
 msgstr "kein treffer"
 
-msgid "Page not available !"
+msgid "Nov"
+msgstr ""
+
+msgid "Oct"
+msgstr ""
+
+msgid "One day"
+msgstr ""
+
+msgid "Overcast"
+msgstr ""
+
+#, fuzzy
+msgid "Page not available!"
 msgstr "Seite nicht verfügbar!"
 
-msgid "Quick Weather Menu"
+msgid "Partly Cloudy"
+msgstr ""
+
+msgid "Patchy rain nearby"
+msgstr ""
+
+msgid "Patchy sleet nearby"
+msgstr ""
+
+msgid "Patchy snow"
+msgstr ""
+
+msgid "Patchy snow nearby"
+msgstr ""
+
+msgid "Positioning infobar plugin on the screen"
+msgstr ""
+
+#, fuzzy
+msgid "Quick Weather"
 msgstr "Quick Weather Menü"
+
+#, fuzzy
+msgid "Quick Weather Menu v.8.2"
+msgstr "Quick Weather Menü"
+
+msgid "RADIO"
+msgstr ""
+
+msgid "RED"
+msgstr ""
+
+msgid "Rain"
+msgstr ""
+
+msgid "Rain and hail"
+msgstr ""
+
+msgid "Rain and snow"
+msgstr ""
+
+msgid "Rain shower"
+msgstr ""
+
+msgid "Restart GUI now?"
+msgstr ""
+
+msgid "Russian"
+msgstr ""
+
+msgid "S"
+msgstr ""
+
+msgid "SE"
+msgstr ""
+
+msgid "SSE"
+msgstr ""
+
+msgid "SSW"
+msgstr ""
+
+msgid "SW"
+msgstr ""
+
+msgid "Save"
+msgstr ""
+
+msgid "Selection keys on which the plugin is called"
+msgstr ""
+
+msgid "Selection of background images for the plugin Quick Weather"
+msgstr ""
+
+msgid "Selection of weather icons"
+msgstr ""
+
+msgid "Selection of weather icons and their storage"
+msgstr ""
+
+msgid "Sep"
+msgstr ""
+
+msgid "Setup Icons"
+msgstr ""
 
 msgid "Setup Quick Weather"
 msgstr "Setup Quick Weather"
@@ -71,17 +359,163 @@ msgstr "Zeige Animation für Wetter icons jetzt:"
 msgid "Show animation for the other days:"
 msgstr "Zeige Animation für die anderen Tage:"
 
-msgid "Show humidity:"
+#, fuzzy
+msgid "Show city of:"
 msgstr "Zeige Feuchtigkeit:"
 
 msgid "Show wind:"
 msgstr "Zeige Wind:"
 
+msgid "Shower"
+msgstr ""
+
+msgid "Sleet"
+msgstr ""
+
+msgid "Sleet showers"
+msgstr ""
+
+msgid "Snow"
+msgstr ""
+
+msgid "Special version for Open Vision"
+msgstr ""
+
+#, fuzzy
+msgid "Started"
+msgstr " Старт..."
+
+msgid "Static Icons"
+msgstr ""
+
+msgid "Sunny"
+msgstr ""
+
+msgid "TEXT"
+msgstr ""
+
+msgid "TV"
+msgstr ""
+
+msgid "Three day"
+msgstr ""
+
+msgid "Thunderstorm"
+msgstr ""
+
 msgid "Use buttons for show Weather"
 msgstr "Benutze Button für Wetteransicht"
+
+msgid "Use time in the plugin:"
+msgstr ""
+
+msgid "W"
+msgstr ""
+
+msgid "WNW"
+msgstr ""
+
+msgid "WSW"
+msgstr ""
 
 msgid "Weather languages:"
 msgstr "Wetter Sprache auswahl:"
 
-msgid "You have changed the menu Activate Quick Weather"
+#, fuzzy
+msgid "Weather time"
+msgstr "Quick Weather Menü"
+
+#, fuzzy
+msgid "Weather xml"
+msgstr "Wetter Sprache auswahl:"
+
+msgid "YELLOW"
+msgstr ""
+
+#, fuzzy
+msgid "You have changed the menu Activate Quick Weather or Display the weather for"
 msgstr "Sie haben das Menü von Quick Weather geändert "
+
+msgid "clock"
+msgstr ""
+
+msgid "clock+day"
+msgstr ""
+
+msgid "light rain"
+msgstr ""
+
+msgid "m/s"
+msgstr ""
+
+msgid "updates time"
+msgstr ""
+
+msgid "Авг."
+msgstr ""
+
+msgid "Апр."
+msgstr ""
+
+msgid "Град"
+msgstr ""
+
+msgid "Гроза"
+msgstr ""
+
+msgid "Дек."
+msgstr ""
+
+msgid "Дождь"
+msgstr ""
+
+msgid "Июль"
+msgstr ""
+
+msgid "Июнь"
+msgstr ""
+
+msgid "Май"
+msgstr ""
+
+msgid "Местами дождь"
+msgstr ""
+
+msgid "Местами облачно"
+msgstr ""
+
+msgid "Мрт."
+msgstr ""
+
+msgid "Небольшой снег"
+msgstr ""
+
+msgid "Нояб."
+msgstr ""
+
+msgid "Облачно"
+msgstr ""
+
+msgid "Окт."
+msgstr ""
+
+msgid "Пасмурно"
+msgstr ""
+
+msgid "Сент."
+msgstr ""
+
+msgid "Снег"
+msgstr ""
+
+msgid "Снег с дождем"
+msgstr ""
+
+msgid "Фев."
+msgstr ""
+
+msgid "Янв."
+msgstr ""
+
+msgid "Ясно"
+msgstr ""

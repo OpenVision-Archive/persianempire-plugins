@@ -2,17 +2,20 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Services Editor Persian Translation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-04-17 19:22+0200\n"
+"POT-Creation-Date: 2019-05-31 14:34+0430\n"
 "PO-Revision-Date: 2011-05-16 21:38+0330\n"
 "Last-Translator: Farshadmb <farshad1151@hotmail.com>\n"
 "Language-Team: Persian Professionals <persianprince@persianpros.com>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: KBabel 1.11.4\n"
 "X-Poedit-Language: Persian\n"
 "X-Poedit-Country: IRAN, ISLAMIC REPUBLIC OF\n"
+
+msgid " "
+msgstr ""
 
 msgid "AC3 Delay (ms)"
 msgstr "AC3 تاخیر ms)"
@@ -45,8 +48,14 @@ msgstr ""
 "فركانس\n"
 "مگاهرتز"
 
+msgid "Lets you edit services in your STB"
+msgstr ""
+
 msgid "Name"
 msgstr "اسم"
+
+msgid "O"
+msgstr ""
 
 msgid "Options for hide"
 msgstr "گزینه های مخفی كردن"
@@ -84,6 +93,9 @@ msgstr "زیرنویس PID (hex)"
 msgid "TXT PID (hex)"
 msgstr "TXT PID (hex)"
 
+msgid "Transponder"
+msgstr ""
+
 msgid "Video PID (hex)"
 msgstr "Video PID (hex)"
 
@@ -116,11 +128,22 @@ msgstr "مخفی/آشكار كردن"
 msgid "keep Servicename"
 msgstr "حفظ اسم خدمات"
 
-msgid "no standart service"
+#, fuzzy
+msgid "no standard service"
 msgstr "خدمات غیر استاندارد"
 
 msgid "ok"
 msgstr "بله"
+
+msgid "reading lamedb - please wait - build database"
+msgstr ""
+
+#, python-format
+msgid "reading lamedb - please wait - get services %s"
+msgstr ""
+
+msgid "reading lamedb - please wait - get transponders"
+msgstr ""
 
 msgid "sign as new Service"
 msgstr "ثبت خدمات جدید "

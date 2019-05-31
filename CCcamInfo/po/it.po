@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: enigma2 - cccaminfo\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-07-25 10:37+0200\n"
+"POT-Creation-Date: 2019-05-31 14:34+0430\n"
 "PO-Revision-Date: 2009-09-15 15:07+0100\n"
 "Last-Translator: Spaeleus <spaeleus@croci.org>\n"
 "Language-Team: www.linsat.net <spaeleus@croci.org>\n"
@@ -35,9 +35,12 @@ msgstr "Tutti"
 msgid "Available shares:"
 msgstr "Condivisioni disponibili: "
 
+#, fuzzy, python-format
 msgid ""
 "CCcam Info %s\n"
-"by AliAbdul %s\n"
+"by AliAbdul\n"
+"Special version for Open Vision\n"
+"%s\n"
 "\n"
 "This plugin shows you the status of your CCcam."
 msgstr ""
@@ -64,6 +67,7 @@ msgstr "Seriale card"
 msgid "Clients"
 msgstr "Client"
 
+#, python-format
 msgid "Configfile %s saved."
 msgstr "File configurazione %s salvato."
 
@@ -76,9 +80,11 @@ msgstr "Connesso: "
 msgid "Content"
 msgstr "Contenuti"
 
+#, python-format
 msgid "Could not open the file %s!"
 msgstr "Impossibile aprire il file %s!"
 
+#, python-format
 msgid "Could not save configfile %s!"
 msgstr "Impossibile salvare il file configurazione %s!"
 
@@ -91,16 +97,19 @@ msgstr "Troncare nome server dopo (x) lettere: "
 msgid "Delete"
 msgstr "Canc."
 
+#, python-format
 msgid "Delete %s?"
 msgstr "Cancellare %s?"
 
 msgid "Delete failed!"
 msgstr "Cancellazione fallita!"
 
+#, python-format
 msgid "Deleted %s!"
 msgstr "%s cancellato!"
 
-msgid "Ecm Info"
+#, fuzzy
+msgid "ECM Info"
 msgstr "Info Ecm"
 
 msgid "Ecm time:"
@@ -229,6 +238,7 @@ msgstr "Cambio nome fallito!"
 msgid "Rename to:"
 msgstr "Rinominare come: "
 
+#, python-format
 msgid "Renamed %s!"
 msgstr "%s rinominato!"
 
@@ -253,14 +263,14 @@ msgstr "Condivisioni"
 msgid "Show ecm.info:"
 msgstr "Mostrare ecm.info: "
 
+msgid "Special version for Open Vision"
+msgstr ""
+
 msgid "Switch config"
 msgstr "Cambiare config."
 
 msgid "System: "
 msgstr "Sistema: "
-
-msgid "This plugin shows you the status of your CCcam"
-msgstr "Questo plugin mostra lo stato della EMU CCcam"
 
 msgid "Total cards:"
 msgstr "Card Totali: "

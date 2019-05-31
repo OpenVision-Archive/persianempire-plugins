@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: CCcaminfo Turkish locale\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-07-25 10:37+0200\n"
+"POT-Creation-Date: 2019-05-31 14:34+0430\n"
 "PO-Revision-Date: 2009-06-07 06:22-0000\n"
 "Last-Translator: Nabil Hanna <nabil1978@web.de>\n"
 "Language-Team: http://hobiagaci.com <z.veyisoglu@hobiagaci.com>\n"
@@ -32,9 +32,12 @@ msgstr "Tümü"
 msgid "Available shares:"
 msgstr "Kullanılabilir paylaşımlar:"
 
+#, fuzzy, python-format
 msgid ""
 "CCcam Info %s\n"
-"by AliAbdul %s\n"
+"by AliAbdul\n"
+"Special version for Open Vision\n"
+"%s\n"
 "\n"
 "This plugin shows you the status of your CCcam."
 msgstr ""
@@ -61,6 +64,7 @@ msgstr "Serikart"
 msgid "Clients"
 msgstr "İstemciler"
 
+#, python-format
 msgid "Configfile %s saved."
 msgstr "%s yapılandırma dosyası kaydedildi."
 
@@ -73,9 +77,11 @@ msgstr "Bağlı: "
 msgid "Content"
 msgstr "İçerik"
 
+#, python-format
 msgid "Could not open the file %s!"
 msgstr "%s dosyası açılamıyor!"
 
+#, python-format
 msgid "Could not save configfile %s!"
 msgstr "%s yapılandırma dosyası kaydedilemiyor!"
 
@@ -88,16 +94,19 @@ msgstr "Sunucu adını (x) karakter sonra kes:"
 msgid "Delete"
 msgstr "Sil"
 
+#, python-format
 msgid "Delete %s?"
 msgstr "%s silinsin mi?"
 
 msgid "Delete failed!"
 msgstr "Silme hatası!"
 
+#, python-format
 msgid "Deleted %s!"
 msgstr "%s silindi!"
 
-msgid "Ecm Info"
+#, fuzzy
+msgid "ECM Info"
 msgstr "Ecm bilgisi"
 
 msgid "Ecm time:"
@@ -226,6 +235,7 @@ msgstr "Yeniden adlandırma yapılamadı!"
 msgid "Rename to:"
 msgstr "Yeni ad:"
 
+#, python-format
 msgid "Renamed %s!"
 msgstr "%s yeniden adlandırıldı!"
 
@@ -250,14 +260,14 @@ msgstr "Paylaşımlar"
 msgid "Show ecm.info:"
 msgstr "ecm.info 'yu göster:"
 
+msgid "Special version for Open Vision"
+msgstr ""
+
 msgid "Switch config"
 msgstr "Yapılandırma seç"
 
 msgid "System: "
 msgstr "Sistem: "
-
-msgid "This plugin shows you the status of your CCcam"
-msgstr "CCcam istemci/sunucu bilgilerinizi inceleyin."
 
 msgid "Total cards:"
 msgstr "Toplam Kart:"

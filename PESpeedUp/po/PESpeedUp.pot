@@ -6,19 +6,16 @@
 #, fuzzy
 msgid ""
 msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-05-31 14:34+0430\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: POEditor.com\n"
-"Project-Id-Version: PESpeedUp\n"
-"Language: \n"
-
-msgid "Remove all the packages you don't need.\n"
-"This will speed up the performance."
-msgstr ""
-
-msgid "Save"
-msgstr ""
 
 msgid "Cancel"
 msgstr ""
@@ -26,19 +23,28 @@ msgstr ""
 msgid "Installed"
 msgstr ""
 
-msgid "Remove"
+msgid "PE Speed Up"
 msgstr ""
 
 msgid "PE Speed Up is working, please wait..."
 msgstr ""
 
-msgid "Package(s) removed!\n"
+msgid ""
+"Package(s) removed!\n"
 "You could install it(them) again from online feeds.\n"
 "Your STB will be restarted!\n"
 "Press OK to continue."
 msgstr ""
 
-msgid "PE Speed Up"
+msgid "Remove"
+msgstr ""
+
+msgid ""
+"Remove all the packages you don't need.\n"
+"This will speed up the performance."
+msgstr ""
+
+msgid "Save"
 msgstr ""
 
 msgid "Special version for Open Vision"

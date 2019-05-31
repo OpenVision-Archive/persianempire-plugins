@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: cccam srpski\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-07-25 10:37+0200\n"
+"POT-Creation-Date: 2019-05-31 14:34+0430\n"
 "PO-Revision-Date: 2009-07-29 21:18+0100\n"
 "Last-Translator: maja <jovanovic@gmx.ch>\n"
 "Language-Team: veselin & majevica crnaberza <jovanovic@gmx.ch>\n"
@@ -31,9 +31,12 @@ msgstr "Svi"
 msgid "Available shares:"
 msgstr "Omogućeni delovi:"
 
+#, fuzzy, python-format
 msgid ""
 "CCcam Info %s\n"
-"by AliAbdul %s\n"
+"by AliAbdul\n"
+"Special version for Open Vision\n"
+"%s\n"
 "\n"
 "This plugin shows you the status of your CCcam."
 msgstr ""
@@ -60,6 +63,7 @@ msgstr "serijski broj kartice"
 msgid "Clients"
 msgstr "Klijenti"
 
+#, python-format
 msgid "Configfile %s saved."
 msgstr "Konfig. datoteka %s sačuvana."
 
@@ -72,9 +76,11 @@ msgstr "Povezan:"
 msgid "Content"
 msgstr "Sadržaj"
 
+#, python-format
 msgid "Could not open the file %s!"
 msgstr "Ne može se otvoriti datoteka %s!"
 
+#, python-format
 msgid "Could not save configfile %s!"
 msgstr "Ne može se sačuvati konfig. datoteka %s!"
 
@@ -87,16 +93,19 @@ msgstr "Skrati ime servera posle (x) slova:"
 msgid "Delete"
 msgstr "Obrisati"
 
+#, python-format
 msgid "Delete %s?"
 msgstr "Izbrisati %s?"
 
 msgid "Delete failed!"
 msgstr "Brisanje neuspešno!"
 
+#, python-format
 msgid "Deleted %s!"
 msgstr "Obrisano %s!"
 
-msgid "Ecm Info"
+#, fuzzy
+msgid "ECM Info"
 msgstr "Ecm informacija"
 
 msgid "Ecm time:"
@@ -225,6 +234,7 @@ msgstr "Preimenovanje neuspešno!"
 msgid "Rename to:"
 msgstr "Preimenuj u:"
 
+#, python-format
 msgid "Renamed %s!"
 msgstr "Preimenovano %s!"
 
@@ -249,14 +259,14 @@ msgstr "Delovi"
 msgid "Show ecm.info:"
 msgstr "Pokaži ecm.informaciju"
 
+msgid "Special version for Open Vision"
+msgstr ""
+
 msgid "Switch config"
 msgstr "Konfiguracija skretnice"
 
 msgid "System: "
 msgstr "Sistem:"
-
-msgid "This plugin shows you the status of your CCcam"
-msgstr "Ovaj dodatak vam pokazuje status vašeg CCama-a"
 
 msgid "Total cards:"
 msgstr "Ukupno kartica:"

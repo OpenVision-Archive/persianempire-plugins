@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: cccam\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-07-25 10:37+0200\n"
+"POT-Creation-Date: 2019-05-31 14:34+0430\n"
 "PO-Revision-Date: 2008-12-10 14:48+0100\n"
 "Last-Translator: Michael <admin@dreamboxforum.eu>\n"
 "Language-Team: \n"
@@ -29,10 +29,12 @@ msgstr "Vsechny"
 msgid "Available shares:"
 msgstr "Mozne sdileni:"
 
-#, fuzzy
+#, fuzzy, python-format
 msgid ""
 "CCcam Info %s\n"
-"by AliAbdul %s\n"
+"by AliAbdul\n"
+"Special version for Open Vision\n"
+"%s\n"
 "\n"
 "This plugin shows you the status of your CCcam."
 msgstr "Tento plugin Vam sdeli status emulatoru CCcam"
@@ -55,6 +57,7 @@ msgstr ""
 msgid "Clients"
 msgstr "Klienti"
 
+#, python-format
 msgid "Configfile %s saved."
 msgstr ""
 
@@ -68,10 +71,11 @@ msgstr "Pripojeno:"
 msgid "Content"
 msgstr ""
 
+#, python-format
 msgid "Could not open the file %s!"
 msgstr "Nemohu otevrit soubor %s!"
 
-#, fuzzy
+#, fuzzy, python-format
 msgid "Could not save configfile %s!"
 msgstr "Nemohu otevrit soubor %s!"
 
@@ -84,16 +88,18 @@ msgstr ""
 msgid "Delete"
 msgstr ""
 
+#, python-format
 msgid "Delete %s?"
 msgstr ""
 
 msgid "Delete failed!"
 msgstr ""
 
+#, python-format
 msgid "Deleted %s!"
 msgstr ""
 
-msgid "Ecm Info"
+msgid "ECM Info"
 msgstr ""
 
 msgid "Ecm time:"
@@ -228,6 +234,7 @@ msgstr ""
 msgid "Rename to:"
 msgstr "Uzivatelske jmeno:"
 
+#, python-format
 msgid "Renamed %s!"
 msgstr ""
 
@@ -255,14 +262,14 @@ msgstr "Sdileni"
 msgid "Show ecm.info:"
 msgstr "ECM Info"
 
+msgid "Special version for Open Vision"
+msgstr ""
+
 msgid "Switch config"
 msgstr ""
 
 msgid "System: "
 msgstr "System: "
-
-msgid "This plugin shows you the status of your CCcam"
-msgstr "Tento plugin Vam sdeli status emulatoru CCcam"
 
 #, fuzzy
 msgid "Total cards:"

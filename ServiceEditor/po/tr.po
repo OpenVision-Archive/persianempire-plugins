@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ServiceEditor 20090419\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-04-17 19:22+0200\n"
+"POT-Creation-Date: 2019-05-31 14:34+0430\n"
 "PO-Revision-Date: 2009-04-19 23:45+0200\n"
 "Last-Translator: Zülfikar VEYİSOĞLU <z.veyisoglu@hobiagaci.com>\n"
 "Language-Team: http://www.hobiagaci.com <z.veyisoglu@hobiagaci.com>\n"
@@ -18,6 +18,9 @@ msgstr ""
 "X-Poedit-Language: Turkish\n"
 "X-Poedit-Country: TURKEY\n"
 "X-Poedit-SourceCharset: utf-8\n"
+
+msgid " "
+msgstr ""
 
 msgid "AC3 Delay (ms)"
 msgstr "AC3 gecikmesi (ms)"
@@ -50,8 +53,14 @@ msgstr ""
 "Frekans\n"
 "MHz"
 
+msgid "Lets you edit services in your STB"
+msgstr ""
+
 msgid "Name"
 msgstr "Ad"
+
+msgid "O"
+msgstr ""
 
 msgid "Options for hide"
 msgstr "Gizleme seçenekleri"
@@ -89,6 +98,9 @@ msgstr "Altyazı PID (hex)"
 msgid "TXT PID (hex)"
 msgstr "Teleteks PID (hex)"
 
+msgid "Transponder"
+msgstr ""
+
 msgid "Video PID (hex)"
 msgstr "Video PID (hex)"
 
@@ -121,11 +133,22 @@ msgstr "gizle/göster"
 msgid "keep Servicename"
 msgstr "Değişen kanal adını koru "
 
-msgid "no standart service"
+#, fuzzy
+msgid "no standard service"
 msgstr "standart kanal değil!"
 
 msgid "ok"
 msgstr "tamam"
+
+msgid "reading lamedb - please wait - build database"
+msgstr ""
+
+#, python-format
+msgid "reading lamedb - please wait - get services %s"
+msgstr ""
+
+msgid "reading lamedb - please wait - get transponders"
+msgstr ""
 
 msgid "sign as new Service"
 msgstr "Yeni kanal olarak işaretle"

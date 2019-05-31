@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-02-28 19:54+0100\n"
+"POT-Creation-Date: 2019-05-31 14:34+0430\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <Dima-73@inbox.lv>\n"
@@ -10,12 +10,6 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-
-msgid "'Cancel"
-msgstr "'Отмена"
-
-msgid "'Save"
-msgstr "Сохранить"
 
 msgid "1 minute"
 msgstr "1 минута"
@@ -74,17 +68,28 @@ msgstr "Защита фаворитов"
 msgid "Bouquets protection:"
 msgstr "Защита фаворитов:"
 
+#, fuzzy
+msgid "Cancel"
+msgstr "'Отмена"
+
 msgid "Change password"
 msgstr "Смена пароля"
 
 msgid "Enter new password"
 msgstr "Введите новый пароль"
 
+msgid "OK"
+msgstr ""
+
 msgid "Password setup:"
 msgstr "Установка пароля:"
 
 msgid "Reenter new password"
 msgstr "Повторите новый пароль"
+
+#, fuzzy
+msgid "Save"
+msgstr "Сохранить"
 
 msgid "Sorry, hide current service failed :("
 msgstr "К сожалению, текущий сервис скрыть не удалось: ("
@@ -97,6 +102,10 @@ msgstr "Вы ввели пароль неправильно."
 
 msgid "The passwords you entered are different."
 msgstr "Введенные вами пароли разные."
+
+#, fuzzy
+msgid "VIDEO(Vkey)"
+msgstr "длинная VIDEO(Vkey)"
 
 msgid "add to bouquets protection"
 msgstr "добавить к защите фаворитов"
@@ -130,6 +139,10 @@ msgstr "длинная VIDEO(Vkey)"
 
 msgid "none"
 msgstr "никакая"
+
+#, fuzzy
+msgid "please enter password"
+msgstr "пожалуйста, введите пароль"
 
 msgid "please enter the old password"
 msgstr "пожалуйста, введите старый пароль"

@@ -1,17 +1,21 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: plugin\n"
+"Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-31 14:34+0430\n"
-"PO-Revision-Date: 2009-04-17 19:29+0100\n"
-"Last-Translator: adenin <adenin@i-have-a-dreambox.com>\n"
-"Language-Team: Deutsch\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: KBabel 1.11.4\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid ""
 "\n"
@@ -139,9 +143,8 @@ msgstr ""
 msgid "AC3 Delay (ms)"
 msgstr ""
 
-#, fuzzy
 msgid "AC3 PID (hex)"
-msgstr "Untertitel PID (hex)"
+msgstr ""
 
 msgid "About"
 msgstr ""
@@ -194,12 +197,11 @@ msgid ""
 "Enigma2 will restart after the restore"
 msgstr ""
 
-#, fuzzy
 msgid "Audio PID (hex)"
-msgstr "Untertitel PID (hex)"
+msgstr ""
 
 msgid "Audiochannel"
-msgstr "Audiokanal"
+msgstr ""
 
 msgid "BAT"
 msgstr ""
@@ -380,7 +382,7 @@ msgid "Dutch"
 msgstr ""
 
 msgid "E"
-msgstr "O"
+msgstr ""
 
 msgid "East"
 msgstr ""
@@ -410,7 +412,7 @@ msgid "Enter your search term(s)"
 msgstr ""
 
 msgid "Error"
-msgstr "Fehler"
+msgstr ""
 
 msgid "Error processing feeds"
 msgstr ""
@@ -683,9 +685,8 @@ msgstr ""
 msgid "PCM Delay (ms)"
 msgstr ""
 
-#, fuzzy
 msgid "PCR PID (hex)"
-msgstr "Untertitel PID (hex)"
+msgstr ""
 
 msgid "PNG"
 msgstr ""
@@ -763,10 +764,10 @@ msgid "Process List"
 msgstr ""
 
 msgid "Provider"
-msgstr "Anbieter"
+msgstr ""
 
 msgid "Providers"
-msgstr "Anbieter"
+msgstr ""
 
 msgid "Pure Prestige"
 msgstr ""
@@ -876,9 +877,8 @@ msgstr ""
 msgid "Russian"
 msgstr ""
 
-#, fuzzy
 msgid "SID (hex)"
-msgstr "Untertitel PID (hex)"
+msgstr ""
 
 msgid "Satbeams"
 msgstr ""
@@ -934,13 +934,13 @@ msgid "Server updates"
 msgstr ""
 
 msgid "Service"
-msgstr "Kanal"
+msgstr ""
 
 msgid "Services"
-msgstr "Kanäle"
+msgstr ""
 
 msgid "Services Editor"
-msgstr "Service Editor"
+msgstr ""
 
 msgid "Settings"
 msgstr ""
@@ -999,7 +999,7 @@ msgid "Storing directory is not available"
 msgstr ""
 
 msgid "Subtitle PID (hex)"
-msgstr "Untertitel PID (hex)"
+msgstr ""
 
 msgid "Swapsize: "
 msgstr ""
@@ -1021,16 +1021,14 @@ msgstr ""
 msgid "TS FlashBackup successfully created in"
 msgstr ""
 
-#, fuzzy
 msgid "TS-Satellites Editor"
-msgstr "Service Editor"
+msgstr ""
 
 msgid "TSID"
 msgstr ""
 
-#, fuzzy
 msgid "TXT PID (hex)"
-msgstr "Untertitel PID (hex)"
+msgstr ""
 
 msgid "Text"
 msgstr ""
@@ -1100,9 +1098,8 @@ msgstr ""
 msgid "Video"
 msgstr ""
 
-#, fuzzy
 msgid "Video PID (hex)"
-msgstr "Untertitel PID (hex)"
+msgstr ""
 
 msgid "Video Type"
 msgstr ""
@@ -1212,7 +1209,7 @@ msgid "delete feed"
 msgstr ""
 
 msgid "dont use SDT"
-msgstr "SDT nicht benutzen"
+msgstr ""
 
 msgid "downloading-"
 msgstr ""
@@ -1222,7 +1219,7 @@ msgid "downloading-installing: %s"
 msgstr ""
 
 msgid "edit"
-msgstr "ändern"
+msgstr ""
 
 msgid "executing command on Dreambox"
 msgstr ""
@@ -1242,17 +1239,17 @@ msgstr ""
 
 #, python-format
 msgid "hide Provider %s"
-msgstr "Verstecke %s"
+msgstr ""
 
 msgid "hide Service"
-msgstr "Sender verstecken"
+msgstr ""
 
 #, python-format
 msgid "hide Service %s"
-msgstr "Verstecke %s"
+msgstr ""
 
 msgid "hide/unhide"
-msgstr "un-/sichtbar"
+msgstr ""
 
 msgid "horizontal"
 msgstr ""
@@ -1302,7 +1299,7 @@ msgid "jpg80"
 msgstr ""
 
 msgid "keep Servicename"
-msgstr "Sendername behalten"
+msgstr ""
 
 msgid "left"
 msgstr ""
@@ -1320,7 +1317,7 @@ msgid "no new time"
 msgstr ""
 
 msgid "no standart service"
-msgstr "kein Standart Sender"
+msgstr ""
 
 msgid "nothing entered"
 msgstr ""
@@ -1377,9 +1374,8 @@ msgstr ""
 msgid "select restart command to be executed"
 msgstr ""
 
-#, fuzzy
 msgid "service editor"
-msgstr "Service Editor"
+msgstr ""
 
 msgid "show full"
 msgstr ""
@@ -1388,13 +1384,13 @@ msgid "show short"
 msgstr ""
 
 msgid "sign as new Service"
-msgstr "Kennzeichnen als \"neuer Sender\""
+msgstr ""
 
 msgid "simple"
 msgstr ""
 
 msgid "sort"
-msgstr "sortieren"
+msgstr ""
 
 msgid "start cron daemon"
 msgstr ""
@@ -1404,15 +1400,15 @@ msgstr ""
 
 #, python-format
 msgid "toggle hide attibutes for %s"
-msgstr "vertausche sichtbar<=> unsichtbar für %s"
+msgstr ""
 
 #, python-format
 msgid "unhide Provider %s"
-msgstr "Sichtbar machen von %s"
+msgstr ""
 
 #, python-format
 msgid "unhide Service %s"
-msgstr "Sichtbar machen von %s"
+msgstr ""
 
 msgid "update"
 msgstr ""

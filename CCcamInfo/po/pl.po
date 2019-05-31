@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: cccam\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-07-25 10:37+0200\n"
+"POT-Creation-Date: 2019-05-31 14:34+0430\n"
 "PO-Revision-Date: 2008-12-11 11:25+0100\n"
 "Last-Translator:Tasiorsa <tasiorsa@gmail.com>\n"
 "Language-Team: \n"
@@ -29,9 +29,12 @@ msgstr "Wszystkie"
 msgid "Available shares:"
 msgstr "Dostępne karty wirtualne:"
 
+#, fuzzy, python-format
 msgid ""
 "CCcam Info %s\n"
-"by AliAbdul %s\n"
+"by AliAbdul\n"
+"Special version for Open Vision\n"
+"%s\n"
 "\n"
 "This plugin shows you the status of your CCcam."
 msgstr ""
@@ -58,6 +61,7 @@ msgstr "Nr seryjny karty"
 msgid "Clients"
 msgstr "Klienci"
 
+#, python-format
 msgid "Configfile %s saved."
 msgstr "Konfiguracja %s zapisana."
 
@@ -70,9 +74,11 @@ msgstr "Czas połączenia: "
 msgid "Content"
 msgstr "Zawartość"
 
+#, python-format
 msgid "Could not open the file %s!"
 msgstr "Nie mogę otworzyć pliku %s!"
 
+#, python-format
 msgid "Could not save configfile %s!"
 msgstr "Nie można zapisać pliku konfiguracji %s!"
 
@@ -85,16 +91,19 @@ msgstr "Obcinaj nazwę serwera po (x) znakach:"
 msgid "Delete"
 msgstr "Kasuj"
 
+#, python-format
 msgid "Delete %s?"
 msgstr "Skasować %s?"
 
 msgid "Delete failed!"
 msgstr "Kasowanie nie pwiodło się!"
 
+#, python-format
 msgid "Deleted %s!"
 msgstr "%s skasowany!"
 
-msgid "Ecm Info"
+#, fuzzy
+msgid "ECM Info"
 msgstr "Ecm Info"
 
 msgid "Ecm time:"
@@ -223,6 +232,7 @@ msgstr "Zmiana nazwy nie powiodła się!"
 msgid "Rename to:"
 msgstr "Zmień nazwę na:"
 
+#, python-format
 msgid "Renamed %s!"
 msgstr "Zmieniono nazwę %s!"
 
@@ -247,14 +257,14 @@ msgstr "Karty wirtualne"
 msgid "Show ecm.info:"
 msgstr "Pokaż ecm.info:"
 
+msgid "Special version for Open Vision"
+msgstr ""
+
 msgid "Switch config"
 msgstr "Przełączanie konfiguracji"
 
 msgid "System: "
 msgstr "System: "
-
-msgid "This plugin shows you the status of your CCcam"
-msgstr "Ten plugin pokazuje stan Twojego serwera CCcam."
 
 msgid "Total cards:"
 msgstr "Suma kart:"
