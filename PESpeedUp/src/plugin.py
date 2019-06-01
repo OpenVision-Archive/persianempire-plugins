@@ -61,16 +61,14 @@ class PESpeedUp(Screen, ConfigListScreen):
             self.packagelist.append(['DLNAServer', 'enigma2-plugin-extensions-dlnaserver'])
         if pathExists('/usr/lib/enigma2/python/Plugins/Extensions/DVDPlayer'):
             self.packagelist.append(['DVDPlayer', 'enigma2-plugin-extensions-dvdplayer'])
-        if pathExists('/usr/lib/enigma2/python/Plugins/Extensions/Filebrowser'):
-            self.packagelist.append(['Filebrowser', 'enigma2-plugin-extensions-filebrowser'])
+        if pathExists('/usr/lib/enigma2/python/Plugins/Extensions/FileCommander'):
+            self.packagelist.append(['FileCommander', 'enigma2-plugin-extensions-filecommander'])
         if pathExists('/usr/lib/enigma2/python/Plugins/Extensions/Foreca'):
             self.packagelist.append(['Foreca', 'enigma2-plugin-extensions-foreca'])
         if pathExists('/usr/lib/enigma2/python/Plugins/Extensions/GraphMultiEPG'):
             self.packagelist.append(['GraphMultiEPG', 'enigma2-plugin-extensions-graphmultiepg'])
         if pathExists('/usr/lib/enigma2/python/Plugins/Extensions/HbbTV'):
             self.packagelist.append(['HbbTV', 'enigma2-plugin-extensions-hbbtv'])
-        if pathExists('/usr/lib/enigma2/python/Plugins/Extensions/IPTVPlayer'):
-            self.packagelist.append(['IPTVPlayer', 'enigma2-plugin-extensions-e2iplayer'])
         if pathExists('/usr/lib/enigma2/python/Plugins/Extensions/LCD4linux'):
             self.packagelist.append(['LCD4linux', 'enigma2-plugin-extensions-lcd4linux'])
         if pathExists('/usr/lib/enigma2/python/Plugins/Extensions/Modem'):
