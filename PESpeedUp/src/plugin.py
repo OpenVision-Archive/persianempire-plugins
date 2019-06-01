@@ -117,8 +117,6 @@ class PESpeedUp(Screen, ConfigListScreen):
             self.packagelist.append(['TransCodingSetup', 'enigma2-plugin-systemplugins-transcodingsetup'])
         if fileExists('/usr/share/enigma2/OctEtFHD/skin.xml'):
             self.packagelist.append(['OctEtFHD', 'enigma2-plugin-skins-octetfhd'])
-        if fileExists('/usr/share/enigma2/OctEtSD/skin.xml'):
-            self.packagelist.append(['OctEtSD', 'enigma2-plugin-skins-octetsd'])
         if fileExists('/usr/share/enigma2/PLi-HD/skin.xml'):
             self.packagelist.append(['PLi-HD', 'enigma2-plugin-skins-pli-hd'])
         self.updateList()
