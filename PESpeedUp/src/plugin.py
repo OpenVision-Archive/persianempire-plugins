@@ -20,7 +20,7 @@ class PESpeedUp(Screen, ConfigListScreen):
         Screen.__init__(self, session)
         self.list = []
         ConfigListScreen.__init__(self, self.list)
-        self['lab1'] = Label(_("Remove all the packages you don't need.\nThis will speed up the performance.\nWARNING! If you choose a section the entire section will be removed!"))
+        self['lab1'] = Label(_("Remove all the packages you don't need.\nThis will speed up the performance."))
         self['key_red'] = Label(_("Save"))
         self['key_green'] = Label(_("Cancel"))
         self['actions'] = ActionMap(['WizardActions','ColorActions','OkCancelActions'], {'red': self.saveList,
@@ -238,7 +238,7 @@ class PESpeedUp(Screen, ConfigListScreen):
         return cmd
 
     def allDone(self):
-        mybox = self.session.openWithCallback(self.RestartGUI, MessageBox, _("Package(s) removed!\nYou could install it(them) again from online feeds.\nYour STB will be restarted!\nPress OK to continue."), MessageBox.TYPE_INFO)
+        mybox = self.session.openWithCallback(self.RestartGUI, MessageBox, _("WARNING! If you choose a section the entire section will be removed!\nPackage(s) removed!\nYou could install it(them) again from online feeds.\nYour STB will be restarted!\nPress OK to continue."), MessageBox.TYPE_INFO)
         mybox.setTitle('Info')
 
     def RestartGUI(self, answer):
