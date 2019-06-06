@@ -29,6 +29,7 @@ class PESpeedUp(Screen, ConfigListScreen):
          'cancel': self.cancel,
          'back': self.cancel})
         self.packagelist = []
+        self.packagelist.append(['                                        Binaries', 'astra-sm cronie curl streamproxy'])
         if fileExists('/usr/bin/astra'):
             self.packagelist.append(['astra-sm', 'astra-sm'])
         if fileExists('/usr/sbin/anacron'):
@@ -37,10 +38,12 @@ class PESpeedUp(Screen, ConfigListScreen):
             self.packagelist.append(['curl', 'curl'])
         if fileExists('/usr/bin/streamproxy'):
             self.packagelist.append(['streamproxy', 'streamproxy'])
+        self.packagelist.append(['                                        Cams', 'enigma2-plugin-softcams-oscam enigma2-plugin-softcams-oscam-emu'])
         if fileExists('/usr/bin/oscam'):
             self.packagelist.append(['OSCam', 'enigma2-plugin-softcams-oscam'])
         if fileExists('/usr/bin/oscam-emu'):
             self.packagelist.append(['OSCam-Emu', 'enigma2-plugin-softcams-oscam-emu'])
+        self.packagelist.append(['                                        Plugins (Extensions)', 'enigma2-plugin-extensions-audiosync enigma2-plugin-extensions-autobackup enigma2-plugin-extensions-backupsuite enigma2-plugin-extensions-btdevicesmanager enigma2-plugin-extensions-cacheflush enigma2-plugin-extensions-cdinfo enigma2-plugin-extensions-cutlisteditor enigma2-plugin-extensions-dlnabrowser enigma2-plugin-extensions-dlnaserver enigma2-plugin-extensions-dvdplayer enigma2-plugin-extensions-filecommander enigma2-plugin-extensions-foreca enigma2-plugin-extensions-graphmultiepg enigma2-plugin-extensions-hbbtv enigma2-plugin-extensions-e2iplayer enigma2-plugin-extensions-e2iplayer-deps enigma2-plugin-extensions-lcd4linux enigma2-plugin-extensions-modem enigma2-plugin-extensions-moviecut enigma2-plugin-extensions-pluginskinmover enigma2-plugin-extensions-tunerserver enigma2-plugin-extensions-vlcplayer'])
         if pathExists('/usr/lib/enigma2/python/Plugins/Extensions/AudioSync'):
             self.packagelist.append(['AudioSync', 'enigma2-plugin-extensions-audiosync'])
         if pathExists('/usr/lib/enigma2/python/Plugins/Extensions/AutoBackup'):
@@ -69,6 +72,8 @@ class PESpeedUp(Screen, ConfigListScreen):
             self.packagelist.append(['GraphMultiEPG', 'enigma2-plugin-extensions-graphmultiepg'])
         if pathExists('/usr/lib/enigma2/python/Plugins/Extensions/HbbTV'):
             self.packagelist.append(['HbbTV', 'enigma2-plugin-extensions-hbbtv'])
+        if pathExists('/usr/lib/enigma2/python/Plugins/Extensions/IPTVPlayer'):
+            self.packagelist.append(['IPTVPlayer', 'enigma2-plugin-extensions-e2iplayer enigma2-plugin-extensions-e2iplayer-deps'])
         if pathExists('/usr/lib/enigma2/python/Plugins/Extensions/LCD4linux'):
             self.packagelist.append(['LCD4linux', 'enigma2-plugin-extensions-lcd4linux'])
         if pathExists('/usr/lib/enigma2/python/Plugins/Extensions/Modem'):
@@ -81,6 +86,7 @@ class PESpeedUp(Screen, ConfigListScreen):
             self.packagelist.append(['TunerServer', 'enigma2-plugin-extensions-tunerserver'])
         if pathExists('/usr/lib/enigma2/python/Plugins/Extensions/VlcPlayer'):
             self.packagelist.append(['VlcPlayer', 'enigma2-plugin-extensions-vlcplayer'])
+        self.packagelist.append(['                                        Plugins (System)', 'enigma2-plugin-systemplugins-3dsettings enigma2-plugin-systemplugins-3gmodemmanager enigma2-plugin-systemplugins-animationsetup enigma2-plugin-systemplugins-fsblupdater enigma2-plugin-systemplugins-hdmicec enigma2-plugin-systemplugins-keymapmanager enigma2-plugin-systemplugins-multitranscodingsetup enigma2-plugin-systemplugins-osd3dsetup enigma2-plugin-systemplugins-osdpositionsetup enigma2-plugin-systemplugins-satipclient enigma2-plugin-systemplugins-setpasswd enigma2-plugin-systemplugins-sh4boostercontrol enigma2-plugin-systemplugins-sh4osdadjustment enigma2-plugin-systemplugins-sparkuniontunertype enigma2-plugin-systemplugins-systemtime enigma2-plugin-systemplugins-videoenhancement enigma2-plugin-systemplugins-transcodingsetup'])
         if pathExists('/usr/lib/enigma2/python/Plugins/SystemPlugins/3DSettings'):
             self.packagelist.append(['3DSettings', 'enigma2-plugin-systemplugins-3dsettings'])
         if pathExists('/usr/lib/enigma2/python/Plugins/SystemPlugins/3GModemManager'):
@@ -115,6 +121,7 @@ class PESpeedUp(Screen, ConfigListScreen):
             self.packagelist.append(['VideoEnhancement', 'enigma2-plugin-systemplugins-videoenhancement'])
         if pathExists('/usr/lib/enigma2/python/Plugins/SystemPlugins/TransCodingSetup'):
             self.packagelist.append(['TransCodingSetup', 'enigma2-plugin-systemplugins-transcodingsetup'])
+        self.packagelist.append(['                                        Locales', 'enigma2-locale-ar enigma2-locale-bg enigma2-locale-ca enigma2-locale-cs enigma2-locale-da enigma2-locale-de enigma2-locale-el enigma2-locale-es enigma2-locale-et enigma2-locale-fa enigma2-locale-fi enigma2-locale-fr enigma2-locale-fy enigma2-locale-he enigma2-locale-hr enigma2-locale-hu enigma2-locale-id enigma2-locale-is enigma2-locale-it enigma2-locale-ku enigma2-locale-lt enigma2-locale-lv enigma2-locale-nb enigma2-locale-nl enigma2-locale-nn enigma2-locale-pl enigma2-locale-pt enigma2-locale-pt-br enigma2-locale-ro enigma2-locale-ru enigma2-locale-sk enigma2-locale-sl enigma2-locale-sr enigma2-locale-sv enigma2-locale-th enigma2-locale-tr enigma2-locale-uk enigma2-locale-zh-cn enigma2-locale-zh-hk'])
         if pathExists('/usr/share/enigma2/po/ar'):
             self.packagelist.append(['locale-ar', 'enigma2-locale-ar'])
         if pathExists('/usr/share/enigma2/po/bg'):
@@ -193,6 +200,7 @@ class PESpeedUp(Screen, ConfigListScreen):
             self.packagelist.append(['locale-zh-cn', 'enigma2-locale-zh-cn'])
         if pathExists('/usr/share/enigma2/po/zh_HK'):
             self.packagelist.append(['locale-zh-hk', 'enigma2-locale-zh-hk'])
+        self.packagelist.append(['                                        Skins', 'enigma2-plugin-skins-octetfhd enigma2-plugin-skins-pli-hd'])
         if fileExists('/usr/share/enigma2/OctEtFHD/skin.xml'):
             self.packagelist.append(['OctEtFHD', 'enigma2-plugin-skins-octetfhd'])
         if fileExists('/usr/share/enigma2/PLi-HD/skin.xml'):
