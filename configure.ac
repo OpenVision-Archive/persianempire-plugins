@@ -58,6 +58,7 @@ AC_CONFIG_FILES([
 Makefile
 
 AirPlayer/Makefile
+AirPlayer/po/Makefile
 AirPlayer/src/Makefile
 AirPlayer/src/720x576/Makefile
 AirPlayer/src/1024x576/Makefile
@@ -67,6 +68,7 @@ AirPlayer/src/lib/biplist/Makefile
 AirPlayer/src/mediabackends/Makefile
 
 BlockContent/Makefile
+BlockContent/po/Makefile
 BlockContent/src/Makefile
 
 BouquetProtection/Makefile
@@ -74,6 +76,7 @@ BouquetProtection/po/Makefile
 BouquetProtection/src/Makefile
 
 CamRestart/Makefile
+CamRestart/po/Makefile
 CamRestart/src/Makefile
 CamRestart/src/images/Makefile
 
@@ -83,6 +86,7 @@ CCcamInfo/src/Makefile
 
 DeviceInfo/Makefile
 DeviceInfo/converter/Makefile
+DeviceInfo/po/Makefile
 DeviceInfo/src/Makefile
 DeviceInfo/src/images/Makefile
 
@@ -91,33 +95,41 @@ FontMagnifier/po/Makefile
 FontMagnifier/src/Makefile
 
 LocaleManager/Makefile
+LocaleManager/po/Makefile
 LocaleManager/src/Makefile
 
 NaviBarPE/Makefile
+NaviBarPE/po/Makefile
 NaviBarPE/src/Makefile
 NaviBarPE/src/icons/Makefile
 NaviBarPE/src/images/Makefile
 
 NetworkServer/Makefile
+NetworkServer/po/Makefile
 NetworkServer/src/Makefile
 
 PackageManager/Makefile
+PackageManager/po/Makefile
 PackageManager/src/Makefile
 PackageManager/src/images/Makefile
 
 PECamManager/Makefile
+PECamManager/po/Makefile
 PECamManager/src/Makefile
 PECamManager/src/images/Makefile
 
 PEFAQ/Makefile
+PEFAQ/po/Makefile
 PEFAQ/src/Makefile
 PEFAQ/src/img/Makefile
 
 PEInfo/Makefile
+PEInfo/po/Makefile
 PEInfo/src/Makefile
 PEInfo/src/icons/Makefile
 
 PEPanel/Makefile
+PEPanel/po/Makefile
 PEPanel/src/Makefile
 PEPanel/src/Daemons/Makefile
 PEPanel/src/Extra/Makefile
@@ -128,6 +140,7 @@ PESpeedUp/po/Makefile
 PESpeedUp/src/Makefile
 
 PEWeather/Makefile
+PEWeather/po/Makefile
 PEWeather/src/Makefile
 PEWeather/src/weather/Makefile
 PEWeather/src/weather/small/Makefile
@@ -182,9 +195,11 @@ QuickWeather/src/weathericons/Makefile
 QuickWeather/src/windicons/Makefile
 
 SambaServer/Makefile
+SambaServer/po/Makefile
 SambaServer/src/Makefile
 
 SatelliteEditor/Makefile
+SatelliteEditor/po/Makefile
 SatelliteEditor/src/Makefile
 
 ServiceEditor/Makefile
@@ -192,13 +207,16 @@ ServiceEditor/po/Makefile
 ServiceEditor/src/Makefile
 
 SimpleSatScan/Makefile
+SimpleSatScan/po/Makefile
 SimpleSatScan/src/Makefile
 
 SoftCamUpdater/Makefile
+SoftCamUpdater/po/Makefile
 SoftCamUpdater/src/Makefile
 SoftCamUpdater/src/images/Makefile
 
 VUSolo2CIHighBitrateFix/Makefile
+VUSolo2CIHighBitrateFix/po/Makefile
 VUSolo2CIHighBitrateFix/src/Makefile
 
 ])
