@@ -1,1 +1,1 @@
-SUBDIRS = converter src
+SUBDIRS = converter po src
