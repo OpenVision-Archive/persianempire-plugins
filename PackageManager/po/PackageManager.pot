@@ -1,0 +1,116 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-06-07 09:31+0430\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#, python-format
+msgid "%s Installed"
+msgstr ""
+
+#, python-format
+msgid "%s UnInstalled"
+msgstr ""
+
+msgid "--force-reinstall --force-overwrite"
+msgstr ""
+
+msgid "Advanced ipk Installer"
+msgstr ""
+
+msgid "All ipk , tar.gz , bh.tgz , nab.tgz , zip , rar Files Removed From /tmp /media/usb /media/hdd /media/cf"
+msgstr ""
+
+msgid "Close"
+msgstr ""
+
+msgid "Install"
+msgstr ""
+
+msgid "Install Above Formats From /tmp /media/usb /media/hdd /media/cf"
+msgstr ""
+
+msgid "Install All"
+msgstr ""
+
+msgid "Install Packages From feeds (Requires Internet)"
+msgstr ""
+
+msgid "Install ipk Files From /tmp /media/usb /media/hdd /media/cf"
+msgstr ""
+
+msgid "Install ipk Packages"
+msgstr ""
+
+msgid "Install rar"
+msgstr ""
+
+msgid "Install rar Files From /tmp /media/usb /media/hdd /media/cf"
+msgstr ""
+
+msgid "Install tar.gz , bh.tgz , nab.tgz"
+msgstr ""
+
+msgid "Install zip"
+msgstr ""
+
+msgid "Install zip Files From /tmp /media/usb /media/hdd /media/cf"
+msgstr ""
+
+msgid "Online Installer"
+msgstr ""
+
+msgid "Package Manager"
+msgstr ""
+
+msgid "Pro UnInstall"
+msgstr ""
+
+msgid "Remove Installed ipk Packages"
+msgstr ""
+
+msgid "Remove ipk , tar.gz , bh.tgz , nab.tgz , zip , rar Files"
+msgstr ""
+
+msgid "Restart"
+msgstr ""
+
+msgid "Restart enigma"
+msgstr ""
+
+msgid "Special version for Open Vision"
+msgstr ""
+
+msgid "TMP USB HDD Cleaner"
+msgstr ""
+
+msgid "UnInstall"
+msgstr ""
+
+msgid "ipk Installer"
+msgstr ""
+
+msgid "ipk Remover"
+msgstr ""
+
+msgid "rar Installer"
+msgstr ""
+
+msgid "tar.gz , bh.tgz , nab.tgz Installer"
+msgstr ""
+
+msgid "zip Installer"
+msgstr ""

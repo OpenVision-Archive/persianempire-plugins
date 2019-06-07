@@ -1,0 +1,217 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-06-07 09:31+0430\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "ALSA"
+msgstr ""
+
+msgid "AirPlayer"
+msgstr ""
+
+msgid "AirTunes Audio-Streaming is not available on this Boxtype"
+msgstr ""
+
+msgid "AirTunes Audio-Streaming is not implemented for this Boxtype"
+msgstr ""
+
+msgid "AirTunes Audio-Streaming is not possible on this Boxtype"
+msgstr ""
+
+msgid "Allow Volume-Control from iOS Device"
+msgstr ""
+
+msgid "Allow volume-control from iOS device"
+msgstr ""
+
+msgid "Allow wakeup from Standby"
+msgstr ""
+
+msgid "Allow wakeup from standby"
+msgstr ""
+
+msgid "Apple Response can't be calculated, AirTunes Audio-Streaming is not possible"
+msgstr ""
+
+msgid "Async start of Audioplayer (Workaround)"
+msgstr ""
+
+msgid "Cancel"
+msgstr ""
+
+msgid "Enable screensaver"
+msgstr ""
+
+msgid "Interface"
+msgstr ""
+
+msgid "Nothing was changed. Do you want to quit?"
+msgstr ""
+
+msgid "Path"
+msgstr ""
+
+msgid "Path for the temp files."
+msgstr ""
+
+msgid "Play Audio-Stream via"
+msgstr ""
+
+msgid "Save"
+msgstr ""
+
+msgid "Service name"
+msgstr ""
+
+msgid "Service successfully started"
+msgstr ""
+
+msgid "Service successfully stoped"
+msgstr ""
+
+msgid "Set Start Position of stream"
+msgstr ""
+
+msgid "Set start position"
+msgstr ""
+
+msgid "Settings"
+msgstr ""
+
+msgid "Settings for Airplayer"
+msgstr ""
+
+msgid "Should the airplayer start automatically on startup?"
+msgstr ""
+
+msgid "Skin"
+msgstr ""
+
+msgid ""
+"Some settings may need a GUI restart\n"
+"Do you want to Restart the GUI now?"
+msgstr ""
+
+msgid "Start Live-Stream on seconds cached"
+msgstr ""
+
+msgid "Start Playback on percent cached"
+msgstr ""
+
+msgid "Start Service"
+msgstr ""
+
+msgid "Start live-Stream on MB cached"
+msgstr ""
+
+msgid "Start playback on MB cached"
+msgstr ""
+
+#, python-format
+msgid "Starting the Proxy failed: %s, starting direct playback now!"
+msgstr ""
+
+msgid "Startup type"
+msgstr ""
+
+msgid "Stop AirPlayer playback?"
+msgstr ""
+
+msgid "Stop Service"
+msgstr ""
+
+msgid "Stop TV while displaying Pictures"
+msgstr ""
+
+msgid "Stop TV while displaying pictures"
+msgstr ""
+
+#, python-format
+msgid "The Proxy encountered an Error: %s, starting direct playback now!"
+msgstr ""
+
+#, python-format
+msgid ""
+"The Video will be downloaded to %s\n"
+"\n"
+"Please wait until some MB are cached before hitting PLAY\n"
+"Recorded Videos from an iPhone/iPad need to be downloaded completely before playback is possible"
+msgstr ""
+
+#, python-format
+msgid "The path for temp files that you entered in the settings (%s) does not exist! Please set up a propper path in the Settings. The Path is needed for the built in proxy. The proxy was therefore disabled!"
+msgstr ""
+
+#, python-format
+msgid "The path for temp files that you entered in the settings (%s) has only %d MB left. The proxy was therefore disabled!"
+msgstr ""
+
+#, python-format
+msgid "The path for temp files that you entered in the settings (%s) is not writeable! Please set up a propper path in the Settings. The Path is needed for the built in proxy. The proxy was therefore disabled!"
+msgstr ""
+
+#, python-format
+msgid "This Box can't decode %s streams!"
+msgstr ""
+
+#, python-format
+msgid ""
+"This stream can not get saved on HDD\n"
+"Protocol %s not supported"
+msgstr ""
+
+msgid ""
+"This stream can not get saved on HDD\n"
+"m3u8 streams are not supported"
+msgstr ""
+
+msgid "Use Built-in Proxy"
+msgstr ""
+
+msgid "Use built-In Proxy"
+msgstr ""
+
+msgid "Which interface should be used for the airport service?"
+msgstr ""
+
+msgid "Which name should be used to identify the device with active airport service?"
+msgstr ""
+
+#, python-format
+msgid ""
+"Your Box can't decode this video stream!\n"
+"%s"
+msgstr ""
+
+#, python-format
+msgid "Your Photo could not be saved to %s ! Please change the Path in the Settings to a writable location!"
+msgstr ""
+
+msgid "proxy"
+msgstr ""
+
+msgid "AirPlayMusicPlayer"
+msgstr ""
+
+msgid "InfoBar"
+msgstr ""
+
+msgid "Premium"
+msgstr ""
+
+msgid "Proxy"
+msgstr ""

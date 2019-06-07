@@ -1,0 +1,150 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-06-07 09:31+0430\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "/etc/smb.conf not found or readerror!"
+msgstr ""
+
+msgid "/etc/smb.conf not found or writeerror!"
+msgstr ""
+
+msgid "Activate and configurate your NFS-Server"
+msgstr ""
+
+msgid "Activate and configurate your Samba-Server"
+msgstr ""
+
+msgid "Close"
+msgstr ""
+
+msgid "Enable/Disable NFS-Server"
+msgstr ""
+
+msgid "Enable/Disable Samba-Server"
+msgstr ""
+
+msgid "NFS-Server Setup"
+msgstr ""
+
+msgid "New Entry"
+msgstr ""
+
+msgid "Really delete this entry?"
+msgstr ""
+
+msgid "Remove Entry"
+msgstr ""
+
+msgid "Samba-Server Setup"
+msgstr ""
+
+msgid "Save and Close"
+msgstr ""
+
+msgid "Start/Stop and manage your NFS-Server...\n"
+msgstr ""
+
+msgid "Start/Stop and manage your Samba-Server...\n"
+msgstr ""
+
+msgid "Status nfsd: going down..."
+msgstr ""
+
+msgid "Status nfsd: started"
+msgstr ""
+
+msgid "Status nfsd: starting up..."
+msgstr ""
+
+msgid "Status nfsd: stopped"
+msgstr ""
+
+msgid "Status nmbd: going down..."
+msgstr ""
+
+msgid "Status nmbd: started"
+msgstr ""
+
+msgid "Status nmbd: starting up..."
+msgstr ""
+
+msgid "Status nmbd: stopped"
+msgstr ""
+
+msgid "Status portmap: going down..."
+msgstr ""
+
+msgid "Status portmap: started"
+msgstr ""
+
+msgid "Status portmap: starting up..."
+msgstr ""
+
+msgid "Status portmap: stopped"
+msgstr ""
+
+msgid "Status smbd: going down..."
+msgstr ""
+
+msgid "Status smbd: started"
+msgstr ""
+
+msgid "Status smbd: starting up..."
+msgstr ""
+
+msgid "Status smbd: stopped"
+msgstr ""
+
+msgid "client ip"
+msgstr ""
+
+msgid "delete entry"
+msgstr ""
+
+msgid "every ip"
+msgstr ""
+
+msgid "export directory"
+msgstr ""
+
+msgid "netbios name"
+msgstr ""
+
+msgid "options"
+msgstr ""
+
+msgid "save and start/restart NFS-Server"
+msgstr ""
+
+msgid "save and start/restart Samba-Server"
+msgstr ""
+
+msgid "select:"
+msgstr ""
+
+msgid "server string"
+msgstr ""
+
+msgid "setupNFS"
+msgstr ""
+
+msgid "setupSamba"
+msgstr ""
+
+msgid "workgroup"
+msgstr ""

@@ -1,0 +1,159 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-06-07 09:31+0430\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "0"
+msgstr ""
+
+msgid "100"
+msgstr ""
+
+msgid "150"
+msgstr ""
+
+msgid "200"
+msgstr ""
+
+msgid "22"
+msgstr ""
+
+msgid "24"
+msgstr ""
+
+msgid "250"
+msgstr ""
+
+msgid "26"
+msgstr ""
+
+msgid "28"
+msgstr ""
+
+msgid "300"
+msgstr ""
+
+msgid "350"
+msgstr ""
+
+msgid "400"
+msgstr ""
+
+msgid "450"
+msgstr ""
+
+msgid "50"
+msgstr ""
+
+msgid "500"
+msgstr ""
+
+msgid "525"
+msgstr ""
+
+msgid "550"
+msgstr ""
+
+msgid "575"
+msgstr ""
+
+msgid "AZ"
+msgstr ""
+
+msgid "Add"
+msgstr ""
+
+msgid "Add Section"
+msgstr ""
+
+msgid "Bar"
+msgstr ""
+
+msgid "Change Description"
+msgstr ""
+
+msgid "Change Section"
+msgstr ""
+
+msgid "Close"
+msgstr ""
+
+msgid "Delete"
+msgstr ""
+
+msgid "Delete Section"
+msgstr ""
+
+msgid "Enter Pin Code"
+msgstr ""
+
+msgid "Enter Plugin Description :"
+msgstr ""
+
+msgid "Enter Section Name :"
+msgstr ""
+
+msgid "Enter directory"
+msgstr ""
+
+msgid "Hits"
+msgstr ""
+
+msgid "Manually Sort"
+msgstr ""
+
+msgid "NaviBarPE Setup "
+msgstr ""
+
+msgid "Next List"
+msgstr ""
+
+msgid "Own"
+msgstr ""
+
+msgid "Password On/Off"
+msgstr ""
+
+msgid "Please Enter The Correct Pin Code"
+msgstr ""
+
+msgid "Plugins"
+msgstr ""
+
+msgid "Previous List"
+msgstr ""
+
+msgid "Rename"
+msgstr ""
+
+msgid "Save And Close"
+msgstr ""
+
+msgid "Sections"
+msgstr ""
+
+msgid "Set Pic-Folder / Change/Hide Plugin"
+msgstr ""
+
+msgid "Settings"
+msgstr ""
+
+msgid "Wall"
+msgstr ""
+
+msgid "select:"
+msgstr ""

@@ -20,33 +20,48 @@ msgstr ""
 msgid "Cancel"
 msgstr ""
 
-msgid "Installed"
+msgid "Deleting ..."
 msgstr ""
 
-msgid "PE Speed Up"
+msgid "Language Files Will Be Moved To"
 msgstr ""
 
-msgid "PE Speed Up is working, please wait..."
+#, python-format
+msgid "Move To %s"
 msgstr ""
 
-msgid "Remove"
+msgid "Moved"
 msgstr ""
 
-msgid ""
-"Remove all the packages you don't need.\n"
-"This will speed up the performance."
+msgid "Moving ..."
 msgstr ""
 
-msgid "Save"
+msgid "Path"
+msgstr ""
+
+msgid "Primary Language"
+msgstr ""
+
+msgid "Remove Unused Plugin's Language Files"
+msgstr ""
+
+msgid "Removed"
+msgstr ""
+
+msgid "Run"
 msgstr ""
 
 msgid "Special version for Open Vision"
 msgstr ""
 
-msgid ""
-"WARNING! If you choose a section the entire section will be removed!\n"
-"Package(s) removed!\n"
-"You could install it(them) again from online feeds.\n"
-"Your STB will be restarted!\n"
-"Press OK to continue."
+msgid "What About Enigma2 Language Files ?"
+msgstr ""
+
+msgid "delete"
+msgstr ""
+
+msgid "move"
+msgstr ""
+
+msgid "nothing"
 msgstr ""

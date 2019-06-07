@@ -17,36 +17,50 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
+msgid "128MB"
+msgstr ""
+
+msgid "256MB"
+msgstr ""
+
+msgid "512MB"
+msgstr ""
+
+msgid "64MB"
+msgstr ""
+
 msgid "Cancel"
 msgstr ""
 
-msgid "Installed"
+msgid "Enable Swap"
 msgstr ""
 
-msgid "PE Speed Up"
+msgid "Enable Swap On Startup"
 msgstr ""
 
-msgid "PE Speed Up is working, please wait..."
+msgid "Mount All On Startup"
 msgstr ""
 
-msgid "Remove"
+msgid "Mount Manager"
 msgstr ""
 
-msgid ""
-"Remove all the packages you don't need.\n"
-"This will speed up the performance."
+msgid "Mount On /media/hdd"
 msgstr ""
 
-msgid "Save"
+msgid "Mount On /media/hdd/movie"
 msgstr ""
 
-msgid "Special version for Open Vision"
+msgid "Ok"
 msgstr ""
 
-msgid ""
-"WARNING! If you choose a section the entire section will be removed!\n"
-"Package(s) removed!\n"
-"You could install it(them) again from online feeds.\n"
-"Your STB will be restarted!\n"
-"Press OK to continue."
+msgid "PE Mount Manager Configuration"
+msgstr ""
+
+msgid "Please Wait , Creating Swap File ..."
+msgstr ""
+
+msgid "no"
+msgstr ""
+
+msgid "nothing"
 msgstr ""

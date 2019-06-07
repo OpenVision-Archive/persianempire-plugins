@@ -1,0 +1,1692 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-06-07 09:31+0430\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid ""
+"\n"
+"\n"
+"Use following address as IPTV media server?\n"
+msgstr ""
+
+msgid ""
+"\n"
+"After pressing OK, please wait!"
+msgstr ""
+
+msgid ""
+"\n"
+"System will restart after the restore!"
+msgstr ""
+
+msgid ""
+"\n"
+"Total:\n"
+"Free:\n"
+"Used:\n"
+"Used(%):"
+msgstr ""
+
+msgid " Min\n"
+msgstr ""
+
+msgid " Seconds\n"
+msgstr ""
+
+msgid ""
+" not implemented yet\n"
+"\n"
+"Please choose another one."
+msgstr ""
+
+msgid ".tar.gz installer"
+msgstr ""
+
+msgid "1 GB"
+msgstr ""
+
+msgid "128 MB"
+msgstr ""
+
+msgid "16 MB"
+msgstr ""
+
+msgid "256 MB"
+msgstr ""
+
+msgid "32 MB"
+msgstr ""
+
+msgid "512 MB"
+msgstr ""
+
+msgid "64 MB"
+msgstr ""
+
+msgid "8 MB"
+msgstr ""
+
+msgid "A/V Settings"
+msgstr ""
+
+msgid "Active CAM"
+msgstr ""
+
+msgid "Active Usersessions :"
+msgstr ""
+
+msgid "Active/Autostart enabled"
+msgstr ""
+
+#, python-format
+msgid "Actived on %s (%s bytes)"
+msgstr ""
+
+msgid "Add"
+msgstr ""
+
+msgid "Add Cronjob"
+msgstr ""
+
+msgid "Addon Installer Filebrowser"
+msgstr ""
+
+msgid "Addons install rar"
+msgstr ""
+
+msgid "Addons install tar.gz or tgz or tar.bz2"
+msgstr ""
+
+msgid "Addons install zip"
+msgstr ""
+
+msgid "Advanced restore"
+msgstr ""
+
+msgid "Answer is none"
+msgstr ""
+
+msgid "Are you ready to run the script ?"
+msgstr ""
+
+#, python-format
+msgid "Are you sure to %s ?"
+msgstr ""
+
+msgid "Are you sure to delete swapfile ?"
+msgstr ""
+
+msgid "Are you sure to force uninstall of selected package: \n"
+msgstr ""
+
+msgid "Are you sure to set hdd in standby mode?"
+msgstr ""
+
+msgid "Are you sure to uninstall selected package: \n"
+msgstr ""
+
+msgid ""
+"Are you sure you want to delete\n"
+"following backup:\n"
+msgstr ""
+
+msgid ""
+"Are you sure you want to restore\n"
+"following backup:\n"
+msgstr ""
+
+msgid ""
+"Are you sure you want to restore your Enigma2 backup?\n"
+"Enigma2 will restart after the restore"
+msgstr ""
+
+msgid "At"
+msgstr ""
+
+msgid "Audio"
+msgstr ""
+
+msgid "Autostart"
+msgstr ""
+
+msgid "Availabe memory"
+msgstr ""
+
+msgid "Available Space: \t"
+msgstr ""
+
+msgid "Available for install"
+msgstr ""
+
+msgid "Average"
+msgstr ""
+
+msgid "Backup Tools"
+msgstr ""
+
+msgid "Backup done."
+msgstr ""
+
+msgid "Backup failed."
+msgstr ""
+
+msgid "Backup is running..."
+msgstr ""
+
+msgid "Backup system settings"
+msgstr ""
+
+msgid "Backup your STB settings."
+msgstr ""
+
+msgid "Bouquet + = install or update driver"
+msgstr ""
+
+msgid "Bouquet - = scan for IPTV server addresses"
+msgstr ""
+
+msgid "CPU"
+msgstr ""
+
+msgid "Cam Manager"
+msgstr ""
+
+msgid "Cancel"
+msgstr ""
+
+msgid ""
+"Cannot format current drive.\n"
+"A record in progress, timeshit or some external tools (like samba, swapfile and nfsd) may cause this problem.\n"
+"Please stop this actions/applications and try again"
+msgstr ""
+
+#, python-format
+msgid "Cannot format partition %d"
+msgstr ""
+
+msgid ""
+"Cannot mount new drive.\n"
+"Please check filesystem or format it and try again"
+msgstr ""
+
+msgid ""
+"Cannot umount current drive.\n"
+"A record in progress, timeshit or some external tools (like samba, swapfile and nfsd) may cause this problem.\n"
+"Please stop this actions/applications and try again"
+msgstr ""
+
+msgid ""
+"Cannot umount device.\n"
+"A record in progress, timeshit or some external tools (like samba, swapfile and nfsd) may cause this problem.\n"
+"Please stop this actions/applications and try again"
+msgstr ""
+
+msgid ""
+"Change NTP-Server autostart not not possible:\n"
+"\n"
+"Network status: Unreachable !"
+msgstr ""
+
+msgid "Change Root Password"
+msgstr ""
+
+#, python-format
+msgid ""
+"Change Systemtime was canceled:\n"
+"\n"
+"%s"
+msgstr ""
+
+msgid "Check"
+msgstr ""
+
+msgid "Check DVB Time"
+msgstr ""
+
+msgid ""
+"Check Network status.\n"
+"Please wait..."
+msgstr ""
+
+msgid "Check and set with NTP-Server"
+msgstr ""
+
+msgid "Check and set with NTP-Server not useful,switch off Enigma 2 Timeupdate first !"
+msgstr ""
+
+msgid "Check disk terminated with success"
+msgstr ""
+
+msgid "Checking DVB Time..."
+msgstr ""
+
+msgid "Checking daemons status..."
+msgstr ""
+
+msgid "Choose backup files"
+msgstr ""
+
+msgid "Choose backup location"
+msgstr ""
+
+msgid "Close"
+msgstr ""
+
+msgid "Command: "
+msgstr ""
+
+msgid "Comparing the system time with a central time server and set the new system time."
+msgstr ""
+
+msgid "Complete overview of system parameters"
+msgstr ""
+
+msgid "Configure"
+msgstr ""
+
+msgid "Configure your OpenVPN-Server"
+msgstr ""
+
+msgid "Control your HDD Parameter"
+msgstr ""
+
+msgid "Control your USB DVB-T/C/S2-Stick"
+msgstr ""
+
+msgid "Control your WinTV Nova Stick"
+msgstr ""
+
+msgid "Control your local Storage"
+msgstr ""
+
+msgid "Could not create the Mountpoint Mappingfile."
+msgstr ""
+
+msgid "Could not create the Root Directory or File."
+msgstr ""
+
+msgid "Could not create the Roothelper Directory or File."
+msgstr ""
+
+msgid ""
+"Could not delete Enigma2 Crashlog: \n"
+"\n"
+msgstr ""
+
+msgid "Could not delete all Enigma2 Crashlogs."
+msgstr ""
+
+msgid ""
+"Could not delete any Crashlogs older 7 Days. \n"
+"\n"
+msgstr ""
+
+msgid "Could not grep Memory Usage information from busybox"
+msgstr ""
+
+msgid "Could not grep Uptime Information from busybox"
+msgstr ""
+
+msgid "Could not grep socket information from busybox"
+msgstr ""
+
+msgid "Crashlog Remover"
+msgstr ""
+
+msgid "Create SwapFile"
+msgstr ""
+
+msgid "Cronjobs"
+msgstr ""
+
+msgid "Cronmanager Setup"
+msgstr ""
+
+msgid "CrossEPG"
+msgstr ""
+
+msgid "Current"
+msgstr ""
+
+msgid "Current Memory Usage :"
+msgstr ""
+
+msgid "Current Status:"
+msgstr ""
+
+msgid "Current Time, Operating Time and Load Average :"
+msgstr ""
+
+msgid "Custom Command"
+msgstr ""
+
+msgid "DVB NTP Time menu"
+msgstr ""
+
+msgid "DVB Time check autostart"
+msgstr ""
+
+#, python-format
+msgid ""
+"DVB Time check results:\n"
+"%s"
+msgstr ""
+
+#, python-format
+msgid ""
+"DVB Time setting aborted:\n"
+"\n"
+"%s"
+msgstr ""
+
+msgid ""
+"DVB Time update running.\n"
+"Please wait..."
+msgstr ""
+
+#, python-format
+msgid ""
+"DVB Time updating to %s\n"
+"successfully done."
+msgstr ""
+
+msgid "DVB Transmission Way"
+msgstr ""
+
+msgid "DVB-C"
+msgstr ""
+
+msgid "DVB-S/S2"
+msgstr ""
+
+msgid "DVB-T"
+msgstr ""
+
+msgid "Daemons"
+msgstr ""
+
+msgid "Day"
+msgstr ""
+
+msgid "Days"
+msgstr ""
+
+msgid "Deactivate"
+msgstr ""
+
+#, python-format
+msgid "Deflating %s to /"
+msgstr ""
+
+msgid "Delete"
+msgstr ""
+
+msgid ""
+"Deleted Crashlogs older 7 Days: \n"
+"\n"
+msgstr ""
+
+msgid ""
+"Deleted Enigma2 Crashlog: \n"
+"\n"
+msgstr ""
+
+msgid "Deleted all Enigma2 Crashlogs."
+msgstr ""
+
+msgid "Deselect"
+msgstr ""
+
+msgid "Device Manager"
+msgstr ""
+
+msgid "Devicemanager Details"
+msgstr ""
+
+msgid "Devicemanager Main"
+msgstr ""
+
+msgid "Devicemanager Mountpoints"
+msgstr ""
+
+msgid "Devicemanager Partitions"
+msgstr ""
+
+msgid "Disk Size: \t\t"
+msgstr ""
+
+msgid "Do you want to install the package:\n"
+msgstr ""
+
+msgid "Do you want to reboot your STB?"
+msgstr ""
+
+msgid "Do you want to remove the package:\n"
+msgstr ""
+
+msgid "Do you want to restart Enigma2?"
+msgstr ""
+
+msgid "Do you want to update your STB?"
+msgstr ""
+
+msgid "Do you want to upgrade the package:\n"
+msgstr ""
+
+msgid "Enabled:"
+msgstr ""
+
+msgid "Enhanced EPG-Import Services"
+msgstr ""
+
+msgid "Enigma 2 Timeupdate"
+msgstr ""
+
+msgid "Enigma 2 must be restarted to set the new Systemtime ?"
+msgstr ""
+
+msgid "Enigma 2 restart abort by user !"
+msgstr ""
+
+msgid "Enter new Password"
+msgstr ""
+
+msgid "Enter your password here:"
+msgstr ""
+
+msgid "Entering a Custom command you have to set Predefined command: None "
+msgstr ""
+
+msgid "Error"
+msgstr ""
+
+msgid "Error checking disk. The disk may be damaged"
+msgstr ""
+
+msgid "Error formatting disk. The disk may be damaged"
+msgstr ""
+
+msgid "Error installing package"
+msgstr ""
+
+msgid "Execute Scripts from /usr/script"
+msgstr ""
+
+msgid "Exit"
+msgstr ""
+
+msgid "File Manager"
+msgstr ""
+
+msgid "File name:"
+msgstr ""
+
+msgid "Force uninst."
+msgstr ""
+
+msgid "Forced set DVB Time"
+msgstr ""
+
+msgid "Forced set DVB Time not useful,switch off Enigma 2 Timeupdate first !"
+msgstr ""
+
+msgid "Format"
+msgstr ""
+
+msgid "Format terminated with success"
+msgstr ""
+
+#, python-format
+msgid "Formatting partition %d"
+msgstr ""
+
+#, python-format
+msgid "Four partitions (25% - 25% - 25% - 25%)"
+msgstr ""
+
+msgid "HDD Partitioner"
+msgstr ""
+
+msgid "HDD Temp"
+msgstr ""
+
+msgid ""
+"HDD Temp:\n"
+"...."
+msgstr ""
+
+msgid "HDD Temperature"
+msgstr ""
+
+msgid "Hard Disk Infopanel"
+msgstr ""
+
+msgid "Hard Disk Model: \t"
+msgstr ""
+
+msgid "Hard Disk Setup"
+msgstr ""
+
+msgid "Hard Disk is already sleeping"
+msgstr ""
+
+msgid "Harddisk Settings Setup"
+msgstr ""
+
+msgid "Harddisk Standbymode"
+msgstr ""
+
+msgid "Harddiskmanufacturer, Type and it's Temperature :"
+msgstr ""
+
+msgid "Hauppage USB DVB-T Panel"
+msgstr ""
+
+msgid "Hour:"
+msgstr ""
+
+msgid "Hours:"
+msgstr ""
+
+msgid "IPK Uninstall"
+msgstr ""
+
+msgid "IPK Uninstall ignore depencies"
+msgstr ""
+
+msgid "IPK Uninstaller"
+msgstr ""
+
+msgid "Image Infos"
+msgstr ""
+
+msgid "Inactive"
+msgstr ""
+
+msgid "Info = show tuner informations"
+msgstr ""
+
+msgid "Infopanel"
+msgstr ""
+
+msgid "Infos about your PE"
+msgstr ""
+
+msgid "Initialize"
+msgstr ""
+
+msgid "Initialize disk"
+msgstr ""
+
+msgid "Insert mount point:"
+msgstr ""
+
+msgid "Install"
+msgstr ""
+
+msgid "Install IPK from Root Directory or /tmp"
+msgstr ""
+
+msgid "Install IPK from all Storage Media"
+msgstr ""
+
+msgid "Install IPK, tar.gz, tgz, tar.bz2, zip and rar Packages"
+msgstr ""
+
+msgid "Install Picons on Media:"
+msgstr ""
+
+msgid "Install status"
+msgstr ""
+
+msgid "Install, Remove PE Packages"
+msgstr ""
+
+msgid "Install, Update or Remove all available CAMs from Feed"
+msgstr ""
+
+msgid "Install, Update or Remove all available Drivers from Feed"
+msgstr ""
+
+msgid "Install, Update or Remove all available Extensions from Feed"
+msgstr ""
+
+msgid "Install, Update or Remove all available Other from Feed"
+msgstr ""
+
+msgid "Install, Update or Remove all available Packages from Feed"
+msgstr ""
+
+msgid "Install, Update or Remove all available Picons from Feed"
+msgstr ""
+
+msgid "Install, Update or Remove all available Settings from Feed"
+msgstr ""
+
+msgid "Install, Update or Remove all available Skins from Feed"
+msgstr ""
+
+msgid "Install, Update or Remove all available Systemplugins from Feed"
+msgstr ""
+
+msgid "Install, Upgrade or Delete CAMs"
+msgstr ""
+
+msgid "Install, Upgrade or Delete Drivers"
+msgstr ""
+
+msgid "Install, Upgrade or Delete Extensions"
+msgstr ""
+
+msgid "Install, Upgrade or Delete Other Packages"
+msgstr ""
+
+msgid "Install, Upgrade or Delete Picons"
+msgstr ""
+
+msgid "Install, Upgrade or Delete Settings"
+msgstr ""
+
+msgid "Install, Upgrade or Delete Skins"
+msgstr ""
+
+msgid "Install, Upgrade or Delete Systemplugins"
+msgstr ""
+
+msgid "Install/update finished."
+msgstr ""
+
+msgid "Installation/Upgrade finished."
+msgstr ""
+
+#, python-format
+msgid "Invalid day %s !"
+msgstr ""
+
+msgid "Invalid format !"
+msgstr ""
+
+#, python-format
+msgid "Invalid hour %s !"
+msgstr ""
+
+#, python-format
+msgid "Invalid minute %s !"
+msgstr ""
+
+#, python-format
+msgid "Invalid month %s !"
+msgstr ""
+
+#, python-format
+msgid "Invalid year %s !"
+msgstr ""
+
+msgid "It seems the sundtek driver is not installed or not installed properly. Install the driver now?"
+msgstr ""
+
+msgid "Job Manager"
+msgstr ""
+
+msgid "Kernel Modules"
+msgstr ""
+
+msgid "MB swapfile on "
+msgstr ""
+
+msgid "Manage STB Cronjobs"
+msgstr ""
+
+msgid "Manage Your PE Image"
+msgstr ""
+
+msgid "Manual Addon Installer - Filebrowser"
+msgstr ""
+
+msgid "Max"
+msgstr ""
+
+msgid "Memory"
+msgstr ""
+
+msgid "Memory Usage"
+msgstr ""
+
+msgid "Menu "
+msgstr ""
+
+msgid ""
+"Menu not implemented yet!!!! \n"
+"\n"
+"feel free to code this menu now ;)"
+msgstr ""
+
+msgid "Min"
+msgstr ""
+
+msgid "Minute:"
+msgstr ""
+
+msgid "Minutes:"
+msgstr ""
+
+msgid "Mount"
+msgstr ""
+
+msgid "NFS-Server Panel"
+msgstr ""
+
+msgid "NTFS Partition Menu"
+msgstr ""
+
+#, python-format
+msgid ""
+"NTP Time check successfully.\n"
+"System time set to %s finished."
+msgstr ""
+
+msgid ""
+"NTP check not not possible:\n"
+"\n"
+"Network status: Unreachable !"
+msgstr ""
+
+msgid "NTP-Server autostart"
+msgstr ""
+
+msgid "NTP-Server autostart is enabled,please switch off first !"
+msgstr ""
+
+#, python-format
+msgid ""
+"NTP-Server check and system time update\n"
+"to %s successfully done."
+msgstr ""
+
+msgid "Network Browser"
+msgstr ""
+
+msgid "Network IP"
+msgstr ""
+
+msgid "Network Interfaces"
+msgstr ""
+
+msgid "Network Mounts"
+msgstr ""
+
+msgid "Network Nameserver"
+msgstr ""
+
+msgid "New Acoustic Settings activated sucessfully"
+msgstr ""
+
+msgid "New time string too short !"
+msgstr ""
+
+msgid "No Cam installed. Can't restart a cam."
+msgstr ""
+
+msgid "No Harddisk or Harddisk with S.M.A.R.T capabilites detected"
+msgstr ""
+
+msgid "No IPTV media server found"
+msgstr ""
+
+msgid ""
+"No internal Harddisk detected!!!! \n"
+"\n"
+"Please install an internal Harddisk first to be in a position to check harddisk temperature."
+msgstr ""
+
+msgid "No new time input !"
+msgstr ""
+
+msgid "None"
+msgstr ""
+
+msgid "Not active"
+msgstr ""
+
+msgid "Nova WinTV"
+msgstr ""
+
+msgid "OK"
+msgstr ""
+
+msgid "OK will set new time and restart Enigma 2 !"
+msgstr ""
+
+msgid "OK/ green = activate settings"
+msgstr ""
+
+msgid "Off"
+msgstr ""
+
+msgid "Ok"
+msgstr ""
+
+msgid "On"
+msgstr ""
+
+msgid "One partition"
+msgstr ""
+
+msgid "Online, Offline Installer for IPK and several Archives"
+msgstr ""
+
+msgid "OpenVPN Enabled. Autostart activated."
+msgstr ""
+
+msgid "OpenVPN Log"
+msgstr ""
+
+msgid "OpenVPN Panel"
+msgstr ""
+
+msgid "OpenVPN Setup"
+msgstr ""
+
+msgid "OpenVPN-Server Panel"
+msgstr ""
+
+msgid "PE Panel"
+msgstr ""
+
+msgid "PE Status List Menu"
+msgstr ""
+
+msgid "PEPanel"
+msgstr ""
+
+msgid "Package installed succesfully"
+msgstr ""
+
+msgid "Package list update"
+msgstr ""
+
+msgid "Partitioning failed!"
+msgstr ""
+
+msgid "Partitioning..."
+msgstr ""
+
+msgid "Partitions"
+msgstr ""
+
+msgid "Place:"
+msgstr ""
+
+msgid "Please Enter new Systemtime:"
+msgstr ""
+
+msgid "Please select medium to use as backup location"
+msgstr ""
+
+msgid "Please select your preferred configuration."
+msgstr ""
+
+msgid "Please use Virtual Keyboard for text rows only (e. g. custom command)"
+msgstr ""
+
+msgid ""
+"Please visit the following Website:\n"
+"http://linux-fuer-alle.de/doc_show.php?docid=7\n"
+"to gain further instructions how to configure your STB as NTP-Client/Server."
+msgstr ""
+
+msgid "Plugins"
+msgstr ""
+
+msgid "Predefined Command to execute"
+msgstr ""
+
+msgid "Purge Enigma2 Crashlogs"
+msgstr ""
+
+msgid "Range from (0-254), 128: quiet, 254: fast:"
+msgstr ""
+
+msgid "Reason: Abort by User !"
+msgstr ""
+
+msgid "Reason: Answer is none"
+msgstr ""
+
+msgid "Refresh"
+msgstr ""
+
+msgid "Reload"
+msgstr ""
+
+msgid "Remove Skin"
+msgstr ""
+
+msgid "Remove all"
+msgstr ""
+
+msgid "Remove finished."
+msgstr ""
+
+msgid "Remove older 7 Days"
+msgstr ""
+
+msgid "Remove selected"
+msgstr ""
+
+msgid "Restart"
+msgstr ""
+
+msgid "Restart Enigma 2 for automatic NTP-Server check on startup (on/off) ?"
+msgstr ""
+
+msgid "Restart Enigma 2 to display DVB Time check results on startup (on/off) ?"
+msgstr ""
+
+msgid ""
+"Restart Enigma 2 to switch on/off Enigma 2 Timeupdate on startup ?\n"
+"ATTENTION: When you switch off,all automatic time updates are disabled !!!"
+msgstr ""
+
+msgid "Restart Service"
+msgstr ""
+
+msgid ""
+"Restarting Enigma 2 to switch on/off\n"
+"the NTP message on startup ?"
+msgstr ""
+
+msgid ""
+"Restarting Enigma 2 to switch on/off display\n"
+"the DVB Time in the Mainmenu ?"
+msgstr ""
+
+msgid "Restore"
+msgstr ""
+
+msgid "Restore backups"
+msgstr ""
+
+msgid "Restore is running..."
+msgstr ""
+
+msgid "Restore running"
+msgstr ""
+
+msgid "Restore system settings"
+msgstr ""
+
+msgid "Restore your STB settings."
+msgstr ""
+
+msgid "Restore your backups by date."
+msgstr ""
+
+msgid "Run"
+msgstr ""
+
+msgid "Run Confirmation"
+msgstr ""
+
+msgid "Running"
+msgstr ""
+
+msgid "Save"
+msgstr ""
+
+msgid "Second:"
+msgstr ""
+
+msgid "Seconds:"
+msgstr ""
+
+msgid "See your DNS-Server"
+msgstr ""
+
+msgid "See your Network Interfaces"
+msgstr ""
+
+msgid "See your Network mounts"
+msgstr ""
+
+msgid "Select"
+msgstr ""
+
+msgid "Select a script to run:"
+msgstr ""
+
+msgid "Select files for backup. "
+msgstr ""
+
+msgid "Select files/folders to backup"
+msgstr ""
+
+msgid "Select your backup device. "
+msgstr ""
+
+msgid ""
+"Sensor:\n"
+"Value:"
+msgstr ""
+
+msgid "Services Menu"
+msgstr ""
+
+msgid "Set Acoustic"
+msgstr ""
+
+msgid "Set Active"
+msgstr ""
+
+msgid "Set DVB Time"
+msgstr ""
+
+msgid "Set DVB Time not useful,switch off Enigma 2 Timeupdate first !"
+msgstr ""
+
+msgid "Set Default CAM"
+msgstr ""
+
+msgid "Set NTP Time"
+msgstr ""
+
+msgid "Set Password"
+msgstr ""
+
+msgid "Set Root Password"
+msgstr ""
+
+msgid "Set Standby"
+msgstr ""
+
+msgid "Set system time manually"
+msgstr ""
+
+msgid "Set system time manually not useful,switch off Enigma 2 Timeupdate first !"
+msgstr ""
+
+msgid "Setting Acoustic not supported by your Hard Disk."
+msgstr ""
+
+msgid ""
+"Setting DVB Time forced is only needed if check shows more then 30 min. time difference.\n"
+"ATTENTION: With forced option make a Enigma 2 restart at the finish !"
+msgstr ""
+
+msgid ""
+"Setting DVB Time with forced option.\n"
+"When finished Enigma 2 restarts automatically !\n"
+"Please wait..."
+msgstr ""
+
+msgid "Setup"
+msgstr ""
+
+msgid "Show Active Kernel Modules"
+msgstr ""
+
+msgid "Show CAM"
+msgstr ""
+
+msgid "Show Consolesessions"
+msgstr ""
+
+msgid "Show Drivers"
+msgstr ""
+
+msgid "Show Extensions"
+msgstr ""
+
+msgid "Show Image Infos"
+msgstr ""
+
+msgid "Show Log"
+msgstr ""
+
+msgid "Show NTP message on startup"
+msgstr ""
+
+msgid "Show Networkconnections"
+msgstr ""
+
+msgid "Show Networkdetails"
+msgstr ""
+
+msgid "Show Other Packages"
+msgstr ""
+
+msgid "Show Picons"
+msgstr ""
+
+msgid "Show Settings"
+msgstr ""
+
+msgid "Show Skins"
+msgstr ""
+
+msgid "Show Systemplugins"
+msgstr ""
+
+msgid "Show Videomodeconfiguration"
+msgstr ""
+
+msgid "Show all available Packages"
+msgstr ""
+
+msgid "Show ecm.info"
+msgstr ""
+
+msgid "Show free diskspace"
+msgstr ""
+
+msgid "Show mounted filesystems"
+msgstr ""
+
+msgid "Show network stats"
+msgstr ""
+
+msgid "Show networkconfiguration and routingtable"
+msgstr ""
+
+msgid "Show ntfs partitions"
+msgstr ""
+
+msgid "Size:"
+msgstr ""
+
+msgid "Skinremoval"
+msgstr ""
+
+msgid "Skinremove Menu"
+msgstr ""
+
+msgid "Softwaremanager"
+msgstr ""
+
+msgid "Sorry MediaScanner is not installed!"
+msgstr ""
+
+msgid "Sorry no backups found!"
+msgstr ""
+
+msgid ""
+"Sorry your backup destination is not writeable.\n"
+"Please choose an other one."
+msgstr ""
+
+msgid "Sorry, no Hard Disk found."
+msgstr ""
+
+msgid ""
+"Sorry, your backup destination is not writeable.\n"
+"\n"
+"Please choose another one."
+msgstr ""
+
+msgid "Standby"
+msgstr ""
+
+msgid "Standby Now"
+msgstr ""
+
+msgid "Standby timeout:"
+msgstr ""
+
+msgid "Standby:\t\t"
+msgstr ""
+
+msgid "Start"
+msgstr ""
+
+msgid "Start Service"
+msgstr ""
+
+msgid "Start Swap"
+msgstr ""
+
+msgid "Start Tuner"
+msgstr ""
+
+#, python-format
+msgid "Starting %s..."
+msgstr ""
+
+msgid "Startup Module:"
+msgstr ""
+
+msgid "Status List Menu"
+msgstr ""
+
+msgid "Status:"
+msgstr ""
+
+msgid "Stop"
+msgstr ""
+
+msgid "Stop Service"
+msgstr ""
+
+msgid "Stop Swap"
+msgstr ""
+
+msgid "Stop Tuner"
+msgstr ""
+
+msgid "Stopped"
+msgstr ""
+
+#, python-format
+msgid "Stopping %s..."
+msgstr ""
+
+msgid "Submenu"
+msgstr ""
+
+#, python-format
+msgid ""
+"Sucessfully changed password for root user to:\n"
+"%s "
+msgstr ""
+
+msgid "Sundtek Control Center"
+msgstr ""
+
+msgid "Sundtek USB DVB Menu"
+msgstr ""
+
+msgid "Sundtek USB DVB Servicecontrol"
+msgstr ""
+
+msgid "Sundtek USB DVB-Panel"
+msgstr ""
+
+msgid ""
+"Sundtek legal notice:\n"
+"This software comes without any warranty, use it at your own risk?"
+msgstr ""
+
+msgid "SwapFile Menu"
+msgstr ""
+
+msgid "Swapfile"
+msgstr ""
+
+msgid "System Info"
+msgstr ""
+
+msgid "System Infos"
+msgstr ""
+
+msgid "System Tools"
+msgstr ""
+
+msgid ""
+"That makes no sense when turned off the auto start from the NTP-Server.\n"
+"Please switch on the autostart first !"
+msgstr ""
+
+msgid ""
+"The CrossEPG Plugin is not installed!\n"
+"Please install it."
+msgstr ""
+
+msgid ""
+"The FileManager is not installed!\n"
+"Please install it."
+msgstr ""
+
+msgid ""
+"The NFSServer Plugin is not installed!\n"
+"Please install it."
+msgstr ""
+
+msgid ""
+"The NetworkBrowser is not installed!\n"
+"Please install it."
+msgstr ""
+
+msgid ""
+"The Networkbrowser Plugin is not installed!\n"
+"Please install it."
+msgstr ""
+
+msgid ""
+"The PE Cam Manager Plugin is not installed!\n"
+"Please install it."
+msgstr ""
+
+msgid ""
+"The SoftwareManager Plugin is not installed!\n"
+"Please install it."
+msgstr ""
+
+msgid ""
+"The Videomode Plugin is not installed!\n"
+"Please install it."
+msgstr ""
+
+msgid "There was an error downloading the packetlist. Please try again."
+msgstr ""
+
+msgid "This option check manually if there is a time difference between current system time and the transponder time."
+msgstr ""
+
+msgid "This option set manually the system time by input with the remote control."
+msgstr ""
+
+msgid "This option set the time from current transponder as system time."
+msgstr ""
+
+msgid "Three partitions (33% - 33% - 33%)"
+msgstr ""
+
+msgid "Time to execute command or script"
+msgstr ""
+
+msgid "Time: "
+msgstr ""
+
+msgid "Trying to download a new packetlist. Please wait..."
+msgstr ""
+
+msgid "Tuner1 type"
+msgstr ""
+
+#, python-format
+msgid "Two partitions (50% - 50%)"
+msgstr ""
+
+#, python-format
+msgid "Two partitions (75% - 25%)"
+msgstr ""
+
+msgid "USB/Network"
+msgstr ""
+
+msgid "Umount"
+msgstr ""
+
+msgid "Unable to change/reset password for root user"
+msgstr ""
+
+msgid "Uninstall"
+msgstr ""
+
+msgid "Uptime"
+msgstr ""
+
+msgid "User scripts"
+msgstr ""
+
+msgid "VPN Version: "
+msgstr ""
+
+msgid "Video"
+msgstr ""
+
+msgid "You have no script to run."
+msgstr ""
+
+msgid "You have to Activate OpenVPN before to start"
+msgstr ""
+
+msgid "You must set at least one Command"
+msgstr ""
+
+msgid "backup or restore your settings"
+msgstr ""
+
+#, python-format
+msgid "comand line: %s"
+msgstr ""
+
+msgid "create and manage your Swapfile"
+msgstr ""
+
+msgid "done with no errors, please restart"
+msgstr ""
+
+msgid "enable/disable Systemservices"
+msgstr ""
+
+msgid "enable/disable and configure NFS-Server"
+msgstr ""
+
+msgid "firmware download error"
+msgstr ""
+
+msgid "manage your PE"
+msgstr ""
+
+msgid "manage your favourite cam"
+msgstr ""
+
+msgid "new Random"
+msgstr ""
+
+msgid "no swapfile active..."
+msgstr ""
+
+msgid "not in use"
+msgstr ""
+
+msgid "open Filemanager"
+msgstr ""
+
+msgid "open NetworkBrowswer"
+msgstr ""
+
+msgid "open enigma2 Plugin Menu"
+msgstr ""
+
+msgid "opkg install error"
+msgstr ""
+
+msgid "opkg remove error"
+msgstr ""
+
+msgid "opkg update error"
+msgstr ""
+
+msgid "reboot"
+msgstr ""
+
+msgid "refresh time for enigma2 from ntp server"
+msgstr ""
+
+msgid "remove seletected package from stb"
+msgstr ""
+
+msgid "restart enigma2"
+msgstr ""
+
+msgid "restart softcam"
+msgstr ""
+
+msgid "selective wipe of enigma2 crashlogs"
+msgstr ""
+
+msgid "set root password of your stb"
+msgstr ""
+
+msgid "show all active user sessions"
+msgstr ""
+
+msgid "show all connected sockets from ip-stack"
+msgstr ""
+
+msgid "shows assigned ip-adresses, routingtable and nameserver"
+msgstr ""
+
+msgid "shutdown"
+msgstr ""
+
+msgid "standby"
+msgstr ""
+
+msgid "stopping swap for "
+msgstr ""
+
+msgid "swapfile was created successfully"
+msgstr ""
+
+msgid "swapfile was deleted successfully"
+msgstr ""
+
+msgid "update-modules error"
+msgstr ""
+
+msgid "via Network"
+msgstr ""
+
+msgid "via USB"
+msgstr ""
+
+msgid "virt. Keyboard"
+msgstr ""
+
+msgid "wakeup/switch from/to standby"
+msgstr ""
+
+msgid "xx CAMs Installed"
+msgstr ""
+
+msgid "About"
+msgstr ""
+
+msgid "Active Kernel Modules"
+msgstr ""
+
+msgid "Backup is running"
+msgstr ""
+
+msgid "CPU Infos"
+msgstr ""
+
+msgid "Change root password"
+msgstr ""
+
+msgid "Channel and ECM"
+msgstr ""
+
+msgid "Cron Manager"
+msgstr ""
+
+msgid "Cron Setup"
+msgstr ""
+
+msgid "Display Setup"
+msgstr ""
+
+msgid "Dmesg Info"
+msgstr ""
+
+msgid "Download Manager"
+msgstr ""
+
+msgid "E2 Enigma Settings Info"
+msgstr ""
+
+msgid "E2 Settings"
+msgstr ""
+
+msgid "ECM Infos"
+msgstr ""
+
+msgid "Hard Disk Settings"
+msgstr ""
+
+msgid "Hard Drive Info"
+msgstr ""
+
+msgid "Hard Drive Mount"
+msgstr ""
+
+msgid "Hard Drive Partitions"
+msgstr ""
+
+msgid "Hard Drive Setup"
+msgstr ""
+
+msgid "Kernel Debugging Infos"
+msgstr ""
+
+msgid "Kernelversion:"
+msgstr ""
+
+msgid "Manage Kernel Modules"
+msgstr ""
+
+msgid "Manual Addon Installer Filebrowser"
+msgstr ""
+
+msgid "Memory Infos"
+msgstr ""
+
+msgid "Nova WinTV USBTuner Setup"
+msgstr ""
+
+msgid "OpenVpn Log"
+msgstr ""
+
+msgid "OpenVpn Setup"
+msgstr ""
+
+msgid "PE Packetmanager"
+msgstr ""
+
+msgid "PE Sub Menu"
+msgstr ""
+
+msgid "Persian Professionals"
+msgstr ""
+
+msgid "Process info"
+msgstr ""
+
+msgid "Remote Setup"
+msgstr ""
+
+msgid "Running Process Info"
+msgstr ""
+
+msgid "Scripts"
+msgstr ""
+
+msgid "Service Info"
+msgstr ""
+
+msgid "Services:"
+msgstr ""
+
+msgid "Start CAM"
+msgstr ""
+
+msgid "SundtekControlCenter"
+msgstr ""
+
+msgid "Swap"
+msgstr ""
+
+msgid "System CPU Usage Infos"
+msgstr ""
+
+msgid "Top Process Info"
+msgstr ""
+
+msgid "Uptime:"
+msgstr ""
