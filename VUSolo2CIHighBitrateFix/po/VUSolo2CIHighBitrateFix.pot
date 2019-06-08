@@ -17,44 +17,5 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-msgid " "
-msgstr ""
-
-msgid " FAQs"
-msgstr ""
-
-msgid "Back"
-msgstr ""
-
-msgid "Exit"
-msgstr ""
-
-msgid "FAQs"
-msgstr ""
-
-msgid "FAQs for Open Vision"
-msgstr ""
-
-msgid "Help"
-msgstr ""
-
-msgid "Open Vision"
-msgstr ""
-
-msgid "Open Vision FAQs - https://openvision.tech"
-msgstr ""
-
-msgid "Open Vision FAQs update"
-msgstr ""
-
-msgid "PE FAQ"
-msgstr ""
-
-msgid "Press Any Key = Go Back"
-msgstr ""
-
-msgid "Update"
-msgstr ""
-
-msgid "Use The Cursor Left (<) And Right (>) To Filter By Category"
+msgid "CI high bitrate fix for VuPlus Solo 2"
 msgstr ""
