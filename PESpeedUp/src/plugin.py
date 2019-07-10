@@ -43,7 +43,7 @@ class PESpeedUp(Screen, ConfigListScreen):
             self.packagelist.append(['OSCam', 'enigma2-plugin-softcams-oscam'])
         if fileExists('/usr/bin/oscam-emu'):
             self.packagelist.append(['OSCam-Emu', 'enigma2-plugin-softcams-oscam-emu'])
-        self.packagelist.append(['                                        Plugins (Extensions)', 'enigma2-plugin-extensions-audiosync enigma2-plugin-extensions-autobackup enigma2-plugin-extensions-backupsuite enigma2-plugin-extensions-btdevicesmanager enigma2-plugin-extensions-cacheflush enigma2-plugin-extensions-cdinfo enigma2-plugin-extensions-cutlisteditor enigma2-plugin-extensions-dlnabrowser enigma2-plugin-extensions-dlnaserver enigma2-plugin-extensions-dvdplayer enigma2-plugin-extensions-filecommander enigma2-plugin-extensions-foreca enigma2-plugin-extensions-graphmultiepg enigma2-plugin-extensions-hbbtv enigma2-plugin-extensions-e2iplayer enigma2-plugin-extensions-e2iplayer-deps enigma2-plugin-extensions-lcd4linux enigma2-plugin-extensions-modem enigma2-plugin-extensions-moviecut enigma2-plugin-extensions-pluginskinmover enigma2-plugin-extensions-tunerserver enigma2-plugin-extensions-vlcplayer'])
+        self.packagelist.append(['                                        Plugins (Extensions)', 'enigma2-plugin-extensions-audiosync enigma2-plugin-extensions-autobackup enigma2-plugin-extensions-backupsuite enigma2-plugin-extensions-btdevicesmanager enigma2-plugin-extensions-cacheflush enigma2-plugin-extensions-cdinfo enigma2-plugin-extensions-cutlisteditor enigma2-plugin-extensions-dlnabrowser enigma2-plugin-extensions-dlnaserver enigma2-plugin-extensions-dvdplayer enigma2-plugin-extensions-filecommander enigma2-plugin-extensions-foreca enigma2-plugin-extensions-graphmultiepg enigma2-plugin-extensions-hbbtv enigma2-plugin-extensions-e2iplayer enigma2-plugin-extensions-e2iplayer-deps enigma2-plugin-extensions-keyadder enigma2-plugin-extensions-lcd4linux enigma2-plugin-extensions-modem enigma2-plugin-extensions-moviecut enigma2-plugin-extensions-pluginskinmover enigma2-plugin-extensions-tunerserver enigma2-plugin-extensions-vlcplayer'])
         if pathExists('/usr/lib/enigma2/python/Plugins/Extensions/AudioSync'):
             self.packagelist.append(['AudioSync', 'enigma2-plugin-extensions-audiosync'])
         if pathExists('/usr/lib/enigma2/python/Plugins/Extensions/AutoBackup'):
@@ -74,6 +74,8 @@ class PESpeedUp(Screen, ConfigListScreen):
             self.packagelist.append(['HbbTV', 'enigma2-plugin-extensions-hbbtv'])
         if pathExists('/usr/lib/enigma2/python/Plugins/Extensions/IPTVPlayer'):
             self.packagelist.append(['IPTVPlayer', 'enigma2-plugin-extensions-e2iplayer enigma2-plugin-extensions-e2iplayer-deps'])
+        if pathExists('/usr/lib/enigma2/python/Plugins/Extensions/KeyAdder'):
+            self.packagelist.append(['KeyAdder', 'enigma2-plugin-extensions-keyadder'])
         if pathExists('/usr/lib/enigma2/python/Plugins/Extensions/LCD4linux'):
             self.packagelist.append(['LCD4linux', 'enigma2-plugin-extensions-lcd4linux'])
         if pathExists('/usr/lib/enigma2/python/Plugins/Extensions/Modem'):
