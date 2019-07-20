@@ -123,7 +123,7 @@ class PESpeedUp(Screen, ConfigListScreen):
             self.packagelist.append(['VideoEnhancement', 'enigma2-plugin-systemplugins-videoenhancement'])
         if pathExists('/usr/lib/enigma2/python/Plugins/SystemPlugins/TransCodingSetup'):
             self.packagelist.append(['TransCodingSetup', 'enigma2-plugin-systemplugins-transcodingsetup'])
-        self.packagelist.append(['                                        Locales', 'enigma2-locale-ar enigma2-locale-bg enigma2-locale-ca enigma2-locale-cs enigma2-locale-da enigma2-locale-de enigma2-locale-el enigma2-locale-es enigma2-locale-et enigma2-locale-fa enigma2-locale-fi enigma2-locale-fr enigma2-locale-fy enigma2-locale-he enigma2-locale-hr enigma2-locale-hu enigma2-locale-id enigma2-locale-is enigma2-locale-it enigma2-locale-ku enigma2-locale-lt enigma2-locale-lv enigma2-locale-nb enigma2-locale-nl enigma2-locale-nn enigma2-locale-pl enigma2-locale-pt enigma2-locale-pt-br enigma2-locale-ro enigma2-locale-ru enigma2-locale-sk enigma2-locale-sl enigma2-locale-sr enigma2-locale-sv enigma2-locale-th enigma2-locale-tr enigma2-locale-uk enigma2-locale-zh-cn enigma2-locale-zh-hk'])
+        self.packagelist.append(['                                        Locales', 'enigma2-locale-ar enigma2-locale-bg enigma2-locale-ca enigma2-locale-cs enigma2-locale-da enigma2-locale-de enigma2-locale-el enigma2-locale-es enigma2-locale-et enigma2-locale-fa enigma2-locale-fi enigma2-locale-fr enigma2-locale-fy enigma2-locale-he enigma2-locale-hr enigma2-locale-hu enigma2-locale-id enigma2-locale-is enigma2-locale-it enigma2-locale-ku enigma2-locale-lt enigma2-locale-lv enigma2-locale-nb enigma2-locale-nl enigma2-locale-nn enigma2-locale-pl enigma2-locale-pt enigma2-locale-pt-br enigma2-locale-ro enigma2-locale-ru enigma2-locale-sk enigma2-locale-sl enigma2-locale-sr enigma2-locale-sv enigma2-locale-th enigma2-locale-tr enigma2-locale-uk enigma2-locale-vi enigma2-locale-zh-cn enigma2-locale-zh-hk'])
         if pathExists('/usr/share/enigma2/po/ar'):
             self.packagelist.append(['locale-ar', 'enigma2-locale-ar'])
         if pathExists('/usr/share/enigma2/po/bg'):
@@ -198,6 +198,8 @@ class PESpeedUp(Screen, ConfigListScreen):
             self.packagelist.append(['locale-tr', 'enigma2-locale-tr'])
         if pathExists('/usr/share/enigma2/po/uk'):
             self.packagelist.append(['locale-uk', 'enigma2-locale-uk'])
+        if pathExists('/usr/share/enigma2/po/vi'):
+            self.packagelist.append(['locale-vi', 'enigma2-locale-vi'])
         if pathExists('/usr/share/enigma2/po/zh_CN'):
             self.packagelist.append(['locale-zh-cn', 'enigma2-locale-zh-cn'])
         if pathExists('/usr/share/enigma2/po/zh_HK'):
