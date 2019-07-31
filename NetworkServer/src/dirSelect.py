@@ -12,10 +12,10 @@ class dirSelectDlg(Screen):
 		<screen name="dirSelectDlg" position="center,center" size="560,350">
 			<widget name="filelist" position="10,10" size="540,210" scrollbarMode="showOnDemand" />
 			<widget name="ButtonGreentext" position="50,270" size="460,21" halign="left" zPosition="10" font="Regular;21" transparent="1" />
-			<widget name="ButtonGreen" pixmap="skin_default/buttons/button_green.png" position="30,273" zPosition="10" size="15,16" transparent="1" alphatest="on" />
+			<widget name="ButtonGreen" pixmap="buttons/button_green.png" position="30,273" zPosition="10" size="15,16" transparent="1" alphatest="on" />
 			<widget name="ButtonRedtext" position="50,300" size="460,21" halign="left" zPosition="10" font="Regular;21" transparent="1" />
-			<widget name="ButtonRed" pixmap="skin_default/buttons/button_red.png" position="30,303" zPosition="10" size="15,16" transparent="1" alphatest="on" />
-			<ePixmap pixmap="skin_default/bottombar.png" position="10,250" size="540,120" zPosition="1" transparent="1" alphatest="on" />
+			<widget name="ButtonRed" pixmap="buttons/button_red.png" position="30,303" zPosition="10" size="15,16" transparent="1" alphatest="on" />
+			<ePixmap pixmap="bottombar.png" position="10,250" size="540,120" zPosition="1" transparent="1" alphatest="on" />
 		</screen>"""
 
 	def __init__(self, session, currDir):

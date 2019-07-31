@@ -27,7 +27,7 @@ from Components.Element import cached
 from Components.Label import Label
 
 class PurePrestigeSetTimeChanger(Screen):
-    skin = '\n        <screen position="center,center" size="500,300" title="Change Time Menu" >\n            <widget source="key_blue" render="Label" position="180,160" zPosition="1" size="140,40" font="Regular;20" halign="center" valign="center" backgroundColor="#9f1313" transparent="1" />\n            <ePixmap pixmap="skin_default/buttons/blue.png" position="180,160" size="140,40" transparent="1" alphatest="on" />\n            <widget source="introduction" render="Label" position="0,50" size="550,80" zPosition="10" font="Regular;21" halign="center" valign="center" backgroundColor="#25062748" transparent="1" />\n        </screen>'
+    skin = '\n        <screen position="center,center" size="500,300" title="Change Time Menu" >\n            <widget source="key_blue" render="Label" position="180,160" zPosition="1" size="140,40" font="Regular;20" halign="center" valign="center" backgroundColor="#9f1313" transparent="1" />\n            <ePixmap pixmap="buttons/blue.png" position="180,160" size="140,40" transparent="1" alphatest="on" />\n            <widget source="introduction" render="Label" position="0,50" size="550,80" zPosition="10" font="Regular;21" halign="center" valign="center" backgroundColor="#25062748" transparent="1" />\n        </screen>'
 
     def __init__(self, session, args = 0):
         self.skin = PurePrestigeSetTimeChanger.skin

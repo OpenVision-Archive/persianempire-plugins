@@ -31,17 +31,17 @@ class SimpleServiceScanSummary(Screen):
 class SimpleServiceScan(Screen):
 	skin = """
 		<screen name="SimpleServiceScan" position="340,134" size="600,502" title="Simple service scan">
-			<widget source="FrontendInfo" render="Pixmap" pixmap="skin_default/icons/scan-s.png" position="15,15" size="64,64" transparent="1" alphatest="on">
+			<widget source="FrontendInfo" render="Pixmap" pixmap="icons/scan-s.png" position="15,15" size="64,64" transparent="1" alphatest="on">
 				<convert type="FrontendInfo">TYPE</convert>
 				<convert type="ValueRange">0,0</convert>
 				<convert type="ConditionalShowHide" />
 			</widget>
-			<widget source="FrontendInfo" render="Pixmap" pixmap="skin_default/icons/scan-c.png" position="15,15" size="64,64" transparent="1" alphatest="on">
+			<widget source="FrontendInfo" render="Pixmap" pixmap="icons/scan-c.png" position="15,15" size="64,64" transparent="1" alphatest="on">
 				<convert type="FrontendInfo">TYPE</convert>
 				<convert type="ValueRange">1,1</convert>
 				<convert type="ConditionalShowHide" />
 			</widget>
-			<widget source="FrontendInfo" render="Pixmap" pixmap="skin_default/icons/scan-t.png" position="15,15" size="64,64" transparent="1" alphatest="on">
+			<widget source="FrontendInfo" render="Pixmap" pixmap="icons/scan-t.png" position="15,15" size="64,64" transparent="1" alphatest="on">
 				<convert type="FrontendInfo">TYPE</convert>
 				<convert type="ValueRange">2,2</convert>
 				<convert type="ConditionalShowHide" />
@@ -50,7 +50,7 @@ class SimpleServiceScan(Screen):
 			<widget name="transponder" position="100,55" size="430,25" font="Regular;22" />
 			<widget name="scan_state" position="20,105" size="560,25" zPosition="2" font="Regular;22" />
 			<widget name="pass" position="20,105" size="560,25" font="Regular;22" />
-			<widget name="scan_progress" position="20,140" size="560,20" pixmap="skin_default/progress_big.png" borderWidth="1" borderColor="uncccccc" />
+			<widget name="scan_progress" position="20,140" size="560,20" pixmap="progress_big.png" borderWidth="1" borderColor="uncccccc" />
 			<!--widget name="servicelist" position="20,175" size="560,300" scrollbarMode="showOnDemand" /-->
 			<widget name="servicelist" position="20,175" size="560,300" />
 		</screen>"""

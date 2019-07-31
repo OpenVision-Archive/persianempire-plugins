@@ -11,10 +11,10 @@ class Extramenu(Screen):
                 <widget name="list" position="80,50" size="500,350" scrollbarMode="showOnDemand" />
 		<!--eLabel position="70,100" zPosition="-1" size="100,69" backgroundColor="#222222" /-->
 
-	        <ePixmap name="green"    position="80,350"   zPosition="2" size="140,40" pixmap="skin_default/buttons/green.png" transparent="1" alphatest="on" />
-	        <ePixmap name="blue"  position="220,350" zPosition="2" size="140,40" pixmap="skin_default/buttons/blue.png" transparent="1" alphatest="on" />
-	        <ePixmap name="red" position="360,350" zPosition="2" size="140,40" pixmap="skin_default/buttons/red.png" transparent="1" alphatest="on" /> 
-        	<!--ePixmap name="red"   position="430,300" zPosition="2" size="140,40" pixmap="skin_default/buttons/red.png" transparent="1" alphatest="on" /--> 
+	        <ePixmap name="green"    position="80,350"   zPosition="2" size="140,40" pixmap="buttons/green.png" transparent="1" alphatest="on" />
+	        <ePixmap name="blue"  position="220,350" zPosition="2" size="140,40" pixmap="buttons/blue.png" transparent="1" alphatest="on" />
+	        <ePixmap name="red" position="360,350" zPosition="2" size="140,40" pixmap="buttons/red.png" transparent="1" alphatest="on" /> 
+        	<!--ePixmap name="red"   position="430,300" zPosition="2" size="140,40" pixmap="buttons/red.png" transparent="1" alphatest="on" /--> 
 
         	<widget name="key_green" position="80,350" size="140,40" valign="center" halign="center" zPosition="4"  foregroundColor="#ffffff" font="Regular;20" transparent="1" shadowColor="#25062748" shadowOffset="-2,-2" /> 
         	<widget name="key_blue" position="220,350" size="140,40" valign="center" halign="center" zPosition="4"  foregroundColor="#ffffff" font="Regular;20" transparent="1" shadowColor="#25062748" shadowOffset="-2,-2" /> 
@@ -31,10 +31,10 @@ class Menusimple(Screen):
                 <widget name="list" position="75,50" size="500,250" scrollbarMode="showOnDemand" />
 		<!--eLabel position="70,100" zPosition="-1" size="100,69" backgroundColor="#222222" /-->
 
-	        <ePixmap name="red"    position="10,300"   zPosition="2" size="140,40" pixmap="skin_default/buttons/red.png" transparent="1" alphatest="on" />
-	        <ePixmap name="green"  position="150,300" zPosition="2" size="140,40" pixmap="skin_default/buttons/green.png" transparent="1" alphatest="on" />
-	        <ePixmap name="yellow" position="290,300" zPosition="2" size="140,40" pixmap="skin_default/buttons/yellow.png" transparent="1" alphatest="on" /> 
-        	<ePixmap name="blue"   position="430,300" zPosition="2" size="140,40" pixmap="skin_default/buttons/blue.png" transparent="1" alphatest="on" /> 
+	        <ePixmap name="red"    position="10,300"   zPosition="2" size="140,40" pixmap="buttons/red.png" transparent="1" alphatest="on" />
+	        <ePixmap name="green"  position="150,300" zPosition="2" size="140,40" pixmap="buttons/green.png" transparent="1" alphatest="on" />
+	        <ePixmap name="yellow" position="290,300" zPosition="2" size="140,40" pixmap="buttons/yellow.png" transparent="1" alphatest="on" /> 
+        	<ePixmap name="blue"   position="430,300" zPosition="2" size="140,40" pixmap="buttons/blue.png" transparent="1" alphatest="on" /> 
 
         	<widget name="key_red" position="10,300" size="140,40" valign="center" halign="center" zPosition="4"  foregroundColor="#ffffff" font="Regular;20" transparent="1" shadowColor="#25062748" shadowOffset="-2,-2" /> 
         	<widget name="key_green" position="150,300" size="140,40" valign="center" halign="center" zPosition="4"  foregroundColor="#ffffff" font="Regular;20" transparent="1" shadowColor="#25062748" shadowOffset="-2,-2" /> 

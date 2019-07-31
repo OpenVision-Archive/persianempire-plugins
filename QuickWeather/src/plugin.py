@@ -1632,7 +1632,7 @@ class SetupIcons(Screen):
 	<screen position="center,center" size="460,400" title="Change background image" backgroundColor="#31000000" >
 	<widget name="menu" position="10,5" size="440,120" zPosition="1" transparent="0" backgroundColor="#31000000" scrollbarMode="showOnDemand" />
         <widget name="previem" position="22,160" size="420,236" zPosition="3" transparent="1" alphatest="on" />
-        <ePixmap pixmap="skin_default/buttons/key_menu.png" position="16,132" zPosition="1" size="35,25" alphatest="on" />
+        <ePixmap pixmap="buttons/key_menu.png" position="16,132" zPosition="1" size="35,25" alphatest="on" />
         <widget name="menutext" position="51,134" halign="left" size="380,18" zPosition="4" font="Regular;18" foregroundColor="#33bab329" backgroundColor="#00000000" valign="top" transparent="1" />
 	</screen>"""
 	        

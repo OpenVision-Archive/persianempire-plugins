@@ -27,7 +27,7 @@ class SimpleSatScan(ConfigListScreen, Screen):
 		</widget>
 		<!-- SNR -->
 		<eLabel name="snr" text="SNR:" position="120,35" size="60,22" font="Regular;21" halign="right" transparent="1" />
-		<widget source="Frontend" render="Progress" position="190,35" size="260,20" pixmap="skin_default/bar_snr.png" borderWidth="2" borderColor="#cccccc">
+		<widget source="Frontend" render="Progress" position="190,35" size="260,20" pixmap="bar_snr.png" borderWidth="2" borderColor="#cccccc">
 			<convert type="FrontendInfo">SNR</convert>
 		</widget>
 		<widget source="Frontend" render="Label" position="460,35" size="60,22" font="Regular;21">
@@ -35,17 +35,17 @@ class SimpleSatScan(ConfigListScreen, Screen):
 		</widget>
 		<!-- Lock -->
 		<eLabel name="lock" text="LOCK:" position="10,35" size="60,22" font="Regular;21" halign="right" transparent="1" />
-		<widget source="Frontend" render="Pixmap" pixmap="skin_default/icons/lock_on.png" position="80,32" zPosition="1" size="38,31" alphatest="on">
+		<widget source="Frontend" render="Pixmap" pixmap="icons/lock_on.png" position="80,32" zPosition="1" size="38,31" alphatest="on">
 			<convert type="FrontendInfo">LOCK</convert>
 			<convert type="ConditionalShowHide" />
 		</widget>
-		<widget source="Frontend" render="Pixmap" pixmap="skin_default/icons/lock_off.png" position="80,32" zPosition="1" size="38,31" alphatest="on">
+		<widget source="Frontend" render="Pixmap" pixmap="icons/lock_off.png" position="80,32" zPosition="1" size="38,31" alphatest="on">
 			<convert type="FrontendInfo">LOCK</convert>
 			<convert type="ConditionalShowHide">Invert</convert>
 		</widget>
 		<!-- AGC -->
 		<eLabel name="agc" text="AGC:" position="120,60" size="60,22" font="Regular;21" halign="right" transparent="1" />
-		<widget source="Frontend" render="Progress" position="190,60" size="260,20" pixmap="skin_default/bar_snr.png" borderWidth="2" borderColor="#cccccc">
+		<widget source="Frontend" render="Progress" position="190,60" size="260,20" pixmap="bar_snr.png" borderWidth="2" borderColor="#cccccc">
 			<convert type="FrontendInfo">AGC</convert>
 		</widget>
 		<widget source="Frontend" render="Label" position="460,60" size="60,22" font="Regular;21">
@@ -53,7 +53,7 @@ class SimpleSatScan(ConfigListScreen, Screen):
 		</widget>
 		<!-- BER -->
 		<eLabel name="ber" text="BER:" position="120,85" size="60,22" font="Regular;21" halign="right" transparent="1" />
-		<widget source="Frontend" render="Progress" position="190,85" size="260,20" pixmap="skin_default/bar_ber.png" borderWidth="2" borderColor="#cccccc">
+		<widget source="Frontend" render="Progress" position="190,85" size="260,20" pixmap="bar_ber.png" borderWidth="2" borderColor="#cccccc">
 			<convert type="FrontendInfo">BER</convert>
 		</widget>
 		<widget source="Frontend" render="Label" position="460,85" size="60,22" font="Regular;21">

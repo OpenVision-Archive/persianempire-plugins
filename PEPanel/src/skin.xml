@@ -511,10 +511,10 @@ self.instance.move(ePoint((1280-wsizex)/2, (720-wsizey)/(count &gt; 7 and 2 or 3
 		<widget name="lab3" position="20,260" size="200,32" font="Regular;24" valign="center" transparent="1"/>
 		<widget name="labstop" position="260,260" size="150,32" font="Regular;24" valign="center"  halign="center" backgroundColor="red"/>
 		<widget name="labrun" position="240,260" size="150,32" zPosition="1" font="Regular;24" valign="center"  halign="center" backgroundColor="green"/>
-	<ePixmap position="680,60" size="250,40" pixmap="skin_default/buttons/red.png" alphatest="on" zPosition="1" />
-        <ePixmap position="680,120" size="250,40" pixmap="skin_default/buttons/green.png" alphatest="on" zPosition="1" />
-        <ePixmap position="680,180" size="250,40" pixmap="skin_default/buttons/yellow.png" alphatest="on" zPosition="1" />
-        <ePixmap position="680,240" size="250,40" pixmap="skin_default/buttons/blue.png" alphatest="on" zPosition="1" />
+	<ePixmap position="680,60" size="250,40" pixmap="buttons/red.png" alphatest="on" zPosition="1" />
+        <ePixmap position="680,120" size="250,40" pixmap="buttons/green.png" alphatest="on" zPosition="1" />
+        <ePixmap position="680,180" size="250,40" pixmap="buttons/yellow.png" alphatest="on" zPosition="1" />
+        <ePixmap position="680,240" size="250,40" pixmap="buttons/blue.png" alphatest="on" zPosition="1" />
 		<widget name="key_red" position="680,68" zPosition="2" size="250,40" font="Regular;24" halign="center" valign="center" backgroundColor="transpBlack" transparent="1" />
 		<widget name="key_green" position="680,128" zPosition="2" size="250,40" font="Regular;24" halign="center" valign="center" backgroundColor="transpBlack" transparent="1" />
 		<widget name="key_yellow" position="680,188" zPosition="2" size="250,40" font="Regular;24" halign="center" valign="center" backgroundColor="transpBlack" transparent="1" />
@@ -536,10 +536,10 @@ self.instance.move(ePoint((1280-wsizex)/2, (720-wsizey)/(count &gt; 7 and 2 or 3
 	</screen>
         <screen name="PEDVBNTPTime" position="center,center" size="1280,720" title=" " flags="wfNoBorder">
         <widget source="Title" render="Label" position="80,80" size="350,30" zPosition="3" font="Regular;26" transparent="1"/>
-        <ePixmap pixmap="skin_default/buttons/button_red.png"    position="80,450" size="15,16" alphatest="on" />
-        <ePixmap pixmap="skin_default/buttons/button_green.png"  position="80,500" size="15,16" alphatest="on" />
-        <ePixmap pixmap="skin_default/buttons/button_yellow.png" position="80,550" size="15,16" alphatest="on" />
-        <ePixmap pixmap="skin_default/buttons/button_blue.png"   position="80,600" size="15,16" alphatest="on" />
+        <ePixmap pixmap="buttons/button_red.png"    position="80,450" size="15,16" alphatest="on" />
+        <ePixmap pixmap="buttons/button_green.png"  position="80,500" size="15,16" alphatest="on" />
+        <ePixmap pixmap="buttons/button_yellow.png" position="80,550" size="15,16" alphatest="on" />
+        <ePixmap pixmap="buttons/button_blue.png"   position="80,600" size="15,16" alphatest="on" />
         <widget name="key_red"    position="100,446" zPosition="1" size="400,225" font="Regular;22" halign="left" transparent="1" />
         <widget name="key_green"  position="100,496" zPosition="1" size="400,225" font="Regular;22" halign="left" transparent="1" />
         <widget name="key_yellow" position="100,546" zPosition="1" size="400,225" font="Regular;22" halign="left" transparent="1" />
