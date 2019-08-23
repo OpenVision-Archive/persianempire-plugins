@@ -85,7 +85,6 @@ CCcamInfo/po/Makefile
 CCcamInfo/src/Makefile
 
 DeviceInfo/Makefile
-DeviceInfo/converter/Makefile
 DeviceInfo/po/Makefile
 DeviceInfo/src/Makefile
 DeviceInfo/src/images/Makefile
