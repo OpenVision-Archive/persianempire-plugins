@@ -38,12 +38,6 @@ if test "$with_po" = "yes"; then
 fi
 AM_CONDITIONAL(UPDATE_PO, test "$with_po" = "yes")
 
-AC_ARG_WITH(boxtype,
-	[  --with-boxtype=NAME box type [[none,dm800...]]],
-	[BOXTYPE="$withval"],[BOXTYPE="dm800"])
-AC_SUBST(BOXTYPE)
-AC_DEFINE_UNQUOTED(BOXTYPE,"$BOXTYPE",[box type])
-
 AC_ARG_WITH(arch,
 	[  --with-arch=NAME box arch [[none,ah4,mipsel...]]],
 	[ARCH="$withval"],[ARCH="mipsel"])
@@ -53,6 +47,18 @@ AC_DEFINE_UNQUOTED(ARCH,"$ARCH",[box arch])
 AM_CONDITIONAL(SH4, test `echo "$ARCH" | cut -b 1-3` == "sh4")
 AM_CONDITIONAL(MIPSEL, test `echo "$ARCH" | cut -b 1-6` == "mipsel")
 AM_CONDITIONAL(ARM, test `echo "$ARCH" | cut -b 1-3` == "arm")
+
+AC_ARG_WITH(boxtype,
+	[  --with-boxtype=NAME box type [[none,dm800...]]],
+	[BOXTYPE="$withval"],[BOXTYPE="dm800"])
+AC_SUBST(BOXTYPE)
+AC_DEFINE_UNQUOTED(BOXTYPE,"$BOXTYPE",[box type])
+
+AC_ARG_WITH(boxbrand,
+	[  --with-boxbrand=NAME box brand [[none,dreambox...]]],
+	[BOXBRAND="$withval"],[BOXBRAND="dreambox"])
+AC_SUBST(BOXBRAND)
+AC_DEFINE_UNQUOTED(BOXBRAND,"$BOXBRAND",[box brand])
 
 AC_CONFIG_FILES([
 Makefile
