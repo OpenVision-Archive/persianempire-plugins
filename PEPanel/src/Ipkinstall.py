@@ -5,6 +5,7 @@ from Components.Pixmap import Pixmap
 from Components.ActionMap import ActionMap
 import os
 import gettext
+from Components.Console import Console
 
 def _(txt):
     t = gettext.dgettext('PEPanel', txt)
@@ -89,7 +90,7 @@ class Getipk(Screen):
 
     def openTest(self):
         cmd = 'opkg install --force-reinstall --force-overwrite ' + self.ipk + ' > /tmp/ipk.log'
-        os.system(cmd)
+        Console().ePopen(cmd)
         self.viewLog()
 
     def keyLeft(self):
@@ -129,7 +130,7 @@ class Getipk(Screen):
         ipkname = self.ipk
         if ipkname != 0:
             cmd = 'rm -rf /tmp/' + ipkname
-            os.system(cmd)
+            Console().ePopen(cmd)
 
     def okClicked(self):
         self.close()

@@ -10,6 +10,7 @@ import os
 import re
 import string
 from __init__ import _
+from Components.Console import Console
 
 class Swap(ConfigListScreen, Screen):
 
@@ -76,12 +77,12 @@ class Swap(ConfigListScreen, Screen):
         self.save()
         swaps = self.getActivedSwaps()
         for swap in swaps:
-            os.system('/sbin/swapoff %s' % swap[0])
+            Console().ePopen('/sbin/swapoff %s' % swap[0])
 
         if self.enable:
-            os.system('/bin/dd if=/dev/zero of=%s bs=1024 count=%s' % (os.path.join(self.place, self.filename), self.size))
-            os.system('/sbin/mkswap %s' % os.path.join(self.place, self.filename))
-            os.system('/sbin/swapon %s' % os.path.join(self.place, self.filename))
+            Console().ePopen('/bin/dd if=/dev/zero of=%s bs=1024 count=%s' % (os.path.join(self.place, self.filename), self.size))
+            Console().ePopen('/sbin/mkswap %s' % os.path.join(self.place, self.filename))
+            Console().ePopen('/sbin/swapon %s' % os.path.join(self.place, self.filename))
         self.close()
 
     def cancel(self):

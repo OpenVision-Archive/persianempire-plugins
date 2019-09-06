@@ -1,6 +1,8 @@
+from Components.Console import Console
+from Tools.Directories import fileExists
+import os
+
 def TELNETDStatus():
-	import os
-	from Tools.Directories import fileExists
 	ret = False
 	try:
 		if fileExists('/etc/inetd.conf') and fileExists('/usr/sbin/telnetd'):
@@ -16,9 +18,6 @@ def TELNETDStatus():
 	return ret
 
 def TELNETDStop():
-	import os
-	from Tools.Directories import fileExists
-
 	if fileExists('/etc/inetd.conf'):
 		inme = open('/etc/inetd.conf', 'r')
 		out = open('/etc/inetd.tmp', 'w')
@@ -29,13 +28,11 @@ def TELNETDStop():
 		out.close()
 		inme.close()
 	if fileExists('/etc/inetd.tmp'): 
-		os.system('mv -f  /etc/inetd.tmp /etc/inetd.conf')
-		rc = os.system('killall -HUP inetd')
-		rc = os.system('ps')
+		Console().ePopen('mv -f  /etc/inetd.tmp /etc/inetd.conf')
+		rc = Console().ePopen('killall -HUP inetd')
+		rc = Console().ePopen('ps')
 
 def TELNETDStart():
-	import os
-	from Tools.Directories import fileExists
 	inme = open('/etc/inetd.conf', 'r')
 	out = open('/etc/inetd.tmp', 'w')
 	for line in inme.readlines():
@@ -45,13 +42,11 @@ def TELNETDStart():
 	out.close()
 	inme.close()
 	if fileExists('/etc/inetd.tmp'):
-		os.system('mv -f  /etc/inetd.tmp /etc/inetd.conf')
-		rc = os.system('killall -HUP inetd')
-		rc = os.system('ps')
+		Console().ePopen('mv -f  /etc/inetd.tmp /etc/inetd.conf')
+		rc = Console().ePopen('killall -HUP inetd')
+		rc = Console().ePopen('ps')
 
 def TELNETDBoot(enabled):
-	import os
-	from Tools.Directories import fileExists
 	if enabled:
 		from Tools.Directories import fileExists
 		inme = open('/etc/inetd.conf', 'r')
@@ -63,9 +58,9 @@ def TELNETDBoot(enabled):
 		out.close()
 		inme.close()
 		if fileExists('/etc/inetd.tmp'):
-			os.system('mv -f  /etc/inetd.tmp /etc/inetd.conf')
-			rc = os.system('killall -HUP inetd')
-			rc = os.system('ps')
+			Console().ePopen('mv -f  /etc/inetd.tmp /etc/inetd.conf')
+			rc = Console().ePopen('killall -HUP inetd')
+			rc = Console().ePopen('ps')
 	else:
 		if fileExists('/etc/inetd.conf'):
 			inme = open('/etc/inetd.conf', 'r')
@@ -77,12 +72,11 @@ def TELNETDBoot(enabled):
 			out.close()
 			inme.close()
 		if fileExists('/etc/inetd.tmp'):
-			os.system('mv -f  /etc/inetd.tmp /etc/inetd.conf')
-			rc = os.system('killall -HUP inetd')
-			rc = os.system('ps')
+			Console().ePopen('mv -f  /etc/inetd.tmp /etc/inetd.conf')
+			rc = Console().ePopen('killall -HUP inetd')
+			rc = Console().ePopen('ps')
 
 def TELNETDInstalled():
-	from Tools.Directories import fileExists
 	return fileExists("/usr/sbin/telnetd")
 
 daemon_name = "Telnetd"

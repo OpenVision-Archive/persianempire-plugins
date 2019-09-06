@@ -26,6 +26,7 @@ import setloader
 import SetBackupRestore
 import PPrestigesatEditor.satedithd
 import PPrestigesatEditor.sateditsd
+from Components.Console import Console
 
 def getScale():
     return AVSwitch().getFramebufferScale()
@@ -296,4 +297,4 @@ class showPurePrestigetoolsscreen(Screen):
         self.close(self.index + self.dirlistcount)
 
     def restartenigma(self):
-        os.system('killall -9 enigma2')
+        Console().ePopen('killall -9 enigma2')

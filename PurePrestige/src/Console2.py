@@ -7,6 +7,7 @@ from Tools.Directories import copyfile
 from enigma import getDesktop
 import os
 from Screens.Standby import TryQuitMainloop
+from Components.Console import Console
 
 class PurePrestigeConsole2(Screen):
     global HD_Res
@@ -46,7 +47,7 @@ class PurePrestigeConsole2(Screen):
         self.onLayoutFinish.append(self.startRun)
 
     def restartenigmold(self):
-        os.system('killall -9 enigma2')
+        Console().ePopen('killall -9 enigma2')
 
     def updateTitle(self):
         self.setTitle(self.newtitle)

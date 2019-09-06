@@ -29,6 +29,7 @@ import urllib2
 from Plugins.Extensions.PurePrestige.soupparse import *
 from Components.ConfigList import ConfigList, ConfigListScreen
 from Components.config import config, ConfigDirectory, ConfigSubsection, ConfigSubList, ConfigEnableDisable, ConfigNumber, ConfigText, ConfigSelection, ConfigYesNo, ConfigPassword, getConfigListEntry, configfile
+from Components.Console import Console
 
 def wfile(st):
     fp = open('/tmp/lf.txt', 'a')
@@ -913,7 +914,7 @@ class PurePrestigePackageFeedssearch(Screen):
             file.close()
             print 'done'
             self['info'].setText('')
-            os.system('gunzip -c /tmp/package.gz > /tmp/package')
+            Console().ePopen('gunzip -c /tmp/package.gz > /tmp/package')
             fp = open('/tmp/package', 'r')
             mdata = fp.read()
             fp.close()
@@ -1350,7 +1351,7 @@ class PurePrestigePackageFeeds(Screen):
             file.close()
             print 'done'
             self['info'].setText('')
-            os.system('gunzip -c /tmp/package.gz > /tmp/package')
+            Console().ePopen('gunzip -c /tmp/package.gz > /tmp/package')
             fp = open('/tmp/package', 'r')
             mdata = fp.read()
             fp.close()

@@ -11,6 +11,7 @@ from thread import start_new_thread
 import os
 from ctypes import *
 from helper import blockingCallFromMainThread
+from Components.Console import Console
 
 class AirPlayMusicPlayer(Screen):
 
@@ -189,8 +190,8 @@ class AirPlayMusicPlayer(Screen):
             self.backend.updateEventInfo('stopped')
         else:
             print '[AirPlayMusicPlayer] lastService is None, not sending stop command'
-        os.system('killall -9 hairtunes')
-        os.system('killall -9 atproxy')
+        Console().ePopen('killall -9 hairtunes')
+        Console().ePopen('killall -9 atproxy')
         try:
             config.av.downmix_ac3.value = self.backend.downmix_ac3
             config.av.downmix_ac3.save()

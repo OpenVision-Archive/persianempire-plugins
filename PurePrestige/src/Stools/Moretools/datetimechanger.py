@@ -11,9 +11,6 @@ from Components.Input import Input
 from Screens.Console import Console
 import os
 from Components.Sources.StaticText import StaticText
-from Screens.MessageBox import MessageBox
-from Screens.Console import Console
-from Screens.Screen import Screen
 from Screens.VirtualKeyBoard import VirtualKeyBoard
 from Tools import Notifications
 from os import popen
@@ -25,6 +22,7 @@ import datetime
 from Components.ConfigList import ConfigListScreen
 from Components.Element import cached
 from Components.Label import Label
+from Components.Console import Console
 
 class PurePrestigeSetTimeChanger(Screen):
     skin = '\n        <screen position="center,center" size="500,300" title="Change Time Menu" >\n            <widget source="key_blue" render="Label" position="180,160" zPosition="1" size="140,40" font="Regular;20" halign="center" valign="center" backgroundColor="#9f1313" transparent="1" />\n            <ePixmap pixmap="buttons/blue.png" position="180,160" size="140,40" transparent="1" alphatest="on" />\n            <widget source="introduction" render="Label" position="0,50" size="550,80" zPosition="10" font="Regular;21" halign="center" valign="center" backgroundColor="#25062748" transparent="1" />\n        </screen>'
@@ -119,7 +117,7 @@ class ChangeTimeWizzard(Screen):
         if answer is False:
             self.skipChangeTime('you were not confirming')
         else:
-            os.system('date -s ' + self.newtime)
+            Console().ePopen('date -s %s' % self.newtime)
             quitMainloop(3)
         return
 

@@ -1,6 +1,7 @@
 from BoxInfo import BoxInfo
 import os
 import re
+from Components.Console import Console
 
 class Disks:
 
@@ -93,7 +94,7 @@ class Disks:
             res = mount.split(' ')
             if res and len(res) > 1:
                 if res[0][:8] == '/dev/%s' % device:
-                    if os.system('umount %s' % res[0]) != 0:
+                    if Console().ePopen('umount %s' % res[0]) != 0:
                         mounts.close()
                         return False
 
@@ -101,17 +102,17 @@ class Disks:
         return True
 
     def umountP(self, device, partition):
-        if os.system('umount /dev/%s%d' % (device, partition)) != 0:
+        if Console().ePopen('umount /dev/%s%s' % (device, partition)) != 0:
             return False
         return True
 
     def mountP(self, device, partition, path):
-        if os.system('mount /dev/%s%d %s' % (device, partition, path)) != 0:
+        if Console().ePopen('mount /dev/%s%s %s' % (device, partition, path)) != 0:
             return False
         return True
 
     def mount(self, fdevice, path):
-        if os.system('mount /dev/%s %s' % (fdevice, path)) != 0:
+        if Console().ePopen('mount /dev/%s %s' % (fdevice, path)) != 0:
             return False
         return True
 
@@ -151,7 +152,7 @@ class Disks:
             oldmp = ''
         if self.isMountedP(device, partition):
             return -1
-        ret = os.system('/sbin/fsck /dev/%s' % fdevice)
+        ret = Console().ePopen('/sbin/fsck /dev/%s' % fdevice)
         if len(oldmp) > 0:
             self.mount(fdevice, oldmp)
         if ret == 0:
@@ -181,7 +182,7 @@ class Disks:
         if size > 4294967296L:
             cmd += '-T largefile '
         cmd += '-m0 /dev/' + dev
-        ret = os.system(cmd)
+        ret = Console().ePopen(cmd)
         if len(oldmp) > 0:
             self.mount(dev, oldmp)
         if ret == 0:

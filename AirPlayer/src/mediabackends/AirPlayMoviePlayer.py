@@ -17,6 +17,7 @@ import os
 import subprocess
 from helper import blockingCallFromMainThread
 import traceback
+from Components.Console import Console
 
 PROXY_BINARY = '/usr/lib/enigma2/python/Plugins/Extensions/AirPlayer/proxy'
 
@@ -442,7 +443,7 @@ class AirPlayMoviePlayer(MoviePlayer):
                 time.sleep(2)
             try:
                 print '[AirPlayMoviePlayer] try to remove proxy cache'
-                os.system('rm %s/AirPlayerChunk* &' % config.plugins.airplayer.path.value)
+                Console().ePopen('rm %s/AirPlayerChunk* &' % config.plugins.airplayer.path.value)
             except Exception:
                 pass
 

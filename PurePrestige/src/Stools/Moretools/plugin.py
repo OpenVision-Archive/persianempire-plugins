@@ -23,6 +23,7 @@ import Plugins.Extensions.PurePrestige.plugin
 import Plugins.Extensions.PurePrestige.Stools.plugin
 import Cronmanager.plugin
 from Plugins.Extensions.PurePrestige.Stools.passresetter import *
+from Components.Console import Console
 
 def getScale():
     return AVSwitch().getFramebufferScale()
@@ -282,4 +283,4 @@ class showPurePrestigemoretoolsscreen(Screen):
         self.close(self.index + self.dirlistcount)
 
     def restartenigma(self):
-        os.system('killall -9 enigma2')
+        Console().ePopen('killall -9 enigma2')

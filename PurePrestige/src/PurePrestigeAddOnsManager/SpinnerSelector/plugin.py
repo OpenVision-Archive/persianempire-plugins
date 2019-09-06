@@ -7,6 +7,7 @@ from Components.Sources.StaticText import StaticText
 from SpinnerSelectionBox import SpinnerSelectionBox
 import os
 from enigma import eTimer
+from Components.Console import Console
 
 def deletefiles(dr):
     for i in range(64):
@@ -32,7 +33,7 @@ class downloadScreen(Screen):
     def downloadspinner(self):
         path = '/usr/share/enigma2/skin_default/spinner'
         deletefiles(path)
-        os.system('opkg install -force-overwrite ' + self.url)
+        Console().ePopen('opkg install -force-overwrite %s' % self.url)
         dirs = []
         self.p = ''
         try:

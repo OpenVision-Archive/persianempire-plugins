@@ -5,6 +5,8 @@ from Screens.Standby import TryQuitMainloop
 from Components.config import config
 import os
 import gettext
+from Components.Console import Console
+
 try:
     cat = gettext.translation('lang', '/usr/lib/enigma2/python/Plugins/Extensions/PurePrestige/PurePrestigeAddOnsManager/SpinnerSelector/po', [config.osd.language.getText()])
     _ = cat.gettext

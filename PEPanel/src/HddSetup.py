@@ -15,6 +15,7 @@ from Extra.MountPoints import MountPoints
 import os
 import sys
 from __init__ import _
+from Components.Console import Console
 
 def DiskEntry(model, size, removable):
     res = [(model, size, removable)]
@@ -75,9 +76,9 @@ class HddSetup(Screen):
             mp.add(self.mdisks.disks[self.sindex][0], 1, '/hdd')
             mp.write()
             mp.mount(self.mdisks.disks[self.sindex][0], 1, '/hdd')
-            os.system('/bin/mkdir /hdd/movie')
-            os.system('/bin/mkdir /hdd/music')
-            os.system('/bin/mkdir /hdd/picture')
+            Console().ePopen('mkdir /hdd/movie')
+            Console().ePopen('mkdir /hdd/music')
+            Console().ePopen('mkdir /hdd/picture')
 
     def format(self, result):
         if result != 0:

@@ -18,6 +18,7 @@ from Screens.MessageBox import MessageBox
 from Components.Label import Label
 from enigma import getImageVersionString
 from Tools import Notifications
+from Components.Console import Console
 
 currentVersion = getImageVersionString()
 
@@ -144,7 +145,7 @@ class AP_ConfigScreen(Screen, ConfigListScreen):
 
 
 def stopWebserver(session):
-    os.system('killall -9 zeroconfig &')
+    Console().ePopen('killall -9 zeroconfig &')
     print '[AirPlayer] service stopped'
 
 
@@ -168,7 +169,7 @@ def startWebserver(session):
     aitrunes_ph.start()
     print '[AirPlayer] starting webserver done'
     print '[AirPlayer] starting zeroconf'
-    os.system('killall -9 zeroconfig')
+    Console().ePopen('killall -9 zeroconfig')
     os.system('/usr/lib/enigma2/python/Plugins/Extensions/AirPlayer/zeroconfig "' + config.plugins.airplayer.name.value + '" ' + config.plugins.airplayer.interface.value + ' &')
     print '[AirPlayer] starting zeroconf done'
 

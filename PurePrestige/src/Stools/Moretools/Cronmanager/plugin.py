@@ -15,6 +15,7 @@ from Components.GUIComponent import *
 from Components.MenuList import MenuList
 from Components.Input import Input
 from Screens.Console import Console
+from Components.Console import Console
 from Plugins.Plugin import PluginDescriptor
 import os
 from time import *
@@ -212,12 +213,12 @@ class PurePrestigecronsscreen(Screen):
 
     def startcron(self):
         cmd = '%s start' % cronmanager_script
-        os.system(cmd)
+        Console().ePopen(cmd)
         self.getcroninfo()
 
     def stopcron(self):
         cmd = '%s stop' % cronmanager_script
-        os.system(cmd)
+        Console().ePopen(cmd)
         self.getcroninfo()
 
     def readstatus(self):
@@ -238,7 +239,7 @@ class PurePrestigecronsscreen(Screen):
 
     def getcroninfo(self):
         cmd = '%s info >/etc/cron/cronstatus.txt' % cronmanager_script
-        os.system(cmd)
+        Console().ePopen(cmd)
         self.readstatus()
 
     def addcron(self):
@@ -314,9 +315,9 @@ class AddCommandadvanced(Screen):
 
     def restartcron(self):
         cmd = '%s stop' % cronmanager_script
-        os.system(cmd)
+        Console().ePopen(cmd)
         cmd = '%s start' % cronmanager_script
-        os.system(cmd)
+        Console().ePopen(cmd)
 
     def askForCommand(self):
         now = datetime.datetime.now()
@@ -357,7 +358,7 @@ class AddCommandadvanced(Screen):
             self.restartcron()
             self.session.open(MessageBox, _('Cron added successfully'), MessageBox.TYPE_WARNING, 3)
             return
-            os.system(cmd)
+            Console().ePopen(cmd)
             actionpath = '/tmp/action.txt'
             if os.path.getsize(actionpath) < 200:
                 self.session.open(MessageBox, _('adding cron failed'), MessageBox.TYPE_WARNING, 3)
@@ -379,9 +380,9 @@ class AddCommandWizzard(Screen):
 
     def restartcron(self):
         cmd = '%s stop' % cronmanager_script
-        os.system(cmd)
+        Console().ePopen(cmd)
         cmd = '%s start' % cronmanager_script
-        os.system(cmd)
+        Console().ePopen(cmd)
 
     def askForCommand(self):
         now = datetime.datetime.now()
@@ -408,7 +409,7 @@ class AddCommandWizzard(Screen):
         else:
             title = _('adding script %s to crontab with time') % self.targetname
             cmd = '%s add %s >/tmp/action.txt' % (cronmanager_script, self.targetname)
-            os.system(cmd)
+            Console().ePopen(cmd)
             self.restartcron()
             actionpath = '/tmp/action.txt'
             if os.path.getsize(actionpath) < 200:
@@ -431,9 +432,9 @@ class LaterCommandWizzard(Screen):
 
     def restartcron(self):
         cmd = '%s stop' % cronmanager_script
-        os.system(cmd)
+        Console().ePopen(cmd)
         cmd = '%s start' % cronmanager_script
-        os.system(cmd)
+        Console().ePopen(cmd)
 
     def askForLaterCommand(self):
         self.session.openWithCallback(self.processingLaterCommand, InputBox, title=_('Enter time to execute script ' + self.scripttitle), text='60', maxSize=False, type=Input.TEXT)
@@ -454,7 +455,7 @@ class LaterCommandWizzard(Screen):
         else:
             title = _('adding script %s to crontab after time') % self.targetname
             cmd = '%s delay %s >/tmp/action.txt' % (cronmanager_script, self.targetname)
-            os.system(cmd)
+            Console().ePopen(cmd)
             self.restartcron()
             actionpath = '/tmp/action.txt'
             if os.path.getsize(actionpath) < 200:
@@ -492,7 +493,7 @@ class RestartWizzard(Screen):
         else:
             title = _('executing command on Dreambox')
             cmd = '%s %s' % (cronmanager_script, self.source)
-            os.system([cmd])
+            Console().ePopen([cmd])
         return
 
     def skipRestart(self, reason):
@@ -584,7 +585,7 @@ class ChangeTimeWizzard(Screen):
         if answer is False:
             self.skipChangeTime(_('you were not confirming'))
         else:
-            os.system('date %s' % self.newtime)
+            Console().ePopen('date %s' % self.newtime)
             quitMainloop(3)
         return
 

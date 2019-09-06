@@ -13,6 +13,7 @@ from Tools.Directories import resolveFilename, SCOPE_PLUGINS, SCOPE_LANGUAGE
 from os import environ
 import os
 import gettext
+from Components.Console import Console
 
 lang = language.getLanguage()
 environ["LANGUAGE"] = lang[:2]
@@ -94,10 +95,10 @@ class PackageManagerScreen(Screen):
 		self.close()
 		
 	def restartGUI(self):
-		os.system("killall -9 enigma2")
+		Console().ePopen("killall -9 enigma2")
 		
 	def reboot(self):
-		os.system("reboot")		
+		Console().ePopen("reboot -f")		
 	
 	def OK(self):
 		item = self["menu"].getCurrent()[1]
@@ -114,7 +115,7 @@ class PackageManagerScreen(Screen):
 		elif item is "four":
 			self.session.openWithCallback(self.mList,RemoveIPK)
 		elif item is "five":
-			os.system("rm -rf /tmp/*.ipk /tmp/*.gz /tmp/*.tgz /tmp/*.zip /tmp/*.rar /media/usb/*.ipk /media/usb/*.gz /media/usb/*.tgz /media/usb/*.zip /media/usb/*.rar /media/hdd/*.ipk /media/hdd/*.gz /media/hdd/*.tgz /media/hdd/*.zip /media/hdd/*.rar /media/cf/*.ipk /media/cf/*.gz /media/cf/*.tgz /media/cf/*.zip /media/cf/*.rar")
+			Console().ePopen("rm -rf /tmp/*.ipk /tmp/*.gz /tmp/*.tgz /tmp/*.zip /tmp/*.rar /media/usb/*.ipk /media/usb/*.gz /media/usb/*.tgz /media/usb/*.zip /media/usb/*.rar /media/hdd/*.ipk /media/hdd/*.gz /media/hdd/*.tgz /media/hdd/*.zip /media/hdd/*.rar /media/cf/*.ipk /media/cf/*.gz /media/cf/*.tgz /media/cf/*.zip /media/cf/*.rar")
 			self.mbox = self.session.open(MessageBox,_("All ipk , tar.gz , bh.tgz , nab.tgz , zip , rar Files Removed From /tmp /media/usb /media/hdd /media/cf"), MessageBox.TYPE_INFO, timeout = 3 )
 		elif item is "six":
 			self.session.openWithCallback(self.mList,downfeed)
@@ -572,13 +573,13 @@ class RemoveIPK(Screen):
 	def Remove(self):
 		item = self["menu"].getCurrent()
 		name = item[0]
-		os.system("opkg remove %s" % item[0])
+		Console().ePopen("opkg remove %s" % item[0])
 		self.mbox = self.session.open(MessageBox, _("%s UnInstalled" % item[0]), MessageBox.TYPE_INFO, timeout = 3 )
 		self.nList()
 
 	def ARemove(self):
 		item = self["menu"].getCurrent()
-		os.system("opkg remove --force-depends %s" % item[0])
+		Console().ePopen("opkg remove --force-depends %s" % item[0])
 		self.mbox = self.session.open(MessageBox,_("%s UnInstalled" % item[0]), MessageBox.TYPE_INFO, timeout = 3 )
 		self.nList()
 
@@ -622,7 +623,7 @@ class downfeed(Screen):
 		
 	def nList(self):
 		self.list = []
-		os.system("opkg update")
+		Console().ePopen("opkg update")
 		try:
 			ipklist = os.popen("opkg list")
 		except:
@@ -644,7 +645,7 @@ class downfeed(Screen):
 	def setup(self):
 		item = self["menu"].getCurrent()
 		name = item[0]
-		os.system("opkg install %s" % name)
+		Console().ePopen("opkg install %s" % name)
 		msg  = _("%s Installed" % name)
 		self.mbox = self.session.open(MessageBox, msg, MessageBox.TYPE_INFO, timeout = 3 )
 

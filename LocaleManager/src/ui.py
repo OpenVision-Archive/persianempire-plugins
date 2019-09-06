@@ -8,6 +8,7 @@ from Components.Language import language
 from Tools.Directories import resolveFilename, pathExists, SCOPE_LANGUAGE, SCOPE_PLUGINS
 import os
 from Screens.LocationBox import LocationBox
+from Components.Console import Console
 
 VERSION = 1.04
 
@@ -155,7 +156,7 @@ class LocaleManager(Screen, ConfigListScreen):
 		self["statusbar"].setText(_("Moved"))
 
 	def osSystem(self, cmd):
-		os.system(cmd)
+		Console().ePopen(cmd)
 
 	def selectTarget(self):
 		if cfg.enigma.value is not "move":

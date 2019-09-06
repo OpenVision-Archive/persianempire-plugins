@@ -1,9 +1,11 @@
 from enigma import *
 from Components.ConfigList import *
 from Screens.Screen import Screen
+from Components.Console import Console
+from Tools.Directories import fileExists
+import os
 
 def SambaStatus():
-	import os
 	ret = False
 	pids = os.popen("ps | grep smbd | grep -v grep | wc -l")
 	try:
@@ -17,23 +19,19 @@ def SambaStatus():
 	return ret
 
 def SambaStop():
-	import os
-	os.system("killall -9 smbd")
-	os.system("rm -rf /var/log/log.smbd")
-	os.system("killall -9 nmbd")
-	os.system("rm -rf /var/log/log.nmbd")
+	Console().ePopen("killall -9 smbd")
+	Console().ePopen("rm -rf /var/log/log.smbd")
+	Console().ePopen("killall -9 nmbd")
+	Console().ePopen("rm -rf /var/log/log.nmbd")
 
 def SambaStart():
-	import os
-	os.system("/usr/sbin/nmbd -D")
-	os.system("/usr/sbin/smbd -D")
+	Console().ePopen("/usr/sbin/nmbd -D")
+	Console().ePopen("/usr/sbin/smbd -D")
 
 def SambaInstalled():
-	from Tools.Directories import fileExists
 	return fileExists("/usr/sbin/smbd")
 
 def SambaBoot(enabled):
-	import os
 	if enabled:
 		f = open("/etc/network/if-up.d/01samba-start", "w")
 		f.write("#!/bin/sh\n");
@@ -47,11 +45,11 @@ def SambaBoot(enabled):
 		f.write("killall -9 nmbd\n");
 		f.write("rm -rf /var/log/log.nmbd\n");
 		f.close()
-		os.system("chmod +x /etc/network/if-up.d/01samba-start")
-		os.system("chmod +x /etc/network/if-down.d/01samba-kill")
+		Console().ePopen("chmod +x /etc/network/if-up.d/01samba-start")
+		Console().ePopen("chmod +x /etc/network/if-down.d/01samba-kill")
 	else:
-		os.system("rm -f /etc/network/if-up.d/01samba-start")
-		os.system("rm -f /etc/network/if-down.d/01samba-kill")
+		Console().ePopen("rm -f /etc/network/if-up.d/01samba-start")
+		Console().ePopen("rm -f /etc/network/if-down.d/01samba-kill")
 
 daemon_name = "Samba"
 daemon_description = "Share files with MS Windows"

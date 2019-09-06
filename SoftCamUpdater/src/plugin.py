@@ -10,6 +10,7 @@ from Screens.PluginBrowser import PluginBrowser
 from Screens.MessageBox import MessageBox
 from Components.Sources.StaticText import StaticText
 import os
+from Components.Console import Console
 
 adress = "http://www.satsharing.net/files/SoftCam.Key"
 bissaddress = "https://openvision.tech/persianpalace/Persian.BISS"
@@ -100,16 +101,16 @@ class SoftCamUpdater(ConfigListScreen, Screen):
 		
 	def downkey(self):
 		try:
-			os.system("wget -P /tmp %s" % ( bissaddress))
-			os.system("wget -P /tmp %s" % ( adress))
-			os.system("cat /tmp/%s /tmp/SoftCam.Key > /tmp/keyfile.tmp" % (ownbiss))
-			os.system("rm -rf /tmp/SoftCam.Key")
+			Console().ePopen("wget -P /tmp %s" % bissaddress)
+			Console().ePopen("wget -P /tmp %s" % adress)
+			Console().ePopen("cat /tmp/%s /tmp/SoftCam.Key > /tmp/keyfile.tmp" % ownbiss)
+			Console().ePopen("rm -rf /tmp/SoftCam.Key")
 			if fileExists("%s%s" % (config.plugins.SoftCamUpdater.path.value, config.plugins.SoftCamUpdater.keyname.value)):
-				os.system("cp -f %s%s %s%s.old" % (config.plugins.SoftCamUpdater.path.value, config.plugins.SoftCamUpdater.keyname.value, config.plugins.SoftCamUpdater.path.value, config.plugins.SoftCamUpdater.keyname.value[:-4]))
-				os.system("rm -rf %s%s" % (config.plugins.SoftCamUpdater.path.value, config.plugins.SoftCamUpdater.keyname.value))
-			os.system("cp -f /tmp/keyfile.tmp %s%s" % (config.plugins.SoftCamUpdater.path.value, config.plugins.SoftCamUpdater.keyname.value))
-			os.system("rm -rf /tmp/keyfile.tmp")
-			os.system("rm -rf /tmp/%s" % (ownbiss))
+				Console().ePopen("cp -f %s%s %s%s.old" % (config.plugins.SoftCamUpdater.path.value, config.plugins.SoftCamUpdater.keyname.value, config.plugins.SoftCamUpdater.path.value, config.plugins.SoftCamUpdater.keyname.value[:-4]))
+				Console().ePopen("rm -rf %s%s" % (config.plugins.SoftCamUpdater.path.value, config.plugins.SoftCamUpdater.keyname.value))
+			Console().ePopen("cp -f /tmp/keyfile.tmp %s%s" % (config.plugins.SoftCamUpdater.path.value, config.plugins.SoftCamUpdater.keyname.value))
+			Console().ePopen("rm -rf /tmp/keyfile.tmp")
+			Console().ePopen("rm -rf /tmp/%s" % ownbiss)
 			self.mbox = self.session.open(MessageBox,(_("Downloaded successfull!")), MessageBox.TYPE_INFO, timeout = 3 )
 		except:
 			self.mbox = self.session.open(MessageBox,(_("Download failed!")), MessageBox.TYPE_INFO, timeout = 3 )

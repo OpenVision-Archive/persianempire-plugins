@@ -10,6 +10,7 @@ import os
 import sys
 import re
 from __init__ import _
+from Components.Console import Console
 
 class HddInfo(ConfigListScreen, Screen):
 
@@ -53,7 +54,7 @@ class HddInfo(ConfigListScreen, Screen):
         readDiskRe = re.compile('Timing buffered disk reads:\\s*(.*)')
         readCacheRe = re.compile('Timing buffer-cache reads:\\s*(.*)')
         tempRe = re.compile('%s:.*:(.*)' % device)
-        os.system('/sbin/hdparm -S 0 %s' % device)
+        Console().ePopen('/sbin/hdparm -S 0 %s' % device)
         hdparm = os.popen('/sbin/hdparm -I %s' % device)
         for line in hdparm:
             model = re.findall(modelRe, line)

@@ -17,6 +17,7 @@ from Screens.About import About
 import os
 import sys
 from Plugins.Extensions.PurePrestige.Console2 import *
+from Components.Console import Console
 
 def gethostname():
     path = '/etc/hostname'
@@ -25,19 +26,7 @@ def gethostname():
         f = open(path, 'r')
         hostname = f.read()
         f.close()
-        if 'dm800se' in hostname:
-            return 'dm800se'
-        if 'dm8000' in hostname:
-            return 'dm8000'
-        if 'dm800' in hostname:
-            return 'dm800'
-        if 'dm500' in hostname:
-            return 'dm500hd'
-        if 'dm7020' in hostname:
-            return 'dm7020hd'
-        return 'None'
     return 'None'
-
 
 hostname = gethostname()
 
@@ -388,4 +377,4 @@ class showPurePrestigeappscreen(Screen):
         self.close(self.index + self.dirlistcount)
 
     def restartenigma(self):
-        os.system('killall -9 enigma2')
+        Console().ePopen('killall -9 enigma2')

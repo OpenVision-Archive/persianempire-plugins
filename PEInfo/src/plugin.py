@@ -40,6 +40,7 @@ from Components.PluginComponent import plugins
 from Tools.Transponder import ConvertToHumanReadable
 from Components.Network import iNetwork
 import urllib2
+from Components.Console import Console
 
 lang = language.getLanguage()
 environ['LANGUAGE'] = lang[:2]
@@ -322,7 +323,7 @@ def normalizatam(cualo):
 
 def cargaosinfo(orden, nulo = False):
     ret = ''
-    os.system(orden + ' >/tmp/tempinfo')
+    Console().ePopen('%s >/tmp/tempinfo' % orden)
     booklist = None
     if fileExists('/tmp/tempinfo'):
         try:
@@ -335,7 +336,7 @@ def cargaosinfo(orden, nulo = False):
                 ret = ret + oneline
 
             booklist.close()
-        os.system('rm /tmp/tempinfo')
+        Console().ePopen('rm -f /tmp/tempinfo')
     if len(ret) <= 1:
         if nulo == True:
             ret = ''
@@ -527,9 +528,9 @@ class PEInfoTexto(Screen):
             rutacras1 = '/media/hdd/*.log'
             rutacras2 = '/media/usb/*.log'
             rutacras3 = '/media/cf/*.log'
-            os.system('rm -rf ' + rutacras1)
-            os.system('rm -rf ' + rutacras2)
-            os.system('rm -rf ' + rutacras3)
+            Console().ePopen('rm -rf %s' % rutacras1)
+            Console().ePopen('rm -rf %s' % rutacras2)
+            Console().ePopen('rm -rf %s' % rutacras3)
             cmens = _('These CrashLogs') + ' :\n' + rutacras1 + '\n' + rutacras2 + '\n' + rutacras3 + '\n' + _('Have Been Deleted !')
             dei = self.session.open(MessageBox, cmens, MessageBox.TYPE_INFO)
             dei.setTitle(_('Delete CrashLogs'))
@@ -828,7 +829,7 @@ class PEInfoTexto(Screen):
                 orden = 'dmesg'
             else:
                 orden = 'ps'
-            os.system(orden + ' >/tmp/tempinfo1')
+            Console().ePopen('%s >/tmp/tempinfo1' % orden)
             booklist = None
             booklist = open('/tmp/tempinfo1', 'r')
             temparray = []
@@ -837,7 +838,7 @@ class PEInfoTexto(Screen):
                     temparray.append(oneline)
 
                 booklist.close()
-            os.system('rm /tmp/tempinfo1')
+            Console().ePopen('rm -f /tmp/tempinfo1')
             for i in range(0, len(temparray)):
                 if i > 0:
                     templista.append(IniciaSelListEntryLista(texto1=temparray[i]))
@@ -916,7 +917,7 @@ class PEInfoTexto(Screen):
             ret = ''
             orden = 'free'
             archivo = '/tmp/tempinfo'
-            os.system(orden + ' >/tmp/tempinfo')
+            Console().ePopen('%s >/tmp/tempinfo' % orden)
             booklist = None
             booklist = open(archivo, 'r')
             temparray = []
@@ -925,7 +926,7 @@ class PEInfoTexto(Screen):
                     temparray.append(oneline)
 
                 booklist.close()
-            os.system('rm /tmp/tempinfo')
+            Console().ePopen('rm -f /tmp/tempinfo')
             haytotal = False
             totalmem = 0
             totalused = 0

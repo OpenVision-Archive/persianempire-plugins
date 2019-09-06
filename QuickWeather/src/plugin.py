@@ -29,6 +29,7 @@ import time
 from keyids import KEYIDS
 import xml.parsers.expat
 import urllib2
+from Components.Console import Console
 
 shortMONTHS = (_("Jan"),
                _("Feb"),
@@ -309,11 +310,11 @@ class WeatherPluginScreen(Screen):
                 RESET_TIME = int(config.plugins.WeatherPlugin.timeout.value)
 		myurl = self.get_Url()
 		if not fileExists("/tmp/indbweather.xml"):
-		      os.system("wget -P /tmp -T2 '%s' -O /tmp/indbweather.xml" % myurl)
+		      Console().ePopen("wget -P /tmp -T2 '%s' -O /tmp/indbweather.xml" % myurl)
 		if fileExists("/tmp/indbweather.xml"):
                         if int((time.time() - os.stat("/tmp/indbweather.xml").st_mtime)/60) >= RESET_TIME:
-                            os.system("rm /tmp/indbweather.xml")
-                            os.system("wget -P /tmp -T2 '%s' -O /tmp/indbweather.xml" % myurl)
+                            Console().ePopen("rm -f /tmp/indbweather.xml")
+                            Console().ePopen("wget -P /tmp -T2 '%s' -O /tmp/indbweather.xml" % myurl)
                         if fileExists("/tmp/indbweather.xml"):     
 			    handler = open("/tmp/indbweather.xml")
 			    xml_response = handler.read().encode('utf-8')
@@ -1338,12 +1339,12 @@ class WeatherPluginMenu(Screen):
                 restart = self.session.openWithCallback(self.restart, MessageBox, _('You have changed the menu Activate Quick Weather or Display the weather for') + '\n\n' + _('Do you want restart GUI now?'), MessageBox.TYPE_YESNO)
                 restart.setTitle(_('Restart GUI now?'))
             else:
-                os.system("rm -rf /tmp/indbweather.xml")
+                Console().ePopen("rm -rf /tmp/indbweather.xml")
                 self.close()
 
         def restart(self, confirmed):
             if confirmed:
-                os.system("rm -rf /tmp/indbweather.xml")
+                Console().ePopen("rm -rf /tmp/indbweather.xml")
                 from Screens.Standby import TryQuitMainloop
                 self.session.open(TryQuitMainloop, 3)
             else:
@@ -1429,9 +1430,9 @@ class SetupMenu2(Screen):
         id = str(self['menu'].getCurrent()[0])
         text = '%s' % (id)
         if config.plugins.WeatherPlugin.days.value == "0":
-            os.system("cp -f /usr/lib/enigma2/python/Plugins/Extensions/QuickWeather/background/%s.png /usr/lib/enigma2/python/Plugins/Extensions/QuickWeather/backg.png" % text)
+            Console().ePopen("cp -f /usr/lib/enigma2/python/Plugins/Extensions/QuickWeather/background/%s.png /usr/lib/enigma2/python/Plugins/Extensions/QuickWeather/backg.png" % text)
         if config.plugins.WeatherPlugin.days.value == "1":
-            os.system("cp -f /usr/lib/enigma2/python/Plugins/Extensions/QuickWeather/background1/%s.png /usr/lib/enigma2/python/Plugins/Extensions/QuickWeather/backg2.png" % text)
+            Console().ePopen("cp -f /usr/lib/enigma2/python/Plugins/Extensions/QuickWeather/background1/%s.png /usr/lib/enigma2/python/Plugins/Extensions/QuickWeather/backg2.png" % text)
         self.exit()
 
     def getPanelmenu(self):
@@ -1500,7 +1501,7 @@ class WeatherSelectCity(Screen):
 			for fil in mycache:
 				f1.write(fil + '\n')
 			f1.close()              
-                os.system("rm -rf /tmp/indbweather.xml")
+                Console().ePopen("rm -rf /tmp/indbweather.xml")
 		self.close()
 
 	def workingFinished(self, callback=None):
@@ -1597,7 +1598,7 @@ class SetupKeymap(Screen):
     def showDetails(self):
         id = str(self['menu'].getCurrent()[0])
         text = '%s' % (id)
-        os.system("cp -f /usr/lib/enigma2/python/Plugins/Extensions/QuickWeather/SetupKeymap/%s.xml /usr/lib/enigma2/python/Plugins/Extensions/QuickWeather/keymap.xml" % text)
+        Console().ePopen("cp -f /usr/lib/enigma2/python/Plugins/Extensions/QuickWeather/SetupKeymap/%s.xml /usr/lib/enigma2/python/Plugins/Extensions/QuickWeather/keymap.xml" % text)
         from Screens.Standby import TryQuitMainloop
         self.session.open(TryQuitMainloop, 3)
 
@@ -1699,8 +1700,8 @@ class SetupIcons(Screen):
         text = '%s' % (id)
         setup = '%s%s' % (self.name(), "SetupIcons")
         if fileExists("%s/%s" % (setup, text)):
-             os.system("rm -rf /usr/lib/enigma2/python/Plugins/Extensions/QuickWeather/weathericons")
-             os.system("cp -R %s/%s /usr/lib/enigma2/python/Plugins/Extensions/QuickWeather/weathericons" % (setup, text))
+             Console().ePopen("rm -rf /usr/lib/enigma2/python/Plugins/Extensions/QuickWeather/weathericons")
+             Console().ePopen("cp -R %s/%s /usr/lib/enigma2/python/Plugins/Extensions/QuickWeather/weathericons" % (setup, text))
              self.close()
         else:
             self.close()

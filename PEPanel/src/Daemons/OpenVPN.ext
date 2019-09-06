@@ -1,5 +1,8 @@
+from Components.Console import Console
+from Tools.Directories import fileExists
+import os
+
 def OpenVPNStatus():
-	import os
 	ret = False
 	pids = os.popen("ps | grep openvpn | grep -v grep | wc -l")
 	try:
@@ -13,31 +16,25 @@ def OpenVPNStatus():
 	return ret
 	
 def OpenVPNStop():
-	import os
-	os.system("/usr/bin/openvpn_script.sh stop")
+	Console().ePopen("/usr/bin/openvpn_script.sh stop")
 	
 def OpenVPNStart():
 	from enigma import eConsoleAppContainer
-	import os
-	#os.system("/usr/bin/openvpn_script.sh start")
-	# hack for problems with os.system
 	cmd = eConsoleAppContainer()
 	cmd.execute("/usr/bin/openvpn_script.sh start")
 	import time
 	time.sleep(2)
 	
 def OpenVPNInstalled():
-	from Tools.Directories import fileExists
 	return fileExists("/usr/sbin/openvpn")
 	
 def OpenVPNBoot(enabled):
-	import os
 	if enabled:
-		os.system("ln -s /usr/bin/openvpn_script.sh /etc/rc3.d/S60openvpn")
-		os.system("ln -s /usr/bin/openvpn_script.sh /etc/rc3.d/K60openvpn")
+		Console().ePopen("ln -s /usr/bin/openvpn_script.sh /etc/rc3.d/S60openvpn")
+		Console().ePopen("ln -s /usr/bin/openvpn_script.sh /etc/rc3.d/K60openvpn")
 	else:
-		os.system("rm -f /etc/rc3.d/S60openvpn")
-		os.system("rm -f /etc/rc3.d/K60openvpn")
+		Console().ePopen("rm -f /etc/rc3.d/S60openvpn")
+		Console().ePopen("rm -f /etc/rc3.d/K60openvpn")
 	
 daemon_name = "OpenVPN"
 daemon_description = "A secure VPN server"

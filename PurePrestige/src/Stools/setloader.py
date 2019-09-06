@@ -30,6 +30,7 @@ import datetime
 from ServiceReference import ServiceReference
 from enigma import eTimer, eDVBDB, eServiceCenter, eServiceReference, iPlayableService, iFrontendInformation
 import re
+from Components.Console import Console
 
 Tunisiasat_HOST = 'tunisia-dreambox.info'
 Tunisiasat_PATH = 'http://www.tunisia-dreambox.info/dreambox-e2-addons/dreambox-e2-updates/Settings/'
@@ -163,7 +164,7 @@ class PurePrestigeSL_SettingsList(Screen):
                 os.remove(epgbakpath)
             if os.path.exists(epgpath):
                 copyfile(epgpath, epgbakpath)
-            os.system('killall -9 enigma2')
+            Console().ePopen('killall -9 enigma2')
 
     def ok(self):
         if len(self.list) == 0:

@@ -33,6 +33,7 @@ import urllib
 from GlobalActions import globalActionMap
 from keymapparser import readKeymap, removeKeymap
 from Screens.InfoBarGenerics import InfoBarPlugins
+from Components.Console import Console
 
 def getScale():
     return AVSwitch().getFramebufferScale()
@@ -651,13 +652,13 @@ class DreamCCAuto():
                     nam = line[5:len(line) - 2]
                     if current == nam:
                         if fileExists('/etc/init.d/dccamd'):
-                            os.system('mv /etc/init.d/dccamd /etc/init.d/dccamdOrig &')
-                        os.system('ln -sf /usr/bin /var/bin')
-                        os.system('ln -sf /usr/keys /var/keys')
-                        os.system('ln -sf /usr/scce /var/scce')
-                        os.system('ln -sf /usr/script /var/script')
-                        os.system('sleep 2')
-                        os.system(dat + ' cam_startup &')
+                            Console().ePopen('mv /etc/init.d/dccamd /etc/init.d/dccamdOrig &')
+                        Console().ePopen('ln -sf /usr/bin /var/bin')
+                        Console().ePopen('ln -sf /usr/keys /var/keys')
+                        Console().ePopen('ln -sf /usr/scce /var/scce')
+                        Console().ePopen('ln -sf /usr/script /var/script')
+                        Console().ePopen('sleep 2')
+                        Console().ePopen('%s cam_startup &' % dat)
 
             datei.close()
 
@@ -672,7 +673,7 @@ def autostartsoftcam(reason, session = None, **kwargs):
     if reason == 0:
         try:
             if fileExists('/etc/init.d/dccamd'):
-                os.system('mv /etc/init.d/dccamd /etc/init.d/dccamdOrig &')
+                Console().ePopen('mv /etc/init.d/dccamd /etc/init.d/dccamdOrig &')
             DreamCC_auto = DreamCCAuto()
         except:
             pass

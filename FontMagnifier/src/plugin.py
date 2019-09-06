@@ -1,4 +1,4 @@
-fm_version="0.6.1"
+fm_version="0.6.2"
 
 from Plugins.Plugin import PluginDescriptor
 from Screens.Screen import Screen
@@ -17,6 +17,7 @@ from __init__ import _
 import os
 import xml.etree.cElementTree
 import glob
+from Components.Console import Console
 
 config.plugins.fm = ConfigSubsection()
 config.plugins.fm.display_manipulation_active = ConfigEnableDisable(default = False)
@@ -503,15 +504,15 @@ class fmOptions(Screen):
 
         try:
             if self.selection == "skin.xml":
-                os.system("mv -f /usr/share/enigma2/%s.bak /usr/share/enigma2/%s" % (config.skin.primary_skin.value, config.skin.primary_skin.value))            
+                Console().ePopen("mv -f /usr/share/enigma2/%s.bak /usr/share/enigma2/%s" % (config.skin.primary_skin.value, config.skin.primary_skin.value))            
             elif self.selection == "EpgList.py":
-                os.system("mv -f /usr/lib/enigma2/python/Components/EpgList.py.bak /usr/lib/enigma2/python/Components/EpgList.py")            
+                Console().ePopen("mv -f /usr/lib/enigma2/python/Components/EpgList.py.bak /usr/lib/enigma2/python/Components/EpgList.py")            
             elif self.selection == "MovieList.py":
-                os.system("mv -f /usr/lib/enigma2/python/Components/MovieList.py.bak /usr/lib/enigma2/python/Components/MovieList.py")            
+                Console().ePopen("mv -f /usr/lib/enigma2/python/Components/MovieList.py.bak /usr/lib/enigma2/python/Components/MovieList.py")            
             elif self.selection == "ServiceList.py":
-                os.system("mv -f /usr/lib/enigma2/python/Components/ServiceList.py.bak /usr/lib/enigma2/python/Components/ServiceList.py")            
+                Console().ePopen("mv -f /usr/lib/enigma2/python/Components/ServiceList.py.bak /usr/lib/enigma2/python/Components/ServiceList.py")            
             elif self.selection == "skin_user.xml":
-                os.system("mv -f /etc/enigma2/skin_user.xml.bak /etc/enigma2/skin_user.xml")            
+                Console().ePopen("mv -f /etc/enigma2/skin_user.xml.bak /etc/enigma2/skin_user.xml")            
 
             messagebox_text = self.selection + _(" restored.")
             confirmbox = self.session.open(MessageBox, messagebox_text, MessageBox.TYPE_INFO)
@@ -685,19 +686,19 @@ class fmWaitScreen(Screen):
                 skin_user_xml_file.close()
 
             if not os.path.exists("/etc/enigma2/skin_user.xml.bak"):
-                os.system("cp /etc/enigma2/skin_user.xml /etc/enigma2/skin_user.xml.bak")
+                Console().ePopen("cp /etc/enigma2/skin_user.xml /etc/enigma2/skin_user.xml.bak")
 
             if config.plugins.fm.display_manipulation_active.value:
                 if (not config.plugins.fm.active.value) and (not config.plugins.fm.show_only_clock.value):
                     if os.path.exists("/etc/enigma2/skin_user.xml.bak"):
-                        os.system("mv /etc/enigma2/skin_user.xml.bak /etc/enigma2/skin_user.xml")
+                        Console().ePopen("mv /etc/enigma2/skin_user.xml.bak /etc/enigma2/skin_user.xml")
                     elif os.path.exists("/etc/enigma2/skin_user.xml"):
-                        os.system("rm /etc/enigma2/skin_user.xml")
+                        Console().ePopen("rm /etc/enigma2/skin_user.xml")
                 else:
                     skin_user_xml_file = open("/etc/enigma2/skin_user.xml", "w")
                     skin_user_xml_text = "<skin>\n"
                     if config.plugins.fm.active.value:
-                        if getBoxType() in ("dm800se"):
+                        if getBoxType() == "dm800se":
                             skin_user_xml_text = skin_user_xml_text + "\t<screen name=\"InfoBarSummary\" position=\"0,0\" size=\"96,64\" id=\"2\">\n"
                             skin_user_xml_text = skin_user_xml_text + "\t\t<widget font=\"Regular;%s\" halign=\"center\" position=\"1,1\" render=\"Label\" size=\"92,64\" source=\"session.CurrentService\" valign=\"center\">\n" % (config.plugins.fm.fontsize.value)
                         else:
@@ -707,7 +708,7 @@ class fmWaitScreen(Screen):
                         skin_user_xml_text = skin_user_xml_text + "\t\t</widget>\n"
                         skin_user_xml_text = skin_user_xml_text + "\t</screen>\n"
                     if config.plugins.fm.show_only_clock.value:
-                        if getBoxType() in ("dm800se"):
+                        if getBoxType() == "dm800se":
                             skin_user_xml_text = skin_user_xml_text + "\t<screen name=\"StandbySummary\" position=\"0,0\" size=\"96,64\">\n"
                             skin_user_xml_text = skin_user_xml_text + "\t\t<widget font=\"Regular;40\" halign=\"center\" position=\"0,0\" render=\"Label\" size=\"96,64\" source=\"global.CurrentTime\" valign=\"center\">\n"
                             skin_user_xml_text = skin_user_xml_text + "\t\t\t<convert type=\"ClockToText\">Format:%H:%M</convert>\n"
@@ -733,12 +734,12 @@ class fmWaitScreen(Screen):
                     skin_user_xml_file.close()
             else:
                 if os.path.exists("/etc/enigma2/skin_user.xml.bak"):
-                    os.system("mv /etc/enigma2/skin_user.xml.bak /etc/enigma2/skin_user.xml")
+                    Console().ePopen("mv /etc/enigma2/skin_user.xml.bak /etc/enigma2/skin_user.xml")
         except:
             self.session.openWithCallback(self.close, MessageBox,_("Sorry, unable modify skin_user.xml"), type = MessageBox.TYPE_INFO)
 
         if not os.path.exists("/usr/share/enigma2/%s.bak" % (config.skin.primary_skin.value)):
-            os.system("cp /usr/share/enigma2/%s /usr/share/enigma2/%s.bak" % (config.skin.primary_skin.value, config.skin.primary_skin.value))
+            Console().ePopen("cp /usr/share/enigma2/%s /usr/share/enigma2/%s.bak" % (config.skin.primary_skin.value, config.skin.primary_skin.value))
 
         try:
             for element in self.list_of_screens:
@@ -981,7 +982,7 @@ class fmWaitScreen(Screen):
                 EpgList_file.close()
 
                 if not os.path.exists("/usr/lib/enigma2/python/Components/EpgList.py.bak"):
-                    os.system("cp /usr/lib/enigma2/python/Components/EpgList.py /usr/lib/enigma2/python/Components/EpgList.py.bak")
+                    Console().ePopen("cp /usr/lib/enigma2/python/Components/EpgList.py /usr/lib/enigma2/python/Components/EpgList.py.bak")
 
                 EpgList_file = open("/usr/lib/enigma2/python/Components/EpgList.py", "w")
                 EpgList_file.write(EpgList_text_neu)
@@ -1002,7 +1003,7 @@ class fmWaitScreen(Screen):
                 MovieList_file.close()
 
                 if not os.path.exists("/usr/lib/enigma2/python/Components/MovieList.py.bak"):
-                    os.system("cp /usr/lib/enigma2/python/Components/MovieList.py /usr/lib/enigma2/python/Components/MovieList.py.bak")
+                    Console().ePopen("cp /usr/lib/enigma2/python/Components/MovieList.py /usr/lib/enigma2/python/Components/MovieList.py.bak")
 
                 MovieList_file = open("/usr/lib/enigma2/python/Components/MovieList.py", "w")
                 MovieList_file.write(MovieList_text_neu)

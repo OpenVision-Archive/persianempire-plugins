@@ -11,6 +11,7 @@ import os
 import sys
 import re
 from __init__ import _
+from Components.Console import Console
 
 class HddMount(Screen):
 
@@ -72,7 +73,7 @@ class HddMount(Screen):
     def customPath(self, result):
         if result and len(result) > 0:
             result = result.rstrip('/')
-            os.system('mkdir -p %s' % result)
+            Console().ePopen('mkdir -p %s' % result)
             self.setMountPoint(result)
 
     def setMountPoint(self, path):
@@ -95,9 +96,9 @@ class HddMount(Screen):
             if not self.mountpoints.mount(self.device, self.partition, self.cpath):
                 self.session.open(MessageBox, _('Cannot mount new drive.\nPlease check filesystem or format it and try again'), MessageBox.TYPE_ERROR)
             elif self.cpath == '/media/hdd':
-                os.system('/bin/mkdir /hdd/movie')
-                os.system('/bin/mkdir /hdd/music')
-                os.system('/bin/mkdir /hdd/picture')
+                Console().ePopen('mkdir /hdd/movie')
+                Console().ePopen('mkdir /hdd/music')
+                Console().ePopen('mkdir /hdd/picture')
             self.close()
 
     def quit(self):

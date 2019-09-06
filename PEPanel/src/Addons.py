@@ -11,6 +11,7 @@ import os
 from __init__ import _
 from Components.Ipkg import IpkgComponent
 from Screens.Ipkg import Ipkg
+from Components.Console import Console
 
 class AddonsFileBrowser(Screen):
 
@@ -31,13 +32,13 @@ class AddonsFileBrowser(Screen):
         self.setTitle('%s - %s' % (_('Manual Addon Installer - Filebrowser'), '/tmp'))
 
     def tgz(self):
-        self.tgzret = os.system('tar -xzpvf "%s" -C /' % self.filename)
+        self.tgzret = Console().ePopen('tar -xzpvf "%s" -C /' % self.filename)
 
     def unzip(self):
-        self.unzipret = os.system('unzip -o -d / "%s"' % self.filename)
+        self.unzipret = Console().ePopen('unzip -o -d / "%s"' % self.filename)
 
     def unrar(self):
-        self.unrarret = os.system('unrar x -u "%s" /' % self.filename)
+        self.unrarret = Console().ePopen('unrar x -u "%s" /' % self.filename)
 
     def ok(self):
         if self['filelist'].canDescent():

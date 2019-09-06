@@ -11,6 +11,7 @@ from Components.config import NoSave, ConfigEnableDisable, ConfigText, getConfig
 from enigma import eConsoleAppContainer
 import os
 from os import path
+from Components.Console import Console
 
 def isRunning(pname):
 	for f in os.listdir('/proc'):
@@ -267,7 +268,7 @@ class setupSamba(Screen, ConfigListScreen):
 		scriptfile.write("nmbd -D\n")
 		scriptfile.write("smbd -D\n")
 		scriptfile.close()
-		os.system("chmod 755 /etc/network/if-up.d/01samba-start")
+		Console().ePopen("chmod 755 /etc/network/if-up.d/01samba-start")
 
 	def createDownScript(self):
 		scriptfile= open("/etc/network/if-down.d/01samba-kill", "w")
@@ -277,8 +278,8 @@ class setupSamba(Screen, ConfigListScreen):
 		scriptfile.write("killall -9 nmbd\n")
 		scriptfile.write("rm -rf /var/log/log.nmbd\n")
 		scriptfile.close()
-		os.system("chmod 755 /etc/network/if-down.d/01samba-kill")
+		Console().ePopen("chmod 755 /etc/network/if-down.d/01samba-kill")
 
 	def deleteScripts(self):
-		os.system("rm -rf /etc/network/if-up.d/01samba-start")
-		os.system("rm -rf /etc/network/if-down.d/01samba-kill")
+		Console().ePopen("rm -rf /etc/network/if-up.d/01samba-start")
+		Console().ePopen("rm -rf /etc/network/if-down.d/01samba-kill")

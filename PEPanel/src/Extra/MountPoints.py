@@ -2,6 +2,7 @@ from BoxInfo import BoxInfo
 import os
 import re
 from Tools.Directories import fileExists
+from Components.Console import Console
 
 class MountPoints:
 
@@ -57,10 +58,10 @@ class MountPoints:
         return False
 
     def umount(self, path):
-        return os.system('umount %s' % path) == 0
+        return Console().ePopen('umount %s' % path) == 0
 
     def mount(self, device, partition, path):
-        return os.system('[ ! -d %s ] && mkdir %s\nmount /dev/%s%d %s' % (path,
+        return Console().ePopen('[ ! -d %s ] && mkdir %s\nmount /dev/%s%d %s' % (path,
          path,
          device,
          partition,

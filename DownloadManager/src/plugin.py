@@ -15,6 +15,7 @@ from twisted.web.client import getPage
 import os
 from Components.Button import Button
 from Screens.Console import Console
+from Components.Console import Console
 
 
 class Ipkremove2(Screen):
@@ -39,7 +40,7 @@ class Ipkremove2(Screen):
     def startSession(self):
         if os.path.isfile('/etc/ipkinstalled') is not True:
             cmd = 'opkg list-installed | cut -f1 -d" " > /etc/ipkinstalled'
-            os.system(cmd)
+            Console().ePopen(cmd)
         try:
             myfile = open('/etc/ipkinstalled', 'r+')
             for line in myfile:
@@ -194,7 +195,7 @@ class Getipklist(Screen):
 
     def cancel(self):
         cmd = 'rm -rf /tmp/*.ipk /tmp/.*.txt /etc/ipkinstalled'
-        os.system(cmd)
+        Console().ePopen(cmd)
         self.close()
 
     def openTest(self):
@@ -224,7 +225,7 @@ class Getipklist(Screen):
     def getstate(self, remname):
         if os.path.isfile('/etc/ipkinstalled') is not True:
             cmd = 'opkg list-installed | cut -f1 -d" " > /etc/ipkinstalled'
-            os.system(cmd)
+            Console().ePopen(cmd)
         try:
             myfile = open('/etc/ipkinstalled', 'r+')
             icount = 0
@@ -307,7 +308,7 @@ class Getipk(Screen):
 				   ftxt = '/tmp/.' + addn + '.txt'
 				   if not fileExists(ftxt):
 						cmd1 = "wget -O /tmp/." + addn + ".txt 'https://openvision.tech/pedm/mipsel/" + addn + "/index.html'"
-						os.system(cmd1)
+						Console().ePopen(cmd1)
 				   f1 = file(ftxt)
 				   flist1 = f1.read()
 				   if missing in flist1:
@@ -355,11 +356,11 @@ class Getipk(Screen):
 
     def viewLog(self):
          cmd = 'rm -rf /tmp/.installed'
-         os.system(cmd)
+         Console().ePopen(cmd)
          cmd1 = 'cat /tmp/.log*.txt | grep Configuring | cut -d " " -f2- | cut -d. -f1 > /tmp/.installed'
-         os.system(cmd1)
+         Console().ePopen(cmd1)
          cmd2 = 'rm -rf /tmp/*.ipk /tmp/.*.txt'
-         os.system(cmd2)
+         Console().ePopen(cmd2)
          txt = " "
          dfile = '/tmp/.installed'
          myfile = file(dfile)
