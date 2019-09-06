@@ -5,10 +5,10 @@ installdir = $(libdir)/enigma2/python/Plugins/Extensions/PurePrestige
 install_PYTHON = *.py
 
 install_DATA = \
-	pyc2xml \
+	pyo2xml \
 	*.png \
 	*.xml
 
 install-data-hook:
-	chmod +x $(DESTDIR)$(installdir)/pyc2xml
+	chmod +x $(DESTDIR)$(installdir)/pyo2xml
 

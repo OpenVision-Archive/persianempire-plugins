@@ -1074,7 +1074,7 @@ class PEStatusListMenu(Screen):
         try:
             list = []
             cmd = 'opkg list_installed > /tmp/ipkdb'
-            system(cmd)
+            Console().ePopen(cmd)
             ret = ''
             out_lines = []
             out_lines = open('/tmp/ipkdb').readlines()
@@ -1225,13 +1225,13 @@ class PEStatusListMenu(Screen):
             try:
                 crashlog = result[0]
                 if action == 'start':
-                    ret = int(system('rm -f /media/hdd/enigma2_crash_*.log'))
+                    ret = int(Console().ePopen('rm -f /media/hdd/enigma2_crash_*.log'))
                     if ret == 0:
                         self.session.open(MessageBox, _('Deleted all Enigma2 Crashlogs.'), MessageBox.TYPE_INFO)
                     else:
                         self.session.open(MessageBox, _('Could not delete all Enigma2 Crashlogs.'), MessageBox.TYPE_ERROR)
                 elif action == 'stop':
-                    ret = int(system('rm -f /media/hdd/' + crashlog))
+                    ret = int(Console().ePopen('rm -f /media/hdd/%s' % crashlog))
                     if ret == 0:
                         self.session.open(MessageBox, _('Deleted Enigma2 Crashlog: \n\n' + crashlog), MessageBox.TYPE_INFO)
                     else:
@@ -1245,7 +1245,7 @@ class PEStatusListMenu(Screen):
                         if infile.startswith('enigma2_crash') and infile.endswith('.log'):
                             difftime = curtime - os_path.getmtime('/media/hdd/' + infile)
                             if difftime >= 604800:
-                                ret = int(system('rm -f /media/hdd/' + infile))
+                                ret = int(Console().ePopen('rm -f /media/hdd/%s' % infile))
                                 msg += infile + '\n'
 
                     if ret == 0:
@@ -1301,7 +1301,7 @@ class PEStatusListMenu(Screen):
             swapfile = self.swaptarget + '/swapfile'
             if fileExists(swapfile):
                 swapoff = 'swapoff ' + swapfile
-                system(swapoff)
+                Console().ePopen(swapoff)
                 unlink(swapfile)
             ddcmd = 'dd if=/dev/zero of=' + swapfile + ' bs=1024k count=' + self.swapsize + ' && echo creating swap signature && mkswap ' + swapfile + ' && echo enable swap && swapon ' + swapfile + ' && free && echo ' + _('swapfile was created successfully')
             socmd = 'swapon ' + swapfile
@@ -1334,7 +1334,7 @@ class PEStatusListMenu(Screen):
             self.session.open(Console, title=_('IPK Uninstall ignore depencies'), cmdlist=['opkg remove -force-depends ' + self.package])
 
     def delIPKDB(self):
-        system('rm -r /tmp/ipkdb')
+        Console().ePopen('rm -r /tmp/ipkdb')
 
     def devicePartitions(self, dev):
         partitions = []
@@ -1557,17 +1557,17 @@ class USBTunerSetupScreen(Screen, ConfigListScreen):
         self.close()
 
     def doInstall(self):
-        ret = int(system('opkg update'))
+        ret = int(Console().ePopen('opkg update'))
         if ret != 0:
             self.session.open(MessageBox, _('opkg update error'), MessageBox.TYPE_ERROR, 5)
             return
-        ret = int(system('opkg install enigma2-plugin-drivers-dvb-usb-dib0700'))
+        ret = int(Console().ePopen('opkg install enigma2-plugin-drivers-dvb-usb-dib0700'))
         if ret != 0:
             self.session.open(MessageBox, _('opkg install error'), MessageBox.TYPE_ERROR, 5)
             return
         usbtype1 = int(config.plugins.USBTunerSetup.mode1.value)
         if usbtype1 == 1:
-            ret = int(system('/usr/sbin/update-modules'))
+            ret = int(Console().ePopen('/usr/sbin/update-modules'))
             if ret != 0:
                 self.session.open(MessageBox, _('update-modules error'), MessageBox.TYPE_ERROR, 5)
                 return
@@ -1576,7 +1576,7 @@ class USBTunerSetupScreen(Screen, ConfigListScreen):
                 self.session.open(MessageBox, _('firmware download error'), MessageBox.TYPE_ERROR, 5)
                 return
         if usbtype1 == 2:
-            ret = int(system('/usr/sbin/update-modules'))
+            ret = int(Console().ePopen('/usr/sbin/update-modules'))
             if ret != 0:
                 self.session.open(MessageBox, _('update-modules error'), MessageBox.TYPE_ERROR, 5)
                 return
@@ -1590,19 +1590,19 @@ class USBTunerSetupScreen(Screen, ConfigListScreen):
     def doDeInstall(self):
         usbtyperemove = 1
         if usbtyperemove == 1:
-            ret = int(system('opkg remove --force-depends enigma2-plugin-drivers-dvb-usb-dib0700'))
-            ret = int(system('opkg remove --force-depends v4l-dvb-firmware'))
-            ret = int(system('opkg remove --force-depends v4l-dvb-module-dib*'))
-            ret = int(system('opkg remove --force-depends v4l-dvb-module-dvb-usb*'))
-            ret = int(system('opkg remove --force-depends v4l-dvb-module-lgdt3305'))
-            ret = int(system('opkg remove --force-depends v4l-dvb-module-mt*'))
-            ret = int(system('opkg remove --force-depends v4l-dvb-module-mx*'))
-            ret = int(system('opkg remove --force-depends v4l-dvb-module-s5h*'))
-            ret = int(system('opkg remove --force-depends v4l-dvb-module-tuner*'))
-            ret = int(system('opkg remove --force-depends v4l-dvb-module-xc*'))
+            ret = int(Console().ePopen('opkg remove --force-depends enigma2-plugin-drivers-dvb-usb-dib0700'))
+            ret = int(Console().ePopen('opkg remove --force-depends v4l-dvb-firmware'))
+            ret = int(Console().ePopen('opkg remove --force-depends v4l-dvb-module-dib*'))
+            ret = int(Console().ePopen('opkg remove --force-depends v4l-dvb-module-dvb-usb*'))
+            ret = int(Console().ePopen('opkg remove --force-depends v4l-dvb-module-lgdt3305'))
+            ret = int(Console().ePopen('opkg remove --force-depends v4l-dvb-module-mt*'))
+            ret = int(Console().ePopen('opkg remove --force-depends v4l-dvb-module-mx*'))
+            ret = int(Console().ePopen('opkg remove --force-depends v4l-dvb-module-s5h*'))
+            ret = int(Console().ePopen('opkg remove --force-depends v4l-dvb-module-tuner*'))
+            ret = int(Console().ePopen('opkg remove --force-depends v4l-dvb-module-xc*'))
             if ret != 0:
                 self.session.open(MessageBox, _('opkg remove error'), MessageBox.TYPE_ERROR, 5)
-            ret = int(system('/usr/sbin/update-modules'))
+            ret = int(Console().ePopen('/usr/sbin/update-modules'))
             if ret != 0:
                 self.session.open(MessageBox, _('update-modules error'), MessageBox.TYPE_ERROR, 5)
                 return
@@ -1629,7 +1629,7 @@ class PEKernelModShow(Screen):
         self['list'].index = 0
 
     def updateList(self):
-        rc = system('lsmod > /tmp/extramodules.tmp')
+        rc = Console().ePopen('lsmod > /tmp/extramodules.tmp')
         strview = ''
         if fileExists('/tmp/extramodules.tmp'):
             f = open('/tmp/extramodules.tmp', 'r')
@@ -1713,8 +1713,8 @@ class PEHdd(Screen):
             self['labstop'].hide()
             self['labrun'].hide()
             cmd = 'hdparm -C ' + self.hddloc
-            rc = system('hdparm -C ' + self.hddloc)
-            rc = system(cmd + '> /tmp/hdpar.tmp')
+            rc = Console().ePopen('hdparm -C %' % self.hddloc)
+            rc = Console().ePopen('%s > /tmp/hdpar.tmp' % cmd)
             strview = ''
             procf = '/sys/block/sda/device/model'
             procf1 = '/sys/block/sda/size'
@@ -1775,7 +1775,7 @@ class PEHdd(Screen):
         self['labstop'].hide()
         self['labrun'].hide()
         cmd = 'hdparm -C ' + self.hddloc + '> /tmp/hdpar.tmp'
-        rc = system(cmd)
+        rc = Console().ePopen(cmd)
         self.cur_state = False
         check = False
         if fileExists('/tmp/hdpar.tmp'):
@@ -1795,7 +1795,7 @@ class PEHdd(Screen):
     def setStand(self):
         if self.cur_state == True:
             cmd = 'hdparm -y ' + self.hddloc
-            rc = system(cmd)
+            rc = Console().ePopen(cmd)
             self.checkhdparm()
         else:
             mybox = self.session.open(MessageBox, _('Hard Disk is already sleeping'), MessageBox.TYPE_INFO)
@@ -1832,14 +1832,14 @@ class PEHdd(Screen):
         strview = 'hdparm -M' + noise + ' ' + self.hddloc + '\n'
         out.write(strview)
         out.close()
-        system('chmod 0755 /etc/init.d/hdparm')
+        Console().ePopen('chmod 0755 /etc/init.d/hdparm')
         try:
             symlink('/etc/init.d/hdparm', '/etc/rcS.d/S61hdparm')
         except OSError:
             print '[PEPanel] symlink already exists. do nothing.'
 
         cmd = 'hdparm -M' + noise + ' ' + self.hddloc
-        rc = system(cmd)
+        rc = Console().ePopen(cmd)
         if rc == 0:
             mybox = self.session.open(MessageBox, _('New Acoustic Settings activated sucessfully'), MessageBox.TYPE_INFO)
         else:
@@ -2285,7 +2285,7 @@ class ChangeTimeWizzard(Screen):
         if answer is False:
             self.skipChangeTime(_('Enigma 2 restart abort by user !'))
         else:
-            system('date %s' % self.newtime)
+            Console().ePopen('date %s' % self.newtime)
             quitMainloop(3)
 
     def skipChangeTime(self, reason):
@@ -2340,7 +2340,7 @@ class PEOpenvpn(Screen):
             inme.close()
         if fileExists('/usr/bin/openvpn_script.tmp'):
             rename('/usr/bin/openvpn_script.tmp', '/usr/bin/openvpn_script.sh')
-            system('chmod 0755 /usr/bin/openvpn_script.sh')
+            Console().ePopen('chmod 0755 /usr/bin/openvpn_script.sh')
         mybox = self.session.open(MessageBox, mymess, MessageBox.TYPE_INFO)
         mybox.setTitle('Info')
         self.updateVpn()
@@ -2351,21 +2351,21 @@ class PEOpenvpn(Screen):
             mybox.setTitle('Info')
         elif self.my_vpn_active == True:
             self.my_vpn_run == False
-            rc = system('/usr/bin/openvpn_script.sh start')
-            rc = system('ps')
+            rc = Console().ePopen('/usr/bin/openvpn_script.sh start')
+            rc = Console().ePopen('ps')
             self.updateVpn()
 
     def stopVpnstop(self):
         if self.my_vpn_run == True:
-            rc = system('/usr/bin/openvpn_script.sh stop')
-            rc = system('ps')
+            rc = Console().ePopen('/usr/bin/openvpn_script.sh stop')
+            rc = Console().ePopen('ps')
             self.updateVpn()
 
     def Vpnshowlog(self):
         self.session.open(PEVpnLog)
 
     def updateVpn(self):
-        rc = system('ps > /tmp/nvpn.tmp')
+        rc = Console().ePopen('ps > /tmp/nvpn.tmp')
         self['labrun'].hide()
         self['labstop'].hide()
         self['labactive'].setText(_('Inactive'))
@@ -2410,10 +2410,10 @@ class PEVpnLog(Screen):
          'down': self['infotext'].pageDown})
         strview = ''
         if not fileExists('/etc/openvpn/openvpn.log'):
-            system('mkdir -p /etc/openvpn')
+            Console().ePopen('mkdir -p /etc/openvpn')
             fp = file('/etc/openvpn/openvpn.log', 'w')
             fp.close()
-        rc = system('tail /etc/openvpn/openvpn.log > /etc/openvpn/tmp.log')
+        rc = Console().ePopen('tail /etc/openvpn/openvpn.log > /etc/openvpn/tmp.log')
         if fileExists('/etc/openvpn/tmp.log'):
             f = open('/etc/openvpn/tmp.log', 'r')
             for line in f.readlines():
@@ -2475,9 +2475,9 @@ class PECronMang(Screen):
 
             f.close()
             out.close()
-            rc = system('crontab /etc/cron/crontabs/root.helper  -c /etc/cron/crontabs/')
-            rc = system('/etc/init.d/busybox-cron stop')
-            rc = system('/etc/init.d/busybox-cron start')
+            rc = Console().ePopen('crontab /etc/cron/crontabs/root.helper -c /etc/cron/crontabs/')
+            rc = Console().ePopen('/etc/init.d/busybox-cron stop')
+            rc = Console().ePopen('/etc/init.d/busybox-cron start')
             self.updateList()
 
 
@@ -2575,7 +2575,7 @@ class PESetupCronConf(Screen, ConfigListScreen):
         newcron = minutes + ' ' + hour + ' * * * ' + command.strip() + '\n'
         try:
             if not fileExists('/etc/cron/crontabs/root.helper'):
-                system('mkdir -p /etc/cron/crontabs')
+                Console().ePopen('mkdir -p /etc/cron/crontabs')
                 fp = file('/etc/cron/crontabs/root.helper', 'w')
                 fp.close()
         except OSError:
@@ -2584,7 +2584,7 @@ class PESetupCronConf(Screen, ConfigListScreen):
         out = open('/etc/cron/crontabs/root.helper', 'w')
         try:
             if not fileExists('/etc/cron/crontabs/root'):
-                system('mkdir -p /etc/cron/crontabs')
+                Console().ePopen('mkdir -p /etc/cron/crontabs')
                 fp = file('/etc/cron/crontabs/root', 'w')
                 fp.close()
         except OSError:
@@ -2598,9 +2598,9 @@ class PESetupCronConf(Screen, ConfigListScreen):
             f.close()
         out.write(newcron)
         out.close()
-        rc = system('crontab /etc/cron/crontabs/root.helper  -c /etc/cron/crontabs/')
-        rc = system('/etc/init.d/busybox-cron stop')
-        rc = system('/etc/init.d/busybox-cron start')
+        rc = Console().ePopen('crontab /etc/cron/crontabs/root.helper -c /etc/cron/crontabs/')
+        rc = Console().ePopen('/etc/init.d/busybox-cron stop')
+        rc = Console().ePopen('/etc/init.d/busybox-cron start')
         self.close()
 
 
@@ -2636,12 +2636,12 @@ class PEDownPanel(Screen):
             mydir = getcwd()
             chdir('/')
             cmd = 'tar -xzf ' + dest
-            rc = system(cmd)
+            rc = Console().ePopen(cmd)
             chdir(mydir)
             cmd = 'rm -f ' + dest
-            rc = system(cmd)
+            rc = Console().ePopen(cmd)
             if fileExists('/usr/sbin/nab_e2_restart.sh'):
-                rc = system('rm -f /usr/sbin/nab_e2_restart.sh')
+                rc = Console().ePopen('rm -f /usr/sbin/nab_e2_restart.sh')
                 mybox = self.session.openWithCallback(self.hrestEn, MessageBox, 'Enigma2 will be now hard restarted to complete package installation.\nPress ok to continue', MessageBox.TYPE_INFO)
                 mybox.setTitle('Info')
             else:
@@ -2650,7 +2650,7 @@ class PEDownPanel(Screen):
                 self.close()
 
     def hrestEn(self, answer):
-        rc = system('killall -9 enigma2')
+        rc = Console().ePopen('killall -9 enigma2')
 
 
 class PEInfo(Screen):
@@ -2799,7 +2799,7 @@ class PEInfo(Screen):
         self.close()
 
     def getCPUInfo(self):
-        system('/usr/lib/enigma2/python/Plugins/SystemPlugins/PEPanel/cpu.sh')
+        Console().ePopen('/usr/lib/enigma2/python/Plugins/SystemPlugins/PEPanel/cpu.sh')
         if fileExists('/tmp/cpuinfo.tmp'):
             f = open('/tmp/cpuinfo.tmp', 'r')
         line = f.readlines()
@@ -2891,7 +2891,7 @@ class PEInfo(Screen):
         ramused = 0
         swapused = 0
         totused = 0
-        rc = system('free > /tmp/ninfo.tmp')
+        rc = Console().ePopen('free > /tmp/ninfo.tmp')
         if fileExists('/tmp/ninfo.tmp'):
             f = open('/tmp/ninfo.tmp', 'r')
             for line in f.readlines():
@@ -2922,7 +2922,7 @@ class PEInfo(Screen):
         ramused = 0
         swapused = 0
         totused = 0
-        rc = system('free > /tmp/ninfo.tmp')
+        rc = Console().ePopen('free > /tmp/ninfo.tmp')
         if fileExists('/tmp/ninfo.tmp'):
             f = open('/tmp/ninfo.tmp', 'r')
             for line in f.readlines():
@@ -2954,7 +2954,7 @@ class PEInfo(Screen):
         self['membar'].setValue(int(ramperc))
 
     def getSpace(self):
-        rc = system('df -m > /tmp/ninfo.tmp')
+        rc = Console().ePopen('df -m > /tmp/ninfo.tmp')
         flashperc = 0
         flashused = 0
         flashtot = 0
@@ -3013,7 +3013,7 @@ class PEInfo(Screen):
         self['hddg'].setValue(int(hdperc))
 
     def getSpaceInfo(self):
-        rc = system('df -h > /tmp/ninfo.tmp')
+        rc = Console().ePopen('df -h > /tmp/ninfo.tmp')
         flashperc = 0
         flashused = 0
         flashtot = 0
@@ -3114,7 +3114,7 @@ class PEInfo(Screen):
         avpn = False
         asamba = False
         anfs = False
-        rc = system('ps > /tmp/nvpn.tmp')
+        rc = Console().ePopen('ps > /tmp/nvpn.tmp')
         if fileExists('/etc/inetd.conf'):
             f = open('/etc/inetd.conf', 'r')
             for line in f.readlines():
@@ -3176,7 +3176,7 @@ class PEInfo(Screen):
             f.close()
         if hddloc:
             cmd = 'hddtemp -w ' + hddloc + ' > /tmp/ninfo.tmp'
-            rc = system(cmd)
+            rc = Console().ePopen(cmd)
             if fileExists('/tmp/ninfo.tmp'):
                 f = open('/tmp/ninfo.tmp', 'r')
                 for line in f.readlines():
@@ -3216,7 +3216,7 @@ class PEInfo(Screen):
             f.close()
         if hddloc:
             cmd = 'hddtemp -w ' + hddloc + ' > /tmp/ninfo.tmp'
-            rc = system(cmd)
+            rc = Console().ePopen(cmd)
             if fileExists('/tmp/ninfo.tmp'):
                 f = open('/tmp/ninfo.tmp', 'r')
                 for line in f.readlines():
@@ -3331,7 +3331,7 @@ class PEProcInfo(Screen):
 
     def updatetext(self):
         strview = ''
-        rc = system('ps > /tmp/ninfo.tmp')
+        rc = Console().ePopen('ps > /tmp/ninfo.tmp')
         if fileExists('/tmp/ninfo.tmp'):
             f = open('/tmp/ninfo.tmp', 'r')
             for line in f.readlines():
@@ -3421,7 +3421,7 @@ class TopInfo(Screen):
 
     def setScreen(self):
         msg = ''
-        topinfo = system('top -n3 > /tmp/procinfo.tmp')
+        topinfo = Console().ePopen('top -n3 > /tmp/procinfo.tmp')
         f = open('/tmp/procinfo.tmp')
         for line in f.readlines():
             txt = line.strip() + '\n'
@@ -3452,7 +3452,7 @@ class MemInfo(Screen):
 
     def setScreen(self):
         msg = ''
-        meminfo = system('cat /proc/meminfo > /tmp/meminfo.tmp')
+        meminfo = Console().ePopen('cat /proc/meminfo > /tmp/meminfo.tmp')
         f = open('/tmp/meminfo.tmp')
         for line in f.readlines():
             txt = line.strip() + '\n'
@@ -3483,7 +3483,7 @@ class CpuInfo(Screen):
 
     def setScreen(self):
         msg = ''
-        cpuinfo = system('cat /proc/cpuinfo > /tmp/cpuinfo.tmp')
+        cpuinfo = Console().ePopen('cat /proc/cpuinfo > /tmp/cpuinfo.tmp')
         f = open('/tmp/cpuinfo.tmp')
         for line in f.readlines():
             txt = line.strip() + '\n'
@@ -3607,7 +3607,7 @@ class ECMBluePanel(Screen):
             self.newcam = 'Not installed'
 
         try:
-            system('/etc/init.d/softcam stop')
+            Console().ePopen('/etc/init.d/softcam stop')
             remove('/etc/init.d/softcam')
         except OSError:
             print '[PEPanel] no softcam there.'
@@ -3619,7 +3619,7 @@ class ECMBluePanel(Screen):
             print '[PEPanel] CAM symlink already exists. do nothing.'
 
         cmd = '/etc/init.d/softcam restart'
-        system(cmd)
+        Console().ePopen(cmd)
         if not self.newcam == 'Not installed':
             self.session.openWithCallback(self.myclose, PEDoStartCam, self.sel)
         else:
@@ -4182,12 +4182,12 @@ class PasswdScreen(Screen):
 def fw_test_dib0700():
     if os_path.exists('/lib/firmware/dvb-usb-dib0700-1.20.fw'):
         return 0
-    return system('wget http://www.linuxtv.org/downloads/firmware/dvb-usb-dib0700-1.20.fw -O /lib/firmware/dvb-usb-dib0700-1.20.fw')
+    return Console().ePopen('wget http://www.linuxtv.org/downloads/firmware/dvb-usb-dib0700-1.20.fw -O /lib/firmware/dvb-usb-dib0700-1.20.fw')
 
 def fw_test_smsusb():
     if os_path.exists('/lib/firmware/sms1xxx-hcw-55xxx-dvbt-02.fw'):
         return 0
-    return system('wget http://www.steventoth.net/linux/sms1xxx/sms1xxx-hcw-55xxx-dvbt-02.fw -O /lib/firmware/sms1xxx-hcw-55xxx-dvbt-02.fw')
+    return Console().ePopen('wget http://www.steventoth.net/linux/sms1xxx/sms1xxx-hcw-55xxx-dvbt-02.fw -O /lib/firmware/sms1xxx-hcw-55xxx-dvbt-02.fw')
 
 def DVBNTPautostart(reason, **kwargs):
     global session

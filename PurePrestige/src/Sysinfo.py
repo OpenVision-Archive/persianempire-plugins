@@ -432,7 +432,7 @@ class showPurePrestigeinfoscreenstandard(Screen):
         except:
             self.setTitle(script)
 
-        Console().ePopen('%s>/usr/lib/enigma2/python/Plugins/Extensions/PurePrestige/currinfo.txt' % script)
+        Console().ePopen('%s >/usr/lib/enigma2/python/Plugins/Extensions/PurePrestige/currinfo.txt' % script)
         self.session.open(Console2.PurePrestigeConsole2, _('Reading: %s') % dom, [script], None, False, instr, endstr)
         return
 
@@ -483,7 +483,7 @@ class PurePrestigedevicesinfo(Screen):
         except:
             pass
 
-        Console().ePopen('%s>/usr/lib/enigma2/python/Plugins/Extensions/PurePrestige/scripts/devices.txt' % script)
+        Console().ePopen('%s >/usr/lib/enigma2/python/Plugins/Extensions/PurePrestige/scripts/devices.txt' % script)
 
     def getinfo(self):
         self.totallist = totalitems = []
@@ -602,7 +602,7 @@ class PurePrestigekernelinfo(Screen):
         except:
             pass
 
-        Console().ePopen('%s>/usr/lib/enigma2/python/Plugins/Extensions/PurePrestige/scripts/Kernel_Modules.txt' % script)
+        Console().ePopen('%s >/usr/lib/enigma2/python/Plugins/Extensions/PurePrestige/scripts/Kernel_Modules.txt' % script)
 
     def getinfo(self):
         self.totallist = totalitems = []
@@ -667,7 +667,7 @@ class PurePrestigeprocessinfo(Screen):
         except:
             pass
 
-        Console().ePopen('%s>/usr/lib/enigma2/python/Plugins/Extensions/PurePrestige/scripts/Process_list.txt' % script)
+        Console().ePopen('%s >/usr/lib/enigma2/python/Plugins/Extensions/PurePrestige/scripts/Process_list.txt' % script)
 
     def getinfo(self):
         self.totallist = totalitems = []
@@ -740,7 +740,7 @@ class PurePrestigefreememoryinfo(Screen):
         except:
             pass
 
-        Console().ePopen('%s>/usr/lib/enigma2/python/Plugins/Extensions/PurePrestige/scripts/Free_Memory.txt' % script)
+        Console().ePopen('%s >/usr/lib/enigma2/python/Plugins/Extensions/PurePrestige/scripts/Free_Memory.txt' % script)
 
     def getinfo(self):
         self.totallist = totalitems = []
@@ -846,7 +846,7 @@ class PurePrestigemountsinfo(Screen):
         except:
             pass
 
-        Console().ePopen('%s>/usr/lib/enigma2/python/Plugins/Extensions/PurePrestige/scripts/Mountpoints.txt' % script)
+        Console().ePopen('%s >/usr/lib/enigma2/python/Plugins/Extensions/PurePrestige/scripts/Mountpoints.txt' % script)
 
     def getinfo(self):
         self.totallist = totalitems = []
@@ -923,7 +923,7 @@ class PurePrestigefreespace(Screen):
         except:
             pass
 
-        Console().ePopen('%s>/usr/lib/enigma2/python/Plugins/Extensions/PurePrestige/scripts/Free_Space.txt' % script)
+        Console().ePopen('%s >/usr/lib/enigma2/python/Plugins/Extensions/PurePrestige/scripts/Free_Space.txt' % script)
 
     def getinfo(self):
         self.totallist = totalitems = []
@@ -1023,7 +1023,7 @@ class PurePrestigeginfo(Screen):
         except:
             pass
 
-        Console().ePopen('%s>/usr/lib/enigma2/python/Plugins/Extensions/PurePrestige/scripts/ginfo.txt' % script)
+        Console().ePopen('%s >/usr/lib/enigma2/python/Plugins/Extensions/PurePrestige/scripts/ginfo.txt' % script)
 
     def getinfo(self):
         self.list.append(['Image', compabout.getImageVersionString()])

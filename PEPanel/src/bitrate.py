@@ -1,5 +1,5 @@
 from enigma import eConsoleAppContainer, iServiceInformation
-from os import system
+from Components.Console import Console
 
 class Bitrate:
 
@@ -53,7 +53,7 @@ class Bitrate:
         self.acur = 0
 
     def stop(self):
-        system('killall -9 bitrate')
+        Console().ePopen('killall -9 bitrate')
         self.container.kill()
         self.remainingdata = ''
         self.clearValues()

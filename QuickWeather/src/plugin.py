@@ -18,7 +18,6 @@ from enigma import loadPic, eTimer, ePoint, getDesktop, ePixmap, eActionMap
 from Screens.VirtualKeyBoard import VirtualKeyBoard
 from Components.config import config, configfile, ConfigInteger, ConfigSubsection, ConfigYesNo, getConfigListEntry, ConfigSelection
 from os import environ as os_environ
-from os import system
 import gettext
 from Screens.InfoBarGenerics import InfoBarPlugins
 from Screens.InfoBar import InfoBar
@@ -456,7 +455,7 @@ class WeatherPluginScreen(Screen):
 				    tmptext = self.eXtendedDay(str(weather_data['forecasts'][3]['weatherDesc'])) + "\nMin °C: " + str(weather_data['forecasts'][3]['tempMinC']) + "\nMax °C: " + str(weather_data['forecasts'][3]['tempMaxC'])
 				    self["lab14"].setText(tmptext)
 				    if config.plugins.WeatherPlugin.caches.value == True:
-				            system("echo 1 > /proc/sys/vm/drop_caches")				    
+				            Console().ePopen("echo 1 > /proc/sys/vm/drop_caches")				    
 		else:
 			    maintext = "Error getting XML document!"
 			    self.resetLabels2()
