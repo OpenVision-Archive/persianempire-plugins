@@ -29,12 +29,12 @@ class SpinnerSelector:
             First = True
             for i in range(64):
                 if os.path.isfile('/usr/share/enigma2/skin_default/spinner/wait%d.png' % (i + 1)):
-                    os.system('rm -f /usr/share/enigma2/skin_default/spinner/wait%d.png' % (i + 1))
+                    Console().ePopen('rm -f /usr/share/enigma2/skin_default/spinner/wait%d.png' % (i + 1))
                 if os.path.isfile('/usr/share/enigma2/Spinner/%s/wait%d.png' % (choice, i + 1)):
-                    os.system('ln -s /usr/share/enigma2/Spinner/%s/wait%d.png /usr/share/enigma2/skin_default/spinner/wait%d.png' % (choice, i + 1, i + 1))
+                    Console().ePopen('ln -s /usr/share/enigma2/Spinner/%s/wait%d.png /usr/share/enigma2/skin_default/spinner/wait%d.png' % (choice, i + 1, i + 1))
                     if First:
                         First = False
-                        os.system('rm -f /usr/lib/enigma2/python/Plugins/Extensions/SpinnerSelektor/plugin.png; ln -s /usr/share/enigma2/Spinner/%s/wait%d.png /usr/lib/enigma2/python/Plugins/Extensions/SpinnerSelektor/plugin.png' % (choice, i + 1))
+                        Console().ePopen('rm -f /usr/lib/enigma2/python/Plugins/Extensions/SpinnerSelektor/plugin.png; ln -s /usr/share/enigma2/Spinner/%s/wait%d.png /usr/lib/enigma2/python/Plugins/Extensions/SpinnerSelektor/plugin.png' % (choice, i + 1))
 
             self.session.openWithCallback(self.restart, MessageBox, _('GUI needs a restart to apply a new spinner.\nDo you want to restart the GUI now ?'), MessageBox.TYPE_YESNO)
             return

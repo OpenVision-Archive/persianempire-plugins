@@ -515,8 +515,8 @@ class SL_Deflate():
         except:
             pass
 
-        os.system('tar -xjvf ' + filename + ' -C ' + TMP_SETTINGS_PWD)
-        os.system('cd ' + TMP_SETTINGS_PWD + ' && find -type f -exec mv {} . \\;')
+        Console().ePopen("tar -xjvf %s -C %s" % (filename, TMP_SETTINGS_PWD))
+        Console().ePopen("cd %s && find -type f -exec mv {} . \\;" % TMP_SETTINGS_PWD)
 
     def deflatezip(self, filename):
         try:
@@ -529,8 +529,8 @@ class SL_Deflate():
         except:
             pass
 
-        os.system('unzip -o ' + filename + ' -d ' + TMP_SETTINGS_PWD)
-        os.system('cd ' + TMP_SETTINGS_PWD + ' && find -type f -exec mv {} . \\;')
+        Console().ePopen("unzip -o %s -d %s" % (filename, TMP_SETTINGS_PWD))
+        Console().ePopen("cd %s && find -type f -exec mv {} . \\;" % TMP_SETTINGS_PWD)
 
     def deflateTar(self, filename):
         try:
@@ -543,8 +543,8 @@ class SL_Deflate():
         except:
             pass
 
-        os.system('tar zxf ' + filename + ' -C ' + TMP_SETTINGS_PWD)
-        os.system('cd ' + TMP_SETTINGS_PWD + ' && find -type f -exec mv {} . \\;')
+        Console().ePopen("tar zxf %s -C %s" % (filename, TMP_SETTINGS_PWD))
+        Console().ePopen("cd %s && find -type f -exec mv {} . \\;" % TMP_SETTINGS_PWD)
 
     def deflateIpk(self, filename):
         try:
@@ -557,10 +557,10 @@ class SL_Deflate():
         except:
             pass
 
-        os.system('cp ' + filename + ' ' + TMP_SETTINGS_PWD + '/tmp.ipk')
-        os.system('cd ' + TMP_SETTINGS_PWD + ' && ar -x tmp.ipk')
-        os.system('tar zxf ' + TMP_SETTINGS_PWD + '/data.tar.gz -C ' + TMP_SETTINGS_PWD)
-        os.system('cd ' + TMP_SETTINGS_PWD + ' && find -type f -exec mv {} . \\;')
+        Console().ePopen("cp %s %s/tmp.ipk" % (filename, TMP_SETTINGS_PWD))
+        Console().ePopen("cd %s && ar -x tmp.ipk" % TMP_SETTINGS_PWD)
+        Console().ePopen("tar zxf %s/data.tar.gz -C %s" % (TMP_SETTINGS_PWD, TMP_SETTINGS_PWD))
+        Console().ePopen("cd %s && find -type f -exec mv {} . \\;" % TMP_SETTINGS_PWD)
 
     def deflate(self, filename):
         if filename.endswith('.tar.bz2') or filename.endswith('.tbz2') or filename.endswith('.tbz'):
