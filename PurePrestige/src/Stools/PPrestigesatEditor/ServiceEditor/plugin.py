@@ -15,7 +15,7 @@ from Plugins.Plugin import PluginDescriptor
 from Screens.MessageBox import MessageBox
 from Screens.Screen import Screen
 from time import strftime, time, localtime, mktime
-from Tools.Directories import resolveFilename, SCOPE_SKIN_IMAGE
+from Tools.Directories import resolveFilename
 from Tools.LoadPixmap import LoadPixmap
 from . import _
 from .Transponder import Transponder

@@ -5,7 +5,7 @@ from Components.Button import Button
 from Components.MenuList import MenuList
 from Components.MultiContent import MultiContentEntryText
 from Components.PluginComponent import plugins
-from Tools.Directories import resolveFilename, SCOPE_PLUGINS, SCOPE_CURRENT_SKIN, SCOPE_SKIN_IMAGE, copyfile, pathExists, createDir, removeDir, fileExists, copytree
+from Tools.Directories import resolveFilename, SCOPE_PLUGINS, SCOPE_CURRENT_SKIN, copyfile, pathExists, createDir, removeDir, fileExists, copytree
 from Components.Pixmap import Pixmap
 from Plugins.Plugin import PluginDescriptor
 from Components.config import ConfigSelection, config, ConfigSubsection, ConfigText, ConfigYesNo, getConfigListEntry, configfile
