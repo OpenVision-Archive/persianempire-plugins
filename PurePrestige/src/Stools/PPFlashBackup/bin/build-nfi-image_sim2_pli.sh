@@ -81,24 +81,24 @@ elif grep -qs 'ATI XILLEON HDTV SUPERTOLL' /proc/cpuinfo ; then
 	BOXTYPE=dm7025
 	VSND=84
 	OPTIONS="--eraseblock=0x4000 -n -l"
-elif grep -qs 'dm7025' /proc/stb/info/model ; then
+elif grep -qs 'dm7025' /etc/model ; then
 	BOXTYPE=dm7025
 	VSND=84
 	OPTIONS="--eraseblock=0x4000 -n -l"
-elif grep -qs 'dm8000' /proc/stb/info/model ; then
+elif grep -qs 'dm8000' /etc/model ; then
 	BOXTYPE=dm8000
 	VSND=84
 	OPTIONS="--eraseblock=0x20000 -n -l"
-elif grep -qs dm800se /proc/stb/info/model ; then
+elif grep -qs dm800se /etc/model ; then
         BOXTYPE=dm800se
        	VSND=84b
         OPTIONS="--eraseblock=0x4000 -n -l"
-elif grep -qs 'dm800' /proc/stb/info/model ; then
+elif grep -qs 'dm800' /etc/model ; then
 	BOXTYPE=dm800
 	VSND=84b
 	HTTPFILE=sim2-dm800-82.bin
 	OPTIONS="--eraseblock=0x4000 -n -l"
-elif grep -qs 'dm500hd' /proc/stb/info/model ; then
+elif grep -qs 'dm500hd' /etc/model ; then
 	BOXTYPE=dm500hd
 	VSND=84b
 	OPTIONS="--eraseblock=0x4000 -n -l"
