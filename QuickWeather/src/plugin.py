@@ -1429,9 +1429,9 @@ class SetupMenu2(Screen):
         id = str(self['menu'].getCurrent()[0])
         text = '%s' % (id)
         if config.plugins.WeatherPlugin.days.value == "0":
-            Console().ePopen("cp -f %s %s") % (resolveFilename(SCOPE_PLUGINS, "Extensions/QuickWeather/background/%s.png" % text), resolveFilename(SCOPE_PLUGINS, "Extensions/QuickWeather/background/backg.png")
+            Console().ePopen("cp -f %s %s") % (resolveFilename(SCOPE_PLUGINS, "Extensions/QuickWeather/background/%s.png" % text), resolveFilename(SCOPE_PLUGINS, "Extensions/QuickWeather/background/backg.png"))
         if config.plugins.WeatherPlugin.days.value == "1":
-            Console().ePopen("cp -f %s %s") % (resolveFilename(SCOPE_PLUGINS, "Extensions/QuickWeather/background1/%s.png" % text), resolveFilename(SCOPE_PLUGINS, "Extensions/QuickWeather/background/backg2.png")
+            Console().ePopen("cp -f %s %s") % (resolveFilename(SCOPE_PLUGINS, "Extensions/QuickWeather/background1/%s.png" % text), resolveFilename(SCOPE_PLUGINS, "Extensions/QuickWeather/background/backg2.png"))
         self.exit()
 
     def getPanelmenu(self):

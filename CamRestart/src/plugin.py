@@ -15,7 +15,7 @@ from Components.Sources.StaticText import StaticText
 import gettext
 from Components.PluginComponent import plugins
 
-if fileExists(resolveFilename(SCOPE_PLUGINS, "Extensions/PECamManager/Softcam.pyo"):
+if fileExists(resolveFilename(SCOPE_PLUGINS, "Extensions/PECamManager/Softcam.pyo")):
 	from Plugins.Extensions.PECamManager.Softcam import getcamcmd
 	
 lang = language.getLanguage()
@@ -58,7 +58,7 @@ class QuickEmu():
 		if fileExists("/etc/rc3.d/S99camd-persianpalace.sh"):
 			self.Console.ePopen("/etc/rc3.d/S99camd-persianpalace.sh restart")
 
-		elif fileExists(resolveFilename(SCOPE_PLUGINS, "Extensions/PECamManager/Softcam.pyo"):
+		elif fileExists(resolveFilename(SCOPE_PLUGINS, "Extensions/PECamManager/Softcam.pyo")):
 			service = self.session.nav.getCurrentlyPlayingServiceReference()
 			emunam = config.plugins.PECam.actcam.value
 			if emunam != "none":
@@ -82,7 +82,7 @@ class QuickEmu():
 			except:
 				return None
 
-		elif fileExists(resolveFilename(SCOPE_PLUGINS, "Extensions/PECamManager/plugin.pyo"): 
+		elif fileExists(resolveFilename(SCOPE_PLUGINS, "Extensions/PECamManager/plugin.pyo")): 
 			if config.plugins.PECam.actcam.value != "none": 
 				return config.plugins.PECam.actcam.value 
 			else: 
