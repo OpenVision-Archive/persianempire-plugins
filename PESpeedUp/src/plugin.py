@@ -10,7 +10,7 @@ from Components.Pixmap import Pixmap
 from Components.ConfigList import ConfigListScreen
 from Components.config import getConfigListEntry, config, ConfigSelection, NoSave
 from Components.Sources.List import List
-from Tools.Directories import pathExists, fileExists
+from Tools.Directories import pathExists, fileExists, resolveFilename, SCOPE_PLUGINS
 from Screens.Console import Console
 
 class PESpeedUp(Screen, ConfigListScreen):
@@ -29,7 +29,7 @@ class PESpeedUp(Screen, ConfigListScreen):
          'cancel': self.cancel,
          'back': self.cancel})
         self.packagelist = []
-        self.packagelist.append(['                                        Binaries', 'astra-sm cronie curl fuse-exfat minidlna nfs-utils ntfs-3g ntp openssh-sftp-server samba-base streamproxy ushare usb-modeswitch usb-modeswitch-data'])
+        self.packagelist.append(['                                        Binaries', 'astra-sm  cronie curl fuse-exfat minidlna nfs-utils ntfs-3g ntp openssh-sftp-server samba-base streamproxy ushare usb-modeswitch usb-modeswitch-data'])
         if fileExists('/usr/bin/astra'):
             self.packagelist.append(['astra-sm', 'astra-sm'])
         if fileExists('/usr/sbin/anacron'):
@@ -52,10 +52,10 @@ class PESpeedUp(Screen, ConfigListScreen):
             self.packagelist.append(['samba-base', 'samba-base'])
         if fileExists('/usr/bin/streamproxy'):
             self.packagelist.append(['streamproxy', 'streamproxy'])
-        if fileExists('/usr/bin/ushare'):
-            self.packagelist.append(['ushare', 'ushare'])
         if fileExists('/usr/sbin/usb_modeswitch'):
             self.packagelist.append(['usb-modeswitch', 'usb-modeswitch usb-modeswitch-data'])
+        if fileExists('/usr/bin/ushare'):
+            self.packagelist.append(['ushare', 'ushare'])
         self.packagelist.append(['                                        Cams', 'enigma2-plugin-softcams-oscam enigma2-plugin-softcams-oscam-emu enigma2-plugin-softcams-oscam-smod enigma2-plugin-softcams-ncam'])
         if fileExists('/usr/bin/oscam'):
             self.packagelist.append(['OSCam', 'enigma2-plugin-softcams-oscam'])
@@ -66,100 +66,100 @@ class PESpeedUp(Screen, ConfigListScreen):
         if fileExists('/usr/bin/ncam'):
             self.packagelist.append(['NCam', 'enigma2-plugin-softcams-ncam'])
         self.packagelist.append(['                                        Plugins (Extensions)', 'enigma2-plugin-extensions-audiosync enigma2-plugin-extensions-autobackup enigma2-plugin-extensions-backupsuite enigma2-plugin-extensions-btdevicesmanager enigma2-plugin-extensions-cacheflush enigma2-plugin-extensions-cdinfo enigma2-plugin-extensions-cutlisteditor enigma2-plugin-extensions-dlnabrowser enigma2-plugin-extensions-dlnaserver enigma2-plugin-extensions-dvdplayer enigma2-plugin-extensions-epgimport enigma2-plugin-extensions-epgrefresh enigma2-plugin-extensions-filecommander enigma2-plugin-extensions-foreca enigma2-plugin-extensions-graphmultiepg enigma2-plugin-extensions-grautec enigma2-plugin-extensions-hbbtv enigma2-plugin-extensions-e2iplayer enigma2-plugin-extensions-e2iplayer-deps enigma2-plugin-extensions-keyadder enigma2-plugin-extensions-lcd4linux enigma2-plugin-extensions-modem enigma2-plugin-extensions-moviecut enigma2-plugin-extensions-persianpalace enigma2-plugin-extensions-pluginskinmover enigma2-plugin-extensions-rcuselect enigma2-plugin-extensions-tmbd enigma2-plugin-extensions-tunerserver enigma2-plugin-extensions-vlcplayer enigma2-plugin-extensions-xmodem'])
-        if pathExists('/usr/lib/enigma2/python/Plugins/Extensions/AudioSync'):
+        if pathExists(resolveFilename(SCOPE_PLUGINS, 'Extensions/AudioSync')):
             self.packagelist.append(['AudioSync', 'enigma2-plugin-extensions-audiosync'])
-        if pathExists('/usr/lib/enigma2/python/Plugins/Extensions/AutoBackup'):
+        if pathExists(resolveFilename(SCOPE_PLUGINS, 'Extensions/AutoBackup')):
             self.packagelist.append(['AutoBackup', 'enigma2-plugin-extensions-autobackup'])
-        if pathExists('/usr/lib/enigma2/python/Plugins/Extensions/BackupSuite'):
+        if pathExists(resolveFilename(SCOPE_PLUGINS, 'Extensions/BackupSuite')):
             self.packagelist.append(['BackupSuite', 'enigma2-plugin-extensions-backupsuite'])
-        if pathExists('/usr/lib/enigma2/python/Plugins/Extensions/BTDevicesManager'):
+        if pathExists(resolveFilename(SCOPE_PLUGINS, 'Extensions/BTDevicesManager')):
             self.packagelist.append(['BTDevicesManager', 'enigma2-plugin-extensions-btdevicesmanager'])
-        if pathExists('/usr/lib/enigma2/python/Plugins/Extensions/CacheFlush'):
+        if pathExists(resolveFilename(SCOPE_PLUGINS, 'Extensions/CacheFlush')):
             self.packagelist.append(['CacheFlush', 'enigma2-plugin-extensions-cacheflush'])
-        if pathExists('/usr/lib/enigma2/python/Plugins/Extensions/CDInfo'):
+        if pathExists(resolveFilename(SCOPE_PLUGINS, 'Extensions/CDInfo')):
             self.packagelist.append(['CDInfo', 'enigma2-plugin-extensions-cdinfo'])
-        if pathExists('/usr/lib/enigma2/python/Plugins/Extensions/CutListEditor'):
+        if pathExists(resolveFilename(SCOPE_PLUGINS, 'Extensions/CutListEditor')):
             self.packagelist.append(['CutListEditor', 'enigma2-plugin-extensions-cutlisteditor'])
-        if pathExists('/usr/lib/enigma2/python/Plugins/Extensions/DLNABrowser'):
+        if pathExists(resolveFilename(SCOPE_PLUGINS, 'Extensions/DLNABrowser')):
             self.packagelist.append(['DLNABrowser', 'enigma2-plugin-extensions-dlnabrowser'])
-        if pathExists('/usr/lib/enigma2/python/Plugins/Extensions/DLNAServer'):
+        if pathExists(resolveFilename(SCOPE_PLUGINS, 'Extensions/DLNAServer')):
             self.packagelist.append(['DLNAServer', 'enigma2-plugin-extensions-dlnaserver'])
-        if pathExists('/usr/lib/enigma2/python/Plugins/Extensions/DVDPlayer'):
+        if pathExists(resolveFilename(SCOPE_PLUGINS, 'Extensions/DVDPlayer')):
             self.packagelist.append(['DVDPlayer', 'enigma2-plugin-extensions-dvdplayer'])
-        if pathExists('/usr/lib/enigma2/python/Plugins/Extensions/EPGImport'):
+        if pathExists(resolveFilename(SCOPE_PLUGINS, 'Extensions/EPGImport')):
             self.packagelist.append(['EPGImport', 'enigma2-plugin-extensions-epgimport'])
-        if pathExists('/usr/lib/enigma2/python/Plugins/Extensions/EPGRefresh'):
+        if pathExists(resolveFilename(SCOPE_PLUGINS, 'Extensions/EPGRefresh')):
             self.packagelist.append(['EPGRefresh', 'enigma2-plugin-extensions-epgrefresh'])
-        if pathExists('/usr/lib/enigma2/python/Plugins/Extensions/FileCommander'):
+        if pathExists(resolveFilename(SCOPE_PLUGINS, 'Extensions/FileCommander')):
             self.packagelist.append(['FileCommander', 'enigma2-plugin-extensions-filecommander'])
-        if pathExists('/usr/lib/enigma2/python/Plugins/Extensions/Foreca'):
+        if pathExists(resolveFilename(SCOPE_PLUGINS, 'Extensions/Foreca')):
             self.packagelist.append(['Foreca', 'enigma2-plugin-extensions-foreca'])
-        if pathExists('/usr/lib/enigma2/python/Plugins/Extensions/GraphMultiEPG'):
+        if pathExists(resolveFilename(SCOPE_PLUGINS, 'Extensions/GraphMultiEPG')):
             self.packagelist.append(['GraphMultiEPG', 'enigma2-plugin-extensions-graphmultiepg'])
         if pathExists('/usr/bin/usbtftdisplay'):
             self.packagelist.append(['GrauTec', 'enigma2-plugin-extensions-grautec'])
-        if pathExists('/usr/lib/enigma2/python/Plugins/Extensions/HbbTV'):
+        if pathExists(resolveFilename(SCOPE_PLUGINS, 'Extensions/HbbTV')):
             self.packagelist.append(['HbbTV', 'enigma2-plugin-extensions-hbbtv'])
-        if pathExists('/usr/lib/enigma2/python/Plugins/Extensions/IPTVPlayer'):
+        if pathExists(resolveFilename(SCOPE_PLUGINS, 'Extensions/IPTVPlayer')):
             self.packagelist.append(['IPTVPlayer', 'enigma2-plugin-extensions-e2iplayer enigma2-plugin-extensions-e2iplayer-deps'])
-        if pathExists('/usr/lib/enigma2/python/Plugins/Extensions/KeyAdder'):
+        if pathExists(resolveFilename(SCOPE_PLUGINS, 'Extensions/KeyAdder')):
             self.packagelist.append(['KeyAdder', 'enigma2-plugin-extensions-keyadder'])
-        if pathExists('/usr/lib/enigma2/python/Plugins/Extensions/LCD4linux'):
+        if pathExists(resolveFilename(SCOPE_PLUGINS, 'Extensions/LCD4linux')):
             self.packagelist.append(['LCD4linux', 'enigma2-plugin-extensions-lcd4linux'])
-        if pathExists('/usr/lib/enigma2/python/Plugins/Extensions/Modem'):
+        if pathExists(resolveFilename(SCOPE_PLUGINS, 'Extensions/Modem')):
             self.packagelist.append(['Modem', 'enigma2-plugin-extensions-modem'])
-        if pathExists('/usr/lib/enigma2/python/Plugins/Extensions/MovieCut'):
+        if pathExists(resolveFilename(SCOPE_PLUGINS, 'Extensions/MovieCut')):
             self.packagelist.append(['MovieCut', 'enigma2-plugin-extensions-moviecut'])
-        if pathExists('/usr/lib/enigma2/python/Plugins/Extensions/PersianPalace'):
+        if pathExists(resolveFilename(SCOPE_PLUGINS, 'Extensions/PersianPalace')):
             self.packagelist.append(['PersianPalace', 'enigma2-plugin-extensions-persianpalace'])
-        if pathExists('/usr/lib/enigma2/python/Plugins/Extensions/PluginSkinMover'):
+        if pathExists(resolveFilename(SCOPE_PLUGINS, 'Extensions/PluginSkinMover')):
             self.packagelist.append(['PluginSkinMover', 'enigma2-plugin-extensions-pluginskinmover'])
-        if pathExists('/usr/lib/enigma2/python/Plugins/Extensions/RCUSelect'):
+        if pathExists(resolveFilename(SCOPE_PLUGINS, 'Extensions/RCUSelect')):
             self.packagelist.append(['RCUSelect', 'enigma2-plugin-extensions-rcuselect'])
-        if pathExists('/usr/lib/enigma2/python/Plugins/Extensions/TMBD'):
+        if pathExists(resolveFilename(SCOPE_PLUGINS, 'Extensions/TMBD')):
             self.packagelist.append(['TMBD', 'enigma2-plugin-extensions-tmbd'])
-        if pathExists('/usr/lib/enigma2/python/Plugins/Extensions/TunerServer'):
+        if pathExists(resolveFilename(SCOPE_PLUGINS, 'Extensions/TunerServer')):
             self.packagelist.append(['TunerServer', 'enigma2-plugin-extensions-tunerserver'])
-        if pathExists('/usr/lib/enigma2/python/Plugins/Extensions/VlcPlayer'):
+        if pathExists(resolveFilename(SCOPE_PLUGINS, 'Extensions/VlcPlayer')):
             self.packagelist.append(['VlcPlayer', 'enigma2-plugin-extensions-vlcplayer'])
-        if pathExists('/usr/lib/enigma2/python/Plugins/Extensions/xModem'):
+        if pathExists(resolveFilename(SCOPE_PLUGINS, 'Extensions/xModem')):
             self.packagelist.append(['xModem', 'enigma2-plugin-extensions-xmodem'])
         self.packagelist.append(['                                        Plugins (System)', 'enigma2-plugin-systemplugins-3dsettings enigma2-plugin-systemplugins-3gmodemmanager enigma2-plugin-systemplugins-animationsetup enigma2-plugin-systemplugins-fsblupdater enigma2-plugin-systemplugins-hdmicec enigma2-plugin-systemplugins-keymapmanager enigma2-plugin-systemplugins-mountmanager enigma2-plugin-systemplugins-multitranscodingsetup enigma2-plugin-systemplugins-osd3dsetup enigma2-plugin-systemplugins-osdpositionsetup enigma2-plugin-systemplugins-satipclient enigma2-plugin-systemplugins-setpasswd enigma2-plugin-systemplugins-sh4boostercontrol enigma2-plugin-systemplugins-sh4osdadjustment enigma2-plugin-systemplugins-sparkuniontunertype enigma2-plugin-systemplugins-systemtime enigma2-plugin-systemplugins-videoenhancement enigma2-plugin-systemplugins-transcodingsetup'])
-        if pathExists('/usr/lib/enigma2/python/Plugins/SystemPlugins/3DSettings'):
+        if pathExists(resolveFilename(SCOPE_PLUGINS, 'SystemPlugins/3DSettings')):
             self.packagelist.append(['3DSettings', 'enigma2-plugin-systemplugins-3dsettings'])
-        if pathExists('/usr/lib/enigma2/python/Plugins/SystemPlugins/3GModemManager'):
+        if pathExists(resolveFilename(SCOPE_PLUGINS, 'SystemPlugins/3GModemManager')):
             self.packagelist.append(['3GModemManager', 'enigma2-plugin-systemplugins-3gmodemmanager'])
-        if pathExists('/usr/lib/enigma2/python/Plugins/SystemPlugins/AnimationSetup'):
+        if pathExists(resolveFilename(SCOPE_PLUGINS, 'SystemPlugins/AnimationSetup')):
             self.packagelist.append(['AnimationSetup', 'enigma2-plugin-systemplugins-animationsetup'])
-        if pathExists('/usr/lib/enigma2/python/Plugins/SystemPlugins/FSBLUpdater'):
+        if pathExists(resolveFilename(SCOPE_PLUGINS, 'SystemPlugins/FSBLUpdater')):
             self.packagelist.append(['FSBLUpdater', 'enigma2-plugin-systemplugins-fsblupdater'])
-        if pathExists('/usr/lib/enigma2/python/Plugins/SystemPlugins/HdmiCEC'):
+        if pathExists(resolveFilename(SCOPE_PLUGINS, 'SystemPlugins/HdmiCEC')):
             self.packagelist.append(['HdmiCEC', 'enigma2-plugin-systemplugins-hdmicec'])
-        if pathExists('/usr/lib/enigma2/python/Plugins/SystemPlugins/KeymapManager'):
+        if pathExists(resolveFilename(SCOPE_PLUGINS, 'SystemPlugins/KeymapManager')):
             self.packagelist.append(['KeymapManager', 'enigma2-plugin-systemplugins-keymapmanager'])
-        if pathExists('/usr/lib/enigma2/python/Plugins/SystemPlugins/MountManager'):
+        if pathExists(resolveFilename(SCOPE_PLUGINS, 'SystemPlugins/MountManager')):
             self.packagelist.append(['MountManager', 'enigma2-plugin-systemplugins-mountmanager'])
-        if pathExists('/usr/lib/enigma2/python/Plugins/SystemPlugins/MultiTransCodingSetup'):
+        if pathExists(resolveFilename(SCOPE_PLUGINS, 'SystemPlugins/MultiTransCodingSetup')):
             self.packagelist.append(['MultiTransCodingSetup', 'enigma2-plugin-systemplugins-multitranscodingsetup'])
-        if pathExists('/usr/lib/enigma2/python/Plugins/SystemPlugins/OSD3DSetup'):
+        if pathExists(resolveFilename(SCOPE_PLUGINS, 'SystemPlugins/OSD3DSetup')):
             self.packagelist.append(['OSD3DSetup', 'enigma2-plugin-systemplugins-osd3dsetup'])
-        if pathExists('/usr/lib/enigma2/python/Plugins/SystemPlugins/OSDPositionSetup'):
+        if pathExists(resolveFilename(SCOPE_PLUGINS, 'SystemPlugins/OSDPositionSetup')):
             self.packagelist.append(['OSDPositionSetup', 'enigma2-plugin-systemplugins-osdpositionsetup'])
-        if pathExists('/usr/lib/enigma2/python/Plugins/SystemPlugins/SatipClient'):
+        if pathExists(resolveFilename(SCOPE_PLUGINS, 'SystemPlugins/SatipClient')):
             self.packagelist.append(['SatipClient', 'enigma2-plugin-systemplugins-satipclient'])
-        if pathExists('/usr/lib/enigma2/python/Plugins/SystemPlugins/SetPasswd'):
+        if pathExists(resolveFilename(SCOPE_PLUGINS, 'SystemPlugins/SetPasswd')):
             self.packagelist.append(['SetPasswd', 'enigma2-plugin-systemplugins-setpasswd'])
-        if pathExists('/usr/lib/enigma2/python/Plugins/SystemPlugins/SH4BoosterControl'):
+        if pathExists(resolveFilename(SCOPE_PLUGINS, 'SystemPlugins/SH4BoosterControl')):
             self.packagelist.append(['SH4BoosterControl', 'enigma2-plugin-systemplugins-sh4boostercontrol'])
-        if pathExists('/usr/lib/enigma2/python/Plugins/SystemPlugins/SH4OSDAdjustment'):
+        if pathExists(resolveFilename(SCOPE_PLUGINS, 'SystemPlugins/SH4OSDAdjustment')):
             self.packagelist.append(['SH4OSDAdjustment', 'enigma2-plugin-systemplugins-sh4osdadjustment'])
-        if pathExists('/usr/lib/enigma2/python/Plugins/SystemPlugins/SparkUnionTunerType'):
+        if pathExists(resolveFilename(SCOPE_PLUGINS, 'SystemPlugins/SparkUnionTunerType')):
             self.packagelist.append(['SparkUnionTunerType', 'enigma2-plugin-systemplugins-sparkuniontunertype'])
-        if pathExists('/usr/lib/enigma2/python/Plugins/SystemPlugins/SystemTime'):
+        if pathExists(resolveFilename(SCOPE_PLUGINS, 'SystemPlugins/SystemTime')):
             self.packagelist.append(['SystemTime', 'enigma2-plugin-systemplugins-systemtime'])
-        if pathExists('/usr/lib/enigma2/python/Plugins/SystemPlugins/VideoEnhancement'):
+        if pathExists(resolveFilename(SCOPE_PLUGINS, 'SystemPlugins/VideoEnhancement')):
             self.packagelist.append(['VideoEnhancement', 'enigma2-plugin-systemplugins-videoenhancement'])
-        if pathExists('/usr/lib/enigma2/python/Plugins/SystemPlugins/TransCodingSetup'):
+        if pathExists(resolveFilename(SCOPE_PLUGINS, 'SystemPlugins/TransCodingSetup')):
             self.packagelist.append(['TransCodingSetup', 'enigma2-plugin-systemplugins-transcodingsetup'])
         self.packagelist.append(['                                        Locales', 'enigma2-locale-ar enigma2-locale-bg enigma2-locale-ca enigma2-locale-cs enigma2-locale-da enigma2-locale-de enigma2-locale-el enigma2-locale-es enigma2-locale-et enigma2-locale-fa enigma2-locale-fi enigma2-locale-fr enigma2-locale-fy enigma2-locale-he enigma2-locale-hr enigma2-locale-hu enigma2-locale-id enigma2-locale-is enigma2-locale-it enigma2-locale-ku enigma2-locale-lt enigma2-locale-lv enigma2-locale-nb enigma2-locale-nl enigma2-locale-nn enigma2-locale-pl enigma2-locale-pt enigma2-locale-pt-br enigma2-locale-ro enigma2-locale-ru enigma2-locale-sk enigma2-locale-sl enigma2-locale-sr enigma2-locale-sv enigma2-locale-th enigma2-locale-tr enigma2-locale-uk enigma2-locale-vi enigma2-locale-zh-cn enigma2-locale-zh-hk'])
         if pathExists('/usr/share/enigma2/po/ar'):

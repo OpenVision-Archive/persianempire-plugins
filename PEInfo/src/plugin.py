@@ -444,7 +444,7 @@ class PEInfoTexto(Screen):
         self.muestra('pup', 'Page Up')
         self.muestra('pdown', 'Page Down')
         if self.inicio == 6:
-            if fileExists('/usr/lib/enigma2/python/Plugins/SystemPlugins/PEPanel/HddSetup.pyo'):
+            if fileExists(resolveFilename(SCOPE_PLUGINS, 'SystemPlugins/PEPanel/HddSetup.pyo'):
                 self.muestra('green', 'Manage')
             self.muestra('blue', 'Setup')
             self.muestra('yellow', 'Explorer')
@@ -452,11 +452,11 @@ class PEInfoTexto(Screen):
             self.muestra('green', 'Event')
             self.muestra('yellow', 'EPG')
         elif self.inicio == 11:
-            if fileExists('/usr/lib/enigma2/python/Plugins/Extensions/PersianPalace/plugin.pyo'):
+            if fileExists(resolveFilename(SCOPE_PLUGINS, 'Extensions/PersianPalace/plugin.pyo'):
                 self.muestra('green', 'Persian Palace')
-            if fileExists('/usr/lib/enigma2/python/Plugins/Extensions/DownloadManager/plugin.pyo'):
+            if fileExists(resolveFilename(SCOPE_PLUGINS, 'Extensions/DownloadManager/plugin.pyo'):
                 self.muestra('blue', 'DM 5.0')
-            if fileExists('/usr/lib/enigma2/python/Plugins/Extensions/CCcamInfo/plugin.pyo'):
+            if fileExists(resolveFilename(SCOPE_PLUGINS, 'Extensions/CCcamInfo/plugin.pyo'):
                 self.muestra('yellow', 'CCcam Info')
         elif self.inicio == 5:
             self.muestra('blue', 'Setup')
@@ -545,7 +545,7 @@ class PEInfoTexto(Screen):
             cmens = _('Delete CrashLogs') + ' :\n' + rutacras1 + '\n' + rutacras2 + '\n' + rutacras3 + '\n' + _('Are You Sure To Delete .log Files ?')
             dei = self.session.openWithCallback(self.cbborralogs, MessageBox, cmens, MessageBox.TYPE_YESNO)
         elif self.inicio == 11:
-            if fileExists('/usr/lib/enigma2/python/Plugins/Extensions/PersianPalace/plugin.pyo'):
+            if fileExists(resolveFilename(SCOPE_PLUGINS, 'Extensions/PersianPalace/plugin.pyo'):
                 try:
                     from Plugins.Extensions.PersianPalace.plugin import *
                     persianpalaceplugin(self.session)
@@ -621,7 +621,7 @@ class PEInfoTexto(Screen):
                 pass
 
         elif self.inicio == 11:
-            if fileExists('/usr/lib/enigma2/python/Plugins/Extensions/CCcamInfo/plugin.pyo'):
+            if fileExists(resolveFilename(SCOPE_PLUGINS, 'Extensions/CCcamInfo/plugin.pyo'):
                 try:
                     from Plugins.Extensions.CCcamInfo.plugin import main
                     main(self.session)
