@@ -1597,7 +1597,7 @@ class SetupKeymap(Screen):
     def showDetails(self):
         id = str(self['menu'].getCurrent()[0])
         text = '%s' % (id)
-        Console().ePopen("cp -f %s %s") % (resolveFilename(SCOPE_PLUGINS, "Extensions/QuickWeather/SetupKeymap/%s.xml" % text), resolveFilename(SCOPE_PLUGINS, "Extensions/QuickWeather/keymap.xml")
+        Console().ePopen("cp -f %s %s") % (resolveFilename(SCOPE_PLUGINS, "Extensions/QuickWeather/SetupKeymap/%s.xml" % text), resolveFilename(SCOPE_PLUGINS, "Extensions/QuickWeather/keymap.xml"))
         from Screens.Standby import TryQuitMainloop
         self.session.open(TryQuitMainloop, 3)
 
