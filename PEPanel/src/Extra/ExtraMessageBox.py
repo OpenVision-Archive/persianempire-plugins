@@ -2,14 +2,14 @@ from enigma import *
 from Screens.Screen import Screen
 from Components.ActionMap import ActionMap
 from Components.MenuList import MenuList
-from Tools.Directories import fileExists
+from Tools.Directories import fileExists, resolveFilename, SCOPE_PLUGINS
 from Components.Label import Label
 from Components.MultiContent import MultiContentEntryText, MultiContentEntryPixmapAlphaTest
 from ExtrasList import ExtrasList
 
 def MessageBoxEntry(name, picture):
     res = [(name, picture)]
-    picture = '/usr/lib/enigma2/python/Plugins/SystemPlugins/PEPanel/pictures/' + picture
+    picture = resolveFilename(SCOPE_PLUGINS, 'SystemPlugins/PEPanel/pictures/' + picture)
     if fileExists(picture):
         res.append(MultiContentEntryPixmapAlphaTest(pos=(5, 0), size=(48, 48), png=loadPNG(picture)))
     res.append(MultiContentEntryText(pos=(65, 10), size=(425, 38), font=0, text=name))

@@ -1,7 +1,7 @@
 from enigma import *
 from Screens.Screen import Screen
 from Components.ActionMap import ActionMap
-from Tools.Directories import fileExists
+from Tools.Directories import fileExists, resolveFilename, SCOPE_PLUGINS
 from Components.MultiContent import MultiContentEntryText, MultiContentEntryPixmapAlphaTest
 from Components.Button import Button
 from Extra.ExtrasList import ExtrasList
@@ -16,7 +16,7 @@ from __init__ import _
 
 def PartitionEntry(description, size):
     res = [(description, size)]
-    picture = '/usr/lib/enigma2/python/Plugins/SystemPlugins/PEPanel/pictures/partitionmanager.png'
+    picture = resolveFilename(SCOPE_PLUGINS, 'SystemPlugins/PEPanel/pictures/partitionmanager.png')
     if fileExists(picture):
         res.append(MultiContentEntryPixmapAlphaTest(pos=(5, 0), size=(48, 48), png=loadPNG(picture)))
     res.append(MultiContentEntryText(pos=(65, 10), size=(360, 38), font=0, text=description))

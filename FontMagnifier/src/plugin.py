@@ -159,7 +159,7 @@ class fmConfiguration(Screen, ConfigListScreen):
         try:
             config.plugins.fm.single_epg_list_fontsize.value = 0
             config.plugins.fm.single_epg_list_fontsize2.value = 0
-            EpgList_file = open("/usr/lib/enigma2/python/Components/EpgList.py", "r")
+            EpgList_file = open(resolveFilename(SCOPE_LIBDIR, "enigma2/python/Components/EpgList.py", "r")
             anzahl_der_gefundenen_schriften = 0
             for zeile in EpgList_file:
                 if zeile.find("\t\tself.l.setFont(0") is not -1:
@@ -270,7 +270,7 @@ class fmConfiguration(Screen, ConfigListScreen):
     def getcurrent_font_movie_list(self):
         try:
             config.plugins.fm.movie_list_fontsize.value = 0
-            MovieList_file = open("/usr/lib/enigma2/python/Components/MovieList.py", "r")
+            MovieList_file = open(resolveFilename(SCOPE_LIBDIR, "enigma2/python/Components/MovieList.py", "r")
             for zeile in MovieList_file:
                 if zeile.find("\t\t\tself.l.setFont(0") is not -1:
                     function_arguments = zeile.split(",")
@@ -441,11 +441,11 @@ class fmOptions(Screen):
         self.list = []
         if os.path.exists("/usr/share/enigma2/%s.bak" % (config.skin.primary_skin.value)):
             self.list.append(_("restore skin.xml"))
-        if os.path.exists("/usr/lib/enigma2/python/Components/EpgList.py.bak"):
+        if os.path.exists(resolveFilename(SCOPE_LIBDIR, "enigma2/python/Components/EpgList.py.bak"):
             self.list.append(_("restore EpgList.py"))
-        if os.path.exists("/usr/lib/enigma2/python/Components/MovieList.py.bak"):
+        if os.path.exists(resolveFilename(SCOPE_LIBDIR, "enigma2/python/Components/MovieList.py.bak"):
             self.list.append(_("restore MovieList.py"))
-        if os.path.exists("/usr/lib/enigma2/python/Components/ServiceList.py.bak"):
+        if os.path.exists(resolveFilename(SCOPE_LIBDIR, "enigma2/python/Components/ServiceList.py.bak"):
             self.list.append(_("restore ServiceList.py"))
         if os.path.exists("/etc/enigma2/skin_user.xml.bak"):
             self.list.append(_("restore skin_user.xml"))
@@ -957,7 +957,7 @@ class fmWaitScreen(Screen):
 
         try:
             if config.plugins.fm.single_epg_list_fontsize.value != 0:
-                EpgList_file = open("/usr/lib/enigma2/python/Components/EpgList.py", "r")
+                EpgList_file = open(resolveFilename(SCOPE_LIBDIR, "enigma2/python/Components/EpgList.py", "r")
                 EpgList_text=EpgList_file.read()
                 if EpgList_text.find("\t\tself.l.setItemHeight") is not -1:
                     item_height_gefunden = 1
@@ -966,7 +966,7 @@ class fmWaitScreen(Screen):
                 EpgList_file.close()
 
                 EpgList_text_neu = ""
-                EpgList_file = open("/usr/lib/enigma2/python/Components/EpgList.py", "r")
+                EpgList_file = open(resolveFilename(SCOPE_LIBDIR, "enigma2/python/Components/EpgList.py", "r")
                 for zeile in EpgList_file:
                     if zeile.find("\t\tself.l.setFont(0") is not -1:
                         if item_height_gefunden == 0:
@@ -981,10 +981,10 @@ class fmWaitScreen(Screen):
 
                 EpgList_file.close()
 
-                if not os.path.exists("/usr/lib/enigma2/python/Components/EpgList.py.bak"):
+                if not os.path.exists(resolveFilename(SCOPE_LIBDIR, "enigma2/python/Components/EpgList.py.bak"):
                     Console().ePopen("cp /usr/lib/enigma2/python/Components/EpgList.py /usr/lib/enigma2/python/Components/EpgList.py.bak")
 
-                EpgList_file = open("/usr/lib/enigma2/python/Components/EpgList.py", "w")
+                EpgList_file = open(resolveFilename(SCOPE_LIBDIR, "enigma2/python/Components/EpgList.py", "w")
                 EpgList_file.write(EpgList_text_neu)
                 EpgList_file.close()
         except:
@@ -993,7 +993,7 @@ class fmWaitScreen(Screen):
         try:
             if config.plugins.fm.movie_list_fontsize.value != 0:
                 MovieList_text_neu = ""
-                MovieList_file = open("/usr/lib/enigma2/python/Components/MovieList.py", "r")
+                MovieList_file = open(resolveFilename(SCOPE_LIBDIR, "enigma2/python/Components/MovieList.py", "r")
                 for zeile in MovieList_file:
                     if zeile.find("\t\tself.l.setFont(0") is not -1:
                         MovieList_text_neu = MovieList_text_neu + "\t\t\tself.l.setFont(0, gFont(\"Regular\", %d))\n" % (config.plugins.fm.movie_list_fontsize.value)
@@ -1002,10 +1002,10 @@ class fmWaitScreen(Screen):
 
                 MovieList_file.close()
 
-                if not os.path.exists("/usr/lib/enigma2/python/Components/MovieList.py.bak"):
+                if not os.path.exists(resolveFilename(SCOPE_LIBDIR, "enigma2/python/Components/MovieList.py.bak"):
                     Console().ePopen("cp /usr/lib/enigma2/python/Components/MovieList.py /usr/lib/enigma2/python/Components/MovieList.py.bak")
 
-                MovieList_file = open("/usr/lib/enigma2/python/Components/MovieList.py", "w")
+                MovieList_file = open(resolveFilename(SCOPE_LIBDIR, "enigma2/python/Components/MovieList.py", "w")
                 MovieList_file.write(MovieList_text_neu)
                 MovieList_file.close()
         except:

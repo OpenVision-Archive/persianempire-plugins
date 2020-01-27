@@ -20,9 +20,9 @@ from Components.Console import Console
 def DiskEntry(model, size, removable):
     res = [(model, size, removable)]
     if removable:
-        picture = '/usr/lib/enigma2/python/Plugins/SystemPlugins/PEPanel/pictures/diskusb.png'
+        picture = resolveFilename(SCOPE_PLUGINS, 'SystemPlugins/PEPanel/pictures/diskusb.png'
     else:
-        picture = '/usr/lib/enigma2/python/Plugins/SystemPlugins/PEPanel/pictures/disk.png'
+        picture = resolveFilename(SCOPE_PLUGINS, 'SystemPlugins/PEPanel/pictures/disk.png'
     if fileExists(picture):
         res.append(MultiContentEntryPixmapAlphaTest(pos=(5, 0), size=(48, 48), png=loadPNG(picture)))
     res.append(MultiContentEntryText(pos=(65, 10), size=(360, 38), font=0, text=model))

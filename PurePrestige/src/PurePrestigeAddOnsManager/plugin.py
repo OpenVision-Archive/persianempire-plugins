@@ -1062,10 +1062,10 @@ class PurePrestigePackageFeedssearch(Screen):
 
     def refresh(self):
         if self.ipkgremove == False:
-            png = '/usr/lib/enigma2/python/Plugins/Extensions/PurePrestige/nbuttons/green.png'
+            png = resolveFilename(SCOPE_PLUGINS, 'Extensions/PurePrestige/nbuttons/green.png'
             txt = 'remove'
         else:
-            png = '/usr/lib/enigma2/python/Plugins/Extensions/PurePrestige/nbuttons/grey.png'
+            png = resolveFilename(SCOPE_PLUGINS, 'Extensions/PurePrestige/nbuttons/grey.png'
             txt = 'install'
         idx = self['list'].getSelectionIndex()
         self.list[idx][1] = txt
@@ -1090,13 +1090,13 @@ class PurePrestigePackageFeedssearch(Screen):
             pngtext = str(self.list[i][1])
             item = str(self.list[i][0])
             if pngtext == 'install':
-                png = '/usr/lib/enigma2/python/Plugins/Extensions/PurePrestige/nbuttons/grey.png'
+                png = resolveFilename(SCOPE_PLUGINS, 'Extensions/PurePrestige/nbuttons/grey.png'
             elif pngtext == 'update':
-                png = '/usr/lib/enigma2/python/Plugins/Extensions/PurePrestige/nbuttons/yellow.png'
+                png = resolveFilename(SCOPE_PLUGINS, 'Extensions/PurePrestige/nbuttons/yellow.png'
             elif pngtext == 'remove':
-                png = '/usr/lib/enigma2/python/Plugins/Extensions/PurePrestige/nbuttons/green.png'
+                png = resolveFilename(SCOPE_PLUGINS, 'Extensions/PurePrestige/nbuttons/green.png'
             else:
-                png = '/usr/lib/enigma2/python/Plugins/Extensions/PurePrestige/images/green.png'
+                png = resolveFilename(SCOPE_PLUGINS, 'Extensions/PurePrestige/images/green.png'
             res.append(MultiContentEntryText(pos=(0, 1), size=(5, 30), font=0, flags=RT_HALIGN_LEFT, text='', color=16777215, color_sel=16777215))
             res.append(MultiContentEntryPixmapAlphaTest(pos=(0, 1), size=(30, 30), png=loadPNG(png)))
             res.append(MultiContentEntryText(pos=(30, 1), size=(580, 30), font=0, flags=RT_HALIGN_LEFT, text=item, color=16777215, color_sel=16777215))
@@ -1499,10 +1499,10 @@ class PurePrestigePackageFeeds(Screen):
 
     def refresh(self):
         if self.ipkgremove == False:
-            png = '/usr/lib/enigma2/python/Plugins/Extensions/PurePrestige/nbuttons/green.png'
+            png = resolveFilename(SCOPE_PLUGINS, 'Extensions/PurePrestige/nbuttons/green.png'
             txt = 'remove'
         else:
-            png = '/usr/lib/enigma2/python/Plugins/Extensions/PurePrestige/nbuttons/grey.png'
+            png = resolveFilename(SCOPE_PLUGINS, 'Extensions/PurePrestige/nbuttons/grey.png'
             txt = 'install'
         idx = self['list'].getSelectionIndex()
         self.list[idx][1] = txt
@@ -1527,13 +1527,13 @@ class PurePrestigePackageFeeds(Screen):
             pngtext = str(self.list[i][1])
             item = str(self.list[i][0])
             if pngtext == 'install':
-                png = '/usr/lib/enigma2/python/Plugins/Extensions/PurePrestige/nbuttons/grey.png'
+                png = resolveFilename(SCOPE_PLUGINS, 'Extensions/PurePrestige/nbuttons/grey.png'
             elif pngtext == 'update':
-                png = '/usr/lib/enigma2/python/Plugins/Extensions/PurePrestige/nbuttons/yellow.png'
+                png = resolveFilename(SCOPE_PLUGINS, 'Extensions/PurePrestige/nbuttons/yellow.png'
             elif pngtext == 'remove':
-                png = '/usr/lib/enigma2/python/Plugins/Extensions/PurePrestige/nbuttons/green.png'
+                png = resolveFilename(SCOPE_PLUGINS, 'Extensions/PurePrestige/nbuttons/green.png'
             else:
-                png = '/usr/lib/enigma2/python/Plugins/Extensions/PurePrestige/images/green.png'
+                png = resolveFilename(SCOPE_PLUGINS, 'Extensions/PurePrestige/images/green.png'
             res.append(MultiContentEntryText(pos=(0, 1), size=(5, 30), font=0, flags=RT_HALIGN_LEFT, text='', color=16777215, color_sel=16777215))
             res.append(MultiContentEntryPixmapAlphaTest(pos=(0, 1), size=(30, 30), png=loadPNG(png)))
             res.append(MultiContentEntryText(pos=(30, 1), size=(580, 30), font=0, flags=RT_HALIGN_LEFT, text=item, color=16777215, color_sel=16777215))
@@ -1743,10 +1743,10 @@ class Ipkgsearch(Screen):
 
     def refresh(self):
         if self.ipkgremove == False:
-            png = '/usr/lib/enigma2/python/Plugins/Extensions/PurePrestige/nbuttons/green.png'
+            png = resolveFilename(SCOPE_PLUGINS, 'Extensions/PurePrestige/nbuttons/green.png'
             txt = 'remove'
         else:
-            png = '/usr/lib/enigma2/python/Plugins/Extensions/PurePrestige/nbuttons/grey.png'
+            png = resolveFilename(SCOPE_PLUGINS, 'Extensions/PurePrestige/nbuttons/grey.png'
             txt = 'install'
         idx = self['menu'].getSelectionIndex()
         self.list[idx][1] = txt
@@ -1785,13 +1785,13 @@ class Ipkgsearch(Screen):
             group = str(self.list[i][2])
             item = item + '/' + group
             if pngtext == 'install':
-                png = '/usr/lib/enigma2/python/Plugins/Extensions/PurePrestige/nbuttons/grey.png'
+                png = resolveFilename(SCOPE_PLUGINS, 'Extensions/PurePrestige/nbuttons/grey.png'
             elif pngtext == 'update':
-                png = '/usr/lib/enigma2/python/Plugins/Extensions/PurePrestige/nbuttons/yellow.png'
+                png = resolveFilename(SCOPE_PLUGINS, 'Extensions/PurePrestige/nbuttons/yellow.png'
             elif pngtext == 'remove':
-                png = '/usr/lib/enigma2/python/Plugins/Extensions/PurePrestige/nbuttons/green.png'
+                png = resolveFilename(SCOPE_PLUGINS, 'Extensions/PurePrestige/nbuttons/green.png'
             else:
-                png = '/usr/lib/enigma2/python/Plugins/Extensions/PurePrestige/images/button_green.png'
+                png = resolveFilename(SCOPE_PLUGINS, 'Extensions/PurePrestige/images/button_green.png'
                 png = LoadPixmap(png)
             res.append(MultiContentEntryText(pos=(0, 1), size=(5, 30), font=0, flags=RT_HALIGN_LEFT, text='', color=16777215, color_sel=16777215))
             res.append(MultiContentEntryPixmapAlphaTest(pos=(0, 1), size=(30, 30), png=loadPNG(png)))
@@ -2082,10 +2082,10 @@ class PurePrestigeIpkgLogos(Screen):
 
     def refresh(self):
         if self.ipkgremove == False:
-            png = '/usr/lib/enigma2/python/Plugins/Extensions/PurePrestige/nbuttons/green.png'
+            png = resolveFilename(SCOPE_PLUGINS, 'Extensions/PurePrestige/nbuttons/green.png'
             txt = 'remove'
         else:
-            png = '/usr/lib/enigma2/python/Plugins/Extensions/PurePrestige/nbuttons/grey.png'
+            png = resolveFilename(SCOPE_PLUGINS, 'Extensions/PurePrestige/nbuttons/grey.png'
             txt = 'install'
         idx = self['menu'].getSelectionIndex()
         self.list[idx][1] = txt
@@ -2122,13 +2122,13 @@ class PurePrestigeIpkgLogos(Screen):
             elif x[-2:] == '-b':
                 item = x[:-2]
             if pngtext == 'install':
-                png = '/usr/lib/enigma2/python/Plugins/Extensions/PurePrestige/nbuttons/grey.png'
+                png = resolveFilename(SCOPE_PLUGINS, 'Extensions/PurePrestige/nbuttons/grey.png'
             elif pngtext == 'update':
-                png = '/usr/lib/enigma2/python/Plugins/Extensions/PurePrestige/nbuttons/yellow.png'
+                png = resolveFilename(SCOPE_PLUGINS, 'Extensions/PurePrestige/nbuttons/yellow.png'
             elif pngtext == 'remove':
-                png = '/usr/lib/enigma2/python/Plugins/Extensions/PurePrestige/nbuttons/green.png'
+                png = resolveFilename(SCOPE_PLUGINS, 'Extensions/PurePrestige/nbuttons/green.png'
             else:
-                png = '/usr/lib/enigma2/python/Plugins/Extensions/PurePrestige/images/button_green.png'
+                png = resolveFilename(SCOPE_PLUGINS, 'Extensions/PurePrestige/images/button_green.png'
                 png = LoadPixmap(png)
             res.append(MultiContentEntryText(pos=(0, 1), size=(5, 30), font=0, flags=RT_HALIGN_LEFT, text='', color=16777215, color_sel=16777215))
             res.append(MultiContentEntryPixmapAlphaTest(pos=(0, 1), size=(30, 30), png=loadPNG(png)))
@@ -2459,10 +2459,10 @@ class PurePrestigeIpkgPlugins(Screen):
 
     def refresh(self):
         if self.ipkgremove == False:
-            png = '/usr/lib/enigma2/python/Plugins/Extensions/PurePrestige/nbuttons/green.png'
+            png = resolveFilename(SCOPE_PLUGINS, 'Extensions/PurePrestige/nbuttons/green.png'
             txt = 'remove'
         else:
-            png = '/usr/lib/enigma2/python/Plugins/Extensions/PurePrestige/nbuttons/grey.png'
+            png = resolveFilename(SCOPE_PLUGINS, 'Extensions/PurePrestige/nbuttons/grey.png'
             txt = 'install'
         idx = self['menu'].getSelectionIndex()
         self.list[idx][1] = txt
@@ -2497,13 +2497,13 @@ class PurePrestigeIpkgPlugins(Screen):
             elif x[-2:] == '-b':
                 item = x[:-2]
             if pngtext == 'install':
-                png = '/usr/lib/enigma2/python/Plugins/Extensions/PurePrestige/nbuttons/grey.png'
+                png = resolveFilename(SCOPE_PLUGINS, 'Extensions/PurePrestige/nbuttons/grey.png'
             elif pngtext == 'update':
-                png = '/usr/lib/enigma2/python/Plugins/Extensions/PurePrestige/nbuttons/yellow.png'
+                png = resolveFilename(SCOPE_PLUGINS, 'Extensions/PurePrestige/nbuttons/yellow.png'
             elif pngtext == 'remove':
-                png = '/usr/lib/enigma2/python/Plugins/Extensions/PurePrestige/nbuttons/green.png'
+                png = resolveFilename(SCOPE_PLUGINS, 'Extensions/PurePrestige/nbuttons/green.png'
             else:
-                png = '/usr/lib/enigma2/python/Plugins/Extensions/PurePrestige/images/button_green.png'
+                png = resolveFilename(SCOPE_PLUGINS, 'Extensions/PurePrestige/images/button_green.png'
                 png = LoadPixmap(png)
             res.append(MultiContentEntryText(pos=(0, 1), size=(5, 30), font=0, flags=RT_HALIGN_LEFT, text='', color=16777215, color_sel=16777215))
             res.append(MultiContentEntryPixmapAlphaTest(pos=(0, 1), size=(30, 30), png=loadPNG(png)))
