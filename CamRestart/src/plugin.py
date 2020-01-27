@@ -44,7 +44,7 @@ class QuickEmu():
 	def gotSession(self, session):
 		self.session = session
 		self.Console = Console()
-		keymap = "/usr/lib/enigma2/python/Plugins/Extensions/CamRestart/keymap.xml"
+		keymap = resolveFilename(SCOPE_PLUGINS, "Extensions/CamRestart/keymap.xml")
 		global globalActionMap
 		readKeymap(keymap)
 		globalActionMap.actions['showCamRestart'] = self.restartCam
@@ -124,7 +124,7 @@ class pecr_setup(ConfigListScreen, Screen):
 	def save(self):
 		config.plugins.pecr.keyname.save()
 		configfile.save()
-		keyfile = open("/usr/lib/enigma2/python/Plugins/Extensions/CamRestart/keymap.xml", "w")
+		keyfile = open(resolveFilename(SCOPE_PLUGINS, "Extensions/CamRestart/keymap.xml"), "w")
 		keyfile.write('<keymap>\n\t<map context="GlobalActions">\n\t\t<key id="%s" mapto="showCamRestart" flags="l" />\n\t</map>\n</keymap>' % config.plugins.pecr.keyname.value)
 		keyfile.close()
 		self.mbox = self.session.open(MessageBox,(_("Saved")), MessageBox.TYPE_INFO, timeout = 3 )

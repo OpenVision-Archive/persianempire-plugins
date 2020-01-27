@@ -56,7 +56,7 @@ def _(txt):
     return t
 
 filename = ''
-carpetaimg = '/usr/lib/enigma2/python/Plugins/Extensions/PEInfo/icons/'
+carpetaimg = resolveFilename(SCOPE_PLUGINS, 'Extensions/PEInfo/icons/')
 nommodelo = 'NA'
 listamenu = []
 listamenu.append((_('Record'), _('Recording Information'), 1))
