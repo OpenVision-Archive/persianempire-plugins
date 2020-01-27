@@ -104,7 +104,7 @@ class PurePrestigeMenuscrn(Screen):
 
     def clearcrashlog(self):
         val = 'Delete_all_Crashlogs'
-        script = '/usr/lib/enigma2/python/Plugins/Extensions/PurePrestige/scripts/%s.sh' % val
+        script = resolveFilename(SCOPE_PLUGINS, 'Extensions/PurePrestige/scripts/%s.sh' % val
         dom = 'all_Crashlogs'
         instr = 'Please wait while  clearing crashlogs'
         endstr = 'Press ok to exit'

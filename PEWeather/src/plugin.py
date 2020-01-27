@@ -6,7 +6,7 @@ from Components.ActionMap import ActionMap
 from Components.Sources.List import List
 from Components.Label import Label
 from Components.Pixmap import Pixmap
-from Tools.Directories import fileExists
+from Tools.Directories import fileExists, resolveFilename, SCOPE_PLUGINS
 from urllib import quote
 from urllib2 import Request, urlopen, URLError, HTTPError
 from xml.dom import minidom, Node
@@ -135,7 +135,7 @@ class PEMeteoMain(Screen):
                 txt = str(weather_data['condition']['temp'])
                 self['lab4'].setText(txt)
                 self['lab4b'].setText('\xc2\xb0C')
-                icon = '/usr/lib/enigma2/python/Plugins/Extensions/PEWeather/weather/%s.png' % str(weather_data['condition']['code'])
+                icon = resolveFilename(SCOPE_PLUGINS, 'Extensions/PEWeather/weather/%s.png' % str(weather_data['condition']['code']))
                 myicon = self.checkIcon(icon)
                 png = loadPic(myicon, 250, 180, 0, 0, 0, 0)
                 self['lab5'].instance.setPixmap(png)
@@ -170,7 +170,7 @@ class PEMeteoMain(Screen):
                 self['lab15b'].setText(txt)
                 txt = str(weather_data['forecasts'][0]['text'])
                 self['lab16'].setText(txt)
-                icon = '/usr/lib/enigma2/python/Plugins/Extensions/PEWeather/weather/small/%s.png' % str(weather_data['forecasts'][0]['code'])
+                icon = resolveFilename(SCOPE_PLUGINS, 'Extensions/PEWeather/weather/small/%s.png' % str(weather_data['forecasts'][0]['code']))
                 myicon = self.checkIcon(icon)
                 png = loadPic(myicon, 100, 100, 0, 0, 0, 0)
                 self['lab17'].instance.setPixmap(png)
@@ -184,7 +184,7 @@ class PEMeteoMain(Screen):
                 self['lab20b'].setText(txt)
                 txt = str(weather_data['forecasts'][1]['text'])
                 self['lab21'].setText(txt)
-                icon = '/usr/lib/enigma2/python/Plugins/Extensions/PEWeather/weather/small/%s.png' % str(weather_data['forecasts'][1]['code'])
+                icon = resolveFilename(SCOPE_PLUGINS, 'Extensions/PEWeather/weather/small/%s.png' % str(weather_data['forecasts'][1]['code']))
                 myicon = self.checkIcon(icon)
                 png = loadPic(myicon, 100, 100, 0, 0, 0, 0)
                 self['lab22'].instance.setPixmap(png)
@@ -201,7 +201,7 @@ class PEMeteoMain(Screen):
                 self['lab27'].setText('Country :')
                 txt = str(weather_data['location']['country'])
                 self['lab27b'].setText(txt)
-                myicon = '/usr/lib/enigma2/python/Plugins/Extensions/PEWeather/weather/red.png'
+                myicon = resolveFilename(SCOPE_PLUGINS, 'Extensions/PEWeather/weather/red.png')
                 png = loadPic(myicon, 16, 16, 0, 0, 0, 0)
                 self['lab28'].instance.setPixmap(png)
                 self['lab28a'].setText(':')
@@ -267,7 +267,7 @@ class PEMeteoMain(Screen):
         if fileExists(localfile):
             pass
         else:
-            url = localfile.replace('/usr/lib/enigma2/python/Plugins/Extensions/PEWeather', 'http://www.vuplus-community.net/bhaddons')
+            url = localfile.replace(resolveFilename(SCOPE_PLUGINS, 'Extensions/PEWeather'), 'http://www.vuplus-community.net/bhaddons')
             handler = urlopen(url)
             if handler:
                 content = handler.read()

@@ -1,7 +1,7 @@
 from enigma import ePicLoad, eTimer, getDesktop
 from Plugins.Plugin import PluginDescriptor
 from Screens.Screen import Screen
-from Tools.Directories import resolveFilename, pathExists, SCOPE_MEDIA
+from Tools.Directories import resolveFilename, pathExists, SCOPE_PLUGINS
 from enigma import eTimer, eListboxPythonMultiContent, gFont, RT_HALIGN_LEFT, RT_HALIGN_RIGHT, RT_HALIGN_CENTER, getDesktop, loadPNG, loadPic
 from Components.MultiContent import MultiContentEntryText, MultiContentEntryPixmapAlphaTest
 from Components.Pixmap import Pixmap, MovingPixmap
@@ -34,7 +34,7 @@ c8color = 13047173
 c9color = 13789470
 
 def getiteminfo(item):
-    fname = '/usr/lib/enigma2/python/Plugins/Extensions/PurePrestige/scripts/ginfo.txt'
+    fname = resolveFilename(SCOPE_PLUGINS, 'Extensions/PurePrestige/scripts/ginfo.txt')
     fp = open(fname, 'r')
     lines = fp.readlines()
     fp.close()
@@ -66,7 +66,7 @@ def getiteminfo(item):
 
 
 def getfreespaceinfo():
-    fname = '/usr/lib/enigma2/python/Plugins/Extensions/PurePrestige/scripts/Free_Space.txt'
+    fname = resolveFilename(SCOPE_PLUGINS, 'Extensions/PurePrestige/scripts/Free_Space.txt')
     flines = open(fname, 'r')
     list = []
     for line in flines:
@@ -99,7 +99,7 @@ def getfreespaceinfo():
 
 
 def getdevicesinfo():
-    fname = '/usr/lib/enigma2/python/Plugins/Extensions/PurePrestige/scripts/devices.txt'
+    fname = resolveFilename(SCOPE_PLUGINS, 'Extensions/PurePrestige/scripts/devices.txt')
     flines = open(fname, 'r')
     list = []
     for line in flines:
@@ -121,7 +121,7 @@ def getdevicesinfo():
 
 
 def getmountsinfo():
-    fname = '/usr/lib/enigma2/python/Plugins/Extensions/PurePrestige/scripts/Mountpoints.txt'
+    fname = resolveFilename(SCOPE_PLUGINS, 'Extensions/PurePrestige/scripts/Mountpoints.txt')
     flines = open(fname, 'r')
     list = []
     for line in flines:
@@ -139,7 +139,7 @@ def getmountsinfo():
 
 
 def getfreememoryinfo():
-    fname = '/usr/lib/enigma2/python/Plugins/Extensions/PurePrestige/scripts/Free_Memory.txt'
+    fname = resolveFilename(SCOPE_PLUGINS, 'Extensions/PurePrestige/scripts/Free_Memory.txt')
     flines = open(fname, 'r')
     list = []
     for line in flines:
@@ -157,7 +157,7 @@ def getfreememoryinfo():
 
 
 def getprocessinfo():
-    fname = '/usr/lib/enigma2/python/Plugins/Extensions/PurePrestige/scripts/Process_list.txt'
+    fname = resolveFilename(SCOPE_PLUGINS, 'Extensions/PurePrestige/scripts/Process_list.txt')
     flines = open(fname, 'r')
     list = []
     for line in flines:
@@ -175,7 +175,7 @@ def getprocessinfo():
 
 
 def getkernelinfo():
-    fname = '/usr/lib/enigma2/python/Plugins/Extensions/PurePrestige/scripts/Kernel_Modules.txt'
+    fname = resolveFilename(SCOPE_PLUGINS, 'Extensions/PurePrestige/scripts/Kernel_Modules.txt')
     flines = open(fname, 'r')
     list = []
     for line in flines:
@@ -197,7 +197,7 @@ T_FULL = 4
 class showPurePrestigeinfoscreenstandard(Screen):
 
     def __init__(self, session):
-        self.folder = '/usr/lib/enigma2/python/Plugins/Extensions/PurePrestige/infobuttons/'
+        self.folder = resolveFilename(SCOPE_PLUGINS, 'Extensions/PurePrestige/infobuttons/')
         self.fillplgfolders()
         piclist = self.fullpath
         path = self.folder
@@ -356,23 +356,23 @@ class showPurePrestigeinfoscreenstandard(Screen):
         self.showPic()
 
     def showPic(self, picInfo = ''):
-        self['thumb' + str(self.Thumbnaillist[0][1])].instance.setPixmapFromFile('/usr/lib/enigma2/python/Plugins/Extensions/PurePrestige/infobuttons/imageinfo.png')
+        self['thumb' + str(self.Thumbnaillist[0][1])].instance.setPixmapFromFile(resolveFilename(SCOPE_PLUGINS, 'Extensions/PurePrestige/infobuttons/imageinfo.png'))
         self['thumb' + str(self.Thumbnaillist[0][1])].show()
-        self['thumb' + str(self.Thumbnaillist[1][1])].instance.setPixmapFromFile('/usr/lib/enigma2/python/Plugins/Extensions/PurePrestige/infobuttons/ginfo.png')
+        self['thumb' + str(self.Thumbnaillist[1][1])].instance.setPixmapFromFile(resolveFilename(SCOPE_PLUGINS, 'Extensions/PurePrestige/infobuttons/ginfo.png'))
         self['thumb' + str(self.Thumbnaillist[1][1])].show()
-        self['thumb' + str(self.Thumbnaillist[2][1])].instance.setPixmapFromFile('/usr/lib/enigma2/python/Plugins/Extensions/PurePrestige/infobuttons/kernel.png')
+        self['thumb' + str(self.Thumbnaillist[2][1])].instance.setPixmapFromFile(resolveFilename(SCOPE_PLUGINS, 'Extensions/PurePrestige/infobuttons/kernel.png'))
         self['thumb' + str(self.Thumbnaillist[2][1])].show()
-        self['thumb' + str(self.Thumbnaillist[3][1])].instance.setPixmapFromFile('/usr/lib/enigma2/python/Plugins/Extensions/PurePrestige/infobuttons/kernelmodules.png')
+        self['thumb' + str(self.Thumbnaillist[3][1])].instance.setPixmapFromFile(resolveFilename(SCOPE_PLUGINS, 'Extensions/PurePrestige/infobuttons/kernelmodules.png'))
         self['thumb' + str(self.Thumbnaillist[3][1])].show()
-        self['thumb' + str(self.Thumbnaillist[4][1])].instance.setPixmapFromFile('/usr/lib/enigma2/python/Plugins/Extensions/PurePrestige/infobuttons/freespace.png')
+        self['thumb' + str(self.Thumbnaillist[4][1])].instance.setPixmapFromFile(resolveFilename(SCOPE_PLUGINS, 'Extensions/PurePrestige/infobuttons/freespace.png'))
         self['thumb' + str(self.Thumbnaillist[4][1])].show()
-        self['thumb' + str(self.Thumbnaillist[5][1])].instance.setPixmapFromFile('/usr/lib/enigma2/python/Plugins/Extensions/PurePrestige/infobuttons/freememory.png')
+        self['thumb' + str(self.Thumbnaillist[5][1])].instance.setPixmapFromFile(resolveFilename(SCOPE_PLUGINS, 'Extensions/PurePrestige/infobuttons/freememory.png'))
         self['thumb' + str(self.Thumbnaillist[5][1])].show()
-        self['thumb' + str(self.Thumbnaillist[6][1])].instance.setPixmapFromFile('/usr/lib/enigma2/python/Plugins/Extensions/PurePrestige/infobuttons/process.png')
+        self['thumb' + str(self.Thumbnaillist[6][1])].instance.setPixmapFromFile(resolveFilename(SCOPE_PLUGINS, 'Extensions/PurePrestige/infobuttons/process.png'))
         self['thumb' + str(self.Thumbnaillist[6][1])].show()
-        self['thumb' + str(self.Thumbnaillist[7][1])].instance.setPixmapFromFile('/usr/lib/enigma2/python/Plugins/Extensions/PurePrestige/infobuttons/mountpoints.png')
+        self['thumb' + str(self.Thumbnaillist[7][1])].instance.setPixmapFromFile(resolveFilename(SCOPE_PLUGINS, 'Extensions/PurePrestige/infobuttons/mountpoints.png'))
         self['thumb' + str(self.Thumbnaillist[7][1])].show()
-        self['thumb' + str(self.Thumbnaillist[8][1])].instance.setPixmapFromFile('/usr/lib/enigma2/python/Plugins/Extensions/PurePrestige/infobuttons/netperformance.png')
+        self['thumb' + str(self.Thumbnaillist[8][1])].instance.setPixmapFromFile(resolveFilename(SCOPE_PLUGINS, 'Extensions/PurePrestige/infobuttons/netperformance.png'))
         self['thumb' + str(self.Thumbnaillist[8][1])].show()
 
     def key_left(self):
@@ -423,7 +423,7 @@ class showPurePrestigeinfoscreenstandard(Screen):
 
     def startscript(self, sel):
         val = sel
-        script = '/usr/lib/enigma2/python/Plugins/Extensions/PurePrestige/scripts/%s.sh' % val
+        script = resolveFilename(SCOPE_PLUGINS, 'Extensions/PurePrestige/scripts/%s.sh' % val)
         dom = sel
         instr = val
         endstr = 'Press ok to exit'
@@ -432,7 +432,7 @@ class showPurePrestigeinfoscreenstandard(Screen):
         except:
             self.setTitle(script)
 
-        Console().ePopen('%s >/usr/lib/enigma2/python/Plugins/Extensions/PurePrestige/currinfo.txt' % script)
+        Console().ePopen('%s >%s') % (script, resolveFilename(SCOPE_PLUGINS, 'Extensions/PurePrestige/currinfo.txt'))
         self.session.open(Console2.PurePrestigeConsole2, _('Reading: %s') % dom, [script], None, False, instr, endstr)
         return
 
@@ -477,13 +477,13 @@ class PurePrestigedevicesinfo(Screen):
         self.onShow.append(self.getinfo)
 
     def executeinfo(self):
-        script = '/usr/lib/enigma2/python/Plugins/Extensions/PurePrestige/scripts/devices.sh'
+        script = resolveFilename(SCOPE_PLUGINS, 'Extensions/PurePrestige/scripts/devices.sh')
         try:
             os.chmod(script, 755)
         except:
             pass
 
-        Console().ePopen('%s >/usr/lib/enigma2/python/Plugins/Extensions/PurePrestige/scripts/devices.txt' % script)
+        Console().ePopen('%s >%s') % (script, resolveFilename(SCOPE_PLUGINS, 'Extensions/PurePrestige/scripts/devices.txt'))
 
     def getinfo(self):
         self.totallist = totalitems = []
@@ -542,7 +542,7 @@ class PurePrestigedevicesinfo(Screen):
                 if len(self.events[i][0]) > 30:
                     if 'Disk' in item:
                         res = []
-                        png = LoadPixmap('/usr/lib/enigma2/python/Plugins/Extensions/LiveFootBall/images/slider.png')
+                        png = LoadPixmap(resolveFilename(SCOPE_PLUGINS, 'Extensions/LiveFootBall/images/slider.png'))
                         res.append(MultiContentEntryText(pos=(0, 10), size=(2, 120), font=0, flags=RT_HALIGN_LEFT, text='', color=16777215, color_sel=16777215))
                         res.append(MultiContentEntryPixmapAlphaTest(pos=(15, 10), size=(890, 120), png=png))
                         theevents.append(res)
@@ -596,13 +596,13 @@ class PurePrestigekernelinfo(Screen):
         self.onShow.append(self.getinfo)
 
     def executeinfo(self):
-        script = '/usr/lib/enigma2/python/Plugins/Extensions/PurePrestige/scripts/Kernel_Modules.sh'
+        script = resolveFilename(SCOPE_PLUGINS, 'Extensions/PurePrestige/scripts/Kernel_Modules.sh')
         try:
             os.chmod(script, 755)
         except:
             pass
 
-        Console().ePopen('%s >/usr/lib/enigma2/python/Plugins/Extensions/PurePrestige/scripts/Kernel_Modules.txt' % script)
+        Console().ePopen('%s >%s') % (script, resolveFilename(SCOPE_PLUGINS, 'Extensions/PurePrestige/scripts/Kernel_Modules.txt'))
 
     def getinfo(self):
         self.totallist = totalitems = []
@@ -661,13 +661,13 @@ class PurePrestigeprocessinfo(Screen):
         self.onShow.append(self.getinfo)
 
     def executeinfo(self):
-        script = '/usr/lib/enigma2/python/Plugins/Extensions/PurePrestige/scripts/Process_list.sh'
+        script = resolveFilename(SCOPE_PLUGINS, 'Extensions/PurePrestige/scripts/Process_list.sh')
         try:
             os.chmod(script, 755)
         except:
             pass
 
-        Console().ePopen('%s >/usr/lib/enigma2/python/Plugins/Extensions/PurePrestige/scripts/Process_list.txt' % script)
+        Console().ePopen('%s >%s') % (script, resolveFilename(SCOPE_PLUGINS, 'Extensions/PurePrestige/scripts/Process_list.txt'))
 
     def getinfo(self):
         self.totallist = totalitems = []
@@ -734,13 +734,13 @@ class PurePrestigefreememoryinfo(Screen):
         self.onShow.append(self.getinfo)
 
     def executeinfo(self):
-        script = '/usr/lib/enigma2/python/Plugins/Extensions/PurePrestige/scripts/Free_Memory.sh'
+        script = resolveFilename(SCOPE_PLUGINS, 'Extensions/PurePrestige/scripts/Free_Memory.sh')
         try:
             os.chmod(script, 755)
         except:
             pass
 
-        Console().ePopen('%s >/usr/lib/enigma2/python/Plugins/Extensions/PurePrestige/scripts/Free_Memory.txt' % script)
+        Console().ePopen('%s >%s') % (script, resolveFilename(SCOPE_PLUGINS, 'Extensions/PurePrestige/scripts/Free_Memory.txt'))
 
     def getinfo(self):
         self.totallist = totalitems = []
@@ -840,13 +840,13 @@ class PurePrestigemountsinfo(Screen):
         self.onShow.append(self.getinfo)
 
     def executeinfo(self):
-        script = '/usr/lib/enigma2/python/Plugins/Extensions/PurePrestige/scripts/Mountpoints.sh'
+        script = resolveFilename(SCOPE_PLUGINS, 'Extensions/PurePrestige/scripts/Mountpoints.sh')
         try:
             os.chmod(script, 755)
         except:
             pass
 
-        Console().ePopen('%s >/usr/lib/enigma2/python/Plugins/Extensions/PurePrestige/scripts/Mountpoints.txt' % script)
+        Console().ePopen('%s >%s') % (script, resolveFilename(SCOPE_PLUGINS, 'Extensions/PurePrestige/scripts/Mountpoints.txt'))
 
     def getinfo(self):
         self.totallist = totalitems = []
@@ -917,13 +917,13 @@ class PurePrestigefreespace(Screen):
         self.onShow.append(self.getinfo)
 
     def executeinfo(self):
-        script = '/usr/lib/enigma2/python/Plugins/Extensions/PurePrestige/scripts/Free_Space.sh'
+        script = resolveFilename(SCOPE_PLUGINS, 'Extensions/PurePrestige/scripts/Free_Space.sh')
         try:
             os.chmod(script, 755)
         except:
             pass
 
-        Console().ePopen('%s >/usr/lib/enigma2/python/Plugins/Extensions/PurePrestige/scripts/Free_Space.txt' % script)
+        Console().ePopen('%s >%s') % (script, resolveFilename(SCOPE_PLUGINS, 'Extensions/PurePrestige/scripts/Free_Space.txt'))
 
     def getinfo(self):
         self.totallist = totalitems = []
@@ -1017,13 +1017,13 @@ class PurePrestigeginfo(Screen):
         self.onShow.append(self.getinfo)
 
     def executeinfo(self):
-        script = '/usr/lib/enigma2/python/Plugins/Extensions/PurePrestige/scripts/getinfo.sh'
+        script = resolveFilename(SCOPE_PLUGINS, 'Extensions/PurePrestige/scripts/getinfo.sh')
         try:
             os.chmod(script, 755)
         except:
             pass
 
-        Console().ePopen('%s >/usr/lib/enigma2/python/Plugins/Extensions/PurePrestige/scripts/ginfo.txt' % script)
+        Console().ePopen('%s >%s') % (script, resolveFilename(SCOPE_PLUGINS, 'Extensions/PurePrestige/scripts/ginfo.txt'))
 
     def getinfo(self):
         self.list.append(['Image', compabout.getImageVersionString()])
