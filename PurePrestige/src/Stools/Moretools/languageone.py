@@ -5,7 +5,7 @@ from Components.Pixmap import Pixmap
 import xml.dom.minidom
 import os
 from Screens.Standby import TryQuitMainloop
-from Tools.Directories import resolveFilename, SCOPE_CURRENT_SKIN, copyfile, fileExists, removeDir
+from Tools.Directories import resolveFilename, SCOPE_CURRENT_SKIN, copyfile, fileExists, removeDir, SCOPE_PLUGINS, SCOPE_LIBDIR
 from Components.Sources.List import List
 from Components.Button import Button
 from Components.ScrollLabel import ScrollLabel
@@ -21,9 +21,8 @@ from Tools.LoadPixmap import LoadPixmap
 from Plugins.Extensions.PurePrestige.Console2 import *
 import download
 
-langpypath = '/usr/lib/enigma2/python/Components/Language.py'
-plipath = '/usr/lib/enigma2/python/Plugins/PLi'
-locallangpypath = '/usr/lib/enigma2/python/Plugins/Extensions/PurePrestige/Stools/language/Language.py'
+langpypath = resolveFilename(SCOPE_LIBDIR, 'enigma2/python/Components/Language.pyo')
+locallangpypath = resolveFilename(SCOPE_PLUGINS, 'Extensions/PurePrestige/Stools/language/Language.pyo')
 defaultlanguagepack = ''
 
 def listskins():
@@ -68,9 +67,7 @@ class PurePrestigelangsScreen(Screen):
          'ok': self.changeSelection,
          'cancel': self.exitlan}, -2)
         self.removelist = []
-        if os.path.exists(plipath):
-            pass
-        elif fileExists(locallangpypath) and fileExists(langpypath):
+        if fileExists(locallangpypath) and fileExists(langpypath):
             copyfile(locallangpypath, langpypath)
         self.languagaes()
         self.fillskins()
@@ -210,7 +207,7 @@ class PurePrestigelangsScreen(Screen):
 
             return
         else:
-            png = LoadPixmap(cached=True, path=resolveFilename(SCOPE_CURRENT_SKIN, '/usr/lib/enigma2/python/Plugins/Extensions/PurePrestige/images/lock_on.png'))
+            png = LoadPixmap(cached=True, path=resolveFilename(SCOPE_PLUGINS, 'Extensions/PurePrestige/images/lock_on.png'))
             position = self.getlan(name)
             self.menuList[idx] = (position,
              name,

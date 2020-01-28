@@ -13,6 +13,7 @@ from Components.Ipkg import IpkgComponent
 from Screens.Ipkg import Ipkg
 from Screens.MessageBox import MessageBox
 from time import sleep
+from Tools.Directories import resolveFilename, SCOPE_PLUGINS
 
 def DaemonEntry(name, picture, description, started, installed):
     res = [(name,
@@ -20,7 +21,7 @@ def DaemonEntry(name, picture, description, started, installed):
       description,
       started)]
     picture = picture[8:]
-    picture = resolveFilename(SCOPE_PLUGINS, 'SystemPlugins/PEPanel/pictures/' + picture
+    picture = resolveFilename(SCOPE_PLUGINS, 'SystemPlugins/PEPanel/pictures/' + picture)
     if started:
         picture2 = '/usr/share/enigma2/skin_default/icons/lock_on.png'
     else:

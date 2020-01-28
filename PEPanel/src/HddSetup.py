@@ -16,13 +16,14 @@ import os
 import sys
 from __init__ import _
 from Components.Console import Console
+from Tools.Directories import resolveFilename, SCOPE_PLUGINS
 
 def DiskEntry(model, size, removable):
     res = [(model, size, removable)]
     if removable:
-        picture = resolveFilename(SCOPE_PLUGINS, 'SystemPlugins/PEPanel/pictures/diskusb.png'
+        picture = resolveFilename(SCOPE_PLUGINS, 'SystemPlugins/PEPanel/pictures/diskusb.png')
     else:
-        picture = resolveFilename(SCOPE_PLUGINS, 'SystemPlugins/PEPanel/pictures/disk.png'
+        picture = resolveFilename(SCOPE_PLUGINS, 'SystemPlugins/PEPanel/pictures/disk.png')
     if fileExists(picture):
         res.append(MultiContentEntryPixmapAlphaTest(pos=(5, 0), size=(48, 48), png=loadPNG(picture)))
     res.append(MultiContentEntryText(pos=(65, 10), size=(360, 38), font=0, text=model))

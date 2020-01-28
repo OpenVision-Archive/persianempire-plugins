@@ -21,13 +21,9 @@ import Consoleall
 from Screens.Standby import TryQuitMainloop
 from Components.Label import Label
 from Components.Language import language
+from Tools.Directories import resolveFilename, SCOPE_PLUGINS
 
-plugin_path = '/usr/lib/enigma2/python/Plugins/Extensions/PurePrestige/Stools/'
-plipath = '/usr/lib/enigma2/python/Plugins/PLi'
-if os.path.exists(plipath):
-    pli = True
-else:
-    pli = False
+plugin_path = resolveFilename(SCOPE_PLUGINS, 'Extensions/PurePrestige/Stools/')
 
 def localeInit():
     lang = language.getLanguage()
@@ -95,14 +91,9 @@ class makePurePrestigeFlashBackupTelnet(Screen):
 
     def doBackup(self):
         if self.sim2 == 1:
-            if pli == True:
-                self.flaschCom = 'sh -x ' + plugin_path + 'PPFlashBackup/bin/build-nfi-image_sim2_pli.sh'
-            else:
-                self.flaschCom = 'sh -x ' + plugin_path + 'PPFlashBackup/bin/build-nfi-image_sim2.sh'
-        elif pli == True:
-            self.flaschCom = 'sh -x ' + plugin_path + 'PPFlashBackup/bin/build-nfi-image_dmm_pli.sh'
+            self.flaschCom = 'sh -x ' + plugin_path + 'PPFlashBackup/bin/build-nfi-image_sim2_pli.sh'
         else:
-            self.flaschCom = 'sh -x ' + plugin_path + 'PPFlashBackup/bin/build-nfi-image_dmm.sh'
+            self.flaschCom = 'sh -x ' + plugin_path + 'PPFlashBackup/bin/build-nfi-image_dmm_pli.sh'
         try:
             jff = plugin_path + 'PPFlashBackup/bin/mkfs.jffs2'
             bimage = plugin_path + 'PPFlashBackup/bin/buildimage'
@@ -128,10 +119,7 @@ class makePurePrestigeFlashBackupTelnet(Screen):
         try:
             if path.exists(self.backuppath) == False:
                 makedirs(self.backuppath)
-            if pli == True:
-                instr = 'openpli-based image\nbased on script works by cokesux and bassie '
-            else:
-                instr = 'cvs-based image'
+            instr = 'openpli-based image\nbased on script works by cokesux and bassie '
             if self.finished_createFolder:
                 self.session.openWithCallback(self.finished_createFolder, Console, title=_('Backup  is running...'), cmdlist=['%s' % com], finishedCallback=self.backupFinished, closeOnSuccess=False)
             elif self.console == False:

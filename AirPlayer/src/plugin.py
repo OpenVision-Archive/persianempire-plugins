@@ -171,7 +171,7 @@ def startWebserver(session):
     print '[AirPlayer] starting webserver done'
     print '[AirPlayer] starting zeroconf'
     Console().ePopen('killall -9 zeroconfig')
-    Console().ePopen("%s %s %s &") % (resolveFilename(SCOPE_PLUGINS, "Extensions/AirPlayer/zeroconfig"), config.plugins.airplayer.name.value, config.plugins.airplayer.interface.value))
+    Console().ePopen("%s %s %s &") % (resolveFilename(SCOPE_PLUGINS, "Extensions/AirPlayer/zeroconfig"), config.plugins.airplayer.name.value, config.plugins.airplayer.interface.value)
     print '[AirPlayer] starting zeroconf done'
 
 
