@@ -89,7 +89,7 @@ EMStartOnlyOneTime = False
 EMsession = None
 InfoBar_instance = None
 currversion = '1.0'
-plugin_path = '/usr/lib/enigma2/python/Plugins/Extensions/PurePrestige/'
+plugin_path = resolveFilename(SCOPE_PLUGINS, 'Extensions/PurePrestige/')
 T_INDEX = 0
 T_FRAME_POS = 1
 T_PAGE = 2
@@ -114,7 +114,7 @@ def f2(seq):
 class showPurePrestigescreen(Screen):
 
     def __init__(self, session):
-        self.folder = '/usr/lib/enigma2/python/Plugins/Extensions/PurePrestige/panelbuttons/'
+        self.folder = resolveFilename(SCOPE_PLUGINS, 'Extensions/PurePrestige/panelbuttons/')
         self.fillplgfolders()
         piclist = self.fullpath
         path = self.folder
@@ -737,7 +737,7 @@ class classScreenGrabber():
         except:
             rcbutton = 'text'
 
-        ScreenGrabber_keymap = '/usr/lib/enigma2/python/Plugins/Extensions/PurePrestige/Stools/Moretools/ScreenGrabber/keymaps/' + rcbutton + '_keymap.xml'
+        ScreenGrabber_keymap = resolveFilename(SCOPE_PLUGINS, 'Extensions/PurePrestige/Stools/Moretools/ScreenGrabber/keymaps/' + rcbutton + '_keymap.xml')
         self.session = session
         readKeymap(ScreenGrabber_keymap)
         globalActionMap.actions['ShowScreenGrabber'] = self.ShowHide

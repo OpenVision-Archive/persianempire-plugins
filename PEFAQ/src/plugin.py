@@ -30,7 +30,7 @@ def _(txt):
     return t
 
 
-carpetaimg = '/usr/lib/enigma2/python/Plugins/Extensions/PEFAQ/img/'
+carpetaimg = resolveFilename(SCOPE_PLUGINS, 'Extensions/PEFAQ/img/')
 
 
 class IniciaSelListFaqs(MenuList):
@@ -99,7 +99,7 @@ class PEVerfaq(Screen):
     def cargaquestion(self):
         self['key_red'].setText(_(' '))
         self['key_mode'].setText(_('Press Any Key = Go Back'))
-        archivo = '/usr/lib/enigma2/python/Plugins/Extensions/PEFAQ/PEFAQs.xml'
+        archivo = resolveFilename(SCOPE_PLUGINS, 'Extensions/PEFAQ/PEFAQs.xml')
         import xml.sax.xmlreader
         from xml.dom import minidom, Node
         menu = xml.dom.minidom.parse(archivo)
@@ -171,7 +171,7 @@ class PEFaqs(Screen):
     def cargaquestions(self, filtrado = None):
         self.categorys = ['All']
         self.faqs = []
-        archivo = '/usr/lib/enigma2/python/Plugins/Extensions/PEFAQ/PEFAQs.xml'
+        archivo = resolveFilename(SCOPE_PLUGINS, 'Extensions/PEFAQ/PEFAQs.xml')
         import xml.sax.xmlreader
         from xml.dom import minidom, Node
         menu = xml.dom.minidom.parse(archivo)

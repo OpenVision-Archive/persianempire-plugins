@@ -18,12 +18,13 @@ from enigma import eTimer, eListboxPythonMultiContent, gFont, RT_HALIGN_LEFT, RT
 from Components.MultiContent import MultiContentEntryText, MultiContentEntryPixmapAlphaTest
 from Components.ConfigList import ConfigList, ConfigListScreen
 from Components.config import config, ConfigDirectory, ConfigSubsection, ConfigSubList, ConfigEnableDisable, ConfigNumber, ConfigText, ConfigSelection, ConfigYesNo, ConfigPassword, getConfigListEntry, configfile
+from Tools.Directories import resolveFilename, SCOPE_PLUGINS
 
 config.plugins.Sfootball = ConfigSubsection()
 config.plugins.Sfootball.countries = ConfigSubList()
 config.plugins.Sfootball.countries_count = ConfigNumber(default=0)
 urlpath = 'http://www3.varzesh3.com/livescores.do'
-sliderfile = '/usr/lib/enigma2/python/Plugins/Extensions/PersianLiveSoccer/images/slider.png'
+sliderfile = resolveFilename(SCOPE_PLUGINS, 'Extensions/PersianLiveSoccer/images/slider.png')
 c7color = 11403055
 c2color = 16753920
 c1color = 16776960

@@ -43,7 +43,7 @@ T_FULL = 4
 class showPurePrestigeappscreen(Screen):
 
     def __init__(self, session):
-        self.folder = '/usr/lib/enigma2/python/Plugins/Extensions/PurePrestige/Applications/appbuttons/'
+        self.folder = resolveFilename(SCOPE_PLUGINS, 'Extensions/PurePrestige/Applications/appbuttons/')
         self.fillplgfolders()
         piclist = self.fullpath
         path = self.folder
@@ -249,7 +249,7 @@ class showPurePrestigeappscreen(Screen):
         self.old_index = self.index
         print self.index
         if self.index == 0:
-            pluginpath = '/usr/lib/enigma2/python/Plugins/Extensions/PurePrestige/Applications/NetRadioPersian/plugin.pyo'
+            pluginpath = resolveFilename(SCOPE_PLUGINS, 'Extensions/PurePrestige/Applications/NetRadioPersian/plugin.pyo')
             self.pluginurl = 'http://mfaraj57.dreamoem.net/applications/enigma2-plugin-extensions-netradiopersian.ipk'
             self.dom = 'NetRadioPersian'
             if fileExists(pluginpath):
@@ -258,8 +258,8 @@ class showPurePrestigeappscreen(Screen):
                 return
             self.session.openWithCallback(self.download, MessageBox, _('Application is not available,install now?'), MessageBox.TYPE_YESNO)
         if self.index == 2:
-            pluginpath = '/usr/lib/enigma2/python/Plugins/Extensions/LiveFootBall/plugin.pyo'
-            pluginpathpy = '/usr/lib/enigma2/python/Plugins/Extensions/LiveFootBall/plugin.py'
+            pluginpath = resolveFilename(SCOPE_PLUGINS, 'Extensions/LiveFootBall/plugin.pyo')
+            pluginpathpy = resolveFilename(SCOPE_PLUGINS, 'Extensions/LiveFootBall/plugin.py')
             self.pluginurl = 'http://mfaraj57.dreamoem.net/applications/enigma2-plugin-extensions-livefootball.ipk'
             self.dom = 'LiveFootBall'
             if fileExists(pluginpath) or fileExists(pluginpathpy):
@@ -268,7 +268,7 @@ class showPurePrestigeappscreen(Screen):
                 return
             self.session.openWithCallback(self.download, MessageBox, _('Application is not available,install now?'), MessageBox.TYPE_YESNO)
         if self.index == 1:
-            pluginpath = '/usr/lib/enigma2/python/Plugins/Extensions/PurePrestige/Applications/PersianLiveSoccer/plugin.pyo'
+            pluginpath = resolveFilename(SCOPE_PLUGINS, 'Extensions/PurePrestige/Applications/PersianLiveSoccer/plugin.pyo')
             self.pluginurl = 'http://mfaraj57.dreamoem.net/applications/enigma2-plugin-extensions-persianlivesoccer.ipk'
             self.dom = 'PersianLiveSoccer'
             if fileExists(pluginpath):
@@ -277,8 +277,8 @@ class showPurePrestigeappscreen(Screen):
                 return
             self.session.openWithCallback(self.download, MessageBox, _('Application is not available,install now?'), MessageBox.TYPE_YESNO)
         if self.index == 3:
-            pluginpath = '/usr/lib/enigma2/python/Plugins/Extensions/MyTube/plugin.pyo'
-            pluginpathpy = '/usr/lib/enigma2/python/Plugins/Extensions/MyTube/plugin.py'
+            pluginpath = resolveFilename(SCOPE_PLUGINS, 'Extensions/MyTube/plugin.pyo')
+            pluginpathpy = resolveFilename(SCOPE_PLUGINS, 'Extensions/MyTube/plugin.py')
             self.pluginurl = 'http://mfaraj57.dreamoem.net/applications/python-gdata_1.2.4-r0_mips32el.ipk http://mfaraj57.dreamoem.net/applications/enigma2-plugin-extensions-mytube.ipk'
             self.dom = 'MyTube'
             if fileExists(pluginpath) or fileExists(pluginpathpy):
@@ -288,8 +288,8 @@ class showPurePrestigeappscreen(Screen):
             else:
                 self.session.openWithCallback(self.download, MessageBox, _('Application is not available,install now?'), MessageBox.TYPE_YESNO)
         if self.index == 4:
-            pluginpath = '/usr/lib/enigma2/python/Plugins/Extensions/VlcPlayer/plugin.pyo'
-            pluginpathpy = '/usr/lib/enigma2/python/Plugins/Extensions/VlcPlayer/plugin.py'
+            pluginpath = resolveFilename(SCOPE_PLUGINS, 'Extensions/VlcPlayer/plugin.pyo')
+            pluginpathpy = resolveFilename(SCOPE_PLUGINS, 'Extensions/VlcPlayer/plugin.py')
             self.pluginurl = 'http://mfaraj57.dreamoem.net/applications/enigma2-plugin-extensions-vlcplayer.ipk'
             self.dom = 'VlcPlayer'
             if fileExists(pluginpath) or fileExists(pluginpathpy):
@@ -299,8 +299,8 @@ class showPurePrestigeappscreen(Screen):
             else:
                 self.session.openWithCallback(self.download, MessageBox, _('Application is not available,install now?'), MessageBox.TYPE_YESNO)
         if self.index == 5:
-            pluginpath = '/usr/lib/enigma2/python/Plugins/Extensions/SHOUTcast/plugin.pyo'
-            pluginpathpy = '/usr/lib/enigma2/python/Plugins/Extensions/SHOUTcast/plugin.py'
+            pluginpath = resolveFilename(SCOPE_PLUGINS, 'Extensions/SHOUTcast/plugin.pyo')
+            pluginpathpy = resolveFilename(SCOPE_PLUGINS, 'Extensions/SHOUTcast/plugin.py')
             self.pluginurl = 'http://mfaraj57.dreamoem.net/applications/enigma2-plugin-extensions-shoutcast.ipk'
             self.dom = 'SHOUTcast'
             if fileExists(pluginpath) or fileExists(pluginpathpy):
@@ -310,8 +310,8 @@ class showPurePrestigeappscreen(Screen):
             else:
                 self.session.openWithCallback(self.download, MessageBox, _('Application is not available,install now?'), MessageBox.TYPE_YESNO)
         if self.index == 6:
-            pluginpath = '/usr/lib/enigma2/python/Plugins/Extensions/GmailReader/plugin.pyo'
-            pluginpathpy = '/usr/lib/enigma2/python/Plugins/Extensions/GmailReader/plugin.py'
+            pluginpath = resolveFilename(SCOPE_PLUGINS, 'Extensions/GmailReader/plugin.pyo')
+            pluginpathpy = resolveFilename(SCOPE_PLUGINS, 'Extensions/GmailReader/plugin.py')
             self.pluginurl = 'http://mfaraj57.dreamoem.net/applications/enigma2-plugin-extensions-gmailreader.ipk'
             self.dom = 'GmailReader'
             if fileExists(pluginpath) or fileExists(pluginpathpy):
@@ -321,8 +321,8 @@ class showPurePrestigeappscreen(Screen):
             else:
                 self.session.openWithCallback(self.download, MessageBox, _('Application is not available,install now?'), MessageBox.TYPE_YESNO)
         if self.index == 7:
-            pluginpath = '/usr/lib/enigma2/python/Plugins/Extensions/GoogleNews/plugin.pyo'
-            pluginpathpy = '/usr/lib/enigma2/python/Plugins/Extensions/GoogleNews/plugin.py'
+            pluginpath = resolveFilename(SCOPE_PLUGINS, 'Extensions/GoogleNews/plugin.pyo')
+            pluginpathpy = resolveFilename(SCOPE_PLUGINS, 'Extensions/GoogleNews/plugin.py')
             self.pluginurl = 'http://mfaraj57.dreamoem.net/applications/enigma2-plugin-extensions-googlenews.ipk'
             self.dom = 'GmailReader'
             if fileExists(pluginpath) or fileExists(pluginpathpy):
@@ -332,8 +332,8 @@ class showPurePrestigeappscreen(Screen):
             else:
                 self.session.openWithCallback(self.download, MessageBox, _('Application is not available,install now?'), MessageBox.TYPE_YESNO)
         if self.index == 8:
-            pluginpath = '/usr/lib/enigma2/python/Plugins/Extensions/Foreca/plugin.pyo'
-            pluginpathpy = '/usr/lib/enigma2/python/Plugins/Extensions/Foreca/plugin.py'
+            pluginpath = resolveFilename(SCOPE_PLUGINS, 'Extensions/Foreca/plugin.pyo')
+            pluginpathpy = resolveFilename(SCOPE_PLUGINS, 'Extensions/Foreca/plugin.py')
             self.pluginurl = 'http://mfaraj57.dreamoem.net/applications/python-html_2.6.7-ml8.3_mips32el.ipk http://mfaraj57.dreamoem.net/applications/enigma2-plugin-extensions-foreca.ipk'
             self.dom = 'Foreca'
             if fileExists(pluginpath) or fileExists(pluginpathpy):

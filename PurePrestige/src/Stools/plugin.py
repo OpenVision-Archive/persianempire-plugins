@@ -41,7 +41,7 @@ T_FULL = 4
 class showPurePrestigetoolsscreen(Screen):
 
     def __init__(self, session):
-        self.folder = '/usr/lib/enigma2/python/Plugins/Extensions/PurePrestige/Stools/toolsbuttons/'
+        self.folder = resolveFilename(SCOPE_PLUGINS, 'Extensions/PurePrestige/Stools/toolsbuttons/')
         self.fillplgfolders()
         piclist = self.fullpath
         path = self.folder

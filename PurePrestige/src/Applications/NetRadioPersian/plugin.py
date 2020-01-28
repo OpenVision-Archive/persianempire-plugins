@@ -493,7 +493,7 @@ class persianStationsScreen(Screen):
         self['info'] = Label(_('Press OK to add to favorites'))
         self['ButtonYellow'] = Pixmap()
         self['ButtonYellowtext'] = Label(_('Play'))
-        myfile = '/usr/lib/enigma2/python/Plugins/Extensions/PurePrestige/Applications/NetRadioPersian/stations'
+        myfile = resolveFilename(SCOPE_PLUGINS, 'Extensions/PurePrestige/Applications/NetRadioPersian/stations')
         xmlparse = xml.dom.minidom.parse(myfile)
         self.xmlparse = xmlparse
         for stations in self.xmlparse.getElementsByTagName('stations'):
