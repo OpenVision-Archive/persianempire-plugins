@@ -14,8 +14,16 @@ CMHOMETABS=/etc/cron/crontabs
 CMTMP=/tmp/.cmtmp
 # device paths
 #
-CRONDAEMONSCRIPT=/etc/init.d/busybox-cron 
-PLUGINDIR=/usr/lib/enigma2/python/Plugins/Extensions
+CRONDAEMONSCRIPT=/etc/init.d/busybox-cron
+
+if [ -d "/usr/lib64" ]; then
+	echo "multilib situation!"
+	LIBDIR="/usr/lib64"
+else
+	LIBDIR="/usr/lib"
+fi
+
+PLUGINDIR=$LIBDIR/enigma2/python/Plugins/Extensions
 HELP=$PLUGINDIR/readme.txt
 MAKEKIT=$CMHOME/makekit.sh
 CMSTART=S21cron

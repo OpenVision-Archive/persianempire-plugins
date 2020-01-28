@@ -1,7 +1,7 @@
 from enigma import ePicLoad, eTimer, getDesktop
 from Plugins.Plugin import PluginDescriptor
 from Screens.Screen import Screen
-from Tools.Directories import resolveFilename, pathExists, SCOPE_MEDIA, fileExists
+from Tools.Directories import resolveFilename, pathExists, SCOPE_PLUGINS, fileExists
 from Screens.MessageBox import MessageBox
 from Components.Pixmap import Pixmap, MovingPixmap
 from Components.ActionMap import ActionMap, NumberActionMap
@@ -200,23 +200,23 @@ class showPurePrestigeappscreen(Screen):
         self.showPic()
 
     def showPic(self, picInfo = ''):
-        self['thumb' + str(self.Thumbnaillist[0][1])].instance.setPixmapFromFile('/usr/lib/enigma2/python/Plugins/Extensions/PurePrestige/Applications/appbuttons/pradio.png')
+        self['thumb' + str(self.Thumbnaillist[0][1])].instance.setPixmapFromFile(resolveFilename(SCOPE_PLUGINS, 'Extensions/PurePrestige/Applications/appbuttons/pradio.png'))
         self['thumb' + str(self.Thumbnaillist[0][1])].show()
-        self['thumb' + str(self.Thumbnaillist[1][1])].instance.setPixmapFromFile('/usr/lib/enigma2/python/Plugins/Extensions/PurePrestige/Applications/appbuttons/persiansoccer.png')
+        self['thumb' + str(self.Thumbnaillist[1][1])].instance.setPixmapFromFile(resolveFilename(SCOPE_PLUGINS, 'Extensions/PurePrestige/Applications/appbuttons/persiansoccer.png'))
         self['thumb' + str(self.Thumbnaillist[1][1])].show()
-        self['thumb' + str(self.Thumbnaillist[2][1])].instance.setPixmapFromFile('/usr/lib/enigma2/python/Plugins/Extensions/PurePrestige/Applications/appbuttons/livefootball.png')
+        self['thumb' + str(self.Thumbnaillist[2][1])].instance.setPixmapFromFile(resolveFilename(SCOPE_PLUGINS, 'Extensions/PurePrestige/Applications/appbuttons/livefootball.png'))
         self['thumb' + str(self.Thumbnaillist[2][1])].show()
-        self['thumb' + str(self.Thumbnaillist[3][1])].instance.setPixmapFromFile('/usr/lib/enigma2/python/Plugins/Extensions/PurePrestige/Applications/appbuttons/mytube.png')
+        self['thumb' + str(self.Thumbnaillist[3][1])].instance.setPixmapFromFile(resolveFilename(SCOPE_PLUGINS, 'Extensions/PurePrestige/Applications/appbuttons/mytube.png'))
         self['thumb' + str(self.Thumbnaillist[3][1])].show()
-        self['thumb' + str(self.Thumbnaillist[4][1])].instance.setPixmapFromFile('/usr/lib/enigma2/python/Plugins/Extensions/PurePrestige/Applications/appbuttons/vlc.png')
+        self['thumb' + str(self.Thumbnaillist[4][1])].instance.setPixmapFromFile(resolveFilename(SCOPE_PLUGINS, 'Extensions/PurePrestige/Applications/appbuttons/vlc.png'))
         self['thumb' + str(self.Thumbnaillist[4][1])].show()
-        self['thumb' + str(self.Thumbnaillist[5][1])].instance.setPixmapFromFile('/usr/lib/enigma2/python/Plugins/Extensions/PurePrestige/Applications/appbuttons/shoutcast.png')
+        self['thumb' + str(self.Thumbnaillist[5][1])].instance.setPixmapFromFile(resolveFilename(SCOPE_PLUGINS, 'Extensions/PurePrestige/Applications/appbuttons/shoutcast.png'))
         self['thumb' + str(self.Thumbnaillist[5][1])].show()
-        self['thumb' + str(self.Thumbnaillist[6][1])].instance.setPixmapFromFile('/usr/lib/enigma2/python/Plugins/Extensions/PurePrestige/Applications/appbuttons/gmail.png')
+        self['thumb' + str(self.Thumbnaillist[6][1])].instance.setPixmapFromFile(resolveFilename(SCOPE_PLUGINS, 'Extensions/PurePrestige/Applications/appbuttons/gmail.png'))
         self['thumb' + str(self.Thumbnaillist[6][1])].show()
-        self['thumb' + str(self.Thumbnaillist[7][1])].instance.setPixmapFromFile('/usr/lib/enigma2/python/Plugins/Extensions/PurePrestige/Applications/appbuttons/gnews.png')
+        self['thumb' + str(self.Thumbnaillist[7][1])].instance.setPixmapFromFile(resolveFilename(SCOPE_PLUGINS, 'Extensions/PurePrestige/Applications/appbuttons/gnews.png'))
         self['thumb' + str(self.Thumbnaillist[7][1])].show()
-        self['thumb' + str(self.Thumbnaillist[8][1])].instance.setPixmapFromFile('/usr/lib/enigma2/python/Plugins/Extensions/PurePrestige/Applications/appbuttons/weather.png')
+        self['thumb' + str(self.Thumbnaillist[8][1])].instance.setPixmapFromFile(resolveFilename(SCOPE_PLUGINS, 'Extensions/PurePrestige/Applications/appbuttons/weather.png'))
         self['thumb' + str(self.Thumbnaillist[8][1])].show()
 
     def key_left(self):

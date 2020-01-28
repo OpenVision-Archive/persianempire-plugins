@@ -6,7 +6,7 @@ from Components.Pixmap import Pixmap
 from Components.MultiContent import MultiContentEntryText, MultiContentEntryPixmapAlphaTest
 from enigma import eTimer, eListboxPythonMultiContent, gFont, RT_HALIGN_LEFT, RT_HALIGN_RIGHT, RT_HALIGN_CENTER, getDesktop, loadPNG, loadPic
 from Tools.LoadPixmap import LoadPixmap
-from Tools.Directories import fileExists
+from Tools.Directories import fileExists, resolveFilename, SCOPE_PLUGINS
 from Components.Button import Button
 from Components.ScrollLabel import ScrollLabel
 from Screens.MessageBox import MessageBox
@@ -24,15 +24,15 @@ Cmenu_list = [_('Uninstall package'),
 def CmenuListEntry(name, idx):
     res = [name]
     if idx == 0:
-        png = '/usr/lib/enigma2/python/Plugins/Extensions/PurePrestige/images/ipkgremove.png'
+        png = resolveFilename(SCOPE_PLUGINS, 'Extensions/PurePrestige/images/ipkgremove.png')
     if idx == 1:
-        png = '/usr/lib/enigma2/python/Plugins/Extensions/PurePrestige/images/folderdelete.png'
+        png = resolveFilename(SCOPE_PLUGINS, 'Extensions/PurePrestige/images/folderdelete.png')
     elif idx == 2:
-        png = '/usr/lib/enigma2/python/Plugins/Extensions/PurePrestige/images/removeskin.png'
+        png = resolveFilename(SCOPE_PLUGINS, 'Extensions/PurePrestige/images/removeskin.png')
     elif idx == 3:
-        png = '/usr/lib/enigma2/python/Plugins/Extensions/PurePrestige/images/deletecrash.png'
+        png = resolveFilename(SCOPE_PLUGINS, 'Extensions/PurePrestige/images/deletecrash.png')
     elif idx == 4:
-        png = '/usr/lib/enigma2/python/Plugins/Extensions/PurePrestige/images/soccernews.png'
+        png = resolveFilename(SCOPE_PLUGINS, 'Extensions/PurePrestige/images/soccernews.png')
     if fileExists(png):
         res.append(MultiContentEntryPixmapAlphaTest(pos=(5, 5), size=(100, 100), png=loadPNG(png)))
     res.append(MultiContentEntryText(pos=(120, 40), size=(460, 120), font=0, text=name))
@@ -104,7 +104,7 @@ class PurePrestigeMenuscrn(Screen):
 
     def clearcrashlog(self):
         val = 'Delete_all_Crashlogs'
-        script = '/usr/lib/enigma2/python/Plugins/Extensions/PurePrestige/scripts/%s.sh' % val
+        script = resolveFilename(SCOPE_PLUGINS, 'Extensions/PurePrestige/scripts/%s.sh' % val)
         dom = 'all_Crashlogs'
         instr = 'Please wait while  clearing crashlogs'
         endstr = 'Press ok to exit'

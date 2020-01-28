@@ -21,7 +21,7 @@ from Screens.MessageBox import MessageBox
 from Tools.BoundFunction import boundFunction
 from Screens.InfoBarGenerics import InfoBarChannelSelection
 from enigma import eListboxPythonMultiContent, eListbox, gFont, RT_HALIGN_LEFT, loadPNG
-from Tools.Directories import fileExists
+from Tools.Directories import fileExists, resolveFilename, SCOPE_PLUGINS
 import os, re, time, shutil, inspect
 from dirSelect import dirSelectDlg1
 
@@ -52,7 +52,7 @@ config.plugins.navibar.blue = ConfigYesNo(default=False)
 config.plugins.navibar.close1 = ConfigYesNo(default=True)
 config.plugins.navibar.which = ConfigSelection(default='bar', choices=[('bar', _('Bar')), ('wall', _('Wall'))])
 config.plugins.navibar.pw = ConfigPIN(default=0)
-config.plugins.navibar.dlpath = ConfigText(default='/usr/lib/enigma2/python/Plugins/Extensions/NaviBarPE/icons')
+config.plugins.navibar.dlpath = ConfigText(default=resolveFilename(SCOPE_PLUGINS, 'Extensions/NaviBarPE/icons'))
 
 class mylist(MenuList):
 

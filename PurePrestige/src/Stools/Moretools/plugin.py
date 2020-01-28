@@ -1,7 +1,7 @@
 from enigma import ePicLoad, eTimer, getDesktop
 from Plugins.Plugin import PluginDescriptor
 from Screens.Screen import Screen
-from Tools.Directories import resolveFilename, pathExists, SCOPE_MEDIA
+from Tools.Directories import resolveFilename, pathExists, SCOPE_PLUGINS
 from Components.Pixmap import Pixmap, MovingPixmap
 from Components.ActionMap import ActionMap, NumberActionMap
 from Components.Sources.StaticText import StaticText
@@ -196,23 +196,23 @@ class showPurePrestigemoretoolsscreen(Screen):
         self.showPic()
 
     def showPic(self, picInfo = ''):
-        self['thumb' + str(self.Thumbnaillist[0][1])].instance.setPixmapFromFile('/usr/lib/enigma2/python/Plugins/Extensions/PurePrestige/Stools/Moretools/moretoolsbuttons/language.png')
+        self['thumb' + str(self.Thumbnaillist[0][1])].instance.setPixmapFromFile(resolveFilename(SCOPE_PLUGINS, 'Extensions/PurePrestige/Stools/Moretools/moretoolsbuttons/language.png'))
         self['thumb' + str(self.Thumbnaillist[0][1])].show()
-        self['thumb' + str(self.Thumbnaillist[1][1])].instance.setPixmapFromFile('/usr/lib/enigma2/python/Plugins/Extensions/PurePrestige/Stools/Moretools/moretoolsbuttons/grabber.png')
+        self['thumb' + str(self.Thumbnaillist[1][1])].instance.setPixmapFromFile(resolveFilename(SCOPE_PLUGINS, 'Extensions/PurePrestige/Stools/Moretools/moretoolsbuttons/grabber.png'))
         self['thumb' + str(self.Thumbnaillist[1][1])].show()
-        self['thumb' + str(self.Thumbnaillist[2][1])].instance.setPixmapFromFile('/usr/lib/enigma2/python/Plugins/Extensions/PurePrestige/Stools/Moretools/moretoolsbuttons/swap.png')
+        self['thumb' + str(self.Thumbnaillist[2][1])].instance.setPixmapFromFile(resolveFilename(SCOPE_PLUGINS, 'Extensions/PurePrestige/Stools/Moretools/moretoolsbuttons/swap.png'))
         self['thumb' + str(self.Thumbnaillist[2][1])].show()
-        self['thumb' + str(self.Thumbnaillist[3][1])].instance.setPixmapFromFile('/usr/lib/enigma2/python/Plugins/Extensions/PurePrestige/Stools/Moretools/moretoolsbuttons/script.png')
+        self['thumb' + str(self.Thumbnaillist[3][1])].instance.setPixmapFromFile(resolveFilename(SCOPE_PLUGINS, 'Extensions/PurePrestige/Stools/Moretools/moretoolsbuttons/script.png'))
         self['thumb' + str(self.Thumbnaillist[3][1])].show()
-        self['thumb' + str(self.Thumbnaillist[4][1])].instance.setPixmapFromFile('/usr/lib/enigma2/python/Plugins/Extensions/PurePrestige/Stools/Moretools/moretoolsbuttons/datechanger.png')
+        self['thumb' + str(self.Thumbnaillist[4][1])].instance.setPixmapFromFile(resolveFilename(SCOPE_PLUGINS, 'Extensions/PurePrestige/Stools/Moretools/moretoolsbuttons/datechanger.png'))
         self['thumb' + str(self.Thumbnaillist[4][1])].show()
-        self['thumb' + str(self.Thumbnaillist[5][1])].instance.setPixmapFromFile('/usr/lib/enigma2/python/Plugins/Extensions/PurePrestige/Stools/Moretools/moretoolsbuttons/passreset.png')
+        self['thumb' + str(self.Thumbnaillist[5][1])].instance.setPixmapFromFile(resolveFilename(SCOPE_PLUGINS, 'Extensions/PurePrestige/Stools/Moretools/moretoolsbuttons/passreset.png'))
         self['thumb' + str(self.Thumbnaillist[5][1])].show()
-        self['thumb' + str(self.Thumbnaillist[6][1])].instance.setPixmapFromFile('/usr/lib/enigma2/python/Plugins/Extensions/PurePrestige/Stools/Moretools/moretoolsbuttons/crash.png')
+        self['thumb' + str(self.Thumbnaillist[6][1])].instance.setPixmapFromFile(resolveFilename(SCOPE_PLUGINS, 'Extensions/PurePrestige/Stools/Moretools/moretoolsbuttons/crash.png'))
         self['thumb' + str(self.Thumbnaillist[6][1])].show()
-        self['thumb' + str(self.Thumbnaillist[7][1])].instance.setPixmapFromFile('/usr/lib/enigma2/python/Plugins/Extensions/PurePrestige/Stools/Moretools/moretoolsbuttons/cronman.png')
+        self['thumb' + str(self.Thumbnaillist[7][1])].instance.setPixmapFromFile(resolveFilename(SCOPE_PLUGINS, 'Extensions/PurePrestige/Stools/Moretools/moretoolsbuttons/cronman.png'))
         self['thumb' + str(self.Thumbnaillist[7][1])].show()
-        self['thumb' + str(self.Thumbnaillist[8][1])].instance.setPixmapFromFile('/usr/lib/enigma2/python/Plugins/Extensions/PurePrestige/Stools/Moretools/moretoolsbuttons/backward.png')
+        self['thumb' + str(self.Thumbnaillist[8][1])].instance.setPixmapFromFile(resolveFilename(SCOPE_PLUGINS, 'Extensions/PurePrestige/Stools/Moretools/moretoolsbuttons/backward.png'))
         self['thumb' + str(self.Thumbnaillist[8][1])].show()
 
     def key_left(self):

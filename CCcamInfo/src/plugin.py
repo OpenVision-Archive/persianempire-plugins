@@ -19,13 +19,13 @@ from Screens.MessageBox import MessageBox
 from Screens.Screen import Screen
 from Screens.VirtualKeyBoard import VirtualKeyBoard
 from skin import parseColor
-from Tools.Directories import fileExists, resolveFilename, SCOPE_LANGUAGE, SCOPE_PLUGINS
+from Tools.Directories import fileExists, resolveFilename, SCOPE_LANGUAGE, SCOPE_PLUGINS, SCOPE_LIBDIR
 from twisted.internet import reactor
 from twisted.web.client import HTTPClientFactory
 from urlparse import urlparse, urlunparse
 import gettext
 
-if fileExists("/usr/lib/enigma2/python/Components/Console.pyo"):
+if fileExists(resolveFilename(SCOPE_LIBDIR, "/enigma2/python/Components/Console.pyo")):
 	from Components.Console import Console
 	NEW_CVS = True
 else:

@@ -32,7 +32,7 @@ from Components.SelectionList import SelectionList
 from Components.Sources.List import List
 from Components.Sources.StaticText import StaticText
 from Plugins.Plugin import PluginDescriptor
-from Tools.Directories import fileExists, resolveFilename, SCOPE_PLUGINS, SCOPE_CURRENT_PLUGIN, SCOPE_CURRENT_SKIN
+from Tools.Directories import fileExists, resolveFilename, SCOPE_PLUGINS, SCOPE_CURRENT_PLUGIN, SCOPE_CURRENT_SKIN, SCOPE_LIBDIR
 from Tools.LoadPixmap import LoadPixmap
 from Tools.NumericalTextInput import NumericalTextInput
 from ServiceReference import ServiceReference
@@ -113,7 +113,7 @@ class PEMainMenu(Screen):
     def createMENUlist(self):
         self.mylist = []
         divpng = LoadPixmap(cached=True, path=resolveFilename(SCOPE_CURRENT_SKIN, 'skin_default/div-h.png'))
-        if fileExists(resolveFilename(SCOPE_PLUGINS, '/usr/lib/enigma2/python/Plugins/Extensions/PECamManager/plugin.pyo')):
+        if fileExists(resolveFilename(SCOPE_PLUGINS, 'Extensions/PECamManager/plugin.pyo')):
             self.mylist.append((_('Cam Manager'),
              'CamSelectMenu',
              _('manage your favourite cam'),
@@ -152,7 +152,7 @@ class PEMainMenu(Screen):
             name = cur[0]
             menu = cur[1]
             if menu == 'CamSelectMenu':
-                if fileExists(resolveFilename(SCOPE_PLUGINS, '/usr/lib/enigma2/python/Plugins/Extensions/PECamManager/plugin.pyo')):
+                if fileExists(resolveFilename(SCOPE_PLUGINS, 'Extensions/PECamManager/plugin.pyo')):
                     try:
                         from Plugins.Extensions.PECamManager import *
                     except ImportError:
@@ -264,7 +264,7 @@ class PESubMenu(Screen):
              LoadPixmap(cached=True, path=resolveFilename(SCOPE_PLUGINS, 'SystemPlugins/PEPanel/pictures/ipkgall.png')),
              None,
              menuid))
-            if fileExists(resolveFilename(SCOPE_PLUGINS, '/usr/lib/enigma2/python/Plugins/PLi/SoftcamSetup/plugin.pyo')):
+            if fileExists(resolveFilename(SCOPE_PLUGINS, 'Extensions/SoftcamSetup/plugin.pyo')):
                 self.list.append(('ipkgcams',
                  _('Show CAM'),
                  _('Install, Update or Remove all available CAMs from Feed'),
@@ -336,21 +336,21 @@ class PESubMenu(Screen):
                  LoadPixmap(cached=True, path=resolveFilename(SCOPE_PLUGINS, 'SystemPlugins/PEPanel/pictures/networkbrowser_sub.png')),
                  None,
                  menuid))
-            if fileExists('/usr/lib/enigma2/python/Screens/NetworkSetup.pyo'):
+            if fileExists(resolveFilename(SCOPE_LIBDIR, 'enigma2/python/Screens/NetworkSetup.pyo')):
                 self.list.append(('NetworkIfc',
                  _('Network Interfaces'),
                  _('See your Network Interfaces'),
                  LoadPixmap(cached=True, path=resolveFilename(SCOPE_PLUGINS, 'SystemPlugins/PEPanel/pictures/networkifc.png')),
                  None,
                  menuid))
-            if fileExists('/usr/lib/enigma2/python/Screens/NetworkSetup.pyo'):
+            if fileExists(resolveFilename(SCOPE_LIBDIR, 'enigma2/python/Screens/NetworkSetup.pyo')):
                 self.list.append(('NetworkDNS',
                  _('Network Nameserver'),
                  _('See your DNS-Server'),
                  LoadPixmap(cached=True, path=resolveFilename(SCOPE_PLUGINS, 'SystemPlugins/PEPanel/pictures/networkdns.png')),
                  None,
                  menuid))
-            if fileExists('/usr/lib/enigma2/python/Screens/NetworkSetup.pyo'):
+            if fileExists(resolveFilename(SCOPE_LIBDIR, 'enigma2/python/Screens/NetworkSetup.pyo')):
                 self.list.append(('NetworkMounts',
                  _('Network Mounts'),
                  _('See your Network mounts'),
@@ -1429,8 +1429,8 @@ class SundtekControlCenter(Screen, ConfigListScreen):
 
     def disclaimer(self, result):
         if result:
-            chmod('/usr/lib/enigma2/python/Plugins/SystemPlugins/PEPanel/sundtekinstall.sh', 493)
-            self.prompt('/usr/lib/enigma2/python/Plugins/SystemPlugins/PEPanel/sundtekinstall.sh')
+            chmod(resolveFilename(SCOPE_LIBDIR, 'SystemPlugins/PEPanel/sundtekinstall.sh'), 493)
+            self.prompt(resolveFilename(SCOPE_LIBDIR, 'SystemPlugins/PEPanel/sundtekinstall.sh'))
 
     def save(self):
         for x in self['config'].list:
@@ -2508,7 +2508,7 @@ class PESetupCronConf(Screen, ConfigListScreen):
         self.defaultcommandlist.append(('wget -q -O - http://127.0.0.1/web/powerstate?newstate=2', _('reboot')))
         self.defaultcommandlist.append(('wget -q -O - http://127.0.0.1/web/powerstate?newstate=3', _('restart enigma2')))
         self.defaultcommandlist.append(('wget -q -O - http://127.0.0.1/web/remotecontrol?command=116', _('wakeup/switch from/to standby')))
-        if fileExists(resolveFilename(SCOPE_PLUGINS, '/usr/lib/enigma2/python/Plugins/PLi/SoftcamSetup/plugin.pyo')):
+        if fileExists(resolveFilename(SCOPE_PLUGINS, 'Extensions/SoftcamSetup/plugin.pyo')):
             self.defaultcommandlist.append(('/etc/init.d/softcam restart', _('restart softcam')))
         self.default_command = NoSave(ConfigSelection(default='None', choices=self.defaultcommandlist))
         self.user_command = NoSave(ConfigText(fixed_size=False))
@@ -2799,7 +2799,7 @@ class PEInfo(Screen):
         self.close()
 
     def getCPUInfo(self):
-        Console().ePopen('/usr/lib/enigma2/python/Plugins/SystemPlugins/PEPanel/cpu.sh')
+        Console().ePopen('%s') % resolveFilename(SCOPE_PLUGINS, "SystemPlugins/PEPanel/cpu.sh")
         if fileExists('/tmp/cpuinfo.tmp'):
             f = open('/tmp/cpuinfo.tmp', 'r')
         line = f.readlines()

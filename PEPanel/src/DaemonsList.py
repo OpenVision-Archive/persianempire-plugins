@@ -20,7 +20,7 @@ def DaemonEntry(name, picture, description, started, installed):
       description,
       started)]
     picture = picture[8:]
-    picture = '/usr/lib/enigma2/python/Plugins/SystemPlugins/PEPanel/pictures/' + picture
+    picture = resolveFilename(SCOPE_PLUGINS, 'SystemPlugins/PEPanel/pictures/' + picture
     if started:
         picture2 = '/usr/share/enigma2/skin_default/icons/lock_on.png'
     else:

@@ -58,7 +58,7 @@ def CCcamListEntry(name, idx):
         idx = 'about'
     elif idx == 3:
         idx = 'update'
-    png = '/usr/lib/enigma2/python/Plugins/Extensions/PurePrestige/Applications//NetRadioPersian/icons/%s.png' % str(idx)
+    png = resolveFilename(SCOPE_PLUGINS, 'Extensions/PurePrestige/Applications//NetRadioPersian/icons/%s.png' % str(idx)
     if fileExists(png):
         res.append(MultiContentEntryPixmapAlphaTest(pos=(65, 0), size=(457, 90), png=loadPNG(png)))
     res.append(MultiContentEntryText(pos=(0, 3), size=(800, 90), font=0, text=name))

@@ -7,7 +7,7 @@ from Components.config import config
 from Screens.InfoBar import MoviePlayer
 from Screens.MessageBox import MessageBox
 from Tools import Notifications
-from Tools.Directories import fileExists
+from Tools.Directories import fileExists, resolveFilename, SCOPE_PLUGINS
 from ctypes import *
 from enigma import eServiceReference, iServiceInformation, eConsoleAppContainer, eTimer, eBackgroundFileEraser, iPlayableService
 from thread import start_new_thread
@@ -19,7 +19,7 @@ from helper import blockingCallFromMainThread
 import traceback
 from Components.Console import Console
 
-PROXY_BINARY = '/usr/lib/enigma2/python/Plugins/Extensions/AirPlayer/proxy'
+PROXY_BINARY = resolveFilename(SCOPE_PLUGINS, 'Extensions/AirPlayer/proxy')
 
 class AirPlayMoviePlayer(MoviePlayer):
 
@@ -95,7 +95,7 @@ class AirPlayMoviePlayer(MoviePlayer):
         if not os.path.exists(PROXY_BINARY):
             return False
         try:
-            self.libairtunes = cdll.LoadLibrary('/usr/lib/enigma2/python/Plugins/Extensions/AirPlayer/libairtunes.so.0')
+            self.libairtunes = cdll.LoadLibrary(resolveFilename(SCOPE_PLUGINS, 'Extensions/AirPlayer/libairtunes.so.0'))
             print '[AirPlayMoviePlayer] loading lib done'
             self.validationMessage = ''
             response = create_string_buffer(1024)

@@ -69,8 +69,8 @@ WeatherInfoBarKeys = [
 UserAgent = "Mozilla/5.0 (X11; U; Linux x86_64; de; rv:1.9.0.15) Gecko/2009102815 Ubuntu/9.04 (jaunty) Firefox/3."
 global pluginpath
 global showTimer
-pluginpath = "/usr/lib/enigma2/python/Plugins/Extensions/QuickWeather/weathericons"
-windpath = "/usr/lib/enigma2/python/Plugins/Extensions/QuickWeather/windicons"
+pluginpath = resolveFilename(SCOPE_PLUGINS, "Extensions/QuickWeather/weathericons")
+windpath = resolveFilename(SCOPE_PLUGINS, "Extensions/QuickWeather/windicons")
 maintext = ""
 InfoBarShow = None
 InfoBarHide = None
@@ -392,8 +392,8 @@ class WeatherPluginScreen(Screen):
 				    if config.plugins.WeatherPlugin.city.value == "0":
 				         self["City"].setText("" + mytime)
 				    if config.plugins.WeatherPlugin.city.value == "1":
-				         if fileExists('/usr/lib/enigma2/python/Plugins/Extensions/QuickWeather/city.cfg'):
-                            		    f = open('/usr/lib/enigma2/python/Plugins/Extensions/QuickWeather/city.cfg','r')
+				         if fileExists(resolveFilename(SCOPE_PLUGINS, 'Extensions/QuickWeather/city.cfg')):
+                            		    f = open(resolveFilename(SCOPE_PLUGINS, 'Extensions/QuickWeather/city.cfg'),'r')
 			                    line = f.readline()
 			                    text = line.strip()
 			                    f.close()
@@ -489,9 +489,9 @@ class WeatherPluginScreen(Screen):
                     maintext =  "%s %s min" % (maintext1, maintext) 
 		    self["lab1"].setText(maintext)                    
  		if config.plugins.WeatherPlugin.days.value == "0":
-		    self["zastavka"].instance.setPixmapFromFile("/usr/lib/enigma2/python/Plugins/Extensions/QuickWeather/backg.png")
+		    self["zastavka"].instance.setPixmapFromFile(resolveFilename(SCOPE_PLUGINS, "Extensions/QuickWeather/backg.png"))
  		if config.plugins.WeatherPlugin.days.value == "1":
-                    self["zastavka"].instance.setPixmapFromFile("/usr/lib/enigma2/python/Plugins/Extensions/QuickWeather/backg2.png")
+                    self["zastavka"].instance.setPixmapFromFile(resolveFilename(SCOPE_PLUGINS, "Extensions/QuickWeather/backg2.png"))
 
         def CrewRoleList(self, file):
                 if file:
@@ -527,8 +527,8 @@ class WeatherPluginScreen(Screen):
                 self.slideicon = total
                 animokicon = True
             else:
-                pathanimicon  = '/usr/lib/enigma2/python/Plugins/Extensions/QuickWeather/NA/a'
-                path = '/usr/lib/enigma2/python/Plugins/Extensions/QuickWeather/NA'
+                pathanimicon  = resolveFilename(SCOPE_PLUGINS, 'Extensions/QuickWeather/NA/a')
+                path = resolveFilename(SCOPE_PLUGINS, 'Extensions/QuickWeather/NA')
                 dir_work = os.listdir(path) 
                 total = len (dir_work)
                 self.slideicon = total
@@ -560,8 +560,8 @@ class WeatherPluginScreen(Screen):
             global png2
             self.slide = 8
             animok2 = False
-            if fileExists('/usr/lib/enigma2/python/Plugins/Extensions/QuickWeather/anim/a7.png'):
-                pathanim  = '/usr/lib/enigma2/python/Plugins/Extensions/QuickWeather/anim/a'
+            if fileExists(resolveFilename(SCOPE_PLUGINS, 'Extensions/QuickWeather/anim/a7.png')):
+                pathanim  = resolveFilename(SCOPE_PLUGINS, 'Extensions/QuickWeather/anim/a')
                 animok2 = True
             if (animok2== True):
                 self.pics = []
@@ -588,8 +588,8 @@ class WeatherPluginScreen(Screen):
             global png1
             self.slide1 = 8
             animok = False
-            if fileExists('/usr/lib/enigma2/python/Plugins/Extensions/QuickWeather/anim/n7.png'):
-                pathanim1  = '/usr/lib/enigma2/python/Plugins/Extensions/QuickWeather/anim/n'
+            if fileExists(resolveFilename(SCOPE_PLUGINS, 'Extensions/QuickWeather/anim/n7.png')):
+                pathanim1  = resolveFilename(SCOPE_PLUGINS, 'Extensions/QuickWeather/anim/n')
                 animok = True
             if (animok == True):
                 self.pics1 = []
@@ -616,8 +616,8 @@ class WeatherPluginScreen(Screen):
             global png3
             self.slide3 = 8
             animok = False
-            if fileExists('/usr/lib/enigma2/python/Plugins/Extensions/QuickWeather/anim/n7.png'):
-                pathanim3  = '/usr/lib/enigma2/python/Plugins/Extensions/QuickWeather/anim/n'
+            if fileExists(resolveFilename(SCOPE_PLUGINS, 'Extensions/QuickWeather/anim/n7.png')):
+                pathanim3  = resolveFilename(SCOPE_PLUGINS, 'Extensions/QuickWeather/anim/n')
                 animok = True
             if (animok == True):
                 self.pics3 = []
@@ -644,8 +644,8 @@ class WeatherPluginScreen(Screen):
 	def get_Url(self):
 		url = 'http://api.worldweatheronline.com/free/v1/weather.ashx?q='
 		text = "Kiev"
-                if fileExists('/usr/lib/enigma2/python/Plugins/Extensions/QuickWeather/weatherindb.cfg'):
-		       cfgfile = "/usr/lib/enigma2/python/Plugins/Extensions/QuickWeather/weatherindb.cfg"
+                if fileExists(resolveFilename(SCOPE_PLUGINS, 'Extensions/QuickWeather/weatherindb.cfg')):
+		       cfgfile = resolveFilename(SCOPE_PLUGINS, "Extensions/QuickWeather/weatherindb.cfg")
 		else:
                        cfgfile = "/etc/weatherindb.cfg" 
 		if fileExists(cfgfile):
@@ -662,9 +662,9 @@ class WeatherPluginScreen(Screen):
 	def resetLabels2(self):
 		self["lab1"].setText(_("Error getting XML document!"))
 		self["City"].setText(_("Connection failed!"))
-		self["Wind icons"].instance.setPixmapFromFile("/usr/lib/enigma2/python/Plugins/Extensions/QuickWeather/windicons/none.png")
+		self["Wind icons"].instance.setPixmapFromFile(resolveFilename(SCOPE_PLUGINS, "Extensions/QuickWeather/windicons/none.png"))
                 if config.plugins.WeatherPlugin.anim.value != "2":
-		    self["Icons now"].instance.setPixmapFromFile("/usr/lib/enigma2/python/Plugins/Extensions/QuickWeather/NA.png")
+		    self["Icons now"].instance.setPixmapFromFile(resolveFilename(SCOPE_PLUGINS, "Extensions/QuickWeather/NA.png"))
 		self["Temp now"].setText("")
 		self["Description now"].setText(_("Page not available!"))
 		self["Date of tomorrow"].setText(_("None"))
@@ -672,10 +672,10 @@ class WeatherPluginScreen(Screen):
 		self["Description2"].setText(_("None"))
 		self["lab12"].setText("")
 		self["lab14"].setText("")
-		self["Icons tomorrow"].instance.setPixmapFromFile("/usr/lib/enigma2/python/Plugins/Extensions/QuickWeather/na2.png")		
+		self["Icons tomorrow"].instance.setPixmapFromFile(resolveFilename(SCOPE_PLUGINS, "Extensions/QuickWeather/na2.png"))
 		self["Description tomorrow"].setText("")
-		self["Icons2"].instance.setPixmapFromFile("/usr/lib/enigma2/python/Plugins/Extensions/QuickWeather/na2.png")
-		self["lab13"].instance.setPixmapFromFile("/usr/lib/enigma2/python/Plugins/Extensions/QuickWeather/na2.png")
+		self["Icons2"].instance.setPixmapFromFile(resolveFilename(SCOPE_PLUGINS, "Extensions/QuickWeather/na2.png"))
+		self["lab13"].instance.setPixmapFromFile(resolveFilename(SCOPE_PLUGINS, "Extensions/QuickWeather/na2.png"))
 		
 	def checkIcon(self, filename):
 		parts = filename.split("/")
@@ -1429,9 +1429,9 @@ class SetupMenu2(Screen):
         id = str(self['menu'].getCurrent()[0])
         text = '%s' % (id)
         if config.plugins.WeatherPlugin.days.value == "0":
-            Console().ePopen("cp -f /usr/lib/enigma2/python/Plugins/Extensions/QuickWeather/background/%s.png /usr/lib/enigma2/python/Plugins/Extensions/QuickWeather/backg.png" % text)
+            Console().ePopen("cp -f %s %s") % (resolveFilename(SCOPE_PLUGINS, "Extensions/QuickWeather/background/%s.png" % text), resolveFilename(SCOPE_PLUGINS, "Extensions/QuickWeather/background/backg.png"))
         if config.plugins.WeatherPlugin.days.value == "1":
-            Console().ePopen("cp -f /usr/lib/enigma2/python/Plugins/Extensions/QuickWeather/background1/%s.png /usr/lib/enigma2/python/Plugins/Extensions/QuickWeather/backg2.png" % text)
+            Console().ePopen("cp -f %s %s") % (resolveFilename(SCOPE_PLUGINS, "Extensions/QuickWeather/background1/%s.png" % text), resolveFilename(SCOPE_PLUGINS, "Extensions/QuickWeather/background/backg2.png"))
         self.exit()
 
     def getPanelmenu(self):
@@ -1455,23 +1455,23 @@ class SetupMenu2(Screen):
     def search_poster(self, id):
                 text = '%s' % (id)
                 if config.plugins.WeatherPlugin.days.value == "0":
-		    filename = '/usr/lib/enigma2/python/Plugins/Extensions/QuickWeather/background/%s.png' % text
+		    filename = resolveFilename(SCOPE_PLUGINS, 'Extensions/QuickWeather/background/%s.png') % text
                 if config.plugins.WeatherPlugin.days.value == "1":
-		    filename = '/usr/lib/enigma2/python/Plugins/Extensions/QuickWeather/background1/%s.png' % text		    
+		    filename = resolveFilename(SCOPE_PLUGINS, 'Extensions/QuickWeather/background1/%s.png') % text		    
                 png2 = loadPic(filename, 211, 380, 0, 0, 0, 1)                
                 self["previem"].instance.setPixmap(png2)	
 
     def getList(self):
 	    b00klist=[]
 	    if config.plugins.WeatherPlugin.days.value == "0":
-		if os.path.exists("/usr/lib/enigma2/python/Plugins/Extensions/QuickWeather/background") == True:
-           		for name in os.listdir("/usr/lib/enigma2/python/Plugins/Extensions/QuickWeather/background"):                                       
+		if os.path.exists(resolveFilename(SCOPE_PLUGINS, "Extensions/QuickWeather/background")) == True:
+           		for name in os.listdir(resolveFilename(SCOPE_PLUGINS, "Extensions/QuickWeather/background")):                                       
               			if name.endswith(".png") is True:                                                  
                  			bname=name.split(".png")                                                        
                       			b00klist.append(( bname[0],name))
 	    else:
-		if os.path.exists("/usr/lib/enigma2/python/Plugins/Extensions/QuickWeather/background1") == True:
-           		for name in os.listdir("/usr/lib/enigma2/python/Plugins/Extensions/QuickWeather/background1"):                                       
+		if os.path.exists(resolveFilename(SCOPE_PLUGINS, "Extensions/QuickWeather/background1")) == True:
+           		for name in os.listdir(resolveFilename(SCOPE_PLUGINS, "Extensions/QuickWeather/background1")):                                       
               			if name.endswith(".png") is True:                                                  
                  			bname=name.split(".png")                                                        
                       			b00klist.append(( bname[0],name))                      			
@@ -1491,12 +1491,12 @@ class WeatherSelectCity(Screen):
 		mycache = []
 		idx = 0
 		if len(cmd) > 1:
-			if fileExists('/usr/lib/enigma2/python/Plugins/Extensions/QuickWeather/weatherindb.cfg'):
-				fileExists('/usr/lib/enigma2/python/Plugins/Extensions/QuickWeather/weatherindb.cfg')
+			if fileExists(resolveFilename(SCOPE_PLUGINS, 'Extensions/QuickWeather/weatherindb.cfg')):
+				fileExists(resolveFilename(SCOPE_PLUGINS, 'Extensions/QuickWeather/weatherindb.cfg'))
 			mycache.append(cmd)
 			if len(mycache) > 10:
 				mycache = mycache[1:]
-			f1 = open('/usr/lib/enigma2/python/Plugins/Extensions/QuickWeather/weatherindb.cfg', 'w')
+			f1 = open(resolveFilename(SCOPE_PLUGINS, 'Extensions/QuickWeather/weatherindb.cfg'), 'w')
 			for fil in mycache:
 				f1.write(fil + '\n')
 			f1.close()              
@@ -1517,12 +1517,12 @@ class WeatherCityInfobar(Screen):
 		mycache = []
 		idx = 0
 		if len(cmd) > 1:
-			if fileExists('/usr/lib/enigma2/python/Plugins/Extensions/QuickWeather/city.cfg'):
-				fileExists('/usr/lib/enigma2/python/Plugins/Extensions/QuickWeather/city.cfg')
+			if fileExists(resolveFilename(SCOPE_PLUGINS, 'Extensions/QuickWeather/city.cfg')):
+				fileExists(resolveFilename(SCOPE_PLUGINS, 'Extensions/QuickWeather/city.cfg'))
 			mycache.append(cmd)
 			if len(mycache) > 10:
 				mycache = mycache[1:]
-			f1 = open('/usr/lib/enigma2/python/Plugins/Extensions/QuickWeather/city.cfg', 'w')
+			f1 = open(resolveFilename(SCOPE_PLUGINS, 'Extensions/QuickWeather/city.cfg'), 'w')
 			for fil in mycache:
 				f1.write(fil + '\n')
 			f1.close()
@@ -1597,7 +1597,7 @@ class SetupKeymap(Screen):
     def showDetails(self):
         id = str(self['menu'].getCurrent()[0])
         text = '%s' % (id)
-        Console().ePopen("cp -f /usr/lib/enigma2/python/Plugins/Extensions/QuickWeather/SetupKeymap/%s.xml /usr/lib/enigma2/python/Plugins/Extensions/QuickWeather/keymap.xml" % text)
+        Console().ePopen("cp -f %s %s") % (resolveFilename(SCOPE_PLUGINS, "Extensions/QuickWeather/SetupKeymap/%s.xml" % text), resolveFilename(SCOPE_PLUGINS, "Extensions/QuickWeather/keymap.xml"))
         from Screens.Standby import TryQuitMainloop
         self.session.open(TryQuitMainloop, 3)
 
@@ -1619,8 +1619,8 @@ class SetupKeymap(Screen):
 
     def getList(self):
 		b00klist=[]
-		if os.path.exists("/usr/lib/enigma2/python/Plugins/Extensions/QuickWeather/SetupKeymap") == True:
-           		for name in os.listdir("/usr/lib/enigma2/python/Plugins/Extensions/QuickWeather/SetupKeymap"):                                       
+		if os.path.exists(resolveFilename(SCOPE_PLUGINS, "Extensions/QuickWeather/SetupKeymap")) == True:
+           		for name in os.listdir(resolveFilename(SCOPE_PLUGINS, "Extensions/QuickWeather/SetupKeymap")):                                       
               			if name.endswith(".xml") is True:                                                  
                  			bname=name.split(".xml")                                                        
                       			b00klist.append(( bname[0],name))                                 
@@ -1662,7 +1662,7 @@ class SetupIcons(Screen):
 	    )
 
     def name(self):
-        cfgfile = "/usr/lib/enigma2/python/Plugins/Extensions/QuickWeather/weathericons.cfg"
+        cfgfile = resolveFilename(SCOPE_PLUGINS, "Extensions/QuickWeather/weathericons.cfg")
         text = ""
         if fileExists(cfgfile):
             		f = open(cfgfile,'r')
@@ -1675,7 +1675,7 @@ class SetupIcons(Screen):
 
     def ShowsearchBarracuda(self, cmd):
 	    if cmd is not None:
-                            localfile = "/usr/lib/enigma2/python/Plugins/Extensions/QuickWeather/weathericons.cfg"
+                            localfile = resolveFilename(SCOPE_PLUGINS, "Extensions/QuickWeather/weathericons.cfg")
 		            temp_file = open(localfile, "w")
                             temp_file.write(cmd)
                             temp_file.close()
@@ -1699,8 +1699,8 @@ class SetupIcons(Screen):
         text = '%s' % (id)
         setup = '%s%s' % (self.name(), "SetupIcons")
         if fileExists("%s/%s" % (setup, text)):
-             Console().ePopen("rm -rf /usr/lib/enigma2/python/Plugins/Extensions/QuickWeather/weathericons")
-             Console().ePopen("cp -R %s/%s /usr/lib/enigma2/python/Plugins/Extensions/QuickWeather/weathericons" % (setup, text))
+             Console().ePopen("rm -rf %s") % resolveFilename(SCOPE_PLUGINS, "Extensions/QuickWeather/weathericons")
+             Console().ePopen("cp -R %s/%s %s %s") % (setup, text, resolveFilename(SCOPE_PLUGINS, "Extensions/QuickWeather/weathericons"))
              self.close()
         else:
             self.close()
@@ -1728,7 +1728,7 @@ class SetupIcons(Screen):
                 setup = '%s%s' % (self.name(), "SetupIcons")
 		filename = '%s/%s.png' % (setup, text)
 		if filename is None:
-                     filename = "/usr/lib/enigma2/python/Plugins/Extensions/QuickWeather/NA.png"
+                     filename = resolveFilename(SCOPE_PLUGINS, "Extensions/QuickWeather/NA.png")
                 png2 = loadPic(filename, 420, 236, 0, 0, 0, 1)                
                 self["previem"].instance.setPixmap(png2)
 	

@@ -109,7 +109,7 @@ class PurePrestigeFeedScreenList(Screen):
                 if fileExists(pngfile):
                     png = pngfile
                 else:
-                    png = '/usr/lib/enigma2/python/Plugins/Extensions/PurePrestige/images/default.png'
+                    png = resolveFilename(SCOPE_PLUGINS, 'Extensions/PurePrestige/images/default.png'
                 res.append(MultiContentEntryText(pos=(0, 5), size=(5, 30), font=0, flags=RT_HALIGN_LEFT, text='', color=16777215, color_sel=16777215))
                 res.append(MultiContentEntryPixmapAlphaTest(pos=(0, 10), size=(70, 70), png=loadPNG(png)))
                 res.append(MultiContentEntryText(pos=(120, 5), size=(500, 70), font=0, flags=RT_HALIGN_LEFT, text=feedname, color=10025880, color_sel=10025880))

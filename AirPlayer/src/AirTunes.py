@@ -11,9 +11,10 @@ from enigma import eTimer
 from thread import start_new_thread
 import time
 from mediabackends.helper import blockingCallFromMainThread
+from Tools.Directories import resolveFilename, SCOPE_PLUGINS
 
 HAIRTUNES_BINARY = '/usr/bin/hairtunes'
-AIRTUNES_PROXY_BINARY = '/usr/lib/enigma2/python/Plugins/Extensions/AirPlayer/atproxy'
+AIRTUNES_PROXY_BINARY = resolveFilename(SCOPE_PLUGINS, 'Extensions/AirPlayer/atproxy')
 
 class AirtunesProtocolHandler(RTSPResource):
 
@@ -26,7 +27,7 @@ class AirtunesProtocolHandler(RTSPResource):
         self.process = None
         self.validationMessage = ''
         try:
-            self.libairtunes = cdll.LoadLibrary('/usr/lib/enigma2/python/Plugins/Extensions/AirPlayer/libairtunes.so.0')
+            self.libairtunes = cdll.LoadLibrary(resolveFilename(SCOPE_PLUGINS, 'Extensions/AirPlayer/libairtunes.so.0'))
             print '[AirTunes] loading lib done'
         except Exception as e:
             print '[AirTunes] loading lib failed'
