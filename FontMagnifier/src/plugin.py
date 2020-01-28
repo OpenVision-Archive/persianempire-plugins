@@ -1006,7 +1006,7 @@ class fmWaitScreen(Screen):
                     Console().ePopen("cp %s %s") % (resolveFilename(SCOPE_LIBDIR, "enigma2/python/Components/MovieList.pyo"), resolveFilename(SCOPE_LIBDIR, "enigma2/python/Components/MovieList.pyo.bak"))
 
 
-                MovieList_file = open(resolveFilename(SCOPE_LIBDIR, "enigma2/python/Components/MovieList.pyo")), "w")
+                MovieList_file = open(resolveFilename(SCOPE_LIBDIR, "enigma2/python/Components/MovieList.pyo"), "w")
                 MovieList_file.write(MovieList_text_neu)
                 MovieList_file.close()
         except:
