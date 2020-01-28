@@ -12,6 +12,14 @@ for sig in 0 1 2 3 6 14 15; do
 	trap "cleanup $sig" $sig
 done
 
+
+if [ -d "/usr/lib64" ]; then
+	echo "multilib situation!"
+	LIBDIR="/usr/lib64"
+else
+	LIBDIR="/usr/lib"
+fi
+
 #echo "$1 $2 $3 $4"
 cleanup() {
 	EXIT_CODE=$?
@@ -192,7 +200,7 @@ if grep -qs "comment=iCVS Image" /etc/image-version ; then
 		IMAGEINFO=MiLo
 		LINK="Link: http://www.pli-images.org/"
 		echo "$IMAGEINFO found"
-	elif grep -qs "MerlinDownloadBrowser" /usr/lib/enigma2/python/Plugins/Extensions/AddOnManager/plugin.py ; then
+	elif grep -qs "MerlinDownloadBrowser" $LIBDIR/enigma2/python/Plugins/Extensions/AddOnManager/plugin.py ; then
 		IMAGEINFO="Merlin-2.Excalibur"-`cat /etc/issue | cut -d " " -f2 | cut -d "." -f1-2 | head -n 1`
 		LINK="Link: http://www.dreambox-tools.info/"
 		echo "$IMAGEINFO found"
@@ -209,15 +217,15 @@ else
 	IMAGEINFO=FlashBackup
 	echo "Couldn't identify flash-image, using FlashBackup as backupname"
 fi
-	if [ -e /usr/lib/enigma2/python/Plugins/Bp/geminimain ]; then
+	if [ -e $LIBDIR/enigma2/python/Plugins/Bp/geminimain ]; then
 #		IMAGEINFO=Gemini-`cat /etc/image-version | grep version | cut -d'2' -f1 | sed 's/.*\(.\{3\}\)$/\1/' | cut -b 1`.`cat /etc/image-version | grep version | cut -d'2' -f1 | sed 's/.*\(.\{2\}\)$/\1/'` # sed Befehl schnappt sich die letzten 3 Zeichen
-		GP3="GP3."`cat /usr/lib/enigma2/python/Plugins/Bp/geminimain/gVersion.py | sed -e "s/^.*'\(.*\)'.*$/\1/"`"-"
+		GP3="GP3."`cat $LIBDIR/enigma2/python/Plugins/Bp/geminimain/gVersion.py | sed -e "s/^.*'\(.*\)'.*$/\1/"`"-"
 		LINK="Link: http://www.ihad.tv"
 		echo "$GP3 found"
 fi
 	echo "---------------------------------------------------------------"
 DATE=`date +%Y-%m-%d@%H.%M.%S`
-PLUGINPATH=/usr/lib/enigma2/python/Plugins/Extensions/PurePrestige/Stools/PPFlashBackup
+PLUGINPATH=$LIBDIR/enigma2/python/Plugins/Extensions/PurePrestige/Stools/PPFlashBackup
 MKFS=/usr/sbin/mkfs.jffs2
 BUILDIMAGE=/usr/bin/buildimage
 BACKUPIMAGE=$SWAPDIR/$IMAGEINFO-$GP3$BOXTYPE-$DATE-sim2-SSL-$VSND.nfi

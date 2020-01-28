@@ -7,7 +7,7 @@ import xml.dom.minidom
 import os
 from Plugins.Extensions.PurePrestige.Console2 import *
 from Components.Button import Button
-from Tools.Directories import fileExists
+from Tools.Directories import fileExists, resolveFilename, SCOPE_PLUGINS
 from Components.ScrollLabel import ScrollLabel
 from Components.Pixmap import Pixmap
 from enigma import eTimer, eListboxPythonMultiContent, getDesktop, gFont, loadPNG
@@ -58,7 +58,7 @@ def CCcamListEntry(name, idx):
         idx = 'about'
     elif idx == 3:
         idx = 'update'
-    png = '/usr/lib/enigma2/python/Plugins/Extensions/PurePrestige/Applications//NetRadioPersian/icons/%s.png' % str(idx)
+    png = resolveFilename(SCOPE_PLUGINS, 'Extensions/PurePrestige/Applications//NetRadioPersian/icons/%s.png' % str(idx))
     if fileExists(png):
         res.append(MultiContentEntryPixmapAlphaTest(pos=(65, 0), size=(457, 90), png=loadPNG(png)))
     res.append(MultiContentEntryText(pos=(0, 3), size=(800, 90), font=0, text=name))
@@ -493,7 +493,7 @@ class persianStationsScreen(Screen):
         self['info'] = Label(_('Press OK to add to favorites'))
         self['ButtonYellow'] = Pixmap()
         self['ButtonYellowtext'] = Label(_('Play'))
-        myfile = '/usr/lib/enigma2/python/Plugins/Extensions/PurePrestige/Applications/NetRadioPersian/stations'
+        myfile = resolveFilename(SCOPE_PLUGINS, 'Extensions/PurePrestige/Applications/NetRadioPersian/stations')
         xmlparse = xml.dom.minidom.parse(myfile)
         self.xmlparse = xmlparse
         for stations in self.xmlparse.getElementsByTagName('stations'):

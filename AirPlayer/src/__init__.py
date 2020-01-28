@@ -7,11 +7,12 @@ import ctypes
 import plistlib
 import shutil
 import subprocess
+from Tools.Directories import resolveFilename, SCOPE_PLUGINS
 
 def getSkins():
     print '[AirPlayer] search for Skins'
     skins = []
-    skindir = '/usr/lib/enigma2/python/Plugins/Extensions/AirPlayer/Skins/'
+    skindir = resolveFilename(SCOPE_PLUGINS, 'Extensions/AirPlayer/Skins/')
     for o in os.listdir(skindir):
         if os.path.isdir(skindir + o):
             print '[AirPlayer] found Skin', o
@@ -23,7 +24,7 @@ def getSkins():
 def getSkinPath(name):
     skinName = name
     dSize = getDesktop(0).size()
-    skinpath = '/usr/lib/enigma2/python/Plugins/Extensions/AirPlayer/Skins/%s/%sx%s/skin.xml' % (skinName, str(dSize.width()), str(dSize.height()))
+    skinpath = resolveFilename(SCOPE_PLUGINS, 'Extensions/AirPlayer/Skins/%s/%sx%s/skin.xml' % (skinName, str(dSize.width()), str(dSize.height())))
     if os.path.exists(skinpath):
         return skinpath
     else:

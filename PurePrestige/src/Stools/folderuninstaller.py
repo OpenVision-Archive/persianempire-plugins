@@ -14,6 +14,7 @@ import urllib
 from Components.Label import Label
 from Tools.LoadPixmap import LoadPixmap
 from Plugins.Extensions.PurePrestige.Console2 import *
+from Tools.Directories import resolveFilename, SCOPE_LIBDIR, SCOPE_PLUGINS
 
 def freespace():
     try:
@@ -62,11 +63,11 @@ class PurePrestigeaddonsScreen(Screen):
         self['info'].setText(self.freespace)
 
     def fillplgfolders(self):
-        fname = '/usr/lib/enigma2/python/Plugins/Extensions'
+        fname = resolveFilename(SCOPE_PLUGINS, 'Extensions')
         list = []
         plgfolders = []
         self['menu'].setList(plgfolders)
-        path = '/usr/lib/enigma2/python/Plugins/Extensions/'
+        path = resolveFilename(SCOPE_PLUGINS, 'Extensions/')
         self.path = path
         for x in os.listdir(path):
             if os.path.isfile(path + x):
@@ -86,7 +87,7 @@ class PurePrestigeaddonsScreen(Screen):
             self['ButtonBluetext'].hide()
 
     def fillplugins(self):
-        fname = '/usr/lib/opkg/status'
+        fname = resolveFilename(SCOPE_LIBDIR, 'opkg/status')
         packs = []
         status = []
         netpack = []
@@ -109,10 +110,10 @@ class PurePrestigeaddonsScreen(Screen):
         self.fillplgfolders()
 
     def getpack(self, folder):
-        path = '/usr/lib/enigma2/python/Plugins/Extensions/'
+        path = resolveFilename(SCOPE_PLUGINS, 'Extensions/')
         folderpath = path + folder
         for x in self.netpacks:
-            fname = '/usr/lib/opkg/info/' + x + '.list'
+            fname = resolveFilename(SCOPE_LIBDIR, 'opkg/info/' + x + '.list')
             if fileExists(fname):
                 for line in open(fname, 'r').readlines():
                     if folderpath in line:
@@ -121,7 +122,7 @@ class PurePrestigeaddonsScreen(Screen):
         return ''
 
     def prompt(self):
-        path = '/usr/lib/enigma2/python/Plugins/Extensions/'
+        path = resolveFilename(SCOPE_PLUGINS, 'Extensions/')
         instr = 'Please wait while plugin being  uninstalled or removed...'
         endstr = 'Press OK to exit'
         try:

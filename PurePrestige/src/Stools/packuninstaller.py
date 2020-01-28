@@ -15,6 +15,7 @@ import urllib
 from Components.Label import Label
 from Tools.LoadPixmap import LoadPixmap
 from Plugins.Extensions.PurePrestige.Console2 import *
+from Tools.Directories import resolveFilename, SCOPE_LIBDIR
 
 def freespace():
     try:
@@ -63,7 +64,7 @@ class PurePrestigeaddonsScreen(Screen):
         self['info'].setText(self.freespace)
 
     def fillplugins(self):
-        fname = '/usr/lib/opkg/status'
+        fname = resolveFilename(SCOPE_LIBDIR, 'opkg/status')
         packs = []
         status = []
         netpack = []

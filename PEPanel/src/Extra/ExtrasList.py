@@ -2,12 +2,12 @@ from enigma import *
 from Components.MenuList import MenuList
 from Components.GUIComponent import GUIComponent
 from Components.HTMLComponent import HTMLComponent
-from Tools.Directories import fileExists
+from Tools.Directories import fileExists, resolveFilename, SCOPE_PLUGINS
 from Components.MultiContent import MultiContentEntryText, MultiContentEntryPixmapAlphaTest
 
 def SimpleEntry(name, picture):
     res = [(name, picture)]
-    picture = '/usr/lib/enigma2/python/PEPanel/pictures/' + picture
+    picture = resolveFilename(SCOPE_PLUGINS, 'SystemPlugins/PEPanel/pictures/' + picture)
     if name == '---':
         if fileExists(picture):
             res.append(MultiContentEntryPixmapAlphaTest(pos=(0, 22), size=(470, 4), png=loadPNG(picture)))

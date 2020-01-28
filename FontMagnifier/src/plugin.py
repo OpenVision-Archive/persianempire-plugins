@@ -7,7 +7,7 @@ from Components.config import config, ConfigSubsection, ConfigEnableDisable, Con
 from Components.ConfigList import ConfigListScreen
 from Components.Sources.StaticText import StaticText
 from Components.ActionMap import ActionMap
-from Tools.Directories import resolveFilename, SCOPE_PLUGINS
+from Tools.Directories import resolveFilename, SCOPE_PLUGINS, SCOPE_LIBDIR
 from Components.Label import Label
 from Components.MenuList import MenuList
 from Screens.MessageBox import MessageBox
@@ -159,7 +159,7 @@ class fmConfiguration(Screen, ConfigListScreen):
         try:
             config.plugins.fm.single_epg_list_fontsize.value = 0
             config.plugins.fm.single_epg_list_fontsize2.value = 0
-            EpgList_file = open("/usr/lib/enigma2/python/Components/EpgList.py", "r")
+            EpgList_file = open(resolveFilename(SCOPE_LIBDIR, "enigma2/python/Components/EpgList.pyo"), "r")
             anzahl_der_gefundenen_schriften = 0
             for zeile in EpgList_file:
                 if zeile.find("\t\tself.l.setFont(0") is not -1:
@@ -270,7 +270,7 @@ class fmConfiguration(Screen, ConfigListScreen):
     def getcurrent_font_movie_list(self):
         try:
             config.plugins.fm.movie_list_fontsize.value = 0
-            MovieList_file = open("/usr/lib/enigma2/python/Components/MovieList.py", "r")
+            MovieList_file = open(resolveFilename(SCOPE_LIBDIR, "enigma2/python/Components/MovieList.pyo"), "r")
             for zeile in MovieList_file:
                 if zeile.find("\t\t\tself.l.setFont(0") is not -1:
                     function_arguments = zeile.split(",")
@@ -364,7 +364,7 @@ class fmConfiguration(Screen, ConfigListScreen):
         self.list = []
         self.list.append(getConfigListEntry(_("Enable display options"), config.plugins.fm.display_manipulation_active))
         if config.plugins.fm.display_manipulation_active.value:
-            if os.path.exists("/usr/lib/enigma2/python/Plugins/Extensions/ExtendedServiceInfo"):
+            if os.path.exists(resolveFilename(SCOPE_PLUGINS, "Extensions/ExtendedServiceInfo")):
                 self.list.append(getConfigListEntry(_("Enable service number in display"), config.plugins.fm.active))
             if config.plugins.fm.active.value:
                 self.list.append(getConfigListEntry(_("Enter service number font size in pixel"), config.plugins.fm.fontsize))
@@ -441,12 +441,12 @@ class fmOptions(Screen):
         self.list = []
         if os.path.exists("/usr/share/enigma2/%s.bak" % (config.skin.primary_skin.value)):
             self.list.append(_("restore skin.xml"))
-        if os.path.exists("/usr/lib/enigma2/python/Components/EpgList.py.bak"):
-            self.list.append(_("restore EpgList.py"))
-        if os.path.exists("/usr/lib/enigma2/python/Components/MovieList.py.bak"):
-            self.list.append(_("restore MovieList.py"))
-        if os.path.exists("/usr/lib/enigma2/python/Components/ServiceList.py.bak"):
-            self.list.append(_("restore ServiceList.py"))
+        if os.path.exists(resolveFilename(SCOPE_LIBDIR, "enigma2/python/Components/EpgList.pyo.bak")):
+            self.list.append(_("restore EpgList.pyo"))
+        if os.path.exists(resolveFilename(SCOPE_LIBDIR, "enigma2/python/Components/MovieList.pyo.bak")):
+            self.list.append(_("restore MovieList.pyo"))
+        if os.path.exists(resolveFilename(SCOPE_LIBDIR, "enigma2/python/Components/ServiceList.pyo.bak")):
+            self.list.append(_("restore ServiceList.pyo"))
         if os.path.exists("/etc/enigma2/skin_user.xml.bak"):
             self.list.append(_("restore skin_user.xml"))
 
@@ -486,12 +486,12 @@ class fmOptions(Screen):
     def restoringConfirmed(self, confirmed):
         if self.selection == _("restore skin.xml"):
             self.selection = "skin.xml"
-        elif self.selection == _("restore EpgList.py"):
-            self.selection = "EpgList.py"
-        elif self.selection == _("restore MovieList.py"):
-            self.selection = "MovieList.py"
-        elif self.selection == _("restore ServiceList.py"):
-            self.selection = "ServiceList.py"
+        elif self.selection == _("restore EpgList.pyo"):
+            self.selection = "EpgList.pyo"
+        elif self.selection == _("restore MovieList.pyo"):
+            self.selection = "MovieList.pyo"
+        elif self.selection == _("restore ServiceList.pyo"):
+            self.selection = "ServiceList.pyo"
         elif self.selection == _("restore skin_user.xml"):
             self.selection = "skin_user.xml"
 
@@ -505,12 +505,12 @@ class fmOptions(Screen):
         try:
             if self.selection == "skin.xml":
                 Console().ePopen("mv -f /usr/share/enigma2/%s.bak /usr/share/enigma2/%s" % (config.skin.primary_skin.value, config.skin.primary_skin.value))            
-            elif self.selection == "EpgList.py":
-                Console().ePopen("mv -f /usr/lib/enigma2/python/Components/EpgList.py.bak /usr/lib/enigma2/python/Components/EpgList.py")            
-            elif self.selection == "MovieList.py":
-                Console().ePopen("mv -f /usr/lib/enigma2/python/Components/MovieList.py.bak /usr/lib/enigma2/python/Components/MovieList.py")            
-            elif self.selection == "ServiceList.py":
-                Console().ePopen("mv -f /usr/lib/enigma2/python/Components/ServiceList.py.bak /usr/lib/enigma2/python/Components/ServiceList.py")            
+            elif self.selection == "EpgList.pyo":
+                Console().ePopen("mv -f %s %s") % (resolveFilename(SCOPE_LIBDIR, "enigma2/python/Components/EpgList.pyo.bak"), resolveFilename(SCOPE_LIBDIR, "enigma2/python/Components/EpgList.pyo"))
+            elif self.selection == "MovieList.pyo":
+                Console().ePopen("mv -f %s %s") % (resolveFilename(SCOPE_LIBDIR, "enigma2/python/Components/MovieList.pyo.bak"), resolveFilename(SCOPE_LIBDIR, "enigma2/python/Components/MovieList.pyo"))
+            elif self.selection == "ServiceList.pyo":
+                Console().ePopen("mv -f %s %s") % (resolveFilename(SCOPE_LIBDIR, "enigma2/python/Components/ServiceList.pyo.bak"), resolveFilename(SCOPE_LIBDIR, "enigma2/python/Components/ServiceList.pyo"))
             elif self.selection == "skin_user.xml":
                 Console().ePopen("mv -f /etc/enigma2/skin_user.xml.bak /etc/enigma2/skin_user.xml")            
 
@@ -957,7 +957,7 @@ class fmWaitScreen(Screen):
 
         try:
             if config.plugins.fm.single_epg_list_fontsize.value != 0:
-                EpgList_file = open("/usr/lib/enigma2/python/Components/EpgList.py", "r")
+                EpgList_file = open(resolveFilename(SCOPE_LIBDIR, "enigma2/python/Components/EpgList.pyo"), "r")
                 EpgList_text=EpgList_file.read()
                 if EpgList_text.find("\t\tself.l.setItemHeight") is not -1:
                     item_height_gefunden = 1
@@ -966,7 +966,7 @@ class fmWaitScreen(Screen):
                 EpgList_file.close()
 
                 EpgList_text_neu = ""
-                EpgList_file = open("/usr/lib/enigma2/python/Components/EpgList.py", "r")
+                EpgList_file = open(resolveFilename(SCOPE_LIBDIR, "enigma2/python/Components/EpgList.pyo"), "r")
                 for zeile in EpgList_file:
                     if zeile.find("\t\tself.l.setFont(0") is not -1:
                         if item_height_gefunden == 0:
@@ -981,19 +981,19 @@ class fmWaitScreen(Screen):
 
                 EpgList_file.close()
 
-                if not os.path.exists("/usr/lib/enigma2/python/Components/EpgList.py.bak"):
-                    Console().ePopen("cp /usr/lib/enigma2/python/Components/EpgList.py /usr/lib/enigma2/python/Components/EpgList.py.bak")
+                if not os.path.exists(resolveFilename(SCOPE_LIBDIR, "enigma2/python/Components/EpgList.pyo.bak")):
+                    Console().ePopen("cp %s %s") % (resolveFilename(SCOPE_LIBDIR, "enigma2/python/Components/EpgList.pyo"), resolveFilename(SCOPE_LIBDIR, "enigma2/python/Components/EpgList.pyo.bak"))
 
-                EpgList_file = open("/usr/lib/enigma2/python/Components/EpgList.py", "w")
+                EpgList_file = open(resolveFilename(SCOPE_LIBDIR, "enigma2/python/Components/EpgList.pyo"), "w")
                 EpgList_file.write(EpgList_text_neu)
                 EpgList_file.close()
         except:
-            self.session.openWithCallback(self.close, MessageBox,_("Sorry, unable to parse /usr/lib/enigma2/python/Components/EpgList.py"), type = MessageBox.TYPE_INFO)
+            self.session.openWithCallback(self.close, MessageBox,_("Sorry, unable to parse EpgList.pyo"), type = MessageBox.TYPE_INFO)
 
         try:
             if config.plugins.fm.movie_list_fontsize.value != 0:
                 MovieList_text_neu = ""
-                MovieList_file = open("/usr/lib/enigma2/python/Components/MovieList.py", "r")
+                MovieList_file = open(resolveFilename(SCOPE_LIBDIR, "enigma2/python/Components/MovieList.pyo"), "r")
                 for zeile in MovieList_file:
                     if zeile.find("\t\tself.l.setFont(0") is not -1:
                         MovieList_text_neu = MovieList_text_neu + "\t\t\tself.l.setFont(0, gFont(\"Regular\", %d))\n" % (config.plugins.fm.movie_list_fontsize.value)
@@ -1002,14 +1002,15 @@ class fmWaitScreen(Screen):
 
                 MovieList_file.close()
 
-                if not os.path.exists("/usr/lib/enigma2/python/Components/MovieList.py.bak"):
-                    Console().ePopen("cp /usr/lib/enigma2/python/Components/MovieList.py /usr/lib/enigma2/python/Components/MovieList.py.bak")
+                if not os.path.exists(resolveFilename(SCOPE_LIBDIR, "enigma2/python/Components/MovieList.pyo.bak")):
+                    Console().ePopen("cp %s %s") % (resolveFilename(SCOPE_LIBDIR, "enigma2/python/Components/MovieList.pyo"), resolveFilename(SCOPE_LIBDIR, "enigma2/python/Components/MovieList.pyo.bak"))
 
-                MovieList_file = open("/usr/lib/enigma2/python/Components/MovieList.py", "w")
+
+                MovieList_file = open(resolveFilename(SCOPE_LIBDIR, "enigma2/python/Components/MovieList.pyo"), "w")
                 MovieList_file.write(MovieList_text_neu)
                 MovieList_file.close()
         except:
-            self.session.openWithCallback(self.close, MessageBox,_("Sorry, unable to parse /usr/lib/enigma2/python/Components/MovieList.py"), type = MessageBox.TYPE_INFO)
+            self.session.openWithCallback(self.close, MessageBox,_("Sorry, unable to parse MovieList.pyo"), type = MessageBox.TYPE_INFO)
 
         restartbox = self.session.openWithCallback(self.restartGUI,MessageBox,_("GUI needs a restart to apply a new settings\nDo you want to Restart the GUI now?"), MessageBox.TYPE_YESNO)
         restartbox.setTitle(_("Restart GUI now?"))

@@ -13,6 +13,7 @@ from Components.Label import Label
 import os
 from Tools.LoadPixmap import LoadPixmap
 from Plugins.Extensions.PurePrestige.Console2 import *
+from Tools.Directories import resolveFilename, SCOPE_LIBDIR
 
 def freespace():
     try:
@@ -87,7 +88,7 @@ class PurePrestigeAddonsScreen(Screen):
             self['ButtonBluetext'].hide()
 
     def fillplugins(self):
-        fname = '/usr/lib/opkg/status'
+        fname = resolveFilename(SCOPE_LIBDIR, 'opkg/status')
         packs = []
         status = []
         netpack = []
@@ -114,7 +115,7 @@ class PurePrestigeAddonsScreen(Screen):
         path = '/usr/share/enigma2/'
         folderpath = path + folder
         for x in self.netpacks:
-            fname = '/usr/lib/opkg/info/' + x + '.list'
+            fname = resolveFilename(SCOPE_LIBDIR, 'opkg/info/' + x + '.list')
             if fileExists(fname):
                 for line in open(fname, 'r').readlines():
                     if folderpath in line:

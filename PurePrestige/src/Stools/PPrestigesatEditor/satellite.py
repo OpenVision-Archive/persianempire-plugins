@@ -10,7 +10,7 @@ from enigma import eListbox
 from os import path as os_path, remove
 from Screens.HelpMenu import HelpableScreen
 from Screens.MessageBox import MessageBox
-from Tools.Directories import resolveFilename, SCOPE_CURRENT_SKIN, copyfile
+from Tools.Directories import resolveFilename, SCOPE_PLUGINS, copyfile
 from Tools.LoadPixmap import LoadPixmap
 from Tools.Notifications import AddPopup
 from twisted.web.client import getPage
@@ -123,7 +123,7 @@ class NewPrestigesatEditor(Screen, HelpableScreen):
                 position = sat.attrib.get('position')
                 name = sat.attrib.get('name')
                 if position in satellites:
-                    png = LoadPixmap(cached=True, path=resolveFilename(SCOPE_CURRENT_SKIN, '/usr/lib/enigma2/python/Plugins/Extensions/PurePrestige/images/lock_on.png'))
+                    png = LoadPixmap(cached=True, path=resolveFilename(SCOPE_PLUGINS, 'Extensions/PurePrestige/images/lock_on.png'))
                     self.satList.append((position, name.encode('utf-8'), png))
                 else:
                     self.satList.append((position, name.encode('utf-8'), None))
@@ -161,7 +161,7 @@ class NewPrestigesatEditor(Screen, HelpableScreen):
                 config.plugins.sateditor.satellites.value.remove(position)
             else:
                 config.plugins.sateditor.satellites.value.append(position)
-                png = LoadPixmap(cached=True, path=resolveFilename(SCOPE_CURRENT_SKIN, '/usr/lib/enigma2/python/Plugins/Extensions/PurePrestige/images/lock_on.png'))
+                png = LoadPixmap(cached=True, path=resolveFilename(SCOPE_PLUGINS, 'Extensions/PurePrestige/images/lock_on.png'))
             config.plugins.sateditor.satellites.save()
             self.satList[idx] = (position, name, png)
             self.setListSorted()

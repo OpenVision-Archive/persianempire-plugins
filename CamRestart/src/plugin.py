@@ -15,7 +15,7 @@ from Components.Sources.StaticText import StaticText
 import gettext
 from Components.PluginComponent import plugins
 
-if fileExists("/usr/lib/enigma2/python/Plugins/Extensions/PECamManager/Softcam.pyo"):
+if fileExists(resolveFilename(SCOPE_PLUGINS, "Extensions/PECamManager/Softcam.pyo")):
 	from Plugins.Extensions.PECamManager.Softcam import getcamcmd
 	
 lang = language.getLanguage()
@@ -44,7 +44,7 @@ class QuickEmu():
 	def gotSession(self, session):
 		self.session = session
 		self.Console = Console()
-		keymap = "/usr/lib/enigma2/python/Plugins/Extensions/CamRestart/keymap.xml"
+		keymap = resolveFilename(SCOPE_PLUGINS, "Extensions/CamRestart/keymap.xml")
 		global globalActionMap
 		readKeymap(keymap)
 		globalActionMap.actions['showCamRestart'] = self.restartCam
@@ -58,7 +58,7 @@ class QuickEmu():
 		if fileExists("/etc/rc3.d/S99camd-persianpalace.sh"):
 			self.Console.ePopen("/etc/rc3.d/S99camd-persianpalace.sh restart")
 
-		elif fileExists("/usr/lib/enigma2/python/Plugins/Extensions/PECamManager/Softcam.pyo"):
+		elif fileExists(resolveFilename(SCOPE_PLUGINS, "Extensions/PECamManager/Softcam.pyo")):
 			service = self.session.nav.getCurrentlyPlayingServiceReference()
 			emunam = config.plugins.PECam.actcam.value
 			if emunam != "none":
@@ -82,7 +82,7 @@ class QuickEmu():
 			except:
 				return None
 
-		elif fileExists("/usr/lib/enigma2/python/Plugins/Extensions/PECamManager/plugin.pyo"): 
+		elif fileExists(resolveFilename(SCOPE_PLUGINS, "Extensions/PECamManager/plugin.pyo")): 
 			if config.plugins.PECam.actcam.value != "none": 
 				return config.plugins.PECam.actcam.value 
 			else: 
@@ -124,7 +124,7 @@ class pecr_setup(ConfigListScreen, Screen):
 	def save(self):
 		config.plugins.pecr.keyname.save()
 		configfile.save()
-		keyfile = open("/usr/lib/enigma2/python/Plugins/Extensions/CamRestart/keymap.xml", "w")
+		keyfile = open(resolveFilename(SCOPE_PLUGINS, "Extensions/CamRestart/keymap.xml"), "w")
 		keyfile.write('<keymap>\n\t<map context="GlobalActions">\n\t\t<key id="%s" mapto="showCamRestart" flags="l" />\n\t</map>\n</keymap>' % config.plugins.pecr.keyname.value)
 		keyfile.close()
 		self.mbox = self.session.open(MessageBox,(_("Saved")), MessageBox.TYPE_INFO, timeout = 3 )

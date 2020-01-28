@@ -1,7 +1,7 @@
 from enigma import ePicLoad, eTimer, getDesktop
 from Plugins.Plugin import PluginDescriptor
 from Screens.Screen import Screen
-from Tools.Directories import resolveFilename, pathExists, SCOPE_MEDIA, copyfile, fileExists
+from Tools.Directories import resolveFilename, pathExists, SCOPE_MEDIA, copyfile, fileExists, SCOPE_PLUGINS
 from xml.dom import Node, minidom
 from Screens.MessageBox import MessageBox
 from Components.Button import Button
@@ -89,7 +89,7 @@ EMStartOnlyOneTime = False
 EMsession = None
 InfoBar_instance = None
 currversion = '1.0'
-plugin_path = '/usr/lib/enigma2/python/Plugins/Extensions/PurePrestige/'
+plugin_path = resolveFilename(SCOPE_PLUGINS, 'Extensions/PurePrestige/')
 T_INDEX = 0
 T_FRAME_POS = 1
 T_PAGE = 2
@@ -114,7 +114,7 @@ def f2(seq):
 class showPurePrestigescreen(Screen):
 
     def __init__(self, session):
-        self.folder = '/usr/lib/enigma2/python/Plugins/Extensions/PurePrestige/panelbuttons/'
+        self.folder = resolveFilename(SCOPE_PLUGINS, 'Extensions/PurePrestige/panelbuttons/')
         self.fillplgfolders()
         piclist = self.fullpath
         path = self.folder
@@ -271,23 +271,23 @@ class showPurePrestigescreen(Screen):
         self.showPic()
 
     def showPic(self, picInfo = ''):
-        self['thumb' + str(self.Thumbnaillist[0][1])].instance.setPixmapFromFile('/usr/lib/enigma2/python/Plugins/Extensions/PurePrestige/panelbuttons/download.png')
+        self['thumb' + str(self.Thumbnaillist[0][1])].instance.setPixmapFromFile(resolveFilename(SCOPE_PLUGINS, 'Extensions/PurePrestige/panelbuttons/download.png'))
         self['thumb' + str(self.Thumbnaillist[0][1])].show()
-        self['thumb' + str(self.Thumbnaillist[1][1])].instance.setPixmapFromFile('/usr/lib/enigma2/python/Plugins/Extensions/PurePrestige/panelbuttons/uninstaller.png')
+        self['thumb' + str(self.Thumbnaillist[1][1])].instance.setPixmapFromFile(resolveFilename(SCOPE_PLUGINS, 'Extensions/PurePrestige/panelbuttons/uninstaller.png'))
         self['thumb' + str(self.Thumbnaillist[1][1])].show()
-        self['thumb' + str(self.Thumbnaillist[2][1])].instance.setPixmapFromFile('/usr/lib/enigma2/python/Plugins/Extensions/PurePrestige/panelbuttons/tools.png')
+        self['thumb' + str(self.Thumbnaillist[2][1])].instance.setPixmapFromFile(resolveFilename(SCOPE_PLUGINS, 'Extensions/PurePrestige/panelbuttons/tools.png'))
         self['thumb' + str(self.Thumbnaillist[2][1])].show()
-        self['thumb' + str(self.Thumbnaillist[3][1])].instance.setPixmapFromFile('/usr/lib/enigma2/python/Plugins/Extensions/PurePrestige/panelbuttons/applications.png')
+        self['thumb' + str(self.Thumbnaillist[3][1])].instance.setPixmapFromFile(resolveFilename(SCOPE_PLUGINS, 'Extensions/PurePrestige/panelbuttons/applications.png'))
         self['thumb' + str(self.Thumbnaillist[3][1])].show()
-        self['thumb' + str(self.Thumbnaillist[4][1])].instance.setPixmapFromFile('/usr/lib/enigma2/python/Plugins/Extensions/PurePrestige/panelbuttons/filesbrowser.png')
+        self['thumb' + str(self.Thumbnaillist[4][1])].instance.setPixmapFromFile(resolveFilename(SCOPE_PLUGINS, 'Extensions/PurePrestige/panelbuttons/filesbrowser.png'))
         self['thumb' + str(self.Thumbnaillist[4][1])].show()
-        self['thumb' + str(self.Thumbnaillist[5][1])].instance.setPixmapFromFile('/usr/lib/enigma2/python/Plugins/Extensions/PurePrestige/panelbuttons/device.png')
+        self['thumb' + str(self.Thumbnaillist[5][1])].instance.setPixmapFromFile(resolveFilename(SCOPE_PLUGINS, 'Extensions/PurePrestige/panelbuttons/device.png'))
         self['thumb' + str(self.Thumbnaillist[5][1])].show()
-        self['thumb' + str(self.Thumbnaillist[6][1])].instance.setPixmapFromFile('/usr/lib/enigma2/python/Plugins/Extensions/PurePrestige/panelbuttons/rss.png')
+        self['thumb' + str(self.Thumbnaillist[6][1])].instance.setPixmapFromFile(resolveFilename(SCOPE_PLUGINS, 'Extensions/PurePrestige/panelbuttons/rss.png'))
         self['thumb' + str(self.Thumbnaillist[6][1])].show()
-        self['thumb' + str(self.Thumbnaillist[7][1])].instance.setPixmapFromFile('/usr/lib/enigma2/python/Plugins/Extensions/PurePrestige/panelbuttons/info.png')
+        self['thumb' + str(self.Thumbnaillist[7][1])].instance.setPixmapFromFile(resolveFilename(SCOPE_PLUGINS, 'Extensions/PurePrestige/panelbuttons/info.png'))
         self['thumb' + str(self.Thumbnaillist[7][1])].show()
-        self['thumb' + str(self.Thumbnaillist[8][1])].instance.setPixmapFromFile('/usr/lib/enigma2/python/Plugins/Extensions/PurePrestige/panelbuttons/about.png')
+        self['thumb' + str(self.Thumbnaillist[8][1])].instance.setPixmapFromFile(resolveFilename(SCOPE_PLUGINS, 'Extensions/PurePrestige/panelbuttons/about.png'))
         self['thumb' + str(self.Thumbnaillist[8][1])].show()
 
     def key_left(self):
@@ -737,7 +737,7 @@ class classScreenGrabber():
         except:
             rcbutton = 'text'
 
-        ScreenGrabber_keymap = '/usr/lib/enigma2/python/Plugins/Extensions/PurePrestige/Stools/Moretools/ScreenGrabber/keymaps/' + rcbutton + '_keymap.xml'
+        ScreenGrabber_keymap = resolveFilename(SCOPE_PLUGINS, 'Extensions/PurePrestige/Stools/Moretools/ScreenGrabber/keymaps/' + rcbutton + '_keymap.xml')
         self.session = session
         readKeymap(ScreenGrabber_keymap)
         globalActionMap.actions['ShowScreenGrabber'] = self.ShowHide
