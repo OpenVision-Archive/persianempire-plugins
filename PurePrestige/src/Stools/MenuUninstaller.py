@@ -59,10 +59,11 @@ class PurePrestigeMenuscrn(Screen):
         HD_Res = False
 
     HD_Res = False
-    skin = '\n                <screen  position="center,center" size="640,520" title=""  flags="wfNoBorder" >\n                <ePixmap pixmap="/usr/lib/enigma2/python/Plugins/Extensions/PurePrestige/images/framesd.png" position="0,0" size="640,520" transparent="1"/>\t\n\t\t\n                <widget name="menu" position="20,20" size="600,500" scrollbarMode="showOnDemand" transparent="1" zPosition="2" />\n\t        \n        </screen>'
+    skin = '\n                <screen  position="center,center" size="640,520" title=""  flags="wfNoBorder" >\n                <ePixmap pixmap="~/images/framesd.png" position="0,0" size="640,520" transparent="1"/>\t\n\t\t\n                <widget name="menu" position="20,20" size="600,500" scrollbarMode="showOnDemand" transparent="1" zPosition="2" />\n\t        \n        </screen>'
 
     def __init__(self, session):
         Screen.__init__(self, session)
+        self.skin_path = resolveFilename(SCOPE_PLUGINS, "Extensions/PurePrestige")
         self.session = session
         self['menu'] = CmenuList([])
         self.working = False
