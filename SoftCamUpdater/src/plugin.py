@@ -5,7 +5,7 @@ from Components.Label import Label
 from Plugins.Plugin import PluginDescriptor
 from Screens.Screen import Screen
 from Components.Sources.List import List
-from Tools.Directories import fileExists
+from Tools.Directories import fileExists, resolveFilename, SCOPE_PLUGINS
 from Screens.PluginBrowser import PluginBrowser
 from Screens.MessageBox import MessageBox
 from Components.Sources.StaticText import StaticText
@@ -60,11 +60,11 @@ class SoftCamUpdater(ConfigListScreen, Screen):
 	skin = """
 <screen name="SoftCamUpdater" position="center,160" size="670,200" title="SoftCam Updater for Persian Palace">
 		<widget position="15,10" size="640,50" name="config" scrollbarMode="showOnDemand" />
-		<ePixmap position="80,170" zPosition="1" size="165,2" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/SoftCamUpdater/images/red.png" alphatest="blend" />
+		<ePixmap position="80,170" zPosition="1" size="165,2" pixmap="~/images/red.png" alphatest="blend" />
 		<widget source="Redkey" render="Label" position="80,170" zPosition="2" size="165,30" font="Regular;20" halign="center" valign="center" backgroundColor="background" foregroundColor="foreground" transparent="1" />
-		<ePixmap position="245,170" zPosition="1" size="165,2" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/SoftCamUpdater/images/green.png" alphatest="blend" />
+		<ePixmap position="245,170" zPosition="1" size="165,2" pixmap="~/images/green.png" alphatest="blend" />
 		<widget source="Greenkey" render="Label" position="245,170" zPosition="2" size="165,30" font="Regular;20" halign="center" valign="center" backgroundColor="background" foregroundColor="foreground" transparent="1" />
-		<ePixmap position="410,170" zPosition="1" size="165,2" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/SoftCamUpdater/images/yellow.png" alphatest="blend" />
+		<ePixmap position="410,170" zPosition="1" size="165,2" pixmap="~/images/yellow.png" alphatest="blend" />
 		<widget source="Yellowkey" render="Label" position="410,170" zPosition="2" size="165,30" font="Regular;20" halign="center" valign="center" backgroundColor="background" foregroundColor="foreground" transparent="1" />
 		<widget name="information" position="10,60" font="Regular;20" halign="center" valign="center" size="640,100" />
 </screen>"""
@@ -72,6 +72,7 @@ class SoftCamUpdater(ConfigListScreen, Screen):
 	def __init__(self, session):
 		self.session = session
 		Screen.__init__(self, session)
+		self.skin_path = resolveFilename(SCOPE_PLUGINS, "Extensions/SoftCamUpdater")
 		self["information"] = Label(_("Latest Persian.BISS will be automatically merged."))
 		self.list = []
 		self.list.append(getConfigListEntry(_("Path"), config.plugins.SoftCamUpdater.path))
@@ -124,5 +125,5 @@ def Plugins(**kwargs):
 			name = _("SoftCam Updater 3.1"),
 			description = _("Special version for Persian Palace"),
 			where = [PluginDescriptor.WHERE_PLUGINMENU, PluginDescriptor.WHERE_EXTENSIONSMENU],
-			icon="/usr/lib/enigma2/python/Plugins/Extensions/SoftCamUpdater/softcamupdater.png",
+			icon="softcamupdater.png",
 			fnc=main)
