@@ -157,10 +157,11 @@ class showPurePrestigescreen(Screen):
             skincontent += '<widget name="thumb' + str(x) + '" position="' + str(absX + 5) + ',' + str(absY + 5) + '" size="' + str(self.picX - 30) + ',' + str(self.picY - 20) + '" zPosition="2" transparent="1" alphatest="on" />'
 
         if dwidth == 1280:
-            self.skin = '<screen position="center,77" title="Pure Prestige ' + str(currversion) + '"  size="' + str(size_w) + ',' + str(size_h) + '" > \t\t\t<eLabel position="0,0" zPosition="0" size="' + str(size_w) + ',' + str(size_h) + '" backgroundColor="' + self.color + '" /><widget name="frame" position="20,20" size="145,145" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/PurePrestige/pic_frame.png" zPosition="1" alphatest="on" />' + skincontent + '</screen>'
+            self.skin = '<screen position="center,77" title="Pure Prestige ' + str(currversion) + '"  size="' + str(size_w) + ',' + str(size_h) + '" > \t\t\t<eLabel position="0,0" zPosition="0" size="' + str(size_w) + ',' + str(size_h) + '" backgroundColor="' + self.color + '" /><widget name="frame" position="20,20" size="145,145" pixmap="~/pic_frame.png" zPosition="1" alphatest="on" />' + skincontent + '</screen>'
         else:
-            self.skin = '<screen position="20,center" flags="wfNoBorder" title="Pure Prestige ' + str(currversion) + '"  size="' + str(size_w) + ',' + str(size_h) + '" > \t\t\t<eLabel position="0,0" zPosition="0" size="' + str(size_w) + ',' + str(size_h) + '" backgroundColor="' + self.color + '" /><widget name="frame" position="20,20" size="145,145" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/PurePrestige/pic_frame.png" zPosition="1" alphatest="on" />' + skincontent + '</screen>'
+            self.skin = '<screen position="20,center" flags="wfNoBorder" title="Pure Prestige ' + str(currversion) + '"  size="' + str(size_w) + ',' + str(size_h) + '" > \t\t\t<eLabel position="0,0" zPosition="0" size="' + str(size_w) + ',' + str(size_h) + '" backgroundColor="' + self.color + '" /><widget name="frame" position="20,20" size="145,145" pixmap="~/pic_frame.png" zPosition="1" alphatest="on" />' + skincontent + '</screen>'
         Screen.__init__(self, session)
+        self.skin_path = resolveFilename(SCOPE_PLUGINS, "Extensions/PurePrestige")
         self['actions'] = ActionMap(['OkCancelActions',
          'ColorActions',
          'DirectionActions',
@@ -404,12 +405,12 @@ class showPurePrestigescreen(Screen):
         except:
             return
 
-
 class checkupdateScreen(Screen):
-    skin = '\n\n       \t<screen name="checkupdateScreen" position="center,center" size="640,520" title=""  flags="wfNoBorder" >\n                <ePixmap pixmap="/usr/lib/enigma2/python/Plugins/Extensions/PurePrestige/images/framesd.png" position="0,0" size="640,520"/>\n\t\t<widget name="text" position="15,15" size="610,440" font="Regular;22" transparent="1" zPosition="2" />\n\n                \n\t        <ePixmap name="red"  position="195,450" zPosition="2" size="150,30" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/PurePrestige/ddbuttons/red.png" transparent="1" alphatest="on" />\n\t        <ePixmap name="yellow" position="321,450" zPosition="2" size="150,30" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/PurePrestige/ddbuttons/yellow.png" transparent="1" alphatest="on" /> \n        \t\n\n        \t\n        \t<widget name="key_red" position="182,457" size="150,45" valign="center" halign="center" zPosition="4"  foregroundColor="white" font="Regular;20" transparent="1" shadowColor="#25062748" shadowOffset="-2,-2" /> \n                <widget name="key_yellow" position="312,457" size="150,45" valign="center" halign="center" zPosition="4"  foregroundColor="white" font="Regular;18" transparent="1" shadowColor="#25062748" shadowOffset="-2,-2" />\n        \n                </screen>'
+    skin = '\n\n       \t<screen name="checkupdateScreen" position="center,center" size="640,520" title=""  flags="wfNoBorder" >\n                <ePixmap pixmap="~/images/framesd.png" position="0,0" size="640,520"/>\n\t\t<widget name="text" position="15,15" size="610,440" font="Regular;22" transparent="1" zPosition="2" />\n\n                \n\t        <ePixmap name="red"  position="195,450" zPosition="2" size="150,30" pixmap="~/ddbuttons/red.png" transparent="1" alphatest="on" />\n\t        <ePixmap name="yellow" position="321,450" zPosition="2" size="150,30" pixmap="~/ddbuttons/yellow.png" transparent="1" alphatest="on" /> \n        \t\n\n        \t\n        \t<widget name="key_red" position="182,457" size="150,45" valign="center" halign="center" zPosition="4"  foregroundColor="white" font="Regular;20" transparent="1" shadowColor="#25062748" shadowOffset="-2,-2" /> \n                <widget name="key_yellow" position="312,457" size="150,45" valign="center" halign="center" zPosition="4"  foregroundColor="white" font="Regular;18" transparent="1" shadowColor="#25062748" shadowOffset="-2,-2" />\n        \n                </screen>'
 
     def __init__(self, session):
         Screen.__init__(self, session)
+        self.skin_path = resolveFilename(SCOPE_PLUGINS, "Extensions/PurePrestige")
         info = ''
         self['key_red'] = Button(_('Exit'))
         self['key_yellow'] = Button(_('update'))
@@ -476,7 +477,7 @@ class checkupdateScreen(Screen):
 
 
 class ShowPurePrestigeSetup(Screen, ConfigListScreen):
-    skin = '\n       \t<screen name="ShowPurePrestigeSetup" position="center,center" size="640,520" title=""  flags="wfNoBorder" >\n                <ePixmap pixmap="/usr/lib/enigma2/python/Plugins/Extensions/PurePrestige/images/framesd.png" position="0,0" size="640,520"/>\n\t\t\n\t        <ePixmap name="red"  position="195,450" zPosition="2" size="150,30" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/PurePrestige/ddbuttons/red.png" transparent="1" alphatest="on" />\n\t        <ePixmap name="green" position="321,450" zPosition="2" size="150,30" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/PurePrestige/ddbuttons/green.png" transparent="1" alphatest="on" /> \n        \t\n\n        \t\n        \t<widget name="key_red" position="182,457" size="150,45" valign="center" halign="center" zPosition="4"  foregroundColor="white" font="Regular;20" transparent="1" shadowColor="#25062748" shadowOffset="-2,-2" /> \n                <widget name="key_green" position="312,457" size="150,45" valign="center" halign="center" zPosition="4"  foregroundColor="white" font="Regular;18" transparent="1" shadowColor="#25062748" shadowOffset="-2,-2" />\n        \t\t\t\n                        <widget name="config" position="15,50" size="610,320" scrollbarMode="showOnDemand" transparent="1" zPosition="2" />\n\t\t        <widget name="info" position="0,370" zPosition="4" size="400,30" font="Regular;20" foregroundColor="yellow" transparent="1" halign="left" valign="center" />\n                </screen>'
+    skin = '\n       \t<screen name="ShowPurePrestigeSetup" position="center,center" size="640,520" title=""  flags="wfNoBorder" >\n                <ePixmap pixmap="~/images/framesd.png" position="0,0" size="640,520"/>\n\t\t\n\t        <ePixmap name="red"  position="195,450" zPosition="2" size="150,30" pixmap="~/ddbuttons/red.png" transparent="1" alphatest="on" />\n\t        <ePixmap name="green" position="321,450" zPosition="2" size="150,30" pixmap="~/ddbuttons/green.png" transparent="1" alphatest="on" /> \n        \t\n\n        \t\n        \t<widget name="key_red" position="182,457" size="150,45" valign="center" halign="center" zPosition="4"  foregroundColor="white" font="Regular;20" transparent="1" shadowColor="#25062748" shadowOffset="-2,-2" /> \n                <widget name="key_green" position="312,457" size="150,45" valign="center" halign="center" zPosition="4"  foregroundColor="white" font="Regular;18" transparent="1" shadowColor="#25062748" shadowOffset="-2,-2" />\n        \t\t\t\n                        <widget name="config" position="15,50" size="610,320" scrollbarMode="showOnDemand" transparent="1" zPosition="2" />\n\t\t        <widget name="info" position="0,370" zPosition="4" size="400,30" font="Regular;20" foregroundColor="yellow" transparent="1" halign="left" valign="center" />\n                </screen>'
 
     def __init__(self, session):
         Screen.__init__(self, session)
@@ -541,9 +542,9 @@ class PurePrestigebootlogo(Screen):
 
     HD_Res = False
     if HD_Res == True:
-        skin = '\n        \t\n                <screen name="PurePrestigebootlogo" position="center,center" size="920,600" title=""  flags="wfNoBorder" >\n                <ePixmap pixmap="/usr/lib/enigma2/python/Plugins/Extensions/PurePrestige/images/framesd.png" position="0,0" size="920,600" transparent="1"/>\t\n                <ePixmap pixmap="/usr/lib/enigma2/python/Plugins/Extensions/PurePrestige/images/teamhd.png" position="15,15" size="890,570"/>\t\n                \n                 </screen>'
+        skin = '\n        \t\n                <screen name="PurePrestigebootlogo" position="center,center" size="920,600" title=""  flags="wfNoBorder" >\n                <ePixmap pixmap="~/images/framesd.png" position="0,0" size="920,600" transparent="1"/>\t\n                <ePixmap pixmap="~/images/teamhd.png" position="15,15" size="890,570"/>\t\n                \n                 </screen>'
     else:
-        skin = '\n      \t<screen name="PurePrestigebootlogo" position="center,center" size="640,520" title=""  flags="wfNoBorder" >\n                <ePixmap pixmap="/usr/lib/enigma2/python/Plugins/Extensions/PurePrestige/images/framesd.png" position="0,0" size="640,520"/>\n                \n                <ePixmap pixmap="/usr/lib/enigma2/python/Plugins/Extensions/PurePrestige/images/team.png" position="45,50" size="550,420"/>\t\n \n\t\n                </screen>'
+        skin = '\n      \t<screen name="PurePrestigebootlogo" position="center,center" size="640,520" title=""  flags="wfNoBorder" >\n                <ePixmap pixmap="~/images/framesd.png" position="0,0" size="640,520"/>\n                \n                <ePixmap pixmap="~/images/team.png" position="45,50" size="550,420"/>\t\n \n\t\n                </screen>'
 
     def __init__(self, session):
         Screen.__init__(self, session)
@@ -580,9 +581,9 @@ class PurePrestigeAboutScreen(Screen):
 
     HD_Res = False
     if HD_Res == True:
-        skin = '\n        \t\n                <screen name="PurePrestigeAboutScreen" position="center,center" size="920,600" title=""  flags="wfNoBorder" >\n                <ePixmap pixmap="/usr/lib/enigma2/python/Plugins/Extensions/PurePrestige/images/frame.png" position="0,0" size="920,600" transparent="1"/>\t\n                <ePixmap pixmap="/usr/lib/enigma2/python/Plugins/Extensions/PurePrestige/images/teamhd.png" position="15,15" size="890,570"/>\t\n                \n                 </screen>'
+        skin = '\n        \t\n                <screen name="PurePrestigeAboutScreen" position="center,center" size="920,600" title=""  flags="wfNoBorder" >\n                <ePixmap pixmap="~/images/frame.png" position="0,0" size="920,600" transparent="1"/>\t\n                <ePixmap pixmap="~/images/teamhd.png" position="15,15" size="890,570"/>\t\n                \n                 </screen>'
     else:
-        skin = '\n      \t<screen name="PurePrestigeAboutScreen" position="center,center" size="640,520" title=""  flags="wfNoBorder" >\n                <ePixmap pixmap="/usr/lib/enigma2/python/Plugins/Extensions/PurePrestige/images/framesd.png" position="0,0" size="640,520"/>\n                \n                <ePixmap pixmap="/usr/lib/enigma2/python/Plugins/Extensions/PurePrestige/images/team.png" position="45,50" size="550,420"/>\t\n \n\t\n                </screen>'
+        skin = '\n      \t<screen name="PurePrestigeAboutScreen" position="center,center" size="640,520" title=""  flags="wfNoBorder" >\n                <ePixmap pixmap="~/images/framesd.png" position="0,0" size="640,520"/>\n                \n                <ePixmap pixmap="~/images/team.png" position="45,50" size="550,420"/>\t\n \n\t\n                </screen>'
 
     def __init__(self, session):
         Screen.__init__(self, session)
