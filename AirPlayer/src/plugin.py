@@ -16,7 +16,7 @@ from Components.config import ConfigYesNo
 from Components.Network import iNetwork
 from Screens.MessageBox import MessageBox
 from Components.Label import Label
-from enigma import getImageVersionString
+from Components.About import getImageVersionString
 from Tools import Notifications
 from Components.Console import Console
 from Tools.Directories import resolveFilename, SCOPE_PLUGINS

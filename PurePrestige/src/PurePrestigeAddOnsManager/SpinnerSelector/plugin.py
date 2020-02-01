@@ -5,6 +5,7 @@ from Components.Label import Label
 from Components.MenuList import MenuList
 from Components.Sources.StaticText import StaticText
 from SpinnerSelectionBox import SpinnerSelectionBox
+from Tools.Directories import resolveFilename, SCOPE_PLUGINS
 import os
 from enigma import eTimer
 from Components.Console import Console
@@ -14,12 +15,12 @@ def deletefiles(dr):
         if os.path.isfile(dr + '/wait%d.png' % (i + 1)):
             os.remove(dr + '/wait%d.png' % (i + 1))
 
-
 class downloadScreen(Screen):
-    skin = '\n\t<screen  position="center,center" size="640,520" title=""  flags="wfNoBorder" >\n                <ePixmap pixmap="/usr/lib/enigma2/python/Plugins/Extensions/PurePrestige/images/framesd.png" position="0,0" size="640,520"/>\t\n               \n                <widget name="text" position="10,10" size="620,390" font="Regular;22" backgroundColor="transparent" halign="center" valign="center" transparent="1" zPosition="2" />\n\t\t\n\t\t\n\t\t\n\t</screen>'
+    skin = '\n\t<screen  position="center,center" size="640,520" title=""  flags="wfNoBorder" >\n                <ePixmap pixmap="~/images/framesd.png" position="0,0" size="640,520"/>\t\n               \n                <widget name="text" position="10,10" size="620,390" font="Regular;22" backgroundColor="transparent" halign="center" valign="center" transparent="1" zPosition="2" />\n\t\t\n\t\t\n\t\t\n\t</screen>'
 
     def __init__(self, session, url = None):
         self.skin = downloadScreen.skin
+        self.skin_path = resolveFilename(SCOPE_PLUGINS, "Extensions/PurePrestige")
         Screen.__init__(self, session)
         self['text'] = Label('please wait while downloading preview')
         self.url = url

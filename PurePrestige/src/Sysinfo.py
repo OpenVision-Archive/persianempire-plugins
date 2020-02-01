@@ -242,10 +242,12 @@ class showPurePrestigeinfoscreenstandard(Screen):
             skincontent += '<widget name="thumb' + str(x) + '" position="' + str(absX + 5) + ',' + str(absY + 5) + '" size="' + str(self.picX - 30) + ',' + str(self.picY - 20) + '" zPosition="2" transparent="1" alphatest="on" />'
 
         if dwidth == 1280:
-            self.skin = '<screen position="center,77"  title="' + self.mtitle + '"  size="' + str(size_w) + ',' + str(size_h) + '" > \t\t\t<eLabel position="0,0" zPosition="0" size="' + str(size_w) + ',' + str(size_h) + '" backgroundColor="' + self.color + '" /><widget name="frame" position="20,20" size="145,145" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/PurePrestige/pic_frame.png" zPosition="1" alphatest="on" />' + skincontent + '</screen>'
+            self.skin = '<screen position="center,77"  title="' + self.mtitle + '"  size="' + str(size_w) + ',' + str(size_h) + '" > \t\t\t<eLabel position="0,0" zPosition="0" size="' + str(size_w) + ',' + str(size_h) + '" backgroundColor="' + self.color + '" /><widget name="frame" position="20,20" size="145,145" pixmap="~/pic_frame.png" zPosition="1" alphatest="on" />' + skincontent + '</screen>'
         else:
-            self.skin = '<screen position="20,center" flags="wfNoBorder" title="PurePrestige"  size="' + str(size_w) + ',' + str(size_h) + '" > \t\t\t<eLabel position="0,0" zPosition="0" size="' + str(size_w) + ',' + str(size_h) + '" backgroundColor="' + self.color + '" /><widget name="frame" position="20,20" size="145,145" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/PurePrestige/pic_frame.png" zPosition="1" alphatest="on" />' + skincontent + '</screen>'
+            self.skin = '<screen position="20,center" flags="wfNoBorder" title="PurePrestige"  size="' + str(size_w) + ',' + str(size_h) + '" > \t\t\t<eLabel position="0,0" zPosition="0" size="' + str(size_w) + ',' + str(size_h) + '" backgroundColor="' + self.color + '" /><widget name="frame" position="20,20" size="145,145" pixmap="~/pic_frame.png" zPosition="1" alphatest="on" />' + skincontent + '</screen>'
+
         Screen.__init__(self, session)
+        self.skin_path = resolveFilename(SCOPE_PLUGINS, "Extensions/PurePrestige")
         self['actions'] = ActionMap(['OkCancelActions',
          'ColorActions',
          'DirectionActions',
@@ -461,9 +463,9 @@ class PurePrestigedevicesinfo(Screen):
         HD_Res = False
 
     if HD_Res == True:
-        skin = '\n        \t\n                <screen  position="center,center" size="920,600" title=""  flags="wfNoBorder" >\n                <ePixmap pixmap="/usr/lib/enigma2/python/Plugins/Extensions/PurePrestige/images/frame.png" position="0,0" size="920,600"/>\t\n       \n                <widget name="list" position="15,30" size="890,500" scrollbarMode="showOnDemand" transparent="1" zPosition="2" />\n\n                </screen>'
+        skin = '\n        \t\n                <screen  position="center,center" size="920,600" title=""  flags="wfNoBorder" >\n                <ePixmap pixmap="~/images/frame.png" position="0,0" size="920,600"/>\t\n       \n                <widget name="list" position="15,30" size="890,500" scrollbarMode="showOnDemand" transparent="1" zPosition="2" />\n\n                </screen>'
     else:
-        skin = '\n        \t\n                <screen  position="center,center" size="640,520" title=""  flags="wfNoBorder" >\n                <ePixmap pixmap="/usr/lib/enigma2/python/Plugins/Extensions/PurePrestige/images/framesd.png" position="0,0" size="640,520"/>\t\n           \n                <widget name="list" position="20,30" size="600,500" scrollbarMode="showOnDemand" transparent="1" zPosition="2" />\n\n                </screen>'
+        skin = '\n        \t\n                <screen  position="center,center" size="640,520" title=""  flags="wfNoBorder" >\n                <ePixmap pixmap="~/images/framesd.png" position="0,0" size="640,520"/>\t\n           \n                <widget name="list" position="20,30" size="600,500" scrollbarMode="showOnDemand" transparent="1" zPosition="2" />\n\n                </screen>'
 
     def __init__(self, session):
         self.skin = PurePrestigedevicesinfo.skin
@@ -580,9 +582,9 @@ class PurePrestigekernelinfo(Screen):
         HD_Res = False
 
     if HD_Res == True:
-        skin = '\n        \t\n                <screen  position="center,center" size="920,600" title=""  flags="wfNoBorder" >\n                <ePixmap pixmap="/usr/lib/enigma2/python/Plugins/Extensions/PurePrestige/images/frame.png" position="0,0" size="920,600"/>\t\n       \n                <widget name="list" position="15,75" size="890,450" scrollbarMode="showOnDemand" transparent="1" zPosition="2" />\n\n                </screen>'
+        skin = '\n        \t\n                <screen  position="center,center" size="920,600" title=""  flags="wfNoBorder" >\n                <ePixmap pixmap="~/images/frame.png" position="0,0" size="920,600"/>\t\n       \n                <widget name="list" position="15,75" size="890,450" scrollbarMode="showOnDemand" transparent="1" zPosition="2" />\n\n                </screen>'
     else:
-        skin = '\n        \t\n                <screen  position="center,center" size="640,520" title=""  flags="wfNoBorder" >\n                <ePixmap pixmap="/usr/lib/enigma2/python/Plugins/Extensions/PurePrestige/images/framesd.png" position="0,0" size="640,520"/>\t\n           \n                <widget name="list" position="20,35" size="600,450" scrollbarMode="showOnDemand" transparent="1" zPosition="2" />\n\n                </screen>'
+        skin = '\n        \t\n                <screen  position="center,center" size="640,520" title=""  flags="wfNoBorder" >\n                <ePixmap pixmap="~/images/framesd.png" position="0,0" size="640,520"/>\t\n           \n                <widget name="list" position="20,35" size="600,450" scrollbarMode="showOnDemand" transparent="1" zPosition="2" />\n\n                </screen>'
 
     def __init__(self, session):
         self.skin = PurePrestigekernelinfo.skin
@@ -645,9 +647,9 @@ class PurePrestigeprocessinfo(Screen):
         HD_Res = False
 
     if HD_Res == True:
-        skin = '\n        \t\n                <screen  position="center,center" size="920,600" title=""  flags="wfNoBorder" >\n                <ePixmap pixmap="/usr/lib/enigma2/python/Plugins/Extensions/PurePrestige/images/frame.png" position="0,0" size="920,600"/>\t\n       \n                <widget name="list" position="15,75" size="890,450" scrollbarMode="showOnDemand" transparent="1" zPosition="2" />\n\n                </screen>'
+        skin = '\n        \t\n                <screen  position="center,center" size="920,600" title=""  flags="wfNoBorder" >\n                <ePixmap pixmap="~/images/frame.png" position="0,0" size="920,600"/>\t\n       \n                <widget name="list" position="15,75" size="890,450" scrollbarMode="showOnDemand" transparent="1" zPosition="2" />\n\n                </screen>'
     else:
-        skin = '\n        \t\n                <screen  position="center,center" size="640,520" title=""  flags="wfNoBorder" >\n                <ePixmap pixmap="/usr/lib/enigma2/python/Plugins/Extensions/PurePrestige/images/framesd.png" position="0,0" size="640,520"/>\t\n           \n                <widget name="list" position="20,35" size="600,450" scrollbarMode="showOnDemand" transparent="1" zPosition="2" />\n\n                </screen>'
+        skin = '\n        \t\n                <screen  position="center,center" size="640,520" title=""  flags="wfNoBorder" >\n                <ePixmap pixmap="~/images/framesd.png" position="0,0" size="640,520"/>\t\n           \n                <widget name="list" position="20,35" size="600,450" scrollbarMode="showOnDemand" transparent="1" zPosition="2" />\n\n                </screen>'
 
     def __init__(self, session):
         self.skin = PurePrestigeprocessinfo.skin
@@ -718,9 +720,9 @@ class PurePrestigefreememoryinfo(Screen):
         HD_Res = False
 
     if HD_Res == True:
-        skin = '\n        \t\n                <screen  position="center,center" size="920,600" title=""  flags="wfNoBorder" >\n                <ePixmap pixmap="/usr/lib/enigma2/python/Plugins/Extensions/PurePrestige/images/frame.png" position="0,0" size="920,600"/>\t\n       \n                <widget name="list" position="15,75" size="890,450" scrollbarMode="showOnDemand" transparent="1" zPosition="2" />\n\n                </screen>'
+        skin = '\n        \t\n                <screen  position="center,center" size="920,600" title=""  flags="wfNoBorder" >\n                <ePixmap pixmap="~/images/frame.png" position="0,0" size="920,600"/>\t\n       \n                <widget name="list" position="15,75" size="890,450" scrollbarMode="showOnDemand" transparent="1" zPosition="2" />\n\n                </screen>'
     else:
-        skin = '\n        \t\n                <screen  position="center,center" size="640,520" title=""  flags="wfNoBorder" >\n                <ePixmap pixmap="/usr/lib/enigma2/python/Plugins/Extensions/PurePrestige/images/framesd.png" position="0,0" size="640,520"/>\t\n           \n                <widget name="list" position="20,35" size="600,450" scrollbarMode="showOnDemand" transparent="1" zPosition="2" />\n\n                </screen>'
+        skin = '\n        \t\n                <screen  position="center,center" size="640,520" title=""  flags="wfNoBorder" >\n                <ePixmap pixmap="~/images/framesd.png" position="0,0" size="640,520"/>\t\n           \n                <widget name="list" position="20,35" size="600,450" scrollbarMode="showOnDemand" transparent="1" zPosition="2" />\n\n                </screen>'
 
     def __init__(self, session):
         self.skin = PurePrestigefreememoryinfo.skin
@@ -824,9 +826,9 @@ class PurePrestigemountsinfo(Screen):
         HD_Res = False
 
     if HD_Res == True:
-        skin = '\n        \t\n                <screen  position="center,center" size="920,600" title=""  flags="wfNoBorder" >\n                <ePixmap pixmap="/usr/lib/enigma2/python/Plugins/Extensions/PurePrestige/images/frame.png" position="0,0" size="920,600"/>\t\n       \n                <widget name="list" position="15,75" size="890,450" scrollbarMode="showOnDemand" transparent="1" zPosition="2" />\n\n                </screen>'
+        skin = '\n        \t\n                <screen  position="center,center" size="920,600" title=""  flags="wfNoBorder" >\n                <ePixmap pixmap="~/images/frame.png" position="0,0" size="920,600"/>\t\n       \n                <widget name="list" position="15,75" size="890,450" scrollbarMode="showOnDemand" transparent="1" zPosition="2" />\n\n                </screen>'
     else:
-        skin = '\n        \t\n                <screen  position="center,center" size="640,520" title=""  flags="wfNoBorder" >\n                <ePixmap pixmap="/usr/lib/enigma2/python/Plugins/Extensions/PurePrestige/images/framesd.png" position="0,0" size="640,520"/>\t\n           \n                <widget name="list" position="20,35" size="600,450" scrollbarMode="showOnDemand" transparent="1" zPosition="2" />\n\n                </screen>'
+        skin = '\n        \t\n                <screen  position="center,center" size="640,520" title=""  flags="wfNoBorder" >\n                <ePixmap pixmap="~/images/framesd.png" position="0,0" size="640,520"/>\t\n           \n                <widget name="list" position="20,35" size="600,450" scrollbarMode="showOnDemand" transparent="1" zPosition="2" />\n\n                </screen>'
 
     def __init__(self, session):
         self.skin = PurePrestigemountsinfo.skin
@@ -901,9 +903,9 @@ class PurePrestigefreespace(Screen):
         HD_Res = False
 
     if HD_Res == True:
-        skin = '\n        \t\n                <screen  position="center,center" size="920,600" title=""  flags="wfNoBorder" >\n                <ePixmap pixmap="/usr/lib/enigma2/python/Plugins/Extensions/PurePrestige/images/frame.png" position="0,0" size="920,600"/>\t\n       \n                <widget name="list" position="15,75" size="890,450" scrollbarMode="showOnDemand" transparent="1" zPosition="2" />\n\n                </screen>'
+        skin = '\n        \t\n                <screen  position="center,center" size="920,600" title=""  flags="wfNoBorder" >\n                <ePixmap pixmap="~/images/frame.png" position="0,0" size="920,600"/>\t\n       \n                <widget name="list" position="15,75" size="890,450" scrollbarMode="showOnDemand" transparent="1" zPosition="2" />\n\n                </screen>'
     else:
-        skin = '\n        \t\n                <screen  position="center,center" size="640,520" title=""  flags="wfNoBorder" >\n                <ePixmap pixmap="/usr/lib/enigma2/python/Plugins/Extensions/PurePrestige/images/framesd.png" position="0,0" size="640,520"/>\t\n           \n                <widget name="list" position="20,35" size="600,450" scrollbarMode="showOnDemand" transparent="1" zPosition="2" />\n\n                </screen>'
+        skin = '\n        \t\n                <screen  position="center,center" size="640,520" title=""  flags="wfNoBorder" >\n                <ePixmap pixmap="~/images/framesd.png" position="0,0" size="640,520"/>\t\n           \n                <widget name="list" position="20,35" size="600,450" scrollbarMode="showOnDemand" transparent="1" zPosition="2" />\n\n                </screen>'
 
     def __init__(self, session):
         self.skin = PurePrestigefreespace.skin
@@ -1001,9 +1003,9 @@ class PurePrestigeginfo(Screen):
         HD_Res = False
 
     if HD_Res == True:
-        skin = '\n        \t\n                <screen  position="center,center" size="920,600" title=""  flags="wfNoBorder" >\n                <ePixmap pixmap="/usr/lib/enigma2/python/Plugins/Extensions/PurePrestige/images/frame.png" position="0,0" size="920,600"/>\t\n       \n                <widget name="list" position="15,75" size="890,450" scrollbarMode="showOnDemand" transparent="1" zPosition="2" />\n\n                </screen>'
+        skin = '\n        \t\n                <screen  position="center,center" size="920,600" title=""  flags="wfNoBorder" >\n                <ePixmap pixmap="~/images/frame.png" position="0,0" size="920,600"/>\t\n       \n                <widget name="list" position="15,75" size="890,450" scrollbarMode="showOnDemand" transparent="1" zPosition="2" />\n\n                </screen>'
     else:
-        skin = '\n        \t\n                <screen  position="center,center" size="640,520" title=""  flags="wfNoBorder" >\n                <ePixmap pixmap="/usr/lib/enigma2/python/Plugins/Extensions/PurePrestige/images/framesd.png" position="0,0" size="640,520"/>\t\n           \n                <widget name="list" position="20,35" size="600,450" scrollbarMode="showOnDemand" transparent="1" zPosition="2" />\n\n                </screen>'
+        skin = '\n        \t\n                <screen  position="center,center" size="640,520" title=""  flags="wfNoBorder" >\n                <ePixmap pixmap="~/images/framesd.png" position="0,0" size="640,520"/>\t\n           \n                <widget name="list" position="20,35" size="600,450" scrollbarMode="showOnDemand" transparent="1" zPosition="2" />\n\n                </screen>'
 
     def __init__(self, session):
         self.skin = PurePrestigeginfo.skin

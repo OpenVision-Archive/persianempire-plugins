@@ -98,9 +98,8 @@ def converttime(s, timediff, soccerstand):
     except:
         return pretime
 
-
 class persiansoccerTableScreen(Screen):
-    skin = '\n\t\t<screen position="center,center" size="700,520" title="Tables and soccer stats" flags="wfNoBorder" >\n\t\t\t<ePixmap pixmap="/usr/lib/enigma2/python/Plugins/Extensions/PurePrestige/Applications/PersianLiveSoccer/images/frame.png" position="0,0" size="700,520"/>\n                        <widget name="menu" position="15,15" size="670,490" scrollbarMode="showOnDemand" transparent="1" zPosition="2" />\n                        <widget name="info" position="0,0" zPosition="4" size="700,520" font="Regular;24" foregroundColor="#ffffff" transparent="1" halign="center" valign="center" />\n          \n                </screen>'
+    skin = '\n\t\t<screen position="center,center" size="700,520" title="Tables and soccer stats" flags="wfNoBorder" >\n\t\t\t<ePixmap pixmap="~/Applications/PersianLiveSoccer/images/frame.png" position="0,0" size="700,520"/>\n                        <widget name="menu" position="15,15" size="670,490" scrollbarMode="showOnDemand" transparent="1" zPosition="2" />\n                        <widget name="info" position="0,0" zPosition="4" size="700,520" font="Regular;24" foregroundColor="#ffffff" transparent="1" halign="center" valign="center" />\n          \n                </screen>'
 
     def __init__(self, session, data, rows):
         self.session = session
@@ -108,6 +107,7 @@ class persiansoccerTableScreen(Screen):
         self.rows = rows
         self['menu'] = MenuList([], True, eListboxPythonMultiContent)
         Screen.__init__(self, session)
+        self.skin_path = resolveFilename(SCOPE_PLUGINS, "Extensions/PurePrestige")
         self['actions'] = ActionMap(['SetupActions', 'DirectionActions', 'ColorActions'], {'ok': self.close,
          'cancel': self.close}, -1)
         if self.data == 'derror':
@@ -181,12 +181,13 @@ class psoccerbootlogo(Screen):
 
     HD_Res = False
     if HD_Res == True:
-        skin = '\n        \t\n                <screen name="PurePrestigeAboutScreen" position="center,center" size="920,600" title=""  flags="wfNoBorder" >\n                <ePixmap pixmap="/usr/lib/enigma2/python/Plugins/Extensions/PurePrestige/images/framesd.png" position="0,0" size="920,600" transparent="1"/>\t\n                <ePixmap pixmap="/usr/lib/enigma2/python/Plugins/Extensions/PurePrestige/images/teamhd.png" position="15,15" size="890,570"/>\t\n                \n                 </screen>'
+        skin = '\n        \t\n                <screen name="PurePrestigeAboutScreen" position="center,center" size="920,600" title=""  flags="wfNoBorder" >\n                <ePixmap pixmap="~/images/framesd.png" position="0,0" size="920,600" transparent="1"/>\t\n                <ePixmap pixmap="~/images/teamhd.png" position="15,15" size="890,570"/>\t\n                \n                 </screen>'
     else:
-        skin = '\n      \t<screen name="PurePrestigebootlogo" position="center,center" size="700,520" title=""  flags="wfNoBorder" >\n                        <widget name="info" position="0,400" zPosition="4" size="700,120" font="Regular;24" foregroundColor="yellow" transparent="1" halign="center" valign="center" />                  \n                <ePixmap pixmap="/usr/lib/enigma2/python/Plugins/Extensions/PurePrestige/Applications/PersianLiveSoccer/images/persianlogo.png" position="0,0" size="700,520"/>\n                        <widget name="infol" position="15,20" zPosition="4" size="335,30" font="Regular;20" foregroundColor="#ffffff" transparent="1" halign="center" valign="center" />                                  \n                        <widget name="infor" position="350,20" zPosition="4" size="335,30" font="Regular;20" foregroundColor="#ffffff" transparent="1" halign="center" valign="center" />                  \n \n\t\n                </screen>'
+        skin = '\n      \t<screen name="PurePrestigebootlogo" position="center,center" size="700,520" title=""  flags="wfNoBorder" >\n                        <widget name="info" position="0,400" zPosition="4" size="700,120" font="Regular;24" foregroundColor="yellow" transparent="1" halign="center" valign="center" />                  \n                <ePixmap pixmap="~/Applications/PersianLiveSoccer/images/persianlogo.png" position="0,0" size="700,520"/>\n                        <widget name="infol" position="15,20" zPosition="4" size="335,30" font="Regular;20" foregroundColor="#ffffff" transparent="1" halign="center" valign="center" />                                  \n                        <widget name="infor" position="350,20" zPosition="4" size="335,30" font="Regular;20" foregroundColor="#ffffff" transparent="1" halign="center" valign="center" />                  \n \n\t\n                </screen>'
 
     def __init__(self, session):
         Screen.__init__(self, session)
+        self.skin_path = resolveFilename(SCOPE_PLUGINS, "Extensions/PurePrestige")
         self['infol'] = Label('http://dreamoem.com')
         self['infor'] = Label('http://persianpros.org')
         self['info'] = Label('version 1.1-mfaraj57\nDownloading data,please wait...')

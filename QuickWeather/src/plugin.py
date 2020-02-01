@@ -1090,30 +1090,31 @@ class WeatherPluginScreen(Screen):
 class WeatherPluginPositioner(Screen):
 	skin = """
 		 <screen position="center,center" size="230,415" zPosition="-1" backgroundColor="#ff000000" flags="wfNoBorder">
-                 <ePixmap pixmap="/usr/lib/enigma2/python/Plugins/Extensions/QuickWeather/backg.png" zPosition="2" position="0,0" size="230,415" alphatest="on" />
+                 <ePixmap pixmap="~/backg.png" zPosition="2" position="0,0" size="230,415" alphatest="on" />
                  <widget name="lab1" position="24,25" halign="center" size="180,20" zPosition="4" font="Regular;20" foregroundColor="#33bab329" backgroundColor="#00000000" valign="top" transparent="1" />
                  <widget name="City" position="24,48" halign="center" size="180,18" zPosition="4" font="Regular;16" foregroundColor="#33bab329" backgroundColor="#00000000" valign="top" transparent="1" />
-                 <ePixmap pixmap="/usr/lib/enigma2/python/Plugins/Extensions/QuickWeather/NA.png" position="67,66" size="138,95" zPosition="3" transparent="1" alphatest="on" />
+                 <ePixmap pixmap="~/NA.png" position="67,66" size="138,95" zPosition="3" transparent="1" alphatest="on" />
                  <widget name="Temp now" position="24,81" halign="left" size="80,60" zPosition="4" font="Regular;27" valign="top" backgroundColor="#00000000" transparent="1" />
                  <widget name="Description now" position="24,150" halign="center" size="180,80" zPosition="4" font="Regular;18" valign="top" backgroundColor="#00000000" transparent="1" />
                  <widget name="Date of tomorrow" position="24,229" halign="center" size="180,20" zPosition="4" foregroundColor="#33bab329" backgroundColor="#00000000" font="Regular;20" valign="top" transparent="1" />
-                 <ePixmap pixmap="/usr/lib/enigma2/python/Plugins/Extensions/QuickWeather/na2.png"  position="117,260" size="87,60" zPosition="3" transparent="1" alphatest="on" />
+                 <ePixmap pixmap="~/na2.png"  position="117,260" size="87,60" zPosition="3" transparent="1" alphatest="on" />
                  <widget name="Description tomorrow" position="24,252" halign="left" size="180,60" zPosition="4" font="Regular;16" valign="top" backgroundColor="#00000000" transparent="1" />
                  <widget name="day after tomorrow" position="24,312" halign="center" size="180,20" zPosition="4" foregroundColor="#33bab329" backgroundColor="#00000000" font="Regular;20" valign="top" transparent="1" />
-                 <ePixmap pixmap="/usr/lib/enigma2/python/Plugins/Extensions/QuickWeather/na2.png" position="117,340" size="87,60" zPosition="3" transparent="1" alphatest="on" />
+                 <ePixmap pixmap="~/na2.png" position="117,340" size="87,60" zPosition="3" transparent="1" alphatest="on" />
                  <widget name="Description2" position="24,333" halign="left" size="180,60" zPosition="4" font="Regular;16" valign="top" backgroundColor="#00000000" transparent="1" />
                  </screen>"""
 	skin1 = """
 	    <screen position="center,center" size="230,245" zPosition="3" backgroundColor="#ff000000" flags="wfNoBorder">
-	    <ePixmap pixmap="/usr/lib/enigma2/python/Plugins/Extensions/QuickWeather/backg2.png" zPosition="2" position="0,0" size="230,245" alphatest="on" />
+	    <ePixmap pixmap="~/backg2.png" zPosition="2" position="0,0" size="230,245" alphatest="on" />
             <widget name="lab1" position="24,25" halign="center" size="180,20" zPosition="4" font="Regular;20" foregroundColor="#00ffcc33" backgroundColor="#30000000" valign="top" transparent="1" />
             <widget name="City" position="24,48" halign="center" size="180,18" zPosition="4" font="Regular;16" foregroundColor="#00ffcc33" backgroundColor="#30000000" valign="top" transparent="1" />
-            <ePixmap pixmap="/usr/lib/enigma2/python/Plugins/Extensions/QuickWeather/NA.png" position="67,66" size="138,95" zPosition="3" transparent="1" alphatest="on" />
+            <ePixmap pixmap="~/NA.png" position="67,66" size="138,95" zPosition="3" transparent="1" alphatest="on" />
             <widget name="Temp now" position="24,77" halign="left" size="80,30" zPosition="4" font="Regular;27" valign="top" backgroundColor="#00000000" transparent="1" />
             <widget name="Description now" position="24,150" halign="center" size="180,80" zPosition="4" font="Regular;18" valign="top" backgroundColor="#00000000" transparent="1" />
 	    </screen>"""	
 	def __init__(self, session):
 		Screen.__init__(self, session)
+		self.skin_path = resolveFilename(SCOPE_PLUGINS, "Extensions/QuickWeather")
  		if config.plugins.WeatherPlugin.days.value == "0":
 		     self.skin = WeatherPluginPositioner.skin
  		if config.plugins.WeatherPlugin.days.value == "1":
@@ -1201,12 +1202,13 @@ class WeatherPluginMenu(Screen):
 	skin = """
 		<screen position="center,center" size="420,260" title="Quick Weather Menu">
 		<widget name="list" position="10,10" size="400,180" />
-                <ePixmap pixmap="/usr/lib/enigma2/python/Plugins/Extensions/QuickWeather/info.png" position="0,183" zPosition="1" size="420,80" alphatest="on" />
+                <ePixmap pixmap="~/info.png" position="0,183" zPosition="1" size="420,80" alphatest="on" />
                 <widget name="info" position="11,203" halign="center" size="400,50" zPosition="4" font="Regular;18" valign="top" backgroundColor="#00000000" transparent="1" />
 		</screen>""" 
 
 	def __init__(self, session):
 		Screen.__init__(self, session)
+		self.skin_path = resolveFilename(SCOPE_PLUGINS, "Extensions/QuickWeather")
 		self.session = session
 		self.setTitle(_('Quick Weather Menu v.8.2'))
 		self["info"] = Label("")

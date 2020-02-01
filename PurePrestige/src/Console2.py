@@ -3,7 +3,7 @@ from enigma import eConsoleAppContainer
 from Screens.Screen import Screen
 from Components.ActionMap import ActionMap
 from Components.ScrollLabel import ScrollLabel
-from Tools.Directories import copyfile
+from Tools.Directories import copyfile, resolveFilename, SCOPE_PLUGINS
 from enigma import getDesktop
 import os
 from Screens.Standby import TryQuitMainloop
@@ -21,12 +21,13 @@ class PurePrestigeConsole2(Screen):
         HD_Res = False
 
     if HD_Res == True:
-        skin = '\n        \t\n                <screen name="PurePrestigeConsole2" backgroundColor="#380038" position="center,center" size="920,600" title=""  flags="wfNoBorder" >\n                <ePixmap pixmap="/usr/lib/enigma2/python/Plugins/Extensions/PurePrestige/images/frametop.png" position="0,0" size="920,600"/>\t\n                <ePixmap pixmap="/usr/lib/enigma2/python/Plugins/Extensions/PurePrestige/images/frameleft.png" position="0,10" size="10,580"/>\t\n                <ePixmap pixmap="/usr/lib/enigma2/python/Plugins/Extensions/PurePrestige/images/frameright.png" position="910,10" size="10,580"/>\t\n                <ePixmap pixmap="/usr/lib/enigma2/python/Plugins/Extensions/PurePrestige/images/framebottom.png" position="0,590" size="920,10"/>\t\n                \n\t\t<widget name="text" position="30,30" size="865,570" font="Regular;22"  transparent="1" zPosition="2"  />\n                </screen>'
+        skin = '\n        \t\n                <screen name="PurePrestigeConsole2" backgroundColor="#380038" position="center,center" size="920,600" title=""  flags="wfNoBorder" >\n                <ePixmap pixmap="~/images/frametop.png" position="0,0" size="920,600"/>\t\n                <ePixmap pixmap="~/images/frameleft.png" position="0,10" size="10,580"/>\t\n                <ePixmap pixmap="~/images/frameright.png" position="910,10" size="10,580"/>\t\n                <ePixmap pixmap="~/images/framebottom.png" position="0,590" size="920,10"/>\t\n                \n\t\t<widget name="text" position="30,30" size="865,570" font="Regular;22"  transparent="1" zPosition="2"  />\n                </screen>'
     else:
-        skin = '\n        \t\n                <screen name="PurePrestigeConsole2" backgroundColor="#380038" position="center,center" size="580,450" title=""  flags="wfNoBorder" >\n                <ePixmap pixmap="/usr/lib/enigma2/python/Plugins/Extensions/PurePrestige/images/frametop.png" position="0,0" size="580,450"/>\t\n                <ePixmap pixmap="/usr/lib/enigma2/python/Plugins/Extensions/PurePrestige/images/frameleft.png" position="0,7" size="6,435"/>\t\n                <ePixmap pixmap="/usr/lib/enigma2/python/Plugins/Extensions/PurePrestige/images/frameright.png" position="573,7" size="6,435"/>\t\n                <ePixmap pixmap="/usr/lib/enigma2/python/Plugins/Extensions/PurePrestige/images/framebottom.png" position="0,442" size="580,7"/>\t\n                \n\t\t<widget name="text" position="19,22" size="554,427" font="Regular;22"  transparent="1" zPosition="2"  />\n                </screen>'
+        skin = '\n        \t\n                <screen name="PurePrestigeConsole2" backgroundColor="#380038" position="center,center" size="580,450" title=""  flags="wfNoBorder" >\n                <ePixmap pixmap="~/images/frametop.png" position="0,0" size="580,450"/>\t\n                <ePixmap pixmap="~/images/frameleft.png" position="0,7" size="6,435"/>\t\n                <ePixmap pixmap="~/images/frameright.png" position="573,7" size="6,435"/>\t\n                <ePixmap pixmap="~/images/framebottom.png" position="0,442" size="580,7"/>\t\n                \n\t\t<widget name="text" position="19,22" size="554,427" font="Regular;22"  transparent="1" zPosition="2"  />\n                </screen>'
 
     def __init__(self, session, title = 'Console', cmdlist = None, finishedCallback = None, closeOnSuccess = False, instr = None, endstr = None):
         Screen.__init__(self, session)
+        self.skin_path = resolveFilename(SCOPE_PLUGINS, "Extensions/PurePrestige")
         self.finishedCallback = finishedCallback
         self.closeOnSuccess = closeOnSuccess
         self.endstr = endstr
