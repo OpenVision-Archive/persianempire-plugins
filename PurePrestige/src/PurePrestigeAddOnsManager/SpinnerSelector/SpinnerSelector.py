@@ -6,9 +6,13 @@ from Components.config import config
 import os
 import gettext
 from Components.Console import Console
+from Tools.Directories import resolveFilename, SCOPE_PLUGINS
 
 try:
-    cat = gettext.translation('lang', '/usr/lib/enigma2/python/Plugins/Extensions/PurePrestige/PurePrestigeAddOnsManager/SpinnerSelector/po', [config.osd.language.getText()])
+    if os.path.exists("/usr/lib64"):
+        cat = gettext.translation('lang', '/usr/lib64/enigma2/python/Plugins/Extensions/PurePrestige/PurePrestigeAddOnsManager/SpinnerSelector/po', [config.osd.language.getText()])
+    else:
+        cat = gettext.translation('lang', '/usr/lib/enigma2/python/Plugins/Extensions/PurePrestige/PurePrestigeAddOnsManager/SpinnerSelector/po', [config.osd.language.getText()])
     _ = cat.gettext
 except IOError:
     pass
@@ -34,7 +38,10 @@ class SpinnerSelector:
                     Console().ePopen('ln -s /usr/share/enigma2/Spinner/%s/wait%d.png /usr/share/enigma2/skin_default/spinner/wait%d.png' % (choice, i + 1, i + 1))
                     if First:
                         First = False
-                        Console().ePopen('rm -f /usr/lib/enigma2/python/Plugins/Extensions/SpinnerSelektor/plugin.png; ln -s /usr/share/enigma2/Spinner/%s/wait%d.png /usr/lib/enigma2/python/Plugins/Extensions/SpinnerSelektor/plugin.png' % (choice, i + 1))
+                        if os.path.exists("/usr/lib64"):
+                            Console().ePopen('rm -f /usr/lib64/enigma2/python/Plugins/Extensions/SpinnerSelektor/plugin.png; ln -s /usr/share/enigma2/Spinner/%s/wait%d.png /usr/lib64/enigma2/python/Plugins/Extensions/SpinnerSelektor/plugin.png' % (choice, i + 1))
+                        else:
+                            Console().ePopen('rm -f /usr/lib/enigma2/python/Plugins/Extensions/SpinnerSelektor/plugin.png; ln -s /usr/share/enigma2/Spinner/%s/wait%d.png /usr/lib/enigma2/python/Plugins/Extensions/SpinnerSelektor/plugin.png' % (choice, i + 1))
 
             self.session.openWithCallback(self.restart, MessageBox, _('GUI needs a restart to apply a new spinner.\nDo you want to restart the GUI now ?'), MessageBox.TYPE_YESNO)
             return
