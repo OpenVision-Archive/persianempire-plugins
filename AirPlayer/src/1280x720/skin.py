@@ -43,7 +43,7 @@ from Tools.Directories import resolveFilename, SCOPE_PLUGINS
 	<widget source="useProxy" render="Pixmap" position="800,30" size="57,20" zPosition="2" pixmap="%s/Extensions/AirPlayer/Skins/Classic/1280x720/proxy_on.png">
       <convert type="ConditionalShowHide" />
     </widget>
-</screen>"""  % (resolveFilename(SCOPE_PLUGINS), resolveFilename(SCOPE_PLUGINS), resolveFilename(SCOPE_PLUGINS), (resolveFilename(SCOPE_PLUGINS), resolveFilename(SCOPE_PLUGINS), resolveFilename(SCOPE_PLUGINS), resolveFilename(SCOPE_PLUGINS), resolveFilename(SCOPE_PLUGINS))
+</screen>"""
 
 """<screen name="AirPlayMusicPlayer" position="340,120" size="600,452" title="AirPlayMusicPlayer" flags="wfNoBorder" >
     <widget source="label_update"  transparent="2" render="Label" zPosition="4" position="0,0"  size="600,28" font="Regular;24" backgroundColor="#00000000" foregroundColor="#00ff0000" />
@@ -54,6 +54,6 @@ from Tools.Directories import resolveFilename, SCOPE_PLUGINS
     <widget name="label_interpret"  transparent="2" zPosition="4" position="305,200"  size="290,50" font="Regular;22" backgroundColor="#00000000" foregroundColor="#00ffffff" halign="center"/>
     <ePixmap zPosition="-1" position="320,300" size="260,8" pixmap="%s/Extensions/AirPlayer/Skins/Classic/1280x720/progress_grey_small.png" />
     <widget name="progress" position="320,300" size="260,8" zPosition="1" transparent="1" pixmap="%s/Extensions/AirPlayer/Skins/Classic/1280x720/progress_small.png" />
-</screen>"""  % (resolveFilename(SCOPE_PLUGINS), resolveFilename(SCOPE_PLUGINS))
+</screen>"""
 
 #</skin>
