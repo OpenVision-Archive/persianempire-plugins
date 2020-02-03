@@ -171,7 +171,10 @@ def startWebserver(session):
     print '[AirPlayer] starting webserver done'
     print '[AirPlayer] starting zeroconf'
     Console().ePopen('killall -9 zeroconfig')
-    Console().ePopen("%s %s %s &") % (resolveFilename(SCOPE_PLUGINS, "Extensions/AirPlayer/zeroconfig"), config.plugins.airplayer.name.value, config.plugins.airplayer.interface.value)
+    if os.path.exists("/usr/lib64"):
+          Console().ePopen("/usr/lib64/enigma2/python/Plugins/Extensions/AirPlayer/zeroconfig %s %s &" % (config.plugins.airplayer.name.value, config.plugins.airplayer.interface.value))
+    else:
+          Console().ePopen("/usr/lib/enigma2/python/Plugins/Extensions/AirPlayer/zeroconfig %s %s &" % (config.plugins.airplayer.name.value, config.plugins.airplayer.interface.value))
     print '[AirPlayer] starting zeroconf done'
 
 
