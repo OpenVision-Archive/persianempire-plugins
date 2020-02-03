@@ -1,4 +1,4 @@
-SUBDIRS = 720x576 1024x576 1280x720 lib mediabackends
+SUBDIRS = 720x576 1024x576 1280x720 1920x1080 lib mediabackends
 
 installdir = $(libdir)/enigma2/python/Plugins/Extensions/AirPlayer
 
