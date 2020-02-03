@@ -23,7 +23,7 @@ def getSkins():
 def getSkinPath(name):
     skinName = name
     dSize = getDesktop(0).size()
-    skinpath = resolveFilename(SCOPE_PLUGINS, 'Extensions/AirPlayer/Skins/%s/%sx%s/skin.py' % (skinName, str(dSize.width()), str(dSize.height())))
+    skinpath = resolveFilename(SCOPE_PLUGINS, 'Extensions/AirPlayer/Skins/%s/%sx%s/skin.pyo' % (skinName, str(dSize.width()), str(dSize.height())))
     if os.path.exists(skinpath):
         from skin import *
         return skinpath

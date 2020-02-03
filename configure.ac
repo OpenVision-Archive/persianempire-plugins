@@ -69,6 +69,7 @@ AirPlayer/src/Makefile
 AirPlayer/src/720x576/Makefile
 AirPlayer/src/1024x576/Makefile
 AirPlayer/src/1280x720/Makefile
+AirPlayer/src/1920x1080/Makefile
 AirPlayer/src/lib/Makefile
 AirPlayer/src/lib/biplist/Makefile
 AirPlayer/src/mediabackends/Makefile
