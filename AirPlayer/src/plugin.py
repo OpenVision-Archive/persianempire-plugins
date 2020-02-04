@@ -16,7 +16,7 @@ from Components.config import ConfigYesNo
 from Components.Network import iNetwork
 from Screens.MessageBox import MessageBox
 from Components.Label import Label
-from enigma import getImageVersionString
+from Components.About import getImageVersionString
 from Tools import Notifications
 from Components.Console import Console
 from Tools.Directories import resolveFilename, SCOPE_PLUGINS
@@ -171,7 +171,10 @@ def startWebserver(session):
     print '[AirPlayer] starting webserver done'
     print '[AirPlayer] starting zeroconf'
     Console().ePopen('killall -9 zeroconfig')
-    Console().ePopen("%s %s %s &") % (resolveFilename(SCOPE_PLUGINS, "Extensions/AirPlayer/zeroconfig"), config.plugins.airplayer.name.value, config.plugins.airplayer.interface.value)
+    if os.path.exists("/usr/lib64"):
+          Console().ePopen("/usr/lib64/enigma2/python/Plugins/Extensions/AirPlayer/zeroconfig %s %s &" % (config.plugins.airplayer.name.value, config.plugins.airplayer.interface.value))
+    else:
+          Console().ePopen("/usr/lib/enigma2/python/Plugins/Extensions/AirPlayer/zeroconfig %s %s &" % (config.plugins.airplayer.name.value, config.plugins.airplayer.interface.value))
     print '[AirPlayer] starting zeroconf done'
 
 
