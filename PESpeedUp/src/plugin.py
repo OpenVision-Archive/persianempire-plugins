@@ -1,20 +1,43 @@
 # for localized messages
 from . import _
+from enigma import getDesktop
 from Screens.Screen import Screen
 from Screens.MessageBox import MessageBox
 from Screens.Standby import TryQuitMainloop
 from Components.ActionMap import ActionMap
 from Components.Label import Label
 from Plugins.Plugin import PluginDescriptor
-from Components.Pixmap import Pixmap
 from Components.ConfigList import ConfigListScreen
 from Components.config import getConfigListEntry, config, ConfigSelection, NoSave
 from Components.Sources.List import List
 from Tools.Directories import pathExists, fileExists, resolveFilename, SCOPE_PLUGINS
 from Screens.Console import Console
 
+sz_w = getDesktop(0).size().width()
+
 class PESpeedUp(Screen, ConfigListScreen):
-    skin = '\n\t<screen position="center,center" size="902,570" title="PE Speed Up">\n\t\t<widget name="lab1" position="10,10" size="882,60" font="Regular;20" valign="top" transparent="1"/>\n\t\t<widget name="config" position="30,70" size="840,450" scrollbarMode="showOnDemand"/>\n\t\t<ePixmap pixmap="buttons/red.png" position="200,530" size="140,40" alphatest="on"/>\n\t\t<ePixmap pixmap="buttons/green.png" position="550,530" size="140,40" alphatest="on"/>\n\t\t<widget name="key_red" position="200,530" zPosition="1" size="140,40" font="Regular;20" halign="center" valign="center" backgroundColor="#9f1313" transparent="1"/>\n\t\t<widget name="key_green" position="550,530" zPosition="1" size="140,40" font="Regular;20" halign="center" valign="center" backgroundColor="#1f771f" transparent="1"/>\n\t</screen>'
+    if sz_w == 1280 :
+	skin = '''
+		<screen position="center,center" size="902,570" title="PE Speed Up" backgroundColor="#16000000" flags="wfNoBorder">
+			<widget name="lab1" position="10,10" size="882,60" font="Regular;20" valign="top" transparent="1" backgroundColor="#16000000"/>
+			<widget name="config" position="30,70" size="840,450" scrollbarMode="showOnDemand" backgroundColor="#16000000"/>
+			<eLabel backgroundColor="#00ff2525" name="red" position="200,565" size="140,5" />
+			<eLabel backgroundColor="#00389416" name="green" position="550,565" size="140,5" />
+			<widget name="key_red" position="200,528" zPosition="1" size="140,40" font="Regular;20" halign="center" valign="center" backgroundColor="#16000000" transparent="1"/>
+			<widget name="key_green" position="550,528" zPosition="1" size="140,40" font="Regular;20" halign="center" valign="center" backgroundColor="#16000000" transparent="1"/>
+		</screen>
+	'''
+    else:
+	skin = '''
+		<screen position="center,center" size="1376,898" title="PE Speed Up" backgroundColor="#16000000" flags="wfNoBorder"> 
+			<widget name="lab1" position="8,10" size="1359,80" font="Regular;30" valign="top" transparent="1" backgroundColor="#16000000"/>
+			<widget name="config" position="28,95" size="1321,745" font="Regular;35" itemHeight="50" scrollbarMode="showOnDemand" backgroundColor="#16000000"/>
+			<widget name="key_red" position="365,845" zPosition="1" size="204,40" font="Regular;32" halign="center" valign="center" backgroundColor="#16000000" transparent="1"/>
+			<widget name="key_green" position="810,845" zPosition="1" size="204,40" font="Regular;32" halign="center" valign="center" backgroundColor="#16000000" transparent="1"/>
+			<eLabel backgroundColor="#00ff2525" name="red" position="365,885" size="204,10" />
+			<eLabel backgroundColor="#00389416" name="green" position="810,885" size="204,10" />
+		</screen>
+	'''
 
     def __init__(self, session):
         Screen.__init__(self, session)
