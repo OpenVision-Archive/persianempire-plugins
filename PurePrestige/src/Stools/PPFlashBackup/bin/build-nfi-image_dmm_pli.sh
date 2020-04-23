@@ -89,29 +89,29 @@ elif grep -qs 'ATI XILLEON HDTV SUPERTOLL' /proc/cpuinfo ; then
 	BOXTYPE=dm7025
 	VSND=84
 	OPTIONS="--eraseblock=0x4000 -n -l"
-elif grep -qs 'dm7025' /etc/model ; then
+elif grep -qs 'dm7025' /etc/openvision/model ; then
 	BOXTYPE=dm7025
 	VSND=84
 	OPTIONS="--eraseblock=0x4000 -n -l"
-elif grep -qs 'dm8000' /etc/model ; then
+elif grep -qs 'dm8000' /etc/openvision/model ; then
 	BOXTYPE=dm8000
 	VSND=84
 	OPTIONS="--eraseblock=0x20000 -n -l"
-elif grep -qs dm800se /etc/model ; then
+elif grep -qs dm800se /etc/openvision/model ; then
         BOXTYPE=dm800se
        	VSND=84
         OPTIONS="--eraseblock=0x4000 -n -l"
-elif grep -qs 'dm800' /etc/model ; then
+elif grep -qs 'dm800' /etc/openvision/model ; then
 	BOXTYPE=dm800
 	VSND=84
 	HTTPFILE=sim2-dm800-82.bin
 	OPTIONS="--eraseblock=0x4000 -n -l"
-elif grep -qs 'dm500hd' /etc/model ; then
+elif grep -qs 'dm500hd' /etc/openvision/model ; then
 	BOXTYPE=dm500hd
 	VSND=84
 	OPTIONS="--eraseblock=0x4000 -n -l"
 
-elif grep -qs 'dm7020hd' /etc/model ; then
+elif grep -qs 'dm7020hd' /etc/openvision/model ; then
 	BOXTYPE=dm7020hd
 	VSND=86
 	OPTIONS="--eraseblock=0x4000 -n -l"
