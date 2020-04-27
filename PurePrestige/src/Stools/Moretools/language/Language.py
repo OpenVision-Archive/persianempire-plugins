@@ -105,12 +105,12 @@ class Language:
         print> l, 'LANG_TEXT = {')
         for language in self.langlist:
             self.activateLanguage(language)
-            print> l, '"%s": {' % language)
-            print> l, '\t"T1": "%s",' % _(T1))
-            print> l, '\t"T2": "%s",' % _(T2))
-            print> l, '},')
+            print>> l, '"%s": {' % language
+            print>> l, '\t"T1": "%s",' % _(T1)
+            print>> l, '\t"T2": "%s",' % _(T2)
+            print>> l, '},'
 
-        print> l, '}')
+        print>> l, '}'
 
 
 language = Language()
