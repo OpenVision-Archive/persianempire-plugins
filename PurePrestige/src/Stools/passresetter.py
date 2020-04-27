@@ -1,3 +1,4 @@
+#!/usr/bin/python
 # -*- coding: utf-8 -*-
 from Screens.MessageBox import MessageBox
 from Screens.ChoiceBox import ChoiceBox

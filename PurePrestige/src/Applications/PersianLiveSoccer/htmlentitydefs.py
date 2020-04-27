@@ -1,3 +1,4 @@
+#!/usr/bin/python
 # -*- coding: utf-8 -*-
 name2codepoint = {'AElig': 198,
  'Aacute': 193,

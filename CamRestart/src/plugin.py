@@ -1,3 +1,4 @@
+#!/usr/bin/python
 # -*- coding: utf-8 -*-
 from Components.ActionMap import ActionMap
 from Screens.MessageBox import MessageBox

@@ -1,3 +1,4 @@
+#!/usr/bin/python
 # -*- coding: utf-8 -*-
 from __future__ import print_function
 import gettext
@@ -102,7 +103,6 @@ class Language:
         T1 = _('Please use the UP and DOWN keys to select your language. Afterwards press the OK button.')
         T2 = _('Language selection')
         l = open('language_cache.py', 'w')
-        print('# -*- coding: UTF-8 -*-', file =l)
         print('LANG_TEXT = {', file =l)
         for language in self.langlist:
             self.activateLanguage(language)
