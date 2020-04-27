@@ -257,10 +257,10 @@ class RTSPResource(resource.Resource):
         return res
 
     def getChildWithDefault(self, path, request):
-        print('RTSPResource.getChildWithDefault(%r, %s, <request>), pre %r, post %r' % (self,)
+        print('RTSPResource.getChildWithDefault(%r, %s, <request>), pre %r, post %r' % (self,
          path,
          request.prepath,
-         request.postpath)
+         request.postpath))
         print('children: %r' % self.children.keys())
         res = resource.Resource.getChildWithDefault(self, path, request)
         print('RTSPResource.getChildWithDefault(%r, %s, <request>) returns %r' % (self, path, res))
