@@ -19,7 +19,7 @@ def GetDevices():
 						des = str(size / 1024) + "MB"
 					device.append(parts[3] + "  " + des)
 		f.close()
-	except IOError, ex:
+	except IOError as ex:
 		print("[MountManager] Failed to open /proc/partitions", ex)
 	return device
 
@@ -30,7 +30,7 @@ def __ReadMounts():
 			for item in result:
 				item[1] = item[1].replace('\\040', ' ')
 		f.close()
-	except IOError, ex:
+	except IOError as ex:
 		print("[MountManager] Failed to open /proc/mounts", ex)
 		result = ""
 	return result

@@ -60,7 +60,7 @@ class MountSetup(Screen, ConfigListScreen):
 							if device[:4] == line[5:9]:
 								self.swap = device
 			f.close()
-		except IOError, ex:
+		except IOError as ex:
 			print("[MountManager] Failed to open /proc/swaps", ex)
 		self.MountOnHdd.addNotifier(self.CreateList, initial_call = False)
 		self.CreateList()
