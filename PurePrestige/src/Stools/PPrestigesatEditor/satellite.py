@@ -276,6 +276,7 @@ class savesatellite:
 
         header = ''
         if self.satFile == TMPFILE:
+            if self.xmlVersion and self.xmlEncoding:
                 header = '<?xml version="%s" encoding="%s"?>\n' % (self.xmlVersion, self.xmlEncoding)
             if self.xmlComment:
                 modified = '\n     THIS FILE WAS MODIFIED BY THE ENIGMA2 PLUGIN SATELLITE EDITOR!\n'
