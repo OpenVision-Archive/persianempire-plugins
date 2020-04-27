@@ -248,10 +248,10 @@ class RTSPResource(resource.Resource):
 
     def getChild(self, path, request):
         return NoResource()
-        print('RTSPResource.getChild(%r, %s, <request>), pre %r, post %r' % (self,)
+        print('RTSPResource.getChild(%r, %s, <request>), pre %r, post %r' % (self,
          path,
          request.prepath,
-         request.postpath)
+         request.postpath))
         res = resource.Resource.getChild(self, path, request)
         print('RTSPResource.getChild(%r, %s, <request>) returns %r' % (self, path, res))
         return res
