@@ -807,7 +807,7 @@ class SoupStrainer():
             if self._matches(markup, self.text):
                 found = markup
         else:
-            raise Exception("I don't know how to match against a %s" % markup.__class__
+            raise Exception("I don't know how to match against a %s" % markup.__class__)
         return found
 
     def _matches(self, markup, matchAgainst):
