@@ -1,3 +1,4 @@
+#!/usr/bin/python
 # -*- coding: utf-8 -*-
 from enigma import *
 from Components.MenuList import MenuList

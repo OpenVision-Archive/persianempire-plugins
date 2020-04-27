@@ -1,4 +1,6 @@
+#!/usr/bin/python
 # -*- coding: utf-8 -*-
+from __future__ import print_function
 from Components.config import config, ConfigText, KEY_NUMBERS, KEY_ASCII, getKeyNumber
 
 class ConfigHexNumber(ConfigText):

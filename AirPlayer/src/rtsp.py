@@ -1,3 +1,4 @@
+#!/usr/bin/python
 # -*- coding: utf-8 -*-
 from __future__ import print_function
 import sys
@@ -248,19 +249,19 @@ class RTSPResource(resource.Resource):
 
     def getChild(self, path, request):
         return NoResource()
-        print('RTSPResource.getChild(%r, %s, <request>), pre %r, post %r' % (self,)
+        print('RTSPResource.getChild(%r, %s, <request>), pre %r, post %r' % (self,
          path,
          request.prepath,
-         request.postpath)
+         request.postpath))
         res = resource.Resource.getChild(self, path, request)
         print('RTSPResource.getChild(%r, %s, <request>) returns %r' % (self, path, res))
         return res
 
     def getChildWithDefault(self, path, request):
-        print('RTSPResource.getChildWithDefault(%r, %s, <request>), pre %r, post %r' % (self,)
+        print('RTSPResource.getChildWithDefault(%r, %s, <request>), pre %r, post %r' % (self,
          path,
          request.prepath,
-         request.postpath)
+         request.postpath))
         print('children: %r' % self.children.keys())
         res = resource.Resource.getChildWithDefault(self, path, request)
         print('RTSPResource.getChildWithDefault(%r, %s, <request>) returns %r' % (self, path, res))

@@ -1,3 +1,4 @@
+#!/usr/bin/python
 # -*- coding: utf-8 -*-
 from __future__ import print_function
 import urllib2
@@ -726,8 +727,8 @@ class RSS:
         item_data = self.get_txt(node, tagName)
         if item_data == '':
             return
-        print(print_string % {'tag': tagName,)
-         'data': item_data}
+        print(print_string % {'tag': tagName,
+         'data': item_data})
 
     def print_rss(self, url):
         from urllib import urlopen
