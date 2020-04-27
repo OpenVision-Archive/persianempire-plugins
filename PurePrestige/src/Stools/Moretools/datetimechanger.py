@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+from __future__ import print_function
 from enigma import *
 from Screens.Screen import Screen
 from Screens.MessageBox import MessageBox
@@ -49,8 +51,8 @@ class ChangeTimeWizzard(Screen):
         jetzt = time.time()
         timezone = datetime.datetime.utcnow()
         delta = jetzt - time.mktime(timezone.timetuple())
-        print 'delta: %i' % delta
-        print 'oldtime: %i' % jetzt
+        print('delta: %i' % delta)
+        print('oldtime: %i' % jetzt)
         self.oldtime = strftime('%Y:%m:%d %H:%M', localtime())
         self.session.openWithCallback(self.askForNewTime, InputBox, title=_('Please Enter new Systemtime - OK will restart enigma2 !'), text='%s' % self.oldtime, maxSize=16, type=Input.NUMBER)
 
@@ -73,7 +75,7 @@ class ChangeTimeWizzard(Screen):
             full = newclock.split(' ', 1)
             newdate = full[0]
             newtime = full[1]
-            print 'newdate %s newtime %s' % (newdate, newtime)
+            print('newdate %s newtime %s' % (newdate, newtime))
             parts = []
             parts = newdate.split(':', 2)
             newyear = parts[0]
@@ -107,7 +109,7 @@ class ChangeTimeWizzard(Screen):
                  newhour,
                  newmin,
                  '30')
-                print 'date -s %s' % self.newtime
+                print('date -s %s' % self.newtime)
                 self.session.openWithCallback(self.DoChangeTimeRestart, MessageBox, _('Enigma2 will restart to change Systemtime - OK ?'), MessageBox.TYPE_YESNO)
         return
 

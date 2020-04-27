@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+from __future__ import print_function
 from Plugins.Plugin import PluginDescriptor
 from Screens.Screen import Screen
 from Components.ActionMap import HelpableActionMap, ActionMap
@@ -67,23 +69,23 @@ class NewPrestigesatEditor(Screen, HelpableScreen):
         self.onShown.append(self.downloadSattelitesFile)
 
     def exit(self):
-        print '[PrestigesatEditor] closing'
+        print('[PrestigesatEditor] closing')
         if os_path.exists(TMPFILE):
             try:
                 remove(TMPFILE)
             except OSError as error:
-                print '[PrestigesatEditor] unable to delete temp file', TMPFILE
+                print('[PrestigesatEditor] unable to delete temp file', TMPFILE)
                 AddPopup(text=_('Unable to delete temp file.\n%s') % error, type=MessageBox.TYPE_ERROR, timeout=0, id='RemoveFileError')
 
         self.close()
 
     def accept(self):
-        print '[PrestigesatEditor] copying temp satellite file to target'
+        print('[PrestigesatEditor] copying temp satellite file to target')
         if os_path.exists(TMPFILE):
             try:
                 copyfile(TMPFILE, SATFILE)
             except OSError as error:
-                print '[PrestigesatEditor] error during copying of', TMPFILE
+                print('[PrestigesatEditor] error during copying of', TMPFILE)
                 self.session.open(MessageBox, _('Unable to copy temp file.\n%s') % error, type=MessageBox.TYPE_ERROR)
 
         self.showAccept = False
@@ -105,12 +107,12 @@ class NewPrestigesatEditor(Screen, HelpableScreen):
         self.setListSorted()
 
     def loadSattelitesFile(self, fileName = SATFILE):
-        print '[PrestigesatEditor] loading satellite file', fileName
+        print('[PrestigesatEditor] loading satellite file', fileName)
         self.satList = []
         try:
             satFile = open(fileName, 'r')
         except IOError as error:
-            print '[PrestigesatEditor] unable to open', fileName
+            print('[PrestigesatEditor] unable to open', fileName)
             satFile = None
             AddPopup(text=_('Unable to open file.\n%s') % error, type=MessageBox.TYPE_ERROR, timeout=0, id='OpenFileError')
             self.exit()
@@ -174,7 +176,7 @@ class NewPrestigesatEditor(Screen, HelpableScreen):
     def downloadSattelitesFile(self):
         if not self.downloadPossible:
             return
-        print '[PrestigesatEditor] downloading satellite file'
+        print('[PrestigesatEditor] downloading satellite file')
         self['info'].setText('Downloading satellite.xml...please wait')
         self.timer = eTimer()
         self.timer.callback.append(self.startdownload)
@@ -191,7 +193,7 @@ class NewPrestigesatEditor(Screen, HelpableScreen):
         self.xmlEncoding = encoding
 
     def getXmlInfo(self):
-        print '[PrestigesatEditor] trying to get the XML declaration and comment'
+        print('[PrestigesatEditor] trying to get the XML declaration and comment')
         parser = ParserCreate()
         parser.XmlDeclHandler = self.declarationHandler
         parser.CommentHandler = self.commentHandler
@@ -200,13 +202,13 @@ class NewPrestigesatEditor(Screen, HelpableScreen):
         satFile.close()
 
     def cbDownload(self, data):
-        print '[PrestigesatEditor] saving download to temp satellite file'
+        print('[PrestigesatEditor] saving download to temp satellite file')
         try:
             tmpFile = open(TMPFILE, 'w')
             tmpFile.write(data)
             tmpFile.close()
         except IOError as error:
-            print '[PrestigesatEditor] unable to save download to temp satellite file'
+            print('[PrestigesatEditor] unable to save download to temp satellite file')
             self.session.open(MessageBox, _('Unable to save download to temp satellite file.\n'), MessageBox.TYPE_ERROR)
             return
 
@@ -220,7 +222,7 @@ class NewPrestigesatEditor(Screen, HelpableScreen):
 
     def cbDownloadError(self, error):
         if error is not None:
-            print '[PrestigesatEditor] error downloading satellite file:', str(error.getErrorMessage())
+            print('[PrestigesatEditor] error downloading satellite file:', str(error.getErrorMessage()))
             self.session.open(MessageBox, _('Unable to download satellite file. Please try again later.\n%s') % str(error.getErrorMessage()), MessageBox.TYPE_ERROR)
             self['info'].setText('To edit satellite.xml,select satellites to be included,then save')
         return
@@ -228,7 +230,7 @@ class NewPrestigesatEditor(Screen, HelpableScreen):
     def purgeSattelitesFile(self):
         if not self.purgePossible:
             return
-        print '[PrestigesatEditor] purging temp satellite file'
+        print('[PrestigesatEditor] purging temp satellite file')
         self['info'].setText('Saving satellite.xml..please wait')
         if self.useTmpFile:
             satFile = TMPFILE
@@ -274,7 +276,6 @@ class savesatellite:
 
         header = ''
         if self.satFile == TMPFILE:
-            if self.xmlVersion and self.xmlEncoding:
                 header = '<?xml version="%s" encoding="%s"?>\n' % (self.xmlVersion, self.xmlEncoding)
             if self.xmlComment:
                 modified = '\n     THIS FILE WAS MODIFIED BY THE ENIGMA2 PLUGIN SATELLITE EDITOR!\n'

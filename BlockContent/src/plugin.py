@@ -1,4 +1,5 @@
-# -*- coding: iso-8859-1 -*-
+# -*- coding: utf-8 -*-
+from __future__ import print_function
 
 blockcontent_version="0.15"
 
@@ -37,7 +38,7 @@ def startConfig(session, **kwargs):
 def autostart(reason, **kwargs):
     if kwargs.has_key("session") and reason == 0:
        session = kwargs["session"]
-       print "[BlockContent] autostart check"
+       print("[BlockContent] autostart check")
        session.open(BlockContentCheck)
 
 def Plugins(**kwargs):
@@ -169,7 +170,7 @@ class BlockContentCheck(Screen):
         info = service and service.info()                                       
         ptr = info and info.getEvent(0)                                         
         self.blockedcontent_begin_time = ptr and ptr.getBeginTime() or 0               
-        print "[BlockContent] planning check"
+        print("[BlockContent] planning check")
         self.TimerBlockContentCheck = eTimer()
         self.TimerBlockContentCheck.stop()
         self.TimerBlockContentCheck.timeout.get().append(self.CheckBlockContent)
@@ -182,13 +183,13 @@ class BlockContentCheck(Screen):
         self.TimerBlockContentCheck.stop()
 	current_hour=int(strftime("%H", localtime()))
         if Screens.Standby.inStandby or config.plugins.blockcontent.viewingtime.value == 0 or config.plugins.blockcontent.freeview.value <= current_hour:
-		print "[BlockedContent] resets"
+		print("[BlockedContent] resets")
 		self.blockedcontent_authorized=""
 		if blockedcontent_deactive:
 			blockedcontent_deactive=False
 	elif blockedcontent_deactive:
 		if config.plugins.blockcontent.reactivetime.value > 0 and not self.blockedcontent_reactive:
-		      		print "[BlockContent] reactivate in %s min\n" % config.plugins.blockcontent.reactivetime.value
+		      		print("[BlockContent] reactivate in %s min\n" % config.plugins.blockcontent.reactivetime.value)
 		        	self.TimerBlockContentReactivate = eTimer()
 		        	self.TimerBlockContentReactivate.stop()
 		        	self.TimerBlockContentReactivate.timeout.get().append(self.ReactivateBlockContent)
@@ -246,23 +247,23 @@ class BlockContentCheck(Screen):
 							blockedbouquet=u.readline().lstrip().rstrip().rstrip("\r\n")
 				 			blockedbouquet=blockedbouquet.replace("#SERVICE","").replace(" ","")
 							if blockedbouquet.startswith("#") is False and check.find(blockedbouquet) is not -1 and len(blockedbouquet) > 1:	
-   								print "[BlockedContent] %s found in %s" % (blockedbouquet,check)
+   								print("[BlockedContent] %s found in %s" % (blockedbouquet,check))
 								blockedcontent_found=True
 						u.close()
         			if config.plugins.blockcontent.casesensitive.value is False:
 					blockedcontent=blockedcontent.upper()
 				if blockedcontent.startswith("#") is False and check.find(blockedcontent) is not -1 and len(blockedcontent) > 1:	
-   					print "[BlockedContent] %s found in %s" % (blockedcontent,check)
+   					print("[BlockedContent] %s found in %s" % (blockedcontent,check))
 					blockedcontent_found=True
 			f.close()
 		else:
-			print "[BlockedContent] /etc/enigma2/blockedcontent not found"
+			print("[BlockedContent] /etc/enigma2/blockedcontent not found")
  		if self.blockedcontent_authorized != check:
 			self.blockedcontent_authorized=""
  		if blockedcontent_found and self.blockedcontent_authorized != check and not blockedcontent_asking:
         			if config.plugins.blockcontent.popup.value is False:
 					blockedcontent_asking=True
-					print "[BlockedContent] asks for PIN"
+					print("[BlockedContent] asks for PIN")
 					self.prev_running_service=serviceref
 					self.blockedcontent_check=check
 					self.session.nav.stopService()
@@ -290,7 +291,7 @@ class BlockContentCheck(Screen):
 		self.blockedcontent_authorized=self.blockedcontent_check
 
     def ReactivateBlockContent(self):
-	print "[BlockContent] reactivated"
+	print("[BlockContent] reactivated")
 	global blockedcontent_deactive
 	blockedcontent_deactive=False
 	self.blockedcontent_authorized=""

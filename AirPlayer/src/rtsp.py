@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+from __future__ import print_function
 import sys
 import re
 import types
@@ -149,8 +151,8 @@ class RTSPRequest(http.Request):
                 self.render(er)
 
         except Exception as e:
-            print 'failed to process %s:' % (lines and lines[0] or '[No headers]')
-            print e
+            print('failed to process %s:' % (lines and lines[0] or '[No headers]'))
+            print(e)
 
     def _processPath(self):
         self.prepath = []
@@ -163,7 +165,7 @@ class RTSPRequest(http.Request):
             if m:
                 hostport = m.expand('\\1')
             if not hostport:
-                print 'Absolute rtsp URL required: %s' % self.path
+                print('Absolute rtsp URL required: %s' % self.path)
                 self.render(ErrorResource(BAD_REQUEST, 'Malformed Request-URI %s' % self.path))
                 return False
             rest = self.path.split(hostport)[1]
@@ -199,7 +201,7 @@ class RTSPRequest(http.Request):
     def _renderCallback(self, result, resrc):
         body = result
         if body is None or type(body) is not types.StringType:
-            print 'request did not return a string'
+            print('request did not return a string')
         else:
             self.setHeader('Content-Length', str(len(body)))
         lines = []
@@ -218,7 +220,7 @@ class RTSPChannel(http.HTTPChannel):
     def checkPersistence(self, request, version):
         if version == SERVER_PROTOCOL:
             return 1
-        print 'version %s not handled' % version
+        print('version %s not handled' % version)
         return 0
 
 
@@ -246,26 +248,26 @@ class RTSPResource(resource.Resource):
 
     def getChild(self, path, request):
         return NoResource()
-        print 'RTSPResource.getChild(%r, %s, <request>), pre %r, post %r' % (self,
+        print('RTSPResource.getChild(%r, %s, <request>), pre %r, post %r' % (self,)
          path,
          request.prepath,
          request.postpath)
         res = resource.Resource.getChild(self, path, request)
-        print 'RTSPResource.getChild(%r, %s, <request>) returns %r' % (self, path, res)
+        print('RTSPResource.getChild(%r, %s, <request>) returns %r' % (self, path, res))
         return res
 
     def getChildWithDefault(self, path, request):
-        print 'RTSPResource.getChildWithDefault(%r, %s, <request>), pre %r, post %r' % (self,
+        print('RTSPResource.getChildWithDefault(%r, %s, <request>), pre %r, post %r' % (self,)
          path,
          request.prepath,
          request.postpath)
-        print 'children: %r' % self.children.keys()
+        print('children: %r' % self.children.keys())
         res = resource.Resource.getChildWithDefault(self, path, request)
-        print 'RTSPResource.getChildWithDefault(%r, %s, <request>) returns %r' % (self, path, res)
+        print('RTSPResource.getChildWithDefault(%r, %s, <request>) returns %r' % (self, path, res))
         return res
 
     def noputChild(self, path, r):
-        print 'RTSPResource.putChild(%r, %s, %r)' % (self, path, r)
+        print('RTSPResource.putChild(%r, %s, %r)' % (self, path, r))
         return resource.Resource.putChild(self, path, r)
 
     def render_startCSeqDate(self, request, method):
@@ -278,15 +280,15 @@ class RTSPResource(resource.Resource):
 
     def render_start(self, request, method):
         ip = request.getClientIP()
-        print 'RTSPResource.render_start(): client from %s requests %s' % (ip, method)
-        print 'RTSPResource.render_start(): uri %r' % request.path
+        print('RTSPResource.render_start(): client from %s requests %s' % (ip, method))
+        print('RTSPResource.render_start(): uri %r' % request.path)
         self.render_startCSeqDate(request, method)
         request.setHeader('Server', SERVER_STRING)
         request.delHeader('Content-Type')
         request.setHeader('Last-Modified', http.datetimeToString())
         request.setHeader('Cache-Control', 'must-revalidate')
         if 'Real' in request.received_headers.get('user-agent', ''):
-            print 'Detected Real client, sending specific headers'
+            print('Detected Real client, sending specific headers')
             request.setHeader('Public', 'OPTIONS, DESCRIBE, ANNOUNCE, PLAY, SETUP, TEARDOWN')
             request.setHeader('RealChallenge1', '28d49444034696e1d523f2819b8dcf4c')
 

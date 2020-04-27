@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+from __future__ import print_function
 from Components.AVSwitch import AVSwitch
 from Components.ActionMap import ActionMap
 from Components.Label import Label
@@ -21,7 +23,7 @@ class AirPlayMusicPlayer(Screen):
         backend.MusicWindow = self
         self.session = session
         self.skinName = 'AirPlayMusicPlayer'
-        print '[AirPlayMusicPlayer] starting AirTunesPlayer'
+        print('[AirPlayMusicPlayer] starting AirTunesPlayer')
         Screen.__init__(self, session)
         self['actions'] = ActionMap(['OkCancelActions', 'MoviePlayerActions'], {'cancel': self.Exit,
          'leavePlayer': self.Exit}, -1)
@@ -102,27 +104,27 @@ class AirPlayMusicPlayer(Screen):
     def parseMetadata(self):
         try:
             if not os.path.exists(config.plugins.airplayer.path.value + '/metadata.bin'):
-                print '[AirPlayMusicPlayer] No Metadata found'
+                print('[AirPlayMusicPlayer] No Metadata found')
                 return
             if self.libairtunes is None:
                 self.libairtunes = cdll.LoadLibrary(resolveFilename(SCOPE_PLUGINS, 'Extensions/AirPlayer/libairtunes.so.0'))
-                print '[AirPlayMusicPlayer] loading lib done'
+                print('[AirPlayMusicPlayer] loading lib done')
             response = create_string_buffer(1024)
             self.libairtunes.getMetadata('asal', config.plugins.airplayer.path.value + '/metadata.bin', response)
             if response.value is not None and response.value != '':
                 self['label_album'].setText(response.value)
-                print '[AirPlayMusicPlayer] album: ', response.value
+                print('[AirPlayMusicPlayer] album: ', response.value)
             self.libairtunes.getMetadata('minm', config.plugins.airplayer.path.value + '/metadata.bin', response)
             if response.value is not None and response.value != '':
                 self['label_title'].setText(response.value)
-                print '[AirPlayMusicPlayer] title: ', response.value
+                print('[AirPlayMusicPlayer] title: ', response.value)
             self.libairtunes.getMetadata('asar', config.plugins.airplayer.path.value + '/metadata.bin', response)
             if response.value is not None and response.value != '':
                 self['label_interpret'].setText(response.value)
-                print '[AirPlayMusicPlayer] artist: ', response.value
+                print('[AirPlayMusicPlayer] artist: ', response.value)
         except Exception as e:
-            print '[AirPlayMusicPlayer] loading lib failed'
-            print e
+            print('[AirPlayMusicPlayer] loading lib failed')
+            print(e)
             self.libairtunes = None
             return False
 
@@ -185,19 +187,19 @@ class AirPlayMusicPlayer(Screen):
             self.Exit()
 
     def Exit(self):
-        print '[AirPlayMusicPlayer] stopping AirTunesPlayer'
+        print('[AirPlayMusicPlayer] stopping AirTunesPlayer')
         self.backend.MusicWindow = None
         if self.lastservice and self.lastservice is not None:
             self.backend.updateEventInfo('stopped')
         else:
-            print '[AirPlayMusicPlayer] lastService is None, not sending stop command'
+            print('[AirPlayMusicPlayer] lastService is None, not sending stop command')
         Console().ePopen('killall -9 hairtunes')
         Console().ePopen('killall -9 atproxy')
         try:
             config.av.downmix_ac3.value = self.backend.downmix_ac3
             config.av.downmix_ac3.save()
         except Exception as e:
-            print '[AirPlayMusicPlayer] rest downmix failed: ', e
+            print('[AirPlayMusicPlayer] rest downmix failed: ', e)
 
         if self.backend.ENIGMA_SERVICE_ID == self.backend.ENIGMA_SERVICEAZ_ID:
             self.session.nav.stopService()

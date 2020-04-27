@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+from __future__ import print_function
 from Screens.Screen import Screen
 from Screens.MessageBox import MessageBox
 from Plugins.Plugin import PluginDescriptor
@@ -104,7 +105,7 @@ def localeInit():
 def _(txt):
     t = gettext.dgettext("QuickWeather", txt)
     if t == txt:
-        print "[QuickWeather] fallback to default translation for", txt 
+        print("[QuickWeather] fallback to default translation for", txt )
         t = gettext.gettext(txt)
     return t
 
@@ -1306,10 +1307,10 @@ class WeatherPluginMenu(Screen):
                             value = entry[0][1].strip()
                             if key == 'config.plugins.WeatherPlugin.enabled':
                                 ekran = value
-                                print ekran
+                                print(ekran)
                             elif key == 'config.plugins.WeatherPlugin.days':
                                 ekransmol = value
-                                print ekransmol                                
+                                print(ekransmol                                )
             finally:
                 f.close()
 
@@ -1329,10 +1330,10 @@ class WeatherPluginMenu(Screen):
                             value = entry[0][1].strip()
                             if key == 'config.plugins.WeatherPlugin.enabled':
                                 ekran2 = value
-                                print ekran2
+                                print(ekran2)
                             elif key == 'config.plugins.WeatherPlugin.days':
                                 ekransmol2 = value
-                                print ekransmol2                                 
+                                print(ekransmol2                                 )
             finally:
                 f.close()
 

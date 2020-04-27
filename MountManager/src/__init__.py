@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from gettext import bindtextdomain, dgettext, gettext
 from os import environ
 from Components.Language import language

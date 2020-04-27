@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+from __future__ import print_function
 from Screens.Screen import Screen
 from Components.Label import Label
 from Components.Pixmap import Pixmap
@@ -24,7 +26,7 @@ class PictureScreen(Screen):
 
     def __init__(self, session, url = None):
         Screen.__init__(self, session)
-        print '[PictureScreen] __init__\n'
+        print('[PictureScreen] __init__\n')
         self.url = url
         self.Scale = AVSwitch().getFramebufferScale()
         self.PicLoad = ePicLoad()
@@ -49,7 +51,7 @@ class PictureScreen(Screen):
         downloadPage(self.url, self.path).addCallback(self.downloadDone).addErrback(self.downloadError)
 
     def downloadError(self, raw):
-        print '[e2Fetcher.fetchPage]: download Error', raw
+        print('[e2Fetcher.fetchPage]: download Error', raw)
         self['info'].setText('Preview Download Failure,No internet connection or server down or preview not available !\n press OK to exit')
 
     def downloadDone(self, raw):
@@ -75,7 +77,7 @@ class PictureScreen(Screen):
         return
 
     def cancel(self):
-        print '[PictureScreen] - cancel\n'
+        print('[PictureScreen] - cancel\n')
         try:
             os.remove('/tmp/bootlogo.jpg')
         except:

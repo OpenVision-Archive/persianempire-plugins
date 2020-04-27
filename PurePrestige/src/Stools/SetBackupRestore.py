@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+from __future__ import print_function
 from Screens.Console import Console
 from Screens.ChoiceBox import ChoiceBox
 from Screens.MessageBox import MessageBox
@@ -263,7 +265,7 @@ class PurePrestigeRestoreMenu(Screen):
     def startDelete(self, ret = False):
         if ret == True:
             self.exe = True
-            print 'removing:', self.val
+            print('removing:', self.val)
             if path.exists(self.val) == True:
                 remove(self.val)
             self.exe = False
@@ -423,7 +425,7 @@ class PurePrestigeBackupSettingsScrean(Screen):
         return
 
     def createBackupfolders(self):
-        print 'Creating backup folder if not already there...'
+        print('Creating backup folder if not already there...')
         self.backuppath = getBackupPath()
         try:
             if path.exists(self.backuppath) == False:

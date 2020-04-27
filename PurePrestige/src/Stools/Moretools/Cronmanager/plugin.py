@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+from __future__ import print_function
 from enigma import eTimer, eListboxPythonMultiContent, gFont, RT_HALIGN_LEFT, RT_HALIGN_RIGHT, RT_HALIGN_CENTER, getDesktop, loadPNG, loadPic
 from Components.Label import Label
 from Components.MultiContent import MultiContentEntryText, MultiContentEntryPixmapAlphaTest
@@ -42,12 +44,12 @@ def main(session, **kwargs):
     try:
         session.open(PurePrestigecrondsscreen)
     except:
-        print '[CRONMANAGER] Pluginexecution failed'
+        print('[CRONMANAGER] Pluginexecution failed')
 
 
 def autostart(reason, **kwargs):
     if reason == 0:
-        print '[CRONMANAGER] no autostart'
+        print('[CRONMANAGER] no autostart')
 
 
 def Plugins(**kwargs):
@@ -521,8 +523,8 @@ class ChangeTimeWizzard(Screen):
         jetzt = time.time()
         timezone = datetime.datetime.utcnow()
         delta = jetzt - time.mktime(timezone.timetuple())
-        print 'delta: %i' % delta
-        print 'oldtime: %i' % jetzt
+        print('delta: %i' % delta)
+        print('oldtime: %i' % jetzt)
         self.oldtime = strftime('%Y:%m:%d %H:%M', localtime())
         self.session.openWithCallback(self.askForNewTime, InputBox, title=_('Enter new Systemtime - OK will restart enigma2 !'), text='%s' % self.oldtime, maxSize=16, type=Input.NUMBER)
 
@@ -545,7 +547,7 @@ class ChangeTimeWizzard(Screen):
             full = newclock.split(' ', 1)
             newdate = full[0]
             newtime = full[1]
-            print 'newdate %s newtime %s' % (newdate, newtime)
+            print('newdate %s newtime %s' % (newdate, newtime))
             parts = []
             parts = newdate.split(':', 2)
             newyear = parts[0]
@@ -578,7 +580,7 @@ class ChangeTimeWizzard(Screen):
                  newhour,
                  newmin,
                  newyear)
-                print 'date %s' % self.newtime
+                print('date %s' % self.newtime)
                 self.session.openWithCallback(self.DoChangeTimeRestart, MessageBox, _('Enigma2 will restart to change Systemtime - OK ?'), MessageBox.TYPE_YESNO)
         return
 

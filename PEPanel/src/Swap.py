@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+from __future__ import print_function
 from enigma import *
 from Screens.Screen import Screen
 from Components.Label import Label
@@ -130,4 +132,4 @@ class Swap(ConfigListScreen, Screen):
             os.chmod('/etc/init.d/swap', 493)
             os.symlink('/etc/init.d/swap', '/etc/rcS.d/S60swap')
         except OSError:
-            print '[PEPanel] symlink already exists. do nothing.'
+            print('[PEPanel] symlink already exists. do nothing.')

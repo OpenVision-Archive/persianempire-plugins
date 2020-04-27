@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+from __future__ import print_function
 import os
 from Plugins.Plugin import PluginDescriptor
 from Screens.Screen import Screen
@@ -69,20 +71,20 @@ class AP_MainMenu(Screen, ConfigListScreen):
 
     def keyStart(self):
         global global_session
-        print '[AirPlayer] pressed start'
-        print '[AirPlayer] trying to stop if running'
+        print('[AirPlayer] pressed start')
+        print('[AirPlayer] trying to stop if running')
         stopWebserver(global_session)
-        print '[AirPlayer] trying to start'
+        print('[AirPlayer] trying to start')
         startWebserver(global_session)
         self.session.openWithCallback(self.close, MessageBox, _('Service successfully started'), MessageBox.TYPE_INFO, timeout=5)
 
     def keyStop(self):
-        print '[AirPlayer] pressed stop'
+        print('[AirPlayer] pressed stop')
         stopWebserver(global_session)
         self.session.openWithCallback(self.close, MessageBox, _('Service successfully stoped'), MessageBox.TYPE_INFO, timeout=5)
 
     def keySettings(self):
-        print '[AirPlayer] open Settings'
+        print('[AirPlayer] open Settings')
         self.session.open(AP_ConfigScreen)
 
     def setCustomTitle(self):
@@ -122,7 +124,7 @@ class AP_ConfigScreen(Screen, ConfigListScreen):
         self._hasChanged = True
 
     def keySave(self):
-        print '[AirPlayer] pressed save'
+        print('[AirPlayer] pressed save')
         self.saveAll()
         if self._hasChanged:
             self.session.openWithCallback(self.restartGUI, MessageBox, _('Some settings may need a GUI restart\nDo you want to Restart the GUI now?'), MessageBox.TYPE_YESNO)
@@ -147,7 +149,7 @@ class AP_ConfigScreen(Screen, ConfigListScreen):
 
 def stopWebserver(session):
     Console().ePopen('killall -9 zeroconfig &')
-    print '[AirPlayer] service stopped'
+    print('[AirPlayer] service stopped')
 
 
 def startWebserver(session):
@@ -155,27 +157,27 @@ def startWebserver(session):
     global global_protocol_handler
     global global_media_backend
     config.plugins.airplayer.version.value = currentVersion
-    print '[AirPlayer] starting AirPlayer version', config.plugins.airplayer.version.value
-    print '[AirPlayer] starting webserver'
-    print '[AirPlayer] init Backend'
+    print('[AirPlayer] starting AirPlayer version', config.plugins.airplayer.version.value)
+    print('[AirPlayer] starting webserver')
+    print('[AirPlayer] init Backend')
     media_backend = E2MediaBackend(session)
-    print '[AirPlayer] init protocol handler'
+    print('[AirPlayer] init protocol handler')
     protocol_handler = AirplayProtocolHandler(6002, media_backend)
     aitrunes_ph = AirtunesProtocolHandler(media_backend)
     global_protocol_handler = protocol_handler
     global_media_backend = media_backend
     global_airtunes_protocol_handler = aitrunes_ph
-    print '[AirPlayer] starting protocol hadler'
+    print('[AirPlayer] starting protocol hadler')
     protocol_handler.start()
     aitrunes_ph.start()
-    print '[AirPlayer] starting webserver done'
-    print '[AirPlayer] starting zeroconf'
+    print('[AirPlayer] starting webserver done')
+    print('[AirPlayer] starting zeroconf')
     Console().ePopen('killall -9 zeroconfig')
     if os.path.exists("/usr/lib64"):
           Console().ePopen("/usr/lib64/enigma2/python/Plugins/Extensions/AirPlayer/zeroconfig %s %s &" % (config.plugins.airplayer.name.value, config.plugins.airplayer.interface.value))
     else:
           Console().ePopen("/usr/lib/enigma2/python/Plugins/Extensions/AirPlayer/zeroconfig %s %s &" % (config.plugins.airplayer.name.value, config.plugins.airplayer.interface.value))
-    print '[AirPlayer] starting zeroconf done'
+    print('[AirPlayer] starting zeroconf done')
 
 
 def sessionstart(reason, session):
@@ -187,7 +189,7 @@ def networkstart(reason, **kwargs):
     interfaces = []
     for i in iNetwork.getAdapterList():
         interfaces.append((i, i))
-        print '[AirPlayer] found network dev', i
+        print('[AirPlayer] found network dev', i)
 
     config.plugins.airplayer.interface = ConfigSelection(choices=interfaces, default='eth0')
     if reason == 1 and config.plugins.airplayer.startuptype.value:

@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from Screens.Screen import Screen
 from Components.ActionMap import ActionMap, NumberActionMap
 from Components.MenuList import MenuList
@@ -111,8 +112,8 @@ class PurePrestigelangsScreen(Screen):
     def getsecondkey(self, name):
         for item in self.langs:
             if name == item[1]:
-                print name
-                print item
+                print(name)
+                print(item)
                 secondkey = item[2]
                 secondkey = secondkey.lower()
                 return secondkey
@@ -187,8 +188,8 @@ class PurePrestigelangsScreen(Screen):
         flag = self.menuList[idx][3]
         position = self.getlan(name)
         secondkey = self.getsecondkey(name)
-        print name
-        print secondkey
+        print(name)
+        print(secondkey)
         flag = LoadPixmap(cached=True, path=resolveFilename(SCOPE_CURRENT_SKIN, '/usr/share/enigma2/countries/' + secondkey + '.png'))
         if name in self.removelist:
             self.menuList[idx] = (position,
@@ -279,9 +280,9 @@ class PurePrestigelangsScreen(Screen):
             folderpathfile = path + selectedfolder + '/LC_MESSAGES/enigma2.mo'
             foldermess = path + selectedfolder + '/LC_MESSAGES/'
             folderpath = path + selectedfolder
-            print folderpathfile
-            print foldermess
-            print folderpath
+            print(folderpathfile)
+            print(foldermess)
+            print(folderpath)
             if os.path.exists(folderpathfile):
                 os.remove(folderpathfile)
             if os.path.exists(foldermess):

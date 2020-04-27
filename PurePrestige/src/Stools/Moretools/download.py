@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from Screens.Screen import Screen
 from Plugins.Plugin import PluginDescriptor
 from Components.ActionMap import ActionMap
@@ -66,7 +67,7 @@ class PurePrestigelangdownload(Screen):
         getPage(url).addCallback(self._gotPageLoad).addErrback(self.errorLoad)
 
     def errorLoad(self, error):
-        print str(error)
+        print(str(error))
         self['info'].setText('Addons Download Failure,No internet connection or server down !')
         self.downloading = False
 

@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+from __future__ import print_function
 import markupbase
 import re
 
@@ -327,8 +329,8 @@ class SGMLParser(markupbase.ParserBase):
 
     def report_unbalanced(self, tag):
         if self.verbose:
-            print '*** Unbalanced </' + tag + '>'
-            print '*** Stack:', self.stack
+            print('*** Unbalanced </' + tag + '>')
+            print('*** Stack:', self.stack)
 
     def handle_charref(self, name):
         """Handle character reference, no need to override."""
@@ -402,37 +404,37 @@ class TestSGMLParser(SGMLParser):
         data = self.testdata
         if data:
             self.testdata = ''
-            print 'data:', `data`
+            print('data:', `data`)
 
     def handle_comment(self, data):
         self.flush()
         r = `data`
         if len(r) > 68:
             r = r[:32] + '...' + r[-32:]
-        print 'comment:', r
+        print('comment:', r)
 
     def unknown_starttag(self, tag, attrs):
         self.flush()
         if not attrs:
-            print 'start tag: <' + tag + '>'
+            print('start tag: <' + tag + '>')
         else:
-            print 'start tag: <' + tag,
+            print('start tag: <' + tag,)
             for name, value in attrs:
-                print name + '=' + '"' + value + '"',
+                print(name + '=' + '"' + value + '"',)
 
-            print '>'
+            print('>')
 
     def unknown_endtag(self, tag):
         self.flush()
-        print 'end tag: </' + tag + '>'
+        print('end tag: </' + tag + '>')
 
     def unknown_entityref(self, ref):
         self.flush()
-        print '*** unknown entity ref: &' + ref + ';'
+        print('*** unknown entity ref: &' + ref + ';')
 
     def unknown_charref(self, ref):
         self.flush()
-        print '*** unknown char ref: &#' + ref + ';'
+        print('*** unknown char ref: &#' + ref + ';')
 
     def close(self):
         SGMLParser.close(self)
@@ -458,7 +460,7 @@ def test(args = None):
         try:
             f = open(file, 'r')
         except IOError as msg:
-            print file, ':', msg
+            print(file, ':', msg)
             sys.exit(1)
 
     data = f.read()

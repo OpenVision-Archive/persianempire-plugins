@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from Plugins.Plugin import PluginDescriptor
 from Components.Sources.List import List
 from Components.MultiContent import MultiContentEntryText, MultiContentEntryPixmapAlphaTest

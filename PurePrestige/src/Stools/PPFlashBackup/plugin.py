@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+from __future__ import print_function
 from Plugins.Plugin import PluginDescriptor
 from Screens.Console import Console
 from Screens.ChoiceBox import ChoiceBox
@@ -84,7 +86,7 @@ def write_cache(cache_file, cache_data):
         try:
             mkdir(os_path.dirname(cache_file))
         except OSError:
-            print os_path.dirname(cache_file), 'is a file'
+            print(os_path.dirname(cache_file), 'is a file')
 
     fd = open(cache_file, 'w')
     dump(cache_data, fd, -1)
@@ -250,7 +252,7 @@ class PurePrestigeFlashBackup(Screen):
         else:
             sp = []
             sp = path.split('/')
-            print sp
+            print(sp)
             if len(sp) > 1:
                 if sp[1] != 'media':
                     self.session.open(MessageBox, mounted_string % path, MessageBox.TYPE_ERROR)
@@ -263,11 +265,11 @@ class PurePrestigeFlashBackup(Screen):
             while m and not mounted:
                 if m.find('/%s/%s' % (sp[1], sp[2])) is not -1:
                     mounted = True
-                    print m
+                    print(m)
                     sp2 = m.split(' ')
-                    print sp2
+                    print(sp2)
                     if sp2[2].startswith('ext') or sp2[2].endswith('fat'):
-                        print '[stFlash] swappable'
+                        print('[stFlash] swappable')
                         self.swappable = True
                 m = f.readline()
 

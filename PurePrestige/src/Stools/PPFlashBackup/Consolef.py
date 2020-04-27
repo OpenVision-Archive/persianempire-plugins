@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+from __future__ import print_function
 from enigma import eConsoleAppContainer
 from Screens.Screen import Screen
 from Components.ActionMap import ActionMap
@@ -29,7 +31,7 @@ class Consolef(Screen):
 
     def startRun(self):
         self['text'].setText(_('Execution Progress:') + '\n\n')
-        print 'Console: executing in run', self.run, ' the command:', self.cmdlist[self.run]
+        print('Console: executing in run', self.run, ' the command:', self.cmdlist[self.run])
         if self.container.execute(self.cmdlist[self.run]):
             self.runFinished(-1)
 

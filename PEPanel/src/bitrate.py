@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+from __future__ import print_function
 from enigma import eConsoleAppContainer, iServiceInformation
 from Components.Console import Console
 
@@ -86,4 +88,4 @@ class Bitrate:
                 if self.refresh_func:
                     self.refresh_func()
             except ValueError:
-                print '[Bitrateviewer] No valid data grabbed.'
+                print('[Bitrateviewer] No valid data grabbed.')

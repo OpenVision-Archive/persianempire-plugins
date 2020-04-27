@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+from __future__ import print_function
 import gettext
 import locale
 from Tools.Directories import SCOPE_LANGUAGE, resolveFilename
@@ -50,24 +52,24 @@ class Language:
             self.lang[str(lang + '_' + country)] = (name, lang, country)
             self.langlist.append(str(lang + '_' + country))
         except:
-            print 'Language ' + str(name) + ' not found'
+            print('Language ' + str(name) + ' not found')
 
     def activateLanguage(self, index):
         try:
             lang = self.lang[index]
-            print 'Activating language ' + lang[0]
+            print('Activating language ' + lang[0])
             gettext.translation('enigma2', resolveFilename(SCOPE_LANGUAGE, ''), languages=[lang[1]]).install(names='ngettext')
             self.activeLanguage = index
             for x in self.callbacks:
                 x()
 
         except:
-            print 'Selected language does not exist!'
+            print('Selected language does not exist!')
 
         try:
             locale.setlocale(locale.LC_TIME, self.getLanguage())
         except:
-            print 'Failed to set LC_TIME to ' + self.getLanguage() + ". Setting it to 'C'"
+            print('Failed to set LC_TIME to ' + self.getLanguage() + ". Setting it to 'C'")
             locale.setlocale(locale.LC_TIME, 'C')
 
     def activateLanguageIndex(self, index):
@@ -100,16 +102,15 @@ class Language:
         T1 = _('Please use the UP and DOWN keys to select your language. Afterwards press the OK button.')
         T2 = _('Language selection')
         l = open('language_cache.py', 'w')
-        print >> l, '# -*- coding: UTF-8 -*-'
-        print >> l, 'LANG_TEXT = {'
+        print(>> l, 'LANG_TEXT = {')
         for language in self.langlist:
             self.activateLanguage(language)
-            print >> l, '"%s": {' % language
-            print >> l, '\t"T1": "%s",' % _(T1)
-            print >> l, '\t"T2": "%s",' % _(T2)
-            print >> l, '},'
+            print(>> l, '"%s": {' % language)
+            print(>> l, '\t"T1": "%s",' % _(T1))
+            print(>> l, '\t"T2": "%s",' % _(T2))
+            print(>> l, '},')
 
-        print >> l, '}'
+        print(>> l, '}')
 
 
 language = Language()

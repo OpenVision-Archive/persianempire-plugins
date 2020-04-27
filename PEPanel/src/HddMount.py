@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+from __future__ import print_function
 from enigma import *
 from Screens.Screen import Screen
 from Screens.VirtualKeyBoard import VirtualKeyBoard
@@ -50,7 +52,7 @@ class HddMount(Screen):
             os.chmod('/etc/init.d/mountctall', 493)
             os.symlink('/etc/init.d/mountctall', '/etc/rcS.d/S49mountctall')
         except OSError:
-            print '[PEPanel] symlink already exists. do nothing.'
+            print('[PEPanel] symlink already exists. do nothing.')
 
         selected = self['menu'].getSelectedIndex()
         if selected == 0:

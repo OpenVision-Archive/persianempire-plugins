@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+from __future__ import print_function
 from . import _
 from Screens.Screen import Screen
 from Components.ActionMap import ActionMap
@@ -130,12 +132,12 @@ class LocaleManager(Screen, ConfigListScreen):
 					target = "".join((ENIGMA,"/po/",self.getName(language,typ),"/LC_MESSAGES/enigma2.mo"))
 					self.osSystem("ln -s %s %s" % (target, path))
 				except:
-					print "[LocaleManager] error", path
+					print("[LocaleManager] error", path)
 			else:
 				try:
 					self.osSystem("rm -R %s" % (path))
 				except:
-					print "[LocaleManager] error", path				
+					print("[LocaleManager] error", path				)
 		self["statusbar"].setText(_("Removed"))
 
 	def moveEnigmaFiles(self, dirs, language):
@@ -152,7 +154,7 @@ class LocaleManager(Screen, ConfigListScreen):
 				subDir += "/enigma2.mo"
 				self.osSystem("ln -s %s %s" % (subDir, path))
 			except:
-				print "[LocaleManager] error", path
+				print("[LocaleManager] error", path)
 		self["statusbar"].setText(_("Moved"))
 
 	def osSystem(self, cmd):

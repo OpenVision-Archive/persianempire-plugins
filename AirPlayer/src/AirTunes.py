@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+from __future__ import print_function
 from rtsp import RTSPSite, RTSPResource
 from twisted.internet import reactor
 import os
@@ -28,10 +30,10 @@ class AirtunesProtocolHandler(RTSPResource):
         self.validationMessage = ''
         try:
             self.libairtunes = cdll.LoadLibrary(resolveFilename(SCOPE_PLUGINS, 'Extensions/AirPlayer/libairtunes.so.0'))
-            print '[AirTunes] loading lib done'
+            print('[AirTunes] loading lib done')
         except Exception as e:
-            print '[AirTunes] loading lib failed'
-            print e
+            print('[AirTunes] loading lib failed')
+            print(e)
             self.libairtunes = None
 
         return
@@ -41,7 +43,7 @@ class AirtunesProtocolHandler(RTSPResource):
             site = RTSPSite(self)
             reactor.listenTCP(5000, site, interface='0.0.0.0')
         except Exception as ex:
-            print ('Exception(Can be ignored): ' + str(ex), __name__, 'W')
+            print(('Exception(Can be ignored): ' + str(ex), __name__, 'W'))
 
     def handleChallengeResponse(self, request):
         response = create_string_buffer(1024)
@@ -65,7 +67,7 @@ class AirtunesProtocolHandler(RTSPResource):
             pass
 
         self.render_startCSeqDate(request, request.method)
-        print '[AirTunes] render OPTIONS'
+        print('[AirTunes] render OPTIONS')
         request.setHeader('Public', 'ANNOUNCE, SETUP, RECORD, PAUSE, FLUSH, TEARDOWN, OPTIONS, GET_PARAMETER, SET_PARAMETER')
         request.setHeader('Audio-Jack-Status', 'connected; type=analog')
         self.handleChallengeResponse(request)
@@ -73,7 +75,7 @@ class AirtunesProtocolHandler(RTSPResource):
 
     def render_ANNOUNCE(self, request):
         self.render_startCSeqDate(request, request.method)
-        print '[AirTunes] render ANNOUNCE'
+        print('[AirTunes] render ANNOUNCE')
         self.handleChallengeResponse(request)
         content = request.content.read()
         for row in content.split('\n'):
@@ -89,27 +91,27 @@ class AirtunesProtocolHandler(RTSPResource):
                     value += '=='
             if key == 'aesiv':
                 self.aesiv = value
-                print 'aesiv: ', self.aesiv
+                print('aesiv: ', self.aesiv)
             elif key == 'rsaaeskey':
-                print 'decrypt rsaaeskey', value
+                print('decrypt rsaaeskey', value)
                 response = create_string_buffer(1024)
                 self.libairtunes.decryptRSAAESKey(value, response)
                 self.rsaaeskey = response.value
-                print 'rsaaeskey: ', self.rsaaeskey
+                print('rsaaeskey: ', self.rsaaeskey)
             elif key == 'fmtp':
                 self.fmtp = value
 
-        print 'announce finish'
+        print('announce finish')
         return ''
 
     def render_SETUP(self, request):
         self.render_startCSeqDate(request, request.method)
-        print '[AirTunes] render SETUP'
+        print('[AirTunes] render SETUP')
         self.handleChallengeResponse(request)
         if self.aesiv is not None and self.rsaaeskey is not None and self.fmtp is not None and 'transport' in request.received_headers:
-            print '[AirTunes] alles da'
+            print('[AirTunes] alles da')
             if self.process is not None:
-                print '[AirTunes] killing old instance of hairtunes'
+                print('[AirTunes] killing old instance of hairtunes')
                 self.process.kill()
                 self.process = None
             data_port = 0
@@ -137,10 +139,10 @@ class AirtunesProtocolHandler(RTSPResource):
                 aesiv += '%02X' % ord(ch)
 
             try:
-                print '[AirTunes] setting downmix'
+                print('[AirTunes] setting downmix')
                 blockingCallFromMainThread(self.backend.setDownmix)
             except Exception as e:
-                print '[AirTunes] setting downmix failed: ', e
+                print('[AirTunes] setting downmix failed: ', e)
 
             if config.plugins.airplayer.audioBackend.value == 'proxy':
                 binary = AIRTUNES_PROXY_BINARY
@@ -161,8 +163,8 @@ class AirtunesProtocolHandler(RTSPResource):
              str(timing_port),
              'dport',
              '0']
-            print '[AirTunes] starting AirTunes reciever'
-            print args[0], ' ', args[1], ' ', args[2], ' ', args[3], ' ', args[4], ' ', args[5], ' ', args[6], ' ', args[7], ' ', args[8], ' ', args[9], ' ', args[10], ' ', args[11], ' ', args[12]
+            print('[AirTunes] starting AirTunes reciever')
+            print(args[0], ' ', args[1], ' ', args[2], ' ', args[3], ' ', args[4], ' ', args[5], ' ', args[6], ' ', args[7], ' ', args[8], ' ', args[9], ' ', args[10], ' ', args[11], ' ', args[12])
             self.process = subprocess.Popen(args, stdin=subprocess.PIPE, stdout=subprocess.PIPE)
             while self.process.poll() == None:
                 buff = self.process.stdout.readline()
@@ -175,27 +177,27 @@ class AirtunesProtocolHandler(RTSPResource):
                 request.setHeader('transport', request.received_headers['transport'] + ';server_port=' + str(data_port))
                 request.setHeader('session', 'DEADBEEF')
                 if config.plugins.airplayer.delayAudioPlayback.value:
-                    print '[AirTunes] starting AudioPlayer in one sec'
+                    print('[AirTunes] starting AudioPlayer in one sec')
                     start_new_thread(self.playerStarter, (self,))
                 else:
-                    print '[AirTunes] starting AudioPlayer now'
+                    print('[AirTunes] starting AudioPlayer now')
                     blockingCallFromMainThread(self.backend.play_airtunes, self.validationMessage)
-                print 'player started: '
+                print('player started: ')
             else:
                 request.setHeader('transport', request.received_headers['transport'] + ';server_port=' + str(9999))
                 request.setHeader('session', 'DEADBEEF')
                 Notifications.AddNotification(MessageBox, _('AirTunes Audio-Streaming is not possible on this Boxtype'), type=MessageBox.TYPE_INFO, timeout=10)
         else:
-            print '[AirTunes] missing some parameters'
+            print('[AirTunes] missing some parameters')
             if self.aesiv is not None:
-                print '[AirTunes] aesiv:', self.aesiv
+                print('[AirTunes] aesiv:', self.aesiv)
             if self.rsaaeskey is not None:
-                print '[AirTunes] rsaaeskey:', self.rsaaeskey
+                print('[AirTunes] rsaaeskey:', self.rsaaeskey)
             if self.fmtp is not None:
-                print '[AirTunes] fmtp:', self.fmtp
+                print('[AirTunes] fmtp:', self.fmtp)
             if 'transport' in request.received_headers:
-                print '[AirTunes] transport:', request.received_headers['transport']
-        print '[AirTunes] setup done'
+                print('[AirTunes] transport:', request.received_headers['transport'])
+        print('[AirTunes] setup done')
         return ''
 
     def playerStarter(self, *args):
@@ -205,37 +207,37 @@ class AirtunesProtocolHandler(RTSPResource):
     def render_RECORD(self, request):
         self.render_startCSeqDate(request, request.method)
         self.handleChallengeResponse(request)
-        print '[AirTunes] render RECORD'
+        print('[AirTunes] render RECORD')
         request.setHeader('Audio-Jack-Status', 'connected; type=analog')
         return ''
 
     def render_SET_PARAMETER(self, request):
         self.render_startCSeqDate(request, request.method)
         self.handleChallengeResponse(request)
-        print '[AirTunes] render SET_PARAMETER'
+        print('[AirTunes] render SET_PARAMETER')
         try:
             contentType = request.getHeader('Content-Type')
             if contentType == 'image/jpeg':
-                print '[AirTunes] Got Cover'
+                print('[AirTunes] Got Cover')
                 request.content.seek(0)
                 file(config.plugins.airplayer.path.value + '/cover.jpg', 'wb').write(request.content.read())
                 blockingCallFromMainThread(self.backend.updateAirTunesCover)
             elif contentType == 'application/x-dmap-tagged':
-                print '[AirTunes] Got MetaData'
+                print('[AirTunes] Got MetaData')
                 file(config.plugins.airplayer.path.value + '/metadata.bin', 'wb').write(request.content.read())
                 blockingCallFromMainThread(self.backend.updateAirTunesMetadata)
             else:
                 content = request.content.read()
                 if content[:7] == 'volume:':
                     value = content[8:]
-                    print '[AirTunes] Got Volue: ', value
+                    print('[AirTunes] Got Volue: ', value)
                     vol = 100 - int(float(value) * -3.3333333333)
                     if vol < 0:
                         vol = 0
                     blockingCallFromMainThread(self.backend.setVolume, vol)
                 elif content[:9] == 'progress:':
                     value = content[9:]
-                    print '[AirTunes] Got Progress: ', value
+                    print('[AirTunes] Got Progress: ', value)
                     try:
                         nums = value.split('/')
                         start = int(nums[0])
@@ -243,10 +245,10 @@ class AirtunesProtocolHandler(RTSPResource):
                         seconds = (int(nums[1]) - start) / 44100
                         blockingCallFromMainThread(self.backend.updateAirTunesProgress, seconds, runtime)
                     except Exception as ex:
-                        print ('Exception during progress calc: ' + str(ex), __name__, 'W')
+                        print(('Exception during progress calc: ' + str(ex), __name__, 'W'))
 
         except Exception as ex:
-            print ('Exception during Volume calc: ' + str(ex), __name__, 'W')
+            print(('Exception during Volume calc: ' + str(ex), __name__, 'W'))
 
         request.setHeader('Audio-Jack-Status', 'connected; type=analog')
         return ''
@@ -254,16 +256,16 @@ class AirtunesProtocolHandler(RTSPResource):
     def render_GET_PARAMETER(self, request):
         self.handleChallengeResponse(request)
         self.render_startCSeqDate(request, request.method)
-        print '[AirTunes] render GET_PARAMETER'
+        print('[AirTunes] render GET_PARAMETER')
         content = request.content.read()
-        print '[AirTunes] content: ', content
+        print('[AirTunes] content: ', content)
         request.setHeader('Audio-Jack-Status', 'connected; type=analog')
         return ''
 
     def render_FLUSH(self, request):
         self.handleChallengeResponse(request)
         self.render_startCSeqDate(request, request.method)
-        print '[AirTunes] FLUSH'
+        print('[AirTunes] FLUSH')
         if self.process is not None and self.process.poll() is None:
             self.process.stdin.write('flush\n')
         return ''
@@ -271,7 +273,7 @@ class AirtunesProtocolHandler(RTSPResource):
     def render_TEARDOWN(self, request):
         self.handleChallengeResponse(request)
         self.render_startCSeqDate(request, request.method)
-        print '[AirTunes] TEARDOWN'
+        print('[AirTunes] TEARDOWN')
         if self.process != None and self.process.poll() == None:
             self.process.stdin.write('exit\n')
             self.process.wait()

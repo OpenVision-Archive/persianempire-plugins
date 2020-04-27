@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+from __future__ import print_function
 from enigma import ePicLoad, eTimer, getDesktop
 from Plugins.Plugin import PluginDescriptor
 from Screens.Screen import Screen
@@ -94,7 +96,7 @@ def getfreespaceinfo():
 
         totalitems.append(itemslist)
 
-    print totalitems[0]
+    print(totalitems[0])
     return totalitems
 
 
@@ -114,7 +116,7 @@ def getdevicesinfo():
             else:
                 newitems.append(line)
 
-        print newitems
+        print(newitems)
         list.append(newitems)
 
     return list
@@ -498,13 +500,13 @@ class PurePrestigedevicesinfo(Screen):
         theevents = []
         self.events = []
         self.events = self.totallist
-        print 'totallist', len(self.totallist)
+        print('totallist', len(self.totallist))
         self['list'].l.setItemHeight(50)
         self['list'].l.setFont(0, gFont('Regular', 25))
         self.newdisk = False
         for i in range(0, len(self.events)):
             item = self.events[i]
-            print item
+            print(item)
             if len(self.events[i]) > 1:
                 try:
                     item = self.events[i][0]
@@ -617,13 +619,13 @@ class PurePrestigekernelinfo(Screen):
         theevents = []
         self.events = []
         self.events = self.totallist
-        print 'totallist', len(self.totallist)
+        print('totallist', len(self.totallist))
         self['list'].l.setItemHeight(50)
         self['list'].l.setFont(0, gFont('Regular', 25))
         self.longitem = False
         for i in range(0, len(self.events)):
             item = self.events[i]
-            print item
+            print(item)
             if len(self.events[i]) > 0:
                 item = self.events[i]
                 res.append(MultiContentEntryText(pos=(0, 10), size=(2, 120), font=0, flags=RT_HALIGN_LEFT, text='', color=16777215, color_sel=16777215))
@@ -682,13 +684,13 @@ class PurePrestigeprocessinfo(Screen):
         theevents = []
         self.events = []
         self.events = self.totallist
-        print 'totallist', len(self.totallist)
+        print('totallist', len(self.totallist))
         self['list'].l.setItemHeight(50)
         self['list'].l.setFont(0, gFont('Regular', 25))
         self.longitem = False
         for i in range(0, len(self.events)):
             item = self.events[i]
-            print item
+            print(item)
             if len(self.events[i]) > 1:
                 pid = self.events[i][0]
                 user = self.events[i][1]
@@ -755,13 +757,13 @@ class PurePrestigefreememoryinfo(Screen):
         theevents = []
         self.events = []
         self.events = self.totallist
-        print 'totallist', len(self.totallist)
+        print('totallist', len(self.totallist))
         self['list'].l.setItemHeight(50)
         self['list'].l.setFont(0, gFont('Regular', 25))
         self.longitem = False
         for i in range(0, len(self.events)):
             item = self.events[i]
-            print item
+            print(item)
             if len(self.events[i]) > 1:
                 try:
                     item = self.events[i][0]
@@ -861,13 +863,13 @@ class PurePrestigemountsinfo(Screen):
         theevents = []
         self.events = []
         self.events = self.totallist
-        print 'totallist', len(self.totallist)
+        print('totallist', len(self.totallist))
         self['list'].l.setItemHeight(50)
         self['list'].l.setFont(0, gFont('Regular', 25))
         self.longitem = False
         for i in range(0, len(self.events)):
             item = self.events[i]
-            print item
+            print(item)
             if len(self.events[i]) > 1:
                 rootfs = self.events[i][0]
                 on = self.events[i][1]
@@ -938,13 +940,13 @@ class PurePrestigefreespace(Screen):
         theevents = []
         self.events = []
         self.events = self.totallist
-        print 'totallist', len(self.totallist)
+        print('totallist', len(self.totallist))
         self['list'].l.setItemHeight(50)
         self['list'].l.setFont(0, gFont('Regular', 25))
         self.longitem = False
         for i in range(0, len(self.events)):
             item = self.events[i]
-            print item
+            print(item)
             if len(self.events[i]) > 1:
                 item = self.events[i][0]
                 size = self.events[i][1]
@@ -1065,9 +1067,9 @@ class PurePrestigeginfo(Screen):
             item = self.events[i]
             labelinfo = item[0]
             info = item[1]
-            print item
-            print labelinfo
-            print info
+            print(item)
+            print(labelinfo)
+            print(info)
             res.append(MultiContentEntryText(pos=(0, 10), size=(2, 120), font=0, flags=RT_HALIGN_LEFT, text='', color=16777215, color_sel=16777215))
             res.append(MultiContentEntryText(pos=(30, 10), size=(200, 120), font=0, flags=RT_HALIGN_LEFT, text=labelinfo, color=c1color, color_sel=16777215))
             res.append(MultiContentEntryText(pos=(230, 10), size=(660, 120), font=0, flags=RT_HALIGN_LEFT, text=info, color=c3color, color_sel=16777215))

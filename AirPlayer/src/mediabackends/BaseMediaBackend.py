@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+from __future__ import print_function
 import base64
 import urllib2
 
@@ -18,7 +20,7 @@ class BaseMediaBackend(object):
         except urllib2.URLError as e:
             clsname = self.__class__.__name__
             name = clsname.replace('MediaBackend', '')
-            print "[AirPlayer] Couldn't connect to ", name, ' at ', self.host_string()
+            print("[AirPlayer] Couldn't connect to ", name, ' at ', self.host_string())
             return None
 
         return None

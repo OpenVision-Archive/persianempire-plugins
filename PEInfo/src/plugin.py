@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from Components.Label import Label
 from Components.MenuList import MenuList
 from Components.MultiContent import MultiContentEntryText

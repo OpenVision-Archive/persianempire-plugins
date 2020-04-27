@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+from __future__ import print_function
 from Screens.Screen import Screen
 from enigma import eConsoleAppContainer
 from Screens.Screen import Screen
@@ -54,7 +56,7 @@ class PurePrestigeConsole2(Screen):
         self.setTitle(self.newtitle)
 
     def startRun(self):
-        print 'Console: executing in run', self.run, ' the command:', self.cmdlist[self.run]
+        print('Console: executing in run', self.run, ' the command:', self.cmdlist[self.run])
         if self.container.execute(self.cmdlist[self.run]):
             self.runFinished(-1)
 

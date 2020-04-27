@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+from __future__ import print_function
 import thread
 
 class Lamedb:
@@ -10,11 +12,11 @@ class Lamedb:
 	def _initDatabase(self,dummy):
 		self.database.clear()
 		self.databaseState=0
-		print "phase1"
+		print("phase1")
 		self.translateTransponders(self.getTransponders(self.readLamedb()))
-		print "phase2"
+		print("phase2")
 		self.translateServices(self.getServices(self.readLamedb()))
-		print "phase3"
+		print("phase3")
 
 	def readLamedb(self):
 		f = file("/etc/enigma2/lamedb","r")
@@ -25,14 +27,14 @@ class Lamedb:
 		elif lamedb[0].find("/4/") != -1:
 			self.version = 4
 		else:
-			print "unknown Version: ",lamedb[0]
+			print("unknown Version: ",lamedb[0])
 			return
-		print "import version %d" % self.version
+		print("import version %d" % self.version)
 		return lamedb
 
 	def writeLamedb(self,version = 4):
 		if version <> 4:
-			print "only version 4 yet"
+			print("only version 4 yet")
 			return
 		puffer = []
 		puffer.append("eDVB services /4/\n")
@@ -77,7 +79,7 @@ class Lamedb:
 		f.close()
 		
 	def getServices(self, lamedb):
-		print "getServices",
+		print("getServices",)
 		if lamedb is None:
 			return
 		collect = False
@@ -103,7 +105,7 @@ class Lamedb:
 								break
 						else:
 							services.append((lamedb[x],lamedb[x+1],lamedb[x+2],))
-		print " finished"
+		print(" finished")
 		return services
 	
 	
@@ -114,7 +116,7 @@ class Lamedb:
 		service = {}
 		tp_data = serviceData[0].strip().lower().split(":")
 		if len(tp_data) > len(t1):
-			print "wrong number Parameter (6 expected) in ",serviceData[0]
+			print("wrong number Parameter (6 expected) in ",serviceData[0])
 			return
 		for y in xrange(len(t1)):
 			service.update({t1[y]:tp_data[y]})
@@ -140,8 +142,8 @@ class Lamedb:
 			elif raw[0]=="f":
 				service["flags"] = raw[1].strip().lower()
 			else:
-				print "unknown Parameter:",raw[0]
-				print "in:",y
+				print("unknown Parameter:",raw[0])
+				print("in:",y)
 		else:
 			uniqueTransponder = service["namespace"]+service["tsid"]+service["onid"]
 			uniqueService = uniqueTransponder + service["sid"]
@@ -233,17 +235,17 @@ class Lamedb:
 			return
 		for x in transponders:
 			if len(x[0]) > len(t1):
-				print "too many Parameter (t1) in ",x[0]
+				print("too many Parameter (t1) in ",x[0])
 				continue
 			freq = x[1][0].split()
 			if len(freq) != 2:
-				print "two Parameter expected in ",freq
+				print("two Parameter expected in ",freq)
 				continue
 			tp = {"services":[]}
 			x[1][0] = freq[1]
 			if freq[0] == "s":
 				if ((self.version == 3) and len(x[1]) > len(t2_sv3)) or ((self.version == 4) and len(x[1]) > len(t2_sv4)):
-					print "too many Parameter (t2) in ",x[1]
+					print("too many Parameter (t2) in ",x[1])
 					continue
 				for y in xrange(len(x[0])):
 					tp.update({t1[y]:x[0][y]})
@@ -256,14 +258,14 @@ class Lamedb:
 				if pos > 1799:
 					pos -= 3600
 				if pos != int(tp.get("position")):
-					print "Namespace %s and Position %s are not identical"% (tp.get("namespace"), tp.get("position"))
+					print("Namespace %s and Position %s are not identical"% (tp.get("namespace"), tp.get("position")))
 					continue
 				self.database[tp["namespace"]+tp["tsid"]+tp["onid"]] = tp
 				self.database[tp["namespace"]+tp["tsid"]+tp["onid"]]["services"] = {}
 				self.databaseState=1
 			elif freq[0] == "c":
 				if len(x[1]) > len(t2_c):
-					print "too many Parameter (t2) in ",x[1]
+					print("too many Parameter (t2) in ",x[1])
 					continue
 				for y in xrange(len(x[0])):
 					tp.update({t1[y]:x[0][y]})
@@ -274,7 +276,7 @@ class Lamedb:
 				self.databaseState=1
 			elif freq[0] == "t":
 				if len(x[1]) > len(t2_t):
-					print "too many Parameter (t2) in ",x[1]
+					print("too many Parameter (t2) in ",x[1])
 					continue
 				for y in xrange(len(x[0])):
 					tp.update({t1[y]:x[0][y]})

@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+from __future__ import print_function
 from os import mkdir, path, remove
 from Components.config import config
 from Components.Console import Console
@@ -33,7 +35,7 @@ def __createdir(list):
 			try:
 				mkdir(dir)
 			except:
-				print "[PE Cam Manager] Failed to mkdir", dir
+				print("[PE Cam Manager] Failed to mkdir", dir)
 
 def checkconfigdir():
 	if not path.exists(config.plugins.PECam.camconfig.value):

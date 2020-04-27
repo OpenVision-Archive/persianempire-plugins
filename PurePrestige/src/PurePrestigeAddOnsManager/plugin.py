@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+from __future__ import print_function
 import StringIO
 from Screens.Screen import Screen
 from Components.ActionMap import ActionMap
@@ -66,8 +68,8 @@ def gethostname():
 hostname = gethostname()
 
 def checkhostname(ipkfile):
-    print 'hostname', hostname
-    print 'ipkfile', ipkfile
+    print('hostname', hostname)
+    print('ipkfile', ipkfile)
     if 'mips32el' in ipkfile:
         if 'mips32el-nf' in ipkfile:
             if hostname == 'dm800hd':
@@ -113,14 +115,14 @@ def getipkversion(ipkfile):
         ipkparts = ipkfile.split('_')
         addon = ipkparts[0]
         statusdata = open('/tmp/status', 'r').readlines()
-        print 'addon', addon
+        print('addon', addon)
         for item in statusdata:
             if addon in item:
                 return 'remove'
 
         return 'install'
     except:
-        print 'failed'
+        print('failed')
         return 'install'
 
 
@@ -131,10 +133,10 @@ def getipkversion2(ipkfile):
         ipkparts = ipkfile.split('_')
         fp = os.popen('opkg list ' + ipkparts[0])
         data = fp.readlines()
-        print 'data0', data[0]
+        print('data0', data[0])
         return 'remove'
     except:
-        print 'failed'
+        print('failed')
         return 'install'
 
 
@@ -681,7 +683,7 @@ class PurePrestigeServerGroups(Screen):
         getPage(url).addCallback(self._gotPageLoad).addErrback(self.errorLoad)
 
     def errorLoad(self, error):
-        print str(error)
+        print(str(error))
         self['info'].setText('Addons Download Failure,No internet connection or server down !')
         self.downloading = False
 
@@ -750,13 +752,13 @@ class PurePrestigeServerGroups(Screen):
             self.session.openWithCallback(self.dosearch, AddSearchStrScreen)
 
     def dosearch(self, result):
-        print result
+        print(result)
         config.plugins.PurePrestige.addstr.value = result
         if self.downloading == True:
             try:
                 selection = str(self['list'].getCurrent())
                 searchstr = config.plugins.PurePrestige.addstr.value
-                print selection
+                print(selection)
                 if searchstr:
                     self.session.open(Ipkgsearch, self.xmlparse, selection, self.names, searchstr)
                     return
@@ -904,7 +906,7 @@ class PurePrestigePackageFeedssearch(Screen):
         getPage(self.url).addCallback(self._gotPageLoad).addErrback(self.errorLoad)
 
     def errorLoad(self, error):
-        print str(error)
+        print(str(error))
         self['info'].setText('Addons Download Failure,No internet connection or server down !')
         self.downloading = False
 
@@ -915,13 +917,13 @@ class PurePrestigePackageFeedssearch(Screen):
             file = open(filename, 'w')
             file.write(data)
             file.close()
-            print 'done'
+            print('done')
             self['info'].setText('')
             Console().ePopen('gunzip -c /tmp/package.gz > /tmp/package')
             fp = open('/tmp/package', 'r')
             mdata = fp.read()
             fp.close()
-            print mdata
+            print(mdata)
         except:
             self['info'].setText(str('Sorry,error in getting feeds'))
             mdata = ''
@@ -930,9 +932,9 @@ class PurePrestigePackageFeedssearch(Screen):
             os.remove('/tmp/package.gz')
             os.remove('/tmp/package')
         except:
-            print 'files not removed'
+            print('files not removed')
 
-        print 'remove files'
+        print('remove files')
         return mdata
 
     def _gotPageLoadOpenPli(self, data):
@@ -962,8 +964,8 @@ class PurePrestigePackageFeedssearch(Screen):
             a = []
             buf = StringIO.StringIO(data)
             a = buf.readlines()
-            print a[0]
-            print a[1]
+            print(a[0])
+            print(a[1])
             b = []
             ref = ''
             for i in range(0, len(a)):
@@ -971,7 +973,7 @@ class PurePrestigePackageFeedssearch(Screen):
                     fname = a[i].replace('Filename:', '')
                     fname = fname.strip()
                     ref = self.filebaseurl + fname
-                    print ref
+                    print(ref)
                     ref = ref.replace(self.filebaseurl, '')
                     processmode = getipkversion(ref)
                     if self.searchstr.lower() in ref.lower():
@@ -1138,7 +1140,7 @@ class PurePrestigePackageFeedssearch(Screen):
         selectedserverurl = str(self.links[cindex])
         selectedservername = selection
         selectedserverurl = self.truefilebaseurl + selectedserverurl
-        print selectedserverurl
+        print(selectedserverurl)
         self.prombt(selectedserverurl, selectedservername, 'ok')
 
     def prombt(self, com, dom, action):
@@ -1214,13 +1216,13 @@ class PurePrestigePackageFeedssearch(Screen):
         endstr = 'Press OK to exit'
         if self.commandstr.strip() == 'update':
             self.com = 'install ' + com
-            print '3830', 'ok'
+            print('3830', 'ok')
             self.session.open(Console2.PurePrestigeConsole2, _('Updating opkg list:'), ['opkg update'], self.refresh, True, instr, '')
         if action == 'ok':
             if com.endswith('.ipk'):
                 ccctext = 'opkg ' + self.com
                 wfile(ccctext)
-                print 'command', 'opkg ' + self.com
+                print('command', 'opkg ' + self.com)
                 self.session.open(Console2.PurePrestigeConsole2, _('downloading-' + self.commandstr + ':'), ['opkg ' + self.com], self.refresh, False, instr, endstr)
                 self.ipkgremove = False
             else:
@@ -1251,7 +1253,7 @@ class PurePrestigePackageFeeds(Screen):
         self['key_green'] = Button(_('Install'))
         self.globalservername = globalservername
         self.selectedservername = selectedservername
-        print self.selectedservername
+        print(self.selectedservername)
         self.newsurl = ''
         self.list = []
         self['list'] = MenuList([])
@@ -1285,7 +1287,7 @@ class PurePrestigePackageFeeds(Screen):
         self.url = self.rooturl + self.groupurl
         self.filebaseurl = self.rooturl + self.groupurl
         self.truefilebaseurl = self.filebaseurl
-        print self.selectedservername
+        print(self.selectedservername)
         if self.selectedservername == '3rd-party':
             self.url = self.rooturl + self.groupurl + 'Packages.gz'
         else:
@@ -1340,7 +1342,7 @@ class PurePrestigePackageFeeds(Screen):
         else:
             if self.globalservername == 'OpenPli Feeds':
                 self.getiteOpenPlimurl()
-                print self.selectedservername
+                print(self.selectedservername)
                 getPage(self.url).addCallback(self._gotPageLoadOpenPli).addErrback(self.errorLoad)
                 return
             return
@@ -1353,13 +1355,13 @@ class PurePrestigePackageFeeds(Screen):
             file = open(filename, 'w')
             file.write(data)
             file.close()
-            print 'done'
+            print('done')
             self['info'].setText('')
             Console().ePopen('gunzip -c /tmp/package.gz > /tmp/package')
             fp = open('/tmp/package', 'r')
             mdata = fp.read()
             fp.close()
-            print mdata
+            print(mdata)
         except:
             self['info'].setText(str('Sorry,error in getting feeds'))
             mdata = ''
@@ -1368,13 +1370,13 @@ class PurePrestigePackageFeeds(Screen):
             os.remove('/tmp/package.gz')
             os.remove('/tmp/package')
         except:
-            print 'files not removed'
+            print('files not removed')
 
-        print 'remove files'
+        print('remove files')
         return mdata
 
     def errorLoad(self, error):
-        print str(error)
+        print(str(error))
         self['info'].setText('Addons Download Failure,No internet connection or server down !')
         self.downloading = False
 
@@ -1405,8 +1407,8 @@ class PurePrestigePackageFeeds(Screen):
             a = []
             buf = StringIO.StringIO(data)
             a = buf.readlines()
-            print a[0]
-            print a[1]
+            print(a[0])
+            print(a[1])
             b = []
             ref = ''
             for i in range(0, len(a)):
@@ -1414,7 +1416,7 @@ class PurePrestigePackageFeeds(Screen):
                     fname = a[i].replace('Filename:', '')
                     fname = fname.strip()
                     ref = self.filebaseurl + fname
-                    print ref
+                    print(ref)
                     ref = ref.replace(self.filebaseurl, '')
                     processmode = getipkversion(ref)
                     links.append(ref)
@@ -1580,7 +1582,7 @@ class PurePrestigePackageFeeds(Screen):
 
         selectedservername = selection
         selectedserverurl = self.truefilebaseurl + selectedserverurl
-        print selectedserverurl
+        print(selectedserverurl)
         self.prombt(selectedserverurl, selectedservername, 'ok')
 
     def prombt(self, com, dom, action):
@@ -1644,7 +1646,7 @@ class PurePrestigePackageFeeds(Screen):
         selectedserverurl = str(self.links[cindex])
         selectedservername = selection
         selectedserverurl = self.truefilebaseurl + selectedserverurl
-        print selectedserverurl
+        print(selectedserverurl)
         self.menuprombt(selectedserverurl, selectedserverurl, 'ok', command)
 
     def menuprombt(self, com, dom, action, command):
@@ -1657,13 +1659,13 @@ class PurePrestigePackageFeeds(Screen):
         endstr = 'Press OK to exit'
         if self.commandstr.strip() == 'update':
             self.com = 'install ' + com
-            print '3830', 'ok'
+            print('3830', 'ok')
             self.session.open(Console2.PurePrestigeConsole2, _('Updating opkg list:'), ['opkg update'], self.refresh, True, instr, '')
         if action == 'ok':
             if com.endswith('.ipk'):
                 ccctext = 'opkg ' + self.com
                 wfile(ccctext)
-                print 'command', 'opkg ' + self.com
+                print('command', 'opkg ' + self.com)
                 self.session.open(Console2.PurePrestigeConsole2, _('downloading-' + self.commandstr + ':'), ['opkg ' + self.com], self.refresh, False, instr, endstr)
                 self.ipkgremove = False
             else:
@@ -1913,12 +1915,12 @@ class Ipkgsearch(Screen):
         self.setTitle(self.freespace)
 
     def selgreen(self):
-        print 'mah1'
+        print('mah1')
         try:
             cindex = self['menu'].getSelectionIndex()
             selection_country = self.list[cindex][0]
-            print selection_country
-            print self.selection
+            print(selection_country)
+            print(self.selection)
         except:
             return
 
@@ -1927,7 +1929,7 @@ class Ipkgsearch(Screen):
                 if plugin.getAttribute('name').encode('utf8') == selection_country:
                     urlserver = str(plugin.getElementsByTagName('url')[0].childNodes[0].data)
                     pluginname = plugin.getAttribute('name').encode('utf8')
-                    print urlserver, pluginname
+                    print(urlserver, pluginname)
                     self.prombt(urlserver, pluginname, 'green')
 
     def selclicked(self):
@@ -2024,13 +2026,13 @@ class Ipkgsearch(Screen):
         endstr = 'Press OK to exit'
         if self.commandstr.strip() == 'update':
             self.com = 'install ' + com
-            print '3830', 'ok'
+            print('3830', 'ok')
             self.session.open(Console2.PurePrestigeConsole2, _('Updating opkg list:'), ['opkg update'], self.refresh, True, instr, '')
         if action == 'ok':
             if com.endswith('.ipk'):
                 ccctext = 'opkg ' + self.com
                 wfile(ccctext)
-                print 'command', 'opkg ' + self.com
+                print('command', 'opkg ' + self.com)
                 self.session.open(Console2.PurePrestigeConsole2, _('downloading-' + self.commandstr + ':'), ['opkg ' + self.com], self.refresh, False, instr, endstr)
                 self.ipkgremove = False
             else:
@@ -2386,8 +2388,8 @@ class PurePrestigeIpkgLogos(Screen):
     def menuprombt(self, com, dom, action, command):
         self.com = command[1] + ' ' + com
         self.dom = dom
-        print 'command', command
-        print command[1]
+        print('command', command)
+        print(command[1])
         commandlist = command[1].split(':')
         self.commandstr = commandlist[0]
         commandesc = commandlist[1]
@@ -2396,13 +2398,13 @@ class PurePrestigeIpkgLogos(Screen):
         endstr = 'Press OK to exit'
         if self.commandstr.strip() == 'update':
             self.com = 'install ' + com
-            print '3830', 'ok'
+            print('3830', 'ok')
             self.session.open(Console2.PurePrestigeConsole2, _('Updating opkg list:'), ['opkg update'], self.refresh, True, instr, '')
         if action == 'ok':
             if com.endswith('.ipk'):
                 ccctext = 'opkg ' + self.com
                 wfile(ccctext)
-                print 'command', 'opkg ' + self.com
+                print('command', 'opkg ' + self.com)
                 self.session.open(Console2.PurePrestigeConsole2, _('downloading-' + self.commandstr + ':'), ['opkg ' + self.com], self.refresh, False, instr, endstr)
                 self.ipkgremove = False
             else:
@@ -2731,17 +2733,17 @@ class PurePrestigeIpkgPlugins(Screen):
         instr = 'Downloading and installing ' + self.com + '\n'
         instr = instr + 'Please wait while addon is being downloaded...\n  Restarting enigma2 is required after successful installation' + '\n' + commandesc
         endstr = 'Press OK to exit'
-        print 'mahmoud3828', self.com
-        print '3829', self.commandstr
+        print('mahmoud3828', self.com)
+        print('3829', self.commandstr)
         if self.commandstr.strip() == 'update':
             self.com = 'install ' + com
-            print '3830', 'ok'
+            print('3830', 'ok')
             self.session.open(Console2.PurePrestigeConsole2, _('Updating opkg list:'), ['opkg update'], self.refresh, True, instr, '')
         if action == 'ok':
             if com.endswith('.ipk'):
                 ccctext = 'opkg ' + self.com
                 wfile(ccctext)
-                print 'command', 'opkg ' + self.com
+                print('command', 'opkg ' + self.com)
                 self.session.open(Console2.PurePrestigeConsole2, _('downloading-' + self.commandstr + ':'), ['opkg ' + self.com], self.refresh, False, instr, endstr)
                 self.ipkgremove = False
             else:
@@ -2870,7 +2872,7 @@ class DownLoadgz(Screen):
                 self['info'].setText('Failed downloading ' + self.dom + '... No internet connection or server down')
                 return
         except Exception as e:
-            print e
+            print(e)
             self['info'].setText('Failed downloading ' + self.dom + '... No internet connection or server down')
             return
 

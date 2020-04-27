@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 name2codepoint = {'AElig': 198,
  'Aacute': 193,
  'Acirc': 194,

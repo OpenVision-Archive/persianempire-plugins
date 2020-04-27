@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+from __future__ import print_function
 from Components.ActionMap import *
 from Components.Label import Label
 from Components.MenuList import MenuList
@@ -171,7 +173,7 @@ class navibar_config1(Screen, ConfigListScreen, HelpableScreen):
         elif self.select_screen == 3:
             self.select_screen = 2
             self.screen2a()
-        print self.select_screen
+        print(self.select_screen)
 
     def cdown(self):
         self['descrip2'].setText('')
@@ -184,7 +186,7 @@ class navibar_config1(Screen, ConfigListScreen, HelpableScreen):
         elif self.select_screen == 3:
             self.select_screen = 1
             self.screen1a()
-        print self.select_screen
+        print(self.select_screen)
 
     def screen1a(self):
         self['info'].hide()
@@ -255,7 +257,7 @@ class navibar_config1(Screen, ConfigListScreen, HelpableScreen):
     def down(self):
         if self.select_screen == 1:
             if len(self['config'].list) - 1 > self['config'].getCurrentIndex() and not len(self['config'].list) - 1 == self['config'].getCurrentIndex():
-                print self['config'].getCurrentIndex
+                print(self['config'].getCurrentIndex)
                 idx = idx = int(self['config'].getCurrentIndex()) + 1
                 self['config'].setCurrentIndex(idx)
         elif self.select_screen == 2:
@@ -339,7 +341,7 @@ class navibar_config1(Screen, ConfigListScreen, HelpableScreen):
             if item:
                 list_name = item[0][0]
                 section_name = item[0][5]
-                print self.next_item(section_name, self.section_list_select)
+                print(self.next_item(section_name, self.section_list_select))
                 next_name = self.next_item(section_name, self.section_list_select)
                 config_read = open(self.plugin_path + '/config2', 'r')
                 config_tmp = open(self.plugin_path + '/config_tmp', 'w')
@@ -389,7 +391,7 @@ class navibar_config1(Screen, ConfigListScreen, HelpableScreen):
             item = self['config2'].getCurrent()
             if item:
                 list_name = item[0][0]
-                print list_name
+                print(list_name)
                 config_read = open(self.plugin_path + '/config2', 'r')
                 config_tmp = open(self.plugin_path + '/config_tmp', 'w')
                 for line in config_read.readlines():
@@ -427,7 +429,7 @@ class navibar_config1(Screen, ConfigListScreen, HelpableScreen):
                 shutil.move(self.plugin_path + '/config_tmp', self.plugin_path + '/config2')
                 self.readconfig()
         elif self.select_screen == 1:
-            print 'open select dir..'
+            print('open select dir..')
             self.openDirSelectScreen()
 
     def del_section(self):
@@ -436,7 +438,7 @@ class navibar_config1(Screen, ConfigListScreen, HelpableScreen):
             if item:
                 list_name = item[0]
                 if not list_name == 'main':
-                    print 'NaviBarPE : del section ->', list_name
+                    print('NaviBarPE : del section ->', list_name)
                     section_read = open(self.plugin_path + '/sections', 'r')
                     section_tmp = open(self.plugin_path + '/sections_tmp', 'w')
                     for line in section_read.readlines():
@@ -457,7 +459,7 @@ class navibar_config1(Screen, ConfigListScreen, HelpableScreen):
 
     def write_section(self, section_name = None):
         if not section_name == None:
-            print 'NaviBarPE : add section ->', section_name
+            print('NaviBarPE : add section ->', section_name)
             section = open(self.plugin_path + '/sections', 'a')
             section.write('"%s"\n' % section_name)
             section.close()
@@ -474,7 +476,7 @@ class navibar_config1(Screen, ConfigListScreen, HelpableScreen):
             item = self['config2'].getCurrent()
             if item:
                 list_name = item[0][0]
-                print list_name
+                print(list_name)
                 config_read = open(self.plugin_path + '/config2', 'r')
                 config_tmp = open(self.plugin_path + '/config_tmp', 'w')
                 for line in config_read.readlines():
@@ -514,7 +516,7 @@ class navibar_config1(Screen, ConfigListScreen, HelpableScreen):
                 self.last_plugin_pw = self['config2'].getCurrent()[0][4]
                 self.last_plugin_section = self['config2'].getCurrent()[0][5]
                 self.last_plugin_descrip = self['config2'].getCurrent()[0][6]
-                print self.last_plugin_name
+                print(self.last_plugin_name)
                 self.selected = True
                 self.readconfig()
             else:
@@ -527,7 +529,7 @@ class navibar_config1(Screen, ConfigListScreen, HelpableScreen):
                     if name == self.last_plugin_name:
                         continue
                     elif int(self.now_newidx) == int(count_move):
-                        print 'MOVED:', self.last_plugin_name, count_move
+                        print('MOVED:', self.last_plugin_name, count_move)
                         config_tmp.write('"%s" "%s" "%s" "%s" "%s" "%s" "%s"\n' % (self.last_plugin_name,
                          self.last_plugin_hits,
                          self.last_plugin_hide,
@@ -536,7 +538,7 @@ class navibar_config1(Screen, ConfigListScreen, HelpableScreen):
                          self.last_plugin_section,
                          self.last_plugin_descrip))
                         count_move += 1
-                    print each[0], count_move
+                    print(each[0], count_move)
                     config_tmp.write('"%s" "%s" "%s" "%s" "%s" "%s" "%s"\n' % (name,
                      hits,
                      hide,
@@ -557,7 +559,7 @@ class navibar_config1(Screen, ConfigListScreen, HelpableScreen):
             if item:
                 list_name = item[0][0]
                 locked = item[0][4]
-                print list_name
+                print(list_name)
                 if int(locked) == 1:
                     lock_key = int(time.strftime('%d%m'))
                     self.session.openWithCallback(self.pin_callback, PinInput, pinList=[lock_key], triesEntry=self.getTriesEntry(), title=_('Please Enter The Correct Pin Code'), windowTitle=_('Enter Pin Code'))
@@ -620,15 +622,15 @@ class navibar_config1(Screen, ConfigListScreen, HelpableScreen):
             config.plugins.navibar.dlpath.value = directory
 
     def saveConfig(self):
-        print 'save'
+        print('save')
         for x in self['config'].list:
-            print x[1]
+            print(x[1])
             x[1].save()
 
         self.close()
 
     def exit(self):
-        print 'closen'
+        print('closen')
         self.close()
 
 
@@ -706,7 +708,7 @@ class navi_wall(Screen):
             self['page_sel' + str(x)].show()
 
         self.count_mainlist = len(self.mainlist)
-        print 'NaviBarPE :', self.mainlist, self.count_mainlist
+        print('NaviBarPE :', self.mainlist, self.count_mainlist)
         self['actions'] = ActionMap(['OkCancelActions',
          'ColorActions',
          'DirectionActions',
@@ -765,56 +767,56 @@ class navi_wall(Screen):
         return
 
     def left(self):
-        print '[NaviBar]: Position:', self.startpoint, self.select_list
-        print self.mainlist[int(self.select_list)]
+        print('[NaviBar]: Position:', self.startpoint, self.select_list)
+        print(self.mainlist[int(self.select_list)])
         if not self.startpoint <= 1:
             self.startpoint -= 1
             dumppoint = self.startpoint
             self.startpoint = self.mainlist[int(self.select_list)][int(self.startpoint) - 1]
-            print self.startpoint
+            print(self.startpoint)
             self.paint_sel()
             self.startpoint = dumppoint
-            print self.startpoint
+            print(self.startpoint)
 
     def right(self):
-        print '[NaviBar]: Position:', self.startpoint, self.mainlist, self.select_list, len(self.mainlist[int(self.select_list)])
+        print('[NaviBar]: Position:', self.startpoint, self.mainlist, self.select_list, len(self.mainlist[int(self.select_list)]))
         if self.startpoint < 20 and self.startpoint != len(self.mainlist[int(self.select_list)]):
             self.startpoint += 1
             dumppoint = self.startpoint
             self.startpoint = self.mainlist[int(self.select_list)][int(self.startpoint) - 1]
-            print self.startpoint
+            print(self.startpoint)
             self.paint_sel()
             self.startpoint = dumppoint
-            print self.startpoint
+            print(self.startpoint)
 
     def up(self):
-        print '[NaviBar]: Position:', self.startpoint, self.select_list
+        print('[NaviBar]: Position:', self.startpoint, self.select_list)
         if self.startpoint >= 6:
             self.startpoint -= 5
             dumppoint = self.startpoint
             self.startpoint = self.mainlist[int(self.select_list)][int(self.startpoint) - 1]
-            print self.startpoint
+            print(self.startpoint)
             self.paint_sel()
             self.startpoint = dumppoint
-            print self.startpoint
+            print(self.startpoint)
 
     def down(self):
-        print '[NaviBar]: Position:', self.startpoint
+        print('[NaviBar]: Position:', self.startpoint)
         if self.startpoint <= 15 and not self.startpoint + 5 > len(self.mainlist[int(self.select_list)]):
             self.startpoint += 5
             dumppoint = self.startpoint
             self.startpoint = self.mainlist[int(self.select_list)][int(self.startpoint) - 1]
-            print self.startpoint
+            print(self.startpoint)
             self.paint_sel()
             self.startpoint = dumppoint
-            print self.startpoint
+            print(self.startpoint)
         else:
             self.startpoint = len(self.mainlist[int(self.select_list)])
             self.paint_sel()
 
     def cup(self):
-        print self.select_list, len(self.mainlist)
-        print '++'
+        print(self.select_list, len(self.mainlist))
+        print('++')
         if len(self.mainlist) > 0 and self.select_list + 1 < len(self.mainlist):
             for x in self.mainlist[int(self.select_list)]:
                 self['zeile' + str(x)].hide()
@@ -827,17 +829,17 @@ class navi_wall(Screen):
             for x in self.mainlist[int(self.select_list)]:
                 self['zeile' + str(x)].show()
 
-            print self.startpoint
+            print(self.startpoint)
             if self.startpoint > len(self.mainlist[int(self.select_list)]):
                 self.startpoint = len(self.mainlist[int(self.select_list)])
                 self.paint_sel()
-                print self.startpoint
+                print(self.startpoint)
             else:
                 self.paint_sel()
 
     def cdown(self):
-        print '--'
-        print self.select_list, len(self.mainlist)
+        print('--')
+        print(self.select_list, len(self.mainlist))
         if len(self.mainlist) > 0 and not self.select_list == 0:
             for x in self.mainlist[int(self.select_list)]:
                 self['zeile' + str(x)].hide()
@@ -885,7 +887,7 @@ class navi_wall(Screen):
                     self.mainlist.append(list_dummy)
 
         self.count_mainlist = len(self.mainlist)
-        print 'NaviBarPE :', self.mainlist, self.count_mainlist
+        print('NaviBarPE :', self.mainlist, self.count_mainlist)
 
     def paint_sel(self):
         pname = self.pluginlist[int(self.startpoint) - 1][1]
@@ -903,14 +905,14 @@ class navi_wall(Screen):
         self.session.openWithCallback(self.reload, navibar_config1, plugin_path)
 
     def reload(self):
-        print config.plugins.navibar.hits.value
+        print(config.plugins.navibar.hits.value)
         self.close(self.session, 'restart')
 
     def ok(self):
         dumppoint = self.startpoint
         self.startpoint = self.mainlist[int(self.select_list)][int(self.startpoint) - 1]
-        print 'lock', int(self.pluginlist[int(self.startpoint) - 1][5])
-        print time.strftime('%d%m')
+        print('lock', int(self.pluginlist[int(self.startpoint) - 1][5]))
+        print(time.strftime('%d%m'))
         if int(self.pluginlist[int(self.startpoint) - 1][5]) == 1:
             lock_key = int(time.strftime('%d%m'))
             self.startpoint = dumppoint
@@ -923,20 +925,20 @@ class navi_wall(Screen):
         return config.ParentalControl.retries.setuppin
 
     def pin_callback(self, pin):
-        print 'JAAA:', pin
+        print('JAAA:', pin)
         if pin:
             self.starte_plugin()
 
     def backdana(self, bli, blu):
-        print self.select_list, self.startpoint
+        print(self.select_list, self.startpoint)
 
     def starte_plugin(self):
         dumppoint = self.startpoint
         self.startpoint = self.mainlist[int(self.select_list)][int(self.startpoint) - 1]
         plugin_name_old = self.pluginlist[int(self.startpoint) - 1]
-        print 'section:', plugin_name_old[1], self.sectionlist
+        print('section:', plugin_name_old[1], self.sectionlist)
         plugin_name = '%s' % plugin_name_old[1]
-        print plugin_name, self.select_list, self.startpoint
+        print(plugin_name, self.select_list, self.startpoint)
         if plugin_name in self.sectionlist:
             if any((item[6] == plugin_name_old[1] for item in self.pluginlist_old)):
                 self.startpoint = dumppoint
@@ -944,7 +946,7 @@ class navi_wall(Screen):
             else:
                 self.session.open(MessageBox, 'This Section Has No Plugins Added ! Press Menu', type=MessageBox.TYPE_INFO, timeout=3)
                 self.startpoint = dumppoint
-                print 'NaviBarPE : this section have no plugins added..'
+                print('NaviBarPE : this section have no plugins added..')
         else:
             config_read = open(self.plugin_path + '/config2', 'rw')
             config_tmp = open(self.plugin_path + '/config.tmp2', 'w')
@@ -1064,7 +1066,7 @@ class navi_bar(Screen):
         self.startpoint = 1
         self.select_list = 0
         if found_new:
-            print 'NaviBarPE : reSTART...'
+            print('NaviBarPE : reSTART...')
             found_new = False
             self.close(self.session, 'restart')
         self.onFirstExecBegin.append(self._onFirstExecBegin)
@@ -1198,7 +1200,7 @@ class navi_bar(Screen):
                     self.mainlist.append(list_dummy)
 
         self.count_mainlist = len(self.mainlist)
-        print 'NaviBarPE :', self.mainlist, self.count_mainlist
+        print('NaviBarPE :', self.mainlist, self.count_mainlist)
 
     def start_selector(self):
         pname = self.pluginlist[int(self.startpoint) - 1][1]
@@ -1213,12 +1215,12 @@ class navi_bar(Screen):
         self['frame'].startMoving()
 
     def left(self):
-        print 'NaviBarPE :', self.startpoint
+        print('NaviBarPE :', self.startpoint)
         if int(self.startpoint) > 1:
             self.startpoint -= 1
-            print 'NaviBarPE : -', self.startpoint
+            print('NaviBarPE : -', self.startpoint)
             if int(self.startpoint) == 9 or int(self.startpoint) == 18 or int(self.startpoint) == 27 or int(self.startpoint) == 36 or int(self.startpoint) == 45 or int(self.startpoint) == 54 or int(self.startpoint) == 63 or int(self.startpoint) == 72 or int(self.startpoint) == 81:
-                print 'NaviBarPE : go to last page', self.select_list + 1, self.select_list, self.count_mainlist
+                print('NaviBarPE : go to last page', self.select_list + 1, self.select_list, self.count_mainlist)
                 if self.select_list > 0:
                     self.paint_sel()
                     for x in self.mainlist[int(self.select_list)]:
@@ -1233,7 +1235,7 @@ class navi_bar(Screen):
                         self['zeile' + str(x)].show()
 
             else:
-                print 'NaviBarPE : movie selector'
+                print('NaviBarPE : movie selector')
                 self.paint_sel()
         else:
             self.startpoint = int(self.plugin_counting)
@@ -1250,12 +1252,12 @@ class navi_bar(Screen):
                 self['zeile' + str(x)].show()
 
     def right(self):
-        print 'NaviBarPE :', self.startpoint
+        print('NaviBarPE :', self.startpoint)
         if not int(self.startpoint) == int(self.plugin_counting):
             self.startpoint += 1
-            print 'NaviBarPE : +', self.startpoint
+            print('NaviBarPE : +', self.startpoint)
             if int(self.startpoint) == 10 or int(self.startpoint) == 19 or int(self.startpoint) == 28 or int(self.startpoint) == 37 or int(self.startpoint) == 46 or int(self.startpoint) == 55 or int(self.startpoint) == 64 or int(self.startpoint) == 73 or int(self.startpoint) == 82:
-                print 'NaviBarPE : go to next page', self.select_list + 1, self.select_list + 2, self.count_mainlist
+                print('NaviBarPE : go to next page', self.select_list + 1, self.select_list + 2, self.count_mainlist)
                 if not int(self.select_list) == int(self.count_mainlist) - 1:
                     self.paint_sel()
                     for x in self.mainlist[int(self.select_list)]:
@@ -1286,12 +1288,12 @@ class navi_bar(Screen):
                 self['zeile' + str(x)].show()
 
     def up(self):
-        print 'up'
-        print 'NaviBarPE :', self.startpoint
+        print('up')
+        print('NaviBarPE :', self.startpoint)
         if not int(self.startpoint) + 9 > int(self.plugin_counting) and not int(self.select_list) == int(self.count_mainlist) - 1:
             self.startpoint += 9
-            print 'NaviBarPE : +', self.startpoint
-            print 'NaviBarPE : go to next page', self.select_list, self.select_list + 1, self.count_mainlist
+            print('NaviBarPE : +', self.startpoint)
+            print('NaviBarPE : go to next page', self.select_list, self.select_list + 1, self.count_mainlist)
             self.paint_sel()
             for x in self.mainlist[int(self.select_list)]:
                 self['zeile' + str(x)].hide()
@@ -1307,8 +1309,8 @@ class navi_bar(Screen):
         else:
             self.startpoint = int(self.mainlist[-1][-1])
             self.paint_sel()
-            print 'NaviBarPE : +', self.startpoint
-            print 'NaviBarPE : go to next page', self.select_list + 1, self.select_list + 2, self.count_mainlist
+            print('NaviBarPE : +', self.startpoint)
+            print('NaviBarPE : go to next page', self.select_list + 1, self.select_list + 2, self.count_mainlist)
             for x in self.mainlist[int(self.select_list)]:
                 self['zeile' + str(x)].hide()
 
@@ -1321,11 +1323,11 @@ class navi_bar(Screen):
                 self['zeile' + str(x)].show()
 
     def down(self):
-        print 'down'
-        print 'NaviBarPE :', self.startpoint
+        print('down')
+        print('NaviBarPE :', self.startpoint)
         if int(self.startpoint) - 9 > 0:
             self.startpoint -= 9
-            print 'NaviBarPE : go to last page', self.select_list + 1, self.select_list, self.count_mainlist
+            print('NaviBarPE : go to last page', self.select_list + 1, self.select_list, self.count_mainlist)
             self.paint_sel()
             for x in self.mainlist[int(self.select_list)]:
                 self['zeile' + str(x)].hide()
@@ -1341,8 +1343,8 @@ class navi_bar(Screen):
         else:
             self.startpoint = int(self.mainlist[0][0])
             self.paint_sel()
-            print 'NaviBarPE : -', self.startpoint
-            print 'NaviBarPE : go to last page', self.select_list, self.select_list + 1, self.count_mainlist
+            print('NaviBarPE : -', self.startpoint)
+            print('NaviBarPE : go to last page', self.select_list, self.select_list + 1, self.count_mainlist)
 
     def paint_sel(self):
         pname = self.pluginlist[int(self.startpoint) - 1][1]
@@ -1360,7 +1362,7 @@ class navi_bar(Screen):
         self.session.openWithCallback(self.reload, navibar_config1, plugin_path)
 
     def reload(self):
-        print config.plugins.navibar.hits.value
+        print(config.plugins.navibar.hits.value)
         self.close(self.session, 'restart')
 
     def read_config(self):
@@ -1382,8 +1384,8 @@ class navi_bar(Screen):
         return list
 
     def ok(self):
-        print 'lock', int(self.pluginlist[int(self.startpoint) - 1][5])
-        print time.strftime('%d%m')
+        print('lock', int(self.pluginlist[int(self.startpoint) - 1][5]))
+        print(time.strftime('%d%m'))
         if int(self.pluginlist[int(self.startpoint) - 1][5]) == 1:
             lock_key = int(time.strftime('%d%m'))
             self.session.openWithCallback(self.pin_callback, PinInput, pinList=[lock_key], triesEntry=self.getTriesEntry(), title=_('Please Enter The Correct Pin Code'), windowTitle=_('Enter Pin Code'))
@@ -1394,21 +1396,21 @@ class navi_bar(Screen):
         return config.ParentalControl.retries.setuppin
 
     def pin_callback(self, pin):
-        print 'JAAA:', pin
+        print('JAAA:', pin)
         if pin:
             self.starte_plugin()
 
     def starte_plugin(self):
         plugin_name_old = self.pluginlist[int(self.startpoint) - 1]
-        print 'section:', plugin_name_old[1], self.sectionlist
+        print('section:', plugin_name_old[1], self.sectionlist)
         plugin_name = '%s' % plugin_name_old[1]
-        print plugin_name
+        print(plugin_name)
         if plugin_name in self.sectionlist:
             if any((item[6] == plugin_name_old[1] for item in self.pluginlist_old)):
                 self.session.open(navi_bar, plugin_path, self.pluginlist_old, plugin_name_old[1], self.sectionlist)
             else:
                 self.session.open(MessageBox, 'This Section Has No Plugins Added ! Press Menu', type=MessageBox.TYPE_INFO, timeout=3)
-                print 'NaviBarPE : this section have no plugins added..'
+                print('NaviBarPE : this section have no plugins added..')
         else:
             config_read = open(self.plugin_path + '/config2', 'rw')
             config_tmp = open(self.plugin_path + '/config.tmp2', 'w')
@@ -1466,7 +1468,7 @@ def main(session, **kwargs):
 
 
 def closen(session, result):
-    print result
+    print(result)
     if result == 'restart':
         from Screens.InfoBar import InfoBar
         InfoBar.Original_showExtensionSelection = InfoBar.showExtensionSelection
@@ -1497,7 +1499,7 @@ def getPluginList(self):
             if len(args) == 1 or len(args) == 2 and isinstance(InfoBar.instance, InfoBarChannelSelection):
                 l.append(((boundFunction(self.getPluginName, p.name), boundFunction(self.runPlugin, p), lambda : True), None, p.name))
 
-    print 'dupelist', dupelist
+    print('dupelist', dupelist)
     l.sort(key=lambda e: e[2])
     return l
 
@@ -1572,7 +1574,7 @@ def start(self):
                      '0',
                      'main',
                      ''))
-                    print plugin_name
+                    print(plugin_name)
                     found_new = True
                     if int(hide) == 1:
                         break
@@ -1591,7 +1593,7 @@ def start(self):
     config_tmp.close()
     shutil.move(plugin_path + '/config2.tmp', plugin_path + '/config2')
     if not int(self.plugin_counting) == int(stepper_all):
-        print 'NaviBarPE : found new plugins..need restart..'
+        print('NaviBarPE : found new plugins..need restart..')
         found_new = True
     if config.plugins.navibar.hits.value == '1':
         self.list_new.sort(key=lambda x: int(x[2]))
@@ -1615,7 +1617,7 @@ def start(self):
         if ok:
             section = ok[0]
             if not section == 'main':
-                print section
+                print(section)
                 sectionlist.append(section)
                 self.list_new.append(('none',
                  section,

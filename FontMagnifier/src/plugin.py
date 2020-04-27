@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 fm_version="0.6.2"
 
 from Plugins.Plugin import PluginDescriptor

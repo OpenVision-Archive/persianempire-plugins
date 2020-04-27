@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+from __future__ import print_function
 from Screens.About import About
 from Screens.ChannelSelection import *
 from Screens.ChoiceBox import ChoiceBox
@@ -97,7 +99,7 @@ class PEMainMenu(Screen):
         try:
             self['title'] = StaticText(self.title)
         except:
-            print 'self["title"] was not found in skin'
+            print('self["title"] was not found in skin')
         self['actions'] = ActionMap(['ColorActions', 'SetupActions'], {'red': self.redPressed,
          'green': self.greenPressed,
          'yellow': self.yellowPressed,
@@ -207,7 +209,7 @@ class PESubMenu(Screen):
         try:
             self['title'] = StaticText(self.title)
         except:
-            print 'self["title"] was not found in skin'
+            print('self["title"] was not found in skin')
         self.list = []
         self.text = ''
         self.backupdirs = ' '.join(config.plugins.pepanel.configurationbackup.backupdirs.value)
@@ -509,7 +511,7 @@ class PESubMenu(Screen):
         try:
             self['title'] = StaticText(title)
         except:
-            print 'self["title"] was not found in skin'
+            print('self["title"] was not found in skin')
 
     def layoutFinished(self):
         idx = 0
@@ -852,7 +854,7 @@ class PESubMenu(Screen):
 
     def hdparm(self, result):
         if result is None or result is False:
-            print 'no hdd standby confirmed'
+            print('no hdd standby confirmed')
         else:
             ret = ''
             out_line = popen('hdparm -y /dev/sda').readline()
@@ -899,7 +901,7 @@ class PEStatusListMenu(Screen):
         try:
             self['title'] = StaticText(self.title)
         except:
-            print 'self["title"] was not found in skin'
+            print('self["title"] was not found in skin')
         if self.menu == 21:
             self['key_red'].setText(_('Stop Swap'))
             self['key_green'].setText(_('Start Swap'))
@@ -985,7 +987,7 @@ class PEStatusListMenu(Screen):
         try:
             self['title'] = StaticText(title)
         except:
-            print 'self["title"] was not found in skin'
+            print('self["title"] was not found in skin')
 
     def redPressed(self):
         cur = self['list'].getCurrent()
@@ -1003,7 +1005,7 @@ class PEStatusListMenu(Screen):
             elif self.menu == 28:
                 self.askForBuild(cur, 'stop')
             else:
-                print '[PEStatusListMenu] red'
+                print('[PEStatusListMenu] red')
 
     def greenPressed(self):
         cur = self['list'].getCurrent()
@@ -1017,7 +1019,7 @@ class PEStatusListMenu(Screen):
             elif self.menu == 26:
                 self.askForBuild(cur, 'start')
             else:
-                print '[PEStatusListMenu] green'
+                print('[PEStatusListMenu] green')
 
     def yellowPressed(self):
         cur = self['list'].getCurrent()
@@ -1027,12 +1029,12 @@ class PEStatusListMenu(Screen):
             elif self.menu == 26:
                 self.askForBuild(cur, 'restart')
             else:
-                print '[PEStatusListMenu] yellow'
+                print('[PEStatusListMenu] yellow')
 
     def bluePressed(self):
         cur = self['list'].getCurrent()
         if cur and len(cur) > 2:
-            print '[PEStatusListMenu] blue'
+            print('[PEStatusListMenu] blue')
 
     def okPressed(self):
         cur = self['list'].getCurrent()
@@ -1040,7 +1042,7 @@ class PEStatusListMenu(Screen):
             if self.menu == 21:
                 self.askForBuild(cur)
             else:
-                print '[PEStatusListMenu] ok'
+                print('[PEStatusListMenu] ok')
 
     def buildServicesList(self):
         try:
@@ -1068,7 +1070,7 @@ class PEStatusListMenu(Screen):
 
             self['list'].setList(list)
         except:
-            print 'Could not grab any services script from /etc/init.d/'
+            print('Could not grab any services script from /etc/init.d/')
 
     def buildIPKinstalledList(self):
         try:
@@ -1088,7 +1090,7 @@ class PEStatusListMenu(Screen):
             self['list'].setList(list)
             out_lines.close()
         except:
-            print 'Could not grab any installed IPK from OPKG Database'
+            print('Could not grab any installed IPK from OPKG Database')
 
     def buildSkinList(self):
         try:
@@ -1107,7 +1109,7 @@ class PEStatusListMenu(Screen):
 
             self['list'].setList(list)
         except:
-            print 'Could not grab any additionally installed Skin from Skinbase'
+            print('Could not grab any additionally installed Skin from Skinbase')
 
     def buildCrashlogList(self):
         try:
@@ -1123,7 +1125,7 @@ class PEStatusListMenu(Screen):
 
             self['list'].setList(list)
         except:
-            print 'Could not grab any enigma2 crashlogs from /media/hdd/'
+            print('Could not grab any enigma2 crashlogs from /media/hdd/')
 
     def build2DeviceList(self, arg = None):
         self.listReady = False
@@ -1156,7 +1158,7 @@ class PEStatusListMenu(Screen):
 
             self['list'].setList(list)
         except:
-            print 'Could not grab any Sundtek USB DVB Scripts from /usr/script/'
+            print('Could not grab any Sundtek USB DVB Scripts from /usr/script/')
 
     def buildSwapList(self):
         list = []
@@ -1189,7 +1191,7 @@ class PEStatusListMenu(Screen):
                 else:
                     self.session.openWithCallback(self.buildSwapfile, MessageBox, _('Are you sure to %s ?') % self.swaptext, MessageBox.TYPE_YESNO)
             except:
-                print '[PEPanel] nothing to do exit buildswap menu'
+                print('[PEPanel] nothing to do exit buildswap menu')
 
         elif self.menu == 22:
             try:
@@ -1201,7 +1203,7 @@ class PEStatusListMenu(Screen):
                 elif action == 'restart':
                     self.session.open(Console, title=_('Restart Service'), cmdlist=[bin + ' restart'])
             except:
-                print '[PEPanel] nothing to do exit services menu'
+                print('[PEPanel] nothing to do exit services menu')
 
         elif self.menu == 24:
             try:
@@ -1211,7 +1213,7 @@ class PEStatusListMenu(Screen):
                 elif action == 'stop':
                     self.session.openWithCallback(self.ipkuninstall, MessageBox, _('Are you sure to uninstall selected package: \n') + self.package, MessageBox.TYPE_YESNO)
             except:
-                print '[PEPanel] nothing to do. exit ipk uninstaller menu'
+                print('[PEPanel] nothing to do. exit ipk uninstaller menu')
 
         elif self.menu == 25:
             try:
@@ -1219,7 +1221,7 @@ class PEStatusListMenu(Screen):
                 if action == 'stop':
                     self.session.open(Console, title=_('Skinremoval'), cmdlist=['echo Removing Skin; rm -rf ' + skin])
             except:
-                print '[PEPanel] nothing to do exit services menu'
+                print('[PEPanel] nothing to do exit services menu')
 
         elif self.menu == 26:
             try:
@@ -1253,7 +1255,7 @@ class PEStatusListMenu(Screen):
                     else:
                         self.session.open(MessageBox, _('Could not delete any Crashlogs older 7 Days. \n\n' + msg), MessageBox.TYPE_ERROR)
             except:
-                print '[PEPanel] nothing to delete. exit e2crashlogremove menu'
+                print('[PEPanel] nothing to delete. exit e2crashlogremove menu')
 
         elif self.menu == 28:
             try:
@@ -1261,10 +1263,10 @@ class PEStatusListMenu(Screen):
                 if action == 'stop':
                     self.session.open(Console, title=_('Sundtek USB DVB Servicecontrol'), cmdlist=[bin])
             except:
-                print '[PEPanel] nothing to do exit services menu'
+                print('[PEPanel] nothing to do exit services menu')
 
         else:
-            print '[PEPanel] wrong menuid'
+            print('[PEPanel] wrong menuid')
 
     def checkSwap(self):
         try:
@@ -1276,7 +1278,7 @@ class PEStatusListMenu(Screen):
                         swapfilesize = os_path.getsize(swapfile) / 1024 / 1024
                         return (swapfilelocation, int(swapfilesize))
                     except:
-                        print '[PESwapMenu] swapfile size is ZERO'
+                        print('[PESwapMenu] swapfile size is ZERO')
 
             return (None, -1)
         except IOError:
@@ -1284,7 +1286,7 @@ class PEStatusListMenu(Screen):
 
     def stopSwap(self, result):
         if result is None or result is False:
-            print '[PEPanel] stopswap not confirmed'
+            print('[PEPanel] stopswap not confirmed')
         else:
             cur_swap = self.checkSwap()
             if cur_swap[0] is not None:
@@ -1296,7 +1298,7 @@ class PEStatusListMenu(Screen):
 
     def buildSwapfile(self, result):
         if result is None or result is False:
-            print '[PEPanel] buildswap not confirmed'
+            print('[PEPanel] buildswap not confirmed')
         else:
             swapfile = self.swaptarget + '/swapfile'
             if fileExists(swapfile):
@@ -1312,7 +1314,7 @@ class PEStatusListMenu(Screen):
         try:
             unlink(swapstarter)
         except:
-            print '[Swapfile] no %s ' % swapstarter
+            print('[Swapfile] no %s ' % swapstarter)
 
         fp = file(swapstarter, 'w')
         fp.write('#!/bin/sh\n')
@@ -1323,13 +1325,13 @@ class PEStatusListMenu(Screen):
 
     def ipkuninstall(self, result):
         if result is None or result is False:
-            print 'no ipk uninstall confirmed'
+            print('no ipk uninstall confirmed')
         else:
             self.session.open(Console, title=_('IPK Uninstall'), cmdlist=['opkg remove ' + self.package])
 
     def ipkuninstallforce(self, result):
         if result is None or result is False:
-            print 'no forced ipk uninstall confirmed'
+            print('no forced ipk uninstall confirmed')
         else:
             self.session.open(Console, title=_('IPK Uninstall ignore depencies'), cmdlist=['opkg remove -force-depends ' + self.package])
 
@@ -1836,7 +1838,7 @@ class PEHdd(Screen):
         try:
             symlink('/etc/init.d/hdparm', '/etc/rcS.d/S61hdparm')
         except OSError:
-            print '[PEPanel] symlink already exists. do nothing.'
+            print('[PEPanel] symlink already exists. do nothing.')
 
         cmd = 'hdparm -M' + noise + ' ' + self.hddloc
         rc = Console().ePopen(cmd)
@@ -3603,20 +3605,20 @@ class ECMBluePanel(Screen):
         try:
             self.newcam = self.camnames[self.sel]
         except KeyError:
-            print '[PEPanel] No CAM is List'
+            print('[PEPanel] No CAM is List')
             self.newcam = 'Not installed'
 
         try:
             Console().ePopen('/etc/init.d/softcam stop')
             remove('/etc/init.d/softcam')
         except OSError:
-            print '[PEPanel] no softcam there.'
+            print('[PEPanel] no softcam there.')
 
         try:
             if not self.newcam == 'Not installed':
                 symlink('softcam.' + self.newcam, '/etc/init.d/softcam')
         except OSError:
-            print '[PEPanel] CAM symlink already exists. do nothing.'
+            print('[PEPanel] CAM symlink already exists. do nothing.')
 
         cmd = '/etc/init.d/softcam restart'
         Console().ePopen(cmd)
@@ -4103,7 +4105,7 @@ class PasswdScreen(Screen):
         try:
             self['title'] = StaticText(self.title)
         except:
-            print 'self["title"] was not found in skin'
+            print('self["title"] was not found in skin')
 
         self.user = 'root'
         self.output_line = ''
@@ -4177,7 +4179,7 @@ class PasswdScreen(Screen):
         try:
             self['title'] = StaticText(title)
         except:
-            print 'self["title"] was not found in skin'
+            print('self["title"] was not found in skin')
 
 def fw_test_dib0700():
     if os_path.exists('/lib/firmware/dvb-usb-dib0700-1.20.fw'):
@@ -4213,7 +4215,7 @@ def write_cache(cache_file, cache_data):
         try:
             mkdir(os_path.dirname(cache_file))
         except OSError:
-            print os_path.dirname(cache_file), 'is a file'
+            print(os_path.dirname(cache_file), 'is a file')
 
     fd = open(cache_file, 'w')
     dump(cache_data, fd, -1)

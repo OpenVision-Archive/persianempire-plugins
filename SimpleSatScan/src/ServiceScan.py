@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+from __future__ import print_function
 from Screens.Screen import Screen
 from Components.ServiceScan import ServiceScan as SimpleCScan
 from Components.ProgressBar import ProgressBar
@@ -56,7 +58,7 @@ class SimpleServiceScan(Screen):
 		</screen>"""
 
 	def ok(self):
-		print "ok"
+		print("ok")
 		if self["scan"].isDone():
 			if `self.currentInfobar`.endswith(".InfoBar'>"):
 				if self.currentServiceList is not None:
@@ -121,5 +123,5 @@ class SimpleServiceScan(Screen):
 		self["scan"] = SimpleCScan(self["scan_progress"], self["scan_state"], self["servicelist"], self["pass"], self.scanList, self["network"], self["transponder"], self["FrontendInfo"], self.session.summary)
 
 	def createSummary(self):
-		print "SimpleServiceScanCreateSummary"
+		print("SimpleServiceScanCreateSummary")
 		return SimpleServiceScanSummary

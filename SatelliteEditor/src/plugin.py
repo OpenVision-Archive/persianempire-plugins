@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+from __future__ import print_function
 from Components.ActionMap import ActionMap
 from Components.Button import Button
 from Components.config import config, ConfigFloat, ConfigInteger, ConfigSelection, ConfigText, ConfigYesNo, getConfigListEntry
@@ -91,7 +93,7 @@ class SatelliteImport(Screen):
 		self.requestSatelliteslistRefresh = False
 
 	def editTransponders(self):
-		print "editTransponders"
+		print("editTransponders")
 		if not len(self.satelliteslist):
 			return
 		cur_idx = self["list"].getSelectedIndex()
@@ -109,7 +111,7 @@ class SatelliteImport(Screen):
 		pass
 		
 	def left(self):
-		print "left"
+		print("left")
 		if self.currentSelectedColumn:
 			self.currentSelectedColumn -= 1
 			data = self["head"].l.getCurrentSelection()
@@ -119,7 +121,7 @@ class SatelliteImport(Screen):
 			self["head"].l.setSelectionClip(eRect(data[1], data[0], data[3], data[4]), True)
 	
 	def right(self):
-		print "right"
+		print("right")
 		if self.currentSelectedColumn < len(self.row) - 1:
 			self.currentSelectedColumn += 1
 			data = self["head"].l.getCurrentSelection()
@@ -175,14 +177,14 @@ class SatelliteImport(Screen):
 		self["list"].l.setSelectionClip(eRect(firstColumn[1], firstColumn[0], lastColumn[1]+lastColumn[3], lastColumn[4]), True)
 
 	def finishedTranspondersEdit(self, result):
-		print "finishedTranspondersEdit"
+		print("finishedTranspondersEdit")
 		if result is None:
 			return
 		cur_idx = self["list"].getSelectedIndex()
 		self.satelliteslist[cur_idx][1] = result
 
 	def importTransponders(self):
-		print "importTransponders"
+		print("importTransponders")
 		self.pollTransponders()
 
 	
@@ -322,7 +324,7 @@ class KingOfSat(SatelliteImport):
 	
 	
 	def getTransponders(self, dummy = None):
-		print "getTransponders"
+		print("getTransponders")
 		
 		transSystem = {"dvb-s":"0","dvb-s2":"1",}
 		transPolarisation = {"h":"0","v":"1","l":"2","r":"3",}
@@ -338,10 +340,10 @@ class KingOfSat(SatelliteImport):
 						try:
 							f = urllib2.urlopen(url)
 						except:
-							print "connection failed:", url
+							print("connection failed:", url)
 							return
 						self.setTitle(_("get %s") %url)
-						print "get:",url
+						print("get:",url)
 						state = False
 						td_state = False
 						l = []
@@ -406,7 +408,7 @@ class KingOfSat(SatelliteImport):
 
  
 	def getSatellites(self, dummy):
-		print "getSatellites"
+		print("getSatellites")
 		satellites = []
 		self.satelliteslist = satellites
 		for url in self.urlsSatellites:
@@ -414,7 +416,7 @@ class KingOfSat(SatelliteImport):
 				f = urllib2.urlopen(url+ "/satellites.php")
 				break
 			except:
-				print "connection failed:", url
+				print("connection failed:", url)
 				continue
 		self.setTitle(_("get %s") %url)
 		l = []
@@ -447,7 +449,7 @@ class KingOfSat(SatelliteImport):
 		self.getSatellites_state = self.thread_is_done
 
 	def getSatellites_Name(self, dummy):
-		print "getSatellites"
+		print("getSatellites")
 		satellites = []
 		self.satelliteslist = satellites
 		for url in self.urlsSatellites:
@@ -455,7 +457,7 @@ class KingOfSat(SatelliteImport):
 				f = urllib2.urlopen(url)
 				break
 			except:
-				print "connection failed:", url
+				print("connection failed:", url)
 				continue
 		self.setTitle(_("get %s") %url)
 		state = False
@@ -471,11 +473,11 @@ class KingOfSat(SatelliteImport):
 				a = (sat.replace("<option","").replace("value=","").replace("&deg;","").split("\">"))
 				href = a[0].replace('\"',"").strip()
 				satellite = a[1].strip()
-				print satellite
+				print(satellite)
 				pos_raw = satellite.split()
-				print "a:",pos_raw
+				print("a:",pos_raw)
 				pos_raw = pos_raw[len(pos_raw)-1].lower().replace(")","").replace("(", "")
-				print "b:",pos_raw
+				print("b:",pos_raw)
 				west = False
 				if pos_raw.find("w") != -1:
 					west = True
@@ -537,7 +539,7 @@ class LyngSat(SatelliteImport):
 
 	
 	def getTransponders(self, dummy = None):
-		print "getTransponders"
+		print("getTransponders")
 		
 		transSystem = {"dvb-s":"0","dvb-s2":"1",}
 		transPolarisation = {"h":"0","v":"1","l":"2","r":"3",}
@@ -554,10 +556,10 @@ class LyngSat(SatelliteImport):
 						try:
 							f = urllib2.urlopen(url)
 						except:
-							print "connection failed:", url
+							print("connection failed:", url)
 							return
 						self.setTitle(_("get %s") %url)
-						print "get:",url
+						print("get:",url)
 						state = False
 						td_state = False
 						l = []
@@ -578,7 +580,7 @@ class LyngSat(SatelliteImport):
 							if pol in ("h","v","l","r"):
 								pass
 							else:
-								print "fail 3:",l[x]
+								print("fail 3:",l[x])
 								continue
 							
 							sym_raw = l[x+5].strip().split(">")
@@ -586,8 +588,8 @@ class LyngSat(SatelliteImport):
 								sym_raw = sym_raw[2].split("-")
 								sym = str(int(sym_raw[0].strip())*1000)
 							except:
-								print "fail 5:",l[x+5]
-								print sym_raw
+								print("fail 5:",l[x+5])
+								print(sym_raw)
 								continue
 							
 							sys = None
@@ -614,10 +616,10 @@ class LyngSat(SatelliteImport):
 								sys = "dvb-s2"
 								mod = "qam16"
 
-							print freq
-							print pol
-							print fec
-							print mod
+							print(freq)
+							print(pol)
+							print(fec)
+							print(mod)
 							if mod is None:
 								mod = sys
 							tp.update({freq+transPolarisation.get(pol):{
@@ -640,7 +642,7 @@ class LyngSat(SatelliteImport):
 
 
 	def getSatellites(self, dummy):
-		print "getSatellites"
+		print("getSatellites")
 		satellites = []
 		self.satelliteslist = satellites
 		l = []
@@ -648,7 +650,7 @@ class LyngSat(SatelliteImport):
 			try:
 				f = urllib2.urlopen(self.baseurl + "/" + url)
 			except:
-				print "connection failed:", self.baseurl + "/" + url
+				print("connection failed:", self.baseurl + "/" + url)
 				continue
 			self.setTitle(_("get %s") %self.baseurl + "/" + url)
 			for row in f.readlines():
@@ -670,7 +672,7 @@ class LyngSat(SatelliteImport):
 			try:
 				f = urllib2.urlopen(href)
 			except:
-				print "connection failed:", href
+				print("connection failed:", href)
 				continue
 			name = ""
 			for row in f.readlines():
@@ -681,7 +683,7 @@ class LyngSat(SatelliteImport):
 					break
 			f.close()
 			satellite = name.strip() + " (" + posStr +")"
-			print satellite
+			print(satellite)
 			satellites.append([{"name": str(satellite), "position": str(pos), "url": href}])
 			self.requestSatelliteslistRefresh = True
 		self.setTitle(self.mainTitle)
@@ -721,9 +723,9 @@ class Lamedb:
 		elif lamedb[0].find("/4/") != -1:
 			self.version = 4
 		else:
-			print "unknown version: ",lamedb[0]
+			print("unknown version: ",lamedb[0])
 			return
-		print "import version %d" % self.version
+		print("import version %d" % self.version)
 		return lamedb
 
 	def getTransponders(self, lamedb):
@@ -780,16 +782,16 @@ class Lamedb:
 		for x in transponders:
 			tp = {}
 			if len(x[0]) > len(t1):
-				print "zu viele Parameter (t1) in ",x[0]
+				print("zu viele Parameter (t1) in ",x[0])
 				continue
 			freq = x[1][0].split()
 			if len(freq) != 2:
-				print "zwei Parameter erwartet in ",freq
+				print("zwei Parameter erwartet in ",freq)
 				continue
 			x[1][0] = freq[1]
 			if freq[0] == "s" or freq[0] == "S":
 				if ((self.version == 3) and len(x[1]) > len(t2_sv3)) or ((self.version == 4) and len(x[1]) > len(t2_sv4)):
-					print "zu viele Parameter (t2) in ",x[1]
+					print("zu viele Parameter (t2) in ",x[1])
 					continue
 				for y in range(0, len(x[0])):
 					tp.update({t1[y]:x[0][y]})
@@ -800,13 +802,13 @@ class Lamedb:
 						tp.update({t2_sv4[y]:x[1][y]})
 				tp.update({"import":0x00CD853F})
 				if int(tp.get("namespace"),16)/65536 != int(tp.get("position")):
-					print "Namespace %s und Position %s sind  nicht identisch"% (tp.get("namespace"), tp.get("position"))
+					print("Namespace %s und Position %s sind  nicht identisch"% (tp.get("namespace"), tp.get("position")))
 					continue
 			elif freq[0] == "c" or freq[0] == "C":
-				print "DVB-C"
+				print("DVB-C")
 				continue
 			elif freq[0] == "t" or freq[0] == "T":
-				print "DVB-T"
+				print("DVB-T")
 				continue
 			tplist.append(tp)
 		satlist = {}
@@ -815,10 +817,10 @@ class Lamedb:
 			tmp.append(x)
 			satlist.update({x.get("position"):tmp})
 		del tplist
-		print "Anzahl der Satelliten: ",len(satlist)
+		print("Anzahl der Satelliten: ",len(satlist))
 		for x in satlist:
-			print "Position: ", x
-			print "Transponder: ", len(satlist.get(x))
+			print("Position: ", x)
+			print("Transponder: ", len(satlist.get(x)))
 		return satlist
 	
 class Transponder:
@@ -978,8 +980,8 @@ class Transponder:
 	
 	def transponderDoctor(self,transponder):
 		if not isinstance(transponder, dict):
-			print "transponderDoctor: Transponderdaten muessen vom Type DICT sein"
-			print transponder
+			print("transponderDoctor: Transponderdaten muessen vom Type DICT sein")
+			print(transponder)
 			return
 
 		param = transponder.keys()
@@ -996,12 +998,12 @@ class Transponder:
 			if x not in transParam:
 				missing.append(x)
 		if len(missing):
-			print "transponderDoctor: Folgende Parameter fehlen:", missing
+			print("transponderDoctor: Folgende Parameter fehlen:", missing)
 			return
 		
 		self.polarisation = self.transPolarisation.get(transponder.get(transParam.get("polarization"),"i").lower())
 		if self.polarisation == "i":
-			print "transponderDoctor: unbekannter Wert fuer Polarisation (%s)" %transParam.get("polarization")
+			print("transponderDoctor: unbekannter Wert fuer Polarisation (%s)" %transParam.get("polarization"))
 			return
 		
 		self.__frequency = transponder.get(transParam.get("frequency"),"i").lower()
@@ -1444,7 +1446,7 @@ class TransponderEditor(Screen, ConfigListScreen, Transponder):
 		self.newConfig()
 	
 	def newConfig(self):
-		print "newConfig"
+		print("newConfig")
 		checkList = (
 			self.configTransponderSystem,
 			self.configTransponderUseTsid,
@@ -1555,7 +1557,7 @@ class TranspondersEditor(Screen):
 		pass
 		
 	def left(self):
-		print "left"
+		print("left")
 		if self.currentSelectedColumn:
 			self.currentSelectedColumn -= 1
 			data = self["head"].l.getCurrentSelection()
@@ -1563,7 +1565,7 @@ class TranspondersEditor(Screen):
 			self["head"].l.setSelectionClip(eRect(data[1], data[0], data[3], data[4]), True)	
 	
 	def right(self):
-		print "right"
+		print("right")
 		if self.currentSelectedColumn < len(self.row) - 1:
 			self.currentSelectedColumn += 1
 			data = self["head"].l.getCurrentSelection()
@@ -1609,18 +1611,18 @@ class TranspondersEditor(Screen):
 			self.lastSelectedIndex = cur_idx
 
 	def addTransponder(self):
-		print "addTransponder"
+		print("addTransponder")
 		self.session.openWithCallback(self.finishedTransponderAdd, TransponderEditor)
 	
 	def editTransponder(self):
-		print "editTransponder"
+		print("editTransponder")
 		if not len(self.transponderslist):
 			return
 		cur_idx = self["list"].getSelectedIndex()
 		self.session.openWithCallback(self.finishedTransponderEdit, TransponderEditor, self.transponderslist[cur_idx])
 
 	def finishedTransponderEdit(self, result):
-		print "finishedTransponderEdit"
+		print("finishedTransponderEdit")
 		if result is None:
 			return
 		cur_idx = self["list"].getSelectedIndex()
@@ -1628,14 +1630,14 @@ class TranspondersEditor(Screen):
 		self["list"].setEntries(self.transponderslist)
 	
 	def finishedTransponderAdd(self, result):
-		print "finishedTransponderAdd"
+		print("finishedTransponderAdd")
 		if result is None:
 			return
 		self.transponderslist.append(result,)
 		self["list"].setEntries(self.transponderslist)
 
 	def removeTransponder(self):
-		print "removeTransponder"
+		print("removeTransponder")
 		if len(self.transponderslist):
 			cb_func = lambda ret : not ret or self.deleteTransponder()
 			self.session.openWithCallback(cb_func, MessageBox, _("Remove Transponder?"), MessageBox.TYPE_YESNO)
@@ -1668,7 +1670,7 @@ class SatelliteList(MenuList):
 
 
 	def setEntries(self, satelliteslist):
-		print "setEntries", len(satelliteslist)
+		print("setEntries", len(satelliteslist))
 		res = []
 		for x in satelliteslist:
 			satparameter = x[0]
@@ -2062,7 +2064,7 @@ class MenuSelection(Screen):
 		}, -1)
 
 	def okbuttonClick(self):
-		print "okbuttonClick"
+		print("okbuttonClick")
 		self.close(self["menulist"].getCurrent())
 	
 	def cancel(self):
@@ -2179,7 +2181,7 @@ class SatellitesEditor(Screen):
 		pass
 		
 	def left(self):
-		print "left"
+		print("left")
 		if self.currentSelectedColumn:
 			self.currentSelectedColumn -= 1
 			data = self["head"].l.getCurrentSelection()
@@ -2187,7 +2189,7 @@ class SatellitesEditor(Screen):
 			self["head"].l.setSelectionClip(eRect(data[1], data[0], data[3], data[4]), True)	
 	
 	def right(self):
-		print "right"
+		print("right")
 		if self.currentSelectedColumn < len(self.row) - 1:
 			self.currentSelectedColumn += 1
 			data = self["head"].l.getCurrentSelection()
@@ -2234,7 +2236,7 @@ class SatellitesEditor(Screen):
 
 	
 	def getInfo(self):
-		print "getInfo"
+		print("getInfo")
 		cur_idx = self["list"].getSelectedIndex()
 		satellite = self.satelliteslist[cur_idx]
 		
@@ -2417,7 +2419,7 @@ class SatellitesEditor(Screen):
 		return satelliteslist
 		
 	def importLamedb(self):
-		print "importLamedb"
+		print("importLamedb")
 		lamedb = Lamedb()
 		for x in lamedb.satellitesList:
 			found = False
@@ -2431,10 +2433,10 @@ class SatellitesEditor(Screen):
 					freq.append(int(tp.get("frequency")) + 100000000 * int(tp.get("polarization")) + 300000000 * int(tp.get("fec_inner")))
 				for tp in lamedb.satellitesList.get(x):
 					if (int(tp.get("frequency")) + 100000000 * int(tp.get("polarization")) + 300000000 * int(tp.get("fec_inner"))) in freq:
-						print "Transponder in Liste",tp
+						print("Transponder in Liste",tp)
 						pass
 					else:
-						print "neuer Transponder",tp
+						print("neuer Transponder",tp)
 						newTp = Transponder(tp).exportAll()
 						y[1].append(newTp)
 			else:
@@ -2488,32 +2490,32 @@ class SatellitesEditor(Screen):
 		
 	
 	def addSatellite(self):
-		print "addSatellite"
+		print("addSatellite")
 		self.session.openWithCallback(self.finishedSatAdd, SatEditor)
 	
 	def editTransponders(self):
-		print "editTransponders"
+		print("editTransponders")
 		if not len(self.satelliteslist):
 			return
 		cur_idx = self["list"].getSelectedIndex()
 		self.session.openWithCallback(self.finishedTranspondersEdit, TranspondersEditor, self.satelliteslist[cur_idx])
 
 	def finishedTranspondersEdit(self, result):
-		print "finishedTranspondersEdit"
+		print("finishedTranspondersEdit")
 		if result is None:
 			return
 		cur_idx = self["list"].getSelectedIndex()
 		self.satelliteslist[cur_idx][1] = result
 	
 	def editSatellite(self):
-		print "editSatellite"
+		print("editSatellite")
 		if not len(self.satelliteslist):
 			return
 		cur_idx = self["list"].getSelectedIndex()
 		self.session.openWithCallback(self.finishedSatEdit, SatEditor, self.satelliteslist[cur_idx][0])
 
 	def finishedSatEdit(self, result):
-		print "finishedSatEdit"
+		print("finishedSatEdit")
 		if result is None:
 			return
 		cur_idx = self["list"].getSelectedIndex()
@@ -2521,7 +2523,7 @@ class SatellitesEditor(Screen):
 		self["list"].setEntries(self.satelliteslist)
 	
 	def finishedSatAdd(self, result):
-		print "finishedSatAdd"
+		print("finishedSatAdd")
 		if result is None:
 			return
 		self.satelliteslist.append([result,])
@@ -2533,7 +2535,7 @@ class SatellitesEditor(Screen):
 			self["list"].setEntries(self.satelliteslist)
 		
 	def removeSatellite(self):
-		print "removeSatellite"
+		print("removeSatellite")
 		if len(self.satelliteslist):
 			cur_idx = self["list"].getSelectedIndex()
 			satellite = self.satelliteslist[cur_idx][0].get("name")
@@ -2562,7 +2564,7 @@ class SatellitesEditor(Screen):
 	def menu(self, result):
 		if result is None:
 			return
-		print "menu", result
+		print("menu", result)
 		if result == "Import lamedb":
 			self.importLamedb()
 		elif result == "Import from KingOfSat":
@@ -2571,27 +2573,27 @@ class SatellitesEditor(Screen):
 			self.session.openWithCallback(self.finishedSatImport, LyngSat)
 	
 	def finishedSatImport(self, result):
-		print "finishedSatImport"
+		print("finishedSatImport")
 		if result is None:
 			return
 		if result is not None and len(result):
 			for satelliteSrc in result:
 				posSrc = satelliteSrc[0].get("position",None)
-				print "posSrc"
+				print("posSrc")
 				if posSrc is not None:	
 					for satelliteDst in self.satelliteslist:
-						print satelliteDst[0].get("position",None)
+						print(satelliteDst[0].get("position",None))
 						if satelliteDst[0].get("position",None) == posSrc:
 							satelliteDst[1].extend(satelliteSrc[1])
 							if satelliteDst[0].get("name","new Satellite").find("new Satellite") != -1 and satelliteSrc[0].get("name",None) is not None:
 								satelliteDst[0].update({"name":satelliteSrc[0].get("name")})
-							print "extended:",posSrc
+							print("extended:",posSrc)
 							break
 						else:
 							continue
 					else:
 						self.satelliteslist.append(satelliteSrc)
-						print "appended:",posSrc
+						print("appended:",posSrc)
 			self["list"].setEntries(self.satelliteslist)
 
 	def Exit(self):
@@ -2600,12 +2602,12 @@ class SatellitesEditor(Screen):
 		self.close()
 		
 	def showSatelliteInfo(self):
-		print "showSatelliteInfo"
+		print("showSatelliteInfo")
 		cur_idx = self["list"].getSelectedIndex()
 		self.session.openWithCallback(None, SatInfo,self.satelliteslist[cur_idx])
 	
 	def showHelp(self):
-		print "showHelp"
+		print("showHelp")
 
 def SatellitesEditorMain(session, **kwargs):
 	session.open(SatellitesEditor)

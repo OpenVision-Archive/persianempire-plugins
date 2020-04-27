@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from twisted.python import failure
 from twisted.internet import reactor, defer
 import Queue

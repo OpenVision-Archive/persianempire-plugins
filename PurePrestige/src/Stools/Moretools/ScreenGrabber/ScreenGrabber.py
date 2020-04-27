@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from Screens.Standby import TryQuitMainloop
 from Components.Label import Label
 from Components.MenuList import MenuList
@@ -110,12 +111,12 @@ class PurePrestigeScreenGrabberSetup(Screen, ConfigListScreen):
 
     def checkfolder(self):
         strfolder = str(self['config'].list[1][1].value)
-        print strfolder
+        print(strfolder)
         if strfolder == 'hdd':
             strfolder = '/media/hdd'
         elif strfolder == 'tmp':
             strfolder = '/tmp'
-        print strfolder
+        print(strfolder)
         if path.exists(strfolder):
             return True
         else:
@@ -175,7 +176,7 @@ class PurePrestigeScreenGrabberView(Screen):
         always43 = config.plugins.PPrestige.always43.value.replace('Disabled', '')
         bicubic = config.plugins.PPrestige.bicubic.value.replace('Disabled', '')
         tcmd = items + ' ' + newsize + ' ' + format + ' ' + fixedaspectratio + ' ' + always43 + ' ' + bicubic
-        print tcmd
+        print(tcmd)
         self.pictureformat = ''
         if format == '-p':
             self.pictureformat = '/tmp/ScreenGrabber.png'

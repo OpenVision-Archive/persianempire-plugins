@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+from __future__ import print_function
 from Components.ActionMap import ActionMap
 from Components.Button import Button
 from Components.config import config, ConfigBoolean, ConfigInteger, ConfigText, ConfigYesNo, getConfigListEntry, KEY_LEFT, KEY_RIGHT
@@ -541,7 +543,7 @@ class ServiceHideMenuSelection(Screen):
 		self.setTitle(_("Options for hide"))
 
 	def okbuttonClick(self):
-		print "okbuttonClick"
+		print("okbuttonClick")
 		self.close(self["menulist"].getSelectionIndex())
 	
 	def cancel(self):
@@ -707,7 +709,7 @@ class ServicesEditor(Screen):
 		pass
 		
 	def left(self):
-		print "left"
+		print("left")
 		if self.currentSelectedColumn:
 			data = self["head"].getCurrent()
 			if data is  None:
@@ -727,7 +729,7 @@ class ServicesEditor(Screen):
 			self["head"].l.setSelectionClip(eRect(0,0,0,0))
 
 	def right(self):
-		print "right"
+		print("right")
 		if self.currentSelectedColumn < len(self.row):
 			data = self["head"].getCurrent()
 			if data is  None:
@@ -832,7 +834,7 @@ class ServicesEditor(Screen):
 			"3":"auto",
 			}
 
-		print "getInfo"
+		print("getInfo")
 		self["infolist"].l.setFont(0, gFont("Regular", 20))
 		utk = self.usk[:16]
 		name = self.cur_service["name"]
@@ -996,7 +998,7 @@ class ServicesEditor(Screen):
 
 
 	def addService(self):
-		print "addService"
+		print("addService")
 		if self.cur_service is None:
 			return
 		newService = self.cur_service.copy()
@@ -1008,7 +1010,7 @@ class ServicesEditor(Screen):
 		self.updateSelection()
 	
 	def editService(self):
-		print "editService"
+		print("editService")
 		if self.cur_service is None:
 			return
 		self.session.openWithCallback(self.finishedServiceEdit, ServiceEditor, self.cur_service, self.database)
@@ -1042,7 +1044,7 @@ class ServicesEditor(Screen):
 		self.down()
 	
 	def hideServiceMenu(self):
-		print "hideServiceMenu"
+		print("hideServiceMenu")
 		self.session.openWithCallback(self.serviceHideMenu, ServiceHideMenuSelection, self.cur_service)
 	
 	def serviceHideMenu(self, result):
@@ -1050,7 +1052,7 @@ class ServicesEditor(Screen):
 			self.cur_service["flags"]=hex(int(self.cur_service.get("flags","0"),16) ^ dxDontshow)[2:].zfill(4)
 			self.newServiceList[self["list"].l.getCurrentSelectionIndex()] =  self["list"].buildEntry(self.cur_service)
 		elif result == 1:
-			print "hide all"
+			print("hide all")
 			for idx in xrange(len(self.newServiceList)):
 				usk = self.newServiceList[idx][0]
 				service = self.database[usk[:16]]["services"][usk]
@@ -1058,7 +1060,7 @@ class ServicesEditor(Screen):
 					service["flags"]=hex(int(service.get("flags","0")) | dxDontshow)[2:].zfill(4)
 					self.newServiceList[idx] = self["list"].buildEntry(service)
 		elif result == 2:
-			print "unhide all"
+			print("unhide all")
 			for idx in xrange(len(self.newServiceList)):
 				usk = self.newServiceList[idx][0]
 				service = self.database[usk[:16]]["services"][usk]
@@ -1066,7 +1068,7 @@ class ServicesEditor(Screen):
 					service["flags"]=hex(int(service.get("flags","0")) & ~dxDontshow)[2:].zfill(4)
 					self.newServiceList[idx] = self["list"].buildEntry(service)
 		elif result == 3:
-			print "toggle"
+			print("toggle")
 			for idx in xrange(len(self.newServiceList)):
 				usk = self.newServiceList[idx][0]
 				service = self.database[usk[:16]]["services"][usk]
@@ -1074,7 +1076,7 @@ class ServicesEditor(Screen):
 					service["flags"]=hex(int(service.get("flags","0")) ^ dxDontshow)[2:].zfill(4)
 					self.newServiceList[idx] = self["list"].buildEntry(service)
 		else:
-			print "Menu error:",result
+			print("Menu error:",result)
 			return
 		self.updateSelection()
 
@@ -1136,7 +1138,7 @@ class ServicesEditor(Screen):
 		self.currentSelectedColumn = old
 
 	def openMenu(self):
-		print "openMenu"
+		print("openMenu")
 
 	def Exit(self):
 		if self.lamedb.databaseState == 5:
@@ -1150,10 +1152,10 @@ class ServicesEditor(Screen):
 		self.close()
 		
 	def showServiceInfo(self):
-		print "showServiceInfo"
+		print("showServiceInfo")
 	
 	def showHelp(self):
-		print "showHelp"
+		print("showHelp")
 		if self.cur_service is None:
 			return
 		self["infolist"].l.setFont(0, gFont("Regular", 11))

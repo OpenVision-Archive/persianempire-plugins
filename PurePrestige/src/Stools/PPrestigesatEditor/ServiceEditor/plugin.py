@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+from __future__ import print_function
 from Components.ActionMap import ActionMap
 from Components.Button import Button
 from Components.config import config, ConfigBoolean, ConfigFloat, ConfigInteger, ConfigSelection, ConfigText, ConfigYesNo, getConfigListEntry, KEY_NUMBERS, KEY_ASCII, getKeyNumber
@@ -381,7 +383,7 @@ class ServiceHideMenuSelection(Screen):
         self.setTitle(_('Options for hide'))
 
     def okbuttonClick(self):
-        print 'okbuttonClick'
+        print('okbuttonClick')
         self.close(self['menulist'].getSelectionIndex())
 
     def cancel(self):
@@ -517,7 +519,7 @@ class PrestigePanelServicesEditor(Screen):
         pass
 
     def left(self):
-        print 'left'
+        print('left')
         if self.currentSelectedColumn:
             data = self['head'].l.getCurrentSelection()
             if data is None:
@@ -538,7 +540,7 @@ class PrestigePanelServicesEditor(Screen):
         return
 
     def right(self):
-        print 'right'
+        print('right')
         if self.currentSelectedColumn < len(self.row):
             data = self['head'].l.getCurrentSelection()
             if data is None:
@@ -626,7 +628,7 @@ class PrestigePanelServicesEditor(Screen):
          '1': '7MHz',
          '2': '6MHz',
          '3': 'auto'}
-        print 'getInfo'
+        print('getInfo')
         self['infolist'].l.setFont(0, gFont('Regular', 20))
         utk = self.usk[:16]
         name = self.cur_service['name']
@@ -744,10 +746,10 @@ class PrestigePanelServicesEditor(Screen):
         return
 
     def addService(self):
-        print 'addService'
+        print('addService')
 
     def editService(self):
-        print 'editService'
+        print('editService')
         if self.cur_service is None:
             return
         else:
@@ -768,13 +770,13 @@ class PrestigePanelServicesEditor(Screen):
             return
 
     def hideService(self):
-        print 'hideService'
+        print('hideService')
         self.cur_service['flags'] = str(int(self.cur_service.get('flags', '0')) ^ dxDontshow)
         self.newServiceList[self['list'].l.getCurrentSelectionIndex()] = self['list'].buildEntry(self.cur_service)
         self.updateSelection()
 
     def hideServiceMenu(self):
-        print 'hideServiceMenu'
+        print('hideServiceMenu')
         self.session.openWithCallback(self.serviceHideMenu, ServiceHideMenuSelection, self.cur_service)
 
     def serviceHideMenu(self, result):
@@ -782,7 +784,7 @@ class PrestigePanelServicesEditor(Screen):
             self.cur_service['flags'] = str(int(self.cur_service.get('flags', '0')) ^ dxDontshow)
             self.newServiceList[self['list'].l.getCurrentSelectionIndex()] = self['list'].buildEntry(self.cur_service)
         elif result == 1:
-            print 'hide all'
+            print('hide all')
             for idx in xrange(len(self.newServiceList)):
                 usk = self.newServiceList[idx][0]
                 service = self.database[usk[:16]]['services'][usk]
@@ -791,7 +793,7 @@ class PrestigePanelServicesEditor(Screen):
                     self.newServiceList[idx] = self['list'].buildEntry(service)
 
         elif result == 2:
-            print 'unhide all'
+            print('unhide all')
             for idx in xrange(len(self.newServiceList)):
                 usk = self.newServiceList[idx][0]
                 service = self.database[usk[:16]]['services'][usk]
@@ -800,7 +802,7 @@ class PrestigePanelServicesEditor(Screen):
                     self.newServiceList[idx] = self['list'].buildEntry(service)
 
         elif result == 3:
-            print 'toggle'
+            print('toggle')
             for idx in xrange(len(self.newServiceList)):
                 usk = self.newServiceList[idx][0]
                 service = self.database[usk[:16]]['services'][usk]
@@ -809,7 +811,7 @@ class PrestigePanelServicesEditor(Screen):
                     self.newServiceList[idx] = self['list'].buildEntry(service)
 
         else:
-            print 'Men\xfcfehler:', result
+            print('Men\xfcfehler:', result)
             return
         self.updateSelection()
 
@@ -866,7 +868,7 @@ class PrestigePanelServicesEditor(Screen):
         self.currentSelectedColumn = old
 
     def openMenu(self):
-        print 'openMenu'
+        print('openMenu')
 
     def Exit(self):
         if self.lamedb.databaseState == 5:
@@ -881,10 +883,10 @@ class PrestigePanelServicesEditor(Screen):
         self.close()
 
     def showServiceInfo(self):
-        print 'showServiceInfo'
+        print('showServiceInfo')
 
     def showHelp(self):
-        print 'showHelp'
+        print('showHelp')
         if self.cur_service is None:
             return
         else:

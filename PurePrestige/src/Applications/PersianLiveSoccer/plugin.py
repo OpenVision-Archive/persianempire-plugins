@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+from __future__ import print_function
 from Screens.Screen import Screen
 from Tools.LoadPixmap import LoadPixmap
 from Components.Label import Label
@@ -53,7 +55,7 @@ def converttime(s, timediff, soccerstand):
         allok = True
         if allok == True:
             time = s
-            print time
+            print(time)
             thetimezone = thetimezone[thetimezone.find('(') + 1:thetimezone.find(')')]
             newtime = int(time[0:2] + time[3:5])
             if gmt == True:
@@ -72,8 +74,8 @@ def converttime(s, timediff, soccerstand):
                 hours = int(time[0:2]) + int(thetimezone[4:thetimezone.find(':')]) - timediff
                 if hours > 23:
                     hours = hours - 24
-                print 'time', time[3:5]
-                print 'time2', thetimezone[thetimezone.find(':') + 1:9]
+                print('time', time[3:5])
+                print('time2', thetimezone[thetimezone.find(':') + 1:9])
                 minutes1 = int(time[3:5])
                 minutes2 = int(thetimezone[thetimezone.find(':') + 1:9]) + timediff
                 minutes = int(time[3:5]) + int(thetimezone[thetimezone.find(':') + 1:9])
@@ -142,20 +144,20 @@ class persiansoccerTableScreen(Screen):
                 png = sliderfile
                 res.append(MultiContentEntryPixmapAlphaTest(pos=(15, 0), size=(770, 5), png=loadPNG(png)))
             else:
-                print len(items)
+                print(len(items))
                 date = str(items[1])
                 date = date.replace('&nbsp;&nbsp;&nbsp;&nbsp;', ' ')
                 live = str(items[2])
                 if len(live) == 2:
                     live = live + "'"
-                print live
+                print(live)
                 teamh = str(items[3])
-                print teamh
+                print(teamh)
                 teama = str(items[5])
-                print teama
+                print(teama)
                 score = str(items[6])
                 score = str(items[4])
-                print score
+                print(score)
                 res.append(MultiContentEntryText(pos=(5, 10), size=(10, 25), font=0, flags=RT_HALIGN_RIGHT, text='', color=c2color, color_sel=16777215))
                 res.append(MultiContentEntryText(pos=(10, 10), size=(130, 25), font=0, flags=RT_HALIGN_RIGHT, text=teama, color=c2color, color_sel=16777215))
                 res.append(MultiContentEntryText(pos=(140, 10), size=(60, 25), font=0, flags=RT_HALIGN_RIGHT, text=score, color=c3color, color_sel=16777215))
@@ -242,18 +244,18 @@ class psoccerbootlogo(Screen):
             return
         soup = BeautifulSoup(''.join(html))
         tables = soup.findAll('table')
-        print len(tables)
+        print(len(tables))
         t = -1
         rowslist = []
         for table in tables:
             t = t + 1
-            print '********************************'
-            print 'table:', t
-            print '********************************'
+            print('********************************')
+            print('table:', t)
+            print('********************************')
             try:
                 rows = table.findAll('tr')
             except:
-                print 'perror'
+                print('perror')
                 self.data = 'perror'
                 self.disappear()
                 return

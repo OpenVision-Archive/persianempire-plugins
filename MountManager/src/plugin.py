@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from . import _
 from Components.config import config, ConfigSubsection, ConfigText, ConfigYesNo
 from Plugins.Plugin import PluginDescriptor

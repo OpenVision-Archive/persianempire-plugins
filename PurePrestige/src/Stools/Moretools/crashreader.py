@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+from __future__ import print_function
 from struct import pack
 from enigma import *
 from Screens.Screen import Screen
@@ -121,14 +123,14 @@ class CrashReader(Screen):
         info = ''
         try:
             selection = self['list'].getCurrent()[0]
-            print selection
+            print(selection)
             self.crushfile = selection
             info = self.getcrushtime()
-            print info
+            print(info)
             self.cfile = self['list'].getCurrent()[1]
             self['info'].setText(info)
         except:
-            print info
+            print(info)
             self['info'].setText(info)
 
     def filllist(self):
@@ -140,7 +142,7 @@ class CrashReader(Screen):
         parts2 = []
         parts = self.crushfile.split('_')
         parts2 = parts[2].split('.')
-        print int(parts2[0])
+        print(int(parts2[0]))
         crushtime = time.ctime(int(parts2[0]))
         return crushtime
 
@@ -191,12 +193,12 @@ class ShowCrushLog(Screen):
         f = open(crushfile, 'r')
         crushlog_bottomline = 1
         line = f.readline()
-        print line
+        print(line)
         while line:
             if len(line) > 1:
                 crushlog_bottomline = crushlog_bottomline + 1
             line = f.readline()
-            print line
+            print(line)
 
         f.close()
         if crushlog_bottomline < crushlog_lines:
@@ -307,14 +309,14 @@ class PurePrestigereaderScreen(Screen):
         f = open(self.cfile, 'r')
         crushlog_bottomline = 1
         line = f.readline()
-        print line
+        print(line)
         alllines = ''
         while line:
             if len(line) > 1:
                 crushlog_bottomline = crushlog_bottomline + 1
             line = f.readline()
             alllines = alllines + '\n' + line
-            print line
+            print(line)
 
         f.close()
         if crushlog_bottomline < crushlog_lines:
@@ -337,7 +339,7 @@ class PurePrestigereaderScreen(Screen):
         self['text'].setText(crushlogtext)
 
     def readcrashshort(self):
-        print 'short'
+        print('short')
         f = open(self.cfile, 'r')
         line = f.readline()
         error = None
@@ -392,7 +394,7 @@ class PurePrestigereaderScreen(Screen):
 
         f.close
         if error:
-            print error
+            print(error)
             f = open('/tmp/crush.log', 'w')
             f.write(error)
             f.close

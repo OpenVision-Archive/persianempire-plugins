@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from enigma import *
 from Components.MenuList import MenuList
 from Components.GUIComponent import GUIComponent

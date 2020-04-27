@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+from __future__ import print_function
 from enigma import ePicLoad, eTimer, getDesktop
 from Plugins.Plugin import PluginDescriptor
 from Screens.Screen import Screen
@@ -388,7 +390,7 @@ class showPurePrestigescreen(Screen):
             myfile = file('/etc/ts_useraddons.xml')
             xmlparse = minidom.parse(myfile)
             self.xmlparse = xmlparse
-            print 'mahm'
+            print('mahm')
             if xmlparse:
                 for servers in self.xmlparse.getElementsByTagName('servers'):
                     for server in servers.getElementsByTagName('server'):
@@ -397,8 +399,8 @@ class showPurePrestigescreen(Screen):
                         self.serversnames.append(servername)
                         self.serversurls.append(serverxmlurl)
 
-                print servername
-                print serverxmlurl
+                print(servername)
+                print(serverxmlurl)
                 self.serversnames = f2(self.serversnames)
                 self.serversurls = f2(self.serversurls)
                 return
@@ -669,8 +671,8 @@ class DreamCCAuto():
 def autostartsoftcam(reason, session = None, **kwargs):
     """called with reason=1 to during shutdown, with reason=0 at startup?"""
     global DreamCC_auto
-    print '[Softcam] Started'
-    print 'restarting enigma dreambox '
+    print('[Softcam] Started')
+    print('restarting enigma dreambox ')
     if reason == 0:
         try:
             if fileExists('/etc/init.d/dccamd'):
@@ -719,7 +721,7 @@ def PurePrestigeAutostart(reason, **kwargs):
             if config.plugins.PPrestige.items.value == 'Disabled':
                 pass
             else:
-                print 'sessionstart'
+                print('sessionstart')
                 pScreenGrabber.gotSession(kwargs['session'])
         except:
             pass

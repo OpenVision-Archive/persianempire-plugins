@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+from __future__ import print_function
 import enigma
 from enigma import eTimer, eDVBCI_UI, eDVBCIInterfaces, iServiceInformation
 from Plugins.Plugin import PluginDescriptor
@@ -10,7 +12,7 @@ def Plugins(**kwargs):
 
 def autostart(reason, session = None):
     global autoStartTimer
-    print '[VUSolo2CIHighBitrateFix] autostart'
+    print('[VUSolo2CIHighBitrateFix] autostart')
     if reason == 0:
         if autoStartTimer is None:
             autoStartTimer = AutoStartTimer(session)

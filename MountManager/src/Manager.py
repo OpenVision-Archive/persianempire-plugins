@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+from __future__ import print_function
 from . import _
 import os
 from string import atoi
@@ -58,7 +60,7 @@ class MountSetup(Screen, ConfigListScreen):
 								self.swap = device
 			f.close()
 		except IOError, ex:
-			print "[MountManager] Failed to open /proc/swaps", ex
+			print("[MountManager] Failed to open /proc/swaps", ex)
 		self.MountOnHdd.addNotifier(self.CreateList, initial_call = False)
 		self.CreateList()
 

@@ -232,7 +232,7 @@ class setupSamba(Screen, ConfigListScreen):
 			self["nmbdLabel"].setText(_("Status nmbd: stopped"));
 
 	def dataAvail(self, str):
-		print str,
+		print(str,)
 
 	def runFinished(self, retval):
 		self.run += 1

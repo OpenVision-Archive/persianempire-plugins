@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+from __future__ import print_function
 from Screens.Screen import Screen
 from Plugins.Plugin import PluginDescriptor
 from Components.config import config, ConfigSubsection, ConfigSelection, ConfigYesNo, ConfigInteger, getConfigListEntry, ConfigEnableDisable
@@ -343,7 +345,7 @@ class SimpleSatScan(ConfigListScreen, Screen):
 				self.updateSatList()
 				sat = self.satList[index_to_scan][self.scan_satselection[index_to_scan].index]
 				self.updateTranspondersList(sat[0])
-				print self.scan_satselection[index_to_scan]
+				print(self.scan_satselection[index_to_scan])
 				self.list.append(getConfigListEntry(_("Satellite"), self.scan_satselection[index_to_scan]))
 				self.scan_networkScan.value = True
 			elif self.scan_type.value == "multisat":
@@ -508,8 +510,8 @@ class SimpleSatScan(ConfigListScreen, Screen):
 		self.newConfig()
 
 	def addSatTransponder(self, tlist, frequency, symbol_rate, polarisation, fec, inversion, orbital_position, system, modulation, rolloff, pilot):
-		print "Add Sat: frequ: " + str(frequency) + " symbol: " + str(symbol_rate) + " pol: " + str(polarisation) + " fec: " + str(fec) + " inversion: " + str(inversion) + " modulation: " + str(modulation) + " system: " + str(system) + " rolloff" + str(rolloff) + " pilot" + str(pilot)
-		print "orbpos: " + str(orbital_position)
+		print("Add Sat: frequ: " + str(frequency) + " symbol: " + str(symbol_rate) + " pol: " + str(polarisation) + " fec: " + str(fec) + " inversion: " + str(inversion) + " modulation: " + str(modulation) + " system: " + str(system) + " rolloff" + str(rolloff) + " pilot" + str(pilot))
+		print("orbpos: " + str(orbital_position))
 		parm = eDVBFrontendParametersSatellite()
 		parm.modulation = modulation
 		parm.system = system
@@ -595,7 +597,7 @@ class SimpleSatScan(ConfigListScreen, Screen):
 			SatList = nimmanager.getSatListForNim(index_to_scan)
 			for x in self.multiscanlist:
 				if x[1].value:
-					print "   " + str(x[0])
+					print("   " + str(x[0]))
 					self.getInitialTransponderList(tlist, x[0])
 
 		flags = self.scan_networkScan.value and eComponentScan.scanNetworkSearch or 0

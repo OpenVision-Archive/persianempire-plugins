@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+from __future__ import print_function
 from Components.ActionMap import ActionMap
 from Components.Console import Console
 from Components.ConfigList import ConfigListScreen
@@ -49,7 +51,7 @@ class SambaServer(Screen, ConfigListScreen):
 				self.settings.append(line)
 			f.close()
 		except:
-			print "[SambaServer] ERROR in open configuration file"
+			print("[SambaServer] ERROR in open configuration file")
 		if self.settings:
 			for line in self.settings:
 				line = line.replace(' ', '').replace('\t', '')
@@ -180,7 +182,7 @@ class SambaServer(Screen, ConfigListScreen):
 			f.write(settings)
 			f.close()
 		except:
-			print "[SambaServer] ERROR in save settings"
+			print("[SambaServer] ERROR in save settings")
 
 	def Cancel(self):
 		ConfigListScreen.keyCancel(self)

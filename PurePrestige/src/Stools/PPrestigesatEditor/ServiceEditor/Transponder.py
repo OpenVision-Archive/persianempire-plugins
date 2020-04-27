@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+from __future__ import print_function
 class Transponder:
     essential = ['frequency', 'polarization', 'symbol_rate']
     niceToHave = ['system',
@@ -107,8 +109,8 @@ class Transponder:
 
     def transponderDoctor(self, transponder):
         if not isinstance(transponder, dict):
-            print 'transponderDoctor: Transponderdaten muessen vom Type DICT sein'
-            print transponder
+            print('transponderDoctor: Transponderdaten muessen vom Type DICT sein')
+            print(transponder)
             return
         else:
             param = transponder.keys()
@@ -125,11 +127,11 @@ class Transponder:
                     missing.append(x)
 
             if len(missing):
-                print 'transponderDoctor: Folgende Parameter fehlen:', missing
+                print('transponderDoctor: Folgende Parameter fehlen:', missing)
                 return
             self.polarisation = self.transPolarisation.get(transponder.get(transParam.get('polarization'), 'i').lower())
             if self.polarisation == 'i':
-                print 'transponderDoctor: unbekannter Wert fuer Polarisation (%s)' % transParam.get('polarization')
+                print('transponderDoctor: unbekannter Wert fuer Polarisation (%s)' % transParam.get('polarization'))
                 return
             self.__frequency = transponder.get(transParam.get('frequency'), 'i').lower()
             self.__symbolrate = transponder.get(transParam.get('symbol_rate'), 'i').lower()

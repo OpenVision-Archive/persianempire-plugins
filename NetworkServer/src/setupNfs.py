@@ -394,7 +394,7 @@ class setupNfs(Screen, ConfigListScreen):
 			self["portmapLabel"].setText(_("Status portmap: stopped"))
 
 	def dataAvail(self, str):
-		print str,
+		print(str,)
 
 	def runFinished(self, retval):
 		self.run += 1

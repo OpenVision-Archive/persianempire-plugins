@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+from __future__ import print_function
 import os
 from time import sleep
 from Components.Console import Console
@@ -17,7 +19,7 @@ def GetDevices():
 					device.append(parts[3] + "  " + des)
 		f.close()
 	except IOError, ex:
-		print "[MountManager] Failed to open /proc/partitions", ex
+		print("[MountManager] Failed to open /proc/partitions", ex)
 	return device
 
 def __ReadMounts():
@@ -28,7 +30,7 @@ def __ReadMounts():
 				item[1] = item[1].replace('\\040', ' ')
 		f.close()
 	except IOError, ex:
-		print "[MountManager] Failed to open /proc/mounts", ex
+		print("[MountManager] Failed to open /proc/mounts", ex)
 		result = ""
 	return result
 
@@ -50,7 +52,7 @@ def GetDeviceFromList(list, device):
 def MountHddOnStart(MountOnHdd, MountOnMovie, enableswap):
 	device = GetDevices()
 	if not device:
-		print "[MountManager] not found devices"
+		print("[MountManager] not found devices")
 		sleep(5)
 		device = GetDevices()
 	mounts = CheckMountDir(device)
@@ -77,7 +79,7 @@ class MountDevice:
 				try:
 					os.mkdir(dir)
 				except:
-					print "[MountManager] Failed to mkdir", dir
+					print("[MountManager] Failed to mkdir", dir)
 		if os.path.exists("/bin/ntfs-3g"):
 			self.Console.ePopen("sfdisk -l /dev/sd? | grep NTFS",
 				self.__CheckNtfs, [device, dirpath])
@@ -108,12 +110,12 @@ class MountDevice:
 		if os.path.exists("/media/hdd/swapfile"):
 			Console().ePopen("swapon /media/hdd/swapfile")
 		else:
-			print "[MountManager] not found /media/hdd/swapfile"
+			print("[MountManager] not found /media/hdd/swapfile")
 			sleep(5)
 			if os.path.exists("/media/hdd/swapfile"):
 				Console().ePopen("swapon /media/hdd/swapfile")
 			else:
-				print "[MountManager] not found /media/hdd/swapfile"
+				print("[MountManager] not found /media/hdd/swapfile")
 				self.enableswap = True
 
 mountdevice = MountDevice()

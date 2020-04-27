@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+from __future__ import print_function
 import urllib2
 from Tools.Directories import fileExists, resolveFilename, SCOPE_PLUGINS
 from urllib2 import URLError
@@ -76,7 +78,7 @@ class PurePrestigeFeedScreenList(Screen):
             if feed:
                 self.showFeed(feed)
             else:
-                print '[' + myname + '] section in config not found'
+                print('[' + myname + '] section in config not found')
         except:
             self['info'].setText('sorry, no feeds available,try later')
 
@@ -86,7 +88,7 @@ class PurePrestigeFeedScreenList(Screen):
         except IOError as e:
             self['info'].setText('loading feeddata failed!')
         except:
-            print 'no feed data'
+            print('no feed data')
             self['info'].setText('sorry feeds not available')
 
     def getFeedList(self):
@@ -147,8 +149,8 @@ class FeedreaderConfig:
         try:
             self.node = parse(self.configfile)
         except:
-            print 'Illegal xml file'
-            print self.configfile
+            print('Illegal xml file')
+            print(self.configfile)
             return
 
         self.node = self.node.documentElement
@@ -441,14 +443,14 @@ class PurePrestigeFeedScreenContent(Screen):
             self['mylist'].show()
 
     def getFeedContent(self, feed):
-        print '[' + myname + "] reading feedurl '%s' ..." % feed.getURL()
+        print('[' + myname + "] reading feedurl '%s' ..." % feed.getURL())
         try:
             self.rss = RSS()
             self.feedc = self.rss.getList(feed.getURL())
-            print '[' + myname + '] have got %i items in newsfeed ' % len(self.feedc)
+            print('[' + myname + '] have got %i items in newsfeed ' % len(self.feedc))
             return self.feedc
         except IOError:
-            print '[' + myname + '] IOError by loading the feed! feed adress correct?'
+            print('[' + myname + '] IOError by loading the feed! feed adress correct?')
             self['info'].setText('IOError by loading the feed! feed adress correct')
             return []
         except:
@@ -724,7 +726,7 @@ class RSS:
         item_data = self.get_txt(node, tagName)
         if item_data == '':
             return
-        print print_string % {'tag': tagName,
+        print(print_string % {'tag': tagName,)
          'data': item_data}
 
     def print_rss(self, url):
@@ -735,13 +737,13 @@ class RSS:
         else:
             rssDocument = parse(urlopen(url))
         for node in self.getElementsByTagName(rssDocument, 'item'):
-            print '<ul class="RSS">'
-            print '<li><h1><a href="%s">' % self.get_txt(node, 'link', '#')
-            print self.get_txt(node, 'title', '<no title>')
-            print '</a></h1></li>'
+            print('<ul class="RSS">')
+            print('<li><h1><a href="%s">' % self.get_txt(node, 'link', '#'))
+            print(self.get_txt(node, 'title', '<no title>'))
+            print('</a></h1></li>')
             self.print_txt(node, 'date', '<li><small>%(data)s</li>')
             self.print_txt(node, 'description', '<li>%(data)s</li>')
-            print '</ul>'
+            print('</ul>')
 
     def getList(self, url):
         """

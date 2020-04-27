@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from __future__ import generators
 __author__ = 'Leonard Richardson (leonardr@segfault.org)'
 __version__ = '3.2.0'
@@ -294,14 +295,11 @@ class PageElement(object):
         """Encodes an object to a string in some encoding, or to Unicode.
         ."""
         if isinstance(s, unicode):
-            if encoding:
                 s = s.encode(encoding)
         elif isinstance(s, str):
-            if encoding:
                 s = s.encode(encoding)
             else:
                 s = unicode(s)
-        elif encoding:
             s = self.toEncoding(str(s), encoding)
         else:
             s = unicode(s)
@@ -337,7 +335,6 @@ class NavigableString(unicode, PageElement):
         return str(self).decode(DEFAULT_OUTPUT_ENCODING)
 
     def __str__(self, encoding = DEFAULT_OUTPUT_ENCODING):
-        if encoding:
             return self.encode(encoding)
         else:
             return self
@@ -1316,7 +1313,6 @@ class BeautifulSoup(BeautifulStoneSoup):
         if httpEquiv and contentType:
             match = self.CHARSET_RE.search(contentType)
             if match:
-                if self.declaredHTMLEncoding is not None or self.originalEncoding == self.fromEncoding:
 
                     def rewrite(match):
                         return match.group(1) + '%SOUP-ENCODING%'
@@ -1326,7 +1322,6 @@ class BeautifulSoup(BeautifulStoneSoup):
                     tagNeedsEncodingSubstitution = True
                 else:
                     newCharset = match.group(3)
-                    if newCharset and newCharset != self.originalEncoding:
                         self.declaredHTMLEncoding = newCharset
                         self._feed(self.declaredHTMLEncoding)
                         raise StopParsing
@@ -1395,7 +1390,7 @@ class BeautifulSOAP(BeautifulStoneSoup):
     
     This is, of course, useful for scraping structures that tend to
     use subelements instead of attributes, such as SOAP messages. Note
-    that it modifies its input, so don't print the modified version
+    that it modifies its input, so don't print(the modified version)
     out.
     
     I'm not sure how many people really want to use this class; let me
@@ -1907,4 +1902,4 @@ class UnicodeDammit():
 if __name__ == '__main__':
     import sys
     soup = BeautifulSoup(sys.stdin)
-    print soup.prettify()
+    print(soup.prettify())

@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 DEVICE_INFO = {'deviceid': 'FF:FF:FF:FF:FF:FF',
  'features': '0x2939',
  'model': 'AppleTV3,1',

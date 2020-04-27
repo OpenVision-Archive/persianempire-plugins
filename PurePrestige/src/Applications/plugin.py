@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from enigma import ePicLoad, eTimer, getDesktop
 from Plugins.Plugin import PluginDescriptor
 from Screens.Screen import Screen
@@ -250,7 +251,7 @@ class showPurePrestigeappscreen(Screen):
         if self.maxentry < 0:
             return
         self.old_index = self.index
-        print self.index
+        print(self.index)
         if self.index == 0:
             pluginpath = resolveFilename(SCOPE_PLUGINS, 'Extensions/PurePrestige/Applications/NetRadioPersian/plugin.pyo')
             self.pluginurl = 'http://mfaraj57.dreamoem.net/applications/enigma2-plugin-extensions-netradiopersian.ipk'

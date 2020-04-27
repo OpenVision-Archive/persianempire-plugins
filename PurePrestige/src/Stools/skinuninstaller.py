@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from Screens.Screen import Screen
 from Components.ActionMap import ActionMap, NumberActionMap
 from Components.MenuList import MenuList
@@ -33,7 +34,7 @@ def listskins():
     for x in os.listdir(path):
         filepath = path + x + '/skin.xml'
         if os.path.exists(filepath):
-            print x
+            print(x)
 
 
 class PurePrestigeAddonsScreen(Screen):

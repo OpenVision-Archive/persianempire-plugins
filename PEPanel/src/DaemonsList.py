@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+from __future__ import print_function
 from enigma import *
 from Screens.Screen import Screen
 from Components.ActionMap import ActionMap
@@ -130,7 +132,7 @@ class DaemonsList(Screen):
                      daemon_fnc_boot,
                      daemon_package))
                 except TypeError:
-                    print '[PEPanel] Could not parse daemonlist while Directory crawl. Please check .ext Files for errors.'
+                    print('[PEPanel] Could not parse daemonlist while Directory crawl. Please check .ext Files for errors.')
 
     def yellow(self):
         index = self['menu'].getSelectionIndex()
@@ -149,7 +151,7 @@ class DaemonsList(Screen):
                     elif self.daemons[index][6] == 'PENTPdConf':
                         self.session.open(MessageBox, _('Please visit the following Website:\nhttp://linux-fuer-alle.de/doc_show.php?docid=7\nto gain further instructions how to configure your STB as NTP-Client/Server.'), MessageBox.TYPE_INFO)
         except IndexError:
-            print '[PEPANEL] no Daemon .ext files found.'
+            print('[PEPANEL] no Daemon .ext files found.')
 
     def green(self):
         index = self['menu'].getSelectionIndex()

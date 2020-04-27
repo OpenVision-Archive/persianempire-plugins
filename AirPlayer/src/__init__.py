@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+from __future__ import print_function
 from enigma import getDesktop
 from skin import loadSkin
 import os
@@ -10,12 +12,12 @@ import subprocess
 from Tools.Directories import resolveFilename, SCOPE_PLUGINS
 
 def getSkins():
-    print '[AirPlayer] search for Skins'
+    print('[AirPlayer] search for Skins')
     skins = []
     skindir = resolveFilename(SCOPE_PLUGINS, 'Extensions/AirPlayer/Skins/')
     for o in os.listdir(skindir):
         if os.path.isdir(skindir + o):
-            print '[AirPlayer] found Skin', o
+            print('[AirPlayer] found Skin', o)
             skins.append((o, o))
     return skins
 
@@ -28,7 +30,7 @@ def getSkinPath(name):
         from skin import *
         return skinpath
     else:
-        print '[AirPlayer] skin ', skinpath, 'does not exist'
+        print('[AirPlayer] skin ', skinpath, 'does not exist')
         return None
         return None
 
@@ -41,15 +43,15 @@ try:
     if path is not None:
         skinPath = path
 except Exception as e:
-    print '[AirPlayer] error reading skin ', e
+    print('[AirPlayer] error reading skin ', e)
 
-print '[AirPlayer] using skin ', skinPath
+print('[AirPlayer] using skin ', skinPath)
 loadSkin(skinPath)
-print '[AirPlayer] running python ', version_info
+print('[AirPlayer] running python ', version_info)
 
 try:
     if os.path.exists('/etc/avahi/services/airplay.service'):
-        print '[AirPlayer] try to remove avahi service file'
+        print('[AirPlayer] try to remove avahi service file')
         os.remove('/etc/avahi/services/airplay.service')
 except Exception:
     pass

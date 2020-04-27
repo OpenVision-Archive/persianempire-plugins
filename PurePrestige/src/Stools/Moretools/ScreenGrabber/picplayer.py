@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+from __future__ import print_function
 from enigma import ePicLoad, eTimer, getDesktop
 from Screens.Screen import Screen
 from Tools.Directories import resolveFilename, pathExists, SCOPE_MEDIA
@@ -319,7 +321,7 @@ class grabberPic_Full_View(Screen):
             self.index = self.maxentry
 
     def slidePic(self):
-        print 'slide to next Picture index=' + str(self.lastindex)
+        print('slide to next Picture index=' + str(self.lastindex))
         if config.pic1.loop.value == False and self.lastindex == self.maxentry:
             self.PlayPause()
         self.shownow = True

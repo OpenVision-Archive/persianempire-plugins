@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+from __future__ import print_function
 import appletv
 import lib.biplist
 from twisted.web.resource import Resource
@@ -44,10 +46,10 @@ class AirplayProtocolHandler(object):
             port = self._port
             reactor.listenTCP(port, site, interface='0.0.0.0')
         except Exception as ex:
-            print ('Exception(Can be ignored): ' + str(ex), __name__, 'W')
+            print(('Exception(Can be ignored): ' + str(ex), __name__, 'W'))
 
     def sendEventInfo(self, event):
-        print '[AirPlayer] REVERSE /event - event=%s' % event
+        print('[AirPlayer] REVERSE /event - event=%s' % event)
         try:
             if self.reverseHandler is not None and self.reverseHandler.transport is not None:
                 header_template = 'POST /event HTTP/1.1\r\nContent-Type: text/x-apple-plist+xml\r\nContent-Length: %s\r\nx-apple-session-id: %s\r\n'
@@ -56,7 +58,7 @@ class AirplayProtocolHandler(object):
                 req = '%s\r\n%s\r\n' % (header, xml)
                 self.reverseHandler.transport.write(req)
         except Exception as ex:
-            print ('Exception(Can be ignored): ' + str(ex), __name__, 'W')
+            print(('Exception(Can be ignored): ' + str(ex), __name__, 'W'))
 
         return
 
@@ -64,10 +66,10 @@ class AirplayProtocolHandler(object):
 class ReverseHandler(WebSocketHandler):
 
     def frameReceived(self, frame):
-        print '[AirPlayer] REVERSE frame : %s' % frame
+        print('[AirPlayer] REVERSE frame : %s' % frame)
 
     def connectionLost(self, reason):
-        print '[AirPlayer] REVERSE connection lost: %s' % reason
+        print('[AirPlayer] REVERSE connection lost: %s' % reason)
 
 
 class BaseHandler(Resource):
@@ -93,23 +95,23 @@ class BaseHandler(Resource):
 class PlayHandler(BaseHandler):
 
     def render_POST(self, request):
-        print '[AirPlayer] PlayHandler POST'
+        print('[AirPlayer] PlayHandler POST')
         if request.getHeader('Content-Type') == 'application/x-apple-binary-plist':
             body = lib.biplist.readPlistFromString(request.content.getvalue())
         else:
             body = HTTPHeaders.parse(request.content.getvalue())
-        print '[AirPlayer] body:', body
+        print('[AirPlayer] body:', body)
         if 'Content-Location' in body:
             url = body['Content-Location']
-            print '[AirPlayer] Playing ', url
+            print('[AirPlayer] Playing ', url)
             start = float(0.0)
             if 'Start-Position' in body:
                 try:
                     str_pos = body['Start-Position']
                     start = float(str_pos)
-                    print '[AirPlayer] start-position supplied: ', start, '%'
+                    print('[AirPlayer] start-position supplied: ', start, '%')
                 except ValueError:
-                    print '[AirPlayer] Invalid start-position supplied: ', str_pos
+                    print('[AirPlayer] Invalid start-position supplied: ', str_pos)
                     start = float(0.0)
 
             else:
@@ -138,7 +140,7 @@ class ScrubHandler(BaseHandler):
                 str_pos = request.args['position'][0]
                 position = float(str_pos)
             except ValueError:
-                print '[AirPlayer] Invalid scrub value supplied: ', str_pos
+                print('[AirPlayer] Invalid scrub value supplied: ', str_pos)
             else:
                 self._media_backend.set_player_position(position)
 
@@ -150,15 +152,15 @@ class ScrubHandler(BaseHandler):
 class RateHandler(BaseHandler):
 
     def render_POST(self, request):
-        print '[AirPlayer] RateHandler POST'
+        print('[AirPlayer] RateHandler POST')
         if 'value' in request.args:
             play = bool(float(request.args['value'][0]))
             position, duration, bufferPosition = self._media_backend.get_player_position()
             if position < 3.0:
-                print '[AirPlayer] playback not yet started skipping play/pause '
+                print('[AirPlayer] playback not yet started skipping play/pause ')
                 self._protocolHandler.sendEventInfo('playing')
             else:
-                print '[AirPlayer] play? ', request.args['value'][0]
+                print('[AirPlayer] play? ', request.args['value'][0])
                 if play:
                     self._media_backend.play()
                 else:
@@ -174,7 +176,7 @@ class PhotoHandler(BaseHandler):
         self.render_PUT(request)
 
     def render_PUT(self, request):
-        print '[AirPlayer] PHOTOHandler POST'
+        print('[AirPlayer] PHOTOHandler POST')
         if request.content.read() is not None:
             request.content.seek(0)
             file(config.plugins.airplayer.path.value + '/pic.jpg', 'wb').write(request.content.read())
@@ -190,13 +192,13 @@ class PhotoHandler(BaseHandler):
 class AuthorizeHandler(BaseHandler):
 
     def render_GET(self, request):
-        print '[AirPlayer] AuthorizeHandler GET'
+        print('[AirPlayer] AuthorizeHandler GET')
         request.setHeader('content-length', 0)
         request.finish()
         return 1
 
     def render_POST(self, request):
-        print '[AirPlayer] AuthorizeHandler POST'
+        print('[AirPlayer] AuthorizeHandler POST')
         request.setHeader('content-length', 0)
         request.finish()
         return 1
@@ -205,11 +207,11 @@ class AuthorizeHandler(BaseHandler):
 class StopHandler(BaseHandler):
 
     def render_POST(self, request):
-        print '[AirPlayer] StopHandler POST'
+        print('[AirPlayer] StopHandler POST')
         self._media_backend.stop_playing()
         request.setHeader('content-length', 0)
         request.finish()
-        print '[AirPlayer] StopHandler done'
+        print('[AirPlayer] StopHandler done')
         return 1
 
 

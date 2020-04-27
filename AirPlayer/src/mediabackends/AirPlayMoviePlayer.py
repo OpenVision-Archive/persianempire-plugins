@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+from __future__ import print_function
 from Components.ActionMap import ActionMap
 from Components.ServiceEventTracker import ServiceEventTracker
 from Components.Slider import Slider
@@ -38,11 +40,11 @@ class AirPlayMoviePlayer(MoviePlayer):
         self.azBoxLastService = None
         self.proxyCaching = False
         self.alreadyUsedTsServiceAsBackup = False
-        print '[AirPlayMoviePlayer] MoviePlayer play url: ', self.url
+        print('[AirPlayMoviePlayer] MoviePlayer play url: ', self.url)
         if self.url[:7] == 'http://' or self.url[:8] == 'https://':
-            print '[AirPlayMoviePlayer] found http(s) link'
+            print('[AirPlayMoviePlayer] found http(s) link')
             if self.checkProxyUsable() and config.plugins.airplayer.useProxyIfPossible.value:
-                print '[AirPlayMoviePlayer] using proxy'
+                print('[AirPlayMoviePlayer] using proxy')
                 self.service = None
                 self.startNewServiceOnPlay = True
                 self.proxyCaching = True
@@ -96,12 +98,12 @@ class AirPlayMoviePlayer(MoviePlayer):
             return False
         try:
             self.libairtunes = cdll.LoadLibrary(resolveFilename(SCOPE_PLUGINS, 'Extensions/AirPlayer/libairtunes.so.0'))
-            print '[AirPlayMoviePlayer] loading lib done'
+            print('[AirPlayMoviePlayer] loading lib done')
             self.validationMessage = ''
             response = create_string_buffer(1024)
         except Exception as e:
-            print '[AirPlayMoviePlayer] loading lib failed'
-            print e
+            print('[AirPlayMoviePlayer] loading lib failed')
+            print(e)
             self.libairtunes = None
             return False
 
@@ -113,7 +115,7 @@ class AirPlayMoviePlayer(MoviePlayer):
             return False
         stat = os.statvfs(config.plugins.airplayer.path.value)
         free = stat.f_bfree * stat.f_bsize / 1024 / 1024
-        print '[AirPlayMoviePlayer] free blocks:', stat.f_bfree, ' block size:', stat.f_bsize
+        print('[AirPlayMoviePlayer] free blocks:', stat.f_bfree, ' block size:', stat.f_bsize)
         if free < 128:
             Notifications.AddNotification(MessageBox, _('The path for temp files that you entered in the settings (%s) has only %d MB left. The proxy was therefore disabled!') % (config.plugins.airplayer.path.value, free), type=MessageBox.TYPE_INFO, timeout=10)
             return False
@@ -121,9 +123,9 @@ class AirPlayMoviePlayer(MoviePlayer):
 
     def keyStartLocalCache(self):
         if self.useProxy:
-            print '[AirPlayMoviePlayer] Proxy is in user, no neef for downloading the file'
+            print('[AirPlayMoviePlayer] Proxy is in user, no neef for downloading the file')
             return
-        print '[AirPlayMoviePlayer] start local file caheing'
+        print('[AirPlayMoviePlayer] start local file caheing')
         if '.m3u8' in self.url:
             self.session.open(MessageBox, _('This stream can not get saved on HDD\nm3u8 streams are not supported'), MessageBox.TYPE_INFO)
             return
@@ -142,7 +144,7 @@ class AirPlayMoviePlayer(MoviePlayer):
             usock = urlopen(req)
             self.filesize = usock.info().get('Content-Length')
         except Exception as e:
-            print e
+            print(e)
             self.filesize = 0
 
         if self.url[0:4] == 'http' or self.url[0:3] == 'ftp':
@@ -162,7 +164,7 @@ class AirPlayMoviePlayer(MoviePlayer):
         self.StatusTimer.start(1000, True)
         self.dlactive = True
         self.backend.updateEventInfo('loading')
-        print '[AirPlayMoviePlayer] execute command: ' + cmd
+        print('[AirPlayMoviePlayer] execute command: ' + cmd)
         self.container.execute(cmd)
         self.session.open(MessageBox, _('The Video will be downloaded to %s\n\nPlease wait until some MB are cached before hitting PLAY\nRecorded Videos from an iPhone/iPad need to be downloaded completely before playback is possible') % config.plugins.airplayer.path.value, type=MessageBox.TYPE_INFO, timeout=10)
 
@@ -185,7 +187,7 @@ class AirPlayMoviePlayer(MoviePlayer):
 
     def DLfinished(self, retval):
         self.dlactive = False
-        print '[AirPlayMoviePlayer] DL done'
+        print('[AirPlayMoviePlayer] DL done')
         self['bufferslider'].setValue(int(100))
         self.setSeekState(self.SEEK_STATE_PLAY)
 
@@ -193,7 +195,7 @@ class AirPlayMoviePlayer(MoviePlayer):
         try:
             currPlay = self.session.nav.getCurrentService()
             sTagAudioCodec = currPlay.info().getInfoString(iServiceInformation.sTagAudioCodec)
-            print "[AirPlayMoviePlayer] audio-codec %s can't be decoded by hardware" % sTagAudioCodec
+            print("[AirPlayMoviePlayer] audio-codec %s can't be decoded by hardware" % sTagAudioCodec)
             Notifications.AddNotification(MessageBox, _("This Box can't decode %s streams!") % sTagAudioCodec, type=MessageBox.TYPE_INFO, timeout=10)
         except Exception:
             pass
@@ -202,7 +204,7 @@ class AirPlayMoviePlayer(MoviePlayer):
         try:
             currPlay = self.session.nav.getCurrentService()
             sTagVideoCodec = currPlay.info().getInfoString(iServiceInformation.sTagVideoCodec)
-            print "[AirPlayMoviePlayer] video-codec %s can't be decoded by hardware" % sTagVideoCodec
+            print("[AirPlayMoviePlayer] video-codec %s can't be decoded by hardware" % sTagVideoCodec)
             Notifications.AddNotification(MessageBox, _("This Box can't decode %s streams!") % sTagVideoCodec, type=MessageBox.TYPE_INFO, timeout=10)
         except Exception:
             pass
@@ -211,23 +213,23 @@ class AirPlayMoviePlayer(MoviePlayer):
         try:
             currPlay = self.session.nav.getCurrentService()
             message = currPlay.info().getInfoString(iServiceInformation.sUser + 12)
-            print '[AirPlayMoviePlayer] PluginError ', message
+            print('[AirPlayMoviePlayer] PluginError ', message)
             Notifications.AddNotification(MessageBox, _("Your Box can't decode this video stream!\n%s") % message, type=MessageBox.TYPE_INFO, timeout=10)
         except Exception:
             pass
 
     def __evEOF(self):
-        print '[AirPlayMoviePlayer] got evEOF'
+        print('[AirPlayMoviePlayer] got evEOF')
         try:
             err = self.session.nav.getCurrentService().info().getInfoString(iServiceInformation.sUser + 12)
-            print '[AirPlayMoviePlayer] Error: ', err
+            print('[AirPlayMoviePlayer] Error: ', err)
             if err != '':
                 Notifications.AddNotification(MessageBox, _("Your Box can't decode this video stream!\n%s") % err, type=MessageBox.TYPE_INFO, timeout=10)
         except Exception as e:
-            print '[AirPlayMoviePlayer] Exception: ', e
+            print('[AirPlayMoviePlayer] Exception: ', e)
 
     def seekWatcher(self, *args):
-        print '[AirPlayMoviePlayer] seekWatcher started'
+        print('[AirPlayMoviePlayer] seekWatcher started')
         try:
             while self is not None and self.start is not None:
                 self.seekToStartPos()
@@ -236,7 +238,7 @@ class AirPlayMoviePlayer(MoviePlayer):
         except Exception:
             pass
 
-        print '[AirPlayMoviePlayer] seekWatcher finished'
+        print('[AirPlayMoviePlayer] seekWatcher finished')
         return
 
     def startServiceOfUri(self, uri, useTsService = False):
@@ -266,19 +268,19 @@ class AirPlayMoviePlayer(MoviePlayer):
         self.startServiceOfUri(config.plugins.airplayer.path.value + self.filename)
 
     def lockInfoBar(self):
-        print '[AirPlayMoviePlayer] InfoBar is hiding ....'
+        print('[AirPlayMoviePlayer] InfoBar is hiding ....')
         if self.startNewServiceOnPlay:
             self.doShow()
 
     def checkProxyStatus(self):
-        print '[AirPlayMoviePlayer] checking prxy caching : ', self.proxyCaching, ' start new Service: ', self.startNewServiceOnPlay
+        print('[AirPlayMoviePlayer] checking prxy caching : ', self.proxyCaching, ' start new Service: ', self.startNewServiceOnPlay)
         if self.proxyCaching == False:
             self.startService()
             return
         self.checkProxyTimer.start(500, True)
 
     def proxyWatcher(self, *args):
-        print '[AirPlayMoviePlayer] proxy starting ....'
+        print('[AirPlayMoviePlayer] proxy starting ....')
         self.liveStream = False
         self.m3u8Stream = False
         try:
@@ -286,10 +288,10 @@ class AirPlayMoviePlayer(MoviePlayer):
              self.url,
              config.plugins.airplayer.validationKey.value,
              config.plugins.airplayer.path.value]
-            print 'starting proxy'
-            print args[0], args[1]
+            print('starting proxy')
+            print(args[0], args[1])
             self.proxyProcess = subprocess.Popen(args, stdin=subprocess.PIPE, stdout=subprocess.PIPE)
-            print '[AirPlayMoviePlayer] proxy started ....'
+            print('[AirPlayMoviePlayer] proxy started ....')
             while self.proxyProcess.poll() == None:
                 buff = self.proxyProcess.stdout.readline()
                 self.proxyReady = True
@@ -303,17 +305,17 @@ class AirPlayMoviePlayer(MoviePlayer):
                         kb = int(buff[7:])
                         mb = kb / 1024
                         blockingCallFromMainThread(self['label_cache'].setText, 'Cache: ' + self.formatKB(kb * 1024, 'B', 1))
-                        print '[AirPlayMoviePlayer] cache is at ', mb, ' MB'
+                        print('[AirPlayMoviePlayer] cache is at ', mb, ' MB')
                         if self.liveStream == True and mb >= config.plugins.airplayer.cacheMbBeforeLivePlayback.value and self.startNewServiceOnPlay:
                             self.proxyCaching = False
                         if self.liveStream == False and mb >= config.plugins.airplayer.cacheMbBeforePlayback.value and self.startNewServiceOnPlay:
                             self.proxyCaching = False
                     elif buff[:19] == 'playing livestream!':
                         self.liveStream = True
-                        print '[AirPlayMoviePlayer] playing livestream!'
+                        print('[AirPlayMoviePlayer] playing livestream!')
                     elif buff[:13] == 'playing m3u8!':
                         self.m3u8Stream = True
-                        print '[AirPlayMoviePlayer] playing m3u8 stream!'
+                        print('[AirPlayMoviePlayer] playing m3u8 stream!')
                     elif buff[:8] == 'rspeed: ':
                         rspeed = int(buff[8:]) * 1000
                         blockingCallFromMainThread(self['label_speed'].setText, 'DL-Speed: ' + self.formatKBits(rspeed))
@@ -322,20 +324,20 @@ class AirPlayMoviePlayer(MoviePlayer):
                         self.proxyError = True
                         self.proxyCaching = False
                     else:
-                        print '[AirPlayMoviePlayer] Proxy: ', buff
+                        print('[AirPlayMoviePlayer] Proxy: ', buff)
 
-            print '[AirPlayMoviePlayer] proxy done'
+            print('[AirPlayMoviePlayer] proxy done')
         except Exception as e:
-            print '[AirPlayMoviePlayer] error in proxy: ', e
+            print('[AirPlayMoviePlayer] error in proxy: ', e)
             traceback.print_exc()
             if self.proxyCaching == True:
                 blockingCallFromMainThread(Notifications.AddNotification, MessageBox, _('Starting the Proxy failed: %s, starting direct playback now!') % e, type=MessageBox.TYPE_INFO, timeout=10)
                 self.proxyError = True
                 self.proxyCaching = False
             else:
-                print '[AirPlayMoviePlayer] assume error comes from killing process after eof '
+                print('[AirPlayMoviePlayer] assume error comes from killing process after eof ')
 
-        print '[AirPlayMoviePlayer] proxy thread done'
+        print('[AirPlayMoviePlayer] proxy thread done')
         return
 
     def seekToStartPos(self):
@@ -347,24 +349,24 @@ class AirPlayMoviePlayer(MoviePlayer):
                 if seek != None:
                     r = seek.getLength()
                     if not r[0]:
-                        print '[AirPlayMoviePlayer] got duration'
+                        print('[AirPlayMoviePlayer] got duration')
                         if r[1] == 0:
-                            print '[AirPlayMoviePlayer] duration 0'
+                            print('[AirPlayMoviePlayer] duration 0')
                             return
                         length = r[1]
                         r = seek.getPlayPosition()
                         if not r[0]:
-                            print 'playbacktime ', r[1]
+                            print('playbacktime ', r[1])
                             if r[1] < 90000:
-                                print 'do not seek yet', r[1]
+                                print('do not seek yet', r[1])
                                 return
                         else:
                             return
                         time = length * self.start
-                        print '[AirPlayMoviePlayer] seeking to', time, ' length ', length, ''
+                        print('[AirPlayMoviePlayer] seeking to', time, ' length ', length, '')
                         self.start = None
                         if time < 2700000:
-                            print '[AirPlayMoviePlayer] skip seeking < 30s'
+                            print('[AirPlayMoviePlayer] skip seeking < 30s')
                             return
                         blockingCallFromMainThread(self.doSeek, int(time))
         except Exception:
@@ -394,10 +396,10 @@ class AirPlayMoviePlayer(MoviePlayer):
         if self.startNewServiceOnPlay and state == self.SEEK_STATE_PLAY:
             if self.useProxy:
                 if self.proxyCaching == False:
-                    print '[AirPlayMoviePlayer] start Proxy cache now'
+                    print('[AirPlayMoviePlayer] start Proxy cache now')
                     self.startServiceOfProxy(self.liveStream or self.alreadyUsedTsServiceAsBackup)
             else:
-                print '[AirPlayMoviePlayer] start downloaded file now'
+                print('[AirPlayMoviePlayer] start downloaded file now')
                 self.startServiceOfLocalFile()
             super(AirPlayMoviePlayer, self).setSeekState(self.SEEK_STATE_PLAY)
         else:
@@ -411,7 +413,7 @@ class AirPlayMoviePlayer(MoviePlayer):
             if state == self.SEEK_STATE_PLAY:
                 self.backend.updateEventInfo('playing')
         except Exception as e:
-            print e
+            print(e)
 
     def processPlayerStop(self):
         try:
@@ -425,7 +427,7 @@ class AirPlayMoviePlayer(MoviePlayer):
 
     def leavePlayerConfirmed(self, answer):
         if answer:
-            print '[AirPlayMoviePlayer] stopping MoviePlayer'
+            print('[AirPlayMoviePlayer] stopping MoviePlayer')
             self.backend.MovieWindow = None
             if self.localCache:
                 self.container.kill()
@@ -434,7 +436,7 @@ class AirPlayMoviePlayer(MoviePlayer):
             if self.lastservice and self.lastservice is not None:
                 self.backend.updateEventInfo('stopped')
             else:
-                print '[AirPlayMoviePlayer] lastService is None, not sending stop command'
+                print('[AirPlayMoviePlayer] lastService is None, not sending stop command')
             self.backend.updateEventInfo('stopped')
             if self.backend.ENIGMA_SERVICE_ID == self.backend.ENIGMA_SERVICEAZ_ID:
                 self.session.nav.stopService()
@@ -442,7 +444,7 @@ class AirPlayMoviePlayer(MoviePlayer):
                 import time
                 time.sleep(2)
             try:
-                print '[AirPlayMoviePlayer] try to remove proxy cache'
+                print('[AirPlayMoviePlayer] try to remove proxy cache')
                 Console().ePopen('rm %s/AirPlayerChunk* &' % config.plugins.airplayer.path.value)
             except Exception:
                 pass
@@ -457,27 +459,27 @@ class AirPlayMoviePlayer(MoviePlayer):
         return
 
     def doEofInternal(self, playing):
-        print '[AirPlayMoviePlayer] doEofInternal'
+        print('[AirPlayMoviePlayer] doEofInternal')
         time, length, buf = self.backend.get_player_position()
-        print '[AirPlayMoviePlayer] at ', time, ' / ', length, ' / ', buf
+        print('[AirPlayMoviePlayer] at ', time, ' / ', length, ' / ', buf)
         if time == None or time < 0.5:
-            print '[AirPlayMoviePlayer] starting service failed'
+            print('[AirPlayMoviePlayer] starting service failed')
             if self.alreadyUsedTsServiceAsBackup == False:
-                print '[AirPlayMoviePlayer] try TS Service'
+                print('[AirPlayMoviePlayer] try TS Service')
                 self.alreadyUsedTsServiceAsBackup = True
                 self.startService()
                 return
             if self.useProxy == True:
-                print '[AirPlayMoviePlayer] disable proxy'
+                print('[AirPlayMoviePlayer] disable proxy')
                 self.alreadyUsedTsServiceAsBackup = False
                 self.useProxy = False
                 self.startService()
                 return
         if self.liveStream:
-            print '[AirPlayMoviePlayer] got evEOF in live-stream ignoreing'
+            print('[AirPlayMoviePlayer] got evEOF in live-stream ignoreing')
             return
         else:
-            print '[AirPlayMoviePlayer] super.doEofInternal'
+            print('[AirPlayMoviePlayer] super.doEofInternal')
             self.backend.updateEventInfo('stopped')
             self.backend.stop_playing()
             return

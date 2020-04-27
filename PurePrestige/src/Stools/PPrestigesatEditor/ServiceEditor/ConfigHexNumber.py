@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from Components.config import config, ConfigText, KEY_NUMBERS, KEY_ASCII, getKeyNumber
 
 class ConfigHexNumber(ConfigText):
@@ -33,14 +34,14 @@ class ConfigHexNumber(ConfigText):
     _value = property(getValue, setValue)
 
     def conform(self):
-        print self.text
+        print(self.text)
         self.text = self.text[-self.size:].zfill(self.size)
-        print self.text
+        print(self.text)
         if self.marked_pos >= self.size:
             self.marked_pos = self.size - 1
         pos = len(self.text) - self.marked_pos
-        print pos
-        print self.marked_pos
+        print(pos)
+        print(self.marked_pos)
         if pos > len(self.text):
             self.marked_pos = 0
         else:

@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+from __future__ import print_function
 from twisted.web.http import datetimeToString
 from twisted.web.server import Request, Site, version, unquote
 
@@ -33,7 +35,7 @@ class WebSocketRequest(Request):
         return handler
 
     def renderWebSocket(self):
-        print 'renderWebSocket'
+        print('renderWebSocket')
         check = self._checkClientHandshake()
         if check is None:
             return

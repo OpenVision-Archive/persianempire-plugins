@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+from __future__ import print_function
 from enigma import ePicLoad, eTimer, getDesktop
 from Plugins.Plugin import PluginDescriptor
 from Screens.Screen import Screen
@@ -183,7 +185,7 @@ class showPurePrestigemoretoolsscreen(Screen):
             if x[T_PAGE] == self.currPage:
                 self['label' + str(x[T_FRAME_POS])].setText('(' + str(x[T_INDEX] + 1) + ') ' + x[T_NAME])
                 self.Thumbnaillist.append([0, x[T_FRAME_POS], x[T_FULL]])
-                print 'label' + str(x[T_FRAME_POS])
+                print('label' + str(x[T_FRAME_POS]))
 
         self['label0'].setText('Langauge manager')
         self['label1'].setText('ScreenGrabber')
