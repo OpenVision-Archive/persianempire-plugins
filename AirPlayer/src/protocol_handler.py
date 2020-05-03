@@ -47,7 +47,7 @@ class AirplayProtocolHandler(object):
             port = self._port
             reactor.listenTCP(port, site, interface='0.0.0.0')
         except Exception as ex:
-            print(('Exception(Can be ignored): ' + str(ex), __name__, 'W'))
+            print('Exception(Can be ignored): ' + str(ex), __name__, 'W')
 
     def sendEventInfo(self, event):
         print('[AirPlayer] REVERSE /event - event=%s' % event)
@@ -59,7 +59,7 @@ class AirplayProtocolHandler(object):
                 req = '%s\r\n%s\r\n' % (header, xml)
                 self.reverseHandler.transport.write(req)
         except Exception as ex:
-            print(('Exception(Can be ignored): ' + str(ex), __name__, 'W'))
+            print('Exception(Can be ignored): ' + str(ex), __name__, 'W')
 
         return
 

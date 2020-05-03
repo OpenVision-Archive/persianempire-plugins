@@ -102,7 +102,7 @@ class E2MediaBackend(BaseMediaBackend):
             try:
                 self.session.open(AirPlayPicturePlayer, self, config.plugins.airplayer.path.value + '/pic.jpg')
             except Exception as e:
-                print(('Exception(Can be ignored): ' + str(e), __name__, 'W'))
+                print('Exception(Can be ignored): ' + str(e), __name__, 'W')
 
         return
 
@@ -117,7 +117,7 @@ class E2MediaBackend(BaseMediaBackend):
         try:
             self.session.open(AirPlayMusicPlayer, self, message, lastservice)
         except Exception as e:
-            print(('Exception(Can be ignored): ' + str(e), __name__, 'W'))
+            print('Exception(Can be ignored): ' + str(e), __name__, 'W')
 
         return
 
@@ -185,7 +185,7 @@ class E2MediaBackend(BaseMediaBackend):
         try:
             self.session.open(AirPlayMoviePlayer, sref, self, start, lastservice)
         except Exception as e:
-            print(('Exception(Can be ignored): ' + str(e), __name__, 'W'))
+            print('Exception(Can be ignored): ' + str(e), __name__, 'W')
             if self.MusicWindow is not None:
                 self.MusicWindow.lastservice = lastservice
 

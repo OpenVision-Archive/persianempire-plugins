@@ -44,7 +44,7 @@ class AirtunesProtocolHandler(RTSPResource):
             site = RTSPSite(self)
             reactor.listenTCP(5000, site, interface='0.0.0.0')
         except Exception as ex:
-            print(('Exception(Can be ignored): ' + str(ex), __name__, 'W'))
+            print('Exception(Can be ignored): ' + str(ex), __name__, 'W')
 
     def handleChallengeResponse(self, request):
         response = create_string_buffer(1024)
@@ -246,10 +246,10 @@ class AirtunesProtocolHandler(RTSPResource):
                         seconds = (int(nums[1]) - start) / 44100
                         blockingCallFromMainThread(self.backend.updateAirTunesProgress, seconds, runtime)
                     except Exception as ex:
-                        print(('Exception during progress calc: ' + str(ex), __name__, 'W'))
+                        print('Exception during progress calc: ' + str(ex), __name__, 'W')
 
         except Exception as ex:
-            print(('Exception during Volume calc: ' + str(ex), __name__, 'W'))
+            print('Exception during Volume calc: ' + str(ex), __name__, 'W')
 
         request.setHeader('Audio-Jack-Status', 'connected; type=analog')
         return ''
