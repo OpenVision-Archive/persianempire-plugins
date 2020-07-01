@@ -13,7 +13,7 @@ import re
 import sgmllib
 try:
     from htmlentitydefs import name2codepoint
-except ImportError:
+except ImportError as e:
     name2codepoint = {}
 
 try:
@@ -1435,17 +1435,17 @@ class SimplifyingSOAPParser(BeautifulSOAP):
 
 try:
     import chardet
-except ImportError:
+except ImportError as e:
     chardet = None
 
 try:
     import cjkcodecs.aliases
-except ImportError:
+except ImportError as e:
     pass
 
 try:
     import iconv_codec
-except ImportError:
+except ImportError as e:
     pass
 
 class UnicodeDammit():

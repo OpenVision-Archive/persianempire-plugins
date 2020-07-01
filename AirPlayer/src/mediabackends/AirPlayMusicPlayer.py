@@ -125,7 +125,7 @@ class AirPlayMusicPlayer(Screen):
                 print('[AirPlayMusicPlayer] artist: ', response.value)
         except Exception as e:
             print('[AirPlayMusicPlayer] loading lib failed')
-            print(e)
+            print(str(e))
             self.libairtunes = None
             return False
 

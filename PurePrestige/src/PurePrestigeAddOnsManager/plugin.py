@@ -2873,7 +2873,7 @@ class DownLoadgz(Screen):
                 self['info'].setText('Failed downloading ' + self.dom + '... No internet connection or server down')
                 return
         except Exception as e:
-            print(e)
+            print(str(e))
             self['info'].setText('Failed downloading ' + self.dom + '... No internet connection or server down')
             return
 

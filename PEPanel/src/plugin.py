@@ -158,7 +158,7 @@ class PEMainMenu(Screen):
                 if fileExists(resolveFilename(SCOPE_PLUGINS, 'Extensions/PECamManager/plugin.pyo')):
                     try:
                         from Plugins.Extensions.PECamManager import *
-                    except ImportError:
+                    except ImportError as e:
                         self.session.open(MessageBox, _('The PE Cam Manager Plugin is not installed!\nPlease install it.'), type=MessageBox.TYPE_INFO, timeout=10)
                     else:
                         self.session.open(plugin.PECamManager)
@@ -558,7 +558,7 @@ class PESubMenu(Screen):
                     try:
                         from Plugins.SystemPlugins.SoftwareManager.plugin import PacketManager
                         self.session.open(PacketManager, self.skin_path)
-                    except ImportError:
+                    except ImportError as e:
                         self.session.open(MessageBox, _('The SoftwareManager Plugin is not installed!\nPlease install it.'), type=MessageBox.TYPE_INFO, timeout=10)
             elif currentEntry == 'ipkgcams':
                 plugin_prefix = ('enigma2-plugin-softcam', 'enigma2-softcam', 'softcam', 'persianpalace-cam', 'cam')
@@ -609,7 +609,7 @@ class PESubMenu(Screen):
                 if fileExists(resolveFilename(SCOPE_PLUGINS, 'SystemPlugins/SoftwareManager/plugin.pyo')):
                     try:
                         from Plugins.SystemPlugins.SoftwareManager import plugin
-                    except ImportError:
+                    except ImportError as e:
                         self.session.open(MessageBox, _('The SoftwareManager Plugin is not installed!\nPlease install it.'), type=MessageBox.TYPE_INFO, timeout=10)
                     else:
                         self.session.openWithCallback(self.runUpgrade, MessageBox, _('Do you want to update your STB?') + '\n' + _('\nAfter pressing OK, please wait!'))
@@ -619,7 +619,7 @@ class PESubMenu(Screen):
                 if fileExists(resolveFilename(SCOPE_PLUGINS, 'SystemPlugins/Videomode/plugin.pyo')):
                     try:
                         from Plugins.SystemPlugins.Videomode.plugin import videoSetupMain
-                    except ImportError:
+                    except ImportError as e:
                         self.session.open(MessageBox, _('The Videomode Plugin is not installed!\nPlease install it.'), type=MessageBox.TYPE_INFO, timeout=10)
                     else:
                         videoSetupMain(self.session)
@@ -627,7 +627,7 @@ class PESubMenu(Screen):
                 if fileExists(resolveFilename(SCOPE_PLUGINS, 'Extensions/DreamExplorer/plugin.pyo')):
                     try:
                         from Plugins.Extensions.DreamExplorer.plugin import *
-                    except ImportError:
+                    except ImportError as e:
                         self.session.open(MessageBox, _('The FileManager is not installed!\nPlease install it.'), type=MessageBox.TYPE_INFO, timeout=10)
                     else:
                         self.session.open(DreamExplorerII)
@@ -635,7 +635,7 @@ class PESubMenu(Screen):
                 if fileExists(resolveFilename(SCOPE_PLUGINS, 'SystemPlugins/NetworkBrowser/NetworkBrowser.pyo')):
                     try:
                         from Plugins.SystemPlugins.NetworkBrowser.NetworkBrowser import NetworkBrowser
-                    except ImportError:
+                    except ImportError as e:
                         self.session.open(MessageBox, _('The NetworkBrowser is not installed!\nPlease install it.'), type=MessageBox.TYPE_INFO, timeout=10)
                     else:
                         self.session.open(NetworkBrowser, iface, plugin_path)
@@ -643,7 +643,7 @@ class PESubMenu(Screen):
                 if fileExists(resolveFilename(SCOPE_PLUGINS, 'SystemPlugins/CrossEPG/plugin.pyo')):
                     try:
                         from Plugins.SystemPlugins.CrossEPG.crossepg_main import crossepg_main
-                    except ImportError:
+                    except ImportError as e:
                         self.session.open(MessageBox, _('The CrossEPG Plugin is not installed!\nPlease install it.'), type=MessageBox.TYPE_INFO, timeout=10)
                     else:
                         crossepg_main.setup(self.session)
@@ -657,7 +657,7 @@ class PESubMenu(Screen):
                 if fileExists(resolveFilename(SCOPE_PLUGINS, 'SystemPlugins/NetworkBrowser/NetworkBrowser.pyo')):
                     try:
                         from Plugins.SystemPlugins.NetworkBrowser.plugin import NetworkBrowserMain
-                    except ImportError:
+                    except ImportError as e:
                         self.session.open(MessageBox, _('The Networkbrowser Plugin is not installed!\nPlease install it.'), type=MessageBox.TYPE_INFO, timeout=10)
                     else:
                         NetworkBrowserMain(self.session)
@@ -665,7 +665,7 @@ class PESubMenu(Screen):
                 if fileExists(resolveFilename(SCOPE_PLUGINS, 'SystemPlugins/NetworkBrowser/NetworkBrowser.pyo')):
                     try:
                         from Plugins.SystemPlugins.NetworkBrowser.plugin import MountManagerMain
-                    except ImportError:
+                    except ImportError as e:
                         self.session.open(MessageBox, _('The Networkbrowser Plugin is not installed!\nPlease install it.'), type=MessageBox.TYPE_INFO, timeout=10)
                     else:
                         MountManagerMain(self.session)
@@ -675,7 +675,7 @@ class PESubMenu(Screen):
                 if fileExists(resolveFilename(SCOPE_PLUGINS, 'Extensions/NfsServer/plugin.pyo')):
                     try:
                         from Plugins.Extensions.NfsServer.plugin import *
-                    except ImportError:
+                    except ImportError as e:
                         self.session.open(MessageBox, _('The NFSServer Plugin is not installed!\nPlease install it.'), type=MessageBox.TYPE_INFO, timeout=10)
                     else:
                         self.session.open(NFSServerSetup)
@@ -880,7 +880,7 @@ class PESubMenu(Screen):
             try:
                 from Plugins.SystemPlugins.SoftwareManager.plugin import UpdatePlugin
                 self.session.open(UpdatePlugin, self.skin_path)
-            except ImportError:
+            except ImportError as e:
                 self.session.open(MessageBox, _('The SoftwareManager Plugin is not installed!\nPlease install it.'), type=MessageBox.TYPE_INFO, timeout=10)
 
 

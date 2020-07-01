@@ -123,7 +123,7 @@ class PurePrestigeSL_SettingsList(Screen):
                 self.session.open(MessageBox, _('Cannot download settings (%s)') % self.url, MessageBox.TYPE_ERROR)
                 return
         except Exception as e:
-            print(e)
+            print(str(e))
             self.session.open(MessageBox, _('Cannot download settings (%s)') % self.url, MessageBox.TYPE_ERROR)
             return
 
@@ -152,12 +152,12 @@ class PurePrestigeSL_SettingsList(Screen):
         try:
             dirsremove(TMP_SETTINGS_PWD)
         except Exception as e:
-            print(e)
+            print(str(e))
 
         try:
             dirsremove(TMP_IMPORT_PWD)
         except Exception as e:
-            print(e)
+            print(str(e))
 
     def restartenigma(self, result):
         if result:
@@ -251,7 +251,7 @@ class SL_Settings():
         try:
             f = open(pwd + '/lamedb')
         except Exception as e:
-            print(e)
+            print(str(e))
             return
 
         while True:
@@ -298,7 +298,7 @@ class SL_Settings():
         try:
             f = open(pwd + '/lamedb', 'w')
         except Exception as e:
-            print(e)
+            print(str(e))
             return
 
         f.write('eDVB services /4/\n')
@@ -358,7 +358,7 @@ class SL_Settings():
         try:
             f = open(pwd + '/' + bouquetname)
         except Exception as e:
-            print(e)
+            print(str(e))
             return
 
         ret = []
@@ -380,7 +380,7 @@ class SL_Settings():
                 try:
                     fb = open(pwd + '/' + filename)
                 except Exception as e:
-                    print(e)
+                    print(str(e))
                     continue
 
                 tmp = fb.readline().strip()
@@ -430,7 +430,7 @@ class SL_Settings():
         try:
             f = open(dstpwd + '/' + bouquetname, 'w')
         except Exception as e:
-            print(e)
+            print(str(e))
             return
 
         if bouquetname[-3:] == '.tv':
@@ -475,29 +475,29 @@ class SL_Settings():
             try:
                 copyfile(TMP_SETTINGS_PWD + '/satellites.xml', ENIGMA2_TUXBOX_PWD + '/satellites.xml')
             except Exception as e:
-                print(e)
+                print(str(e))
 
         if not config.plugins.settingsloader.keepcablesxml.value:
             try:
                 copyfile(TMP_SETTINGS_PWD + '/cables.xml', ENIGMA2_TUXBOX_PWD + '/cables.xml')
             except Exception as e:
-                print(e)
+                print(str(e))
 
         if not config.plugins.settingsloader.keepterrestrialxml.value:
             try:
                 copyfile(TMP_SETTINGS_PWD + '/terrestrial.xml', ENIGMA2_TUXBOX_PWD + '/terrestrial.xml')
             except Exception as e:
-                print(e)
+                print(str(e))
 
         try:
             copyfile(TMP_SETTINGS_PWD + '/whitelist', ENIGMA2_SETTINGS_PWD + '/whitelist')
         except Exception as e:
-            print(e)
+            print(str(e))
 
         try:
             copyfile(TMP_SETTINGS_PWD + '/blacklist', ENIGMA2_SETTINGS_PWD + '/blacklist')
         except Exception as e:
-            print(e)
+            print(str(e))
 
         eDVBDB.getInstance().reloadServicelist()
         eDVBDB.getInstance().reloadBouquets()
@@ -621,7 +621,7 @@ class SL_Settings():
         try:
             f = open(pwd + '/lamedb')
         except Exception as e:
-            print(e)
+            print(str(e))
             return
 
         while True:
@@ -668,7 +668,7 @@ class SL_Settings():
         try:
             f = open(pwd + '/lamedb', 'w')
         except Exception as e:
-            print(e)
+            print(str(e))
             return
 
         f.write('eDVB services /4/\n')
@@ -728,7 +728,7 @@ class SL_Settings():
         try:
             f = open(pwd + '/' + bouquetname)
         except Exception as e:
-            print(e)
+            print(str(e))
             return
 
         ret = []
@@ -750,7 +750,7 @@ class SL_Settings():
                 try:
                     fb = open(pwd + '/' + filename)
                 except Exception as e:
-                    print(e)
+                    print(str(e))
                     continue
 
                 tmp = fb.readline().strip()
@@ -800,7 +800,7 @@ class SL_Settings():
         try:
             f = open(dstpwd + '/' + bouquetname, 'w')
         except Exception as e:
-            print(e)
+            print(str(e))
             return
 
         if bouquetname[-3:] == '.tv':
@@ -844,29 +844,29 @@ class SL_Settings():
             try:
                 copyfile(TMP_SETTINGS_PWD + '/satellites.xml', ENIGMA2_TUXBOX_PWD + '/satellites.xml')
             except Exception as e:
-                print(e)
+                print(str(e))
 
         if not config.plugins.settingsloader.keepcablesxml.value:
             try:
                 copyfile(TMP_SETTINGS_PWD + '/cables.xml', ENIGMA2_TUXBOX_PWD + '/cables.xml')
             except Exception as e:
-                print(e)
+                print(str(e))
 
         if not config.plugins.settingsloader.keepterrestrialxml.value:
             try:
                 copyfile(TMP_SETTINGS_PWD + '/terrestrial.xml', ENIGMA2_TUXBOX_PWD + '/terrestrial.xml')
             except Exception as e:
-                print(e)
+                print(str(e))
 
         try:
             copyfile(TMP_SETTINGS_PWD + '/whitelist', ENIGMA2_SETTINGS_PWD + '/whitelist')
         except Exception as e:
-            print(e)
+            print(str(e))
 
         try:
             copyfile(TMP_SETTINGS_PWD + '/blacklist', ENIGMA2_SETTINGS_PWD + '/blacklist')
         except Exception as e:
-            print(e)
+            print(str(e))
 
         eDVBDB.getInstance().reloadServicelist()
         eDVBDB.getInstance().reloadBouquets()
@@ -903,7 +903,7 @@ class SL_MorpheusHelper():
                 self.session.open(MessageBox, _('Cannot download morpheus883 list'), MessageBox.TYPE_ERROR)
                 self.loaded = False
         except Exception as e:
-            print(e)
+            print(str(e))
             self.session.open(MessageBox, _('Cannot download morpheus883 list'), MessageBox.TYPE_ERROR)
             self.loaded = False
 
@@ -957,7 +957,7 @@ class SL_VhannibalHelper():
                 self.session.open(MessageBox, _('Cannot download VHANNIBAL list'), MessageBox.TYPE_ERROR)
                 self.loaded = False
         except Exception as e:
-            print(e)
+            print(str(e))
             self.session.open(MessageBox, _('Cannot download VHANNIBAL list'), MessageBox.TYPE_ERROR)
             self.loaded = False
 
@@ -1018,7 +1018,7 @@ class SL_SettingsHelper():
                 self.session.open(MessageBox, _('Cannot download settings list'), MessageBox.TYPE_ERROR)
                 self.loaded = False
         except Exception as e:
-            print(e)
+            print(str(e))
             self.session.open(MessageBox, _('Cannot download settings list'), MessageBox.TYPE_ERROR)
             self.loaded = False
 
@@ -1072,7 +1072,7 @@ class SL_CyrusHelper():
                 self.session.open(MessageBox, _('Cannot download cyrus list'), MessageBox.TYPE_ERROR)
                 self.loaded = False
         except Exception as e:
-            print(e)
+            print(str(e))
             self.session.open(MessageBox, _('Cannot download cyrus list'), MessageBox.TYPE_ERROR)
             self.loaded = False
 
@@ -1126,7 +1126,7 @@ class SL_SamiHelper():
                 self.session.open(MessageBox, _('Cannot download cyrus list'), MessageBox.TYPE_ERROR)
                 self.loaded = False
         except Exception as e:
-            print(e)
+            print(str(e))
             self.session.open(MessageBox, _('Cannot download cyrus list'), MessageBox.TYPE_ERROR)
             self.loaded = False
 

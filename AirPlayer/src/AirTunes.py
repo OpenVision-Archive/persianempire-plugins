@@ -34,7 +34,7 @@ class AirtunesProtocolHandler(RTSPResource):
             print('[AirTunes] loading lib done')
         except Exception as e:
             print('[AirTunes] loading lib failed')
-            print(e)
+            print(str(e))
             self.libairtunes = None
 
         return

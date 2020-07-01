@@ -10,7 +10,7 @@ from twisted.internet import defer
 from twisted.python import log, failure, reflect
 try:
     from twisted.protocols._c_urlarg import unquote
-except ImportError:
+except ImportError as e:
     from urllib import unquote
 
 __version__ = '$Rev$'
@@ -153,7 +153,7 @@ class RTSPRequest(http.Request):
 
         except Exception as e:
             print('failed to process %s:' % (lines and lines[0] or '[No headers]'))
-            print(e)
+            print(str(e))
 
     def _processPath(self):
         self.prepath = []

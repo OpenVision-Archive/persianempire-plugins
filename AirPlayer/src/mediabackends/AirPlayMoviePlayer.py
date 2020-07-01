@@ -104,7 +104,7 @@ class AirPlayMoviePlayer(MoviePlayer):
             response = create_string_buffer(1024)
         except Exception as e:
             print('[AirPlayMoviePlayer] loading lib failed')
-            print(e)
+            print(str(e))
             self.libairtunes = None
             return False
 
@@ -145,7 +145,7 @@ class AirPlayMoviePlayer(MoviePlayer):
             usock = urlopen(req)
             self.filesize = usock.info().get('Content-Length')
         except Exception as e:
-            print(e)
+            print(str(e))
             self.filesize = 0
 
         if self.url[0:4] == 'http' or self.url[0:3] == 'ftp':
@@ -414,7 +414,7 @@ class AirPlayMoviePlayer(MoviePlayer):
             if state == self.SEEK_STATE_PLAY:
                 self.backend.updateEventInfo('playing')
         except Exception as e:
-            print(e)
+            print(str(e))
 
     def processPlayerStop(self):
         try:
