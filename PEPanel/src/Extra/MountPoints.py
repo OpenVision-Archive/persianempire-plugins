@@ -17,7 +17,7 @@ class MountPoints:
         self.entries = []
         try:
             if not fileExists('/etc/settings.mounts'):
-                fp = file('/etc/settings.mounts', 'w')
+                fp = open('/etc/settings.mounts', 'w')
                 fp.close()
         except IOError:
             self.session.open(MessageBox, _('Could not create the Mountpoint Mappingfile.'), MessageBox.TYPE_ERROR, 5)

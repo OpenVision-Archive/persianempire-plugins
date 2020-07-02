@@ -388,7 +388,7 @@ class showPurePrestigescreen(Screen):
                 pass
             else:
                 return
-            myfile = file('/etc/ts_useraddons.xml')
+            myfile = open('/etc/ts_useraddons.xml')
             xmlparse = minidom.parse(myfile)
             self.xmlparse = xmlparse
             print('mahm')

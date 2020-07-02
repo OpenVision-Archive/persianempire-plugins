@@ -106,7 +106,7 @@ class Getipk(Screen):
 
     def viewLog(self):
         self['info'].setText('Press OK to continue...')
-        myfile = file('/tmp/ipk.log')
+        myfile = open('/tmp/ipk.log')
         icount = 0
         data = []
         ebuf = []

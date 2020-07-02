@@ -1317,7 +1317,7 @@ class PEStatusListMenu(Screen):
         except:
             print('[Swapfile] no %s ' % swapstarter)
 
-        fp = file(swapstarter, 'w')
+        fp = open(swapstarter, 'w')
         fp.write('#!/bin/sh\n')
         fp.write(swapcmd)
         fp.write('\n')
@@ -2414,7 +2414,7 @@ class PEVpnLog(Screen):
         strview = ''
         if not fileExists('/etc/openvpn/openvpn.log'):
             Console().ePopen('mkdir -p /etc/openvpn')
-            fp = file('/etc/openvpn/openvpn.log', 'w')
+            fp = open('/etc/openvpn/openvpn.log', 'w')
             fp.close()
         rc = Console().ePopen('tail /etc/openvpn/openvpn.log > /etc/openvpn/tmp.log')
         if fileExists('/etc/openvpn/tmp.log'):
@@ -2579,7 +2579,7 @@ class PESetupCronConf(Screen, ConfigListScreen):
         try:
             if not fileExists('/etc/cron/crontabs/root.helper'):
                 Console().ePopen('mkdir -p /etc/cron/crontabs')
-                fp = file('/etc/cron/crontabs/root.helper', 'w')
+                fp = open('/etc/cron/crontabs/root.helper', 'w')
                 fp.close()
         except OSError:
             self.session.open(MessageBox, _('Could not create the Roothelper Directory or File.'), MessageBox.TYPE_ERROR, 5)
@@ -2588,7 +2588,7 @@ class PESetupCronConf(Screen, ConfigListScreen):
         try:
             if not fileExists('/etc/cron/crontabs/root'):
                 Console().ePopen('mkdir -p /etc/cron/crontabs')
-                fp = file('/etc/cron/crontabs/root', 'w')
+                fp = open('/etc/cron/crontabs/root', 'w')
                 fp.close()
         except OSError:
             self.session.open(MessageBox, _('Could not create the Root Directory or File.'), MessageBox.TYPE_ERROR, 5)

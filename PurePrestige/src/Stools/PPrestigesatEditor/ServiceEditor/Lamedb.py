@@ -22,7 +22,7 @@ class Lamedb():
         print('phase3')
 
     def readLamedb(self):
-        f = file('/etc/enigma2/lamedb', 'r')
+        f = open('/etc/enigma2/lamedb', 'r')
         lamedb = f.readlines()
         f.close()
         if lamedb[0].find('/3/') != -1:
@@ -118,7 +118,7 @@ class Lamedb():
 
             puffer.append('end\n')
             puffer.append('Have a lot of girls\n')
-            f = file('/etc/enigma2/lamedb', 'w')
+            f = open('/etc/enigma2/lamedb', 'w')
             f.writelines(puffer)
             f.close()
             return

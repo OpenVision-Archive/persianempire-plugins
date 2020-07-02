@@ -1075,7 +1075,7 @@ class Lamedb():
         self.satellitesList = self.translateTransponders(self.getTransponders(self.readLamedb()))
 
     def readLamedb(self):
-        f = file('/etc/enigma2/lamedb', 'r')
+        f = open('/etc/enigma2/lamedb', 'r')
         lamedb = f.readlines()
         f.close()
         if lamedb[0].find('/3/') != -1:

@@ -20,7 +20,7 @@ class Lamedb:
 		print("phase3")
 
 	def readLamedb(self):
-		f = file("/etc/enigma2/lamedb","r")
+		f = open("/etc/enigma2/lamedb","r")
 		lamedb = f.readlines()
 		f.close()
 		if lamedb[0].find("/3/") != -1:
@@ -75,7 +75,7 @@ class Lamedb:
 					tmp += ",f:" + flags
 				puffer.append(("p:%s%s\n")%(service["provider"],tmp))
 		puffer.append("end\n")
-		f = file("/etc/enigma2/lamedb","w")
+		f = open("/etc/enigma2/lamedb","w")
 		f.writelines(puffer)
 		f.close()
 		
