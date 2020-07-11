@@ -1,6 +1,6 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-from __future__ import print_function, generators
+from __future__ import print_function
 __author__ = 'Leonard Richardson (leonardr@segfault.org)'
 __version__ = '3.2.0'
 __copyright__ = 'Copyright (c) 2004-2010 Leonard Richardson'

@@ -1,6 +1,6 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-from __future__ import print_function
+from __future__ import division, print_function
 from Components.ActionMap import ActionMap
 from Components.ServiceEventTracker import ServiceEventTracker
 from Components.Slider import Slider
@@ -115,7 +115,7 @@ class AirPlayMoviePlayer(MoviePlayer):
             Notifications.AddNotification(MessageBox, _('The path for temp files that you entered in the settings (%s) is not writeable! Please set up a propper path in the Settings. The Path is needed for the built in proxy. The proxy was therefore disabled!') % config.plugins.airplayer.path.value, type=MessageBox.TYPE_INFO, timeout=10)
             return False
         stat = os.statvfs(config.plugins.airplayer.path.value)
-        free = stat.f_bfree * stat.f_bsize / 1024 / 1024
+        free = stat.f_bfree * stat.f_bsize // 1024 // 1024
         print('[AirPlayMoviePlayer] free blocks:', stat.f_bfree, ' block size:', stat.f_bsize)
         if free < 128:
             Notifications.AddNotification(MessageBox, _('The path for temp files that you entered in the settings (%s) has only %d MB left. The proxy was therefore disabled!') % (config.plugins.airplayer.path.value, free), type=MessageBox.TYPE_INFO, timeout=10)
@@ -179,7 +179,7 @@ class AirPlayMoviePlayer(MoviePlayer):
         else:
             self.localsize = 0
         if self.localsize > 0 and self.filesize > 0:
-            percent = float(float(self.localsize) / float(self.filesize))
+            percent = float(float(self.localsize) // float(self.filesize))
             percent = percent * 100.0
             self['bufferslider'].setValue(int(percent))
             if self.localsize - lastSize > 0:
@@ -304,7 +304,7 @@ class AirPlayMoviePlayer(MoviePlayer):
                             self.proxyCaching = False
                     elif buff[:7] == 'cache: ':
                         kb = int(buff[7:])
-                        mb = kb / 1024
+                        mb = kb // 1024
                         blockingCallFromMainThread(self['label_cache'].setText, 'Cache: ' + self.formatKB(kb * 1024, 'B', 1))
                         print('[AirPlayMoviePlayer] cache is at ', mb, ' MB')
                         if self.liveStream == True and mb >= config.plugins.airplayer.cacheMbBeforeLivePlayback.value and self.startNewServiceOnPlay:
@@ -378,18 +378,18 @@ class AirPlayMoviePlayer(MoviePlayer):
     def formatKBits(self, value, ending = 'Bit/s', roundNumbers = 2):
         bits = value * 8
         if bits > 1048576:
-            return str(round(float(bits) / float(1048576), roundNumbers)) + ' M' + ending
+            return str(round(float(bits) // float(1048576), roundNumbers)) + ' M' + ending
         elif bits > 1024:
-            return str(round(float(bits) / float(1024), roundNumbers)) + ' K' + ending
+            return str(round(float(bits) // float(1024), roundNumbers)) + ' K' + ending
         else:
             return str(bits) + ' ' + ending
 
     def formatKB(self, value, ending = 'B', roundNumbers = 2):
         byte = value
         if byte > 1048576:
-            return str(round(float(byte) / float(1048576), roundNumbers)) + ' M' + ending
+            return str(round(float(byte) // float(1048576), roundNumbers)) + ' M' + ending
         elif byte > 1024:
-            return str(round(float(byte) / float(1024), roundNumbers)) + ' K' + ending
+            return str(round(float(byte) // float(1024), roundNumbers)) + ' K' + ending
         else:
             return str(byte) + ' ' + ending
 
@@ -462,7 +462,7 @@ class AirPlayMoviePlayer(MoviePlayer):
     def doEofInternal(self, playing):
         print('[AirPlayMoviePlayer] doEofInternal')
         time, length, buf = self.backend.get_player_position()
-        print('[AirPlayMoviePlayer] at ', time, ' / ', length, ' / ', buf)
+        print('[AirPlayMoviePlayer] at ', time, ' // ', length, ' // ', buf)
         if time == None or time < 0.5:
             print('[AirPlayMoviePlayer] starting service failed')
             if self.alreadyUsedTsServiceAsBackup == False:

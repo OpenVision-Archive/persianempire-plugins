@@ -1,6 +1,6 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-from __future__ import print_function
+from __future__ import division, print_function
 import StringIO
 from Screens.Screen import Screen
 from Components.ActionMap import ActionMap
@@ -210,8 +210,8 @@ def freespace():
         diskSpace = os.statvfs('/')
         capacity = float(diskSpace.f_bsize * diskSpace.f_blocks)
         available = float(diskSpace.f_bsize * diskSpace.f_bavail)
-        fspace = round(float(available / 1048576.0), 2)
-        tspace = round(float(capacity / 1048576.0), 1)
+        fspace = round(float(available // 1048576.0), 2)
+        tspace = round(float(capacity // 1048576.0), 1)
         spacestr = 'Free space(' + str(fspace) + 'MB) Total space(' + str(tspace) + 'MB)'
         return spacestr
     except:
@@ -2882,7 +2882,7 @@ class PurePrestigeIpkgTutorials(Screen):
     skin = '\n\t\t<screen position="center,center" size="600,430" title="PurePrestige-Addons" >\n\t\t\t  <ePixmap pixmap="~/images/bg2.png" position="0,0" size="620,450"/>\n                          <widget name="menu" position="10,0" size="590,373" scrollbarMode="showOnDemand" transparent="1" zPosition="2" />\n\t                  <ePixmap position="15,377" size="570,5" pixmap="~/images/slider.png" alphatest="blend" transparent="1" backgroundColor="transparent"/>\n                                   \n                </screen>\n\t\t'
 
     def __init__(self, session, xmlparse, selection):
-        self.skin = Extensions / PurePrestige.skin
+        self.skin = Extensions // PurePrestige.skin
         Screen.__init__(self, session)
         self.xmlparse = xmlparse
         self.selection = selection

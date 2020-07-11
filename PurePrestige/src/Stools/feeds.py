@@ -1,6 +1,6 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-from __future__ import print_function
+from __future__ import division, print_function
 import urllib2
 from Tools.Directories import fileExists, resolveFilename, SCOPE_PLUGINS
 from urllib2 import URLError
@@ -580,7 +580,7 @@ class PurePrestigeFeedScreenMore(Screen):
             count = 0
             for item in a:
                 b = []
-                b = item.split('!-- / message')
+                b = item.split('!-- // message')
                 s = b[0]
                 if count > 0:
                     self.labeltext += str(s)

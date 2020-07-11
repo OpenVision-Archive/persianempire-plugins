@@ -1,6 +1,6 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-from __future__ import print_function
+from __future__ import division, print_function
 from Screens.Screen import Screen
 from Plugins.Plugin import PluginDescriptor
 from Components.config import config, ConfigSubsection, ConfigSelection, ConfigYesNo, ConfigInteger, getConfigListEntry, ConfigEnableDisable
@@ -217,7 +217,7 @@ class SimpleSatScan(ConfigListScreen, Screen):
 				tps = nimmanager.getTransponders(orbpos)
 				if len(tps) > index:
 					x = tps[index]
-					tpslist.append((x[1] / 1000, x[2] / 1000, x[3], x[4], x[7], orbpos, x[5], x[6], x[8], x[9]))
+					tpslist.append((x[1] // 1000, x[2] // 1000, x[3], x[4], x[7], orbpos, x[5], x[6], x[8], x[9]))
 		elif self.scan_type.value == "single_satellite":
 			if len(nimsats):
 				multi_tune = True
@@ -225,7 +225,7 @@ class SimpleSatScan(ConfigListScreen, Screen):
 				tps = nimmanager.getTransponders(orbpos)
 				for x in tps:
 					if x[0] == 0:
-						tpslist.append((x[1] / 1000, x[2] / 1000, x[3], x[4], x[7], orbpos, x[5], x[6], x[8], x[9]))
+						tpslist.append((x[1] // 1000, x[2] // 1000, x[3], x[4], x[7], orbpos, x[5], x[6], x[8], x[9]))
 		elif self.scan_type.value == "multisat":
 			if len(self.multiscanlist):
 				for sat in self.multiscanlist:
@@ -235,7 +235,7 @@ class SimpleSatScan(ConfigListScreen, Screen):
 						tps = nimmanager.getTransponders(sat[0])
 						for x in tps:
 							if x[0] == 0:
-								tpslist.append((x[1] / 1000, x[2] / 1000, x[3], x[4], x[7], sat[0], x[5], x[6], x[8], x[9]))
+								tpslist.append((x[1] // 1000, x[2] // 1000, x[3], x[4], x[7], sat[0], x[5], x[6], x[8], x[9]))
 						if sat[1].value:
 							multi_tune = True
 							break
@@ -246,7 +246,7 @@ class SimpleSatScan(ConfigListScreen, Screen):
 					tps = nimmanager.getTransponders(sat[0])
 					for x in tps:
 						if x[0] == 0:
-							tpslist.append((x[1] / 1000, x[2] / 1000, x[3], x[4], x[7], sat[0], x[5], x[6], x[8], x[9]))
+							tpslist.append((x[1] // 1000, x[2] // 1000, x[3], x[4], x[7], sat[0], x[5], x[6], x[8], x[9]))
 					if len(tpslist): break
 
 		self.tpslist = tpslist
@@ -260,9 +260,9 @@ class SimpleSatScan(ConfigListScreen, Screen):
 	def OrbToStr(self, orbpos=-1):
 		if orbpos == -1 or orbpos > 3600: return "??"
 		if orbpos > 1800:
-			return "%d.%dW" % ((3600 - orbpos) / 10, (3600 - orbpos) % 10)
+			return "%d.%dW" % ((3600 - orbpos) // 10, (3600 - orbpos) % 10)
 		else:
-			return "%d.%dE" % (orbpos / 10, orbpos % 10)
+			return "%d.%dE" % (orbpos // 10, orbpos % 10)
 
 	def PolToStr(self, pol):
 		return (pol == 0 and "H") or (pol == 1 and "V") or (pol == 2 and "L") or (pol == 3 and "R") or "??"
@@ -279,7 +279,7 @@ class SimpleSatScan(ConfigListScreen, Screen):
 			tps = nimmanager.getTransponders(orbpos)
 			for x in tps:
 				if x[0] == 0:
-					s = str(x[1]/1000) + " " + self.PolToStr(x[3]) + " / " + str(x[2]/1000) + " / " + self.FecToStr(x[4])
+					s = str(x[1]/1000) + " " + self.PolToStr(x[3]) + " // " + str(x[2]/1000) + " // " + self.FecToStr(x[4])
 					list.append((str(index), s))
 					index += 1
 			self.scan_transponders = ConfigSelection(choices = list, default = "0")
@@ -399,9 +399,9 @@ class SimpleSatScan(ConfigListScreen, Screen):
 			ttype = frontendData.get("tuner_type", "UNKNOWN")
 			if ttype == "DVB-S":
 				defaultSat["system"] = frontendData.get("system", eDVBFrontendParametersSatellite.System_DVB_S)
-				defaultSat["frequency"] = frontendData.get("frequency", 0) / 1000
+				defaultSat["frequency"] = frontendData.get("frequency", 0) // 1000
 				defaultSat["inversion"] = frontendData.get("inversion", eDVBFrontendParametersSatellite.Inversion_Unknown)
-				defaultSat["symbolrate"] = frontendData.get("symbol_rate", 0) / 1000
+				defaultSat["symbolrate"] = frontendData.get("symbol_rate", 0) // 1000
 				defaultSat["polarization"] = frontendData.get("polarization", eDVBFrontendParametersSatellite.Polarisation_Horizontal)
 				if defaultSat["system"] == eDVBFrontendParametersSatellite.System_DVB_S2:
 					defaultSat["fec_s2"] = frontendData.get("fec_inner", eDVBFrontendParametersSatellite.FEC_Auto)
@@ -589,7 +589,7 @@ class SimpleSatScan(ConfigListScreen, Screen):
 					tps = nimmanager.getTransponders(orbpos)
 					if len(tps) > self.scan_transponders.index:
 						x = tps[self.scan_transponders.index]
-						self.addSatTransponder(tlist, x[1] / 1000, x[2] / 1000, x[3], x[4], x[7], orbpos, x[5], x[6], x[8], x[9])
+						self.addSatTransponder(tlist, x[1] // 1000, x[2] // 1000, x[3], x[4], x[7], orbpos, x[5], x[6], x[8], x[9])
 			removeAll = False
 		elif self.scan_type.value == "single_satellite":
 			sat = self.satList[index_to_scan][self.scan_satselection[index_to_scan].index]

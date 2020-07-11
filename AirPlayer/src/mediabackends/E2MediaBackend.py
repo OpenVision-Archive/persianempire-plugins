@@ -1,6 +1,6 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-from __future__ import print_function
+from __future__ import division, print_function
 from Components.config import ConfigSubsection, ConfigText, ConfigYesNo, config
 from Screens.MessageBox import MessageBox
 from BaseMediaBackend import BaseMediaBackend
@@ -217,10 +217,10 @@ class E2MediaBackend(BaseMediaBackend):
         if seek != None:
             r = seek.getLength()
             if not r[0]:
-                length = float(float(r[1]) / float(90000))
+                length = float(float(r[1]) // float(90000))
             r = seek.getPlayPosition()
             if not r[0]:
-                time = float(float(r[1]) / float(90000))
+                time = float(float(r[1]) // float(90000))
         if time > 0 and length > 0:
             self.playPosition = time
             self.duration = length
@@ -233,7 +233,7 @@ class E2MediaBackend(BaseMediaBackend):
         cachePos = self.playPosition
         if self.MovieWindow is not None:
             try:
-                cachePos = float(self.duration / 100.0) * float(self.MovieWindow['bufferslider'].getValue())
+                cachePos = float(self.duration // 100.0) * float(self.MovieWindow['bufferslider'].getValue())
                 if cachePos < self.playPosition:
                     cachePos = self.playPosition
             except Exception as e:
