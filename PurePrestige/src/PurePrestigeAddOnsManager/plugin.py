@@ -2882,7 +2882,7 @@ class PurePrestigeIpkgTutorials(Screen):
     skin = '\n\t\t<screen position="center,center" size="600,430" title="PurePrestige-Addons" >\n\t\t\t  <ePixmap pixmap="~/images/bg2.png" position="0,0" size="620,450"/>\n                          <widget name="menu" position="10,0" size="590,373" scrollbarMode="showOnDemand" transparent="1" zPosition="2" />\n\t                  <ePixmap position="15,377" size="570,5" pixmap="~/images/slider.png" alphatest="blend" transparent="1" backgroundColor="transparent"/>\n                                   \n                </screen>\n\t\t'
 
     def __init__(self, session, xmlparse, selection):
-        self.skin = Extensions // PurePrestige.skin
+        self.skin = Extensions / PurePrestige.skin
         Screen.__init__(self, session)
         self.xmlparse = xmlparse
         self.selection = selection

@@ -1,6 +1,6 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-from __future__ import division, print_function
+from __future__ import print_function
 from Components.ActionMap import ActionMap
 from Components.ServiceEventTracker import ServiceEventTracker
 from Components.Slider import Slider
@@ -462,7 +462,7 @@ class AirPlayMoviePlayer(MoviePlayer):
     def doEofInternal(self, playing):
         print('[AirPlayMoviePlayer] doEofInternal')
         time, length, buf = self.backend.get_player_position()
-        print('[AirPlayMoviePlayer] at ', time, ' // ', length, ' // ', buf)
+        print('[AirPlayMoviePlayer] at ', time, ' / ', length, ' / ', buf)
         if time == None or time < 0.5:
             print('[AirPlayMoviePlayer] starting service failed')
             if self.alreadyUsedTsServiceAsBackup == False:

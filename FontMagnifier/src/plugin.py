@@ -1,6 +1,5 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-from __future__ import division
 fm_version="0.6.2"
 
 from Plugins.Plugin import PluginDescriptor
@@ -650,7 +649,7 @@ class fmRestoreSettings(Screen):
                     raise AttributeError
                 i += 1
         except AttributeError:
-            XML_attribute_error_string="Restore failed: XML attribute error '%s' // " % (node.toxml("utf-8"))
+            XML_attribute_error_string="Restore failed: XML attribute error '%s' / " % (node.toxml("utf-8"))
             messagebox_text = XML_attribute_error_string + attribute_error_string
             confirmbox = self.session.open(MessageBox, messagebox_text, MessageBox.TYPE_ERROR)
             confirmbox.setTitle(_("Error..."))

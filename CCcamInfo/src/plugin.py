@@ -1,6 +1,6 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-from __future__ import division, print_function
+from __future__ import print_function
 from base64 import encodestring
 from Components.ActionMap import ActionMap, NumberActionMap
 from Components.config import config, ConfigInteger, ConfigSelection, ConfigSubsection, ConfigText, ConfigYesNo, getConfigListEntry
@@ -1869,7 +1869,7 @@ class CCcamInfoShareInfo(Screen):
 		else:
 			textMaxdown = str(self.maxdown)
 		
-		self.instance.setTitle("%s %d (%s%s // %s%s)" % (_("Available shares:"), count, _("Uphops: "), textUhops, _("Maxdown: "), textMaxdown))
+		self.instance.setTitle("%s %d (%s%s / %s%s)" % (_("Available shares:"), count, _("Uphops: "), textUhops, _("Maxdown: "), textMaxdown))
 		self["list"].setList(shareList)
 		self.working = False
 
@@ -1922,7 +1922,7 @@ class CCcamInfoShareInfo(Screen):
 		else:
 			textMaxdown = str(self.maxdown)
 		
-		self.instance.setTitle("%s %d (%s%s // %s%s)" % (_("Available shares:"), count, _("Uphops: "), textUhops, _("Maxdown: "), textMaxdown))
+		self.instance.setTitle("%s %d (%s%s / %s%s)" % (_("Available shares:"), count, _("Uphops: "), textUhops, _("Maxdown: "), textMaxdown))
 		self["list"].setList(shareList)
 		self.working = False
 

@@ -1,6 +1,5 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-from __future__ import division
 from enigma import *
 from Screens.Screen import Screen
 from Screens.MessageBox import MessageBox
@@ -38,7 +37,7 @@ class AddonsFileBrowser(Screen):
         self.tgzret = Console().ePopen('tar -xzpvf "%s" -C /' % self.filename)
 
     def unzip(self):
-        self.unzipret = Console().ePopen('unzip -o -d // "%s"' % self.filename)
+        self.unzipret = Console().ePopen('unzip -o -d / "%s"' % self.filename)
 
     def unrar(self):
         self.unrarret = Console().ePopen('unrar x -u "%s" /' % self.filename)

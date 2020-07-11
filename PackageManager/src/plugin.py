@@ -1,6 +1,5 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-from __future__ import division
 from Screens.Screen import Screen
 from Screens.MessageBox import MessageBox
 from Components.Sources.StaticText import StaticText
@@ -347,17 +346,17 @@ class InstallZip(Screen):
 		try:
 			item = self["menu"].getCurrent()
 			name = item[0]
-			pecommand1 = ("unzip -o -d // /tmp/%s" % name)
-			pecommand2 = ("unzip -o -d // /media/usb/%s" % name)
-			pecommand3 = ("unzip -o -d // /media/hdd/%s" % name)
-			pecommand4 = ("unzip -o -d // /media/cf/%s" % name)
+			pecommand1 = ("unzip -o -d / /tmp/%s" % name)
+			pecommand2 = ("unzip -o -d / /media/usb/%s" % name)
+			pecommand3 = ("unzip -o -d / /media/hdd/%s" % name)
+			pecommand4 = ("unzip -o -d / /media/cf/%s" % name)
 			self.session.open(Console,title = _("Install zip"), cmdlist = [pecommand1, pecommand2, pecommand3, pecommand4])
 		except:
 			pass
 			
 	def okInstAll(self):
 			ipklist = os.popen("ls -1  /tmp/*.zip /media/usb/*.zip /media/hdd/*.zip /media/cf/*.zip")
-			self.session.open(Console,title = _("Install zip"), cmdlist = ["unzip -o -d // /tmp/*.zip", "unzip -o -d // /media/usb/*.zip", "unzip -o -d // /media/hdd/*.zip", "unzip -o -d // /media/cf/*.zip"])
+			self.session.open(Console,title = _("Install zip"), cmdlist = ["unzip -o -d / /tmp/*.zip", "unzip -o -d / /media/usb/*.zip", "unzip -o -d / /media/hdd/*.zip", "unzip -o -d / /media/cf/*.zip"])
 
 	def cancel(self):
 		self.close()

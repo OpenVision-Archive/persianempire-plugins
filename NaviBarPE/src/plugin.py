@@ -130,7 +130,7 @@ class navibar_config1(Screen, ConfigListScreen, HelpableScreen):
          'right': self.right,
          'left': self.left}, -1)
         self['OkCancelActions'] = HelpableActionMap(self, 'OkCancelActions', {'cancel': (self.saveConfig, _('Save And Close')),
-         'ok': (self.change_hide, _('Set Pic-Folder // Change/Hide Plugin'))}, -1)
+         'ok': (self.change_hide, _('Set Pic-Folder/Change/Hide Plugin'))}, -1)
         self['EPGSelectActions'] = HelpableActionMap(self, 'EPGSelectActions', {'input_date_time': (self.switchtpw, _('Password On/Off')),
          'red': (self.del_section, _('Delete Section')),
          'blue': (self.change_descrip, _('Change Description')),
