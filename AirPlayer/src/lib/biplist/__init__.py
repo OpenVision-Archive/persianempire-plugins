@@ -1,5 +1,6 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
+from __future__ import division
 from collections import namedtuple
 from cStringIO import StringIO
 import datetime
@@ -514,7 +515,7 @@ class PlistWriter(object):
         elif isinstance(obj, (str, unicode)):
             if isinstance(obj, unicode):
                 bytes = obj.encode('utf_16_be')
-                output += proc_variable_length(6, len(bytes) / 2)
+                output += proc_variable_length(6, len(bytes) // 2)
                 output += bytes
             else:
                 bytes = obj

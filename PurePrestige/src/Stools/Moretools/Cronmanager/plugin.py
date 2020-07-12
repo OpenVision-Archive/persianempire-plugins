@@ -1,6 +1,6 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-from __future__ import print_function
+from __future__ import division, print_function
 from enigma import eTimer, eListboxPythonMultiContent, gFont, RT_HALIGN_LEFT, RT_HALIGN_RIGHT, RT_HALIGN_CENTER, getDesktop, loadPNG, loadPic
 from Components.Label import Label
 from Components.MultiContent import MultiContentEntryText, MultiContentEntryPixmapAlphaTest
@@ -561,7 +561,7 @@ class ChangeTimeWizzard(Screen):
             if int(newmonth) == 4 or int(newmonth) == 6 or int(newmonth) == 9 or (int(newmonth) == 11) is True:
                 maxmonth = 30
             elif (int(newmonth) == 2) is True:
-                if (4 * int(int(newyear) / 4) == int(newyear)) is True:
+                if (4 * int(int(newyear) // 4) == int(newyear)) is True:
                     maxmonth = 28
                 else:
                     maxmonth = 27

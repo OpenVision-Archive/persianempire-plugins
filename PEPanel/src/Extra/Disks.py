@@ -1,5 +1,6 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
+from __future__ import division
 from BoxInfo import BoxInfo
 import os
 import re
@@ -125,16 +126,16 @@ class Disks:
         if type == 0:
             flow = '0,\n;\n;\n;\ny\n'
         elif type == 1:
-            psize = size / 1048576 / 2
+            psize = size // 1048576 // 2
             flow = ',%d\n;\n;\n;\ny\n' % psize
         elif type == 2:
-            psize = size / 1048576 / 4 * 3
+            psize = size // 1048576 // 4 * 3
             flow = ',%d\n;\n;\n;\ny\n' % psize
         elif type == 3:
-            psize = size / 1048576 / 3
+            psize = size // 1048576 // 3
             flow = ',%d\n,%d\n;\n;\ny\n' % (psize, psize)
         elif type == 4:
-            psize = size / 1048576 / 4
+            psize = size // 1048576 // 4
             flow = ',%d\n,%d\n,%d\n;\ny\n' % (psize, psize, psize)
         boxinfo = BoxInfo()
         cmd = '%s -f -uM /dev/%s' % (boxinfo.sfdiskBin, device)

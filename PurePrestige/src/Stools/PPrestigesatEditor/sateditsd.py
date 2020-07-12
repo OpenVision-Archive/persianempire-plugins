@@ -1,6 +1,6 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-from __future__ import print_function
+from __future__ import division, print_function
 from Components.ActionMap import ActionMap
 from Components.Button import Button
 from Components.config import config, ConfigBoolean, ConfigFloat, ConfigInteger, ConfigSelection, ConfigText, ConfigYesNo, getConfigListEntry
@@ -1102,7 +1102,7 @@ class Lamedb():
                             tp.update({t2_sv4[y]: x[1][y]})
 
                     tp.update({'import': 13468991})
-                    if int(tp.get('namespace'), 16) / 65536 != int(tp.get('position')):
+                    if int(tp.get('namespace'), 16) // 65536 != int(tp.get('position')):
                         print('Namespace %s und Position %s sind  nicht identisch' % (tp.get('namespace'), tp.get('position')))
                         continue
                 elif freq[0] == 'c' or freq[0] == 'C':
@@ -1434,9 +1434,9 @@ class TransponderList(MenuList):
             calc_xpos = lambda a: a[len(a) - 1][1] + a[len(a) - 1][3]
             color = transponder.importColor
             tp.append(MultiContentEntryText(pos=(0, 0), size=(70, self.rowHight), font=0, flags=RT_HALIGN_LEFT | RT_VALIGN_TOP, text=transponder.system, color=color, border_width=1, border_color=806544))
-            tp.append(MultiContentEntryText(pos=(calc_xpos(tp), 0), size=(60, self.rowHight), font=0, flags=RT_HALIGN_RIGHT | RT_VALIGN_TOP, text=str(int(transponder.frequency) / 1000), color=color, border_width=1, border_color=806544))
+            tp.append(MultiContentEntryText(pos=(calc_xpos(tp), 0), size=(60, self.rowHight), font=0, flags=RT_HALIGN_RIGHT | RT_VALIGN_TOP, text=str(int(transponder.frequency) // 1000), color=color, border_width=1, border_color=806544))
             tp.append(MultiContentEntryText(pos=(calc_xpos(tp), 0), size=(15, self.rowHight), font=0, flags=RT_HALIGN_CENTER | RT_VALIGN_TOP, text=transponder.polarisation, color=color, border_width=1, border_color=806544))
-            tp.append(MultiContentEntryText(pos=(calc_xpos(tp), 0), size=(60, self.rowHight), font=0, flags=RT_HALIGN_RIGHT | RT_VALIGN_TOP, text=str(int(transponder.symbolrate) / 1000), color=color, border_width=1, border_color=806544))
+            tp.append(MultiContentEntryText(pos=(calc_xpos(tp), 0), size=(60, self.rowHight), font=0, flags=RT_HALIGN_RIGHT | RT_VALIGN_TOP, text=str(int(transponder.symbolrate) // 1000), color=color, border_width=1, border_color=806544))
             tp.append(MultiContentEntryText(pos=(calc_xpos(tp), 0), size=(45, self.rowHight), font=0, flags=RT_HALIGN_CENTER | RT_VALIGN_TOP, text=transFec.get(transponder.fec), color=color, border_width=1, border_color=806544))
             tp.append(MultiContentEntryText(pos=(calc_xpos(tp), 0), size=(55, self.rowHight), font=0, flags=RT_HALIGN_CENTER | RT_VALIGN_TOP, text=transponder.modulation, color=color, border_width=1, border_color=806544))
             tp.append(MultiContentEntryText(pos=(calc_xpos(tp), 0), size=(40, self.rowHight), font=0, flags=RT_HALIGN_CENTER | RT_VALIGN_TOP, text=transRolloff.get(transponder.rolloff), color=color, border_width=1, border_color=806544))
@@ -1474,12 +1474,12 @@ class TransponderEditor(Screen, ConfigListScreen, Transponder):
 
     def createConfig(self):
         self.configTransponderSystem = ConfigSelection([('DVB-S', _('DVB-S')), ('DVB-S2', _('DVB-S2'))], self.system)
-        self.configTransponderFrequency = ConfigFloat(default=[int(self.frequency) / 1000, int(self.frequency) % 1000], limits=[(0, 99999), (0, 999)])
+        self.configTransponderFrequency = ConfigFloat(default=[int(self.frequency) // 1000, int(self.frequency) % 1000], limits=[(0, 99999), (0, 999)])
         self.configTransponderPolarisation = ConfigSelection([('H', _('horizontal')),
          ('V', _('vertical')),
          ('L', _('circular left')),
          ('R', _('circular right'))], self.polarisation)
-        self.configTransponderSymbolrate = ConfigInteger(default=int(self.symbolrate) / 1000, limits=(0, 99999))
+        self.configTransponderSymbolrate = ConfigInteger(default=int(self.symbolrate) // 1000, limits=(0, 99999))
         self.configTransponderFec = ConfigSelection([('FEC_AUTO', _('auto')),
          ('FEC_1_2', _('1/2')),
          ('FEC_2_3', _('2/3')),
@@ -1802,7 +1802,7 @@ class SatelliteList(MenuList):
                 backcolor_sel = 9466996
             satentry.append(MultiContentEntryText(pos=(0, 0), size=(430, 24), font=0, flags=RT_HALIGN_LEFT | RT_VALIGN_TOP, text=satparameter.get('name'), color=color, color_sel=color_sel, backcolor=backcolor, backcolor_sel=backcolor_sel, border_width=1, border_color=15792383))
             pos = int(satparameter.get('position'))
-            posStr = str(abs(pos) / 10) + '.' + str(abs(pos) % 10)
+            posStr = str(abs(pos) // 10) + '.' + str(abs(pos) % 10)
             if pos < 0:
                 posStr = posStr + ' ' + _('West')
             if pos > 0:
@@ -1997,7 +1997,7 @@ class SatEditor(Screen, ConfigListScreen):
             if satellitePosition < 0:
                 self.satelliteOrientation = 'west'
             satellitePosition = abs(satellitePosition)
-            self.satellitePosition = [satellitePosition / 10, satellitePosition % 10]
+            self.satellitePosition = [satellitePosition // 10, satellitePosition % 10]
             self.satelliteFlags = int(self.satelliteData.get('flags', '1'))
         else:
             self.satelliteName = 'new satellite'
@@ -2425,7 +2425,7 @@ class PrestigePanelSatellitesEditor(Screen):
                     y[1].append(newTp)
 
             else:
-                posString = str(abs(int(x) / 10)) + '.' + str(abs(int(x) % 10))
+                posString = str(abs(int(x) // 10)) + '.' + str(abs(int(x) % 10))
                 if int(x) < 0:
                     posString += 'W'
                 elif int(x) > 0:

@@ -1,6 +1,6 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-from __future__ import print_function
+from __future__ import division, print_function
 from Components.AVSwitch import AVSwitch
 from Components.ActionMap import ActionMap
 from Components.Label import Label
@@ -136,7 +136,7 @@ class AirPlayMusicPlayer(Screen):
         if runtime is not None:
             self.runtime = runtime
         if self.runtime is not None and self.runtime != 0:
-            self.progress.setValue(100 * seconds / self.runtime)
+            self.progress.setValue(100 * seconds // self.runtime)
         else:
             self.progress.setValue(0)
         self.progressTimer.stop()
