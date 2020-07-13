@@ -1,6 +1,6 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-from __future__ import division, print_function
+from __future__ import print_function
 import StringIO
 from Screens.Screen import Screen
 from Components.ActionMap import ActionMap
@@ -210,8 +210,8 @@ def freespace():
         diskSpace = os.statvfs('/')
         capacity = float(diskSpace.f_bsize * diskSpace.f_blocks)
         available = float(diskSpace.f_bsize * diskSpace.f_bavail)
-        fspace = round(float(available // 1048576.0), 2)
-        tspace = round(float(capacity // 1048576.0), 1)
+        fspace = round(float(available / 1048576.0), 2)
+        tspace = round(float(capacity / 1048576.0), 1)
         spacestr = 'Free space(' + str(fspace) + 'MB) Total space(' + str(tspace) + 'MB)'
         return spacestr
     except:

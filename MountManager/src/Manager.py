@@ -1,6 +1,6 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-from __future__ import division, print_function
+from __future__ import print_function
 from . import _
 import os
 from string import atoi
@@ -54,7 +54,7 @@ class MountSetup(Screen, ConfigListScreen):
 			with open("/proc/swaps", "r") as f:
 				for line in f.readlines():
 					if line[:19] == "/media/hdd/swapfile":
-						self.swap = str(os.path.getsize("/media/hdd/swapfile") // 1024)
+						self.swap = str(os.path.getsize("/media/hdd/swapfile") / 1024)
 					else:
 						for device in self.swapdevice:
 							if device[:4] == line[5:9]:

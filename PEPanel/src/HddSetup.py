@@ -1,6 +1,5 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-from __future__ import division
 from enigma import *
 from Screens.Screen import Screen
 from Components.ActionMap import ActionMap
@@ -42,7 +41,7 @@ class HddSetup(Screen):
         self.disks = list()
         self.mdisks = Disks()
         for disk in self.mdisks.disks:
-            capacity = '%d MB' % (disk[1] // 1048576)
+            capacity = '%d MB' % (disk[1] / 1048576)
             self.disks.append(DiskEntry(disk[3], capacity, disk[2]))
 
         self['menu'] = ExtrasList(self.disks)
@@ -68,7 +67,7 @@ class HddSetup(Screen):
         self.disks = list()
         self.mdisks = Disks()
         for disk in self.mdisks.disks:
-            capacity = '%d MB' % (disk[1] // 1048576)
+            capacity = '%d MB' % (disk[1] / 1048576)
             self.disks.append(DiskEntry(disk[3], capacity, disk[2]))
 
         self['menu'].setList(self.disks)

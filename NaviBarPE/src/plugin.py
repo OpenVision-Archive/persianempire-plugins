@@ -1,6 +1,6 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-from __future__ import division, print_function
+from __future__ import print_function
 from Components.ActionMap import *
 from Components.Label import Label
 from Components.MenuList import MenuList
@@ -130,7 +130,7 @@ class navibar_config1(Screen, ConfigListScreen, HelpableScreen):
          'right': self.right,
          'left': self.left}, -1)
         self['OkCancelActions'] = HelpableActionMap(self, 'OkCancelActions', {'cancel': (self.saveConfig, _('Save And Close')),
-         'ok': (self.change_hide, _('Set Pic-Folder/Change/Hide Plugin'))}, -1)
+         'ok': (self.change_hide, _('Set Pic-Folder / Change/Hide Plugin'))}, -1)
         self['EPGSelectActions'] = HelpableActionMap(self, 'EPGSelectActions', {'input_date_time': (self.switchtpw, _('Password On/Off')),
          'red': (self.del_section, _('Delete Section')),
          'blue': (self.change_descrip, _('Change Description')),
@@ -674,7 +674,7 @@ class navi_wall(Screen):
         count_pages = self.count_mainlist + 1
         pagebar_size = int(count_pages) * 30
         ok = 720 - int(pagebar_size)
-        start_pagebar = int(ok) // 2
+        start_pagebar = int(ok) / 2
         for x in range(1, len(self.mainlist) + 1):
             normal = 572
             skincontent += '<widget name="page' + str(x) + '" position="' + str(start_pagebar) + ',' + str(normal) + '" size="18,18" zPosition="2" transparent="1" alphatest="blend" />'
@@ -1024,7 +1024,7 @@ class navi_bar(Screen):
         count_pages = self.count_mainlist + 1
         pagebar_size = int(count_pages) * 30
         ok = 1300 - int(pagebar_size)
-        start_pagebar = int(ok) // 2
+        start_pagebar = int(ok) / 2
         for x in range(1, len(self.mainlist) + 1):
             normal = 150
             skincontent += '<widget name="page' + str(x) + '" position="' + str(start_pagebar) + ',' + str(normal) + '" size="18,18" zPosition="2" transparent="1" alphatest="blend" />'

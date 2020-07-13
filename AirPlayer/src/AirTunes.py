@@ -1,6 +1,6 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-from __future__ import division, print_function
+from __future__ import print_function
 from rtsp import RTSPSite, RTSPResource
 from twisted.internet import reactor
 import os
@@ -242,8 +242,8 @@ class AirtunesProtocolHandler(RTSPResource):
                     try:
                         nums = value.split('/')
                         start = int(nums[0])
-                        runtime = (int(nums[2]) - start) // 44100
-                        seconds = (int(nums[1]) - start) // 44100
+                        runtime = (int(nums[2]) - start) / 44100
+                        seconds = (int(nums[1]) - start) / 44100
                         blockingCallFromMainThread(self.backend.updateAirTunesProgress, seconds, runtime)
                     except Exception as ex:
                         print('Exception during progress calc: ' + str(ex), __name__, 'W')

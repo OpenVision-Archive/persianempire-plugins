@@ -1,6 +1,5 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-from __future__ import division
 from Components.Label import Label
 from Components.MenuList import MenuList
 from Components.MultiContent import MultiContentEntryText
@@ -81,7 +80,7 @@ def ImageVersionString():
 def ponPorcen(valor):
     ret = '|'
     for i in range(0, 10):
-        if i < valor // 10:
+        if i < valor / 10:
             ret = ret + '_'
         else:
             ret = ret + '  '
@@ -107,9 +106,9 @@ def inforecord():
             filename = str(timer.Filename)
             inicio = str(FuzzyTime(timer.begin)[1])
             fin = str(FuzzyTime(timer.end)[1])
-            duracion = str((timer.end - timer.begin) // 60) + ' ' + _('mins')
-            nfaltan = (timer.end - time()) // 60
-            cvan = str((time() - timer.begin) // 60)
+            duracion = str((timer.end - timer.begin) / 60) + ' ' + _('mins')
+            nfaltan = (timer.end - time()) / 60
+            cvan = str((time() - timer.begin) / 60)
             if nfaltan >= 1:
                 faltan = str(int(nfaltan)) + ' ' + _('mins')
             else:
@@ -118,10 +117,10 @@ def inforecord():
             now = int(time())
             start_time = timer.begin
             duration = timer.end - timer.begin
-            valor = int((int(time()) - timer.begin) * 100 // duration)
+            valor = int((int(time()) - timer.begin) * 100 / duration)
             pos = valor
             nlen = 100
-            valor = pos * 100 // nlen
+            valor = pos * 100 / nlen
             ret.append((nombre,
              nomcan,
              inicio,
@@ -297,15 +296,15 @@ def Humanizer(size, mostrarbytes = False):
     if size < 1024:
         humansize = str(size) + ' bytes'
     elif size < 1048576:
-        humansize = '%.2f Kb' % (float(size) // 1024)
+        humansize = '%.2f Kb' % (float(size) / 1024)
         if mostrarbytes:
             humansize = humansize + ' (' + str(size) + ' bytes)'
     elif size < 1073741824:
-        humansize = '%.2f Mb' % (float(size) // 1048576)
+        humansize = '%.2f Mb' % (float(size) / 1048576)
         if mostrarbytes:
             humansize = humansize + ' (' + str(size) + ' bytes)'
     else:
-        humansize = '%.2f Gb' % (float(size) // 1073741824)
+        humansize = '%.2f Gb' % (float(size) / 1073741824)
         if mostrarbytes:
             humansize = humansize + ' (' + str(size) + ' bytes)'
     return humansize
@@ -316,7 +315,7 @@ def normalizatam(cualo):
     if 'M' in cualo:
         valor = float(cualo.replace('M', ''))
     if 'K' in cualo:
-        valor = float(cualo.replace('K', '')) // 1024
+        valor = float(cualo.replace('K', '')) / 1024
     if 'G' in cualo:
         valor = float(cualo.replace('G', '')) * 1024
     if 'T' in cualo:
@@ -897,7 +896,7 @@ class PEInfoTexto(Screen):
                     total = stat.f_bsize * stat.f_blocks
                     free = (stat.f_bavail if stat.f_bavail != 0 else stat.f_bfree) * stat.f_bsize
                     ocupado = total - stat.f_bsize * stat.f_bfree
-                    porcentaje = int(ocupado * 100 // total)
+                    porcentaje = int(ocupado * 100 / total)
                     if ntipo == 10:
                         entrointernal = True
                         sumtam = sumtam + total
@@ -906,12 +905,12 @@ class PEInfoTexto(Screen):
                         sumporcentaje = sumporcentaje + porcentaje
                         summontado = summontado + '[' + montado + '] '
                         if contaflash == 1:
-                            templista.append(IniciaSelListEntryInfo(texto1=texto + ' - ' + summontado, texto2=_('Size') + ' ' + Humanizer(sumtam), texto3=_('Used') + ' ' + Humanizer(sumocupado), texto4=Humanizer(sumfree) + ' ' + _('Free'), texto5=str(sumporcentaje // 6) + '%', imagen1=ntipo, progreso=sumporcentaje // 6, ruta=path + '/'))
+                            templista.append(IniciaSelListEntryInfo(texto1=texto + ' - ' + summontado, texto2=_('Size') + ' ' + Humanizer(sumtam), texto3=_('Used') + ' ' + Humanizer(sumocupado), texto4=Humanizer(sumfree) + ' ' + _('Free'), texto5=str(sumporcentaje / 6) + '%', imagen1=ntipo, progreso=sumporcentaje / 6, ruta=path + '/'))
                             entrointernal = False
                         contaflash = contaflash + 1
                     else:
                         if entrointernal:
-                            templista.append(IniciaSelListEntryInfo(texto1=texto + ' - ' + summontado, texto2=_('Size') + ' ' + Humanizer(sumtam), texto3=_('Used') + ' ' + Humanizer(sumocupado), texto4=Humanizer(sumfree) + ' ' + _('Free'), texto5=str(sumporcentaje // 6) + '%', imagen1=ntipo, progreso=sumporcentaje // 6, ruta=path + '/'))
+                            templista.append(IniciaSelListEntryInfo(texto1=texto + ' - ' + summontado, texto2=_('Size') + ' ' + Humanizer(sumtam), texto3=_('Used') + ' ' + Humanizer(sumocupado), texto4=Humanizer(sumfree) + ' ' + _('Free'), texto5=str(sumporcentaje / 6) + '%', imagen1=ntipo, progreso=sumporcentaje / 6, ruta=path + '/'))
                             entrointernal = False
                             contaflash = 0
                         templista.append(IniciaSelListEntryInfo(texto1=texto + ' - ' + montado, texto2=_('Size') + ' ' + Humanizer(total), texto3=_('Used') + ' ' + Humanizer(ocupado), texto4=Humanizer(free) + ' ' + _('Free'), texto5=str(porcentaje) + '%', imagen1=ntipo, progreso=porcentaje, ruta=path + '/'))
@@ -971,7 +970,7 @@ class PEInfoTexto(Screen):
                             if int(array[4]) > 0:
                                 tipo = tipo + ' - ' + Humanizer(int(array[4]) * 1024) + ' ' + _('Shared')
                         try:
-                            porcentaje = int(array[2]) * 100 // int(array[1])
+                            porcentaje = int(array[2]) * 100 / int(array[1])
                         except:
                             porcentaje = 0
 
@@ -979,7 +978,7 @@ class PEInfoTexto(Screen):
 
             if not haytotal:
                 try:
-                    porcentaje = totalused * 100 // totalmem
+                    porcentaje = totalused * 100 / totalmem
                     templista.append(IniciaSelListEntryInfo(texto1=_('Total memory'), texto2=_('Size') + ' ' + Humanizer(totalmem * 1024), texto3=_('Used') + ' ' + Humanizer(totalused * 1024), texto4=_('Free') + ' ' + Humanizer(totalfree * 1024), texto5=str(porcentaje) + '%', imagen1=1, progreso=porcentaje))
                 except:
                     pass
@@ -1113,7 +1112,7 @@ class PEInfoTexto(Screen):
          (68, 850),
          (69, 858)]
         for ele in arrfecs:
-            if ele[1] == int(frecu // 1000000):
+            if ele[1] == int(frecu / 1000000):
                 ret = ele[0]
                 break
 
@@ -1148,9 +1147,9 @@ class PEInfoTexto(Screen):
                     orbital = transponderData['orbital_position']
                     orbital = int(orbital)
                     if orbital > 1800:
-                        orbital = str(float(3600 - orbital) // 10.0) + 'W'
+                        orbital = str(float(3600 - orbital) / 10.0) + 'W'
                     else:
-                        orbital = str(float(orbital) // 10.0) + 'E'
+                        orbital = str(float(orbital) / 10.0) + 'E'
                     return orbital
         return ''
 
@@ -1310,13 +1309,13 @@ class PEInfoTexto(Screen):
                 texto = texto + _('Service Reference') + ' : ' + self.session.nav.getCurrentlyPlayingServiceReference().toString() + '\n'
                 calidad = 0
                 status = self.feinfo.getFrontendStatus()
-                calidad = status.get('tuner_signal_quality') * 100 // 65536
+                calidad = status.get('tuner_signal_quality') * 100 / 65536
                 potencia = 0
                 status = self.feinfo.getFrontendStatus()
-                potencia = status.get('tuner_signal_power') * 100 // 65536
+                potencia = status.get('tuner_signal_power') * 100 / 65536
                 terror = 0
                 status = self.feinfo.getFrontendStatus()
-                terror = status.get('tuner_bit_error_rate') * 100 // 65536
+                terror = status.get('tuner_bit_error_rate') * 100 / 65536
                 texto = texto + _('Signal Quality') + ' ' + ponPorcen(calidad) + '\n' + _('Intensity') + ' ' + ponPorcen(potencia) + '\n' + str(terror) + '% ' + _('Of Error') + '\n\n'
                 aspect = self.getServiceInfoValue(iServiceInformation.sAspect)
                 if aspect in (1, 2, 5, 6, 9, 10, 13, 14):

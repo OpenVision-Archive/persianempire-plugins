@@ -1,6 +1,6 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-from __future__ import division, print_function
+from __future__ import print_function
 from enigma import ePicLoad, eTimer, getDesktop
 from Screens.Screen import Screen
 from Tools.Directories import resolveFilename, pathExists, SCOPE_MEDIA
@@ -53,14 +53,14 @@ class grabberPic_Thumb(Screen):
         self.picY = 200
         size_w = getDesktop(0).size().width()
         size_h = getDesktop(0).size().height()
-        self.thumbsX = size_w // (self.spaceX + self.picX)
-        self.thumbsY = size_h // (self.spaceY + self.picY)
+        self.thumbsX = size_w / (self.spaceX + self.picX)
+        self.thumbsY = size_h / (self.spaceY + self.picY)
         self.thumbsC = self.thumbsX * self.thumbsY
         self.positionlist = []
         skincontent = ''
         posX = -1
         for x in range(self.thumbsC):
-            posY = x // self.thumbsX
+            posY = x / self.thumbsX
             posX += 1
             if posX >= self.thumbsX:
                 posX = 0

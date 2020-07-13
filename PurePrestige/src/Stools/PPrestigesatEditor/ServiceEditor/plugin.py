@@ -1,6 +1,6 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-from __future__ import division, print_function
+from __future__ import print_function
 from Components.ActionMap import ActionMap
 from Components.Button import Button
 from Components.config import config, ConfigBoolean, ConfigFloat, ConfigInteger, ConfigSelection, ConfigText, ConfigYesNo, getConfigListEntry, KEY_NUMBERS, KEY_ASCII, getKeyNumber
@@ -94,9 +94,9 @@ class ServiceList(MenuList):
             pos = _('Error')
         elif pos > 1799:
             pos = 3600 - pos
-            pos = '%s.%s %s' % (str(pos // 10), str(pos % 10), self.west)
+            pos = '%s.%s %s' % (str(pos / 10), str(pos % 10), self.west)
         elif pos > 0:
-            pos = '%s.%s %s' % (str(pos // 10), str(pos % 10), self.east)
+            pos = '%s.%s %s' % (str(pos / 10), str(pos % 10), self.east)
         else:
             pos = '0.0'
         serviceEntry.append(MultiContentEntryText(pos=(calc_xpos(serviceEntry), 0), size=(78, 24), font=0, flags=RT_HALIGN_CENTER | RT_VALIGN_TOP, text=pos, border_width=1, border_color=806544))

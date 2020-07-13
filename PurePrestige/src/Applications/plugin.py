@@ -1,6 +1,6 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-from __future__ import division, print_function
+from __future__ import print_function
 from enigma import ePicLoad, eTimer, getDesktop
 from Plugins.Plugin import PluginDescriptor
 from Screens.Screen import Screen
@@ -79,7 +79,7 @@ class showPurePrestigeappscreen(Screen):
         skincontent = ''
         posX = -1
         for x in range(self.thumbsC):
-            posY = x // self.thumbsX
+            posY = x / self.thumbsX
             posX += 1
             if posX >= self.thumbsX:
                 posX = 0

@@ -1,6 +1,6 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-from __future__ import division, print_function
+from __future__ import print_function
 from Screens.About import About
 from Screens.ChannelSelection import *
 from Screens.ChoiceBox import ChoiceBox
@@ -1276,7 +1276,7 @@ class PEStatusListMenu(Screen):
                     swapfile = line.lstrip('swapon ').rstrip('\n')
                     try:
                         swapfilelocation = swapfile.rstrip('/swapfile')
-                        swapfilesize = os_path.getsize(swapfile) // 1024 // 1024
+                        swapfilesize = os_path.getsize(swapfile) / 1024 / 1024
                         return (swapfilelocation, int(swapfilesize))
                     except:
                         print('[PESwapMenu] swapfile size is ZERO')
@@ -1735,23 +1735,23 @@ class PEHdd(Screen):
                 line = f.readline()
                 f.close()
                 cap = int(line)
-                cap = cap // 1000 * 512 // 1000
-                cap = '%d.%03d GB' % (cap // 1024, cap % 1024)
+                cap = cap / 1000 * 512 / 1000
+                cap = '%d.%03d GB' % (cap / 1024, cap % 1024)
                 strview += _('Disk Size: \t\t') + cap + '\n'
             stat = statvfs('/media/hdd')
-            free = stat.f_bfree // 1000 * stat.f_bsize // 1000
-            free = '%d.%03d GB' % (free // 1024, free % 1024)
+            free = stat.f_bfree / 1000 * stat.f_bsize / 1000
+            free = '%d.%03d GB' % (free / 1024, free % 1024)
             strview += _('Available Space: \t') + free + '\n'
             mysett = self.getHconf()
             cvalue1 = config.usage.hdd_standby.value
             if cvalue1 > '60':
-                cvalue = int(cvalue1) // 60
+                cvalue = int(cvalue1) / 60
                 mystand = str(cvalue)
                 strview += _('Standby:\t\t') + mystand + _(' Min\n')
             else:
                 cvalue = int(cvalue1)
                 if cvalue >= 60:
-                    cvalue2 = cvalue // 60
+                    cvalue2 = cvalue / 60
                     mystand = str(cvalue2)
                     strview += _('Standby:\t\t') + mystand + _(' Min\n')
                 else:
@@ -1823,7 +1823,7 @@ class PEHdd(Screen):
         if seconds:
             mysett = self.getHconf()
             noise = mysett[1]
-            sec = int(seconds) * 60 // 5
+            sec = int(seconds) * 60 / 5
             seconds = str(sec)
             mylist = [seconds, noise]
             self.SaveHconf(mylist)
@@ -2260,7 +2260,7 @@ class ChangeTimeWizzard(Screen):
             if int(newmonth) == 4 or int(newmonth) == 6 or int(newmonth) == 9 or (int(newmonth) == 11) is True:
                 maxmonth = 30
             elif (int(newmonth) == 2) is True:
-                if (4 * int(int(newyear) // 4) == int(newyear)) is True:
+                if (4 * int(int(newyear) / 4) == int(newyear)) is True:
                     maxmonth = 28
                 else:
                     maxmonth = 27
@@ -2782,13 +2782,13 @@ class PEInfo(Screen):
         self['moni'].instance.move(ePoint(int(self.x), int(self.y)))
         self['moni'].instance.resize(eSize(int(self.w), int(self.h)))
         if self.x > 364:
-            self.x -= 280 // 20
+            self.x -= 280 / 20
         if self.y > 80:
-            self.y -= 270 // 20
+            self.y -= 270 / 20
         if self.h < 560:
-            self.h += 560 // 20
+            self.h += 560 / 20
         if self.w < 560:
-            self.w += 560 // 20
+            self.w += 560 / 20
             self.moniTimer.start(80)
         else:
             self['monipix'].show()
@@ -2823,9 +2823,9 @@ class PEInfo(Screen):
         contents = fp.read().split()
         fp.close()
         total_seconds = float(contents[0])
-        days = int(total_seconds // 86400)
-        hours = int(total_seconds // 3600 - days * 24)
-        minutes = int(total_seconds // 60 - days * 1440 - hours * 60)
+        days = int(total_seconds / 86400)
+        hours = int(total_seconds / 3600 - days * 24)
+        minutes = int(total_seconds / 60 - days * 1440 - hours * 60)
         seconds = int(total_seconds % 60)
         if days > 0:
             if days == 1:
@@ -2900,12 +2900,12 @@ class PEInfo(Screen):
             for line in f.readlines():
                 parts = line.strip().split()
                 if parts[0] == 'Mem:':
-                    ramused = int(int(parts[2]) * 100 // int(parts[1]))
+                    ramused = int(int(parts[2]) * 100 / int(parts[1]))
                 elif parts[0] == 'Swap:':
                     if int(parts[1]) > 1:
-                        swapused = int(int(parts[2]) * 100 // int(parts[1]))
+                        swapused = int(int(parts[2]) * 100 / int(parts[1]))
                 elif parts[0] == 'Total:':
-                    totused = int(int(parts[2]) * 100 // int(parts[1]))
+                    totused = int(int(parts[2]) * 100 / int(parts[1]))
 
             f.close()
             remove('/tmp/ninfo.tmp')
@@ -2931,21 +2931,21 @@ class PEInfo(Screen):
             for line in f.readlines():
                 parts = line.strip().split()
                 if parts[0] == 'Mem:':
-                    ramperc = int(int(parts[2]) * 100 // int(parts[1]))
-                    ramtot = int(int(parts[1]) // 1000)
-                    ramfree = int(int(parts[3]) // 1000)
-                    ramused = int(int(parts[2]) // 1000)
+                    ramperc = int(int(parts[2]) * 100 / int(parts[1]))
+                    ramtot = int(int(parts[1]) / 1000)
+                    ramfree = int(int(parts[3]) / 1000)
+                    ramused = int(int(parts[2]) / 1000)
                 elif parts[0] == 'Swap:':
                     if int(parts[1]) > 1:
-                        swapperc = int(int(parts[2]) * 100 // int(parts[1]))
-                        swaptot = int(int(parts[1]) // 1000)
-                        swapfree = int(int(parts[3]) // 1000)
-                        swapused = int(int(parts[2]) // 1000)
+                        swapperc = int(int(parts[2]) * 100 / int(parts[1]))
+                        swaptot = int(int(parts[1]) / 1000)
+                        swapfree = int(int(parts[3]) / 1000)
+                        swapused = int(int(parts[2]) / 1000)
                 elif parts[0] == 'Total:':
-                    totperc = int(int(parts[2]) * 100 // int(parts[1]))
-                    tottot = int(int(parts[1]) // 1000)
-                    totfree = int(int(parts[3]) // 1000)
-                    totused = int(int(parts[2]) // 1000)
+                    totperc = int(int(parts[2]) * 100 / int(parts[1]))
+                    tottot = int(int(parts[1]) / 1000)
+                    totfree = int(int(parts[3]) / 1000)
+                    totused = int(int(parts[2]) / 1000)
 
             f.close()
             remove('/tmp/ninfo.tmp')
@@ -3005,13 +3005,13 @@ class PEInfo(Screen):
             ftot = cftot + ustot + us1used + hdtot
             fused = int(cfused) + int(usused) + int(us1used) + int(hdused)
             if ftot > 100:
-                fperc = fused * 100 // ftot
+                fperc = fused * 100 / ftot
         self.smallmontxt += 'Flash in use: ' + str(flashperc) + ' %\n'
         self.smallmontxt += 'Usb in use: ' + str(usperc) + ' %\n'
         self.smallmontxt += 'Usb1 in use: ' + str(us1perc) + ' %\n'
         self.smallmontxt += 'Hdd in use: ' + str(hdperc) + ' %\n'
         self['flashg'].setValue(int(flashperc))
-        self['usbg'].setValue(int(usperc * 100 // 120 + 50))
+        self['usbg'].setValue(int(usperc * 100 / 120 + 50))
         hddbar = str(hdperc)
         self['hddg'].setValue(int(hdperc))
 

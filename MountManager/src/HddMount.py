@@ -1,6 +1,6 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-from __future__ import division, print_function
+from __future__ import print_function
 import os
 from time import sleep
 from Components.Console import Console
@@ -13,10 +13,10 @@ def GetDevices():
 				parts = line.strip().split()
 				if parts and parts[3][-4:-2] == "sd":
 					size = int(parts[2])
-					if (size // 1024 // 1024) > 1:
-						des = str(size // 1024 // 1024) + "GB"
+					if (size / 1024 / 1024) > 1:
+						des = str(size / 1024 / 1024) + "GB"
 					else:
-						des = str(size // 1024) + "MB"
+						des = str(size / 1024) + "MB"
 					device.append(parts[3] + "  " + des)
 		f.close()
 	except IOError as ex:
