@@ -21,6 +21,8 @@ import xml.etree.cElementTree
 import glob
 from Components.Console import Console
 
+model = getBoxType()
+
 config.plugins.fm = ConfigSubsection()
 config.plugins.fm.display_manipulation_active = ConfigEnableDisable(default = False)
 config.plugins.fm.active = ConfigEnableDisable(default = False)
@@ -49,7 +51,7 @@ def Plugins(**kwargs):
     return [PluginDescriptor(name=("Font Magnifier 0.6.1"), description=_("Tool to change font sizes easily."), where = PluginDescriptor.WHERE_PLUGINMENU, icon="fm.png", fnc=main)]
 
 def main(session, **kwargs):
-        hw_type_string = getBoxType()
+        hw_type_string = model
         hw_type_string = hw_type_string + "\n";
         hw_type_file = open("/tmp/fontmagnifier_hw_type.txt", "w")
         hw_type_file.write(hw_type_string)
@@ -700,7 +702,7 @@ class fmWaitScreen(Screen):
                     skin_user_xml_file = open("/etc/enigma2/skin_user.xml", "w")
                     skin_user_xml_text = "<skin>\n"
                     if config.plugins.fm.active.value:
-                        if getBoxType() == "dm800se":
+                        if model == "dm800se":
                             skin_user_xml_text = skin_user_xml_text + "\t<screen name=\"InfoBarSummary\" position=\"0,0\" size=\"96,64\" id=\"2\">\n"
                             skin_user_xml_text = skin_user_xml_text + "\t\t<widget font=\"Regular;%s\" halign=\"center\" position=\"1,1\" render=\"Label\" size=\"92,64\" source=\"session.CurrentService\" valign=\"center\">\n" % (config.plugins.fm.fontsize.value)
                         else:
@@ -710,7 +712,7 @@ class fmWaitScreen(Screen):
                         skin_user_xml_text = skin_user_xml_text + "\t\t</widget>\n"
                         skin_user_xml_text = skin_user_xml_text + "\t</screen>\n"
                     if config.plugins.fm.show_only_clock.value:
-                        if getBoxType() == "dm800se":
+                        if model == "dm800se":
                             skin_user_xml_text = skin_user_xml_text + "\t<screen name=\"StandbySummary\" position=\"0,0\" size=\"96,64\">\n"
                             skin_user_xml_text = skin_user_xml_text + "\t\t<widget font=\"Regular;40\" halign=\"center\" position=\"0,0\" render=\"Label\" size=\"96,64\" source=\"global.CurrentTime\" valign=\"center\">\n"
                             skin_user_xml_text = skin_user_xml_text + "\t\t\t<convert type=\"ClockToText\">Format:%H:%M</convert>\n"
