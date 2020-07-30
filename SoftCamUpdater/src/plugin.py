@@ -24,15 +24,15 @@ config.plugins.SoftCamUpdater.path = ConfigSelection(default = "/usr/keys/", cho
 		("/var/keys/", "/var/keys/"),
 		("/var/emu/keys/", "/var/emu/keys/"),
 		("/etc/keys/", "/etc/keys/"),
-		("/var/etc/", "/var/etc/"),		
+		("/var/etc/", "/var/etc/"),
 		("/var/etc/emud/", "/var/etc/emud/"),
 		("/etc/", "/etc/"),
 		("/etc/tuxbox/config/", "/etc/tuxbox/config/"),
 		])
 config.plugins.SoftCamUpdater.keyname = ConfigSelection(default = "SoftCam.Key", choices = [
 		("SoftCam.Key", "SoftCam.Key"),
-		("softcam.cfg", "softcam.cfg"),	
-		("constant.cw", "constant.cw"),		
+		("softcam.cfg", "softcam.cfg"),
+		("constant.cw", "constant.cw"),
 		("AutoRoll.Key", "AutoRoll.Key"),
 		("Autoupdate.Key", "Autoupdate.Key"),
 		("keylist", "keylist"),
@@ -53,8 +53,10 @@ config.plugins.SoftCamUpdater.keyname = ConfigSelection(default = "SoftCam.Key",
 		("conax", "conax"),
 		("crypto", "crypto"),
 		("nds", "nds"),
-		("oscam.keys", "oscam.keys"),	
-		("oscam.biss", "oscam.biss"),			
+		("oscam.keys", "oscam.keys"),
+		("oscam.biss", "oscam.biss"),
+		("ncam.keys", "ncam.keys"),
+		("ncam.biss", "ncam.biss"),
 		])
 class SoftCamUpdater(ConfigListScreen, Screen):
 	skin = """
