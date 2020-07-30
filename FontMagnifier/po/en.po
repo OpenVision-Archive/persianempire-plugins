@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FontMagnifier 0.6.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-10-09 21:31+0100\n"
+"POT-Creation-Date: 2020-07-30 11:17+0430\n"
 "PO-Revision-Date: \n"
 "Last-Translator: BigReaper <abc@aol.com>\n"
 "Language-Team: BigReaper <BigReaper@gmx.net>\n"
@@ -152,26 +152,31 @@ msgstr "Show only time in display when box is in standby"
 msgid "Sorry, unable modify skin_user.xml"
 msgstr "Sorry, unable modify skin_user.xml."
 
-msgid "Sorry, unable to parse /usr/lib/enigma2/python/Components/EpgList.py"
-msgstr "Sorry, unable to parse /usr/lib/enigma2/python/Components/EpgList.py"
-
-msgid "Sorry, unable to parse /usr/lib/enigma2/python/Components/MovieList.py"
-msgstr "Sorry, unable to parse /usr/lib/enigma2/python/Components/MovieList.py"
-
 #, python-format
 msgid "Sorry, unable to parse /usr/share/enigma2/%s."
 msgstr "Sorry, unable to parse /usr/share/enigma2/%s."
 
+#, fuzzy
+msgid "Sorry, unable to parse EpgList.pyo"
+msgstr "Sorry, unable to parse /usr/share/enigma2/%s."
+
+#, fuzzy
+msgid "Sorry, unable to parse MovieList.pyo"
+msgstr "restore MovieList.py"
+
 msgid "Tool to change font sizes easily."
 msgstr "Tool to change easily font sizes."
 
-msgid "restore EpgList.py"
+#, fuzzy
+msgid "restore EpgList.pyo"
 msgstr "restore EpgList.py"
 
-msgid "restore MovieList.py"
+#, fuzzy
+msgid "restore MovieList.pyo"
 msgstr "restore MovieList.py"
 
-msgid "restore ServiceList.py"
+#, fuzzy
+msgid "restore ServiceList.pyo"
 msgstr "restore ServiceList.py"
 
 msgid "restore options"

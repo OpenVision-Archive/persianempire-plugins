@@ -2,13 +2,13 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Font Magnifier Persian Translation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-02-26 18:44+0100\n"
+"POT-Creation-Date: 2020-07-30 11:17+0430\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Farshadmb <farshad1151@hotmail.com>\n"
 "Language-Team: Persian Professionals <persianprince@persianpros.com>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Poedit-Language: Persian\n"
 "X-Poedit-Country: IRAN, ISLAMIC REPUBLIC OF\n"
@@ -150,27 +150,32 @@ msgstr "نمایش زمان تنها وقتی كه دستگاه آماده بك�
 msgid "Sorry, unable modify skin_user.xml"
 msgstr "فعال نیست skin_user.xml متاسفانه اصلاح"
 
-msgid "Sorry, unable to parse /usr/lib/enigma2/python/Components/EpgList.py"
-msgstr "متاسفانه /usr/lib/enigma2/python/Components/EpgList.قادر به اصلاح نیست."
-
-msgid "Sorry, unable to parse /usr/lib/enigma2/python/Components/MovieList.py"
-msgstr "متاسفانه /usr/lib/enigma2/python/Components/MovieList.pyقادر به اصلاح نیست"
-
 #, python-format
 msgid "Sorry, unable to parse /usr/share/enigma2/%s."
 msgstr "متاسفانه /usr/share/enigma2/%s قادر به اصلاح نیست."
 
 #, fuzzy
+msgid "Sorry, unable to parse EpgList.pyo"
+msgstr "متاسفانه /usr/share/enigma2/%s قادر به اصلاح نیست."
+
+#, fuzzy
+msgid "Sorry, unable to parse MovieList.pyo"
+msgstr "MovieList.py راه اندازی مجدد"
+
+#, fuzzy
 msgid "Tool to change font sizes easily."
 msgstr "ابزاری برای راحتی تغییر اندازه قلم."
 
-msgid "restore EpgList.py"
+#, fuzzy
+msgid "restore EpgList.pyo"
 msgstr "EpgList.py راه اندازی مجدد"
 
-msgid "restore MovieList.py"
+#, fuzzy
+msgid "restore MovieList.pyo"
 msgstr "MovieList.py راه اندازی مجدد"
 
-msgid "restore ServiceList.py"
+#, fuzzy
+msgid "restore ServiceList.pyo"
 msgstr "ServiceList.pyراه اندازی مجدد"
 
 msgid "restore options"

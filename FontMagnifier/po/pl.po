@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FontMagnifier 0.5.2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-02-26 18:45+0100\n"
+"POT-Creation-Date: 2020-07-30 11:17+0430\n"
 "PO-Revision-Date: \n"
 "Last-Translator: kosmacz <anteneczka@gmail.com>\n"
 "Language-Team: BigReaper <BigReaper@gmx.net>\n"
@@ -151,27 +151,32 @@ msgstr "Pokaż tylko czas na wyśw. gdy tuner w Standby"
 msgid "Sorry, unable modify skin_user.xml"
 msgstr "Przepraszamy, nie można modyfikować skin_user.xml"
 
-msgid "Sorry, unable to parse /usr/lib/enigma2/python/Components/EpgList.py"
-msgstr "Przepraszamy, nie można przetworzyć /usr/lib/enigma2/python/Components/EpgList.py"
-
-msgid "Sorry, unable to parse /usr/lib/enigma2/python/Components/MovieList.py"
-msgstr "Przepraszamy, nie można przetworzyć /usr/lib/enigma2/python/Components/MovieList.py"
-
 #, python-format
 msgid "Sorry, unable to parse /usr/share/enigma2/%s."
 msgstr "Przepraszamy, nie można przetworzyć /usr/share/enigma2/%s."
 
 #, fuzzy
+msgid "Sorry, unable to parse EpgList.pyo"
+msgstr "Przepraszamy, nie można przetworzyć /usr/share/enigma2/%s."
+
+#, fuzzy
+msgid "Sorry, unable to parse MovieList.pyo"
+msgstr "Przywróć MovieList.py"
+
+#, fuzzy
 msgid "Tool to change font sizes easily."
 msgstr "Narzędzie do zmiany wielkości czcionek."
 
-msgid "restore EpgList.py"
+#, fuzzy
+msgid "restore EpgList.pyo"
 msgstr "Przywróć EpgList.py"
 
-msgid "restore MovieList.py"
+#, fuzzy
+msgid "restore MovieList.pyo"
 msgstr "Przywróć MovieList.py"
 
-msgid "restore ServiceList.py"
+#, fuzzy
+msgid "restore ServiceList.pyo"
 msgstr "Przywróć ServiceList.py"
 
 msgid "restore options"

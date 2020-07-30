@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-31 14:38+0430\n"
+"POT-Creation-Date: 2020-07-30 12:07+0430\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -47,25 +47,13 @@ msgstr ""
 msgid "Audio Prebuffering (ms)"
 msgstr ""
 
-msgid "AutoStart : On"
-msgstr ""
-
-msgid "Binary"
-msgstr ""
-
 msgid "Buffers"
 msgstr ""
 
 msgid "But first take a look at : https://openvision.tech/openvision-table.html"
 msgstr ""
 
-msgid "CCCam"
-msgstr ""
-
 msgid "CPU - Model Information"
-msgstr ""
-
-msgid "Card Info"
 msgstr ""
 
 msgid "Channel"
@@ -107,12 +95,6 @@ msgstr ""
 msgid "Dolby Digital Mode"
 msgstr ""
 
-msgid "ECM Info"
-msgstr ""
-
-msgid "EMM Info"
-msgstr ""
-
 msgid "Error !"
 msgstr ""
 
@@ -128,13 +110,7 @@ msgstr ""
 msgid "Free"
 msgstr ""
 
-msgid "From Emulator Manager section choose Single Cams then select CCcam and Start/Enable it"
-msgstr ""
-
 msgid "Gateway"
-msgstr ""
-
-msgid "Go to Persian Palace plugin"
 msgstr ""
 
 msgid "Hardware"
@@ -152,16 +128,10 @@ msgstr ""
 msgid "Inactive"
 msgstr ""
 
-msgid "Information About CCcam"
-msgstr ""
-
 msgid "Information About Current Channel"
 msgstr ""
 
 msgid "Information Not Avaiable"
-msgstr ""
-
-msgid "Install CCcam emulator from Download Manager 5.0"
 msgstr ""
 
 msgid "Instant Record Path"
@@ -209,12 +179,6 @@ msgstr ""
 msgid "No Record In Progress"
 msgstr ""
 
-msgid "No info available for SoftCams"
-msgstr ""
-
-msgid "Not Running"
-msgstr ""
-
 msgid "OS"
 msgstr ""
 
@@ -245,9 +209,6 @@ msgstr ""
 msgid "PEInfo"
 msgstr ""
 
-msgid "PID Info"
-msgstr ""
-
 msgid "Ping google.com Failed\n"
 msgstr ""
 
@@ -264,9 +225,6 @@ msgid "Provider"
 msgstr ""
 
 msgid "Public IP"
-msgstr ""
-
-msgid "Put your CCcam files in /etc (CHMOD 755)"
 msgstr ""
 
 msgid "RAM"
@@ -294,9 +252,6 @@ msgid "Resolution"
 msgstr ""
 
 msgid "Restart GUI ?"
-msgstr ""
-
-msgid "Running"
 msgstr ""
 
 msgid "STB"

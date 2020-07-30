@@ -87,10 +87,6 @@ CamRestart/po/Makefile
 CamRestart/src/Makefile
 CamRestart/src/images/Makefile
 
-CCcamInfo/Makefile
-CCcamInfo/po/Makefile
-CCcamInfo/src/Makefile
-
 DeviceInfo/Makefile
 DeviceInfo/po/Makefile
 DeviceInfo/src/Makefile

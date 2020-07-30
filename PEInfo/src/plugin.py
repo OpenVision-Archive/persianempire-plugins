@@ -65,7 +65,6 @@ listamenu.append((_('Record'), _('Recording Information'), 1))
 listamenu.append((_('Tuning'), _('Information About Current Channel'), 2))
 listamenu.append((_('Storage'), _('Devices Information'), 6))
 listamenu.append((_('Memory'), _('Memory Table'), 7))
-listamenu.append((_('CCCam'), _('Information About CCcam'), 11))
 listamenu.append((_('Network'), _('Network Information'), 5))
 listamenu.append((_('Hardware'), _('CPU - Model Information'), 3))
 listamenu.append((_('Display'), _('AV Settings - Skin Information'), 9))
@@ -458,8 +457,6 @@ class PEInfoTexto(Screen):
                 self.muestra('green', 'Persian Palace')
             if fileExists(resolveFilename(SCOPE_PLUGINS, 'Extensions/DownloadManager/plugin.pyo')):
                 self.muestra('blue', 'DM 5.0')
-            if fileExists(resolveFilename(SCOPE_PLUGINS, 'Extensions/CCcamInfo/plugin.pyo')):
-                self.muestra('yellow', 'CCcam Info')
         elif self.inicio == 5:
             self.muestra('blue', 'Setup')
             self.muestra('yellow', 'Refresh')
@@ -621,14 +618,6 @@ class PEInfoTexto(Screen):
                 main(self.session, servicelist)
             except:
                 pass
-
-        elif self.inicio == 11:
-            if fileExists(resolveFilename(SCOPE_PLUGINS, 'Extensions/CCcamInfo/plugin.pyo')):
-                try:
-                    from Plugins.Extensions.CCcamInfo.plugin import main
-                    main(self.session)
-                except:
-                    pass
 
         elif self.inicio == 4:
             laref = _('Restart GUI ?')
@@ -1390,57 +1379,6 @@ class PEInfoTexto(Screen):
                 texto = '\n' + _('Information Not Avaiable')
 
             self.actualizar = True
-        elif self.inicio == 11:
-            texto = ''
-            nomcam = cargaosinfo('ls /usr/camd/CCcam*', True)
-            arrret = nomcam.split('\n')
-            if len(arrret) < 1:
-                nomcam = ''
-            else:
-                nomcam = arrret[0]
-            lacam = ''
-            xcam = 'CCcam'
-            sicam = cargaosinfo('ps', True)
-            if xcam in sicam:
-                lacam = nomcam.replace('\n', '').replace('/usr/camd/', '')
-                if fileExists('/tmp/.cam.info'):
-                    cana = ''
-                    lacam = cargaosinfo('cat /tmp/.cam.info').replace('\n', '')
-                texto = texto + '\n' + _('Binary') + ' : ' + lacam + '\n'
-                texto = texto + _('Status') + ' : ' + _('Running') + ''
-            else:
-                texto = texto + _('Status') + ' : ' + _('Not Running') + '\n\n'
-                texto = texto + _('Install CCcam emulator from Download Manager 5.0') + '\n\n'
-                texto = texto + _('Put your CCcam files in /etc (CHMOD 755)') + '\n\n'
-                texto = texto + _('Go to Persian Palace plugin') + '\n\n'
-                texto = texto + _('From Emulator Manager section choose Single Cams then select CCcam and Start/Enable it') + '\n\n'
-                self.actualizar = True
-            if not nomcam == '':
-                nomcam = nomcam.replace('\n', '')
-                contenido = cargaosinfo('cat /etc/rc3.d/S99camd-persianpalace.sh', True) + ' '
-                if nomcam in contenido:
-                    texto = texto + ' (' + _('AutoStart : On') + ')'
-                else:
-                    texto = texto + ' '
-                self.actualizar = True
-            if fileExists('/tmp/ecm.info'):
-                texto = texto + '\n\n' + _('ECM Info') + ' :\n' + cargaosinfo('cat /tmp/ecm.info').replace('    ', ' ').replace('   ', ' ').replace('  ', ' ') + '\n'
-                self.actualizar = True
-            if fileExists('/tmp/emm.info'):
-                texto = texto + '\n' + _('EMM Info') + ' :\n ' + cargaosinfo('cat /tmp/emm.info')
-                self.actualizar = True
-            if fileExists('/tmp/pid.info'):
-                texto = texto + '\n' + _('PID Info') + ' :\n ' + cargaosinfo('cat /tmp/pid.info')
-                self.actualizar = True
-            if fileExists('/tmp/cardinfo'):
-                texto = texto + '\n' + _('Card Info') + ' :\n ' + cargaosinfo('cat /tmp/cardinfo')
-                self.actualizar = True
-            if texto == '':
-                texto = '\n' + _('No info available for SoftCams')
-            if not self.tarea == '':
-                self.actualizar = False
-            self.tarea = ''
-            texto = texto
         elif self.inicio == 9:
             texto = ''
             modosaudio = ['PCM', 'RAW']
