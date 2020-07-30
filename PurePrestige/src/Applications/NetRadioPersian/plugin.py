@@ -49,7 +49,7 @@ def initConfig():
 
 initConfig()
 
-def CCcamListEntry(name, idx):
+def PPListEntry(name, idx):
     name = ''
     res = [name]
     if idx == 0:
@@ -91,7 +91,7 @@ def AddOnCategoryComponent(name, png):
     res.append(MultiContentEntryPixmapAlphaTest(pos=(10, 0), size=(100, 60), png=png))
     return res
 
-class CCcamList(MenuList):
+class PPList(MenuList):
 
     def __init__(self, list):
         MenuList.__init__(self, list, False, eListboxPythonMultiContent)
@@ -213,7 +213,7 @@ class persianMenuscrn(Screen):
         self.session = session
         self.color = '#00ffe875'
         self.transparent = True
-        self['menu'] = CCcamList([])
+        self['menu'] = PPList([])
         self.working = False
         self['actions'] = NumberActionMap(['SetupActions', 'ColorActions'], {'ok': self.okClicked,
          'cancel': self.close}, -2)
@@ -227,7 +227,7 @@ class persianMenuscrn(Screen):
         list = []
         idx = 0
         for x in menu_list:
-            list.append(CCcamListEntry(x, idx))
+            list.append(PPListEntry(x, idx))
             self.menu_list.append(x)
             idx += 1
 
