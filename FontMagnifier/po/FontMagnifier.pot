@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-31 14:38+0430\n"
+"POT-Creation-Date: 2020-07-30 11:17+0430\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -142,26 +142,26 @@ msgstr ""
 msgid "Sorry, unable modify skin_user.xml"
 msgstr ""
 
-msgid "Sorry, unable to parse /usr/lib/enigma2/python/Components/EpgList.py"
-msgstr ""
-
-msgid "Sorry, unable to parse /usr/lib/enigma2/python/Components/MovieList.py"
-msgstr ""
-
 #, python-format
 msgid "Sorry, unable to parse /usr/share/enigma2/%s."
+msgstr ""
+
+msgid "Sorry, unable to parse EpgList.pyo"
+msgstr ""
+
+msgid "Sorry, unable to parse MovieList.pyo"
 msgstr ""
 
 msgid "Tool to change font sizes easily."
 msgstr ""
 
-msgid "restore EpgList.py"
+msgid "restore EpgList.pyo"
 msgstr ""
 
-msgid "restore MovieList.py"
+msgid "restore MovieList.pyo"
 msgstr ""
 
-msgid "restore ServiceList.py"
+msgid "restore ServiceList.pyo"
 msgstr ""
 
 msgid "restore options"
