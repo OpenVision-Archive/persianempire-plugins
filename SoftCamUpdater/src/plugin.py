@@ -35,7 +35,6 @@ config.plugins.SoftCamUpdater.keyname = ConfigSelection(default = "SoftCam.Key",
 		("constant.cw", "constant.cw"),		
 		("AutoRoll.Key", "AutoRoll.Key"),
 		("Autoupdate.Key", "Autoupdate.Key"),
-		("camd3.keys", "camd3.keys"),
 		("keylist", "keylist"),
 		("rsakeylist", "rsakeylist"),
 		("tpscrypt", "tpscrypt"),
@@ -55,8 +54,7 @@ config.plugins.SoftCamUpdater.keyname = ConfigSelection(default = "SoftCam.Key",
 		("crypto", "crypto"),
 		("nds", "nds"),
 		("oscam.keys", "oscam.keys"),	
-		("oscam.biss", "oscam.biss"),		
-		("hypercam.keys", "hypercam.keys"),			
+		("oscam.biss", "oscam.biss"),			
 		])
 class SoftCamUpdater(ConfigListScreen, Screen):
 	skin = """
