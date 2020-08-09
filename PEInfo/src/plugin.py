@@ -88,10 +88,6 @@ def ponPorcen(valor):
     return ret
 
 
-def KernelVersionString():
-    return getKernelVersionString()
-
-
 def inforecord():
     global filename
     ret = []
