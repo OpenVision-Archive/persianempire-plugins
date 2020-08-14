@@ -54,7 +54,7 @@ class PESpeedUp(Screen, ConfigListScreen):
          'cancel': self.cancel,
          'back': self.cancel})
         self.packagelist = []
-        self.packagelist.append(['                                        Binaries', 'astra-sm  cronie curl fuse-exfat minidlna nfs-utils ntfs-3g ntp openssh-sftp-server samba-base streamproxy ushare usb-modeswitch usb-modeswitch-data'])
+        self.packagelist.append(['                                        Binaries', 'astra-sm  cronie curl fuse-exfat minidlna nfs-utils ntfs-3g ntp openssh-sftp-server samba-base shellinabox streamproxy ushare usb-modeswitch usb-modeswitch-data'])
         if fileExists('/usr/bin/astra'):
             self.packagelist.append(['astra-sm', 'astra-sm'])
         if fileExists('/usr/sbin/anacron'):
@@ -75,6 +75,8 @@ class PESpeedUp(Screen, ConfigListScreen):
             self.packagelist.append(['openssh-sftp-server', 'openssh-sftp-server'])
         if fileExists('/usr/sbin/smbd'):
             self.packagelist.append(['samba-base', 'samba-base'])
+        if fileExists('/usr/bin/shellinaboxd'):
+            self.packagelist.append(['shellinabox', 'shellinabox'])
         if fileExists('/usr/bin/streamproxy'):
             self.packagelist.append(['streamproxy', 'streamproxy'])
         if fileExists('/usr/sbin/usb_modeswitch'):
@@ -99,7 +101,7 @@ class PESpeedUp(Screen, ConfigListScreen):
             self.packagelist.append(['Satellites', 'frequency-xml-list-satellites'])
         if fileExists('/etc/tuxbox/atsc.xml'):
             self.packagelist.append(['Terrestrial', 'frequency-xml-list-terrestrial'])
-        self.packagelist.append(['                                        Plugins (Extensions)', 'enigma2-plugin-extensions-audiosync enigma2-plugin-extensions-autobackup enigma2-plugin-extensions-autotimer enigma2-plugin-extensions-backupsuite enigma2-plugin-extensions-btdevicesmanager enigma2-plugin-extensions-cacheflush enigma2-plugin-extensions-cdinfo enigma2-plugin-extensions-cutlisteditor enigma2-plugin-extensions-dlnabrowser enigma2-plugin-extensions-dlnaserver enigma2-plugin-extensions-dvdplayer enigma2-plugin-extensions-epgimport enigma2-plugin-extensions-epgrefresh enigma2-plugin-extensions-filecommander enigma2-plugin-extensions-foreca enigma2-plugin-extensions-graphmultiepg enigma2-plugin-extensions-grautec enigma2-plugin-extensions-hbbtv enigma2-plugin-extensions-e2iplayer enigma2-plugin-extensions-e2iplayer-deps enigma2-plugin-extensions-keyadder enigma2-plugin-extensions-lcd4linux enigma2-plugin-extensions-modem enigma2-plugin-extensions-moviecut enigma2-plugin-extensions-openmultiboot openmultiboot enigma2-plugin-extensions-persianpalace enigma2-plugin-extensions-pluginskinmover enigma2-plugin-extensions-rcuselect enigma2-plugin-extensions-tmbd enigma2-plugin-extensions-tunerserver enigma2-plugin-extensions-vlcplayer enigma2-plugin-extensions-xmodem'])
+        self.packagelist.append(['                                        Plugins (Extensions)', 'enigma2-plugin-extensions-audiosync enigma2-plugin-extensions-autobackup enigma2-plugin-extensions-autotimer enigma2-plugin-extensions-backupsuite enigma2-plugin-extensions-btdevicesmanager enigma2-plugin-extensions-cacheflush enigma2-plugin-extensions-cdinfo enigma2-plugin-extensions-cutlisteditor enigma2-plugin-extensions-dlnabrowser enigma2-plugin-extensions-dlnaserver enigma2-plugin-extensions-dvdplayer enigma2-plugin-extensions-epgimport enigma2-plugin-extensions-epgrefresh enigma2-plugin-extensions-filecommander enigma2-plugin-extensions-foreca enigma2-plugin-extensions-graphmultiepg enigma2-plugin-extensions-grautec enigma2-plugin-extensions-hbbtv enigma2-plugin-extensions-e2iplayer enigma2-plugin-extensions-e2iplayer-deps enigma2-plugin-extensions-keyadder enigma2-plugin-extensions-lcd4linux enigma2-plugin-extensions-modem enigma2-plugin-extensions-moviecut enigma2-plugin-extensions-openmultiboot openmultiboot enigma2-plugin-extensions-openwebif-themes enigma2-plugin-extensions-openwebif-vxg enigma2-plugin-extensions-persianpalace enigma2-plugin-extensions-pluginskinmover enigma2-plugin-extensions-rcuselect enigma2-plugin-extensions-tmbd enigma2-plugin-extensions-tunerserver enigma2-plugin-extensions-vlcplayer enigma2-plugin-extensions-xmodem'])
         if pathExists(resolveFilename(SCOPE_PLUGINS, 'Extensions/AudioSync')):
             self.packagelist.append(['AudioSync', 'enigma2-plugin-extensions-audiosync'])
         if pathExists(resolveFilename(SCOPE_PLUGINS, 'Extensions/AutoBackup')):
@@ -148,6 +150,10 @@ class PESpeedUp(Screen, ConfigListScreen):
             self.packagelist.append(['MovieCut', 'enigma2-plugin-extensions-moviecut'])
         if pathExists(resolveFilename(SCOPE_PLUGINS, 'Extensions/OpenMultiboot')):
             self.packagelist.append(['OpenMultiboot', 'enigma2-plugin-extensions-openmultiboot openmultiboot'])
+        if pathExists(resolveFilename(SCOPE_PLUGINS, 'Extensions/OpenWebif/public/themes')):
+            self.packagelist.append(['Open WebIF themes', 'enigma2-plugin-extensions-openwebif-themes'])
+        if pathExists(resolveFilename(SCOPE_PLUGINS, 'Extensions/OpenWebif/public/vxg')):
+            self.packagelist.append(['Open WebIF vxg', 'enigma2-plugin-extensions-openwebif-vxg'])
         if pathExists(resolveFilename(SCOPE_PLUGINS, 'Extensions/PersianPalace')):
             self.packagelist.append(['PersianPalace', 'enigma2-plugin-extensions-persianpalace'])
         if pathExists(resolveFilename(SCOPE_PLUGINS, 'Extensions/PluginSkinMover')):
