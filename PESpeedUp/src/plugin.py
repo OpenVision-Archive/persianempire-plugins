@@ -46,10 +46,10 @@ class PESpeedUp(Screen, ConfigListScreen):
         self.list = []
         ConfigListScreen.__init__(self, self.list)
         self['lab1'] = Label(_("Remove all the packages you don't need.\nThis will speed up the performance."))
-        self['key_red'] = Label(_("Save"))
-        self['key_green'] = Label(_("Cancel"))
-        self['actions'] = ActionMap(['WizardActions','ColorActions','OkCancelActions'], {'red': self.saveList,
-         'green': self.cancel,
+        self['key_red'] = Label(_("Cancel"))
+        self['key_green'] = Label(_("Save"))
+        self['actions'] = ActionMap(['WizardActions','ColorActions','OkCancelActions'], {'green': self.saveList,
+         'red': self.cancel,
          'stop': self.cancel,
          'cancel': self.cancel,
          'back': self.cancel})
@@ -318,7 +318,7 @@ class PESpeedUp(Screen, ConfigListScreen):
         if len(self.mycmdlist) > 0:
             self.session.open(Console, title=_("PE Speed Up is working, please wait..."), cmdlist=self.mycmdlist, finishedCallback=self.allDone)
         else:
-            self.close()
+            PESpeedUp.instance = self.session.open(TryQuitMainloop, 3)
 
     def removePackages(self, name):
         cmd = ''
