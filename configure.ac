@@ -143,10 +143,6 @@ PEPanel/src/Daemons/Makefile
 PEPanel/src/Extra/Makefile
 PEPanel/src/pictures/Makefile
 
-PESpeedUp/Makefile
-PESpeedUp/po/Makefile
-PESpeedUp/src/Makefile
-
 PEWeather/Makefile
 PEWeather/po/Makefile
 PEWeather/src/Makefile
