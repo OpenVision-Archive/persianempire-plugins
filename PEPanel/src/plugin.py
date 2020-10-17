@@ -40,7 +40,10 @@ from Tools.LoadPixmap import LoadPixmap
 from Tools.NumericalTextInput import NumericalTextInput
 from ServiceReference import ServiceReference
 from enigma import eConsoleAppContainer, eTimer, quitMainloop, iServiceInformation, ePoint, eSize, eEnv, eRCInput, getPrevAsciiCode
-from cPickle import dump, load
+try:
+	import cPickle as pickle
+except:
+	import pickle
 from os import system, listdir, symlink, unlink, readlink, path as os_path, stat, mkdir, popen, makedirs, access, rename, remove, W_OK, R_OK, F_OK, chmod, walk, getcwd, chdir, statvfs
 from random import Random
 from stat import ST_MTIME
@@ -4219,7 +4222,7 @@ def write_cache(cache_file, cache_data):
             print(os_path.dirname(cache_file), 'is a file')
 
     fd = open(cache_file, 'w')
-    dump(cache_data, fd, -1)
+    pickle.dump(cache_data, fd, -1)
     fd.close()
 
 def valid_cache(cache_file, cache_ttl):
@@ -4236,7 +4239,7 @@ def valid_cache(cache_file, cache_ttl):
 
 def load_cache(cache_file):
     fd = open(cache_file)
-    cache_data = load(fd)
+    cache_data = pickle.load(fd)
     fd.close()
     return cache_data
 

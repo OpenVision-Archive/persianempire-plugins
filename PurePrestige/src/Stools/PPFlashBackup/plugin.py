@@ -30,7 +30,10 @@ from Components.AVSwitch import AVSwitch
 from Tools.Directories import pathExists, fileExists, resolveFilename, SCOPE_PLUGINS, SCOPE_CURRENT_PLUGIN, SCOPE_CURRENT_SKIN, SCOPE_METADIR, SCOPE_MEDIA, SCOPE_LANGUAGE
 from Tools.LoadPixmap import LoadPixmap
 from enigma import eTimer, quitMainloop, RT_HALIGN_LEFT, RT_VALIGN_CENTER, eListboxPythonMultiContent, eListbox, gFont, getDesktop
-from cPickle import dump, load
+try:
+	import cPickle as pickle
+except:
+	import pickle
 from os import path as os_path, unlink, stat, mkdir, popen, makedirs, listdir, access, rename, remove, W_OK, R_OK, F_OK
 from time import time, gmtime, strftime, localtime
 from stat import ST_MTIME
@@ -90,7 +93,7 @@ def write_cache(cache_file, cache_data):
             print(os_path.dirname(cache_file), 'is a file')
 
     fd = open(cache_file, 'w')
-    dump(cache_data, fd, -1)
+    pickle.dump(cache_data, fd, -1)
     fd.close()
 
 
@@ -109,7 +112,7 @@ def valid_cache(cache_file, cache_ttl):
 
 def load_cache(cache_file):
     fd = open(cache_file)
-    cache_data = load(fd)
+    cache_data = pickle.load(fd)
     fd.close()
     return cache_data
 
