@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-16 14:33+0330\n"
+"POT-Creation-Date: 2020-10-23 14:19+0330\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1563,4 +1563,130 @@ msgid "wakeup/switch from/to standby"
 msgstr ""
 
 msgid "xx CAMs Installed"
+msgstr ""
+
+msgid "About"
+msgstr ""
+
+msgid "Active Kernel Modules"
+msgstr ""
+
+msgid "Backup is running"
+msgstr ""
+
+msgid "CPU Infos"
+msgstr ""
+
+msgid "Change root password"
+msgstr ""
+
+msgid "Channel and ECM"
+msgstr ""
+
+msgid "Cron Manager"
+msgstr ""
+
+msgid "Cron Setup"
+msgstr ""
+
+msgid "Display Setup"
+msgstr ""
+
+msgid "Dmesg Info"
+msgstr ""
+
+msgid "Download Manager"
+msgstr ""
+
+msgid "E2 Enigma Settings Info"
+msgstr ""
+
+msgid "E2 Settings"
+msgstr ""
+
+msgid "ECM Infos"
+msgstr ""
+
+msgid "Hard Disk Settings"
+msgstr ""
+
+msgid "Hard Drive Info"
+msgstr ""
+
+msgid "Hard Drive Mount"
+msgstr ""
+
+msgid "Hard Drive Partitions"
+msgstr ""
+
+msgid "Hard Drive Setup"
+msgstr ""
+
+msgid "Kernel Debugging Infos"
+msgstr ""
+
+msgid "Kernelversion:"
+msgstr ""
+
+msgid "Manage Kernel Modules"
+msgstr ""
+
+msgid "Manual Addon Installer Filebrowser"
+msgstr ""
+
+msgid "Memory Infos"
+msgstr ""
+
+msgid "Nova WinTV USBTuner Setup"
+msgstr ""
+
+msgid "OpenVpn Log"
+msgstr ""
+
+msgid "OpenVpn Setup"
+msgstr ""
+
+msgid "PE Packetmanager"
+msgstr ""
+
+msgid "PE Sub Menu"
+msgstr ""
+
+msgid "Persian Professionals"
+msgstr ""
+
+msgid "Process info"
+msgstr ""
+
+msgid "Remote Setup"
+msgstr ""
+
+msgid "Running Process Info"
+msgstr ""
+
+msgid "Scripts"
+msgstr ""
+
+msgid "Service Info"
+msgstr ""
+
+msgid "Services:"
+msgstr ""
+
+msgid "Start CAM"
+msgstr ""
+
+msgid "SundtekControlCenter"
+msgstr ""
+
+msgid "Swap"
+msgstr ""
+
+msgid "System CPU Usage Infos"
+msgstr ""
+
+msgid "Top Process Info"
+msgstr ""
+
+msgid "Uptime:"
 msgstr ""
