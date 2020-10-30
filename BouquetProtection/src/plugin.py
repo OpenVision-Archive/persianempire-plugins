@@ -17,16 +17,16 @@ baseChannelSelectionBase__init__ = None
 
 
 config.BouquetProtect = ConfigSubsection()
-config.BouquetProtect.enabled = ConfigSelection(default = 'none', choices = [('none', 'no'),('bouq', 'yes')])
+config.BouquetProtect.enabled = ConfigSelection(default = 'none', choices = [('none', 'no'), ('bouq', 'yes')])
 config.BouquetProtect.protect = ConfigSubsection()
 config.BouquetProtect.protect.enable = ConfigYesNo(default = False)
 config.BouquetProtect.protect.index  = ConfigPIN(default = -1)
 config.BouquetProtect.protect.tries  = ConfigInteger(default = 3)
 config.BouquetProtect.protect.time   = ConfigInteger(default = 3)
-config.BouquetProtect.protect.store  = ConfigSelection(default = "standby", choices = [("1", _("1 minute")),("5", _("5 minutes")),("15", _("15 minutes")),("30", _("30 minutes")),("45", _("45 minutes")),("60", _("60 minutes")),("120", _("2 hours")),("180", _("3 hours")),("360", _("6 hours")),("720", _("12 hours")),("1440",_("24 hours")),("standby", _("until standby/restart"))])
+config.BouquetProtect.protect.store  = ConfigSelection(default = "standby", choices = [("1", _("1 minute")), ("5", _("5 minutes")), ("15", _("15 minutes")), ("30", _("30 minutes")), ("45", _("45 minutes")), ("60", _("60 minutes")), ("120", _("2 hours")), ("180", _("3 hours")), ("360", _("6 hours")), ("720", _("12 hours")), ("1440", _("24 hours")), ("standby", _("until standby/restart"))])
 config.BouquetProtect.unwanted = ConfigSubsection()
 config.BouquetProtect.unwanted.enalbed = ConfigYesNo(default = False)
-config.BouquetProtect.unwanted.showkey = ConfigSelection(default = 'none', choices = [('none', _('none')),('breakAudio', 'AUDIO'),('longAudio', _('long AUDIO')),('breakVideo', _('VIDEO(Vkey)')),('longVideo', _('long VIDEO(Vkey)'))])
+config.BouquetProtect.unwanted.showkey = ConfigSelection(default = 'none', choices = [('none', _('none')), ('breakAudio', 'AUDIO'), ('longAudio', _('long AUDIO')), ('breakVideo', _('VIDEO(Vkey)')), ('longVideo', _('long VIDEO(Vkey)'))])
 
 
 
@@ -358,7 +358,7 @@ def checkProtectEntered(self, callback, result):
 		if config.BouquetProtect.protect.store.value == 'standby':
 			config.misc.standbyCounter.addNotifier(self.standbyCounterCallback, initial_call = False)
 		else:
-			self.protectTimer.start(int(config.BouquetProtect.protect.store.value)*60*1000,True)
+			self.protectTimer.start(int(config.BouquetProtect.protect.store.value)*60*1000, True)
 	else:
 		if result is False:
 			self.session.open(MessageBox, _("The password you entered is wrong."), MessageBox.TYPE_ERROR)

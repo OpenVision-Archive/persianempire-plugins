@@ -181,7 +181,7 @@ class setupNfs(Screen, ConfigListScreen):
 			<ePixmap pixmap="bottombar.png" position="10,250" size="540,120" zPosition="1" transparent="1" alphatest="on" />
 		</screen>"""
 
-	def __init__(self, session, iface ,plugin_path):
+	def __init__(self, session, iface, plugin_path):
 		self.skin = setupNfs.skin		
 		self.session = session
 		Screen.__init__(self, session)
@@ -365,7 +365,7 @@ class setupNfs(Screen, ConfigListScreen):
 			if len(self["exportlist"].list) < 2:
 				return
 			self.tmpList = self["exportlist"].list
-			mbox = self.session.openWithCallback(self.deleteExportEntryClosed, MessageBox,_("Really delete this entry?"), MessageBox.TYPE_YESNO)
+			mbox = self.session.openWithCallback(self.deleteExportEntryClosed, MessageBox, _("Really delete this entry?"), MessageBox.TYPE_YESNO)
 			mbox.setTitle(_("delete entry"))
 
 	def deleteExportEntryClosed(self, answer):

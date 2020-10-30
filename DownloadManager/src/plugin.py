@@ -59,7 +59,7 @@ class Ipkremove2(Screen):
 		ipk = self.data[idx]
 		cmd = "opkg remove " + ipk
                 title = _("Removing %s" %(ipk))
-                self.session.open(Console,_(title),[cmd])
+                self.session.open(Console, _(title), [cmd])
 
 
 class RSList(MenuList):
@@ -332,7 +332,7 @@ class Getipk(Screen):
                        self.idx = self.idx + 1
                        cmd2 = 'opkg install --force-reinstall --force-overwrite ' + xurl2 + ' > /tmp/.log' + str(self.idx) + '.txt'
                        title = _("Installing addons %s" %(self.ipk))
-                       self.session.openWithCallback(self.newdeps, Console,_(title),[cmd2])
+                       self.session.openWithCallback(self.newdeps, Console, _(title), [cmd2])
 
     def newdeps(self):
         dfile = '/tmp/.log' + str(self.idx) + '.txt'
@@ -352,7 +352,7 @@ class Getipk(Screen):
 		   ik = len(ipks)
 		   i2 = 0
 		   while i2 < ik:
-		          self.depends.insert(0,ipks[i2])
+		          self.depends.insert(0, ipks[i2])
 		          i2 = i2+1
                    self.openTest()
 

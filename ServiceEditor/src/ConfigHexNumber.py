@@ -6,7 +6,7 @@ from Components.config import config, ConfigText, KEY_NUMBERS, KEY_ASCII, getKey
 class ConfigHexNumber(ConfigText):
 	def __init__(self, default = "0000", size= 4):
 		try:
-			dummy = int(default,16)
+			dummy = int(default, 16)
 		except:
 			default="0"*size
 		ConfigText.__init__(self, default, fixed_size = False)

@@ -91,7 +91,7 @@ class setupSamba(Screen, ConfigListScreen):
 			<ePixmap pixmap="bottombar.png" position="10,250" size="540,120" zPosition="1" transparent="1" alphatest="on" />
 		</screen>"""
 
-	def __init__(self, session, iface ,plugin_path):
+	def __init__(self, session, iface, plugin_path):
 		self.skin = setupSamba.skin		
 		self.session = session
 		Screen.__init__(self, session)
@@ -159,7 +159,7 @@ class setupSamba(Screen, ConfigListScreen):
 			self.onExecBegin.append(self.errorMbox)
 
 	def errorMbox(self):
-		info = self.session.open(MessageBox,_("/etc/smb.conf not found or readerror!"), MessageBox.TYPE_ERROR)
+		info = self.session.open(MessageBox, _("/etc/smb.conf not found or readerror!"), MessageBox.TYPE_ERROR)
 		info.setTitle("setup Samba-Server")
 		self.close()
 
@@ -213,7 +213,7 @@ class setupSamba(Screen, ConfigListScreen):
 			confError += writeAttribute('/etc/samba/smb.conf', 'global', 'netbios name', self.netbiosNameConfigEntry.value)
 			confError += writeAttribute('/etc/samba/smb.conf', 'global', 'workgroup', self.workgroupConfigEntry.value)
 			if confError < 3:
-				info = self.session.open(MessageBox,_("/etc/smb.conf not found or writeerror!"), MessageBox.TYPE_ERROR)
+				info = self.session.open(MessageBox, _("/etc/smb.conf not found or writeerror!"), MessageBox.TYPE_ERROR)
 				info.setTitle("setup Samba-Server")
 				self.cancel()
 			else:

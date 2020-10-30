@@ -168,7 +168,7 @@ class PEFaqs(Screen):
         self.onLayoutFinish.append(self.buildList)
 
     def update(self):
-        self.session.open(Console,title = _("Open Vision FAQs update"), cmdlist = ["echo Downloading latest FAQs , Please wait", "wget https://openvision.tech/PEFAQs.zip -O /tmp/PEFAQs.zip > /dev/null 2>&1", "echo Extracting update file", "unzip -o /tmp/PEFAQs.zip -d %s/Extensions/PEFAQ > /dev/null 2>&1", "rm -rf /tmp/PEFAQs.zip > /dev/null 2>&1", "echo Done!"]) % resolveFilename(SCOPE_PLUGINS)
+        self.session.open(Console, title = _("Open Vision FAQs update"), cmdlist = ["echo Downloading latest FAQs , Please wait", "wget https://openvision.tech/PEFAQs.zip -O /tmp/PEFAQs.zip > /dev/null 2>&1", "echo Extracting update file", "unzip -o /tmp/PEFAQs.zip -d %s/Extensions/PEFAQ > /dev/null 2>&1", "rm -rf /tmp/PEFAQs.zip > /dev/null 2>&1", "echo Done!"]) % resolveFilename(SCOPE_PLUGINS)
 
     def cargaquestions(self, filtrado = None):
         self.categorys = ['All']

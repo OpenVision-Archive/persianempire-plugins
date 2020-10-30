@@ -55,7 +55,7 @@ class BouquetProtectSetup(Screen, ConfigListScreen):
 		index = self["config"].getCurrentIndex()
 		if cur == self.none_entry:
 			self["config"].setCurrentIndex(index+2)
-		elif cur in (self.nane_entry,self.pass_entry):
+		elif cur in (self.nane_entry, self.pass_entry):
 			self["config"].setCurrentIndex(index-2)
 		elif cur == self.nune_entry:
 			self["config"].setCurrentIndex(1)
@@ -100,7 +100,7 @@ class BouquetProtectSetup(Screen, ConfigListScreen):
 			self.createSetup()
 		elif cur in (self.change_pass, self.setup_pass):
 			if self.access or self.BPS.protect.index.value == self.BPS.protect.index.default:
-				self.passEntered(None,True)
+				self.passEntered(None, True)
 			else:
 				self.session.openWithCallback(boundFunction(self.passEntered, None), PinInput, triesEntry = self.BPS.protect, pinList = [self.BPS.protect.index.value], title = _("please enter the old password"), windowTitle = _("Bouquet Protection Setup"))
 

@@ -59,13 +59,13 @@ shortMONTHSRU = (_("Янв."),
                _("Дек."))
 
 WeatherInfoBarKeys = [
-	["Red",_("RED"),["KEY_RED"]],
-	["Green",_("GREEN"),["KEY_GREEN"]],
-	["Yellow",_("YELLOW"),["KEY_YELLOW"]],
-	["Radio",_("RADIO"),["KEY_RADIO"]],
-	["Text",_("TEXT"),["KEY_TEXT"]],
-	["Tv",_("TV"),["KEY_TV"]],
-	["Help",_("HELP"),["KEY_HELP"]],
+	["Red", _("RED"), ["KEY_RED"]],
+	["Green", _("GREEN"), ["KEY_GREEN"]],
+	["Yellow", _("YELLOW"), ["KEY_YELLOW"]],
+	["Radio", _("RADIO"), ["KEY_RADIO"]],
+	["Text", _("TEXT"), ["KEY_TEXT"]],
+	["Tv", _("TV"), ["KEY_TV"]],
+	["Help", _("HELP"), ["KEY_HELP"]],
 ]
 
 UserAgent = "Mozilla/5.0 (X11; U; Linux x86_64; de; rv:1.9.0.15) Gecko/2009102815 Ubuntu/9.04 (jaunty) Firefox/3."
@@ -91,10 +91,10 @@ config.plugins.WeatherPlugin.anim = ConfigSelection(default = "0", choices = [("
 config.plugins.WeatherPlugin.anim2 = ConfigYesNo(default=False)
 config.plugins.WeatherPlugin.position_x = ConfigInteger(default=33)
 config.plugins.WeatherPlugin.position_y = ConfigInteger(default=52)
-config.plugins.WeatherPlugin.timeout = ConfigInteger(60, (30,150))
+config.plugins.WeatherPlugin.timeout = ConfigInteger(60, (30, 150))
 config.plugins.WeatherPlugin.wind = ConfigSelection(default = "0", choices = [("0", _("Kmph")), ("1", _("m/s"))])
 config.plugins.WeatherPlugin.language = ConfigSelection(default = "1", choices = [("0", _("Russian")), ("1", _("English"))])
-config.plugins.WeatherPlugin.hotkey = ConfigSelection([(x[0],x[1]) for x in WeatherInfoBarKeys], "Help")
+config.plugins.WeatherPlugin.hotkey = ConfigSelection([(x[0], x[1]) for x in WeatherInfoBarKeys], "Help")
 config.plugins.WeatherPlugin.anim3 = ConfigSelection(default = "/media/hdd/AnimatedIcons", choices = [("/media/hdd/AnimatedIcons", _("/media/hdd/")), ("/media/usb/AnimatedIcons", _("/media/usb/")), ("/usr/share/enigma2/AnimatedIcons", _("/usr/share/enigma2/"))])
 config.plugins.WeatherPlugin.days = ConfigSelection(default = "0", choices = [("0", _("Three day")), ("1", _("One day"))])
 
@@ -135,7 +135,7 @@ def InfoBarPlugins__init__(self):
 	global OnlyOneTime
 	if not OnlyOneTime: 
 		OnlyOneTime = True    
-                self["WeatherActions"] = ActionMap(["WeatherActions"],{"ok_but": self.switch,"exit_but": self.swOff}, -1)
+                self["WeatherActions"] = ActionMap(["WeatherActions"], {"ok_but": self.switch,"exit_but": self.swOff}, -1)
 		self.Weathertimer = eTimer()
 		self.Weathertimer.callback.append(self.swOff)
 		self.Weatherdialog = self.session.instantiateDialog(WeatherPluginScreen)
@@ -155,7 +155,7 @@ def InfoBarPlugins__init__(self):
 
 def switch(self):
         global StartOnlyOneTime
-	if isinstance(self,InfoBar):
+	if isinstance(self, InfoBar):
 		if config.plugins.WeatherPlugin.enabled.value:
 			if not self.shown and not self.Weatherdialog.shown:
 				self.toggleShow()                    
@@ -177,7 +177,7 @@ def switch(self):
 				self.toggleShow()
 			   
 def swOff(self):
-	if isinstance(self,InfoBar):
+	if isinstance(self, InfoBar):
                 if (self.shown and self.Weatherdialog.shown):
 			self.Weatherdialog.hide()
 		else:
@@ -329,7 +329,7 @@ class WeatherPluginScreen(Screen):
                                 self.runiconanim(id)
 			    maintext = "Error getting XML document!"                                
 		            decode ='<data><error><msg>Unable to find any matching weather location to the query submitted!</msg></error></data>'	
-                            temp_file = open("/tmp/indbweather.xml",'w')
+                            temp_file = open("/tmp/indbweather.xml", 'w')
                             temp_file.write(decode)
                             temp_file.close()
 			else:    
@@ -363,7 +363,7 @@ class WeatherPluginScreen(Screen):
     				    weather_dom = dom.getElementsByTagName('data')[0]
     				    data_structure = { 
         				    'request': ('query', 'type'),
-        				    'current_condition': ('weatherDesc','temp_C', 'humidity', 'windspeedKmph', 'winddir16Point', 'weatherIconUrl', 'observation_time')
+        				    'current_condition': ('weatherDesc', 'temp_C', 'humidity', 'windspeedKmph', 'winddir16Point', 'weatherIconUrl', 'observation_time')
     				    }
     				    for (tag, list_of_tags2) in data_structure.iteritems():
         				    tmp_conditions = {}
@@ -395,7 +395,7 @@ class WeatherPluginScreen(Screen):
 				         self["City"].setText("" + mytime)
 				    if config.plugins.WeatherPlugin.city.value == "1":
 				         if fileExists(resolveFilename(SCOPE_PLUGINS, 'Extensions/QuickWeather/city.cfg')):
-                            		    f = open(resolveFilename(SCOPE_PLUGINS, 'Extensions/QuickWeather/city.cfg'),'r')
+                            		    f = open(resolveFilename(SCOPE_PLUGINS, 'Extensions/QuickWeather/city.cfg'), 'r')
 			                    line = f.readline()
 			                    text = line.strip()
 			                    f.close()
@@ -465,7 +465,7 @@ class WeatherPluginScreen(Screen):
                                 id = "NA" 
                                 self.runiconanim(id)				    
 		            decode ='<data><error><msg>Unable to find any matching weather location to the query submitted!</msg></error></data>'	
-                            temp_file = open("/tmp/indbweather.xml",'w')
+                            temp_file = open("/tmp/indbweather.xml", 'w')
                             temp_file.write(decode)
                             temp_file.close()
                 if config.plugins.WeatherPlugin.clock.value == "0":
@@ -497,7 +497,7 @@ class WeatherPluginScreen(Screen):
 
         def CrewRoleList(self, file):
                 if file:
-                     return file.replace('		', '').replace('			', '').replace('				', '').replace('\n', '').replace('\t','')    
+                     return file.replace('		', '').replace('			', '').replace('				', '').replace('\n', '').replace('\t', '')    
 	    
 	def checkIconanim(self, filename):
                 localfile = ""
@@ -651,7 +651,7 @@ class WeatherPluginScreen(Screen):
 		else:
                        cfgfile = "/etc/weatherindb.cfg" 
 		if fileExists(cfgfile):
-			f = open(cfgfile,'r')
+			f = open(cfgfile, 'r')
 			line = f.readline()
 			text = line.strip()
 			f.close()
@@ -1472,13 +1472,13 @@ class SetupMenu2(Screen):
            		for name in os.listdir(resolveFilename(SCOPE_PLUGINS, "Extensions/QuickWeather/background")):                                       
               			if name.endswith(".png") is True:                                                  
                  			bname=name.split(".png")                                                        
-                      			b00klist.append(( bname[0],name))
+                      			b00klist.append(( bname[0], name))
 	    else:
 		if os.path.exists(resolveFilename(SCOPE_PLUGINS, "Extensions/QuickWeather/background1")) == True:
            		for name in os.listdir(resolveFilename(SCOPE_PLUGINS, "Extensions/QuickWeather/background1")):                                       
               			if name.endswith(".png") is True:                                                  
                  			bname=name.split(".png")                                                        
-                      			b00klist.append(( bname[0],name))                      			
+                      			b00klist.append(( bname[0], name))                      			
             b00klist.sort()                                                                        
 	    return b00klist        
 		
@@ -1627,7 +1627,7 @@ class SetupKeymap(Screen):
            		for name in os.listdir(resolveFilename(SCOPE_PLUGINS, "Extensions/QuickWeather/SetupKeymap")):                                       
               			if name.endswith(".xml") is True:                                                  
                  			bname=name.split(".xml")                                                        
-                      			b00klist.append(( bname[0],name))                                 
+                      			b00klist.append(( bname[0], name))                                 
         	b00klist.sort()                                                                        
 	        return b00klist		
 
@@ -1669,7 +1669,7 @@ class SetupIcons(Screen):
         cfgfile = resolveFilename(SCOPE_PLUGINS, "Extensions/QuickWeather/weathericons.cfg")
         text = ""
         if fileExists(cfgfile):
-            		f = open(cfgfile,'r')
+            		f = open(cfgfile, 'r')
 			line = f.readline()
 			text = line.strip()
 			f.close()
@@ -1744,7 +1744,7 @@ class SetupIcons(Screen):
            		for name in os.listdir(setup):                                       
               			if name.endswith(".png") is True:                                                  
                  			bname=name.split(".png")                                                        
-                      			b00klist.append(( bname[0],name))                                 
+                      			b00klist.append(( bname[0], name))                                 
         	b00klist.sort()                                                                        
 	        return b00klist
 

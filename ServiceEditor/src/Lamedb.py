@@ -8,9 +8,9 @@ class Lamedb:
 		self.readcnt = 0
 		self.database = {}
 		self.databaseState=0
-		thread.start_new_thread(self._initDatabase,(None,))
+		thread.start_new_thread(self._initDatabase, (None,))
 		
-	def _initDatabase(self,dummy):
+	def _initDatabase(self, dummy):
 		self.database.clear()
 		self.databaseState=0
 		print("phase1")
@@ -20,7 +20,7 @@ class Lamedb:
 		print("phase3")
 
 	def readLamedb(self):
-		f = open("/etc/enigma2/lamedb","r")
+		f = open("/etc/enigma2/lamedb", "r")
 		lamedb = f.readlines()
 		f.close()
 		if lamedb[0].find("/3/") != -1:
@@ -28,7 +28,7 @@ class Lamedb:
 		elif lamedb[0].find("/4/") != -1:
 			self.version = 4
 		else:
-			print("unknown Version: ",lamedb[0])
+			print("unknown Version: ", lamedb[0])
 			return
 		print("import version %d" % self.version)
 		return lamedb
@@ -42,40 +42,40 @@ class Lamedb:
 		puffer.append("transponders\n")
 		for tp in self.database:
 			tp = self.database[tp]
-			puffer.append(("%s:%s:%s\n")%(tp["namespace"],tp["tsid"],tp["onid"]))
+			puffer.append(("%s:%s:%s\n")%(tp["namespace"], tp["tsid"], tp["onid"]))
 			if tp["namespace"][:4].lower()=="ffff":
-				puffer.append(("\tc %s:%s:%s:%s:%s:%s\n")%(tp["frequency"],tp["symbol_rate"],tp["inversion"],tp["modulation"],tp["fec_inner"],tp["flags"]))
+				puffer.append(("\tc %s:%s:%s:%s:%s:%s\n")%(tp["frequency"], tp["symbol_rate"], tp["inversion"], tp["modulation"], tp["fec_inner"], tp["flags"]))
 			elif tp["namespace"][:4].lower()=="eeee":
-				puffer.append(("\tt %s:%s:%s:%s:%s:%s:%s:%s:%s:%s\n")%(tp["frequency"],tp["bandwidth"],tp["code_rate_HP"],tp["code_rate_LP"],tp["modulation"],tp["transmission_mode"],tp["guard_interval"],tp["hierarchy"],tp["inversion"],tp["flags"]))
+				puffer.append(("\tt %s:%s:%s:%s:%s:%s:%s:%s:%s:%s\n")%(tp["frequency"], tp["bandwidth"], tp["code_rate_HP"], tp["code_rate_LP"], tp["modulation"], tp["transmission_mode"], tp["guard_interval"], tp["hierarchy"], tp["inversion"], tp["flags"]))
 			else:
-				sys = tp.get("system",None)
+				sys = tp.get("system", None)
 				if sys is None or sys == "0":
-					puffer.append(("\ts %s:%s:%s:%s:%s:%s:%s\n")%(tp["frequency"],tp["symbol_rate"],tp["polarization"],tp["fec_inner"],tp["position"],tp["inversion"],tp["flags"]))
+					puffer.append(("\ts %s:%s:%s:%s:%s:%s:%s\n")%(tp["frequency"], tp["symbol_rate"], tp["polarization"], tp["fec_inner"], tp["position"], tp["inversion"], tp["flags"]))
 				else:
-					puffer.append(("\ts %s:%s:%s:%s:%s:%s:%s:%s:%s:%s:%s\n")%(tp["frequency"],tp["symbol_rate"],tp["polarization"],tp["fec_inner"],tp["position"],tp["inversion"],tp["flags"],tp["system"],tp["modulation"],tp["rolloff"],tp["pilot"]))
+					puffer.append(("\ts %s:%s:%s:%s:%s:%s:%s:%s:%s:%s:%s\n")%(tp["frequency"], tp["symbol_rate"], tp["polarization"], tp["fec_inner"], tp["position"], tp["inversion"], tp["flags"], tp["system"], tp["modulation"], tp["rolloff"], tp["pilot"]))
 			puffer.append("/\n")	
 		puffer.append("end\n")
 		puffer.append("services\n")
 		for tp in self.database:
 			for service in self.database[tp]["services"]:
 				service = self.database[tp]["services"][service]
-				puffer.append(("%s:%s:%s:%s:%s:%s\n")%(service["sid"],service["namespace"],service["tsid"],service["onid"],service["type"],service["number"]))
+				puffer.append(("%s:%s:%s:%s:%s:%s\n")%(service["sid"], service["namespace"], service["tsid"], service["onid"], service["type"], service["number"]))
 				puffer.append(("%s\n")%service["name"])
 				tmp = ""
-				cacheIDs = service.get("cacheIDs",None)
+				cacheIDs = service.get("cacheIDs", None)
 				if cacheIDs is not None:
 					for cacheID in cacheIDs:
 						tmp += ",c:" + cacheID
-				caIDs = service.get("caIDs",None)
+				caIDs = service.get("caIDs", None)
 				if caIDs is not None:
 					for caID in caIDs:
 						tmp += ",C:" + caID
-				flags = service.get("flags",None)
-				if flags is not None and int(flags,16)!=0:
+				flags = service.get("flags", None)
+				if flags is not None and int(flags, 16)!=0:
 					tmp += ",f:" + flags
-				puffer.append(("p:%s%s\n")%(service["provider"],tmp))
+				puffer.append(("p:%s%s\n")%(service["provider"], tmp))
 		puffer.append("end\n")
-		f = open("/etc/enigma2/lamedb","w")
+		f = open("/etc/enigma2/lamedb", "w")
 		f.writelines(puffer)
 		f.close()
 		
@@ -105,19 +105,19 @@ class Lamedb:
 							else:
 								break
 						else:
-							services.append((lamedb[x],lamedb[x+1],lamedb[x+2],))
+							services.append((lamedb[x], lamedb[x+1], lamedb[x+2],))
 		print(" finished")
 		return services
 	
 	
 	def translateService(self, serviceData):
-		t1 = ["sid","namespace","tsid","onid","type","number"]
+		t1 = ["sid", "namespace", "tsid", "onid", "type", "number"]
 		if serviceData is None:
 			return
 		service = {}
 		tp_data = serviceData[0].strip().lower().split(":")
 		if len(tp_data) > len(t1):
-			print("wrong number Parameter (6 expected) in ",serviceData[0])
+			print("wrong number Parameter (6 expected) in ", serviceData[0])
 			return
 		for y in xrange(len(t1)):
 			service.update({t1[y]:tp_data[y]})
@@ -129,13 +129,13 @@ class Lamedb:
 			if raw[0]=="p":
 				service["provider"] = raw[1].strip().replace('\xc2\x86', '').replace('\xc2\x87', '')
 			elif raw[0]=="c":
-				cacheIDs = service.get("cacheIDs",None)
+				cacheIDs = service.get("cacheIDs", None)
 				if cacheIDs is None:
 					service["cacheIDs"] = [raw[1].strip().lower(),]
 				else:
 					cacheIDs.append(raw[1].strip().lower())
 			elif raw[0]=="C":
-				caIDs = service.get("caIDs",None)
+				caIDs = service.get("caIDs", None)
 				if caIDs is None:
 					service["caIDs"] = [raw[1].strip().lower(),]
 				else:
@@ -143,13 +143,13 @@ class Lamedb:
 			elif raw[0]=="f":
 				service["flags"] = raw[1].strip().lower()
 			else:
-				print("unknown Parameter:",raw[0])
-				print("in:",y)
+				print("unknown Parameter:", raw[0])
+				print("in:", y)
 		else:
 			uniqueTransponder = service["namespace"]+service["tsid"]+service["onid"]
 			uniqueService = uniqueTransponder + service["sid"]
-			if (int(service.get("flags","0"),16) & dxNoDVB):
-				for cacheID in service.get("cacheIDs",[]):
+			if (int(service.get("flags", "0"), 16) & dxNoDVB):
+				for cacheID in service.get("cacheIDs", []):
 					uniqueService += cacheID
 			service["usk"] = uniqueService
 			self.database[uniqueTransponder]["services"][uniqueService] = service
@@ -189,7 +189,7 @@ class Lamedb:
 		return transponders
 
 	def translateTransponders(self, transponders):
-		t1 = ["namespace","tsid","onid"]
+		t1 = ["namespace", "tsid", "onid"]
 		t2_sv3 = ["frequency",
 			"symbol_rate",
 			"polarization",
@@ -236,17 +236,17 @@ class Lamedb:
 			return
 		for x in transponders:
 			if len(x[0]) > len(t1):
-				print("too many Parameter (t1) in ",x[0])
+				print("too many Parameter (t1) in ", x[0])
 				continue
 			freq = x[1][0].split()
 			if len(freq) != 2:
-				print("two Parameter expected in ",freq)
+				print("two Parameter expected in ", freq)
 				continue
 			tp = {"services":[]}
 			x[1][0] = freq[1]
 			if freq[0] == "s":
 				if ((self.version == 3) and len(x[1]) > len(t2_sv3)) or ((self.version == 4) and len(x[1]) > len(t2_sv4)):
-					print("too many Parameter (t2) in ",x[1])
+					print("too many Parameter (t2) in ", x[1])
 					continue
 				for y in xrange(len(x[0])):
 					tp.update({t1[y]:x[0][y]})
@@ -255,7 +255,7 @@ class Lamedb:
 						tp.update({t2_sv3[y]:x[1][y]})
 					elif self.version == 4:
 						tp.update({t2_sv4[y]:x[1][y]})
-				pos = int(tp.get("namespace"),16) >>16
+				pos = int(tp.get("namespace"), 16) >>16
 				if pos > 1799:
 					pos -= 3600
 				if pos != int(tp.get("position")):
@@ -266,7 +266,7 @@ class Lamedb:
 				self.databaseState=1
 			elif freq[0] == "c":
 				if len(x[1]) > len(t2_c):
-					print("too many Parameter (t2) in ",x[1])
+					print("too many Parameter (t2) in ", x[1])
 					continue
 				for y in xrange(len(x[0])):
 					tp.update({t1[y]:x[0][y]})
@@ -277,7 +277,7 @@ class Lamedb:
 				self.databaseState=1
 			elif freq[0] == "t":
 				if len(x[1]) > len(t2_t):
-					print("too many Parameter (t2) in ",x[1])
+					print("too many Parameter (t2) in ", x[1])
 					continue
 				for y in xrange(len(x[0])):
 					tp.update({t1[y]:x[0][y]})

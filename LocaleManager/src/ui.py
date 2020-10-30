@@ -25,7 +25,7 @@ choicelist = []
 languages = language.getLanguageList()
 default_language = language.getActiveLanguage()
 for lng in languages:
-	choicelist.append((lng[0],lng[1][0]))
+	choicelist.append((lng[0], lng[1][0]))
 config.plugins.LocaleManager.usedlang = NoSave(ConfigSelection(default = default_language, choices = choicelist))
 config.plugins.LocaleManager.target = NoSave(ConfigDirectory(STARTDIR))
 config.plugins.LocaleManager.enigma = NoSave(ConfigSelection(default = "move", choices = [("no", _("nothing")), (("delete", _("delete"))), (("move", _("move")))]))
@@ -108,7 +108,7 @@ class LocaleManager(Screen, ConfigListScreen):
 				self.removeFiles(dirs, "po", language)
 			elif cfg.enigma.value == "move":
 				self["statusbar"].setText(_("Moving ..."))
-				self.moveEnigmaFiles(dirs,language)
+				self.moveEnigmaFiles(dirs, language)
 
 	def lookDirs(self, path, directory, language):
 		locales = []
@@ -130,7 +130,7 @@ class LocaleManager(Screen, ConfigListScreen):
 				try:
 					path += "/LC_MESSAGES/enigma2.mo"
 					self.osSystem("rm -R %s" % (path))
-					target = "".join((ENIGMA,"/po/",self.getName(language,typ),"/LC_MESSAGES/enigma2.mo"))
+					target = "".join((ENIGMA, "/po/", self.getName(language, typ), "/LC_MESSAGES/enigma2.mo"))
 					self.osSystem("ln -s %s %s" % (target, path))
 				except:
 					print("[LocaleManager] error", path)
@@ -147,7 +147,7 @@ class LocaleManager(Screen, ConfigListScreen):
     			os.makedirs(newPath)
 		for path in dirs:
 			try:
-				subDir = "".join((newPath,"/",path.split("/")[-1],"/LC_MESSAGES"))
+				subDir = "".join((newPath, "/", path.split("/")[-1], "/LC_MESSAGES"))
 				if not os.path.exists(subDir):
 		    			os.makedirs(subDir)
 				path += "/LC_MESSAGES/enigma2.mo"

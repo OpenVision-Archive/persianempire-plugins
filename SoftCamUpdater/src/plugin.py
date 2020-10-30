@@ -100,7 +100,7 @@ class SoftCamUpdater(ConfigListScreen, Screen):
 	def save(self):
 		for i in self["config"].list:
 			i[1].save()
-		self.mbox = self.session.open(MessageBox,(_("Saved successfull!")), MessageBox.TYPE_INFO, timeout = 3 )
+		self.mbox = self.session.open(MessageBox, (_("Saved successfull!")), MessageBox.TYPE_INFO, timeout = 3 )
 		
 	def downkey(self):
 		try:
@@ -114,9 +114,9 @@ class SoftCamUpdater(ConfigListScreen, Screen):
 			Console().ePopen("cp -f /tmp/keyfile.tmp %s%s" % (config.plugins.SoftCamUpdater.path.value, config.plugins.SoftCamUpdater.keyname.value))
 			Console().ePopen("rm -rf /tmp/keyfile.tmp")
 			Console().ePopen("rm -rf /tmp/%s" % ownbiss)
-			self.mbox = self.session.open(MessageBox,(_("Downloaded successfull!")), MessageBox.TYPE_INFO, timeout = 3 )
+			self.mbox = self.session.open(MessageBox, (_("Downloaded successfull!")), MessageBox.TYPE_INFO, timeout = 3 )
 		except:
-			self.mbox = self.session.open(MessageBox,(_("Download failed!")), MessageBox.TYPE_INFO, timeout = 3 )
+			self.mbox = self.session.open(MessageBox, (_("Download failed!")), MessageBox.TYPE_INFO, timeout = 3 )
 
 
 def main(session, **kwargs):

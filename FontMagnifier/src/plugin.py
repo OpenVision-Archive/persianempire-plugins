@@ -27,21 +27,21 @@ config.plugins.fm = ConfigSubsection()
 config.plugins.fm.display_manipulation_active = ConfigEnableDisable(default = False)
 config.plugins.fm.active = ConfigEnableDisable(default = False)
 config.plugins.fm.display_subtitles = ConfigEnableDisable(default = False)
-config.plugins.fm.fontsize = ConfigInteger(default = 80, limits = (40,90))
-config.plugins.fm.evv_fontsize = ConfigInteger(default = 22, limits = (10,50))
+config.plugins.fm.fontsize = ConfigInteger(default = 80, limits = (40, 90))
+config.plugins.fm.evv_fontsize = ConfigInteger(default = 22, limits = (10, 50))
 config.plugins.fm.show_only_clock = ConfigEnableDisable(default = False)
-config.plugins.fm.single_epg_description_fontsize = ConfigInteger(default = 20, limits = (10,40))
-config.plugins.fm.single_epg_list_fontsize = ConfigInteger(default = 25, limits = (10,40))
-config.plugins.fm.single_epg_list_fontsize2 = ConfigInteger(default = 25, limits = (10,40))
-config.plugins.fm.channel_list_epg_description_fontsize = ConfigInteger(default = 20, limits = (10,40))
-config.plugins.fm.channel_list_fontsize = ConfigInteger(default = 20, limits = (10,40))
-config.plugins.fm.Subtitle_TTX = ConfigInteger(default = 40, limits = (20,80))
-config.plugins.fm.Subtitle_Regular = ConfigInteger(default = 40, limits = (20,80))
-config.plugins.fm.Subtitle_Bold = ConfigInteger(default = 40, limits = (20,80))
-config.plugins.fm.Subtitle_Italic = ConfigInteger(default = 40, limits = (20,80))
-config.plugins.fm.movie_list_fontsize = ConfigInteger(default = 20, limits = (10,40))
-config.plugins.fm.infobar_fontsize_event_now = ConfigInteger(default = 22, limits = (10,30))
-config.plugins.fm.infobar_fontsize_event_next = ConfigInteger(default = 22, limits = (10,30))
+config.plugins.fm.single_epg_description_fontsize = ConfigInteger(default = 20, limits = (10, 40))
+config.plugins.fm.single_epg_list_fontsize = ConfigInteger(default = 25, limits = (10, 40))
+config.plugins.fm.single_epg_list_fontsize2 = ConfigInteger(default = 25, limits = (10, 40))
+config.plugins.fm.channel_list_epg_description_fontsize = ConfigInteger(default = 20, limits = (10, 40))
+config.plugins.fm.channel_list_fontsize = ConfigInteger(default = 20, limits = (10, 40))
+config.plugins.fm.Subtitle_TTX = ConfigInteger(default = 40, limits = (20, 80))
+config.plugins.fm.Subtitle_Regular = ConfigInteger(default = 40, limits = (20, 80))
+config.plugins.fm.Subtitle_Bold = ConfigInteger(default = 40, limits = (20, 80))
+config.plugins.fm.Subtitle_Italic = ConfigInteger(default = 40, limits = (20, 80))
+config.plugins.fm.movie_list_fontsize = ConfigInteger(default = 20, limits = (10, 40))
+config.plugins.fm.infobar_fontsize_event_now = ConfigInteger(default = 22, limits = (10, 30))
+config.plugins.fm.infobar_fontsize_event_next = ConfigInteger(default = 22, limits = (10, 30))
 regularFontExistInXML = 0
 regularFontList = ConfigSelection(choices=[], default="")
 config.plugins.fm.regular_Font = ConfigText(default="")
@@ -421,7 +421,7 @@ class fmConfiguration(Screen, ConfigListScreen):
         self.close (False)
 
     def info(self):
-        aboutbox = self.session.open(MessageBox,_("Font magnifier plugin\n\nThis plugin helps you to\nset up different font sizes.\n\n(c) 2012 - BigReaper"), MessageBox.TYPE_INFO)
+        aboutbox = self.session.open(MessageBox, _("Font magnifier plugin\n\nThis plugin helps you to\nset up different font sizes.\n\n(c) 2012 - BigReaper"), MessageBox.TYPE_INFO)
         aboutbox.setTitle(_("Info...")) 
 
     def handle_menukey(self):
@@ -606,7 +606,7 @@ class fmRestoreSettings(Screen):
         else:
             filename = "/tmp/" + self.selection
             file = open(filename, "r")
-            data = file.read().decode("utf-8").replace('&',"&amp;").encode("ascii",'xmlcharrefreplace')
+            data = file.read().decode("utf-8").replace('&', "&amp;").encode("ascii", 'xmlcharrefreplace')
             file.close()
             xmlAttributesToConfig_errors = False
             projectfiledom = xml.dom.minidom.parseString(data)
@@ -740,7 +740,7 @@ class fmWaitScreen(Screen):
                 if os.path.exists("/etc/enigma2/skin_user.xml.bak"):
                     Console().ePopen("mv /etc/enigma2/skin_user.xml.bak /etc/enigma2/skin_user.xml")
         except:
-            self.session.openWithCallback(self.close, MessageBox,_("Sorry, unable modify skin_user.xml"), type = MessageBox.TYPE_INFO)
+            self.session.openWithCallback(self.close, MessageBox, _("Sorry, unable modify skin_user.xml"), type = MessageBox.TYPE_INFO)
 
         if not os.path.exists("/usr/share/enigma2/%s.bak" % (config.skin.primary_skin.value)):
             Console().ePopen("cp /usr/share/enigma2/%s /usr/share/enigma2/%s.bak" % (config.skin.primary_skin.value, config.skin.primary_skin.value))
@@ -957,7 +957,7 @@ class fmWaitScreen(Screen):
 
             self.tree.write("/usr/share/enigma2/%s" % (config.skin.primary_skin.value))
         except:
-            self.session.openWithCallback(self.close, MessageBox,_("Sorry, unable to parse /usr/share/enigma2/%s." % (config.skin.primary_skin.value)), type = MessageBox.TYPE_INFO)
+            self.session.openWithCallback(self.close, MessageBox, _("Sorry, unable to parse /usr/share/enigma2/%s." % (config.skin.primary_skin.value)), type = MessageBox.TYPE_INFO)
 
         try:
             if config.plugins.fm.single_epg_list_fontsize.value != 0:
@@ -992,7 +992,7 @@ class fmWaitScreen(Screen):
                 EpgList_file.write(EpgList_text_neu)
                 EpgList_file.close()
         except:
-            self.session.openWithCallback(self.close, MessageBox,_("Sorry, unable to parse EpgList.pyo"), type = MessageBox.TYPE_INFO)
+            self.session.openWithCallback(self.close, MessageBox, _("Sorry, unable to parse EpgList.pyo"), type = MessageBox.TYPE_INFO)
 
         try:
             if config.plugins.fm.movie_list_fontsize.value != 0:
@@ -1014,9 +1014,9 @@ class fmWaitScreen(Screen):
                 MovieList_file.write(MovieList_text_neu)
                 MovieList_file.close()
         except:
-            self.session.openWithCallback(self.close, MessageBox,_("Sorry, unable to parse MovieList.pyo"), type = MessageBox.TYPE_INFO)
+            self.session.openWithCallback(self.close, MessageBox, _("Sorry, unable to parse MovieList.pyo"), type = MessageBox.TYPE_INFO)
 
-        restartbox = self.session.openWithCallback(self.restartGUI,MessageBox,_("GUI needs a restart to apply a new settings\nDo you want to Restart the GUI now?"), MessageBox.TYPE_YESNO)
+        restartbox = self.session.openWithCallback(self.restartGUI, MessageBox, _("GUI needs a restart to apply a new settings\nDo you want to Restart the GUI now?"), MessageBox.TYPE_YESNO)
         restartbox.setTitle(_("Restart GUI now?"))
 
     def restartGUI(self, answer):

@@ -90,7 +90,7 @@ class BlockContentConfiguration(Screen, ConfigListScreen, ProtectedScreen):
             	"save": self.save,
             	"cancel": self.cancel,
             	"ok": self.save,
-       	},2)
+       	}, 2)
 
     def setWindowTitle(self):
         self.setTitle(_("Block Content Configuration V%s") % blockcontent_version)
@@ -136,10 +136,10 @@ class BlockContentEnableDisable(Screen, ProtectedScreen):
 	elif result:
 		if blockedcontent_deactive:
 			blockedcontent_deactive=False
-            		self.session.openWithCallback(self.pinCancel,MessageBox, _("Block Content is now activated"), MessageBox.TYPE_INFO)
+            		self.session.openWithCallback(self.pinCancel, MessageBox, _("Block Content is now activated"), MessageBox.TYPE_INFO)
 		else:
 			blockedcontent_deactive=True
-            		self.session.openWithCallback(self.pinCancel,MessageBox, _("Block Content is now deactivated"), MessageBox.TYPE_INFO)
+            		self.session.openWithCallback(self.pinCancel, MessageBox, _("Block Content is now deactivated"), MessageBox.TYPE_INFO)
         elif not result:
             self.session.openWithCallback(self.pinCancel, MessageBox, _("The pin code you entered is wrong."), MessageBox.TYPE_ERROR)
                
@@ -150,10 +150,10 @@ class BlockContentCheck(Screen):
     skin = """
         <screen position="center,center" size="400,300" title="Block Content Check" >
         </screen>"""
-    def __init__(self,session):
+    def __init__(self, session):
         self.skin = BlockContentCheck.skin
 	self.session = session
-	Screen.__init__(self,session)
+	Screen.__init__(self, session)
 	global blockedcontent_deactive
 	blockedcontent_deactive=False
 	self.blockedcontent_reactive=False
@@ -175,7 +175,7 @@ class BlockContentCheck(Screen):
         self.TimerBlockContentCheck = eTimer()
         self.TimerBlockContentCheck.stop()
         self.TimerBlockContentCheck.timeout.get().append(self.CheckBlockContent)
-       	self.TimerBlockContentCheck.start(config.plugins.blockcontent.viewingtime.value*1000,True) 
+       	self.TimerBlockContentCheck.start(config.plugins.blockcontent.viewingtime.value*1000, True) 
 
     def CheckBlockContent(self):
 	global blockedcontent_deactive
@@ -194,7 +194,7 @@ class BlockContentCheck(Screen):
 		        	self.TimerBlockContentReactivate = eTimer()
 		        	self.TimerBlockContentReactivate.stop()
 		        	self.TimerBlockContentReactivate.timeout.get().append(self.ReactivateBlockContent)
-        			self.TimerBlockContentReactivate.start(config.plugins.blockcontent.reactivetime.value*60000,True) 
+        			self.TimerBlockContentReactivate.start(config.plugins.blockcontent.reactivetime.value*60000, True) 
 				self.blockedcontent_reactive=True
 	else:
 		eventid = None
@@ -231,7 +231,7 @@ class BlockContentCheck(Screen):
                        			if text:                                                
                                			text += '\n\n'                                  
                        			text += ext
-		check = "%s %s %s %s %s" % (servicerefstr,station,name,description,text)
+		check = "%s %s %s %s %s" % (servicerefstr, station, name, description, text)
         	if config.plugins.blockcontent.casesensitive.value is False:
 			check=check.upper()
 		blockedcontent_found=False
@@ -243,18 +243,18 @@ class BlockContentCheck(Screen):
 				if blockedcontent.startswith("userbouquet."):	
 					if os.path.exists("/etc/enigma2/%s" % blockedcontent):
 						blockedbouquet=True
-						u=open("/etc/enigma2/%s" % blockedcontent,"r")
+						u=open("/etc/enigma2/%s" % blockedcontent, "r")
 						while blockedbouquet and not blockedcontent_found:
 							blockedbouquet=u.readline().lstrip().rstrip().rstrip("\r\n")
-				 			blockedbouquet=blockedbouquet.replace("#SERVICE","").replace(" ","")
+				 			blockedbouquet=blockedbouquet.replace("#SERVICE", "").replace(" ", "")
 							if blockedbouquet.startswith("#") is False and check.find(blockedbouquet) is not -1 and len(blockedbouquet) > 1:	
-   								print("[BlockedContent] %s found in %s" % (blockedbouquet,check))
+   								print("[BlockedContent] %s found in %s" % (blockedbouquet, check))
 								blockedcontent_found=True
 						u.close()
         			if config.plugins.blockcontent.casesensitive.value is False:
 					blockedcontent=blockedcontent.upper()
 				if blockedcontent.startswith("#") is False and check.find(blockedcontent) is not -1 and len(blockedcontent) > 1:	
-   					print("[BlockedContent] %s found in %s" % (blockedcontent,check))
+   					print("[BlockedContent] %s found in %s" % (blockedcontent, check))
 					blockedcontent_found=True
 			f.close()
 		else:
@@ -275,7 +275,7 @@ class BlockContentCheck(Screen):
 						blockedcontent_asking=False
 						pass
         			else:
-				        self.session.open(MessageBox, _("Block Content found %s") % blockedcontent, MessageBox.TYPE_WARNING,timeout=config.plugins.blockcontent.popuptime.value)
+				        self.session.open(MessageBox, _("Block Content found %s") % blockedcontent, MessageBox.TYPE_WARNING, timeout=config.plugins.blockcontent.popuptime.value)
     
     def getTriesEntry(self):
         return config.ParentalControl.retries.setuppin
