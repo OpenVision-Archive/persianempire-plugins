@@ -1,3 +1,3 @@
 ACLOCAL_AMFLAGS = -I m4
 
-SUBDIRS = AirPlayer BlockContent BouquetProtection CamRestart DeviceInfo FontMagnifier LocaleManager NaviBarPE NetworkServer PackageManager PECamManager PEFAQ PEInfo PEPanel PEWeather PurePrestige QuickWeather SambaServer SatelliteEditor ServiceEditor SimpleSatScan SoftCamUpdater VUSolo2CIHighBitrateFix
+SUBDIRS = BlockContent BouquetProtection CamRestart DeviceInfo FontMagnifier LocaleManager NaviBarPE NetworkServer PackageManager PECamManager PEFAQ PEInfo PEPanel PEWeather PurePrestige QuickWeather SambaServer SatelliteEditor ServiceEditor SimpleSatScan SoftCamUpdater VUSolo2CIHighBitrateFix

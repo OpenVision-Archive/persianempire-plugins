@@ -69,17 +69,6 @@ AC_DEFINE_UNQUOTED(STBPLATFORM,"$STBPLATFORM",[stb platform])
 AC_CONFIG_FILES([
 Makefile
 
-AirPlayer/Makefile
-AirPlayer/po/Makefile
-AirPlayer/src/Makefile
-AirPlayer/src/720x576/Makefile
-AirPlayer/src/1024x576/Makefile
-AirPlayer/src/1280x720/Makefile
-AirPlayer/src/1920x1080/Makefile
-AirPlayer/src/lib/Makefile
-AirPlayer/src/lib/biplist/Makefile
-AirPlayer/src/mediabackends/Makefile
-
 BlockContent/Makefile
 BlockContent/po/Makefile
 BlockContent/src/Makefile
