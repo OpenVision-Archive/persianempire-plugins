@@ -1,7 +1,10 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 from __future__ import print_function
-import thread
+try:
+	import thread
+except:
+	import _thread as thread
 
 class Lamedb():
 

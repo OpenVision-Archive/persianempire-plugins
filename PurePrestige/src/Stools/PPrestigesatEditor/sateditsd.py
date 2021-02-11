@@ -22,7 +22,10 @@ from Tools.Directories import resolveFilename, SCOPE_PLUGINS
 from enigma import eTimer, eListboxPythonMultiContent, gFont, RT_HALIGN_LEFT, RT_HALIGN_RIGHT, RT_HALIGN_CENTER, getDesktop, loadPNG, loadPic
 import os
 import time
-import thread
+try:
+	import thread
+except:
+	import _thread as thread
 import urllib2
 import xml.etree.cElementTree
 import satellite

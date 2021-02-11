@@ -24,7 +24,10 @@ from Components.FileList import FileList
 import os
 import sys
 from Components.ConfigList import ConfigListScreen
-from urlparse import urlparse
+try:
+	from urlparse import urlparse
+except:
+	from urllib.parse import urlparse
 import xml.etree.cElementTree
 import httplib
 from Tools.Directories import resolveFilename, pathExists, SCOPE_MEDIA, copyfile

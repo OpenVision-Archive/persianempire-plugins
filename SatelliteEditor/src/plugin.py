@@ -18,7 +18,10 @@ from Screens.Screen import Screen
 from time import time
 import os
 import time
-import thread
+try:
+	import thread
+except:
+	import _thread as thread
 import urllib2
 import xml.etree.cElementTree
 	

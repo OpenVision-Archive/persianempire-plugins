@@ -25,7 +25,10 @@ import pplayer
 from enigma import eTimer, eListboxPythonMultiContent, gFont, RT_HALIGN_LEFT, RT_HALIGN_RIGHT, RT_HALIGN_CENTER, getDesktop, loadPNG, loadPic
 from Components.MultiContent import MultiContentEntryText, MultiContentEntryPixmapAlphaTest
 from SpinnerSelector.plugin import downloadScreen
-from urlparse import urlparse
+try:
+	from urlparse import urlparse
+except:
+	from urllib.parse import urlparse
 import httplib
 import urllib2
 from Plugins.Extensions.PurePrestige.soupparse import *
