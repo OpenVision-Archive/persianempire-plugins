@@ -37,7 +37,7 @@ def startConfig(session, **kwargs):
         session.open(BlockContentConfiguration)
 
 def autostart(reason, **kwargs):
-    if kwargs.has_key("session") and reason == 0:
+    if "session" in kwargs and reason == 0:
        session = kwargs["session"]
        print("[BlockContent] autostart check")
        session.open(BlockContentCheck)

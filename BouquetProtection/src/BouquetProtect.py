@@ -129,7 +129,7 @@ class BouquetProtectSetup(Screen, ConfigListScreen):
 	def keyGreen(self):
 		def updateActionMap():
 			from Screens.ChannelSelection import ChannelSelectionBase as CSB
-			if CSB.inst["ChannelSelectBaseActions"].actions.has_key(self.prev_showkey):
+			if self.prev_showkey in CSB.inst["ChannelSelectBaseActions"].actions:
 				del CSB.inst["ChannelSelectBaseActions"].actions[self.prev_showkey]
 			if self.BPS.unwanted.enalbed.value and self.BPS.unwanted.showkey.value != 'none':
 				CSB.inst["ChannelSelectBaseActions"].actions.update({self.BPS.unwanted.showkey.value:boundFunction(CSB.showAllHiddenServices, CSB.inst)})

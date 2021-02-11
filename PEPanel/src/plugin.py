@@ -4076,9 +4076,9 @@ class PEPacketManager(Screen, NumericalTextInput):
         if self.cache_ttl == 0 or self.inv_cache == 1 or self.vc == 0:
             for x in self.packetlist:
                 status = ''
-                if self.installed_packetlist.has_key(x[0]):
+                if x[0] in self.installed_packetlist:
                     if self.opkgAvail:
-                        if self.upgradeable_packages.has_key(x[0]):
+                        if x[0] in self.upgradeable_packages:
                             status = 'upgradeable'
                         else:
                             status = 'installed'
@@ -4198,11 +4198,11 @@ def fw_test_smsusb():
 def DVBNTPautostart(reason, **kwargs):
     global session
     if config.plugins.dvbntptime.tdtautocheck.value:
-        if reason == 0 and kwargs.has_key('session'):
+        if reason == 0 and 'session' in kwargs:
             session = kwargs['session']
             session.open(PEDVBNTPTimeStartup)
     if config.plugins.dvbntptime.ntpautocheck.value:
-        if reason == 0 and kwargs.has_key('session'):
+        if reason == 0 and 'session' in kwargs:
             session = kwargs['session']
             session.open(NTPStartup)
 
