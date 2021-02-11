@@ -409,7 +409,7 @@ class PurePrestigereaderScreen(Screen):
             fp = open(self.cfile, 'r')
             count = 0
             self.labeltext = ''
-            while 1:
+            while True:
                 s = fp.readline()
                 count += 1
                 self.labeltext += str(s)

@@ -114,8 +114,7 @@ class DaemonsList(Screen):
 
     def loadList(self):
         self.daemons = list()
-        tdaemons = crawlDirectory('%s/Daemons/' % os.path.dirname(sys.modules[__name__].__file__), '.*\\.ext$')
-        tdaemons.sort()
+        tdaemons = sorted(crawlDirectory('%s/Daemons/' % os.path.dirname(sys.modules[__name__].__file__), '.*\\.ext$'))
         for daemon in tdaemons:
             if daemon[1][:1] != '.':
                 try:

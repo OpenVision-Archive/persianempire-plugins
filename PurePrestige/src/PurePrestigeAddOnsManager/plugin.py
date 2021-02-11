@@ -287,7 +287,7 @@ class PurePrestigeaddonsupdatesScreen(Screen):
             fp = urllib.urlopen(self.newsurl)
             count = 0
             self.labeltext = ''
-            while 1:
+            while True:
                 s = fp.readline()
                 count += 1
                 self.labeltext += str(s)
@@ -2782,7 +2782,7 @@ class DescScreen(Screen):
             fp = urllib.urlopen(self.url)
             count = 0
             self.labeltext = ''
-            while 1:
+            while True:
                 s = fp.readline()
                 count += 1
                 self.labeltext += str(s)
@@ -2952,7 +2952,7 @@ class TutorialsScreen(Screen):
             fp = urllib.urlopen(self.url)
             count = 0
             self.labeltext = ''
-            while 1:
+            while True:
                 s = fp.readline()
                 count += 1
                 self.labeltext += str(s)

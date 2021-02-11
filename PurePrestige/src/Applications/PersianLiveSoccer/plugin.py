@@ -222,7 +222,7 @@ class psoccerbootlogo(Screen):
         try:
             fp = urllib2.urlopen(urlpath)
             self.data = ''
-            while 1:
+            while True:
                 s = fp.readline()
                 if len(s) > 1:
                     data = data + '\n' + s
