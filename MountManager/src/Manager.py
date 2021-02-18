@@ -44,10 +44,10 @@ class MountSetup(Screen, ConfigListScreen):
 						self.swapdevice.append(swap)
 		mounts = CheckMountDir(self.device)
 		self.hdd = mounts[0]
-		self.MountOnHdd = ConfigSelection(default = self.hdd, \
+		self.MountOnHdd = ConfigSelection(default = self.hdd,
 			choices = [("nothing", _("nothing"))] + self.device)
 		self.movie = mounts[1]
-		self.MountOnMovie = ConfigSelection(default = self.movie, \
+		self.MountOnMovie = ConfigSelection(default = self.movie,
 			choices = [("nothing", _("nothing"))] + self.device)
 		self.swap = "no"
 		try:
@@ -67,7 +67,7 @@ class MountSetup(Screen, ConfigListScreen):
 
 	def CreateList(self, configEntry = None):
 		if self.device and self.MountOnHdd.value != "nothing":
-			self.SwapFile = ConfigSelection(default = self.swap, \
+			self.SwapFile = ConfigSelection(default = self.swap,
 				choices = [("no", _("no")), ("65536", _("64MB")), 
 				("131072", _("128MB")), ("262144", _("256MB")), 
 				("524288", _("512MB"))] + self.swapdevice)
@@ -77,7 +77,7 @@ class MountSetup(Screen, ConfigListScreen):
 				defaultswap = "no"
 			else:
 				defaultswap = self.swap
-			self.SwapFile = ConfigSelection(default = defaultswap, \
+			self.SwapFile = ConfigSelection(default = defaultswap,
 				choices = [("no", _("no"))] + self.swapdevice)
 		self.list = []
 		self.list.append(getConfigListEntry(_("Mount All On Startup"),
@@ -100,14 +100,14 @@ class MountSetup(Screen, ConfigListScreen):
 				if self.hdd != "nothing":
 					self.Console.ePopen("umount -f /media/hdd")
 				if self.MountOnHdd.value != "nothing":
-					mountdevice.Mount("/dev/" + self.MountOnHdd.value[:4], \
+					mountdevice.Mount("/dev/" + self.MountOnHdd.value[:4],
 						"/media/hdd")
 			config.plugins.HddMount.MountOnMovie.value = self.MountOnMovie.value
 			if self.MountOnMovie.value != self.movie:
 				if self.movie != "nothing":
 					self.Console.ePopen("umount -f /media/hdd/movie")
 				if self.MountOnMovie.value != "nothing":
-					mountdevice.Mount("/dev/" + self.MountOnMovie.value[:4], \
+					mountdevice.Mount("/dev/" + self.MountOnMovie.value[:4],
 						"/media/hdd/movie")
 			config.plugins.HddMount.SwapFile.value = self.SwapFile.value
 			if self.SwapFile.value != self.swap:
@@ -129,7 +129,7 @@ class MountSetup(Screen, ConfigListScreen):
 		if self.SwapFile.value[:2] == "sd":
 			Console().ePopen("swapon /dev/%s" % self.SwapFile.value[:4])
 		else:
-			Console().ePopen("dd if=/dev/zero of=/media/hdd/swapfile bs=1024 count=%s" \
+			Console().ePopen("dd if=/dev/zero of=/media/hdd/swapfile bs=1024 count=%s"
 				% atoi(self.SwapFile.value), self.MakeSwapFile)
 
 	def MakeSwapFile(self, result, retval, extra_args):

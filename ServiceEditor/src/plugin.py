@@ -26,7 +26,7 @@ import time
 class ServiceList(MenuList):
 	def __init__(self):
 		MenuList.__init__(self, list = [], content = eListboxPythonMultiContent)
-		self.l.setItemHeight(24);
+		self.l.setItemHeight(24)
 		self.l.setFont(0, gFont("Regular", 20))
 		path_raw = __file__.split("/")
 		path = ""
@@ -426,7 +426,7 @@ class Newscaster(HTMLComponent, GUIComponent):
 		GUIComponent.__init__(self)
 		self.l = eListboxPythonMultiContent()
 		self.l.setSelectionClip(eRect(0, 0, 0, 0))
-		self.l.setItemHeight(24);
+		self.l.setItemHeight(24)
 		self.l.setFont(0, gFont("Regular", 20))
 		path_raw = __file__.split("/")
 		path = ""
@@ -481,7 +481,7 @@ class Head(HTMLComponent, GUIComponent):
 		GUIComponent.__init__(self)
 		self.l = eListboxPythonMultiContent()
 		self.l.setSelectionClip(eRect(0, 0, 0, 0))
-		self.l.setItemHeight(24);
+		self.l.setItemHeight(24)
 		self.l.setFont(0, gFont("Regular", 20))
 	
 	def getCurrent(self):
@@ -615,7 +615,7 @@ class ServicesEditor(Screen):
 		self["infolist"] = MenuList([])
 		self["infolist"].l = eListboxPythonMultiContent()
 		self["infolist"].l.setSelectionClip(eRect(0, 0, 0, 0))
-		self["infolist"].l.setItemHeight(24);
+		self["infolist"].l.setItemHeight(24)
 		self["infolist"].l.setFont(0, gFont("Regular", 20))
 		
 		self["newscaster"] = Newscaster()

@@ -52,7 +52,7 @@ def Plugins(**kwargs):
 
 def main(session, **kwargs):
         hw_type_string = model
-        hw_type_string = hw_type_string + "\n";
+        hw_type_string = hw_type_string + "\n"
         hw_type_file = open("/tmp/fontmagnifier_hw_type.txt", "w")
         hw_type_file.write(hw_type_string)
         hw_type_file.close()
@@ -130,9 +130,9 @@ class fmConfiguration(Screen, ConfigListScreen):
                                         tag_gefunden=1
                                         break
                             if tag_gefunden==1:
-                                break;
+                                break
                 if tag_gefunden==1:
-                    break;
+                    break
 
     def getcurrent_font_single_epg_description(self):
         tag_gefunden=0
@@ -183,7 +183,7 @@ class fmConfiguration(Screen, ConfigListScreen):
                             config.plugins.fm.single_epg_list_fontsize2.value = int(font_size[0])
                             anzahl_der_gefundenen_schriften += 1
                 if anzahl_der_gefundenen_schriften == 2:
-                    break;
+                    break
             EpgList_file.close()
         except:
             config.plugins.fm.single_epg_list_fontsize.value = 0
@@ -552,7 +552,7 @@ class fmOptions(Screen):
                 file.write(x)
             file.close()
             messagebox_text = _("Settins saved to ")
-            messagebox_text = messagebox_text + filename;
+            messagebox_text = messagebox_text + filename
             confirmbox = self.session.open(MessageBox, messagebox_text, MessageBox.TYPE_INFO)
             confirmbox.setTitle(_("Info..."))
             self.close(False)
@@ -913,7 +913,7 @@ class fmWaitScreen(Screen):
                                                         child.set("font", new_font)
                                                         children_modified=children_modified+1
                                     if children_modified==6:
-                                        break;
+                                        break
 
             if len (self.list_of_subtitles) != 0:
                 for element in self.list_of_subtitles:

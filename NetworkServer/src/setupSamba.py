@@ -223,15 +223,15 @@ class setupSamba(Screen, ConfigListScreen):
 
 	def smbdLabelSet(self):
 		if isRunning('smbd'):
-			self["smbdLabel"].setText(_("Status smbd: started"));
+			self["smbdLabel"].setText(_("Status smbd: started"))
 		else:
-			self["smbdLabel"].setText(_("Status smbd: stopped"));
+			self["smbdLabel"].setText(_("Status smbd: stopped"))
 
 	def nmbdLabelSet(self):
 		if isRunning('nmbd'):
-			self["nmbdLabel"].setText(_("Status nmbd: started"));
+			self["nmbdLabel"].setText(_("Status nmbd: started"))
 		else:
-			self["nmbdLabel"].setText(_("Status nmbd: stopped"));
+			self["nmbdLabel"].setText(_("Status nmbd: stopped"))
 
 	def dataAvail(self, str):
 		print(str,)

@@ -43,7 +43,7 @@ class editExportEntry(Screen, ConfigListScreen):
 		self.session = session
 		Screen.__init__(self, session)
 
-		nfsoptions = [\
+		nfsoptions = [
 		"ro,sync",
 		"rw,sync",
 		"ro,async",

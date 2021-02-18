@@ -8,7 +8,7 @@ from Tools.Directories import resolveFilename, SCOPE_PLUGINS
 
 def localeInit():
 	environ["LANGUAGE"] = language.getLanguage()[:2]
-	bindtextdomain("PECamManager", resolveFilename(SCOPE_PLUGINS, \
+	bindtextdomain("PECamManager", resolveFilename(SCOPE_PLUGINS,
 		"Extensions/PECamManager/locale"))
 
 def _(txt):

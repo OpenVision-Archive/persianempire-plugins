@@ -36,8 +36,10 @@ config.BouquetProtect.unwanted.showkey = ConfigSelection(default = 'none', choic
 def newChannelContextMenu__init__(self, session, csel):
 	baseChannelContextMenu__init__(self, session, csel)
 	self["menu"].enableWrapAround = True
-	if config.BouquetProtect.enabled.value == 'none': return
-	if csel.bouquet_mark_edit != 0 or csel.movemode: return
+	if config.BouquetProtect.enabled.value == 'none':
+		return
+	if csel.bouquet_mark_edit != 0 or csel.movemode:
+		return
 	
 	idx = max(0, len(self["menu"].list)-1)
 	current = csel.getCurrentSelection()
@@ -88,7 +90,8 @@ def menuHideUnwantedServices(self, hide):
 		db = eDVBDB.getInstance()
 		while True:
 			service = servicelist.getNext()
-			if not service.valid(): break
+			if not service.valid():
+				break
 			if hide:
 				db.addFlag(service, 0xfffffffd)
 			else:
@@ -101,7 +104,8 @@ def menuHideUnwantedServices(self, hide):
 	self.close()
 
 def menuHideUnwantedService(self, hide):
-	if not self.csel.checkpass and not self.csel.checkProtect(boundFunction(self.menuHideUnwantedService, hide)): return
+	if not self.csel.checkpass and not self.csel.checkProtect(boundFunction(self.menuHideUnwantedService, hide)):
+		return
 	db = eDVBDB.getInstance()
 	if hide:
 		ret = db.addFlag(self.csel.servicelist.getCurrent(), 0xfffffffd)
@@ -115,7 +119,8 @@ def menuHideUnwantedService(self, hide):
 	self.close()
 
 def menuHideCurrentBouquet(self, hide):
-	if not self.csel.checkpass and not self.csel.checkProtect(boundFunction(self.menuHideCurrentBouquet, hide)): return
+	if not self.csel.checkpass and not self.csel.checkProtect(boundFunction(self.menuHideCurrentBouquet, hide)):
+		return
 	ref = self.csel.servicelist.getCurrent()
 	refstr = ref.toString()
 	excludelist = ['', refstr]
@@ -124,7 +129,8 @@ def menuHideCurrentBouquet(self, hide):
 	if not servicelist is None:
 		while True:
 			service = servicelist.getNext()
-			if not service.valid(): break
+			if not service.valid():
+				break
 			excludelist.append( service.toString() )
 
 	services = getHiddenList(excludelist)
@@ -137,22 +143,27 @@ def menuHideCurrentBouquet(self, hide):
 		db = eDVBDB.getInstance()
 		filename = self.csel.mode == 0 and 'bouquets.tv' or 'bouquets.radio'
 		bouquets = getBouquetsList(filename, [refstr])
-		if not hide: bouquets += [refstr]
-		if setBouquetsList(filename, bouquets): db.reloadBouquets()
+		if not hide:
+			bouquets += [refstr]
+		if setBouquetsList(filename, bouquets):
+			db.reloadBouquets()
 		for cur in excludelist[2:]:
 			curref = eServiceReference(cur)
-			if not curref.valid(): continue
+			if not curref.valid():
+				continue
 			if hide:
 				db.addFlag(curref, 0xfffffffd)
 			else:
 				db.removeFlag(curref, 0x00000002)
 		db.saveServicelist()
 		self.csel.bouquetNumOffsetCache = { }
-		if hide: self.csel.servicelist.removeCurrent()
+		if hide:
+			self.csel.servicelist.removeCurrent()
 	self.close()
 
 def menuHideCurrentService(self, hide):
-	if not self.csel.checkpass and not self.csel.checkProtect(boundFunction(self.menuHideCurrentService, hide)): return
+	if not self.csel.checkpass and not self.csel.checkProtect(boundFunction(self.menuHideCurrentService, hide)):
+		return
 	ref = self.csel.servicelist.getCurrent()
 	refstr = ref.toString()
 	services = getHiddenList(['', refstr])
@@ -168,11 +179,13 @@ def menuHideCurrentService(self, hide):
 		else:
 			db.removeFlag(ref, 0x00000002)
 		db.saveServicelist()
-		if hide: self.csel.servicelist.removeCurrent()
+		if hide:
+			self.csel.servicelist.removeCurrent()
 	self.close()
 
 def menuShowAllHiddenBouquetServices(self):
-	if not self.csel.checkpass and not self.csel.checkProtect(self.menuShowAllHiddenBouquetServices): return
+	if not self.csel.checkpass and not self.csel.checkProtect(self.menuShowAllHiddenBouquetServices):
+		return
 	self.csel.showAllHiddenBouquetServices()
 	self.close()
 
@@ -187,13 +200,16 @@ def getAllHiddenList():
 		services_found = False
 		while True:
 			ln1 = f.readline()
-			if not ln1: break
+			if not ln1:
+				break
 			if services_found:
 				flags = 0
 				ln2 = f.readline()
-				if not ln2: break
+				if not ln2:
+					break
 				ln3 = f.readline()
-				if not ln3: break
+				if not ln3:
+					break
 				pos = ln3.find(',f:')
 				if pos != -1:
 					s = ln3[pos+3:]
@@ -218,7 +234,8 @@ def getHiddenList(exclude=['']):
 		lines = file.readlines()
 		for ln in lines:
 			currefstr = ln.strip()
-			if currefstr[0] == "#" or currefstr in exclude: continue
+			if currefstr[0] == "#" or currefstr in exclude:
+				continue
 			list.append(currefstr)
 		file.close()
 	except:
@@ -243,10 +260,12 @@ def getBouquetsList(filename, exclude=['']):
 		lines = file.readlines()
 		for ln in lines:
 			ln = ln.strip()
-			if len(ln) < 9: continue
+			if len(ln) < 9:
+				continue
 			if ln[:8] == '#SERVICE':
 				offs = ln[8] == ':' and 10 or 9
-				if ln[offs:] in exclude: continue
+				if ln[offs:] in exclude:
+					continue
 				list.append(ln[offs:])
 			elif ln[:6] == '#NAME ':
 				list.insert(0, ln)
@@ -260,7 +279,8 @@ def setBouquetsList(filename, bouquets=[]):
 		file = open(resolveFilename(SCOPE_CONFIG, filename), 'w')
 		file.write("")
 		for bouquet in bouquets:
-			if len(bouquet) < 9: continue
+			if len(bouquet) < 9:
+				continue
 			if bouquet[:6] == '#NAME ':
 				file.write(bouquet + "\r\n")
 			else:
@@ -281,15 +301,21 @@ def unlockAllHiddenBouquetServices(unlock):
 				index = int(service[pos+2:])
 				service = service[:pos]
 			if service[4] == '1':
-				if not tv_bouquets: tv_bouquets = getBouquetsList('bouquets.tv')
+				if not tv_bouquets:
+					tv_bouquets = getBouquetsList('bouquets.tv')
 				for bq in tv_bouquets:
-					if bq == service: tv_bouquets.remove(bq)
-				if unlock: tv_bouquets.append(service)
+					if bq == service:
+						tv_bouquets.remove(bq)
+				if unlock:
+					tv_bouquets.append(service)
 			elif service[4] == '2':
-				if not rd_bouquets: rd_bouquets = getBouquetsList('bouquets.radio')
+				if not rd_bouquets:
+					rd_bouquets = getBouquetsList('bouquets.radio')
 				for bq in rd_bouquets:
-					if bq == service: rd_bouquets.remove(bq)
-				if unlock: rd_bouquets.append(service)
+					if bq == service:
+						rd_bouquets.remove(bq)
+				if unlock:
+					rd_bouquets.append(service)
 			continue
 		ref = eServiceReference(service)
 		if ref.valid():
@@ -297,9 +323,12 @@ def unlockAllHiddenBouquetServices(unlock):
 				db.removeFlag(ref, 0x00000002)
 			else:
 				db.addFlag(ref, 0xfffffffd)
-	if len(tv_bouquets): setBouquetsList('bouquets.tv', tv_bouquets)
-	if len(rd_bouquets): setBouquetsList('bouquets.radio', rd_bouquets)
-	if len(tv_bouquets) or len(rd_bouquets): db.reloadBouquets()
+	if len(tv_bouquets):
+		setBouquetsList('bouquets.tv', tv_bouquets)
+	if len(rd_bouquets):
+		setBouquetsList('bouquets.radio', rd_bouquets)
+	if len(tv_bouquets) or len(rd_bouquets):
+		db.reloadBouquets()
 
 
 
@@ -329,12 +358,15 @@ def showAllHiddenBouquetServices(self):
 		current = None
 		while True:
 			service = servicelist.getNext()
-			if not service.valid(): break
-			if current is None: current = service
+			if not service.valid():
+				break
+			if current is None:
+				current = service
 			if service.toString() == ref.toString():
 				current = service
 				break
-		if not current is None: self.servicelist.setCurrent(current)
+		if not current is None:
+			self.servicelist.setCurrent(current)
 	if not self.hidden_shown:
 		hidden = getHiddenList()
 		for path in self.history:
@@ -354,7 +386,8 @@ def checkProtect(self, callback=None):
 def checkProtectEntered(self, callback, result):
 	if result:
 		self.checkpass = True
-		if not callback is None: callback()
+		if not callback is None:
+			callback()
 		if config.BouquetProtect.protect.store.value == 'standby':
 			config.misc.standbyCounter.addNotifier(self.standbyCounterCallback, initial_call = False)
 		else:
@@ -374,8 +407,10 @@ def standbyCounterCallback(self, ConfigElement):
 		self.protectTimerLoop()
 
 def showAllHiddenServices(self):
-	if self.pathChangeDisabled: return False
-	if not self.checkpass and not self.checkProtect(self.showAllHiddenServices): return False
+	if self.pathChangeDisabled:
+		return False
+	if not self.checkpass and not self.checkProtect(self.showAllHiddenServices):
+		return False
 	pos = self.service_types.rfind(':')
 	refstr = '%s (flags == 2) && %s ORDER BY flags' %(self.service_types[:pos+1], self.service_types[pos+1:])
 	if not self.preEnterPath(refstr):
@@ -386,7 +421,8 @@ def showAllHiddenServices(self):
 			self.clearPath()
 			self.enterPath(ref, True)
 			services = getAllHiddenList()
-			if services: services.sort(reverse=True)
+			if services:
+				services.sort(reverse=True)
 			for s in services:
 				service = eServiceReference(s[1])
 				if service and service.valid():

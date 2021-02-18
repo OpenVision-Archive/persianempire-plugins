@@ -7,7 +7,7 @@ from Tools.Directories import resolveFilename, SCOPE_PLUGINS
 
 def localeInit():
 	environ["LANGUAGE"] = language.getLanguage()[:2]
-	bindtextdomain("MountManager", resolveFilename(SCOPE_PLUGINS, \
+	bindtextdomain("MountManager", resolveFilename(SCOPE_PLUGINS,
 		"SystemPlugins/MountManager/locale"))
 
 def _(txt):

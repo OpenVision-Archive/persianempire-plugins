@@ -148,7 +148,8 @@ class SimpleSatScan(ConfigListScreen, Screen):
 			del self.raw_channel
 
 	def updateTuneStatus(self):
-		if not self.frontend: return
+		if not self.frontend:
+			return
 		stop = False
 		dict = {}
 		self.frontend.getFrontendStatus(dict)
@@ -176,18 +177,23 @@ class SimpleSatScan(ConfigListScreen, Screen):
 
 	def retune(self, configElement):
 		self.tuneTimer.stop()
-		if self.scan_nims == [ ]: return
-		if self.scan_nims.value == "": return
+		if self.scan_nims == [ ]:
+			return
+		if self.scan_nims.value == "":
+			return
 		self.tpslist_idx = 0
 		tpslist = [ ]
 		status_text = ""
 		multi_tune = False
 		index_to_scan = int(self.scan_nims.value)
-		if len(self.satList) <= index_to_scan: return
-		if len(self.scan_satselection) <= index_to_scan: return
+		if len(self.satList) <= index_to_scan:
+			return
+		if len(self.scan_satselection) <= index_to_scan:
+			return
 
 		nim = nimmanager.nim_slots[index_to_scan]
-		if not nim.isCompatible("DVB-S"): return
+		if not nim.isCompatible("DVB-S"):
+			return
 
 		nimsats = self.satList[index_to_scan]
 		selsatidx = self.scan_satselection[index_to_scan].index
@@ -247,7 +253,8 @@ class SimpleSatScan(ConfigListScreen, Screen):
 					for x in tps:
 						if x[0] == 0:
 							tpslist.append((x[1] / 1000, x[2] / 1000, x[3], x[4], x[7], sat[0], x[5], x[6], x[8], x[9]))
-					if len(tpslist): break
+					if len(tpslist):
+						break
 
 		self.tpslist = tpslist
 		if len(self.tpslist):
@@ -258,7 +265,8 @@ class SimpleSatScan(ConfigListScreen, Screen):
 		self["status"].setText(status_text)
 
 	def OrbToStr(self, orbpos=-1):
-		if orbpos == -1 or orbpos > 3600: return "??"
+		if orbpos == -1 or orbpos > 3600:
+			return "??"
 		if orbpos > 1800:
 			return "%d.%dW" % ((3600 - orbpos) / 10, (3600 - orbpos) % 10)
 		else:
@@ -560,7 +568,8 @@ class SimpleSatScan(ConfigListScreen, Screen):
 			return
 
 		nim = nimmanager.nim_slots[index_to_scan]
-		if not nim.isCompatible("DVB-S"): return
+		if not nim.isCompatible("DVB-S"):
+			return
 		if self.scan_type.value.find("_transponder") != -1:
 			assert len(self.satList) > index_to_scan
 			assert len(self.scan_satselection) > index_to_scan
