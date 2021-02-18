@@ -17,16 +17,16 @@ baseChannelSelectionBase__init__ = None
 
 
 config.BouquetProtect = ConfigSubsection()
-config.BouquetProtect.enabled = ConfigSelection(default = 'none', choices = [('none', 'no'), ('bouq', 'yes')])
+config.BouquetProtect.enabled = ConfigSelection(default='none', choices=[('none', 'no'), ('bouq', 'yes')])
 config.BouquetProtect.protect = ConfigSubsection()
-config.BouquetProtect.protect.enable = ConfigYesNo(default = False)
-config.BouquetProtect.protect.index  = ConfigPIN(default = -1)
-config.BouquetProtect.protect.tries  = ConfigInteger(default = 3)
-config.BouquetProtect.protect.time   = ConfigInteger(default = 3)
-config.BouquetProtect.protect.store  = ConfigSelection(default = "standby", choices = [("1", _("1 minute")), ("5", _("5 minutes")), ("15", _("15 minutes")), ("30", _("30 minutes")), ("45", _("45 minutes")), ("60", _("60 minutes")), ("120", _("2 hours")), ("180", _("3 hours")), ("360", _("6 hours")), ("720", _("12 hours")), ("1440", _("24 hours")), ("standby", _("until standby/restart"))])
+config.BouquetProtect.protect.enable = ConfigYesNo(default=False)
+config.BouquetProtect.protect.index  = ConfigPIN(default=-1)
+config.BouquetProtect.protect.tries  = ConfigInteger(default=3)
+config.BouquetProtect.protect.time   = ConfigInteger(default=3)
+config.BouquetProtect.protect.store  = ConfigSelection(default="standby", choices=[("1", _("1 minute")), ("5", _("5 minutes")), ("15", _("15 minutes")), ("30", _("30 minutes")), ("45", _("45 minutes")), ("60", _("60 minutes")), ("120", _("2 hours")), ("180", _("3 hours")), ("360", _("6 hours")), ("720", _("12 hours")), ("1440", _("24 hours")), ("standby", _("until standby/restart"))])
 config.BouquetProtect.unwanted = ConfigSubsection()
-config.BouquetProtect.unwanted.enalbed = ConfigYesNo(default = False)
-config.BouquetProtect.unwanted.showkey = ConfigSelection(default = 'none', choices = [('none', _('none')), ('breakAudio', 'AUDIO'), ('longAudio', _('long AUDIO')), ('breakVideo', _('VIDEO(Vkey)')), ('longVideo', _('long VIDEO(Vkey)'))])
+config.BouquetProtect.unwanted.enalbed = ConfigYesNo(default=False)
+config.BouquetProtect.unwanted.showkey = ConfigSelection(default='none', choices=[('none', _('none')), ('breakAudio', 'AUDIO'), ('longAudio', _('long AUDIO')), ('breakVideo', _('VIDEO(Vkey)')), ('longVideo', _('long VIDEO(Vkey)'))])
 
 
 
@@ -49,35 +49,35 @@ def newChannelContextMenu__init__(self, session, csel):
 		if not (current.flags & (eServiceReference.isMarker|eServiceReference.isDirectory)):
 			if inBouquet and config.BouquetProtect.enabled.value in ('bouq'):
 				if not csel.hidden_shown:
-					self["menu"].list.insert(idx, ChoiceEntryComponent(text = (_("unlock protected services"), self.menuShowAllHiddenBouquetServices)))
-					self["menu"].list.insert(idx, ChoiceEntryComponent(text = (_("add to bouquets protection"), boundFunction(self.menuHideCurrentService, True))))
+					self["menu"].list.insert(idx, ChoiceEntryComponent(text=(_("unlock protected services"), self.menuShowAllHiddenBouquetServices)))
+					self["menu"].list.insert(idx, ChoiceEntryComponent(text=(_("add to bouquets protection"), boundFunction(self.menuHideCurrentService, True))))
 				else:
-					self["menu"].list.insert(idx, ChoiceEntryComponent(text = (_("lock protected services"), self.menuShowAllHiddenBouquetServices)))
+					self["menu"].list.insert(idx, ChoiceEntryComponent(text=(_("lock protected services"), self.menuShowAllHiddenBouquetServices)))
 					if current.toString() in getHiddenList():
-						self["menu"].list.insert(idx, ChoiceEntryComponent(text = (_("remove from bouquets protection"), boundFunction(self.menuHideCurrentService, False))))
+						self["menu"].list.insert(idx, ChoiceEntryComponent(text=(_("remove from bouquets protection"), boundFunction(self.menuHideCurrentService, False))))
 					else:
-						self["menu"].list.insert(idx, ChoiceEntryComponent(text = (_("add to bouquets protection"), boundFunction(self.menuHideCurrentService, True))))
+						self["menu"].list.insert(idx, ChoiceEntryComponent(text=(_("add to bouquets protection"), boundFunction(self.menuHideCurrentService, True))))
 			elif not inBouquet and config.BouquetProtect.unwanted.enalbed.value:
 				if current_root and current_root.getPath().find("flags == 2") != -1:
-					self["menu"].list.insert(idx, ChoiceEntryComponent(text = (_("restore all hidden services"), boundFunction(self.menuHideUnwantedServices, False))))
-					self["menu"].list.insert(idx, ChoiceEntryComponent(text = (_("restore hidden service"), boundFunction(self.menuHideUnwantedService, False))))
+					self["menu"].list.insert(idx, ChoiceEntryComponent(text=(_("restore all hidden services"), boundFunction(self.menuHideUnwantedServices, False))))
+					self["menu"].list.insert(idx, ChoiceEntryComponent(text=(_("restore hidden service"), boundFunction(self.menuHideUnwantedService, False))))
 				else:
-					self["menu"].list.insert(idx, ChoiceEntryComponent(text = (_("hide as unwanted service"), boundFunction(self.menuHideUnwantedService, True))))
+					self["menu"].list.insert(idx, ChoiceEntryComponent(text=(_("hide as unwanted service"), boundFunction(self.menuHideUnwantedService, True))))
 			
 		else:
 			if config.BouquetProtect.unwanted.enalbed.value:
 				if not inBouquet and current.getPath().find("PROVIDERS") == -1:
-					self["menu"].list.insert(idx, ChoiceEntryComponent(text = (_("hide all as unwanted services"), boundFunction(self.menuHideUnwantedServices, True))))
+					self["menu"].list.insert(idx, ChoiceEntryComponent(text=(_("hide all as unwanted services"), boundFunction(self.menuHideUnwantedServices, True))))
 	else:
 		if not csel.hidden_shown:
-			self["menu"].list.insert(idx, ChoiceEntryComponent(text = (_("unlock protected services"), self.menuShowAllHiddenBouquetServices)))
-			self["menu"].list.insert(idx, ChoiceEntryComponent(text = (_("add to bouquets protection"), boundFunction(self.menuHideCurrentBouquet, True))))
+			self["menu"].list.insert(idx, ChoiceEntryComponent(text=(_("unlock protected services"), self.menuShowAllHiddenBouquetServices)))
+			self["menu"].list.insert(idx, ChoiceEntryComponent(text=(_("add to bouquets protection"), boundFunction(self.menuHideCurrentBouquet, True))))
 		else:
-			self["menu"].list.insert(idx, ChoiceEntryComponent(text = (_("lock protected services"), self.menuShowAllHiddenBouquetServices)))
+			self["menu"].list.insert(idx, ChoiceEntryComponent(text=(_("lock protected services"), self.menuShowAllHiddenBouquetServices)))
 			if current.toString() in getHiddenList():
-				self["menu"].list.insert(idx, ChoiceEntryComponent(text = (_("remove from bouquets protection"), boundFunction(self.menuHideCurrentBouquet, False))))
+				self["menu"].list.insert(idx, ChoiceEntryComponent(text=(_("remove from bouquets protection"), boundFunction(self.menuHideCurrentBouquet, False))))
 			else:
-				self["menu"].list.insert(idx, ChoiceEntryComponent(text = (_("add to bouquets protection"), boundFunction(self.menuHideCurrentBouquet, True))))
+				self["menu"].list.insert(idx, ChoiceEntryComponent(text=(_("add to bouquets protection"), boundFunction(self.menuHideCurrentBouquet, True))))
 
 def menuHideUnwantedServices(self, hide):
 	if hide:
@@ -380,7 +380,7 @@ def checkProtect(self, callback=None):
 	config.BouquetProtect.protect.index.value == config.BouquetProtect.protect.index.default:
 		return True
 	from Screens.InputBox import PinInput
-	self.session.openWithCallback(boundFunction(self.checkProtectEntered, callback), PinInput, triesEntry = config.BouquetProtect.protect, pinList = [config.BouquetProtect.protect.index.value], title = _("please enter the password"), windowTitle = _("Bouquets Protection"))
+	self.session.openWithCallback(boundFunction(self.checkProtectEntered, callback), PinInput, triesEntry=config.BouquetProtect.protect, pinList=[config.BouquetProtect.protect.index.value], title=_("please enter the password"), windowTitle=_("Bouquets Protection"))
 	return self.checkpass
 
 def checkProtectEntered(self, callback, result):
@@ -389,7 +389,7 @@ def checkProtectEntered(self, callback, result):
 		if not callback is None:
 			callback()
 		if config.BouquetProtect.protect.store.value == 'standby':
-			config.misc.standbyCounter.addNotifier(self.standbyCounterCallback, initial_call = False)
+			config.misc.standbyCounter.addNotifier(self.standbyCounterCallback, initial_call=False)
 		else:
 			self.protectTimer.start(int(config.BouquetProtect.protect.store.value)*60*1000, True)
 	else:
@@ -476,6 +476,6 @@ def OpenSetup(menuid, **kwargs):
 
 def Plugins(**kwargs):
 	return [
-		PluginDescriptor(name=_("Bouquets protection"), description=_("advanced parental control for user bouquets"), where = PluginDescriptor.WHERE_SESSIONSTART, fnc = StartMainSession),
-		PluginDescriptor(name=_("Bouquets protection"), description=_("advanced parental control for user bouquets"), where = PluginDescriptor.WHERE_MENU, fnc = OpenSetup)
+		PluginDescriptor(name=_("Bouquets protection"), description=_("advanced parental control for user bouquets"), where=PluginDescriptor.WHERE_SESSIONSTART, fnc=StartMainSession),
+		PluginDescriptor(name=_("Bouquets protection"), description=_("advanced parental control for user bouquets"), where=PluginDescriptor.WHERE_MENU, fnc=OpenSetup)
 		]

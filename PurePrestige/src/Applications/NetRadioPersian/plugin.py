@@ -387,7 +387,7 @@ class persianplayingscrn(Screen):
     else:
         skin = '\n                     <screen  position="center,center" size="580,450" title="Persian Radio"   >\n\t\n                        <ePixmap position="530,60" zPosition="4" size="60,40" pixmap="~/Applications/NetRadioPersian/icons/arrows.png" transparent="1" alphatest="on" />\n\n\t\t\t<widget name="station" position="10,15" zPosition="1" size="600,30" font="Regular;20" transparent="1" foregroundColor="yellow" backgroundColor="yellow"/>\n                        <widget name="titel" position="10,45" zPosition="1" size="530,70" font="Regular;22" transparent="1"  backgroundColor="#00000000"/>\n\t\t        <widget name="leagueNumberWidget" position="520,87" size="50,40" transparent="1" zPosition="4"  halign="center" font="Regular;20" foregroundColor="yellow" backgroundColor="yellow"  />\n                </screen>'
 
-    def __init__(self, session, stitle = None, currentservice = None, currentindex = None):
+    def __init__(self, session, stitle=None, currentservice=None, currentindex=None):
         self.skin = persianplayingscrn.skin
         self.skin_path = resolveFilename(SCOPE_PLUGINS, "Extensions/PurePrestige")
         Screen.__init__(self, session)

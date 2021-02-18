@@ -84,19 +84,19 @@ baseInfoBar__init__ = None
 config.plugins.WeatherPlugin = ConfigSubsection()
 config.plugins.WeatherPlugin.enabled = ConfigYesNo(default=True)
 config.plugins.WeatherPlugin.usebutton = ConfigYesNo(default=False)
-config.plugins.WeatherPlugin.clock = ConfigSelection(default = "2", choices = [("0", _("Weather time")), ("1", _("clock")), ("2", _("clock+day")), ("3", _("updates time"))])
-config.plugins.WeatherPlugin.city = ConfigSelection(default = "1", choices = [("0", _("Weather xml")), ("1", _("Config file"))])
+config.plugins.WeatherPlugin.clock = ConfigSelection(default="2", choices=[("0", _("Weather time")), ("1", _("clock")), ("2", _("clock+day")), ("3", _("updates time"))])
+config.plugins.WeatherPlugin.city = ConfigSelection(default="1", choices=[("0", _("Weather xml")), ("1", _("Config file"))])
 config.plugins.WeatherPlugin.caches = ConfigYesNo(default=True)
-config.plugins.WeatherPlugin.anim = ConfigSelection(default = "0", choices = [("0", _("Static Icons")), ("1", _("Icons+animation")), ("2", _("Animated icons"))])
+config.plugins.WeatherPlugin.anim = ConfigSelection(default="0", choices=[("0", _("Static Icons")), ("1", _("Icons+animation")), ("2", _("Animated icons"))])
 config.plugins.WeatherPlugin.anim2 = ConfigYesNo(default=False)
 config.plugins.WeatherPlugin.position_x = ConfigInteger(default=33)
 config.plugins.WeatherPlugin.position_y = ConfigInteger(default=52)
 config.plugins.WeatherPlugin.timeout = ConfigInteger(60, (30, 150))
-config.plugins.WeatherPlugin.wind = ConfigSelection(default = "0", choices = [("0", _("Kmph")), ("1", _("m/s"))])
-config.plugins.WeatherPlugin.language = ConfigSelection(default = "1", choices = [("0", _("Russian")), ("1", _("English"))])
+config.plugins.WeatherPlugin.wind = ConfigSelection(default="0", choices=[("0", _("Kmph")), ("1", _("m/s"))])
+config.plugins.WeatherPlugin.language = ConfigSelection(default="1", choices=[("0", _("Russian")), ("1", _("English"))])
 config.plugins.WeatherPlugin.hotkey = ConfigSelection([(x[0], x[1]) for x in WeatherInfoBarKeys], "Help")
-config.plugins.WeatherPlugin.anim3 = ConfigSelection(default = "/media/hdd/AnimatedIcons", choices = [("/media/hdd/AnimatedIcons", _("/media/hdd/")), ("/media/usb/AnimatedIcons", _("/media/usb/")), ("/usr/share/enigma2/AnimatedIcons", _("/usr/share/enigma2/"))])
-config.plugins.WeatherPlugin.days = ConfigSelection(default = "0", choices = [("0", _("Three day")), ("1", _("One day"))])
+config.plugins.WeatherPlugin.anim3 = ConfigSelection(default="/media/hdd/AnimatedIcons", choices=[("/media/hdd/AnimatedIcons", _("/media/hdd/")), ("/media/usb/AnimatedIcons", _("/media/usb/")), ("/usr/share/enigma2/AnimatedIcons", _("/usr/share/enigma2/"))])
+config.plugins.WeatherPlugin.days = ConfigSelection(default="0", choices=[("0", _("Three day")), ("1", _("One day"))])
 
 def localeInit():
     lang = language.getLanguage()[:2]
@@ -197,7 +197,7 @@ def Plugins(**kwargs):
         return [
              PluginDescriptor(where=[PluginDescriptor.WHERE_SESSIONSTART], fnc=sessionstart),
              PluginDescriptor(where=[PluginDescriptor.WHERE_AUTOSTART], fnc=autostart),
-	     PluginDescriptor(name=_("Quick Weather"), description=_("Special version for Open Vision"), where = [PluginDescriptor.WHERE_PLUGINMENU], icon="icon-fs8.png", fnc=main)]
+	     PluginDescriptor(name=_("Quick Weather"), description=_("Special version for Open Vision"), where=[PluginDescriptor.WHERE_PLUGINMENU], icon="icon-fs8.png", fnc=main)]
 
 
 HDSkn = False
@@ -1661,7 +1661,7 @@ class SetupIcons(Screen):
 	    self.session.openWithCallback(
 		    self.ShowsearchBarracuda,
 		    VirtualKeyBoard,
-		    title = _("Enter your way to the storage of icons"),
+		    title=_("Enter your way to the storage of icons"),
                     text=self.name()
 	    )
 

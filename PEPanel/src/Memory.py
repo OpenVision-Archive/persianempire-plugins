@@ -22,11 +22,11 @@ class Memory(Screen):
 			<widget name="list" position="10,0" size="190,250" scrollbarMode="showOnDemand" />
 		</screen>"""
 		
-	def __init__(self, session, args = None):
+	def __init__(self, session, args=None):
 		self.skin = Memory.skin
 		Screen.__init__(self, session)
 
-		self["list"] = FileList("/", matchingPattern = "^.*\.(png|avi|mp3|mpeg|ts)")
+		self["list"] = FileList("/", matchingPattern="^.*\.(png|avi|mp3|mpeg|ts)")
 		
 		self["text"] = Input("1234", maxSize=True, type=Input.NUMBER)
 				

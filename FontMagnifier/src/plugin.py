@@ -24,31 +24,31 @@ from Components.Console import Console
 model = getBoxType()
 
 config.plugins.fm = ConfigSubsection()
-config.plugins.fm.display_manipulation_active = ConfigEnableDisable(default = False)
-config.plugins.fm.active = ConfigEnableDisable(default = False)
-config.plugins.fm.display_subtitles = ConfigEnableDisable(default = False)
-config.plugins.fm.fontsize = ConfigInteger(default = 80, limits = (40, 90))
-config.plugins.fm.evv_fontsize = ConfigInteger(default = 22, limits = (10, 50))
-config.plugins.fm.show_only_clock = ConfigEnableDisable(default = False)
-config.plugins.fm.single_epg_description_fontsize = ConfigInteger(default = 20, limits = (10, 40))
-config.plugins.fm.single_epg_list_fontsize = ConfigInteger(default = 25, limits = (10, 40))
-config.plugins.fm.single_epg_list_fontsize2 = ConfigInteger(default = 25, limits = (10, 40))
-config.plugins.fm.channel_list_epg_description_fontsize = ConfigInteger(default = 20, limits = (10, 40))
-config.plugins.fm.channel_list_fontsize = ConfigInteger(default = 20, limits = (10, 40))
-config.plugins.fm.Subtitle_TTX = ConfigInteger(default = 40, limits = (20, 80))
-config.plugins.fm.Subtitle_Regular = ConfigInteger(default = 40, limits = (20, 80))
-config.plugins.fm.Subtitle_Bold = ConfigInteger(default = 40, limits = (20, 80))
-config.plugins.fm.Subtitle_Italic = ConfigInteger(default = 40, limits = (20, 80))
-config.plugins.fm.movie_list_fontsize = ConfigInteger(default = 20, limits = (10, 40))
-config.plugins.fm.infobar_fontsize_event_now = ConfigInteger(default = 22, limits = (10, 30))
-config.plugins.fm.infobar_fontsize_event_next = ConfigInteger(default = 22, limits = (10, 30))
+config.plugins.fm.display_manipulation_active = ConfigEnableDisable(default=False)
+config.plugins.fm.active = ConfigEnableDisable(default=False)
+config.plugins.fm.display_subtitles = ConfigEnableDisable(default=False)
+config.plugins.fm.fontsize = ConfigInteger(default=80, limits=(40, 90))
+config.plugins.fm.evv_fontsize = ConfigInteger(default=22, limits=(10, 50))
+config.plugins.fm.show_only_clock = ConfigEnableDisable(default=False)
+config.plugins.fm.single_epg_description_fontsize = ConfigInteger(default=20, limits=(10, 40))
+config.plugins.fm.single_epg_list_fontsize = ConfigInteger(default=25, limits=(10, 40))
+config.plugins.fm.single_epg_list_fontsize2 = ConfigInteger(default=25, limits=(10, 40))
+config.plugins.fm.channel_list_epg_description_fontsize = ConfigInteger(default=20, limits=(10, 40))
+config.plugins.fm.channel_list_fontsize = ConfigInteger(default=20, limits=(10, 40))
+config.plugins.fm.Subtitle_TTX = ConfigInteger(default=40, limits=(20, 80))
+config.plugins.fm.Subtitle_Regular = ConfigInteger(default=40, limits=(20, 80))
+config.plugins.fm.Subtitle_Bold = ConfigInteger(default=40, limits=(20, 80))
+config.plugins.fm.Subtitle_Italic = ConfigInteger(default=40, limits=(20, 80))
+config.plugins.fm.movie_list_fontsize = ConfigInteger(default=20, limits=(10, 40))
+config.plugins.fm.infobar_fontsize_event_now = ConfigInteger(default=22, limits=(10, 30))
+config.plugins.fm.infobar_fontsize_event_next = ConfigInteger(default=22, limits=(10, 30))
 regularFontExistInXML = 0
 regularFontList = ConfigSelection(choices=[], default="")
 config.plugins.fm.regular_Font = ConfigText(default="")
 savedSettingsList = []
 
 def Plugins(**kwargs):
-    return [PluginDescriptor(name=("Font Magnifier 0.6.1"), description=_("Tool to change font sizes easily."), where = PluginDescriptor.WHERE_PLUGINMENU, icon="fm.png", fnc=main)]
+    return [PluginDescriptor(name=("Font Magnifier 0.6.1"), description=_("Tool to change font sizes easily."), where=PluginDescriptor.WHERE_PLUGINMENU, icon="fm.png", fnc=main)]
 
 def main(session, **kwargs):
         hw_type_string = model
@@ -70,7 +70,7 @@ class fmConfiguration(Screen, ConfigListScreen):
             <widget name="config" position="5,50" size="550,385" scrollbarMode="showOnDemand" zPosition="1"/>
         </screen>""" % fm_version
 
-    def __init__(self, session, args = 0):
+    def __init__(self, session, args=0):
         Screen.__init__(self, session)
 
         self["key_red"] = StaticText(_("Cancel"))
@@ -433,7 +433,7 @@ class fmOptions(Screen):
             <widget name="optionslist" position="10,5" zPosition="7" size="450,130" scrollbarMode="showOnDemand" transparent="1" />
         </screen>"""
 
-    def __init__(self, session, args = 0):
+    def __init__(self, session, args=0):
         Screen.__init__(self, session)
 
         self["setupActions"] = ActionMap(["SetupActions", "MenuActions"],
@@ -572,7 +572,7 @@ class fmRestoreSettings(Screen):
             <widget name="restorelist" position="10,5" zPosition="7" size="600,130" scrollbarMode="showOnDemand" transparent="1" />
         </screen>"""
 
-    def __init__(self, session, args = 0):
+    def __init__(self, session, args=0):
         Screen.__init__(self, session)
 
         self["setupActions"] = ActionMap(["SetupActions", "MenuActions"],
@@ -665,7 +665,7 @@ class fmWaitScreen(Screen):
             <widget source="label" render="Label" position="130,25" size="350,50" font="Regular;32" transparent="1"  />
         </screen>""" % resolveFilename(SCOPE_PLUGINS, "Extensions/FontMagnifier/wait-icon.png")
 
-    def __init__(self, session, skin_tree = None):
+    def __init__(self, session, skin_tree=None):
         Screen.__init__(self, session)
 
         self["label"] = StaticText("")
@@ -740,7 +740,7 @@ class fmWaitScreen(Screen):
                 if os.path.exists("/etc/enigma2/skin_user.xml.bak"):
                     Console().ePopen("mv /etc/enigma2/skin_user.xml.bak /etc/enigma2/skin_user.xml")
         except:
-            self.session.openWithCallback(self.close, MessageBox, _("Sorry, unable modify skin_user.xml"), type = MessageBox.TYPE_INFO)
+            self.session.openWithCallback(self.close, MessageBox, _("Sorry, unable modify skin_user.xml"), type=MessageBox.TYPE_INFO)
 
         if not os.path.exists("/usr/share/enigma2/%s.bak" % (config.skin.primary_skin.value)):
             Console().ePopen("cp /usr/share/enigma2/%s /usr/share/enigma2/%s.bak" % (config.skin.primary_skin.value, config.skin.primary_skin.value))
@@ -957,7 +957,7 @@ class fmWaitScreen(Screen):
 
             self.tree.write("/usr/share/enigma2/%s" % (config.skin.primary_skin.value))
         except:
-            self.session.openWithCallback(self.close, MessageBox, _("Sorry, unable to parse /usr/share/enigma2/%s." % (config.skin.primary_skin.value)), type = MessageBox.TYPE_INFO)
+            self.session.openWithCallback(self.close, MessageBox, _("Sorry, unable to parse /usr/share/enigma2/%s." % (config.skin.primary_skin.value)), type=MessageBox.TYPE_INFO)
 
         try:
             if config.plugins.fm.single_epg_list_fontsize.value != 0:
@@ -992,7 +992,7 @@ class fmWaitScreen(Screen):
                 EpgList_file.write(EpgList_text_neu)
                 EpgList_file.close()
         except:
-            self.session.openWithCallback(self.close, MessageBox, _("Sorry, unable to parse EpgList.pyo"), type = MessageBox.TYPE_INFO)
+            self.session.openWithCallback(self.close, MessageBox, _("Sorry, unable to parse EpgList.pyo"), type=MessageBox.TYPE_INFO)
 
         try:
             if config.plugins.fm.movie_list_fontsize.value != 0:
@@ -1014,7 +1014,7 @@ class fmWaitScreen(Screen):
                 MovieList_file.write(MovieList_text_neu)
                 MovieList_file.close()
         except:
-            self.session.openWithCallback(self.close, MessageBox, _("Sorry, unable to parse MovieList.pyo"), type = MessageBox.TYPE_INFO)
+            self.session.openWithCallback(self.close, MessageBox, _("Sorry, unable to parse MovieList.pyo"), type=MessageBox.TYPE_INFO)
 
         restartbox = self.session.openWithCallback(self.restartGUI, MessageBox, _("GUI needs a restart to apply a new settings\nDo you want to Restart the GUI now?"), MessageBox.TYPE_YESNO)
         restartbox.setTitle(_("Restart GUI now?"))

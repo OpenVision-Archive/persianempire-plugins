@@ -20,10 +20,10 @@ def isInstalled(package):
 
 	return False
 
-def setupSambaMain(session, iface = None, **kwargs):
+def setupSambaMain(session, iface=None, **kwargs):
 	session.open(setupSamba, iface, plugin_path)
 
-def setupNfsMain(session, iface = None, **kwargs):
+def setupNfsMain(session, iface=None, **kwargs):
 	session.open(setupNfs, iface, plugin_path)
 
 def setupSambaCallFunction(iface):
@@ -42,6 +42,6 @@ def Plugins(path, **kwargs):
 	global plugin_path
 	plugin_path = path
 	return [
-		PluginDescriptor(name=_("setupSamba"), description=_("Activate and configurate your Samba-Server"), where = PluginDescriptor.WHERE_NETWORKSETUP, fnc={"ifaceSupported": setupSambaCallFunction, "menuEntryName": lambda x: _("Samba-Server Setup"), "menuEntryDescription": lambda x: _("Start/Stop and manage your Samba-Server...\n")}),
-		PluginDescriptor(name=_("setupNFS"), description=_("Activate and configurate your NFS-Server"), where = PluginDescriptor.WHERE_NETWORKSETUP, fnc={"ifaceSupported": setupNfsCallFunction, "menuEntryName": lambda x: _("NFS-Server Setup"), "menuEntryDescription": lambda x: _("Start/Stop and manage your NFS-Server...\n")})
+		PluginDescriptor(name=_("setupSamba"), description=_("Activate and configurate your Samba-Server"), where=PluginDescriptor.WHERE_NETWORKSETUP, fnc={"ifaceSupported": setupSambaCallFunction, "menuEntryName": lambda x: _("Samba-Server Setup"), "menuEntryDescription": lambda x: _("Start/Stop and manage your Samba-Server...\n")}),
+		PluginDescriptor(name=_("setupNFS"), description=_("Activate and configurate your NFS-Server"), where=PluginDescriptor.WHERE_NETWORKSETUP, fnc={"ifaceSupported": setupNfsCallFunction, "menuEntryName": lambda x: _("NFS-Server Setup"), "menuEntryDescription": lambda x: _("Start/Stop and manage your NFS-Server...\n")})
 	]

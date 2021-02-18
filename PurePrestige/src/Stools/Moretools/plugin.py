@@ -199,7 +199,7 @@ class showPurePrestigemoretoolsscreen(Screen):
         self['label8'].setText('Back')
         self.showPic()
 
-    def showPic(self, picInfo = ''):
+    def showPic(self, picInfo=''):
         self['thumb' + str(self.Thumbnaillist[0][1])].instance.setPixmapFromFile(resolveFilename(SCOPE_PLUGINS, 'Extensions/PurePrestige/Stools/Moretools/moretoolsbuttons/language.png'))
         self['thumb' + str(self.Thumbnaillist[0][1])].show()
         self['thumb' + str(self.Thumbnaillist[1][1])].instance.setPixmapFromFile(resolveFilename(SCOPE_PLUGINS, 'Extensions/PurePrestige/Stools/Moretools/moretoolsbuttons/grabber.png'))
@@ -277,7 +277,7 @@ class showPurePrestigemoretoolsscreen(Screen):
             self.close()
             return
 
-    def callbackView(self, val = 0):
+    def callbackView(self, val=0):
         self.index = val
         if self.old_index != self.index:
             self.paintFrame()

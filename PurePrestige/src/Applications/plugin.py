@@ -205,7 +205,7 @@ class showPurePrestigeappscreen(Screen):
         self['label8'].setText('Foreca Weather')
         self.showPic()
 
-    def showPic(self, picInfo = ''):
+    def showPic(self, picInfo=''):
         self['thumb' + str(self.Thumbnaillist[0][1])].instance.setPixmapFromFile(resolveFilename(SCOPE_PLUGINS, 'Extensions/PurePrestige/Applications/appbuttons/pradio.png'))
         self['thumb' + str(self.Thumbnaillist[0][1])].show()
         self['thumb' + str(self.Thumbnaillist[1][1])].instance.setPixmapFromFile(resolveFilename(SCOPE_PLUGINS, 'Extensions/PurePrestige/Applications/appbuttons/persiansoccer.png'))
@@ -373,7 +373,7 @@ class showPurePrestigeappscreen(Screen):
             self.session.open(Console2.PurePrestigeConsole2, _('downloading-installing: %s') % dom, ['opkg install -force-overwrite %s' % com], None, False, instr, endstr)
         return
 
-    def callbackView(self, val = 0):
+    def callbackView(self, val=0):
         self.index = val
         if self.old_index != self.index:
             self.paintFrame()

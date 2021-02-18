@@ -178,7 +178,7 @@ class PurePrestigeFlashBackup(Screen):
     else:
         skin = '        \n        <screen name="PurePrestigeFlashBackup" position="center,center" size="610,420" title="Pure Prestige FlashBackup" >\n            \n            <widget source="targettext" render="Label" position="15,350" size="540,25" font="Regular;22" transparent="1" zPosition="1" foregroundColor="#ffffff" />\n            <widget source="swaptext" render="Label" position="15,390" size="350,28" font="Regular;22" transparent="1" zPosition="1" foregroundColor="#ffffff" />\n            <widget name="target" position="15,370" size="580,50" valign="left" font="Regular;22" />\n            <widget name="swapsize" position="305,390" size="540,25" valign="left" font="Regular;22" transparent="1" />\n            <ePixmap pixmap="~/Stools/PPFlashBackup/images/button_red.png" zPosition="1" position="0,0" size="140,40" alphatest="on" />\n            <widget source="key_red" render="Label" position="0,0" zPosition="2" size="135,40" halign="center" valign="center" font="Regular;22" transparent="1" shadowColor="black" shadowOffset="-1,-1" /> \n            <ePixmap pixmap="~/images/border_menu_350.png" position="5,50" zPosition="1" size="350,300" transparent="1" alphatest="on" />\n            <widget source="menu" render="Listbox" position="15,60" size="330,290" scrollbarMode="showOnDemand">\n                <convert type="TemplatedMultiContent">\n                    {"template": [\n                            MultiContentEntryText(pos = (2, 2), size = (330, 24), flags = RT_HALIGN_LEFT, text = 1), # index 0 is the MenuText,\n                        ],\n                    "fonts": [gFont("Regular", 22)],\n                    "itemHeight": 25\n                    }\n                </convert>\n            </widget>\n            <widget source="menu" render="Listbox" position="360,10" size="240,390" scrollbarMode="showNever" selectionDisabled="1">\n                <convert type="TemplatedMultiContent">\n                    {"template": [\n                            MultiContentEntryText(pos = (2, 2), size = (240, 390), flags = RT_HALIGN_CENTER|RT_VALIGN_CENTER|RT_WRAP, text = 2), # index 2 is the Description,\n                        ],\n                    "fonts": [gFont("Regular", 22)],\n                    "itemHeight": 390\n                    }\n                </convert>\n            </widget>\n        </screen>'
 
-    def __init__(self, session, sim2 = 1):
+    def __init__(self, session, sim2=1):
         Screen.__init__(self, session)
         self.skin = PurePrestigeFlashBackup.skin
         self.skin_path = resolveFilename(SCOPE_PLUGINS, "Extensions/PurePrestige")
@@ -337,7 +337,7 @@ class PurePrestigeFlashBackup(Screen):
     def updateTarget(self):
         self['target'].setText(''.join(config.plugins.PPFlashBackup.backuplocation.value))
 
-    def backupDone(self, retval = None):
+    def backupDone(self, retval=None):
         if retval is False:
             self.session.open(MessageBox, _('Pure Prestige FlashBackup failed.'), MessageBox.TYPE_ERROR, timeout=10)
         elif config.plugins.PPFlashBackup.update.value == True:
@@ -367,7 +367,7 @@ class PurePrestigeFlashBackupUpdateCheck(Screen):
     else:
         skin = '\n        <screen name="PPFlashBackupUpdateCheck" position="center,center" size="550,300" title="Software update" >\n        <widget name="activityslider" position="0,0" size="550,5"/>\n        <widget name="slider" position="0,150" size="550,30"/>\n        <widget source="package" render="Label" position="10,30" size="540,20" font="Regular;18" halign="center" valign="center" backgroundColor="#25062748" transparent="1"/>\n        <widget source="status" render="Label" position="10,60" size="540,45" font="Regular;20" halign="center" valign="center" backgroundColor="#25062748" transparent="1"/>\n        </screen>'
 
-    def __init__(self, session, args = None):
+    def __init__(self, session, args=None):
         Screen.__init__(self, session)
         self.sliderPackages = {'dreambox-dvb-modules': 1,
          'enigma2': 2,
@@ -489,7 +489,7 @@ class PurePrestigeFlashBackupSetting(Screen, ConfigListScreen):
     else:
         skin = '         \n        <screen name="PPFlashBackupSetting" position="center,center" size="610,410" title="Pure Prestige FlashBackup Settings" >\n            <widget name="config" position="5,70" size="600,50" scrollbarMode="showOnDemand" />\n            <ePixmap pixmap="~/Stools/PPFlashBackup/images/div-h.png" position="5,130" zPosition="1" size="600,4" />\n            <widget source="helptext" render="Label" position="5,140" zPosition="1" size="600,100" font="Regular;22" halign="left" transparent="1" />\n            <widget name="red" position="0,5" zPosition="1" size="135,40" pixmap="~/Stools/PPFlashBackup/images/button_red.png" transparent="1" alphatest="on" />\n            <widget source="key_red" render="Label" position="0,5" zPosition="2" size="135,40" halign="center" valign="center" font="Regular;22" transparent="1" shadowColor="black" shadowOffset="-1,-1" />   \n            <widget name="green" position="135,5" zPosition="1" size="135,40" pixmap="~/Stools/PPFlashBackup/images/button_green.png" transparent="1" alphatest="on" />\n            <widget source="key_green" render="Label" position="135,5" zPosition="2" size="135,40" halign="center" valign="center" font="Regular;22" transparent="1" shadowColor="black" shadowOffset="-1,-1" />\n        </screen>'
 
-    def __init__(self, session, args = 0):
+    def __init__(self, session, args=0):
         self.session = session
         Screen.__init__(self, session)
         self.skin_path = resolveFilename(SCOPE_PLUGINS, "Extensions/PurePrestige")

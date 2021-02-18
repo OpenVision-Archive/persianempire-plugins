@@ -93,7 +93,7 @@ iface = None
 
 class PEMainMenu(Screen):
 
-    def __init__(self, session, args = 0):
+    def __init__(self, session, args=0):
         Screen.__init__(self, session)
         self.skin_path = plugin_path
         self['key_red'] = StaticText(_('Close'))
@@ -181,7 +181,7 @@ class PEMainMenu(Screen):
                 message = '[PEPanel] no menu linked to ' + name
                 self.session.open(MessageBox, message, MessageBox.TYPE_INFO, timeout=5)
 
-    def setWindowTitle(self, title = None):
+    def setWindowTitle(self, title=None):
         if not title:
             title = self.title
         self.setTitle(title)
@@ -205,7 +205,7 @@ class PEMainMenu(Screen):
 
 class PESubMenu(Screen):
 
-    def __init__(self, session, menuid, args = 0):
+    def __init__(self, session, menuid, args=0):
         Screen.__init__(self, session)
         self.skin_path = plugin_path
         self.menu = menuid
@@ -509,7 +509,7 @@ class PESubMenu(Screen):
         self.backupfile = getBackupFilename()
         self.fullbackupfilename = self.backuppath + '/' + self.backupfile
 
-    def setWindowTitle(self, title = None):
+    def setWindowTitle(self, title=None):
         if not title:
             title = self.title
         try:
@@ -797,13 +797,13 @@ class PESubMenu(Screen):
         except OSError:
             self.session.open(MessageBox, _('Sorry, your backup destination is not writeable.\n\nPlease choose another one.'), MessageBox.TYPE_INFO, timeout=10)
 
-    def backupDone(self, retval = None):
+    def backupDone(self, retval=None):
         if retval is True:
             self.session.open(MessageBox, _('Backup done.'), MessageBox.TYPE_INFO, timeout=10)
         else:
             self.session.open(MessageBox, _('Backup failed.'), MessageBox.TYPE_INFO, timeout=10)
 
-    def startRestore(self, ret = False):
+    def startRestore(self, ret=False):
         if ret == True:
             self.exe = True
             self.session.open(RestoreScreen, runRestore=True)
@@ -889,7 +889,7 @@ class PESubMenu(Screen):
 
 class PEStatusListMenu(Screen):
 
-    def __init__(self, session, menuid, args = 0):
+    def __init__(self, session, menuid, args=0):
         Screen.__init__(self, session)
         self.menu = menuid
         self.skin_path = plugin_path
@@ -985,7 +985,7 @@ class PEStatusListMenu(Screen):
         self.output_line = ''
         self['list'] = List(self.list)
 
-    def setWindowTitle(self, title = None):
+    def setWindowTitle(self, title=None):
         if not title:
             title = self.title
         try:
@@ -1131,7 +1131,7 @@ class PEStatusListMenu(Screen):
         except:
             print('Could not grab any enigma2 crashlogs from /media/hdd/')
 
-    def build2DeviceList(self, arg = None):
+    def build2DeviceList(self, arg=None):
         self.listReady = False
         list = []
         for dev in self.getDeviceList():
@@ -1184,7 +1184,7 @@ class PEStatusListMenu(Screen):
 
         self['list'].setList(list)
 
-    def askForBuild(self, result, action = None):
+    def askForBuild(self, result, action=None):
         if self.menu == 21:
             try:
                 self.swaptext = result[0]
@@ -1381,7 +1381,7 @@ class PEStatusListMenu(Screen):
 
 class SundtekControlCenter(Screen, ConfigListScreen):
 
-    def __init__(self, session, args = 0):
+    def __init__(self, session, args=0):
         Screen.__init__(self, session)
         self.skin_path = plugin_path
         ConfigListScreen.__init__(self, [])
@@ -1874,7 +1874,7 @@ class PEHdd(Screen):
 
 class PEDVBNTPTime(Screen):
 
-    def __init__(self, session, args = 0):
+    def __init__(self, session, args=0):
         self.skin_path = plugin_path
         self.session = session
         Screen.__init__(self, session)
@@ -1974,7 +1974,7 @@ class PEDVBNTPTime(Screen):
                     else:
                         ChangeTimeWizzard(self.session)
 
-    def autostartntpchecknetwork(self, callback = None):
+    def autostartntpchecknetwork(self, callback=None):
         self.session.open(MessageBox, _('Check Network status.\nPlease wait...'), MessageBox.TYPE_INFO, timeout=10)
         if callback is not None:
             self.NotifierCallback = callback
@@ -2103,7 +2103,7 @@ class PEDVBNTPTime(Screen):
     def skipPEDVBNTPTimeautostart(self, reason):
         self.session.open(MessageBox, _('DVB Time setting aborted:\n\n%s') % reason, MessageBox.TYPE_ERROR)
 
-    def startnetworkcheck(self, callback = None):
+    def startnetworkcheck(self, callback=None):
         if callback is not None:
             self.NotifierCallback = callback
         iNetwork.checkNetworkState(self.checkNetworkCB)
@@ -2174,7 +2174,7 @@ class NTPStartup(Screen):
         self.TimerPEDVBNTPTimeStartup.timeout.get().append(self.startnetworkcheckntp)
         self.TimerPEDVBNTPTimeStartup.start(3000, True)
 
-    def startnetworkcheckntp(self, callback = None):
+    def startnetworkcheckntp(self, callback=None):
         if callback is not None:
             self.NotifierCallback = callback
         iNetwork.checkNetworkState(self.checkNetworkCBntp)
@@ -3659,7 +3659,7 @@ class PEDoStartCam(Screen):
 
 class PEPacketManager(Screen, NumericalTextInput):
 
-    def __init__(self, session, plugin_path, wanted_extensions, cache_prefix, title_prefix, args = None):
+    def __init__(self, session, plugin_path, wanted_extensions, cache_prefix, title_prefix, args=None):
         Screen.__init__(self, session)
         NumericalTextInput.__init__(self)
         self.session = session
@@ -3759,7 +3759,7 @@ class PEPacketManager(Screen, NumericalTextInput):
     def setWindowTitle(self):
         self.setTitle(self.titlename)
 
-    def setStatus(self, status = None):
+    def setStatus(self, status=None):
         if status:
             self.statuslist = []
             divpng = LoadPixmap(cached=True, path=resolveFilename(SCOPE_CURRENT_SKIN, 'skin_default/div-h.png'))
@@ -3796,7 +3796,7 @@ class PEPacketManager(Screen, NumericalTextInput):
             self.run = 0
             self.ipkg.startCmd(IpkgComponent.CMD_UPDATE)
 
-    def go(self, returnValue = None):
+    def go(self, returnValue=None):
         cur = self['list'].getCurrent()
         if cur:
             status = cur[3]
@@ -3978,7 +3978,7 @@ class PEPacketManager(Screen, NumericalTextInput):
                 cmd = self.ipkg.ipkg + ' list'
                 self.Console.ePopen(cmd, self.IpkgList_Finished)
 
-    def IpkgList_Finished(self, result, retval, extra_args = None):
+    def IpkgList_Finished(self, result, retval, extra_args=None):
         if result:
             self.packetlist = []
             last_name = ''
@@ -4000,7 +4000,7 @@ class PEPacketManager(Screen, NumericalTextInput):
         cmd = self.ipkg.ipkg + ' list_installed'
         self.Console.ePopen(cmd, self.IpkgListInstalled_Finished)
 
-    def IpkgListInstalled_Finished(self, result, retval, extra_args = None):
+    def IpkgListInstalled_Finished(self, result, retval, extra_args=None):
         if result:
             self.installed_packetlist = {}
             for x in result.splitlines():
@@ -4019,7 +4019,7 @@ class PEPacketManager(Screen, NumericalTextInput):
         else:
             self.buildPacketList()
 
-    def OpkgListUpgradeable_Finished(self, result, retval, extra_args = None):
+    def OpkgListUpgradeable_Finished(self, result, retval, extra_args=None):
         if result:
             self.upgradeable_packages = {}
             for x in result.splitlines():
@@ -4103,7 +4103,7 @@ class PEPacketManager(Screen, NumericalTextInput):
 
 class PasswdScreen(Screen):
 
-    def __init__(self, session, args = 0):
+    def __init__(self, session, args=0):
         Screen.__init__(self, session)
         self.title = _('Change Root Password')
         try:
@@ -4173,11 +4173,11 @@ class PasswdScreen(Screen):
     def bluePressed(self):
         self.session.openWithCallback(self.VirtualKeyBoardTextEntry, VirtualKeyBoard, title=_('Enter your password here:'), text=self.password)
 
-    def VirtualKeyBoardTextEntry(self, callback = None):
+    def VirtualKeyBoardTextEntry(self, callback=None):
         if callback is not None and len(callback):
             self.buildList(callback)
 
-    def setWindowTitle(self, title = None):
+    def setWindowTitle(self, title=None):
         if not title:
             title = self.title
         try:
@@ -4206,7 +4206,7 @@ def DVBNTPautostart(reason, **kwargs):
             session = kwargs['session']
             session.open(NTPStartup)
 
-def find_in_list(list, search, listpos = 0):
+def find_in_list(list, search, listpos=0):
     index = -1
     for item in list:
         index = index + 1
@@ -4243,7 +4243,7 @@ def load_cache(cache_file):
     fd.close()
     return cache_data
 
-def find_in_list(list, search, listpos = 0):
+def find_in_list(list, search, listpos=0):
     for item in list:
         if item[listpos] == search:
             return True

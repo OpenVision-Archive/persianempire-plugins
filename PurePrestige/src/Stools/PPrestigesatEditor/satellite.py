@@ -107,7 +107,7 @@ class NewPrestigesatEditor(Screen, HelpableScreen):
             config.plugins.sateditor.sortby.value += 1
         self.setListSorted()
 
-    def loadSattelitesFile(self, fileName = SATFILE):
+    def loadSattelitesFile(self, fileName=SATFILE):
         print('[PrestigesatEditor] loading satellite file', fileName)
         self.satList = []
         try:

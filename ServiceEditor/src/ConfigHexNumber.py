@@ -4,12 +4,12 @@ from __future__ import print_function
 from Components.config import config, ConfigText, KEY_NUMBERS, KEY_ASCII, getKeyNumber
 
 class ConfigHexNumber(ConfigText):
-	def __init__(self, default = "0000", size= 4):
+	def __init__(self, default="0000", size=4):
 		try:
 			dummy = int(default, 16)
 		except:
 			default="0"*size
-		ConfigText.__init__(self, default, fixed_size = False)
+		ConfigText.__init__(self, default, fixed_size=False)
 		self.mapping = []
 		self.mapping.append (u"0")
 		self.mapping.append (u"1")

@@ -278,9 +278,9 @@ class ConfigEdit(Screen, ConfigListScreen):
 		else:
 			self.mbox = self.session.open(MessageBox,
 				_("Directory %s Doesn't Exist !\nPlease Set The Correct Directory Path !")
-				% msg, MessageBox.TYPE_INFO, timeout = 5)
+				% msg, MessageBox.TYPE_INFO, timeout=5)
 
-	def cancel(self, answer = None):
+	def cancel(self, answer=None):
 		if answer is None:
 			if self["config"].isChanged():
 				self.session.openWithCallback(self.cancel, MessageBox,

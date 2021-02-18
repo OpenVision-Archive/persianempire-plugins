@@ -66,7 +66,7 @@ class CrashReader(Screen):
     else:
         skin = '\n        \t<screen name="CrashReader" position="center,center" size="640,520" title=""  flags="wfNoBorder" >\n                <ePixmap pixmap="~/images/framesd.png" position="0,0" size="640,520"/>\n\t\t\n\n                <widget name="list" position="50,30" size="564,270" scrollbarMode="showOnDemand" transparent="1" zPosition="2" />\n\t\t<!--eLabel position="82,140" zPosition="-1" size="100,81" backgroundColor="#222222" /-->\n                <widget name="info" position="0,270" zPosition="4" size="640,120" font="Regular;18" foregroundColor="#ffffff" transparent="1" halign="center" valign="center" />\n\t        <ePixmap name="red"    position="59,390"   zPosition="2" size="88,30" pixmap="~/ddbuttons/red.png" transparent="1" alphatest="on" />\n\t        <ePixmap name="green"  position="185,390" zPosition="2" size="88,30" pixmap="~/ddbuttons/green.png" transparent="1" alphatest="on" />\n\t        <ePixmap name="yellow" position="311,390" zPosition="2" size="88,30" pixmap="~/ddbuttons/yellow.png" transparent="1" alphatest="on" /> \n        \t<ePixmap name="blue"   position="437,390" zPosition="2" size="88,30" pixmap="~/ddbuttons/blue.png" transparent="1" alphatest="on" /> \n\n        \t<widget name="key_red" position="59,397" size="88,30" valign="center" halign="center" zPosition="4"  foregroundColor="white" font="Regular;20" transparent="1" shadowColor="#25062748" shadowOffset="-2,-2" /> \n        \t<widget name="key_green" position="172,397" size="120,30" valign="center" halign="center" zPosition="4"  foregroundColor="white" font="Regular;20" transparent="1" shadowColor="#25062748" shadowOffset="-2,-2" /> \n                <widget name="key_yellow" position="302,397" size="110,30" valign="center" halign="center" zPosition="4"  foregroundColor="white" font="Regular;18" transparent="1" shadowColor="#25062748" shadowOffset="-2,-2" />\n        \t<widget name="key_blue" position="437,397" size="88,30" valign="center" halign="center" zPosition="4"  foregroundColor="white" font="Regular;20" transparent="1" shadowColor="background" shadowOffset="-2,-2" />\n                </screen>'
 
-    def __init__(self, session, args = 0):
+    def __init__(self, session, args=0):
         self.session = session
         Screen.__init__(self, session)
         self.skin_path = resolveFilename(SCOPE_PLUGINS, "Extensions/PurePrestige")
@@ -181,7 +181,7 @@ class ShowCrushLog(Screen):
     else:
         skin = '\n        \t\n                <screen name="PurePrestigereaderScreen" position="center,center" size="580,450" title=""  flags="wfNoBorder" >\n                <ePixmap pixmap="~/images/frametop.png" position="0,0" size="580,450"/>\t\n                <ePixmap pixmap="~/images/frameleft.png" position="0,7" size="6,435"/>\t\n                <ePixmap pixmap="~/images/frameright.png" position="573,7" size="6,435"/>\t\n                <ePixmap pixmap="~/images/framebottom.png" position="0,442" size="580,7"/>\t\n                \n\t\t<widget name="showcrushlog" position="20,20" size="540,410" font="Regular;22"  transparent="1" zPosition="2"  />\n                </screen>'
 
-    def __init__(self, session, cfile = None, type = None):
+    def __init__(self, session, cfile=None, type=None):
         global crushlog_bottomline
         global crushfile
         global crushlog_lines
@@ -283,7 +283,7 @@ class PurePrestigereaderScreen(Screen):
     else:
         skin = '\n        \t\n                <screen name="PurePrestigereaderScreen" position="center,center" size="580,450" title=""  flags="wfNoBorder" >\n                <ePixmap pixmap="~/images/frametop.png" position="0,0" size="580,450"/>\t\n                <ePixmap pixmap="~/images/frameleft.png" position="0,7" size="6,435"/>\t\n                <ePixmap pixmap="~/images/frameright.png" position="573,7" size="6,435"/>\t\n                <ePixmap pixmap="~/images/framebottom.png" position="0,442" size="580,7"/>\t\n                \n\t\t<widget name="text" position="20,20" size="540,410" font="Regular;22"  transparent="1" zPosition="2"  />\n                </screen>'
 
-    def __init__(self, session, cfile = None, type = None):
+    def __init__(self, session, cfile=None, type=None):
         self.skin = PurePrestigereaderScreen.skin
         self.skin_path = resolveFilename(SCOPE_PLUGINS, "Extensions/PurePrestige")
         Screen.__init__(self, session)

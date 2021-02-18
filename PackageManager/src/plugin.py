@@ -119,7 +119,7 @@ class PackageManagerScreen(Screen):
 			self.session.openWithCallback(self.mList, RemoveIPK)
 		elif item is "five":
 			Console().ePopen("rm -rf /tmp/*.ipk /tmp/*.gz /tmp/*.tgz /tmp/*.zip /tmp/*.rar /media/usb/*.ipk /media/usb/*.gz /media/usb/*.tgz /media/usb/*.zip /media/usb/*.rar /media/hdd/*.ipk /media/hdd/*.gz /media/hdd/*.tgz /media/hdd/*.zip /media/hdd/*.rar /media/cf/*.ipk /media/cf/*.gz /media/cf/*.tgz /media/cf/*.zip /media/cf/*.rar")
-			self.mbox = self.session.open(MessageBox, _("All ipk , tar.gz , bh.tgz , nab.tgz , zip , rar Files Removed From /tmp /media/usb /media/hdd /media/cf"), MessageBox.TYPE_INFO, timeout = 3 )
+			self.mbox = self.session.open(MessageBox, _("All ipk , tar.gz , bh.tgz , nab.tgz , zip , rar Files Removed From /tmp /media/usb /media/hdd /media/cf"), MessageBox.TYPE_INFO, timeout=3 )
 		elif item is "six":
 			self.session.openWithCallback(self.mList, downfeed)
 
@@ -190,13 +190,13 @@ class InstallTarGZ(Screen):
 			pecommand2 = ("tar -C/ -xzpvf /media/usb/%s" % name)
 			pecommand3 = ("tar -C/ -xzpvf /media/hdd/%s" % name)
 			pecommand4 = ("tar -C/ -xzpvf /media/cf/%s" % name)
-			self.session.open(Console, title = _("Install tar.gz , bh.tgz , nab.tgz"), cmdlist = [pecommand1, pecommand2, pecommand3, pecommand4])
+			self.session.open(Console, title=_("Install tar.gz , bh.tgz , nab.tgz"), cmdlist=[pecommand1, pecommand2, pecommand3, pecommand4])
 		except:
 			pass
 			
 	def okInstAll(self):
 			ipklist = os.popen("ls -1  /tmp/*.tar.gz /tmp/*.bh.tgz /tmp/*.nab.tgz /media/usb/*.tar.gz /media/usb/*.bh.tgz /media/usb/*.nab.tgz /media/hdd/*.tar.gz /media/hdd/*.bh.tgz /media/hdd/*.nab.tgz /media/cf/*.tar.gz /media/cf/*.bh.tgz /media/cf/*.nab.tgz")
-			self.session.open(Console, title = _("Install tar.gz , bh.tgz , nab.tgz"), cmdlist = ["tar -C/ -xzpvf /tmp/*.tar.gz", "tar -C/ -xzpvf /tmp/*.bh.tgz", "tar -C/ -xzpvf /tmp/*.nab.tgz", "tar -C/ -xzpvf /media/usb/*.tar.gz", "tar -C/ -xzpvf /media/usb/*.bh.tgz", "tar -C/ -xzpvf /media/usb/*.nab.tgz", "tar -C/ -xzpvf /media/hdd/*.tar.gz", "tar -C/ -xzpvf /media/hdd/*.bh.tgz", "tar -C/ -xzpvf /media/hdd/*.nab.tgz", "tar -C/ -xzpvf /media/cf/*.tar.gz", "tar -C/ -xzpvf /media/cf/*.bh.tgz", "tar -C/ -xzpvf /media/cf/*.nab.tgz"])
+			self.session.open(Console, title=_("Install tar.gz , bh.tgz , nab.tgz"), cmdlist=["tar -C/ -xzpvf /tmp/*.tar.gz", "tar -C/ -xzpvf /tmp/*.bh.tgz", "tar -C/ -xzpvf /tmp/*.nab.tgz", "tar -C/ -xzpvf /media/usb/*.tar.gz", "tar -C/ -xzpvf /media/usb/*.bh.tgz", "tar -C/ -xzpvf /media/usb/*.nab.tgz", "tar -C/ -xzpvf /media/hdd/*.tar.gz", "tar -C/ -xzpvf /media/hdd/*.bh.tgz", "tar -C/ -xzpvf /media/hdd/*.nab.tgz", "tar -C/ -xzpvf /media/cf/*.tar.gz", "tar -C/ -xzpvf /media/cf/*.bh.tgz", "tar -C/ -xzpvf /media/cf/*.nab.tgz"])
 
 	def cancel(self):
 		self.close()
@@ -268,7 +268,7 @@ class InstallIpk(Screen):
 			pecommand2 = ("opkg install /media/usb/%s" % name)
 			pecommand3 = ("opkg install /media/hdd/%s" % name)
 			pecommand4 = ("opkg install /media/cf/%s" % name)
-			self.session.open(Console, title = "Install ipk Packages", cmdlist = [pecommand1, pecommand2, pecommand3, pecommand4])
+			self.session.open(Console, title="Install ipk Packages", cmdlist=[pecommand1, pecommand2, pecommand3, pecommand4])
 		except:
 			pass
 			
@@ -278,7 +278,7 @@ class InstallIpk(Screen):
 		pecommand2 = ("opkg install /media/usb/%s" % name)
 		pecommand3 = ("opkg install /media/hdd/%s" % name)
 		pecommand4 = ("opkg install /media/cf/%s" % name)
-		self.session.open(Console, title = "Install ipk Packages", cmdlist = [pecommand1, pecommand2, pecommand3, pecommand4])
+		self.session.open(Console, title="Install ipk Packages", cmdlist=[pecommand1, pecommand2, pecommand3, pecommand4])
 		
 	def cancel(self):
 		self.close()
@@ -350,13 +350,13 @@ class InstallZip(Screen):
 			pecommand2 = ("unzip -o -d / /media/usb/%s" % name)
 			pecommand3 = ("unzip -o -d / /media/hdd/%s" % name)
 			pecommand4 = ("unzip -o -d / /media/cf/%s" % name)
-			self.session.open(Console, title = _("Install zip"), cmdlist = [pecommand1, pecommand2, pecommand3, pecommand4])
+			self.session.open(Console, title=_("Install zip"), cmdlist=[pecommand1, pecommand2, pecommand3, pecommand4])
 		except:
 			pass
 			
 	def okInstAll(self):
 			ipklist = os.popen("ls -1  /tmp/*.zip /media/usb/*.zip /media/hdd/*.zip /media/cf/*.zip")
-			self.session.open(Console, title = _("Install zip"), cmdlist = ["unzip -o -d / /tmp/*.zip", "unzip -o -d / /media/usb/*.zip", "unzip -o -d / /media/hdd/*.zip", "unzip -o -d / /media/cf/*.zip"])
+			self.session.open(Console, title=_("Install zip"), cmdlist=["unzip -o -d / /tmp/*.zip", "unzip -o -d / /media/usb/*.zip", "unzip -o -d / /media/hdd/*.zip", "unzip -o -d / /media/cf/*.zip"])
 
 	def cancel(self):
 		self.close()
@@ -428,7 +428,7 @@ class AdvInstallIpk(Screen):
 			pecommand2 = ("opkg install --force-reinstall --force-overwrite /media/usb/%s" % name)
 			pecommand3 = ("opkg install --force-reinstall --force-overwrite /media/hdd/%s" % name)
 			pecommand4 = ("opkg install --force-reinstall --force-overwrite /media/cf/%s" % name)
-			self.session.open(Console, title = "Install ipk Packages", cmdlist = [pecommand1, pecommand2, pecommand3, pecommand4])			
+			self.session.open(Console, title="Install ipk Packages", cmdlist=[pecommand1, pecommand2, pecommand3, pecommand4])			
 		except:
 			pass
 		
@@ -438,7 +438,7 @@ class AdvInstallIpk(Screen):
 		pecommand2 = ("opkg install --force-reinstall --force-overwrite /media/usb/%s" % name)
 		pecommand3 = ("opkg install --force-reinstall --force-overwrite /media/hdd/%s" % name)
 		pecommand4 = ("opkg install --force-reinstall --force-overwrite /media/cf/%s" % name)
-		self.session.open(Console, title = _("Install ipk Packages"), cmdlist = [pecommand1, pecommand2, pecommand3, pecommand4])
+		self.session.open(Console, title=_("Install ipk Packages"), cmdlist=[pecommand1, pecommand2, pecommand3, pecommand4])
 		
 	def cancel(self):
 		self.close()
@@ -510,13 +510,13 @@ class InstallRar(Screen):
 			pecommand2 = ("unrar x -u /media/usb/%s /" % name)
 			pecommand3 = ("unrar x -u /media/hdd/%s /" % name)
 			pecommand4 = ("unrar x -u /media/cf/%s /" % name)
-			self.session.open(Console, title = _("Install rar"), cmdlist = [pecommand1, pecommand2, pecommand3, pecommand4])
+			self.session.open(Console, title=_("Install rar"), cmdlist=[pecommand1, pecommand2, pecommand3, pecommand4])
 		except:
 			pass
 			
 	def okInstAll(self):
 			ipklist = os.popen("ls -1  /tmp/*.rar /media/usb/*.rar /media/hdd/*.rar /media/cf/*.rar")
-			self.session.open(Console, title = _("Install rar"), cmdlist = ["unrar x -u /tmp/*.rar /", "unrar x -u /media/usb/*.rar /", "unrar x -u /media/hdd/*.rar /", "unrar x -u /media/cf/*.rar /"])
+			self.session.open(Console, title=_("Install rar"), cmdlist=["unrar x -u /tmp/*.rar /", "unrar x -u /media/usb/*.rar /", "unrar x -u /media/hdd/*.rar /", "unrar x -u /media/cf/*.rar /"])
 
 	def cancel(self):
 		self.close()		
@@ -583,13 +583,13 @@ class RemoveIPK(Screen):
 		item = self["menu"].getCurrent()
 		name = item[0]
 		Console().ePopen("opkg remove %s" % item[0])
-		self.mbox = self.session.open(MessageBox, _("%s UnInstalled" % item[0]), MessageBox.TYPE_INFO, timeout = 3 )
+		self.mbox = self.session.open(MessageBox, _("%s UnInstalled" % item[0]), MessageBox.TYPE_INFO, timeout=3 )
 		self.nList()
 
 	def ARemove(self):
 		item = self["menu"].getCurrent()
 		Console().ePopen("opkg remove --force-depends %s" % item[0])
-		self.mbox = self.session.open(MessageBox, _("%s UnInstalled" % item[0]), MessageBox.TYPE_INFO, timeout = 3 )
+		self.mbox = self.session.open(MessageBox, _("%s UnInstalled" % item[0]), MessageBox.TYPE_INFO, timeout=3 )
 		self.nList()
 
 class downfeed(Screen):
@@ -657,7 +657,7 @@ class downfeed(Screen):
 		name = item[0]
 		Console().ePopen("opkg install %s" % name)
 		msg  = _("%s Installed" % name)
-		self.mbox = self.session.open(MessageBox, msg, MessageBox.TYPE_INFO, timeout = 3 )
+		self.mbox = self.session.open(MessageBox, msg, MessageBox.TYPE_INFO, timeout=3 )
 
 def OVLock():
     try:
@@ -675,8 +675,8 @@ def main(session, **kwargs):
 
 def Plugins(**kwargs):
 	return PluginDescriptor(
-			name = _("Package Manager"),
-			description = _("Special version for Open Vision"),
-			where = [PluginDescriptor.WHERE_PLUGINMENU, PluginDescriptor.WHERE_EXTENSIONSMENU],
+			name=_("Package Manager"),
+			description=_("Special version for Open Vision"),
+			where=[PluginDescriptor.WHERE_PLUGINMENU, PluginDescriptor.WHERE_EXTENSIONSMENU],
 			icon="PackageManager.png",
 			fnc=main)

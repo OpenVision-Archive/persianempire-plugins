@@ -116,7 +116,7 @@ class HddPartitions(Screen):
                 self.index = index
                 self.session.open(ExtraActionBox, 'Formatting disk %s' % self.disk[5][index][0], 'Formatting disk', self.mkfs)
 
-    def refreshMP(self, uirefresh = True):
+    def refreshMP(self, uirefresh=True):
         self.partitions = []
         self.mountpoints = MountPoints()
         self.mountpoints.read()

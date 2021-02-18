@@ -35,7 +35,7 @@ def DiskEntry(model, size, removable):
 
 class HddSetup(Screen):
 
-    def __init__(self, session, args = 0):
+    def __init__(self, session, args=0):
         self.session = session
         Screen.__init__(self, session)
         self.disks = list()

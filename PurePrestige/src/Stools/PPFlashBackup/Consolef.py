@@ -9,7 +9,7 @@ from Components.ScrollLabel import ScrollLabel
 class Consolef(Screen):
     skin = '\n\t\t<screen position="70,70" size="300,0" title="Command execution..." >\n\t\t\t<widget name="text" position="0,0" size="550,400" font="Console;14" />\n\t\t</screen>'
 
-    def __init__(self, session, title = 'Console', cmdlist = None, finishedCallback = None, closeOnSuccess = False):
+    def __init__(self, session, title='Console', cmdlist=None, finishedCallback=None, closeOnSuccess=False):
         Screen.__init__(self, session)
         self.finishedCallback = finishedCallback
         self.closeOnSuccess = closeOnSuccess

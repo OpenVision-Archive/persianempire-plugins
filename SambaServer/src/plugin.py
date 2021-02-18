@@ -11,8 +11,8 @@ from os import path
 from Plugins.Plugin import PluginDescriptor
 
 config.plugins.SambaServer = ConfigSubsection()
-config.plugins.SambaServer.Start = ConfigYesNo(default = False)
-config.plugins.SambaServer.StartOnStartup = ConfigYesNo(default = True)
+config.plugins.SambaServer.Start = ConfigYesNo(default=False)
+config.plugins.SambaServer.StartOnStartup = ConfigYesNo(default=True)
 
 class SambaServer(Screen, ConfigListScreen):
 	def __init__(self, session):
@@ -26,7 +26,7 @@ class SambaServer(Screen, ConfigListScreen):
 		self.CreateConfig()
 		self.list = []
 		ConfigListScreen.__init__(self, self.list, session,
-			on_change = self.UpdateList)
+			on_change=self.UpdateList)
 		self.UpdateList()
 		self["key_red"] = StaticText(_("Cancel"))
 		self["key_green"] = StaticText(_("OK"))
@@ -66,19 +66,19 @@ class SambaServer(Screen, ConfigListScreen):
 				elif name.startswith('[') and not "[global]" in line:
 					name = line[1:line.find(']')]
 					self.share.append(name)
-					self.share.append(ConfigYesNo(default = True))
+					self.share.append(ConfigYesNo(default=True))
 					self.sharecount += 2
 					if name in share:
 						share.remove(name)
-			self.workgroup = ConfigText(default = workgroup, visible_width = 100,
-				fixed_size = False)
-			self.netbios = ConfigText(default = netbios, visible_width = 100,
-				fixed_size = False)
-			self.SMB2 = ConfigYesNo(default = SMB2)
+			self.workgroup = ConfigText(default=workgroup, visible_width=100,
+				fixed_size=False)
+			self.netbios = ConfigText(default=netbios, visible_width=100,
+				fixed_size=False)
+			self.SMB2 = ConfigYesNo(default=SMB2)
 			if share:
 				for line in share:
 					self.share.append(line)
-					self.share.append(ConfigYesNo(default = False))
+					self.share.append(ConfigYesNo(default=False))
 					self.sharecount += 2
 
 	def UpdateList(self):
@@ -217,8 +217,8 @@ def StartSamba(reason, **kwargs):
 
 def Plugins(**kwargs):
 	return [
-	PluginDescriptor(name = _("Samba Server"),
-		description = _("Special version for Open Vision"),
-		where = PluginDescriptor.WHERE_PLUGINMENU, fnc = main ),
-	PluginDescriptor(where = PluginDescriptor.WHERE_AUTOSTART,
-		needsRestart = True, fnc = StartSamba)]
+	PluginDescriptor(name=_("Samba Server"),
+		description=_("Special version for Open Vision"),
+		where=PluginDescriptor.WHERE_PLUGINMENU, fnc=main ),
+	PluginDescriptor(where=PluginDescriptor.WHERE_AUTOSTART,
+		needsRestart=True, fnc=StartSamba)]

@@ -22,7 +22,7 @@ class Consoleall(Screen):
     else:
         skin = '\n        \t\n                <screen name="Consoleal" backgroundColor="#380038" position="center,center" size="580,450" title="Backup is running"  >\n            \n\t\t<widget name="text" position="19,22" size="554,427" font="Regular;22"  transparent="1" zPosition="2"  />\n                </screen>'
 
-    def __init__(self, session, title = 'Console', cmdlist = None, finishedCallback = None, closeOnSuccess = False):
+    def __init__(self, session, title='Console', cmdlist=None, finishedCallback=None, closeOnSuccess=False):
         Screen.__init__(self, session)
         self.finishedCallback = finishedCallback
         self.closeOnSuccess = closeOnSuccess

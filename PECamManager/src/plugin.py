@@ -43,10 +43,10 @@ def startcam(reason, **kwargs):
 			stopcam(config.plugins.PECam.actcam.value)
 
 def Plugins(**kwargs):
-	return [PluginDescriptor(name = _("PE Cam Manager"),
-		description = _("Special version for Open Vision"),
-		where = [PluginDescriptor.WHERE_PLUGINMENU,
+	return [PluginDescriptor(name=_("PE Cam Manager"),
+		description=_("Special version for Open Vision"),
+		where=[PluginDescriptor.WHERE_PLUGINMENU,
 		PluginDescriptor.WHERE_EXTENSIONSMENU],
-		icon = "pecammanager.png", fnc = main),
-	PluginDescriptor(where = PluginDescriptor.WHERE_AUTOSTART,
-		needsRestart = True, fnc = startcam)]
+		icon="pecammanager.png", fnc=main),
+	PluginDescriptor(where=PluginDescriptor.WHERE_AUTOSTART,
+		needsRestart=True, fnc=startcam)]

@@ -17,7 +17,7 @@ from Components.Console import Console
 
 class Swap(ConfigListScreen, Screen):
 
-    def __init__(self, session, args = 0):
+    def __init__(self, session, args=0):
         Screen.__init__(self, session)
         self.enable = 0
         self.size = '131072'

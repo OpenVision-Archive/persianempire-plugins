@@ -20,7 +20,7 @@ def deletefiles(dr):
 class downloadScreen(Screen):
     skin = '\n\t<screen  position="center,center" size="640,520" title=""  flags="wfNoBorder" >\n                <ePixmap pixmap="~/images/framesd.png" position="0,0" size="640,520"/>\t\n               \n                <widget name="text" position="10,10" size="620,390" font="Regular;22" backgroundColor="transparent" halign="center" valign="center" transparent="1" zPosition="2" />\n\t\t\n\t\t\n\t\t\n\t</screen>'
 
-    def __init__(self, session, url = None):
+    def __init__(self, session, url=None):
         self.skin = downloadScreen.skin
         self.skin_path = resolveFilename(SCOPE_PLUGINS, "Extensions/PurePrestige")
         Screen.__init__(self, session)

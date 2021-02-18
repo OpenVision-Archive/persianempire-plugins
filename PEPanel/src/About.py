@@ -8,7 +8,7 @@ from __init__ import _
 
 class AboutTeam(Screen):
 
-    def __init__(self, session, args = 0):
+    def __init__(self, session, args=0):
         Screen.__init__(self, session)
         abouttxt = '\nOpen Vision\n\nhttps://openvision.tech\n'
         self['about'] = Label(abouttxt)

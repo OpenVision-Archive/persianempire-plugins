@@ -140,7 +140,7 @@ def grabando(selfse):
 
 class IniciaSelListLista(MenuList):
 
-    def __init__(self, list, enableWrapAround = False):
+    def __init__(self, list, enableWrapAround=False):
         MenuList.__init__(self, list, enableWrapAround, eListboxPythonMultiContent)
         self.l.setItemHeight(29)
         self.l.setFont(0, gFont('Regular', 18))
@@ -155,14 +155,14 @@ def IniciaSelListEntryLista(texto1):
 
 class IniciaSelListInfo(MenuList):
 
-    def __init__(self, list, enableWrapAround = False):
+    def __init__(self, list, enableWrapAround=False):
         MenuList.__init__(self, list, enableWrapAround, eListboxPythonMultiContent)
         self.l.setItemHeight(100)
         self.l.setFont(0, gFont('Regular', 18))
         self.l.setFont(1, gFont('Regular', 16))
 
 
-def IniciaSelListEntryInfo(texto1, texto2 = None, texto3 = None, texto4 = None, texto5 = None, imagen1 = None, progreso = None, ruta = None):
+def IniciaSelListEntryInfo(texto1, texto2=None, texto3=None, texto4=None, texto5=None, imagen1=None, progreso=None, ruta=None):
     global carpetaimg
     if ruta == None:
         res = [texto1]
@@ -248,7 +248,7 @@ def IniciaSelListEntryInfo(texto1, texto2 = None, texto3 = None, texto4 = None, 
 
 class IniciaSelList(MenuList):
 
-    def __init__(self, list, enableWrapAround = False):
+    def __init__(self, list, enableWrapAround=False):
         MenuList.__init__(self, list, enableWrapAround, eListboxPythonMultiContent)
         self.l.setItemHeight(50)
         self.l.setFont(0, gFont('Regular', 21))
@@ -271,7 +271,7 @@ def IniciaSelListEntry(texto, info, numero):
     return res
 
 
-def cargalista(valor, sigrabando = False):
+def cargalista(valor, sigrabando=False):
     global listamenu
     templista = []
     indice = -1
@@ -288,7 +288,7 @@ def cargalista(valor, sigrabando = False):
     return [indice, templista]
 
 
-def Humanizer(size, mostrarbytes = False):
+def Humanizer(size, mostrarbytes=False):
     if size < 1024:
         humansize = str(size) + ' bytes'
     elif size < 1048576:
@@ -319,7 +319,7 @@ def normalizatam(cualo):
     return valor
 
 
-def cargaosinfo(orden, nulo = False):
+def cargaosinfo(orden, nulo=False):
     ret = ''
     Console().ePopen('%s >/tmp/tempinfo' % orden)
     booklist = None
@@ -345,7 +345,7 @@ def cargaosinfo(orden, nulo = False):
 class PEInfoTexto(Screen):
     skin = '\n\t<screen position="center,center" size="1050,602" title="%s">\n\n\t<widget name="lista" position="0,0" size="250,602" scrollbarMode="showOnDemand" zPosition="12" transparent="1" />\n\t<widget name="textoinfo" position="288,37" size="745,522" valign="top" halign="left" text="%s" font="Regular; 18" zPosition="1" />\n\t<widget name="listainfo" position="288,37" size="745,522" zPosition="1" scrollbarMode="showOnDemand" transparent="1"/>\n\t<widget name="listaproc" position="288,37" size="745,522" zPosition="1" scrollbarMode="showOnDemand" transparent="1"/>\n\n\t<widget name="key_pup" position="295,568" size="220,25" valign="center" halign="left" zPosition="4" font="Regular;17" transparent="1" /> \n\t<widget name="img_pup" position="260,567" zPosition="2" size="35,25" pixmap="~/icons/pup.png" transparent="1" alphatest="on" />\n\n\t<widget name="key_pdown" position="435,568" size="220,25" valign="center" halign="left" zPosition="4" font="Regular;17" transparent="1" /> \n\t<widget name="img_pdown" position="400,567" zPosition="2" size="35,25" pixmap="~/icons/pdown.png" transparent="1" alphatest="on" />\t\n\t\n\t<widget name="key_red" position="548,567" size="120,40" valign="center" halign="center" backgroundColor="#000000" foregroundColor="#ffffff" zPosition="4" font="Regular;17" transparent="1" /> \n\t<widget name="key_green" position="674,567" size="120,40" valign="center" halign="center" backgroundColor="#000000" foregroundColor="#ffffff" zPosition="4" font="Regular;17" transparent="1" />  \n\t<widget name="key_yellow" position="801,567" size="120,40" valign="center" halign="center" backgroundColor="#000000" foregroundColor="#ffffff" zPosition="4" font="Regular;17" transparent="1" /> \n\t<widget name="key_blue" position="928,567" size="120,40" valign="center" halign="center" backgroundColor="#000000" foregroundColor="#ffffff" zPosition="4" font="Regular;17" transparent="1" /> \n\n\t\n\t<widget name="img_red" position="548,572" zPosition="2" size="130,40" pixmap="~/icons/red.png" transparent="1" alphatest="on" />\n\t<widget name="img_green" position="674,572" zPosition="2" size="130,40" pixmap="~/icons/green.png" transparent="1" alphatest="on" />\n\t\n\t<widget name="img_yellow" position="801,572" zPosition="2" size="130,40" pixmap="~/icons/yellow.png" transparent="1" alphatest="on" />\n\t<widget name="img_blue" position="928,572" zPosition="2" size="130,40" pixmap="~/icons/blue.png" transparent="1" alphatest="on" />\n\t<widget name="titulo" position="288,0" size="746,28" text=" " transparent="1" halign="center" font="Regular; 22" zPosition="1" />\n\t<ePixmap name="fondo" position="0, 0" size="1050, 602" pixmap="~/icons/peinfo.png" transparent="1" alphatest="blend"/>\n\t\t\t\n\t</screen>' % (_('PE') + ' ' + 'Information', _('Please Wait'))
 
-    def __init__(self, session, inicio = 2, **kwargs):
+    def __init__(self, session, inicio=2, **kwargs):
         self.session = session
         Screen.__init__(self, session)
 	self.skin_path = resolveFilename(SCOPE_PLUGINS, "Extensions/PEInfo")

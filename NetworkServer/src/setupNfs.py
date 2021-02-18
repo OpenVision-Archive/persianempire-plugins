@@ -93,7 +93,7 @@ class editExportEntry(Screen, ConfigListScreen):
 				clientIP.append(int(x))
 
 		self.exportDirConfigEntry = NoSave(ConfigDirectory(exportDir))
-		self.everyIPConfigEntry = NoSave(ConfigEnableDisable(default = everyIP))
+		self.everyIPConfigEntry = NoSave(ConfigEnableDisable(default=everyIP))
 		self.clientConfigEntry = NoSave(ConfigIP(clientIP))
 		self.optionsConfigEntry = NoSave(ConfigSelection(optionsEntrys, options))
 
@@ -195,7 +195,7 @@ class setupNfs(Screen, ConfigListScreen):
 		else:
 			isEnabled = False
 
-		self.activeConfigEntry = NoSave(ConfigEnableDisable(default = isEnabled))
+		self.activeConfigEntry = NoSave(ConfigEnableDisable(default=isEnabled))
 
 		self["nfsdLabel"] = Label()
 		self["portmapLabel"] = Label()
@@ -230,7 +230,7 @@ class setupNfs(Screen, ConfigListScreen):
 		self.hideList = self["exportlist"].list
 
 		self.createSetup()
-		ConfigListScreen.__init__(self, self.list, session = session)
+		ConfigListScreen.__init__(self, self.list, session=session)
 		self.activeConfigEntry.addNotifier(self.toggleServer)
 
 		self["actions"] = ActionMap(["OkCancelActions", "ColorActions"],

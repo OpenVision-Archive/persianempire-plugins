@@ -44,11 +44,11 @@ class MountSetup(Screen, ConfigListScreen):
 						self.swapdevice.append(swap)
 		mounts = CheckMountDir(self.device)
 		self.hdd = mounts[0]
-		self.MountOnHdd = ConfigSelection(default = self.hdd,
-			choices = [("nothing", _("nothing"))] + self.device)
+		self.MountOnHdd = ConfigSelection(default=self.hdd,
+			choices=[("nothing", _("nothing"))] + self.device)
 		self.movie = mounts[1]
-		self.MountOnMovie = ConfigSelection(default = self.movie,
-			choices = [("nothing", _("nothing"))] + self.device)
+		self.MountOnMovie = ConfigSelection(default=self.movie,
+			choices=[("nothing", _("nothing"))] + self.device)
 		self.swap = "no"
 		try:
 			with open("/proc/swaps", "r") as f:
@@ -62,13 +62,13 @@ class MountSetup(Screen, ConfigListScreen):
 			f.close()
 		except IOError as ex:
 			print("[MountManager] Failed to open /proc/swaps", ex)
-		self.MountOnHdd.addNotifier(self.CreateList, initial_call = False)
+		self.MountOnHdd.addNotifier(self.CreateList, initial_call=False)
 		self.CreateList()
 
-	def CreateList(self, configEntry = None):
+	def CreateList(self, configEntry=None):
 		if self.device and self.MountOnHdd.value != "nothing":
-			self.SwapFile = ConfigSelection(default = self.swap,
-				choices = [("no", _("no")), ("65536", _("64MB")), 
+			self.SwapFile = ConfigSelection(default=self.swap,
+				choices=[("no", _("no")), ("65536", _("64MB")), 
 				("131072", _("128MB")), ("262144", _("256MB")), 
 				("524288", _("512MB"))] + self.swapdevice)
 		else:
@@ -77,8 +77,8 @@ class MountSetup(Screen, ConfigListScreen):
 				defaultswap = "no"
 			else:
 				defaultswap = self.swap
-			self.SwapFile = ConfigSelection(default = defaultswap,
-				choices = [("no", _("no"))] + self.swapdevice)
+			self.SwapFile = ConfigSelection(default=defaultswap,
+				choices=[("no", _("no"))] + self.swapdevice)
 		self.list = []
 		self.list.append(getConfigListEntry(_("Mount All On Startup"),
 			config.plugins.HddMount.MountOnStart))

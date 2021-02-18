@@ -25,7 +25,7 @@ class SGMLParseError(RuntimeError):
 
 class SGMLParser(markupbase.ParserBase):
 
-    def __init__(self, verbose = 0):
+    def __init__(self, verbose=0):
         """Initialize and reset this instance."""
         self.verbose = verbose
         self.reset()
@@ -172,7 +172,7 @@ class SGMLParser(markupbase.ParserBase):
             i = n
         self.rawdata = rawdata[i:]
 
-    def parse_comment(self, i, report = 1):
+    def parse_comment(self, i, report=1):
         rawdata = self.rawdata
         if rawdata[i:i + 4] != '<!--':
             self.error('unexpected call to parse_comment()')
@@ -392,7 +392,7 @@ class SGMLParser(markupbase.ParserBase):
 
 class TestSGMLParser(SGMLParser):
 
-    def __init__(self, verbose = 0):
+    def __init__(self, verbose=0):
         self.testdata = ''
         SGMLParser.__init__(self, verbose)
 
@@ -442,7 +442,7 @@ class TestSGMLParser(SGMLParser):
         self.flush()
 
 
-def test(args = None):
+def test(args=None):
     import sys
     if not args:
         args = sys.argv[1:]

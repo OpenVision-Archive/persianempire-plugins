@@ -60,7 +60,7 @@ class DeviceInfo(Screen):
           </widget>
         </screen>"""
 
-    def __init__(self, session, args = 0):
+    def __init__(self, session, args=0):
         self.skin = DeviceInfo.skin
 	self.skin_path = resolveFilename(SCOPE_PLUGINS, "Extensions/DeviceInfo")
         self.session = session

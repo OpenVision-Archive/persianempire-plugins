@@ -230,7 +230,7 @@ class PurePrestigeScreenGrabberView(Screen):
              '#00080808'])
             self.EXpicload.startDecode(self.whatPic)
 
-    def DecodeAction(self, pictureInfo = ''):
+    def DecodeAction(self, pictureInfo=''):
         if fileExists(self.whatPic):
             ptr = self.EXpicload.getData()
             self['Picture'].instance.setPixmap(ptr)

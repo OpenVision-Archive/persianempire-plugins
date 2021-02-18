@@ -22,13 +22,13 @@ import os
 import Screens.Standby
 
 config.plugins.blockcontent = ConfigSubsection()
-config.plugins.blockcontent.viewingtime = ConfigInteger(default = 0, limits = (0, 30))
-config.plugins.blockcontent.reactivetime = ConfigInteger(default = 0, limits = (0, 300))
-config.plugins.blockcontent.freeview = ConfigInteger(default = 24, limits = (0, 24))
-config.plugins.blockcontent.casesensitive = ConfigBoolean(default = False)
-config.plugins.blockcontent.popup = ConfigBoolean(default = False)
-config.plugins.blockcontent.popuptime = ConfigInteger(default = 10, limits = (5, 60))
-config.plugins.blockcontent.pin = ConfigPIN(default = 1111, censor="*")
+config.plugins.blockcontent.viewingtime = ConfigInteger(default=0, limits=(0, 30))
+config.plugins.blockcontent.reactivetime = ConfigInteger(default=0, limits=(0, 300))
+config.plugins.blockcontent.freeview = ConfigInteger(default=24, limits=(0, 24))
+config.plugins.blockcontent.casesensitive = ConfigBoolean(default=False)
+config.plugins.blockcontent.popup = ConfigBoolean(default=False)
+config.plugins.blockcontent.popuptime = ConfigInteger(default=10, limits=(5, 60))
+config.plugins.blockcontent.pin = ConfigPIN(default=1111, censor="*")
 
 global blockedcontent_asking
 blockedcontent_asking=False
@@ -43,8 +43,8 @@ def autostart(reason, **kwargs):
        session.open(BlockContentCheck)
 
 def Plugins(**kwargs):
-    	return [PluginDescriptor(where = [PluginDescriptor.WHERE_SESSIONSTART, PluginDescriptor.WHERE_AUTOSTART], fnc = autostart),
-		PluginDescriptor(name="Block Content", description=_("never shown"), where = PluginDescriptor.WHERE_EXTENSIONSMENU, fnc=mainext),
+    	return [PluginDescriptor(where=[PluginDescriptor.WHERE_SESSIONSTART, PluginDescriptor.WHERE_AUTOSTART], fnc=autostart),
+		PluginDescriptor(name="Block Content", description=_("never shown"), where=PluginDescriptor.WHERE_EXTENSIONSMENU, fnc=mainext),
 		PluginDescriptor(name=_("Block Content"), description=_("never shown"), where=PluginDescriptor.WHERE_MENU, fnc=mainconf)]
 
 def mainext(session,**kwargs):
@@ -65,7 +65,7 @@ class BlockContentConfiguration(Screen, ConfigListScreen, ProtectedScreen):
         <widget name="buttonred" position="10,200" size="100,40" backgroundColor="red" valign="center" halign="center" zPosition="2"  foregroundColor="white" font="Regular;18"/>
         <widget name="buttongreen" position="490,200" size="100,40" backgroundColor="green" valign="center" halign="center" zPosition="2"  foregroundColor="white" font="Regular;18"/>
         </screen>"""
-    def __init__(self, session, args = 0):
+    def __init__(self, session, args=0):
 	Screen.__init__(self, session)
 	ProtectedScreen.__init__(self)       
        	self.list = []
@@ -122,7 +122,7 @@ class BlockContentEnableDisable(Screen, ProtectedScreen):
         <screen position="center,center" size="350,140" title="Block Content Configuration" >
         </screen>"""
 
-    def __init__(self, session, args = 0):
+    def __init__(self, session, args=0):
 	Screen.__init__(self, session)
 	ProtectedScreen.__init__(self)       
     
@@ -160,8 +160,7 @@ class BlockContentCheck(Screen):
 	self.blockedcontent_authorized="Sesamestrasse"
 	self.blockedcontent_check=""
         self.blockedcontent_begin_time=0
-       	self.__event_tracker = ServiceEventTracker(screen=self, eventmap=
-      		{                                 
+       	self.__event_tracker = ServiceEventTracker(screen=self, eventmap={                                 
        		iPlayableService.evUpdatedEventInfo: self.EventInfoChanged,
       		})                                                      
 
@@ -269,7 +268,7 @@ class BlockContentCheck(Screen):
 					self.blockedcontent_check=check
 					self.session.nav.stopService()
 					try:	
-   						self.session.openWithCallback(self.pinEntered, PinInput, pinList = [config.plugins.blockcontent.pin.getValue()], triesEntry = self.getTriesEntry(), title = _("Please enter the correct pin code"), windowTitle = _("Enter pin code"))
+   						self.session.openWithCallback(self.pinEntered, PinInput, pinList=[config.plugins.blockcontent.pin.getValue()], triesEntry=self.getTriesEntry(), title=_("Please enter the correct pin code"), windowTitle=_("Enter pin code"))
 					except:
 						self.session.nav.playService(self.prev_running_service)
 						blockedcontent_asking=False

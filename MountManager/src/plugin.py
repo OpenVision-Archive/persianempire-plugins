@@ -6,11 +6,11 @@ from Plugins.Plugin import PluginDescriptor
 from HddMount import MountHddOnStart
 
 config.plugins.HddMount = ConfigSubsection()
-config.plugins.HddMount.MountOnStart = ConfigYesNo(default = True)
-config.plugins.HddMount.MountOnHdd = ConfigText(default = "nothing")
-config.plugins.HddMount.MountOnMovie = ConfigText(default = "nothing")
-config.plugins.HddMount.SwapOnStart = ConfigYesNo(default = False)
-config.plugins.HddMount.SwapFile = ConfigText(default = "no")
+config.plugins.HddMount.MountOnStart = ConfigYesNo(default=True)
+config.plugins.HddMount.MountOnHdd = ConfigText(default="nothing")
+config.plugins.HddMount.MountOnMovie = ConfigText(default="nothing")
+config.plugins.HddMount.SwapOnStart = ConfigYesNo(default=False)
+config.plugins.HddMount.SwapFile = ConfigText(default="no")
 
 def main(session, **kwargs):
 	from Manager import MountSetup
@@ -43,4 +43,4 @@ def startMountManager(menuid):
 	return [(_("Mount Manager"), main, "mount_manager", None)]
 
 def Plugins(**kwargs):
-	return PluginDescriptor(name=_("Mount Manager"), description="Special version for Open Vision", where = PluginDescriptor.WHERE_MENU, fnc=startMountManager)
+	return PluginDescriptor(name=_("Mount Manager"), description="Special version for Open Vision", where=PluginDescriptor.WHERE_MENU, fnc=startMountManager)

@@ -200,7 +200,7 @@ class showPurePrestigetoolsscreen(Screen):
         self['label8'].setText('Date - Time')
         self.showPic()
 
-    def showPic(self, picInfo = ''):
+    def showPic(self, picInfo=''):
         self['thumb' + str(self.Thumbnaillist[0][1])].instance.setPixmapFromFile(resolveFilename(SCOPE_PLUGINS, 'Extensions/PurePrestige/Stools/toolsbuttons/backup.png'))
         self['thumb' + str(self.Thumbnaillist[0][1])].show()
         self['thumb' + str(self.Thumbnaillist[1][1])].instance.setPixmapFromFile(resolveFilename(SCOPE_PLUGINS, 'Extensions/PurePrestige/Stools/toolsbuttons/settings.png'))
@@ -290,7 +290,7 @@ class showPurePrestigetoolsscreen(Screen):
         if self.index == 8:
             self.session.open(PurePrestigeSetTimeChanger)
 
-    def callbackView(self, val = 0):
+    def callbackView(self, val=0):
         self.index = val
         if self.old_index != self.index:
             self.paintFrame()

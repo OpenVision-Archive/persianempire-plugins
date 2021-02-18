@@ -19,7 +19,7 @@ bissaddress = "https://openvision.tech/persianpalace/Persian.BISS"
 ownbiss = "Persian.BISS"
 
 config.plugins.SoftCamUpdater = ConfigSubsection()
-config.plugins.SoftCamUpdater.path = ConfigSelection(default = "/usr/keys/", choices = [
+config.plugins.SoftCamUpdater.path = ConfigSelection(default="/usr/keys/", choices=[
 		("/usr/keys/", "/usr/keys/"),
 		("/var/keys/", "/var/keys/"),
 		("/var/emu/keys/", "/var/emu/keys/"),
@@ -29,7 +29,7 @@ config.plugins.SoftCamUpdater.path = ConfigSelection(default = "/usr/keys/", cho
 		("/etc/", "/etc/"),
 		("/etc/tuxbox/config/", "/etc/tuxbox/config/"),
 		])
-config.plugins.SoftCamUpdater.keyname = ConfigSelection(default = "SoftCam.Key", choices = [
+config.plugins.SoftCamUpdater.keyname = ConfigSelection(default="SoftCam.Key", choices=[
 		("SoftCam.Key", "SoftCam.Key"),
 		("softcam.cfg", "softcam.cfg"),
 		("constant.cw", "constant.cw"),
@@ -100,7 +100,7 @@ class SoftCamUpdater(ConfigListScreen, Screen):
 	def save(self):
 		for i in self["config"].list:
 			i[1].save()
-		self.mbox = self.session.open(MessageBox, (_("Saved successfull!")), MessageBox.TYPE_INFO, timeout = 3 )
+		self.mbox = self.session.open(MessageBox, (_("Saved successfull!")), MessageBox.TYPE_INFO, timeout=3 )
 		
 	def downkey(self):
 		try:
@@ -114,9 +114,9 @@ class SoftCamUpdater(ConfigListScreen, Screen):
 			Console().ePopen("cp -f /tmp/keyfile.tmp %s%s" % (config.plugins.SoftCamUpdater.path.value, config.plugins.SoftCamUpdater.keyname.value))
 			Console().ePopen("rm -rf /tmp/keyfile.tmp")
 			Console().ePopen("rm -rf /tmp/%s" % ownbiss)
-			self.mbox = self.session.open(MessageBox, (_("Downloaded successfull!")), MessageBox.TYPE_INFO, timeout = 3 )
+			self.mbox = self.session.open(MessageBox, (_("Downloaded successfull!")), MessageBox.TYPE_INFO, timeout=3 )
 		except:
-			self.mbox = self.session.open(MessageBox, (_("Download failed!")), MessageBox.TYPE_INFO, timeout = 3 )
+			self.mbox = self.session.open(MessageBox, (_("Download failed!")), MessageBox.TYPE_INFO, timeout=3 )
 
 
 def main(session, **kwargs):
@@ -124,8 +124,8 @@ def main(session, **kwargs):
 
 def Plugins(**kwargs):
 	return PluginDescriptor(
-			name = _("SoftCam Updater 3.1"),
-			description = _("Special version for Persian Palace"),
-			where = [PluginDescriptor.WHERE_PLUGINMENU, PluginDescriptor.WHERE_EXTENSIONSMENU],
+			name=_("SoftCam Updater 3.1"),
+			description=_("Special version for Persian Palace"),
+			where=[PluginDescriptor.WHERE_PLUGINMENU, PluginDescriptor.WHERE_EXTENSIONSMENU],
 			icon="softcamupdater.png",
 			fnc=main)

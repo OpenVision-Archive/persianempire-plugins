@@ -127,10 +127,10 @@ class setupSamba(Screen, ConfigListScreen):
 			workgroup = 'READERROR workgroup'
 			confError = True
 
-		self.activeConfigEntry = NoSave(ConfigEnableDisable(default = isEnabled))
-		self.serverStringConfigEntry = NoSave(ConfigText(default = serverString, visible_width = 50, fixed_size = False))
-		self.netbiosNameConfigEntry = NoSave(ConfigText(default = netbiosName, visible_width = 50, fixed_size = False))
-		self.workgroupConfigEntry = NoSave(ConfigText(default = workgroup, visible_width = 50, fixed_size = False))
+		self.activeConfigEntry = NoSave(ConfigEnableDisable(default=isEnabled))
+		self.serverStringConfigEntry = NoSave(ConfigText(default=serverString, visible_width=50, fixed_size=False))
+		self.netbiosNameConfigEntry = NoSave(ConfigText(default=netbiosName, visible_width=50, fixed_size=False))
+		self.workgroupConfigEntry = NoSave(ConfigText(default=workgroup, visible_width=50, fixed_size=False))
 
 		self["smbdLabel"] = Label()
 		self["nmbdLabel"] = Label()
@@ -145,7 +145,7 @@ class setupSamba(Screen, ConfigListScreen):
 		self.run = 0
 
 		self.createSetup()
-		ConfigListScreen.__init__(self, self.list, session = session)
+		ConfigListScreen.__init__(self, self.list, session=session)
 		self.activeConfigEntry.addNotifier(self.toggleServer)
 
 		self["actions"] = ActionMap(["OkCancelActions", "ColorActions"],

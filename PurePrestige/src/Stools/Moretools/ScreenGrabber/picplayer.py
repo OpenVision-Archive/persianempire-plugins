@@ -153,7 +153,7 @@ class grabberPic_Thumb(Screen):
 
         self.showPic()
 
-    def showPic(self, picInfo = ''):
+    def showPic(self, picInfo=''):
         for x in range(len(self.Thumbnaillist)):
             if self.Thumbnaillist[x][0] == 0:
                 if self.picload.getThumbnail(self.Thumbnaillist[x][2]) == 1:
@@ -200,7 +200,7 @@ class grabberPic_Thumb(Screen):
         self.old_index = self.index
         self.session.openWithCallback(self.callbackView, grabberPic_Full_View, self.filelist, self.index, self.path)
 
-    def callbackView(self, val = 0):
+    def callbackView(self, val=0):
         self.index = val
         if self.old_index != self.index:
             self.paintFrame()
@@ -289,7 +289,7 @@ class grabberPic_Full_View(Screen):
             self.next()
             self.start_decode()
 
-    def finish_decode(self, picInfo = ''):
+    def finish_decode(self, picInfo=''):
         self['point'].hide()
         ptr = self.picload.getData()
         if ptr != None:

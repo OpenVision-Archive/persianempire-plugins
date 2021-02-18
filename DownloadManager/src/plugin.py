@@ -133,7 +133,7 @@ class Downloads(Screen):
         self['info'].setText('')
         self['list'].setList(self.data)
 
-    def getfeedError(self, error = ''):
+    def getfeedError(self, error=''):
         error = str(error)
 
     def okClicked(self):
@@ -221,7 +221,7 @@ class Getipklist(Screen):
         self['list'].setList(list)
         self['info'].setText('')
 
-    def getfeedError(self, error = ''):
+    def getfeedError(self, error=''):
         error = str(error)
 
     def getstate(self, remname):

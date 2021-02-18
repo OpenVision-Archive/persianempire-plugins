@@ -36,7 +36,7 @@ class Lamedb:
 		print("import version %d" % self.version)
 		return lamedb
 
-	def writeLamedb(self,version = 4):
+	def writeLamedb(self,version=4):
 		if version <> 4:
 			print("only version 4 yet")
 			return

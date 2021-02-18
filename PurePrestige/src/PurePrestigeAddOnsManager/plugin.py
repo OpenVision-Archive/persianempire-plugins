@@ -265,7 +265,7 @@ class PurePrestigeaddonsupdatesScreen(Screen):
     else:
         skin = '\n        \t\n                <screen name="PurePrestigeaddonsupdatesScreen" position="center,center" size="580,450" title=""  flags="wfNoBorder" >\n                <ePixmap pixmap="~/images/frametop.png" position="0,0" size="580,450"/>\t\n                <ePixmap pixmap="~/images/frameleft.png" position="0,7" size="6,435"/>\t\n                <ePixmap pixmap="~/images/frameright.png" position="573,7" size="6,435"/>\t\n                <ePixmap pixmap="~/images/framebottom.png" position="0,442" size="580,7"/>\t\n                \n\t\t<widget name="text" position="20,20" size="540,410" font="Regular;22"  transparent="1" zPosition="2"  />\n                </screen>'
 
-    def __init__(self, session, newsurl = None, selectedservername = None):
+    def __init__(self, session, newsurl=None, selectedservername=None):
         self.skin = PurePrestigeaddonsupdatesScreen.skin
         self.skin_path = resolveFilename(SCOPE_PLUGINS, "Extensions/PurePrestige")
         Screen.__init__(self, session)
@@ -432,7 +432,7 @@ class FeedsServerGroups(Screen):
     else:
         skin = '\n        \t\n                <screen  position="center,center" size="580,450" title=""  flags="wfNoBorder" >\n                <ePixmap pixmap="~/images/framesd.png" position="0,0" size="640,520"/>\t\n                <widget name="tspace" position="5,10" zPosition="4" size="630,25" font="Regular;20" foregroundColor="yellow" transparent="1" halign="center" valign="center" />\n                <ePixmap position="15,34" size="550,5" pixmap="~/images/slider.png" alphatest="blend" transparent="1" backgroundColor="transparent"/>\n  \n                 <widget name="list" position="15,38" size="610,320" scrollbarMode="showOnDemand" transparent="1" zPosition="4" />\n\t\t<ePixmap name="green" position="250,383" zPosition="4" size="113,30" pixmap="~/ddbuttons/green.png" transparent="1" alphatest="on" />\n\t\t\t\n\t\t<widget name="key_green" position="250,395" zPosition="5" size="113,30" valign="center" halign="center" font="Regular;21" transparent="1" foregroundColor="white" shadowColor="black" shadowOffset="-1,-1" />\n                        \n\t\t\t\n\t\t<eLabel position="44,75" zPosition="-1" size="63,52" backgroundColor="#222222" />\n\t\t<widget name="info" position="32,38" zPosition="4" size="596,225" font="Regular;24" foregroundColor="#ffffff" transparent="1" halign="center" valign="center" />\n\t\t<widget name="fspace" position="0,240" zPosition="4" size="476,60" font="Regular;24" foregroundColor="#ffffff" transparent="1" halign="left" valign="center" />\n                </screen>'
 
-    def __init__(self, session, selectedserverurl = None, selectedservername = None):
+    def __init__(self, session, selectedserverurl=None, selectedservername=None):
         self.skin = FeedsServerGroups.skin
         self.skin_path = resolveFilename(SCOPE_PLUGINS, "Extensions/PurePrestige")
         Screen.__init__(self, session)
@@ -611,7 +611,7 @@ class PurePrestigeServerGroups(Screen):
     else:
         skin = '\n        \t\n                <screen  position="center,center" size="640,520" title=""  flags="wfNoBorder" >\n                <ePixmap pixmap="~/images/framesd.png" position="0,0" size="640,520"/>\t\n                <widget name="tspace" position="5,10" zPosition="4" size="560,25" font="Regular;18" foregroundColor="yellow" transparent="1" halign="center" valign="center" />\n                <ePixmap position="15,34" size="610,5" pixmap="~/images/slider.png" alphatest="blend" transparent="1" backgroundColor="transparent"/>\n  \n                 <widget name="list" position="15,38" size="610,400" scrollbarMode="showOnDemand" transparent="1" zPosition="4" />\n\t\t<ePixmap name="yellow" position="380,453" zPosition="4" size="113,30" pixmap="~/ddbuttons/yellow.png" transparent="1" alphatest="on" />\n\t\t\t\n\t\t<widget name="key_yellow" position="370,465" zPosition="5" size="150,30" valign="center" halign="left" font="Regular;21" transparent="1" foregroundColor="white" shadowColor="black" shadowOffset="-1,-1" />\n                <ePixmap name="green" position="130,453" zPosition="4" size="113,40" pixmap="~/ddbuttons/green.png" transparent="1" alphatest="on" />\n\t\t\t\n\t\t<widget name="key_green" position="125,465" zPosition="5" size="113,40" valign="center" halign="center" font="Regular;21" transparent="1" foregroundColor="white" shadowColor="black" shadowOffset="-1,-1" />\n                                           \n\t\t\t\n\t\t<eLabel position="44,75" zPosition="-1" size="63,52" backgroundColor="#222222" />\n\t\t<widget name="info" position="32,38" zPosition="4" size="596,225" font="Regular;24" foregroundColor="#ffffff" transparent="1" halign="center" valign="center" />\n\t\t<widget name="fspace" position="0,240" zPosition="4" size="476,60" font="Regular;24" foregroundColor="#ffffff" transparent="1" halign="left" valign="center" />\n                <ePixmap position="15,442" size="610,5" pixmap="~/images/slider.png" alphatest="blend" transparent="1" backgroundColor="transparent"/>\n                  \n                \n                </screen>'
 
-    def __init__(self, session, selectedserverurl = None, selectedservername = None):
+    def __init__(self, session, selectedserverurl=None, selectedservername=None):
         self.skin = PurePrestigeServerGroups.skin
         self.skin_path = resolveFilename(SCOPE_PLUGINS, "Extensions/PurePrestige")
         Screen.__init__(self, session)
@@ -805,7 +805,7 @@ class PurePrestigePackageFeedssearch(Screen):
     else:
         skin = '\n        \t\n                <screen  position="center,center" size="640,520" title=""  flags="wfNoBorder" >\n                <ePixmap pixmap="~/images/framesd.png" position="0,0" size="640,520"/>\t\n                <widget name="list" position="32,38" size="586,385" scrollbarMode="showOnDemand" transparent="1" zPosition="2" />\n\t\t<ePixmap position="15,440" size="610,5" pixmap="~/images/slider.png" alphatest="blend" transparent="1" backgroundColor="transparent"/>\n\t\t\n                \n\t        <ePixmap name="green" position="118,443" zPosition="4" size="101,30" pixmap="~/ddbuttons/green.png" transparent="1" alphatest="on" />\n\t\t\t\n\t\t<widget name="key_green" position="108,470" zPosition="5" size="126,30" valign="center" halign="center" font="Regular;21" transparent="1" foregroundColor="white" shadowColor="black" shadowOffset="-1,-1" />\n        \t<ePixmap name="blue" position="276,443" zPosition="4" size="101,30" pixmap="~/ddbuttons/blue.png" transparent="1" alphatest="on" />\n\t\t\t\n\t\t<widget name="key_blue" position="255,470" zPosition="5" size="126,30" valign="center" halign="center" font="Regular;21" transparent="1" foregroundColor="white" shadowColor="black" shadowOffset="-1,-1" />\n                <ePixmap name="yellow" position="420,443" zPosition="4" size="101,30" pixmap="~/ddbuttons/yellow.png" transparent="1" alphatest="on" />\n\t\t\t\n\t\t\t  \n                <widget name="key_yellow" position="412,470" zPosition="5" size="126,30" valign="center" halign="center" font="Regular;21" transparent="1" foregroundColor="white" shadowColor="black" shadowOffset="-1,-1" />\n                          \n\t\t\t<widget name="info" position="150,50" zPosition="4" size="360,300" font="Regular;24" foregroundColor="#ffffff" transparent="1" halign="center" valign="center" />\n\t\t        <widget name="fspace" position="0,320" zPosition="4" size="640,80" font="Regular;24" foregroundColor="#ffffff" transparent="1" halign="left" valign="center" />\n                <widget name="info2" position="0,490" zPosition="4" size="640,30" font="Regular;22" foregroundColor="#ffffff" transparent="1" halign="center" valign="center" />\n                </screen>'
 
-    def __init__(self, session, selectedservername = None, globalservername = None, searchstr = None):
+    def __init__(self, session, selectedservername=None, globalservername=None, searchstr=None):
         self.skin = PurePrestigePackageFeedssearch.skin
         self.skin_path = resolveFilename(SCOPE_PLUGINS, "Extensions/PurePrestige")
         Screen.__init__(self, session)
@@ -1197,7 +1197,7 @@ class PurePrestigePackageFeedssearch(Screen):
     def advanceinstall(self):
         self.session.openWithCallback(self.askForSource, ChoiceBox, _('select command'), self.getcommandList())
 
-    def menuclicked(self, command = None):
+    def menuclicked(self, command=None):
         try:
             cindex = self['list'].getSelectionIndex()
             selection = self.list[cindex][0]
@@ -1250,7 +1250,7 @@ class PurePrestigePackageFeeds(Screen):
     else:
         skin = '\n        \t\n                <screen  position="center,center" size="640,520" title=""  flags="wfNoBorder" >\n                <ePixmap pixmap="~/images/framesd.png" position="0,0" size="640,520"/>\t\n\n                <ePixmap position="15,34" size="610,5" pixmap="~/images/slider.png" alphatest="blend" transparent="1" backgroundColor="transparent"/>\n  \n                 <widget name="list" position="15,38" size="610,320" scrollbarMode="showOnDemand" transparent="1" zPosition="4" />\n\n                <ePixmap name="green" position="130,510" zPosition="4" size="113,40" pixmap="~/ddbuttons/green.png" transparent="1" alphatest="on" />\n\t\t\t\n\t\t<widget name="key_green" position="130,520" zPosition="5" size="150,40" valign="center" halign="center" font="Regular;21" transparent="1" foregroundColor="white" shadowColor="black" shadowOffset="-1,-1" />\n                                           \n\t\t\t\n\t\t<eLabel position="44,75" zPosition="-1" size="63,52" backgroundColor="#222222" />\n\t\t<widget name="info" position="32,38" zPosition="4" size="596,225" font="Regular;24" foregroundColor="#ffffff" transparent="1" halign="center" valign="center" />\n\t\t<widget name="info2" position="0,420" zPosition="4" size="640,30" font="Regular;24" foregroundColor="#ffffff" transparent="1" halign="center" valign="center" />\t\n        \t<widget name="fspace" position="0,240" zPosition="4" size="416,60" font="Regular;24" foregroundColor="#ffffff" transparent="1" halign="left" valign="center" />\n                </screen>'
 
-    def __init__(self, session, selectedservername = None, globalservername = None):
+    def __init__(self, session, selectedservername=None, globalservername=None):
         self.skin = PurePrestigePackageFeeds.skin
         self.skin_path = resolveFilename(SCOPE_PLUGINS, "Extensions/PurePrestige")
         Screen.__init__(self, session)
@@ -1640,7 +1640,7 @@ class PurePrestigePackageFeeds(Screen):
     def advanceinstall(self):
         self.session.openWithCallback(self.askForSource, ChoiceBox, _('select command'), self.getcommandList())
 
-    def menuclicked(self, command = None):
+    def menuclicked(self, command=None):
         try:
             cindex = self['list'].getSelectionIndex()
             selection = self.list[cindex][0]
@@ -2002,7 +2002,7 @@ class Ipkgsearch(Screen):
     def advanceinstall(self):
         self.session.openWithCallback(self.askForSource, ChoiceBox, _('select command'), self.getcommandList())
 
-    def menuclicked(self, command = None):
+    def menuclicked(self, command=None):
         try:
             cindex = self['menu'].getSelectionIndex()
             selection_country = self.list[cindex][0]
@@ -2374,7 +2374,7 @@ class PurePrestigeIpkgLogos(Screen):
     def advanceinstall(self):
         self.session.openWithCallback(self.askForSource, ChoiceBox, _('select command'), self.getcommandList())
 
-    def menuclicked(self, command = None):
+    def menuclicked(self, command=None):
         try:
             cindex = self['menu'].getSelectionIndex()
             selection_country = self.list[cindex][0]
@@ -2711,7 +2711,7 @@ class PurePrestigeIpkgPlugins(Screen):
     def advanceinstall(self):
         self.session.openWithCallback(self.askForSource, ChoiceBox, _('select command'), self.getcommandList())
 
-    def menuclicked(self, command = None):
+    def menuclicked(self, command=None):
         try:
             cindex = self['menu'].getSelectionIndex()
             selection_country = self.list[cindex][0]
@@ -2760,7 +2760,7 @@ class DescScreen(Screen):
     else:
         skin = '\n        \t\n                <screen name="DescScree" position="center,center" size="640,520" title="Addon description"  >\n                \n\t\t<widget name="text" position="20,20" size="600,410" font="Regular;22"  transparent="1" zPosition="2"  />\n                </screen>'
 
-    def __init__(self, session, url = None):
+    def __init__(self, session, url=None):
         self.skin = DescScreen.skin
         self.skin_path = resolveFilename(SCOPE_PLUGINS, "Extensions/PurePrestige")
         Screen.__init__(self, session)
@@ -2803,7 +2803,7 @@ class DescScreen(Screen):
 class DownLoadgz(Screen):
     skin = '\n\t\t<screen position="center,center" size="500,230" title="PurePrestige-Addons download" >\n\t\t\t\n                        \t\t\t\t\t\n\t\t\t\n\t\t\t<widget name="info" position="10,10" zPosition="4" size="490,220" font="Regular;24" foregroundColor="#ffffff" transparent="1" halign="center" valign="center" />\n\t\t        \n                </screen>'
 
-    def __init__(self, session, url = None, dom = None, instr = None, endstr = None):
+    def __init__(self, session, url=None, dom=None, instr=None, endstr=None):
         self.skin = DownLoadgz.skin
         Screen.__init__(self, session)
         self.url = url
@@ -2934,7 +2934,7 @@ class PurePrestigeIpkgTutorials(Screen):
 class TutorialsScreen(Screen):
     skin = '\n\t<screen position="center,center" size="550,460" title="Tutorials" >\n\t\t\n                \n\t\t<widget name="text" position="10,10" size="530,440" font="Regular;22" />\n\t\t\n\t</screen>'
 
-    def __init__(self, session, url = None):
+    def __init__(self, session, url=None):
         self.skin = TutorialsScreen.skin
         Screen.__init__(self, session)
         info = 'Getting tutorial,please wait...'

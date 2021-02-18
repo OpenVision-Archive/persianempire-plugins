@@ -34,7 +34,7 @@ class PageElement(object):
     """Contains the navigational information for some part of the page
     (either a tag or a piece of text)"""
 
-    def setup(self, parent = None, previous = None):
+    def setup(self, parent=None, previous=None):
         """Sets up the initial relations between this element and
         other elements."""
         self.parent = parent
@@ -150,53 +150,53 @@ class PageElement(object):
         """Appends the given tag to the contents of this tag."""
         self.insert(len(self.contents), tag)
 
-    def findNext(self, name = None, attrs = {}, text = None, **kwargs):
+    def findNext(self, name=None, attrs={}, text=None, **kwargs):
         """Returns the first item that matches the given criteria and
         appears after this Tag in the document."""
         return self._findOne(self.findAllNext, name, attrs, text, **kwargs)
 
-    def findAllNext(self, name = None, attrs = {}, text = None, limit = None, **kwargs):
+    def findAllNext(self, name=None, attrs={}, text=None, limit=None, **kwargs):
         """Returns all items that match the given criteria and appear
         after this Tag in the document."""
         return self._findAll(name, attrs, text, limit, self.nextGenerator, **kwargs)
 
-    def findNextSibling(self, name = None, attrs = {}, text = None, **kwargs):
+    def findNextSibling(self, name=None, attrs={}, text=None, **kwargs):
         """Returns the closest sibling to this Tag that matches the
         given criteria and appears after this Tag in the document."""
         return self._findOne(self.findNextSiblings, name, attrs, text, **kwargs)
 
-    def findNextSiblings(self, name = None, attrs = {}, text = None, limit = None, **kwargs):
+    def findNextSiblings(self, name=None, attrs={}, text=None, limit=None, **kwargs):
         """Returns the siblings of this Tag that match the given
         criteria and appear after this Tag in the document."""
         return self._findAll(name, attrs, text, limit, self.nextSiblingGenerator, **kwargs)
 
     fetchNextSiblings = findNextSiblings
 
-    def findPrevious(self, name = None, attrs = {}, text = None, **kwargs):
+    def findPrevious(self, name=None, attrs={}, text=None, **kwargs):
         """Returns the first item that matches the given criteria and
         appears before this Tag in the document."""
         return self._findOne(self.findAllPrevious, name, attrs, text, **kwargs)
 
-    def findAllPrevious(self, name = None, attrs = {}, text = None, limit = None, **kwargs):
+    def findAllPrevious(self, name=None, attrs={}, text=None, limit=None, **kwargs):
         """Returns all items that match the given criteria and appear
         before this Tag in the document."""
         return self._findAll(name, attrs, text, limit, self.previousGenerator, **kwargs)
 
     fetchPrevious = findAllPrevious
 
-    def findPreviousSibling(self, name = None, attrs = {}, text = None, **kwargs):
+    def findPreviousSibling(self, name=None, attrs={}, text=None, **kwargs):
         """Returns the closest sibling to this Tag that matches the
         given criteria and appears before this Tag in the document."""
         return self._findOne(self.findPreviousSiblings, name, attrs, text, **kwargs)
 
-    def findPreviousSiblings(self, name = None, attrs = {}, text = None, limit = None, **kwargs):
+    def findPreviousSiblings(self, name=None, attrs={}, text=None, limit=None, **kwargs):
         """Returns the siblings of this Tag that match the given
         criteria and appear before this Tag in the document."""
         return self._findAll(name, attrs, text, limit, self.previousSiblingGenerator, **kwargs)
 
     fetchPreviousSiblings = findPreviousSiblings
 
-    def findParent(self, name = None, attrs = {}, **kwargs):
+    def findParent(self, name=None, attrs={}, **kwargs):
         """Returns the closest parent of this Tag that matches the given
         criteria."""
         r = None
@@ -205,7 +205,7 @@ class PageElement(object):
             r = l[0]
         return r
 
-    def findParents(self, name = None, attrs = {}, limit = None, **kwargs):
+    def findParents(self, name=None, attrs={}, limit=None, **kwargs):
         """Returns the parents of this Tag that match the given
         criteria."""
         return self._findAll(name, attrs, None, limit, self.parentGenerator, **kwargs)
@@ -288,11 +288,11 @@ class PageElement(object):
 
         return
 
-    def substituteEncoding(self, str, encoding = None):
+    def substituteEncoding(self, str, encoding=None):
         encoding = encoding or 'utf-8'
         return str.replace('%SOUP-ENCODING%', encoding)
 
-    def toEncoding(self, s, encoding = None):
+    def toEncoding(self, s, encoding=None):
         """Encodes an object to a string in some encoding, or to Unicode.
         ."""
         if isinstance(s, unicode):
@@ -338,7 +338,7 @@ class NavigableString(unicode, PageElement):
     def __unicode__(self):
         return str(self).decode(DEFAULT_OUTPUT_ENCODING)
 
-    def __str__(self, encoding = DEFAULT_OUTPUT_ENCODING):
+    def __str__(self, encoding=DEFAULT_OUTPUT_ENCODING):
         if encoding:
             return self.encode(encoding)
         else:
@@ -347,13 +347,13 @@ class NavigableString(unicode, PageElement):
 
 class CData(NavigableString):
 
-    def __str__(self, encoding = DEFAULT_OUTPUT_ENCODING):
+    def __str__(self, encoding=DEFAULT_OUTPUT_ENCODING):
         return '<![CDATA[%s]]>' % NavigableString.__str__(self, encoding)
 
 
 class ProcessingInstruction(NavigableString):
 
-    def __str__(self, encoding = DEFAULT_OUTPUT_ENCODING):
+    def __str__(self, encoding=DEFAULT_OUTPUT_ENCODING):
         output = self
         if '%SOUP-ENCODING%' in output:
             output = self.substituteEncoding(output, encoding)
@@ -362,13 +362,13 @@ class ProcessingInstruction(NavigableString):
 
 class Comment(NavigableString):
 
-    def __str__(self, encoding = DEFAULT_OUTPUT_ENCODING):
+    def __str__(self, encoding=DEFAULT_OUTPUT_ENCODING):
         return '<!--%s-->' % NavigableString.__str__(self, encoding)
 
 
 class Declaration(NavigableString):
 
-    def __str__(self, encoding = DEFAULT_OUTPUT_ENCODING):
+    def __str__(self, encoding=DEFAULT_OUTPUT_ENCODING):
         return '<!%s>' % NavigableString.__str__(self, encoding)
 
 
@@ -413,7 +413,7 @@ class Tag(PageElement):
                 return u'&amp;%s;' % x
             return u'&%s;' % x
 
-    def __init__(self, parser, name, attrs = None, parent = None, previous = None):
+    def __init__(self, parser, name, attrs=None, parent=None, previous=None):
         """Basic constructor."""
         self.parserClass = parser.__class__
         self.isSelfClosing = parser.isSelfClosingTag(name)
@@ -445,7 +445,7 @@ class Tag(PageElement):
 
     string = property(getString, setString)
 
-    def getText(self, separator = u''):
+    def getText(self, separator=u''):
         if not len(self.contents):
             return u''
         stopNode = self._lastRecursiveChild().next
@@ -460,7 +460,7 @@ class Tag(PageElement):
 
     text = property(getText)
 
-    def get(self, key, default = None):
+    def get(self, key, default=None):
         """Returns the value of the 'key' attribute for the tag, or
         the value given for 'default' if it doesn't have that
         attribute."""
@@ -559,7 +559,7 @@ class Tag(PageElement):
         as defined in __eq__."""
         return not self == other
 
-    def __repr__(self, encoding = DEFAULT_OUTPUT_ENCODING):
+    def __repr__(self, encoding=DEFAULT_OUTPUT_ENCODING):
         """Renders this tag as a string."""
         return self.__str__(encoding)
 
@@ -573,7 +573,7 @@ class Tag(PageElement):
         appropriate XML entity for an XML special character."""
         return '&' + self.XML_SPECIAL_CHARS_TO_ENTITIES[x.group(0)[0]] + ';'
 
-    def __str__(self, encoding = DEFAULT_OUTPUT_ENCODING, prettyPrint = False, indentLevel = 0):
+    def __str__(self, encoding=DEFAULT_OUTPUT_ENCODING, prettyPrint=False, indentLevel=0):
         """Returns a string or Unicode representation of this tag and
         its contents. To get Unicode, pass None for encoding.
         
@@ -650,10 +650,10 @@ class Tag(PageElement):
 
             return
 
-    def prettify(self, encoding = DEFAULT_OUTPUT_ENCODING):
+    def prettify(self, encoding=DEFAULT_OUTPUT_ENCODING):
         return self.__str__(encoding, True)
 
-    def renderContents(self, encoding = DEFAULT_OUTPUT_ENCODING, prettyPrint = False, indentLevel = 0):
+    def renderContents(self, encoding=DEFAULT_OUTPUT_ENCODING, prettyPrint=False, indentLevel=0):
         """Renders the contents of this tag as a string in the given
         encoding. If encoding is None, returns a Unicode string.."""
         s = []
@@ -674,7 +674,7 @@ class Tag(PageElement):
 
         return ''.join(s)
 
-    def find(self, name = None, attrs = {}, recursive = True, text = None, **kwargs):
+    def find(self, name=None, attrs={}, recursive=True, text=None, **kwargs):
         """Return only the first child of this Tag matching the given
         criteria."""
         r = None
@@ -685,7 +685,7 @@ class Tag(PageElement):
 
     findChild = find
 
-    def findAll(self, name = None, attrs = {}, recursive = True, text = None, limit = None, **kwargs):
+    def findAll(self, name=None, attrs={}, recursive=True, text=None, limit=None, **kwargs):
         """Extracts a list of Tag objects that match the given
         criteria.  You can specify the name of the Tag and any
         attributes you want the Tag to have.
@@ -704,10 +704,10 @@ class Tag(PageElement):
     first = find
     fetch = findAll
 
-    def fetchText(self, text = None, recursive = True, limit = None):
+    def fetchText(self, text=None, recursive=True, limit=None):
         return self.findAll(text=text, recursive=recursive, limit=limit)
 
-    def firstText(self, text = None, recursive = True):
+    def firstText(self, text=None, recursive=True):
         return self.find(text=text, recursive=recursive)
 
     def _getAttrMap(self):
@@ -737,7 +737,7 @@ class SoupStrainer():
     """Encapsulates a number of ways of matching a markup element (tag or
     text)."""
 
-    def __init__(self, name = None, attrs = {}, text = None, **kwargs):
+    def __init__(self, name=None, attrs={}, text=None, **kwargs):
         self.name = name
         if isinstance(attrs, basestring):
             kwargs['class'] = _match_css_class(attrs)
@@ -758,7 +758,7 @@ class SoupStrainer():
         else:
             return '%s|%s' % (self.name, self.attrs)
 
-    def searchTag(self, markupName = None, markupAttrs = {}):
+    def searchTag(self, markupName=None, markupAttrs={}):
         found = None
         markup = None
         if isinstance(markupName, Tag):
@@ -899,7 +899,7 @@ class BeautifulStoneSoup(Tag, SGMLParser):
      13: None,
      32: None}
 
-    def __init__(self, markup = '', parseOnlyThese = None, fromEncoding = None, markupMassage = True, smartQuotesTo = XML_ENTITIES, convertEntities = None, selfClosingTags = None, isHTML = False):
+    def __init__(self, markup='', parseOnlyThese=None, fromEncoding=None, markupMassage=True, smartQuotesTo=XML_ENTITIES, convertEntities=None, selfClosingTags=None, isHTML=False):
         """The Soup object is initialized as the 'root tag', and the
         provided markup (which can be a string or a file-like object)
         is fed into the underlying parser.
@@ -971,7 +971,7 @@ class BeautifulStoneSoup(Tag, SGMLParser):
             return
         return self.convert_codepoint(n)
 
-    def _feed(self, inDocumentEncoding = None, isHTML = False):
+    def _feed(self, inDocumentEncoding=None, isHTML=False):
         markup = self.markup
         if isinstance(markup, unicode):
             if not hasattr(self, 'originalEncoding'):
@@ -1034,7 +1034,7 @@ class BeautifulStoneSoup(Tag, SGMLParser):
         self.tagStack.append(tag)
         self.currentTag = self.tagStack[-1]
 
-    def endData(self, containerClass = NavigableString):
+    def endData(self, containerClass=NavigableString):
         if self.currentData:
             currentData = u''.join(self.currentData)
             if currentData.translate(self.STRIP_ASCII_SPACES) == '' and not set([ tag.name for tag in self.tagStack ]).intersection(self.PRESERVE_WHITESPACE_TAGS):
@@ -1052,7 +1052,7 @@ class BeautifulStoneSoup(Tag, SGMLParser):
             self.previous = o
             self.currentTag.contents.append(o)
 
-    def _popToTag(self, name, inclusivePop = True):
+    def _popToTag(self, name, inclusivePop=True):
         """Pops the tag stack up to and including the most recent
         instance of the given tag. If inclusivePop is false, pops the tag
         stack up to but *not* including the most recent instqance of
@@ -1110,7 +1110,7 @@ class BeautifulStoneSoup(Tag, SGMLParser):
             self._popToTag(popTo, inclusive)
         return
 
-    def unknown_starttag(self, name, attrs, selfClosing = 0):
+    def unknown_starttag(self, name, attrs, selfClosing=0):
         if self.quoteStack:
             attrs = ''.join([ ' %s="%s"' % (x, y) for x, y in attrs ])
             self.handle_data('<%s%s>' % (name, attrs))
@@ -1456,7 +1456,7 @@ class UnicodeDammit():
     CHARSET_ALIASES = {'macintosh': 'mac-roman',
      'x-sjis': 'shift-jis'}
 
-    def __init__(self, markup, overrideEncodings = [], smartQuotesTo = 'xml', isHTML = False):
+    def __init__(self, markup, overrideEncodings=[], smartQuotesTo='xml', isHTML=False):
         self.declaredHTMLEncoding = None
         self.markup, documentEncoding, sniffedEncoding = self._detectEncoding(markup, isHTML)
         self.smartQuotesTo = smartQuotesTo
@@ -1541,7 +1541,7 @@ class UnicodeDammit():
         newdata = unicode(data, encoding)
         return newdata
 
-    def _detectEncoding(self, xml_data, isHTML = False):
+    def _detectEncoding(self, xml_data, isHTML=False):
         """Given a document, tries to detect its XML encoding."""
         xml_encoding = sniffed_xml_encoding = None
         try:

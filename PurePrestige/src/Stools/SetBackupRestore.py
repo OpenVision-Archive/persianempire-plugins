@@ -56,7 +56,7 @@ def getBackupFilename():
 class PurePrestigeBackupScreen(Screen, ConfigListScreen):
     skin = '\n\t\t<screen position="135,144" size="350,310" title="Backup is running" >\n\t\t<widget name="config" position="10,10" size="330,250" transparent="1" scrollbarMode="showOnDemand" />\n\t\t</screen>'
 
-    def __init__(self, session, runBackup = False):
+    def __init__(self, session, runBackup=False):
         Screen.__init__(self, session)
         self.session = session
         self.runBackup = runBackup
@@ -102,10 +102,10 @@ class PurePrestigeBackupScreen(Screen, ConfigListScreen):
             else:
                 self.session.openWithCallback(self.backupErrorCB, MessageBox, _('Sorry your backup destination is not writeable.\nPlease choose an other one.'), MessageBox.TYPE_INFO, timeout=10)
 
-    def backupFinishedCB(self, retval = None):
+    def backupFinishedCB(self, retval=None):
         self.close(True)
 
-    def backupErrorCB(self, retval = None):
+    def backupErrorCB(self, retval=None):
         self.close(False)
 
     def runAsync(self, finished_cb):
@@ -251,7 +251,7 @@ class PurePrestigeRestoreMenu(Screen):
     def keyCancel(self):
         self.close()
 
-    def startRestore(self, ret = False):
+    def startRestore(self, ret=False):
         if ret == True:
             self.exe = True
             self.session.open(Console, title=_('Restore running'), cmdlist=['tar -xzvf ' + self.path + '/' + self.sel + ' -C /', 'killall -9 enigma2'])
@@ -263,7 +263,7 @@ class PurePrestigeRestoreMenu(Screen):
                 self.val = self.path + '/' + self.sel
                 self.session.openWithCallback(self.startDelete, MessageBox, _('Are you sure you want to delete\nfollowing backup:\n') + self.sel)
 
-    def startDelete(self, ret = False):
+    def startDelete(self, ret=False):
         if ret == True:
             self.exe = True
             print('removing:', self.val)
@@ -276,7 +276,7 @@ class PurePrestigeRestoreMenu(Screen):
 class PurePrestigeRestoreScreen(Screen, ConfigListScreen):
     skin = '\n\t\t<screen position="135,144" size="350,310" title="Restore is running..." >\n\t\t<widget name="config" position="10,10" size="330,250" transparent="1" scrollbarMode="showOnDemand" />\n\t\t</screen>'
 
-    def __init__(self, session, runRestore = False):
+    def __init__(self, session, runRestore=False):
         Screen.__init__(self, session)
         self.session = session
         self.runRestore = runRestore
@@ -315,10 +315,10 @@ class PurePrestigeRestoreScreen(Screen, ConfigListScreen):
         else:
             self.session.open(Console, title=_('Restore is running...'), cmdlist=restorecmdlist)
 
-    def backupFinishedCB(self, retval = None):
+    def backupFinishedCB(self, retval=None):
         self.close(True)
 
-    def backupErrorCB(self, retval = None):
+    def backupErrorCB(self, retval=None):
         self.close(False)
 
     def runAsync(self, finished_cb):
@@ -328,7 +328,7 @@ class PurePrestigeRestoreScreen(Screen, ConfigListScreen):
 class PurePrestigeBackupSettingsScrean(Screen):
     skin = '\n                        <screen name="devicentery" position="center,center" size="640,520" title=""  flags="wfNoBorder" >\n                        <ePixmap pixmap="~/images/framesd.png" position="0,0" size="640,520"/>\t\t\n\t\t\n                <widget name="list" position="15,30" size="610,510" scrollbarMode="showOnDemand" transparent="1" zPosition="2" />\n\t        \n        </screen>'
 
-    def __init__(self, session, args = 0):
+    def __init__(self, session, args=0):
         Screen.__init__(self, session)
         self.skin_path = resolveFilename(SCOPE_PLUGINS, "Extensions/PurePrestige")
         self.skin = PurePrestigeBackupSettingsScrean.skin
@@ -434,13 +434,13 @@ class PurePrestigeBackupSettingsScrean(Screen):
         except OSError:
             self.session.open(MessageBox, _('Sorry, your backup destination is not writeable.\n\nPlease choose another one.'), MessageBox.TYPE_INFO, timeout=10)
 
-    def backupDone(self, retval = None):
+    def backupDone(self, retval=None):
         if retval is True:
             self.session.open(MessageBox, _('Backup done.'), MessageBox.TYPE_INFO, timeout=10)
         else:
             self.session.open(MessageBox, _('Backup failed.'), MessageBox.TYPE_INFO, timeout=10)
 
-    def startRestore(self, ret = False):
+    def startRestore(self, ret=False):
         if ret == True:
             self.exe = True
             self.session.open(PurePrestigeRestoreScreen, runRestore=True)

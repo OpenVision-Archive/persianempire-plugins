@@ -913,7 +913,7 @@ class SL_MorpheusHelper():
     def load(self):
         self.session.openWithCallback(self.show, PurePrestigeSL_ActionBox, _('Downloading morpheus883 list'), _('Downloading ...'), self.download)
 
-    def show(self, ret = None):
+    def show(self, ret=None):
         if self.loaded:
             self.session.open(PurePrestigeSL_Morpheus, self.list)
 
@@ -967,7 +967,7 @@ class SL_VhannibalHelper():
     def load(self):
         self.session.openWithCallback(self.show, PurePrestigeSL_ActionBox, _('Downloading VHANNIBAL list'), _('Downloading ...'), self.download)
 
-    def show(self, ret = None):
+    def show(self, ret=None):
         if self.loaded:
             self.session.open(PurePrestigeSL_Vhanibbal, self.list)
 
@@ -982,7 +982,7 @@ class PurePrestigeSL_Vhanibbal(PurePrestigeSL_SettingsList):
 
 class SL_SettingsHelper():
 
-    def __init__(self, session, settings_host = None, settings_path = None, title = None, xmlname = None):
+    def __init__(self, session, settings_host=None, settings_path=None, title=None, xmlname=None):
         self.session = session
         self.path = settings_path
         self.host = settings_host
@@ -1028,7 +1028,7 @@ class SL_SettingsHelper():
     def load(self):
         self.session.openWithCallback(self.show, PurePrestigeSL_ActionBox, _('Downloading settings list'), _('Downloading ...'), self.download)
 
-    def show(self, ret = None):
+    def show(self, ret=None):
         if self.loaded:
             self.session.open(PurePrestigeSL_Settingsshow, self.list, self.title)
 
@@ -1082,7 +1082,7 @@ class SL_CyrusHelper():
     def load(self):
         self.session.openWithCallback(self.show, PurePrestigeSL_ActionBox, _('Downloading cyrus list'), _('Downloading ...'), self.download)
 
-    def show(self, ret = None):
+    def show(self, ret=None):
         if self.loaded:
             self.session.open(PurePrestigeSL_Cyrus, self.list)
 
@@ -1136,7 +1136,7 @@ class SL_SamiHelper():
     def load(self):
         self.session.openWithCallback(self.show, PurePrestigeSL_ActionBox, _('Downloading cyrus list'), _('Downloading ...'), self.download)
 
-    def show(self, ret = None):
+    def show(self, ret=None):
         if self.loaded:
             self.session.open(PurePrestigeSL_Sami, self.list)
 

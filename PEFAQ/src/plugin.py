@@ -37,14 +37,14 @@ carpetaimg = resolveFilename(SCOPE_PLUGINS, 'Extensions/PEFAQ/img/')
 
 class IniciaSelListFaqs(MenuList):
 
-    def __init__(self, list, enableWrapAround = True):
+    def __init__(self, list, enableWrapAround=True):
         MenuList.__init__(self, list, enableWrapAround, eListboxPythonMultiContent)
         self.l.setItemHeight(30)
         self.l.setFont(0, gFont('Regular', 19))
         self.l.setFont(1, gFont('Regular', 17))
 
 
-def IniciaSelListEntryFaqs(texto, yavista = False):
+def IniciaSelListEntryFaqs(texto, yavista=False):
     global carpetaimg
     res = [texto]
     res.append(MultiContentEntryText(pos=(35, 4), size=(1000, 30), font=0, text=texto))
@@ -66,7 +66,7 @@ def IniciaSelListEntryFaqs(texto, yavista = False):
 
 class IniciaSelList(MenuList):
 
-    def __init__(self, list, enableWrapAround = True):
+    def __init__(self, list, enableWrapAround=True):
         MenuList.__init__(self, list, enableWrapAround, eListboxPythonMultiContent)
         self.l.setItemHeight(70)
         self.l.setFont(0, gFont('Regular', 19))
@@ -75,7 +75,7 @@ class IniciaSelList(MenuList):
 class PEVerfaq(Screen):
     skin = '\n\t<screen name="PEVerfaqsScr" position="center,center" size="1000,610" title="%s">\n\n\t<widget name="reply" render="Listbox" position="8,87" size="970,470" scrollbarMode="showOnDemand" zPosition="12" text=" " font="Regular; 19" />\n\t<ePixmap name="new ePixmap" position="10,33" size="35,25" pixmap="~/img/question.png" alphatest="blend" transparent="1" zPosition="10"/>\n\n\t<widget name="mode" position="8,31" size="970,50" backgroundColor="#ffffff" foregroundColor="#000000" text=" " font="Regular; 22" />\n\n\t<widget name="key_red" position="654,585" size="162,22" transparent="1" text="Exit" font="Regular; 16"/>\n\n\t<widget name="key_mode" position="8,8" size="685,22" transparent="1" text=" " font="Regular; 15" halign="center" />\n\t<convert type="TemplatedMultiContent">{"template": [MultiContentEntryText(pos = (50, 0), size = (460, 26), font=0, flags = RT_HALIGN_LEFT, text = 1),MultiContentEntryPixmapAlphaTest(pos = (5, 0), size = (25, 24), png = 2),],"fonts": [gFont("Regular", 22)],"itemHeight": 26}</convert>\n\t</screen>' % _('FAQs')
 
-    def __init__(self, session, numeroquestion = None):
+    def __init__(self, session, numeroquestion=None):
         self.session = session
         Screen.__init__(self, session)
 	self.skin_path = resolveFilename(SCOPE_PLUGINS, "Extensions/PEFAQ")
@@ -135,7 +135,7 @@ class PEVerfaq(Screen):
 class PEFaqs(Screen):
     skin = '\n\t<screen name="PEFaqsScr" position="center,center" size="1000,610" title="%s">\n\n\t<widget name="list" position="8,67" size="970,490" scrollbarMode="showOnDemand" zPosition="12" />\n\t<widget name="mode" position="8,31" size="970,30" backgroundColor="#ffffff" foregroundColor="#000000" text=" " font="Regular; 22" />\n\n\t<ePixmap name="new ePixmap" position="620,584" size="35,25" pixmap="~/img/red.png" alphatest="blend" transparent="1" />\n\t<widget name="key_red" position="654,585" size="162,22" transparent="1" text="Exit" font="Regular; 16"/>\n\t<ePixmap name="new ePixmap" position="715,584" size="35,25" pixmap="~/img/green.png" alphatest="blend" transparent="1" />\n\t<widget name="key_green" position="749,585" size="462,22" transparent="1" text="Update" font="Regular; 16"/>\n\t<widget name="key_mode" position="8,8" size="685,22" transparent="1" text=" " font="Regular; 15" halign="center" />\n\t</screen>' % _('Open Vision FAQs - https://openvision.tech')
 
-    def __init__(self, session, instance = None, args = 0):
+    def __init__(self, session, instance=None, args=0):
         self.session = session
         Screen.__init__(self, session)
 	self.skin_path = resolveFilename(SCOPE_PLUGINS, "Extensions/PEFAQ")
@@ -168,9 +168,9 @@ class PEFaqs(Screen):
         self.onLayoutFinish.append(self.buildList)
 
     def update(self):
-        self.session.open(Console, title = _("Open Vision FAQs update"), cmdlist = ["echo Downloading latest FAQs , Please wait", "wget https://openvision.tech/PEFAQs.zip -O /tmp/PEFAQs.zip > /dev/null 2>&1", "echo Extracting update file", "unzip -o /tmp/PEFAQs.zip -d %s/Extensions/PEFAQ > /dev/null 2>&1", "rm -rf /tmp/PEFAQs.zip > /dev/null 2>&1", "echo Done!"]) % resolveFilename(SCOPE_PLUGINS)
+        self.session.open(Console, title=_("Open Vision FAQs update"), cmdlist=["echo Downloading latest FAQs , Please wait", "wget https://openvision.tech/PEFAQs.zip -O /tmp/PEFAQs.zip > /dev/null 2>&1", "echo Extracting update file", "unzip -o /tmp/PEFAQs.zip -d %s/Extensions/PEFAQ > /dev/null 2>&1", "rm -rf /tmp/PEFAQs.zip > /dev/null 2>&1", "echo Done!"]) % resolveFilename(SCOPE_PLUGINS)
 
-    def cargaquestions(self, filtrado = None):
+    def cargaquestions(self, filtrado=None):
         self.categorys = ['All']
         self.faqs = []
         archivo = resolveFilename(SCOPE_PLUGINS, 'Extensions/PEFAQ/PEFAQs.xml')
@@ -202,7 +202,7 @@ class PEFaqs(Screen):
                         if category not in self.categorys:
                             self.categorys.append(category)
 
-    def buildList(self, modelist = 1):
+    def buildList(self, modelist=1):
         self['key_mode'].setText(_('Use The Cursor Left (<) And Right (>) To Filter By Category'))
         titulo = _(' FAQs')
         cfiltrado = None
@@ -287,8 +287,8 @@ def main(session, **kwargs):
 
 def Plugins(**kwargs):
 	return PluginDescriptor(
-			name = _("PE FAQ"),
-			description = _("FAQs for Open Vision"),
-			where = [PluginDescriptor.WHERE_PLUGINMENU, PluginDescriptor.WHERE_EXTENSIONSMENU],
+			name=_("PE FAQ"),
+			description=_("FAQs for Open Vision"),
+			where=[PluginDescriptor.WHERE_PLUGINMENU, PluginDescriptor.WHERE_EXTENSIONSMENU],
 			icon="pefaq.png",
 			fnc=main)

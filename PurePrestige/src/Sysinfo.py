@@ -360,7 +360,7 @@ class showPurePrestigeinfoscreenstandard(Screen):
         self['label8'].setText('Network')
         self.showPic()
 
-    def showPic(self, picInfo = ''):
+    def showPic(self, picInfo=''):
         self['thumb' + str(self.Thumbnaillist[0][1])].instance.setPixmapFromFile(resolveFilename(SCOPE_PLUGINS, 'Extensions/PurePrestige/infobuttons/imageinfo.png'))
         self['thumb' + str(self.Thumbnaillist[0][1])].show()
         self['thumb' + str(self.Thumbnaillist[1][1])].instance.setPixmapFromFile(resolveFilename(SCOPE_PLUGINS, 'Extensions/PurePrestige/infobuttons/ginfo.png'))
@@ -441,7 +441,7 @@ class showPurePrestigeinfoscreenstandard(Screen):
         self.session.open(Console2.PurePrestigeConsole2, _('Reading: %s') % dom, [script], None, False, instr, endstr)
         return
 
-    def callbackView(self, val = 0):
+    def callbackView(self, val=0):
         self.index = val
         if self.old_index != self.index:
             self.paintFrame()

@@ -25,7 +25,7 @@ class PictureScreen(Screen):
     else:
         skin = '\n\t\t<screen name="PictureScreen" position="center,center" size="720,576" title="Picture Screen" backgroundColor="#002C2C39">\n\t\t\t<widget name="myPic" position="0,0" size="720,576" zPosition="1" alphatest="on" />\n\t\t        <widget name="info" position="150,50" zPosition="4" size="400,400" font="Regular;24" foregroundColor="#ffffff" transparent="1" halign="center" valign="center" />\n                </screen>\n\t\t'
 
-    def __init__(self, session, url = None):
+    def __init__(self, session, url=None):
         Screen.__init__(self, session)
         print('[PictureScreen] __init__\n')
         self.url = url
@@ -71,7 +71,7 @@ class PictureScreen(Screen):
             self.PicLoad.startDecode(self.path)
         return
 
-    def DecodePicture(self, PicInfo = ''):
+    def DecodePicture(self, PicInfo=''):
         if self.path is not None:
             ptr = self.PicLoad.getData()
             self['myPic'].instance.setPixmap(ptr)

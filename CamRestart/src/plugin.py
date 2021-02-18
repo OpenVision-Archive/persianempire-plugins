@@ -33,7 +33,7 @@ def _(txt):
 	return t
 	
 config.plugins.pecr = ConfigSubsection()
-config.plugins.pecr.keyname = ConfigSelection(default = "KEY_TEXT", choices = [
+config.plugins.pecr.keyname = ConfigSelection(default="KEY_TEXT", choices=[
 		("KEY_TEXT", "TEXT"),
 		("KEY_SUBTITLE", "SUBTITLE"),
 		("KEY_HELP", "HELP"),
@@ -130,7 +130,7 @@ class pecr_setup(ConfigListScreen, Screen):
 		keyfile = open(resolveFilename(SCOPE_PLUGINS, "Extensions/CamRestart/keymap.xml"), "w")
 		keyfile.write('<keymap>\n\t<map context="GlobalActions">\n\t\t<key id="%s" mapto="showCamRestart" flags="l" />\n\t</map>\n</keymap>' % config.plugins.pecr.keyname.value)
 		keyfile.close()
-		self.mbox = self.session.open(MessageBox, (_("Saved")), MessageBox.TYPE_INFO, timeout = 3 )
+		self.mbox = self.session.open(MessageBox, (_("Saved")), MessageBox.TYPE_INFO, timeout=3 )
 		plugins.reloadPlugins()
 
 def main(session, **kwargs):
@@ -145,15 +145,15 @@ def sessionstart(reason,session=None, **kwargs):
 def Plugins(**kwargs):
 	result = [
 		PluginDescriptor(
-			where = [PluginDescriptor.WHERE_AUTOSTART, PluginDescriptor.WHERE_SESSIONSTART],
-			fnc = sessionstart
+			where=[PluginDescriptor.WHERE_AUTOSTART, PluginDescriptor.WHERE_SESSIONSTART],
+			fnc=sessionstart
 		),
 		PluginDescriptor(
 			name=_("Cam Restart"),
-			description = _("Special version for Open Vision"),
-			where = PluginDescriptor.WHERE_PLUGINMENU,
-			icon = 'camrestart.png',
-			fnc = main
+			description=_("Special version for Open Vision"),
+			where=PluginDescriptor.WHERE_PLUGINMENU,
+			icon='camrestart.png',
+			fnc=main
 		),
 	]
 	return result

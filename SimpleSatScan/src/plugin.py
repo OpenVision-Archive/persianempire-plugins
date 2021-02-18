@@ -87,7 +87,7 @@ class SimpleSatScan(ConfigListScreen, Screen):
 
 		del self.feinfo
 		del self.service
-		self["Frontend"] = FrontendStatus(frontend_source = lambda: self.frontend, update_interval = 100)
+		self["Frontend"] = FrontendStatus(frontend_source=lambda: self.frontend, update_interval=100)
 		self["actions"] = NumberActionMap(["SetupActions"],
 		{
 			"ok": self.keyGo,
@@ -290,8 +290,8 @@ class SimpleSatScan(ConfigListScreen, Screen):
 					s = str(x[1]/1000) + " " + self.PolToStr(x[3]) + " / " + str(x[2]/1000) + " / " + self.FecToStr(x[4])
 					list.append((str(index), s))
 					index += 1
-			self.scan_transponders = ConfigSelection(choices = list, default = "0")
-			self.scan_transponders.addNotifier(self.retune, initial_call = False)
+			self.scan_transponders = ConfigSelection(choices=list, default="0")
+			self.scan_transponders.addNotifier(self.retune, initial_call=False)
 
 	def updateSatList(self):
 		self.satList = []
@@ -363,11 +363,11 @@ class SimpleSatScan(ConfigListScreen, Screen):
 				for x in SatList:
 					if self.Satexists(tlist, x[0]) == 0:
 						tlist.append(x[0])
-						sat = ConfigEnableDisable(default = self.scan_type.value.find("_yes") != -1 and True or False)
+						sat = ConfigEnableDisable(default=self.scan_type.value.find("_yes") != -1 and True or False)
 						configEntry = getConfigListEntry(nimmanager.getSatDescription(x[0]), sat)
 						self.list.append(configEntry)
 						self.multiscanlist.append((x[0], sat))
-						sat.addNotifier(self.retune, initial_call = False)
+						sat.addNotifier(self.retune, initial_call=False)
 				self.scan_networkScan.value = True
 
 		self.list.append(getConfigListEntry(_("Network scan"), self.scan_networkScan))
@@ -422,11 +422,11 @@ class SimpleSatScan(ConfigListScreen, Screen):
 
 		self.scan_sat = ConfigSubsection()
 
-		self.scan_type = ConfigSelection(default = "single_transponder", choices = [("single_transponder", _("Single transponder")), ("predefined_transponder", _("Predefined transponder")), ("single_satellite", _("Single satellite")), ("multisat", _("Multisat"))])
+		self.scan_type = ConfigSelection(default="single_transponder", choices=[("single_transponder", _("Single transponder")), ("predefined_transponder", _("Predefined transponder")), ("single_satellite", _("Single satellite")), ("multisat", _("Multisat"))])
 		self.scan_transponders = None
-		self.scan_clearallservices = ConfigSelection(default = "no", choices = [("no", _("No")), ("yes", _("Yes")), ("yes_hold_feeds", _("Yes (keep feeds)"))])
-		self.scan_onlyfree = ConfigYesNo(default = False)
-		self.scan_networkScan = ConfigYesNo(default = False)
+		self.scan_clearallservices = ConfigSelection(default="no", choices=[("no", _("No")), ("yes", _("Yes")), ("yes_hold_feeds", _("Yes (keep feeds)"))])
+		self.scan_onlyfree = ConfigYesNo(default=False)
+		self.scan_networkScan = ConfigYesNo(default=False)
 
 		nim_list = []
 		for n in nimmanager.nim_slots:
@@ -441,23 +441,23 @@ class SimpleSatScan(ConfigListScreen, Screen):
 			if n.isCompatible("DVB-S"):
 				nim_list.append((str(n.slot), n.friendly_full_description))
 
-		self.scan_nims = ConfigSelection(choices = nim_list)
+		self.scan_nims = ConfigSelection(choices=nim_list)
 
-		self.scan_sat.system = ConfigSelection(default = defaultSat["system"], choices = [
+		self.scan_sat.system = ConfigSelection(default=defaultSat["system"], choices=[
 			(eDVBFrontendParametersSatellite.System_DVB_S, _("DVB-S")),
 			(eDVBFrontendParametersSatellite.System_DVB_S2, _("DVB-S2"))])
-		self.scan_sat.frequency = ConfigInteger(default = defaultSat["frequency"], limits = (1, 99999))
-		self.scan_sat.inversion = ConfigSelection(default = defaultSat["inversion"], choices = [
+		self.scan_sat.frequency = ConfigInteger(default=defaultSat["frequency"], limits=(1, 99999))
+		self.scan_sat.inversion = ConfigSelection(default=defaultSat["inversion"], choices=[
 			(eDVBFrontendParametersSatellite.Inversion_Off, _("off")),
 			(eDVBFrontendParametersSatellite.Inversion_On, _("on")),
 			(eDVBFrontendParametersSatellite.Inversion_Unknown, _("Auto"))])
-		self.scan_sat.symbolrate = ConfigInteger(default = defaultSat["symbolrate"], limits = (1, 99999))
-		self.scan_sat.polarization = ConfigSelection(default = defaultSat["polarization"], choices = [
+		self.scan_sat.symbolrate = ConfigInteger(default=defaultSat["symbolrate"], limits=(1, 99999))
+		self.scan_sat.polarization = ConfigSelection(default=defaultSat["polarization"], choices=[
 			(eDVBFrontendParametersSatellite.Polarisation_Horizontal, _("horizontal")),
 			(eDVBFrontendParametersSatellite.Polarisation_Vertical, _("vertical")),
 			(eDVBFrontendParametersSatellite.Polarisation_CircularLeft, _("circular left")),
 			(eDVBFrontendParametersSatellite.Polarisation_CircularRight, _("circular right"))])
-		self.scan_sat.fec = ConfigSelection(default = defaultSat["fec"], choices = [
+		self.scan_sat.fec = ConfigSelection(default=defaultSat["fec"], choices=[
 			(eDVBFrontendParametersSatellite.FEC_Auto, _("Auto")),
 			(eDVBFrontendParametersSatellite.FEC_1_2, "1/2"),
 			(eDVBFrontendParametersSatellite.FEC_2_3, "2/3"),
@@ -465,7 +465,7 @@ class SimpleSatScan(ConfigListScreen, Screen):
 			(eDVBFrontendParametersSatellite.FEC_5_6, "5/6"),
 			(eDVBFrontendParametersSatellite.FEC_7_8, "7/8"),
 			(eDVBFrontendParametersSatellite.FEC_None, _("None"))])
-		self.scan_sat.fec_s2 = ConfigSelection(default = defaultSat["fec_s2"], choices = [
+		self.scan_sat.fec_s2 = ConfigSelection(default=defaultSat["fec_s2"], choices=[
 			(eDVBFrontendParametersSatellite.FEC_1_2, "1/2"),
 			(eDVBFrontendParametersSatellite.FEC_2_3, "2/3"),
 			(eDVBFrontendParametersSatellite.FEC_3_4, "3/4"),
@@ -476,27 +476,27 @@ class SimpleSatScan(ConfigListScreen, Screen):
 			(eDVBFrontendParametersSatellite.FEC_7_8, "7/8"),
 			(eDVBFrontendParametersSatellite.FEC_8_9, "8/9"),
 			(eDVBFrontendParametersSatellite.FEC_9_10, "9/10")])
-		self.scan_sat.modulation = ConfigSelection(default = defaultSat["modulation"], choices = [
+		self.scan_sat.modulation = ConfigSelection(default=defaultSat["modulation"], choices=[
 			(eDVBFrontendParametersSatellite.Modulation_QPSK, "QPSK"),
 			(eDVBFrontendParametersSatellite.Modulation_8PSK, "8PSK")])
-		self.scan_sat.rolloff = ConfigSelection(default = defaultSat.get("rolloff", eDVBFrontendParametersSatellite.RollOff_alpha_0_35), choices = [
+		self.scan_sat.rolloff = ConfigSelection(default=defaultSat.get("rolloff", eDVBFrontendParametersSatellite.RollOff_alpha_0_35), choices=[
 			(eDVBFrontendParametersSatellite.RollOff_alpha_0_35, "0.35"),
 			(eDVBFrontendParametersSatellite.RollOff_alpha_0_25, "0.25"),
 			(eDVBFrontendParametersSatellite.RollOff_alpha_0_20, "0.20")])
-		self.scan_sat.pilot = ConfigSelection(default = defaultSat.get("pilot", eDVBFrontendParametersSatellite.Pilot_Unknown), choices = [
+		self.scan_sat.pilot = ConfigSelection(default=defaultSat.get("pilot", eDVBFrontendParametersSatellite.Pilot_Unknown), choices=[
 			(eDVBFrontendParametersSatellite.Pilot_Off, _("off")),
 			(eDVBFrontendParametersSatellite.Pilot_On, _("on")),
 			(eDVBFrontendParametersSatellite.Pilot_Unknown, _("Auto"))])
 
 		self.scan_scansat = {}
 		for sat in nimmanager.satList:
-			self.scan_scansat[sat[0]] = ConfigYesNo(default = False)
+			self.scan_scansat[sat[0]] = ConfigYesNo(default=False)
 
 		self.scan_satselection = []
 		for slot in nimmanager.nim_slots:
 			if slot.isCompatible("DVB-S"):
 				x = getConfigSatlist(defaultSat["orbpos"], self.satList[slot.slot])
-				x.addNotifier(self.retune, initial_call = False)
+				x.addNotifier(self.retune, initial_call=False)
 				self.scan_satselection.append(x)
 			else:
 				self.scan_satselection.append(None)
@@ -506,7 +506,7 @@ class SimpleSatScan(ConfigListScreen, Screen):
 			self.scan_sat.polarization, self.scan_sat.fec, self.scan_sat.pilot,
 			self.scan_sat.fec_s2, self.scan_sat.fec, self.scan_sat.modulation,
 			self.scan_sat.rolloff, self.scan_sat.system):
-			x.addNotifier(self.retune, initial_call = False)
+			x.addNotifier(self.retune, initial_call=False)
 
 		return True
 
@@ -685,6 +685,6 @@ def SimpleSatScanStart(menuid, **kwargs):
 
 def Plugins(**kwargs):
 	if (nimmanager.hasNimType("DVB-S")):
-		return PluginDescriptor(name=_("Simple satellite scan"), description="simple satellite scan", where = PluginDescriptor.WHERE_MENU, fnc=SimpleSatScanStart)
+		return PluginDescriptor(name=_("Simple satellite scan"), description="simple satellite scan", where=PluginDescriptor.WHERE_MENU, fnc=SimpleSatScanStart)
 	else:
 		return []

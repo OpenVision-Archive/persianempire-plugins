@@ -11,7 +11,7 @@ def Plugins(**kwargs):
     return [PluginDescriptor(name_('vusolo2 CI high bitrate fix'), description=_('CI high bitrate fix for VuPlus Solo 2'), where=PluginDescriptor.WHERE_SESSIONSTART, fnc=autostart)]
 
 
-def autostart(reason, session = None):
+def autostart(reason, session=None):
     global autoStartTimer
     print('[VUSolo2CIHighBitrateFix] autostart')
     if reason == 0:

@@ -49,7 +49,7 @@ class PurePrestigeFeedScreenList(Screen):
     else:
         skin = '\n        \t\n         \n        \t\n                <screen  position="center,center" size="580,450" title=""  flags="wfNoBorder" >\n                <ePixmap pixmap="~/images/framesd.png" position="0,0" size="580,450" transparent="1"/>\t\n                <widget name="info" position="10,5" zPosition="4" size="560,30" font="Regular;20" foregroundColor="#ffffff" transparent="1" halign="center" valign="center" />\n                <ePixmap position="15,35" size="550,5" pixmap="~/images/slider.png" alphatest="blend" transparent="1" backgroundColor="transparent"/>\n                <widget name="mylist" position="10,40" size="560,399" scrollbarMode="showOnDemand" transparent="1" zPosition="2" />\n\n\t\t\n\n\n                \n                </screen>'
 
-    def __init__(self, session, args = 0):
+    def __init__(self, session, args=0):
         self.skin = PurePrestigeFeedScreenList.skin
         self.skin_path = resolveFilename(SCOPE_PLUGINS, "Extensions/PurePrestige")
         self.session = session
@@ -250,7 +250,7 @@ class FeedreaderConfig:
 class Feed:
     isfavorite = False
 
-    def __init__(self, name, description, url, isfavorite = False):
+    def __init__(self, name, description, url, isfavorite=False):
         self.name = name
         self.description = description
         self.url = url
@@ -322,7 +322,7 @@ class WizzardAddFeed(Screen):
     url = 'http://'
     changefeed = False
 
-    def __init__(self, session, config, args = 0):
+    def __init__(self, session, config, args=0):
         if args is not 0:
             self.name = args[0].rstrip()
             self.description = args[1]
@@ -398,7 +398,7 @@ class PurePrestigeFeedScreenContent(Screen):
     else:
         skin = '\n        \t\n         \n        \t\n                <screen  position="center,center" size="580,450" title=""  flags="wfNoBorder" >\n                <ePixmap pixmap="~/images/framesd.png" position="0,0" size="580,450" transparent="1"/>\t\n                <widget name="info" position="2,5" zPosition="4" size="580,30" font="Regular;20" foregroundColor="#ffffff" transparent="1" halign="center" valign="center" />\n                <ePixmap position="15,35" size="550,5" pixmap="~/images/slider.png" alphatest="blend" transparent="1" backgroundColor="transparent"/>\n                <widget name="mylist" position="10,40" size="560,390" scrollbarMode="showOnDemand" transparent="1" zPosition="2" />\n\n\t\t\n\n\n                \n                </screen>'
 
-    def __init__(self, session, args = 0):
+    def __init__(self, session, args=0):
         self.feed = args
         self.skin = PurePrestigeFeedScreenContent.skin
         self.skin_path = resolveFilename(SCOPE_PLUGINS, "Extensions/PurePrestige")
@@ -485,7 +485,7 @@ class PurePrestigeFeedScreenContent(Screen):
 class PurePrestigeFeedScreenItemviewer(Screen):
     skin = ''
 
-    def __init__(self, session, args = 0):
+    def __init__(self, session, args=0):
         global HD_Res
         self.feed = args[0]
         self.item = args[1]
@@ -558,7 +558,7 @@ class PurePrestigeFeedScreenItemviewer(Screen):
 class PurePrestigeFeedScreenMore(Screen):
     skin = ''
 
-    def __init__(self, session, url, title, args = 0):
+    def __init__(self, session, url, title, args=0):
         self.url = url
         self.skin = '\n                <screen name="FMenusimple" position="center,center" size="580,450" title="%s"  flags="wfNoBorder" >\n                <ePixmap pixmap="~/images/frametop.png" position="0,0" size="580,450"/>\t\n                <ePixmap pixmap="~/images/frameleft.png" position="0,7" size="6,435"/>\t\n                <ePixmap pixmap="~/images/frameright.png" position="573,7" size="6,435"/>\t\n                <ePixmap pixmap="~/images/framebottom.png" position="0,442" size="580,7"/>\n\t\t\t\t        <widget name="titel" position="10,10" zPosition="1" size="500,130" font="Regular;23" transparent="1"  backgroundColor="#00000000" foregroundColor="yellow" />\n\t\t\t\t        \n\t\t\t\t        <ePixmap position="15,88" size="550,12" pixmap="~/images/slider.png" alphatest="blend" transparent="1" backgroundColor="transparent"/>\n\t\t\t\t\t<widget name="text" position="19,100" size="560,340" font="Regular;24" />\n\t\t\t\t        \n                                </screen>' % title
         Screen.__init__(self, session)
@@ -700,7 +700,7 @@ class RSS:
     DEFAULT_NAMESPACES = (None, 'http://purl.org/rss/1.0/', 'http://my.netscape.com/rdf/simple/0.9/')
     DUBLIN_CORE = ('http://purl.org/dc/elements/1.1/',)
 
-    def getElementsByTagName(self, node, tagName, possibleNamespaces = DEFAULT_NAMESPACES):
+    def getElementsByTagName(self, node, tagName, possibleNamespaces=DEFAULT_NAMESPACES):
         for namespace in possibleNamespaces:
             children = node.getElementsByTagNameNS(namespace, tagName)
             if len(children):
@@ -708,12 +708,12 @@ class RSS:
 
         return []
 
-    def node_data(self, node, tagName, possibleNamespaces = DEFAULT_NAMESPACES):
+    def node_data(self, node, tagName, possibleNamespaces=DEFAULT_NAMESPACES):
         children = self.getElementsByTagName(node, tagName, possibleNamespaces)
         node = len(children) and children[0] or None
         return node and ''.join([ child.data.encode('utf-8') for child in node.childNodes ]) or None
 
-    def get_txt(self, node, tagName, default_txt = ''):
+    def get_txt(self, node, tagName, default_txt=''):
         """
         Liefert den Inhalt >tagName< des >node< zurueck, ist dieser nicht
         vorhanden, wird >default_txt< zurueck gegeben.

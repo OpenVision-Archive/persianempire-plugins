@@ -207,7 +207,7 @@ class psoccerbootlogo(Screen):
         sys.stop()
         self.disappear()
 
-    def handler(self, fh = None):
+    def handler(self, fh=None):
         url = 'http://www3.varzesh3.com/livescores.do'
         fh.close
         fh = urlopen(url)

@@ -222,7 +222,7 @@ class SatelliteImport(Screen):
 			self.getSatellites_state = self.thread_is_running
 			thread.start_new_thread(self.getSatellites, (None,))
 	
-	def getTransponders(self, dummy = None):
+	def getTransponders(self, dummy=None):
 		pass
 
 
@@ -251,24 +251,24 @@ class SatelliteImport(Screen):
 		self.satTimer.start(1000)
 		
 	def selectSatellite(self):
-		self.satelliteSelection(mode = self.modeSelect)
+		self.satelliteSelection(mode=self.modeSelect)
 	
 	def unSelectSatellite(self):
-		self.satelliteSelection(mode = self.modeUnSelect)
+		self.satelliteSelection(mode=self.modeUnSelect)
 	
 	def selectSatelliteRepeated(self):
 		self.down()
-		self.satelliteSelection(mode = self.modeSelect, update= False)
+		self.satelliteSelection(mode=self.modeSelect, update=False)
 	
 	def unSelectSatelliteRepeated(self):
 		self.down()
-		self.satelliteSelection(mode = self.modeUnSelect, update= False)
+		self.satelliteSelection(mode=self.modeUnSelect, update=False)
 	
 	def selectSatelliteFinish(self):
 		self["list"].down()
 		self["list"].setEntries(self.satelliteslist)
 	
-	def satelliteSelection(self, mode = modeToggle, update = True):
+	def satelliteSelection(self, mode=modeToggle, update=True):
 		if len(self.satelliteslist):
 			cur_idx = self["list"].getSelectedIndex()
 			if mode == self.modeToggle:
@@ -327,7 +327,7 @@ class KingOfSat(SatelliteImport):
 
 	
 	
-	def getTransponders(self, dummy = None):
+	def getTransponders(self, dummy=None):
 		print("getTransponders")
 		
 		transSystem = {"dvb-s": "0", "dvb-s2": "1",}
@@ -404,7 +404,7 @@ class KingOfSat(SatelliteImport):
 						transponders = []
 						for key in tp:
 							transponders.append(tp[key])
-						transponders.sort(key = self.compareFrequency)
+						transponders.sort(key=self.compareFrequency)
 						satellite.append(transponders)
 					satellite[0].update({"selected":False})
 					self.requestSatelliteslistRefresh = True
@@ -542,7 +542,7 @@ class LyngSat(SatelliteImport):
 		self.mainTitle = "LyngSat Import (www.lyngsat.com)"
 
 	
-	def getTransponders(self, dummy = None):
+	def getTransponders(self, dummy=None):
 		print("getTransponders")
 		
 		transSystem = {"dvb-s": "0", "dvb-s2": "1",}
@@ -638,7 +638,7 @@ class LyngSat(SatelliteImport):
 						transponders = []
 						for key in tp:
 							transponders.append(tp[key])
-						transponders.sort(key = self.compareFrequency)
+						transponders.sort(key=self.compareFrequency)
 						satellite.append(transponders)
 					satellite[0].update({"selected":False})
 					self.requestSatelliteslistRefresh = True
@@ -1167,7 +1167,7 @@ class Transponder:
 
 class TransponderList(MenuList):
 	def __init__(self):
-		MenuList.__init__(self, list = [], content = eListboxPythonMultiContent)
+		MenuList.__init__(self, list=[], content=eListboxPythonMultiContent)
 		self.rowHight = 24
 		self.l.setItemHeight(24)
 		self.l.setFont(0, gFont("Regular", 20))
@@ -1204,93 +1204,93 @@ class TransponderList(MenuList):
 			color = transponder.importColor
 
 			tp.append(MultiContentEntryText(
-						pos = (0, 0),
-						size = (70, self.rowHight),
-						font = 0, flags = RT_HALIGN_LEFT | RT_VALIGN_TOP,
-						text = transponder.system,
-						color = color,
-						border_width = 1,
-						border_color = 0x000C4E90))
+						pos=(0, 0),
+						size=(70, self.rowHight),
+						font=0, flags=RT_HALIGN_LEFT | RT_VALIGN_TOP,
+						text=transponder.system,
+						color=color,
+						border_width=1,
+						border_color=0x000C4E90))
 			tp.append(MultiContentEntryText(
-						pos = (calc_xpos(tp), 0),
-						size = (60, self.rowHight),
-						font = 0, flags = RT_HALIGN_RIGHT | RT_VALIGN_TOP,
-						text = str(int(transponder.frequency)/1000),
-						color = color,
-						border_width = 1,
-						border_color = 0x000C4E90))
+						pos=(calc_xpos(tp), 0),
+						size=(60, self.rowHight),
+						font=0, flags=RT_HALIGN_RIGHT | RT_VALIGN_TOP,
+						text=str(int(transponder.frequency)/1000),
+						color=color,
+						border_width=1,
+						border_color=0x000C4E90))
 			tp.append(MultiContentEntryText(
-						pos = (calc_xpos(tp), 0),
-						size = (15, self.rowHight),
-						font = 0, flags = RT_HALIGN_CENTER | RT_VALIGN_TOP,
-						text = transponder.polarisation,
-						color = color,
-						border_width = 1,
-						border_color = 0x000C4E90))
+						pos=(calc_xpos(tp), 0),
+						size=(15, self.rowHight),
+						font=0, flags=RT_HALIGN_CENTER | RT_VALIGN_TOP,
+						text=transponder.polarisation,
+						color=color,
+						border_width=1,
+						border_color=0x000C4E90))
 			tp.append(MultiContentEntryText(
-						pos = (calc_xpos(tp), 0),
-						size = (60, self.rowHight),
-						font = 0, flags = RT_HALIGN_RIGHT | RT_VALIGN_TOP,
-						text = str(int(transponder.symbolrate)/1000),
-						color = color,
-						border_width = 1,
-						border_color = 0x000C4E90))
+						pos=(calc_xpos(tp), 0),
+						size=(60, self.rowHight),
+						font=0, flags=RT_HALIGN_RIGHT | RT_VALIGN_TOP,
+						text=str(int(transponder.symbolrate)/1000),
+						color=color,
+						border_width=1,
+						border_color=0x000C4E90))
 			tp.append(MultiContentEntryText(
-						pos = (calc_xpos(tp), 0),
-						size = (45, self.rowHight),
-						font = 0, flags = RT_HALIGN_CENTER | RT_VALIGN_TOP,
-						text = transFec.get(transponder.fec),
-						color = color,
-						border_width = 1,
-						border_color = 0x000C4E90))
+						pos=(calc_xpos(tp), 0),
+						size=(45, self.rowHight),
+						font=0, flags=RT_HALIGN_CENTER | RT_VALIGN_TOP,
+						text=transFec.get(transponder.fec),
+						color=color,
+						border_width=1,
+						border_color=0x000C4E90))
 			tp.append(MultiContentEntryText(
-						pos = (calc_xpos(tp), 0),
-						size = (55, self.rowHight),
-						font = 0, flags = RT_HALIGN_CENTER | RT_VALIGN_TOP,
-						text = transponder.modulation,
-						color = color,
-						border_width = 1,
-						border_color = 0x000C4E90))
+						pos=(calc_xpos(tp), 0),
+						size=(55, self.rowHight),
+						font=0, flags=RT_HALIGN_CENTER | RT_VALIGN_TOP,
+						text=transponder.modulation,
+						color=color,
+						border_width=1,
+						border_color=0x000C4E90))
 			tp.append(MultiContentEntryText(
-						pos = (calc_xpos(tp), 0),
-						size = (40, self.rowHight),
-						font = 0, flags = RT_HALIGN_CENTER | RT_VALIGN_TOP,
-						text = transRolloff.get(transponder.rolloff),
-						color = color,
-						border_width = 1,
-						border_color = 0x000C4E90))
+						pos=(calc_xpos(tp), 0),
+						size=(40, self.rowHight),
+						font=0, flags=RT_HALIGN_CENTER | RT_VALIGN_TOP,
+						text=transRolloff.get(transponder.rolloff),
+						color=color,
+						border_width=1,
+						border_color=0x000C4E90))
 			tp.append(MultiContentEntryText(
-						pos = (calc_xpos(tp), 0),
-						size = (30, self.rowHight),
-						font = 0, flags = RT_HALIGN_CENTER | RT_VALIGN_TOP,
-						text = transponder.inversion,
-						color = color,
-						border_width = 1,
-						border_color = 0x000C4E90))
+						pos=(calc_xpos(tp), 0),
+						size=(30, self.rowHight),
+						font=0, flags=RT_HALIGN_CENTER | RT_VALIGN_TOP,
+						text=transponder.inversion,
+						color=color,
+						border_width=1,
+						border_color=0x000C4E90))
 			tp.append(MultiContentEntryText(
-						pos = (calc_xpos(tp), 0),
-						size = (30, self.rowHight),
-						font = 0, flags = RT_HALIGN_CENTER | RT_VALIGN_TOP,
-						text = transponder.pilot,
-						color = color,
-						border_width = 1,
-						border_color = 0x000C4E90))
+						pos=(calc_xpos(tp), 0),
+						size=(30, self.rowHight),
+						font=0, flags=RT_HALIGN_CENTER | RT_VALIGN_TOP,
+						text=transponder.pilot,
+						color=color,
+						border_width=1,
+						border_color=0x000C4E90))
 			tp.append(MultiContentEntryText(
-						pos = (calc_xpos(tp), 0),
-						size = (60, self.rowHight),
-						font = 0, flags = RT_HALIGN_CENTER | RT_VALIGN_TOP,
-						text = transponder.tsid,
-						color = color,
-						border_width = 1,
-						border_color = 0x000C4E90))
+						pos=(calc_xpos(tp), 0),
+						size=(60, self.rowHight),
+						font=0, flags=RT_HALIGN_CENTER | RT_VALIGN_TOP,
+						text=transponder.tsid,
+						color=color,
+						border_width=1,
+						border_color=0x000C4E90))
 			tp.append(MultiContentEntryText(
-						pos = (calc_xpos(tp), 0),
-						size = (60, self.rowHight),
-						font = 0, flags = RT_HALIGN_CENTER | RT_VALIGN_TOP,
-						text = transponder.onid,
-						color = color,
-						border_width = 1,
-						border_color = 0x000C4E90))
+						pos=(calc_xpos(tp), 0),
+						size=(60, self.rowHight),
+						font=0, flags=RT_HALIGN_CENTER | RT_VALIGN_TOP,
+						text=transponder.onid,
+						color=color,
+						border_width=1,
+						border_color=0x000C4E90))
 			res.append(tp)
 		self.l.setList(res)
 
@@ -1308,7 +1308,7 @@ class TransponderEditor(Screen, ConfigListScreen, Transponder):
 		<widget name="key_blue" position="420,0" zPosition="1" size="140,40" font="Regular;20" halign="center" valign="center" backgroundColor="#18188b" transparent="1" />
 		<widget name="config" position="10,50" size="540,325" scrollbarMode="showOnDemand" />
 		</screen>"""
-	def __init__(self, session, transponderData = None):
+	def __init__(self, session, transponderData=None):
 		self.skin = TransponderEditor.skin
 		Screen.__init__(self, session)
 		
@@ -1339,13 +1339,13 @@ class TransponderEditor(Screen, ConfigListScreen, Transponder):
 		self.configTransponderSystem = ConfigSelection([
 							("DVB-S", _("DVB-S")),
 							("DVB-S2", _("DVB-S2"))], self.system)
-		self.configTransponderFrequency = ConfigFloat(default = [int(self.frequency)/1000, int(self.frequency)%1000], limits=[(0, 99999), (0, 999)])
+		self.configTransponderFrequency = ConfigFloat(default=[int(self.frequency)/1000, int(self.frequency)%1000], limits=[(0, 99999), (0, 999)])
 		self.configTransponderPolarisation = ConfigSelection([
 							("H", _("horizontal")),
 							("V", _("vertical")),
 							("L", _("circular left")),
 							("R", _("circular right"))], self.polarisation)
-		self.configTransponderSymbolrate = ConfigInteger(default = int(self.symbolrate)/1000, limits = (0, 99999))
+		self.configTransponderSymbolrate = ConfigInteger(default=int(self.symbolrate)/1000, limits=(0, 99999))
 		self.configTransponderFec = ConfigSelection([
 							("FEC_AUTO", _("auto")),
 							("FEC_1_2", _("1/2")),
@@ -1383,10 +1383,10 @@ class TransponderEditor(Screen, ConfigListScreen, Transponder):
 							("OFF", _("off")),
 							("ON", _("on")),
 							("AUTO", _("auto"))], self.pilot)
-		self.configTransponderUseTsid	= ConfigYesNo(default = self.useTsid)
-		self.configTransponderUseOnid	= ConfigYesNo(default = self.useOnid)
-		self.configTransponderTsid = ConfigInteger(default = int(self.tsid), limits = (0, 65535))
-		self.configTransponderOnid = ConfigInteger(default = int(self.onid), limits = (0, 65535))
+		self.configTransponderUseTsid	= ConfigYesNo(default=self.useTsid)
+		self.configTransponderUseOnid	= ConfigYesNo(default=self.useOnid)
+		self.configTransponderTsid = ConfigInteger(default=int(self.tsid), limits=(0, 65535))
+		self.configTransponderOnid = ConfigInteger(default=int(self.onid), limits=(0, 65535))
 	
 	def createSetup(self):
 		self.list = []
@@ -1480,7 +1480,7 @@ class TranspondersEditor(Screen):
 		<widget name="list" position="0,64" size="560,240" scrollbarMode="showOnDemand" />
 		<widget name="head" position="0,40" size="560,24" scrollbarMode="showNever" />
 		</screen>"""
-	def __init__(self, session, satellite = None):
+	def __init__(self, session, satellite=None):
 		self.skin = TranspondersEditor.skin
 		Screen.__init__(self, session)
 
@@ -1659,7 +1659,7 @@ class TranspondersEditor(Screen):
 	
 	def sortColumn(self):
 		rev = self.row[self.currentSelectedColumn][2]
-		self.transponderslist.sort(key = self.compareColumn, reverse = rev)
+		self.transponderslist.sort(key=self.compareColumn, reverse=rev)
 		if rev:
 			self.row[self.currentSelectedColumn][2] = False
 		else:
@@ -1668,7 +1668,7 @@ class TranspondersEditor(Screen):
 
 class SatelliteList(MenuList):
 	def __init__(self):
-		MenuList.__init__(self, list = [], content = eListboxPythonMultiContent)
+		MenuList.__init__(self, list=[], content=eListboxPythonMultiContent)
 		self.l.setItemHeight(24)
 		self.l.setFont(0, gFont("Regular", 20))
 
@@ -1696,16 +1696,16 @@ class SatelliteList(MenuList):
 				backcolor = 0x00482727
 				backcolor_sel = 0x00907474
 			satentry.append(MultiContentEntryText(
-						pos = (0, 0),
-						size = (430, 24),
-						font = 0, flags = RT_HALIGN_LEFT | RT_VALIGN_TOP,
-						text = satparameter.get('name'),
-						color = color,
-						color_sel = color_sel,
-						backcolor = backcolor,
-						backcolor_sel = backcolor_sel,
-						border_width = 1,
-						border_color = 0x000C4E90))
+						pos=(0, 0),
+						size=(430, 24),
+						font=0, flags=RT_HALIGN_LEFT | RT_VALIGN_TOP,
+						text=satparameter.get('name'),
+						color=color,
+						color_sel=color_sel,
+						backcolor=backcolor,
+						backcolor_sel=backcolor_sel,
+						border_width=1,
+						border_color=0x000C4E90))
 			pos = int(satparameter.get('position'))
 			posStr = str(abs(pos)/10) + "." +  str(abs(pos)%10)
 			if pos < 0:
@@ -1714,16 +1714,16 @@ class SatelliteList(MenuList):
 				posStr = posStr + " " + _("East")
 				
 			satentry.append(MultiContentEntryText(
-						pos = (430, 0),
-						size = (103, 24),
-						font = 0, flags = RT_HALIGN_RIGHT | RT_VALIGN_TOP,
-						text = posStr,
-						color = color,
-						color_sel = color_sel,
-						backcolor = backcolor,
-						backcolor_sel = backcolor_sel,
-						border_width = 1,
-						border_color = 0x000C4E90))
+						pos=(430, 0),
+						size=(103, 24),
+						font=0, flags=RT_HALIGN_RIGHT | RT_VALIGN_TOP,
+						text=posStr,
+						color=color,
+						color_sel=color_sel,
+						backcolor=backcolor,
+						backcolor_sel=backcolor_sel,
+						border_width=1,
+						border_color=0x000C4E90))
 			res.append(satentry)
 		self.l.setList(res)
 
@@ -1842,12 +1842,12 @@ class SatInfo(Screen):
 		for entry in entryList:
 			bandList = [ None ]
 			bandList.append(MultiContentEntryText(
-				pos = (0, 0),
-				size = (55, 24),
-				font = 0, flags = RT_HALIGN_CENTER | RT_VALIGN_CENTER,
-				text = entry,
-				border_width = 1,
-				border_color = 0x000C4E90))
+				pos=(0, 0),
+				size=(55, 24),
+				font=0, flags=RT_HALIGN_CENTER | RT_VALIGN_CENTER,
+				text=entry,
+				border_width=1,
+				border_color=0x000C4E90))
 			l.append(bandList)
 		self["bandlist"].l.setList(l)
 		
@@ -1858,12 +1858,12 @@ class SatInfo(Screen):
 		polarisationList = [ None ]
 		for entry in entryList:
 			polarisationList.append(MultiContentEntryText(
-				pos = (xpos, 0),
-				size = (125, 24),
-				font = 0, flags = RT_HALIGN_CENTER | RT_VALIGN_TOP,
-				text = entry,
-				border_width = 1,
-				border_color = 0x000C4E90))
+				pos=(xpos, 0),
+				size=(125, 24),
+				font=0, flags=RT_HALIGN_CENTER | RT_VALIGN_TOP,
+				text=entry,
+				border_width=1,
+				border_color=0x000C4E90))
 			xpos = calc_xpos(polarisationList)
 		self["polhead"].l.setList([polarisationList])
 
@@ -1873,12 +1873,12 @@ class SatInfo(Screen):
 		xpos = 0
 		for entry in entryList:
 			infolist.append(MultiContentEntryText(
-				pos = (xpos, 0),
-				size = (entry[1], 24),
-				font = 0, flags = RT_HALIGN_CENTER | RT_VALIGN_TOP,
-				text = entry[0],
-				border_width = 1,
-				border_color = 0x000C4E90))
+				pos=(xpos, 0),
+				size=(entry[1], 24),
+				font=0, flags=RT_HALIGN_CENTER | RT_VALIGN_TOP,
+				text=entry[0],
+				border_width=1,
+				border_color=0x000C4E90))
 			xpos = calc_xpos(infolist)
 		l.append(infolist)
 		
@@ -1896,12 +1896,12 @@ class SatInfo(Screen):
 		xpos = 0
 		for entry in entryList:
 			infolist.append(MultiContentEntryText(
-				pos = (xpos, 0),
-				size = (entry[1], 24),
-				font = 0, flags = RT_HALIGN_CENTER | RT_VALIGN_TOP,
-				text = str(entry[0]).lstrip("0"),
-				border_width = 1,
-				border_color = 0x000C4E90))
+				pos=(xpos, 0),
+				size=(entry[1], 24),
+				font=0, flags=RT_HALIGN_CENTER | RT_VALIGN_TOP,
+				text=str(entry[0]).lstrip("0"),
+				border_width=1,
+				border_color=0x000C4E90))
 			xpos = calc_xpos(infolist)
 		l.append(infolist)
 		
@@ -1919,12 +1919,12 @@ class SatInfo(Screen):
 		xpos = 0
 		for entry in entryList:
 			infolist.append(MultiContentEntryText(
-				pos = (xpos, 0),
-				size = (entry[1], 24),
-				font = 0, flags = RT_HALIGN_CENTER | RT_VALIGN_TOP,
-				text = str(entry[0]).lstrip("0"),
-				border_width = 1,
-				border_color = 0x000C4E90))
+				pos=(xpos, 0),
+				size=(entry[1], 24),
+				font=0, flags=RT_HALIGN_CENTER | RT_VALIGN_TOP,
+				text=str(entry[0]).lstrip("0"),
+				border_width=1,
+				border_color=0x000C4E90))
 			xpos = calc_xpos(infolist)
 		l.append(infolist)
 		
@@ -1947,7 +1947,7 @@ class SatEditor(Screen, ConfigListScreen):
 		<widget name="key_blue" position="420,0" zPosition="1" size="140,40" font="Regular;20" halign="center" valign="center" backgroundColor="#18188b" transparent="1" />
 		<widget name="config" position="10,50" size="540,276" scrollbarMode="showOnDemand" />
 		</screen>"""
-	def __init__(self, session, satelliteData = None):
+	def __init__(self, session, satelliteData=None):
 		self.skin = SatEditor.skin
 		Screen.__init__(self, session)
 		self.satelliteData = satelliteData
@@ -1986,12 +1986,12 @@ class SatEditor(Screen, ConfigListScreen):
 		self.setTitle("Edit " + self.satelliteName)
 
 	def createConfig(self):
-		self.configSatelliteName		= ConfigText(default = self.satelliteName, visible_width = 50, fixed_size = False)
-		self.configSatellitePosition		= ConfigFloat(default = self.satellitePosition, limits=[(0, 179), (0, 9)])
+		self.configSatelliteName		= ConfigText(default=self.satelliteName, visible_width=50, fixed_size=False)
+		self.configSatellitePosition		= ConfigFloat(default=self.satellitePosition, limits=[(0, 179), (0, 9)])
 		self.configSatelliteOrientation		= ConfigSelection([("east", _("East")), ("west", _("West"))], self.satelliteOrientation)
-		self.configSatelliteFlagNetworkScan	= ConfigYesNo(default = (self.satelliteFlags & self.flagNetworkScan) and True)
-		self.configSatelliteFlagUseBAT		= ConfigYesNo(default = (self.satelliteFlags & self.flagUseBAT) and True)
-		self.configSatelliteFlagUseONIT		= ConfigYesNo(default = (self.satelliteFlags & self.flagUseONIT) and True)
+		self.configSatelliteFlagNetworkScan	= ConfigYesNo(default=(self.satelliteFlags & self.flagNetworkScan) and True)
+		self.configSatelliteFlagUseBAT		= ConfigYesNo(default=(self.satelliteFlags & self.flagUseBAT) and True)
+		self.configSatelliteFlagUseONIT		= ConfigYesNo(default=(self.satelliteFlags & self.flagUseONIT) and True)
 	
 	def createSetup(self):
 		self.list = []
@@ -2028,21 +2028,21 @@ class Head(HTMLComponent, GUIComponent):
 	def postWidgetCreate(self, instance):
 		instance.setContent(self.l)
 
-	def setEntries(self,data = None):
+	def setEntries(self,data=None):
 		res = [ None ]
 		if data is not None:
 			for x in data:
 				res.append(MultiContentEntryText(
-					pos = (x[0], 0),
-					size = (x[1], 24),
-					font = 0, flags = RT_HALIGN_CENTER | RT_VALIGN_TOP,
-					text = x[2],
-					color = 0x00C0C0C0,
-					backcolor = 0x25474738,
-					color_sel = 0x00FFFFFF,
-					backcolor_sel = 0x25606000,
-					border_width = 1,
-					border_color = 0x000C4E90))
+					pos=(x[0], 0),
+					size=(x[1], 24),
+					font=0, flags=RT_HALIGN_CENTER | RT_VALIGN_TOP,
+					text=x[2],
+					color=0x00C0C0C0,
+					backcolor=0x25474738,
+					color_sel=0x00FFFFFF,
+					backcolor_sel=0x25606000,
+					border_width=1,
+					border_color=0x000C4E90))
 		self.l.setList([res])
 
 class MenuSelection(Screen):
@@ -2320,12 +2320,12 @@ class SatellitesEditor(Screen):
 		for entry in entryList:
 			bandList = [ None ]
 			bandList.append(MultiContentEntryText(
-				pos = (0, 0),
-				size = (55, 24),
-				font = 0, flags = RT_HALIGN_CENTER | RT_VALIGN_CENTER,
-				text = entry,
-				border_width = 1,
-				border_color = 0x000C4E90))
+				pos=(0, 0),
+				size=(55, 24),
+				font=0, flags=RT_HALIGN_CENTER | RT_VALIGN_CENTER,
+				text=entry,
+				border_width=1,
+				border_color=0x000C4E90))
 			l.append(bandList)
 		self["bandlist"].l.setList(l)
 		
@@ -2336,12 +2336,12 @@ class SatellitesEditor(Screen):
 		polarisationList = [ None ]
 		for entry in entryList:
 			polarisationList.append(MultiContentEntryText(
-				pos = (xpos, 0),
-				size = (125, 24),
-				font = 0, flags = RT_HALIGN_CENTER | RT_VALIGN_TOP,
-				text = entry,
-				border_width = 1,
-				border_color = 0x000C4E90))
+				pos=(xpos, 0),
+				size=(125, 24),
+				font=0, flags=RT_HALIGN_CENTER | RT_VALIGN_TOP,
+				text=entry,
+				border_width=1,
+				border_color=0x000C4E90))
 			xpos = calc_xpos(polarisationList)
 		self["polhead"].l.setList([polarisationList])
 
@@ -2351,12 +2351,12 @@ class SatellitesEditor(Screen):
 		xpos = 0
 		for entry in entryList:
 			infolist.append(MultiContentEntryText(
-				pos = (xpos, 0),
-				size = (entry[1], 24),
-				font = 0, flags = RT_HALIGN_CENTER | RT_VALIGN_TOP,
-				text = entry[0],
-				border_width = 1,
-				border_color = 0x000C4E90))
+				pos=(xpos, 0),
+				size=(entry[1], 24),
+				font=0, flags=RT_HALIGN_CENTER | RT_VALIGN_TOP,
+				text=entry[0],
+				border_width=1,
+				border_color=0x000C4E90))
 			xpos = calc_xpos(infolist)
 		l.append(infolist)
 		
@@ -2374,12 +2374,12 @@ class SatellitesEditor(Screen):
 		xpos = 0
 		for entry in entryList:
 			infolist.append(MultiContentEntryText(
-				pos = (xpos, 0),
-				size = (entry[1], 24),
-				font = 0, flags = RT_HALIGN_CENTER | RT_VALIGN_TOP,
-				text = str(entry[0]).lstrip("0"),
-				border_width = 1,
-				border_color = 0x000C4E90))
+				pos=(xpos, 0),
+				size=(entry[1], 24),
+				font=0, flags=RT_HALIGN_CENTER | RT_VALIGN_TOP,
+				text=str(entry[0]).lstrip("0"),
+				border_width=1,
+				border_color=0x000C4E90))
 			xpos = calc_xpos(infolist)
 		l.append(infolist)
 		
@@ -2397,12 +2397,12 @@ class SatellitesEditor(Screen):
 		xpos = 0
 		for entry in entryList:
 			infolist.append(MultiContentEntryText(
-				pos = (xpos, 0),
-				size = (entry[1], 24),
-				font = 0, flags = RT_HALIGN_CENTER | RT_VALIGN_TOP,
-				text = str(entry[0]).lstrip("0"),
-				border_width = 1,
-				border_color = 0x000C4E90))
+				pos=(xpos, 0),
+				size=(entry[1], 24),
+				font=0, flags=RT_HALIGN_CENTER | RT_VALIGN_TOP,
+				text=str(entry[0]).lstrip("0"),
+				border_width=1,
+				border_color=0x000C4E90))
 			xpos = calc_xpos(infolist)
 		l.append(infolist)
 		
@@ -2554,7 +2554,7 @@ class SatellitesEditor(Screen):
 	
 	def sortColumn(self):
 		rev = self.row[self.currentSelectedColumn][2]
-		self.satelliteslist.sort(key = self.compareColumn, reverse = rev)
+		self.satelliteslist.sort(key=self.compareColumn, reverse=rev)
 		if rev:
 			self.row[self.currentSelectedColumn][2] = False
 		else:
@@ -2624,6 +2624,6 @@ def SatellitesEditorStart(menuid, **kwargs):
 
 def Plugins(**kwargs):
 	if (nimmanager.hasNimType("DVB-S")):
-		return PluginDescriptor(name=_("Satellites Editor"), description="Lets you edit satellites in your STB", where = PluginDescriptor.WHERE_MENU, fnc=SatellitesEditorStart)
+		return PluginDescriptor(name=_("Satellites Editor"), description="Lets you edit satellites in your STB", where=PluginDescriptor.WHERE_MENU, fnc=SatellitesEditorStart)
 	else:
 		return []

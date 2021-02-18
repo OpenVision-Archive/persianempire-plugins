@@ -462,7 +462,7 @@ class navibar_config1(Screen, ConfigListScreen, HelpableScreen):
         if self.select_screen == 3:
             self.session.openWithCallback(self.write_section, VirtualKeyBoard, title=_('Enter Section Name :'))
 
-    def write_section(self, section_name = None):
+    def write_section(self, section_name=None):
         if not section_name == None:
             print('NaviBarPE : add section ->', section_name)
             section = open(self.plugin_path + '/sections', 'a')
@@ -476,7 +476,7 @@ class navibar_config1(Screen, ConfigListScreen, HelpableScreen):
             item = self['config2'].getCurrent()[0][6]
             self.session.openWithCallback(self.write_descrip, VirtualKeyBoard, title=_('Enter Plugin Description :'), text=item)
 
-    def write_descrip(self, descrip1 = None):
+    def write_descrip(self, descrip1=None):
         if not descrip1 == None:
             item = self['config2'].getCurrent()
             if item:

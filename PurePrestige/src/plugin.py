@@ -274,7 +274,7 @@ class showPurePrestigescreen(Screen):
         self['label8'].setText('About')
         self.showPic()
 
-    def showPic(self, picInfo = ''):
+    def showPic(self, picInfo=''):
         self['thumb' + str(self.Thumbnaillist[0][1])].instance.setPixmapFromFile(resolveFilename(SCOPE_PLUGINS, 'Extensions/PurePrestige/panelbuttons/download.png'))
         self['thumb' + str(self.Thumbnaillist[0][1])].show()
         self['thumb' + str(self.Thumbnaillist[1][1])].instance.setPixmapFromFile(resolveFilename(SCOPE_PLUGINS, 'Extensions/PurePrestige/panelbuttons/uninstaller.png'))
@@ -357,7 +357,7 @@ class showPurePrestigescreen(Screen):
         elif self.index == 8:
             self.session.open(PurePrestigeAboutScreen)
 
-    def callbackView(self, val = 0):
+    def callbackView(self, val=0):
         self.index = val
         if self.old_index != self.index:
             self.paintFrame()
@@ -669,7 +669,7 @@ class DreamCCAuto():
         return
 
 
-def autostartsoftcam(reason, session = None, **kwargs):
+def autostartsoftcam(reason, session=None, **kwargs):
     """called with reason=1 to during shutdown, with reason=0 at startup?"""
     global DreamCC_auto
     print('[Softcam] Started')

@@ -102,7 +102,7 @@ class BouquetProtectSetup(Screen, ConfigListScreen):
 			if self.access or self.BPS.protect.index.value == self.BPS.protect.index.default:
 				self.passEntered(None, True)
 			else:
-				self.session.openWithCallback(boundFunction(self.passEntered, None), PinInput, triesEntry = self.BPS.protect, pinList = [self.BPS.protect.index.value], title = _("please enter the old password"), windowTitle = _("Bouquet Protection Setup"))
+				self.session.openWithCallback(boundFunction(self.passEntered, None), PinInput, triesEntry=self.BPS.protect, pinList=[self.BPS.protect.index.value], title=_("please enter the old password"), windowTitle=_("Bouquet Protection Setup"))
 
 	def passEntered(self, callback, result):
 		if result:
@@ -146,7 +146,7 @@ class BouquetProtectSetup(Screen, ConfigListScreen):
 			updateActionMap()
 			self.close()
 		else:
-			self.session.openWithCallback(boundFunction(self.passEntered, self.keyGreen), PinInput, triesEntry = self.BPS.protect, pinList = [self.BPS.protect.index.value], title = _("please enter password"), windowTitle = _("Bouquet Protection Setup"))
+			self.session.openWithCallback(boundFunction(self.passEntered, self.keyGreen), PinInput, triesEntry=self.BPS.protect, pinList=[self.BPS.protect.index.value], title=_("please enter password"), windowTitle=_("Bouquet Protection Setup"))
 
 	def keyLeft(self):
 		ConfigListScreen.keyLeft(self)
@@ -159,7 +159,7 @@ class BouquetProtectSetup(Screen, ConfigListScreen):
 
 
 class PasswordSetup(Screen, ConfigListScreen):
-	def __init__(self, session, pin, title = _("Change password")):
+	def __init__(self, session, pin, title=_("Change password")):
 		Screen.__init__(self, session)
 		self.skinName = ["PasswordSetup", "Setup"]
 		self.setup_title = title
@@ -167,9 +167,9 @@ class PasswordSetup(Screen, ConfigListScreen):
 
 		self.pin = pin
 		self.list = []
-		self.pass1 = ConfigPIN(default = 1111, censor = "*")
+		self.pass1 = ConfigPIN(default=1111, censor="*")
 		self.pass1.addEndNotifier(boundFunction(self.passChanged, 1))
-		self.pass2 = ConfigPIN(default = 1112, censor = "*")
+		self.pass2 = ConfigPIN(default=1112, censor="*")
 		self.pass2.addEndNotifier(boundFunction(self.passChanged, 2))
 		self.list.append(getConfigListEntry(_("Enter new password"), NoSave(self.pass1)))
 		self.list.append(getConfigListEntry(_("Reenter new password"), NoSave(self.pass2)))

@@ -71,7 +71,7 @@ class MountDevice:
 	def __init__(self):
 		self.Console = Console()
 
-	def Mount(self, device, dirpath, enableswap = False):
+	def Mount(self, device, dirpath, enableswap=False):
 		dir = ""
 		self.enableswap = enableswap
 		for line in dirpath[1:].split("/"):

@@ -60,7 +60,7 @@ class PurePrestigeFlashBackupBackupLocation(Screen, HelpableScreen):
     else:
         skin = '\n    <screen name="PurePrestigeFlashBackupBackupLocation" position="center,center" title="Choose backup location" size="540,460" >\n            <widget source="text" render="Label" position="0,23" size="540,25" font="Regular;22" transparent="1" zPosition="1" foregroundColor="#ffffff" />\n            <widget name="target" position="0,50" size="540,25" valign="center" font="Regular;22" />\n            <widget name="filelist" position="0,80" zPosition="1" size="540,210" scrollbarMode="showOnDemand" selectionDisabled="1" />\n            <ePixmap position="300,415" size="35,25" pixmap="%s" transparent="1" alphatest="blend" />\n            <widget name="red" position="0,415" zPosition="1" size="135,40" pixmap="~/Stools/PPFlashBackup/images/button_red.png" transparent="1" alphatest="on" />\n            <widget name="key_red" position="0,415" zPosition="2" size="135,40" halign="center" valign="center" font="Regular;22" transparent="1" shadowColor="black" shadowOffset="-1,-1" />   \n            <widget name="green" position="135,415" zPosition="1" size="135,40" pixmap="~/Stools/PPFlashBackup/images/button_green.png" transparent="1" alphatest="on" />\n            <widget name="key_green" position="135,415" zPosition="2" size="135,40" halign="center" valign="center" font="Regular;22" transparent="1" shadowColor="black" shadowOffset="-1,-1" />\n        </screen>' % resolveFilename(SCOPE_PLUGINS, 'Extensions/PurePrestige/Stools/PPFlashBackup/images/key_ok.png')
 
-    def __init__(self, session, text = '', filename = '', currDir = None, location = None, userMode = False, windowTitle = _('Choose backup location'), minFree = None, autoAdd = False, editDir = False, inhibitDirs = [], inhibitMounts = []):
+    def __init__(self, session, text='', filename='', currDir=None, location=None, userMode=False, windowTitle=_('Choose backup location'), minFree=None, autoAdd=False, editDir=False, inhibitDirs=[], inhibitMounts=[]):
         Screen.__init__(self, session)
         self.skin_path = resolveFilename(SCOPE_PLUGINS, "Extensions/PurePrestige")
         HelpableScreen.__init__(self)
@@ -106,7 +106,7 @@ class PurePrestigeFlashBackupBackupLocation(Screen, HelpableScreen):
 
         class BackupLocationActionMap(HelpableActionMap):
 
-            def __init__(self, parent, context, actions = {}, prio = 0):
+            def __init__(self, parent, context, actions={}, prio=0):
                 HelpableActionMap.__init__(self, parent, context, actions, prio)
 
         self['WizardActions'] = BackupLocationActionMap(self, 'WizardActions', {'left': self.left,

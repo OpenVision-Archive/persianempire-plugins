@@ -201,7 +201,7 @@ class SatelliteImport(Screen):
             thread.start_new_thread(self.getSatellites, (None,))
         return
 
-    def getTransponders(self, dummy = None):
+    def getTransponders(self, dummy=None):
         pass
 
     def pollTransponders(self):
@@ -244,7 +244,7 @@ class SatelliteImport(Screen):
         self['list'].down()
         self['list'].setEntries(self.satelliteslist)
 
-    def satelliteSelection(self, mode = modeToggle, update = True):
+    def satelliteSelection(self, mode=modeToggle, update=True):
         if len(self.satelliteslist):
             cur_idx = self['list'].getSelectedIndex()
             if mode == self.modeToggle:
@@ -288,7 +288,7 @@ class SatcoDX(SatelliteImport):
         self.urlRegions = ('http://www.satcodx1.com', 'http://www.satcodx2.com', 'http://www.satcodx3.com', 'http://www.satcodx4.com', 'http://www.satcodx5.com', 'http://www.satcodx6.com', 'http://www.satcodx7.com', 'http://www.satcodx8.com', 'http://www.satcodx9.com')
         self.siteLanguages = ('eng', 'deu')
 
-    def getTransponders(self, dummy = None):
+    def getTransponders(self, dummy=None):
         print('getTransponders')
         transSystem = {'dvb-s': '0',
          'dvb-s2': '1'}
@@ -571,7 +571,7 @@ class KingOfSat(SatelliteImport):
         self.urlsSatellites = ('http://de.kingofsat.net', 'http://en.kingofsat.net')
         self.mainTitle = 'KingOfSat Import (www.kingofsat.net)'
 
-    def getTransponders(self, dummy = None):
+    def getTransponders(self, dummy=None):
         print('getTransponders')
         transSystem = {'dvb-s': '0',
          'dvb-s2': '1'}
@@ -789,7 +789,7 @@ class LyngSat(SatelliteImport):
     listFec = ('1/2', '2/3', '3/4', '4/5', '5/6', '7/8', '?')
     listFecAll = ('1/2', '2/3', '3/4', '4/5', '5/6', '7/8', '8/9', '3/5', '4/5', '9/10', '?')
 
-    def __init__(self, session, selectedregion = None):
+    def __init__(self, session, selectedregion=None):
         SatelliteImport.__init__(self, session)
         self.baseurl = 'http://lyngsat.com'
         self.urlRegions = ('asia.html', 'europe.html', 'atlantic.html', 'america.html')
@@ -797,7 +797,7 @@ class LyngSat(SatelliteImport):
         self['fspace'].setText('connecting ... please wait')
         self.selectedregion = selectedregion
 
-    def getTransponders(self, dummy = None):
+    def getTransponders(self, dummy=None):
         print('getTransponders')
         transSystem = {'dvb-s': '0',
          'dvb-s2': '1'}
@@ -1454,7 +1454,7 @@ class TransponderList(MenuList):
 class TransponderEditor(Screen, ConfigListScreen, Transponder):
     skin = '\n\t\t<screen position="center,center" size="560,430" title="Edit" >\n\t\t<ePixmap pixmap="~/ddbuttons/red.png" position="0,0" size="140,40" alphatest="on" />\n\t\t<ePixmap pixmap="~/ddbuttons/green.png" position="140,0" size="140,40" alphatest="on" />\n\t\t<ePixmap pixmap="~/ddbuttons/yellow.png" position="280,0" size="140,40" alphatest="on" />\n\t\t<ePixmap pixmap="~/ddbuttons/blue.png" position="420,0" size="140,40" alphatest="on" />\n\t\t<widget name="key_red" position="0,0" zPosition="1" size="140,40" font="Regular;20" halign="center" valign="center" backgroundColor="#9f1313" transparent="1" />\n\t\t<widget name="key_green" position="140,0" zPosition="1" size="140,40" font="Regular;20" halign="center" valign="center" backgroundColor="#1f771f" transparent="1" />\n\t\t<widget name="key_yellow" position="280,0" zPosition="1" size="140,40" font="Regular;20" halign="center" valign="center" backgroundColor="#a08500" transparent="1" />\n\t\t<widget name="key_blue" position="420,0" zPosition="1" size="140,40" font="Regular;20" halign="center" valign="center" backgroundColor="#18188b" transparent="1" />\n\t\t<widget name="config" position="10,50" size="540,325" scrollbarMode="showOnDemand" />\n\t\t</screen>'
 
-    def __init__(self, session, transponderData = None):
+    def __init__(self, session, transponderData=None):
         self.skin = TransponderEditor.skin
         self.skin_path = resolveFilename(SCOPE_PLUGINS, "Extensions/PurePrestige")
         Screen.__init__(self, session)
@@ -1583,7 +1583,7 @@ class TransponderEditor(Screen, ConfigListScreen, Transponder):
 class TranspondersEditor(Screen):
     skin = '\n\t\t<screen position="center,center" size="560,430" title="Transponders Editor" >\n\t\t<ePixmap pixmap="~/ddbuttons/red.png" position="0,0" size="140,40" alphatest="on" />\n\t\t<ePixmap pixmap="~/ddbuttons/green.png" position="140,0" size="140,40" alphatest="on" />\n\t\t<ePixmap pixmap="~/ddbuttons/yellow.png" position="280,0" size="140,40" alphatest="on" />\n\t\t<ePixmap pixmap="~/ddbuttons/blue.png" position="420,0" size="140,40" alphatest="on" />\n\t\t<widget name="key_red" position="0,0" zPosition="1" size="140,40" font="Regular;20" halign="center" valign="center" backgroundColor="#9f1313" transparent="1" />\n\t\t<widget name="key_green" position="140,0" zPosition="1" size="140,40" font="Regular;20" halign="center" valign="center" backgroundColor="#1f771f" transparent="1" />\n\t\t<widget name="key_yellow" position="280,0" zPosition="1" size="140,40" font="Regular;20" halign="center" valign="center" backgroundColor="#a08500" transparent="1" />\n\t\t<widget name="key_blue" position="420,0" zPosition="1" size="140,40" font="Regular;20" halign="center" valign="center" backgroundColor="#18188b" transparent="1" />\n\t\t<widget name="list" position="0,64" size="560,240" scrollbarMode="showOnDemand" />\n\t\t<widget name="head" position="0,40" size="560,24" scrollbarMode="showNever" />\n\t\t</screen>'
 
-    def __init__(self, session, satellite = None):
+    def __init__(self, session, satellite=None):
         self.skin = TranspondersEditor.skin
         self.skin_path = resolveFilename(SCOPE_PLUGINS, "Extensions/PurePrestige")
         Screen.__init__(self, session)
@@ -1988,7 +1988,7 @@ class SatEditor(Screen, ConfigListScreen):
     flagUseONIT = 4
     skin = '\n\t\t<screen position="center,center" size="560,430" title="Edit" >\n\t\t<ePixmap pixmap="~/ddbuttons/red.png" position="0,0" size="140,40" alphatest="on" />\n\t\t<ePixmap pixmap="~/ddbuttons/green.png" position="140,0" size="140,40" alphatest="on" />\n\t\t<ePixmap pixmap="~/ddbuttons/yellow.png" position="280,0" size="140,40" alphatest="on" />\n\t\t<ePixmap pixmap="~/ddbuttons/blue.png" position="420,0" size="140,40" alphatest="on" />\n\t\t<widget name="key_red" position="0,0" zPosition="1" size="140,40" font="Regular;20" halign="center" valign="center" backgroundColor="#9f1313" transparent="1" />\n\t\t<widget name="key_green" position="140,0" zPosition="1" size="140,40" font="Regular;20" halign="center" valign="center" backgroundColor="#1f771f" transparent="1" />\n\t\t<widget name="key_yellow" position="280,0" zPosition="1" size="140,40" font="Regular;20" halign="center" valign="center" backgroundColor="#a08500" transparent="1" />\n\t\t<widget name="key_blue" position="420,0" zPosition="1" size="140,40" font="Regular;20" halign="center" valign="center" backgroundColor="#18188b" transparent="1" />\n\t\t<widget name="config" position="10,50" size="540,276" scrollbarMode="showOnDemand" />\n\t\t</screen>'
 
-    def __init__(self, session, satelliteData = None):
+    def __init__(self, session, satelliteData=None):
         self.skin = SatEditor.skin
         self.skin_path = resolveFilename(SCOPE_PLUGINS, "Extensions/PurePrestige")
         Screen.__init__(self, session)
@@ -2071,7 +2071,7 @@ class Head(HTMLComponent, GUIComponent):
     def postWidgetCreate(self, instance):
         instance.setContent(self.l)
 
-    def setEntries(self, data = None):
+    def setEntries(self, data=None):
         res = [None]
         if data is not None:
             for x in data:

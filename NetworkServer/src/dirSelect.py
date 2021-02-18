@@ -28,7 +28,7 @@ class dirSelectDlg(Screen):
 		self["ButtonGreentext"] = Button()
 		self["ButtonRed"] = Pixmap()
 		self["ButtonRedtext"] = Label(_("Close"))
-		self["filelist"] = FileList(currDir, showDirectories = True, showFiles = False, showMountpoints = False, useServiceRef = False)
+		self["filelist"] = FileList(currDir, showDirectories=True, showFiles=False, showMountpoints=False, useServiceRef=False)
 
 		self["actions"] = ActionMap(["WizardActions", "DirectionActions", "ColorActions"],
 		{

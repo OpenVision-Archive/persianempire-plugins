@@ -42,7 +42,7 @@ def DaemonEntry(name, picture, description, started, installed):
 
 class DaemonsList(Screen):
 
-    def __init__(self, session, args = 0):
+    def __init__(self, session, args=0):
         Screen.__init__(self, session)
         self.running = list()
         self.installed = list()
@@ -85,7 +85,7 @@ class DaemonsList(Screen):
                 else:
                     self['key_green'].setText('')
 
-    def drawList(self, ret = None):
+    def drawList(self, ret=None):
         self.session.open(ExtraActionBox, _('Checking daemons status...'), _('Daemons'), self.actionDrawList)
 
     def actionDrawList(self):

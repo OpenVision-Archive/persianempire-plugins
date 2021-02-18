@@ -26,10 +26,10 @@ languages = language.getLanguageList()
 default_language = language.getActiveLanguage()
 for lng in languages:
 	choicelist.append((lng[0], lng[1][0]))
-config.plugins.LocaleManager.usedlang = NoSave(ConfigSelection(default = default_language, choices = choicelist))
+config.plugins.LocaleManager.usedlang = NoSave(ConfigSelection(default=default_language, choices=choicelist))
 config.plugins.LocaleManager.target = NoSave(ConfigDirectory(STARTDIR))
-config.plugins.LocaleManager.enigma = NoSave(ConfigSelection(default = "move", choices = [("no", _("nothing")), (("delete", _("delete"))), (("move", _("move")))]))
-config.plugins.LocaleManager.plugins = NoSave(ConfigYesNo(default = True))
+config.plugins.LocaleManager.enigma = NoSave(ConfigSelection(default="move", choices=[("no", _("nothing")), (("delete", _("delete"))), (("move", _("move")))]))
+config.plugins.LocaleManager.plugins = NoSave(ConfigYesNo(default=True))
 cfg = config.plugins.LocaleManager
 
 
@@ -86,7 +86,7 @@ class LocaleManager(Screen, ConfigListScreen):
 		self.removeLocaleCfglist.append(getConfigListEntry(_("What About Enigma2 Language Files ?"), cfg.enigma))
 
 		self.onChangedEntry = []
-		ConfigListScreen.__init__(self, self.removeLocaleCfglist, session, on_change = self.changedEntry)
+		ConfigListScreen.__init__(self, self.removeLocaleCfglist, session, on_change=self.changedEntry)
 
 	def changedEntry(self):
 		if cfg.enigma.value == "move":

@@ -103,16 +103,16 @@ class Language:
         T1 = _('Please use the UP and DOWN keys to select your language. Afterwards press the OK button.')
         T2 = _('Language selection')
         l = open('language_cache.py', 'w')
-        print('# -*- coding: UTF-8 -*-', file =l)
-        print('LANG_TEXT = {', file =l)
+        print('# -*- coding: UTF-8 -*-', file=l)
+        print('LANG_TEXT = {', file=l)
         for language in self.langlist:
             self.activateLanguage(language)
-            print('"%s": {' % language, file =l)
-            print('\t"T1": "%s",' % _(T1), file =l)
-            print('\t"T2": "%s",' % _(T2), file =l)
-            print('},', file =l)
+            print('"%s": {' % language, file=l)
+            print('\t"T1": "%s",' % _(T1), file=l)
+            print('\t"T2": "%s",' % _(T2), file=l)
+            print('},', file=l)
 
-        print('}', file =l)
+        print('}', file=l)
 
 
 language = Language()

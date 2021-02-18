@@ -66,7 +66,7 @@ class makePurePrestigeFlashBackupTelnet(Screen):
     else:
         skin = '\n        <screen position="135,144" size="350,310" title="Backup is running" >\n        <widget name="text" position="0,0" size="550,400" font="Console;14" />\n        </screen>'
 
-    def __init__(self, session, runBackup = False, sim2 = 1, console = True):
+    def __init__(self, session, runBackup=False, sim2=1, console=True):
         Screen.__init__(self, session)
         self.session = session
         self.startTime = None
@@ -177,7 +177,7 @@ class makePurePrestigeFlashBackupTelnet(Screen):
 class backuprunning(Screen):
     skin = '\n        \t\n                <screen  position="20,20" size="200,100" title=""  flags="wfNoBorder" >\n  \n\n                <widget name="info" position="20,20" zPosition="4" size="180,80" font="Regular;20" foregroundColor="#ffffff" transparent="1" halign="center" valign="center" />\n                </screen>'
 
-    def __init__(self, session, com = None, starttime = None):
+    def __init__(self, session, com=None, starttime=None):
         self.skin = backuprunning.skin
         Screen.__init__(self, session)
         self.startTime = starttime
