@@ -33,8 +33,10 @@ config.plugins.blockcontent.pin = ConfigPIN(default=1111, censor="*")
 global blockedcontent_asking
 blockedcontent_asking = False
 
+
 def startConfig(session, **kwargs):                                         
         session.open(BlockContentConfiguration)
+
 
 def autostart(reason, **kwargs):
     if "session" in kwargs and reason == 0:
@@ -42,10 +44,12 @@ def autostart(reason, **kwargs):
        print("[BlockContent] autostart check")
        session.open(BlockContentCheck)
 
+
 def Plugins(**kwargs):
     	return [PluginDescriptor(where=[PluginDescriptor.WHERE_SESSIONSTART, PluginDescriptor.WHERE_AUTOSTART], fnc=autostart),
 		PluginDescriptor(name="Block Content", description=_("never shown"), where=PluginDescriptor.WHERE_EXTENSIONSMENU, fnc=mainext),
 		PluginDescriptor(name=_("Block Content"), description=_("never shown"), where=PluginDescriptor.WHERE_MENU, fnc=mainconf)]
+
 
 def mainext(session, **kwargs):
     if config.plugins.blockcontent.viewingtime.value == 0:
@@ -53,10 +57,12 @@ def mainext(session, **kwargs):
     else:
     	session.open(BlockContentEnableDisable)
 
+
 def mainconf(menuid):
     if menuid != "system":                                                  
         return []                                                     
     return [(_("Block Content"), startConfig, "blockcontent", None)]    
+
 
 class BlockContentConfiguration(Screen, ConfigListScreen, ProtectedScreen):
     skin = """
@@ -65,6 +71,7 @@ class BlockContentConfiguration(Screen, ConfigListScreen, ProtectedScreen):
         <widget name="buttonred" position="10,200" size="100,40" backgroundColor="red" valign="center" halign="center" zPosition="2"  foregroundColor="white" font="Regular;18"/>
         <widget name="buttongreen" position="490,200" size="100,40" backgroundColor="green" valign="center" halign="center" zPosition="2"  foregroundColor="white" font="Regular;18"/>
         </screen>"""
+
     def __init__(self, session, args=0):
 	Screen.__init__(self, session)
 	ProtectedScreen.__init__(self)       
@@ -117,6 +124,7 @@ class BlockContentConfiguration(Screen, ConfigListScreen, ProtectedScreen):
     def protectedWithPin(self):
         return config.plugins.blockcontent.pin.getValue()
 
+
 class BlockContentEnableDisable(Screen, ProtectedScreen):
     skin = """
         <screen position="center,center" size="350,140" title="Block Content Configuration" >
@@ -146,10 +154,12 @@ class BlockContentEnableDisable(Screen, ProtectedScreen):
     def protectedWithPin(self):
         return config.plugins.blockcontent.pin.getValue()
 
+
 class BlockContentCheck(Screen):
     skin = """
         <screen position="center,center" size="400,300" title="Block Content Check" >
         </screen>"""
+
     def __init__(self, session):
         self.skin = BlockContentCheck.skin
 	self.session = session

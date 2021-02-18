@@ -11,11 +11,13 @@ def localeInit():
 	bindtextdomain("PECamManager", resolveFilename(SCOPE_PLUGINS,
 		"Extensions/PECamManager/locale"))
 
+
 def _(txt):
 	t = dgettext("PECamManager", txt)
 	if t == txt:
 		t = gettext(txt)
 	return t
+
 
 localeInit()
 language.addCallback(localeInit)

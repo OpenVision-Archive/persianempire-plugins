@@ -47,8 +47,10 @@ regularFontList = ConfigSelection(choices=[], default="")
 config.plugins.fm.regular_Font = ConfigText(default="")
 savedSettingsList = []
 
+
 def Plugins(**kwargs):
     return [PluginDescriptor(name=("Font Magnifier 0.6.1"), description=_("Tool to change font sizes easily."), where=PluginDescriptor.WHERE_PLUGINMENU, icon="fm.png", fnc=main)]
+
 
 def main(session, **kwargs):
         hw_type_string = model
@@ -57,6 +59,7 @@ def main(session, **kwargs):
         hw_type_file.write(hw_type_string)
         hw_type_file.close()
         session.open(fmConfiguration)
+
 
 class fmConfiguration(Screen, ConfigListScreen):
     skin = """
@@ -341,6 +344,7 @@ class fmConfiguration(Screen, ConfigListScreen):
                                     break
                     if tag_gefunden == 1:
                         break
+
     def getcurrent_regularFont(self):
         global regularFontExistInXML
         global regularFontList
@@ -426,6 +430,7 @@ class fmConfiguration(Screen, ConfigListScreen):
 
     def handle_menukey(self):
         self.session.open(fmOptions)
+
 
 class fmOptions(Screen):
     skin = """
@@ -566,6 +571,7 @@ class fmOptions(Screen):
         self.session.open(fmRestoreSettings)
         self.close(False)
 
+
 class fmRestoreSettings(Screen):
     skin = """
         <screen name="fmRestoreScreen" position="center,center" size="600,130" zPosition="6" title="Restore Settings">
@@ -657,6 +663,7 @@ class fmRestoreSettings(Screen):
             confirmbox.setTitle(_("Error..."))
             return False
         return True
+
 
 class fmWaitScreen(Screen):
     skin = """
@@ -1008,7 +1015,6 @@ class fmWaitScreen(Screen):
 
                 if not os.path.exists(resolveFilename(SCOPE_LIBDIR, "enigma2/python/Components/MovieList.pyo.bak")):
                     Console().ePopen("cp %s %s") % (resolveFilename(SCOPE_LIBDIR, "enigma2/python/Components/MovieList.pyo"), resolveFilename(SCOPE_LIBDIR, "enigma2/python/Components/MovieList.pyo.bak"))
-
 
                 MovieList_file = open(resolveFilename(SCOPE_LIBDIR, "enigma2/python/Components/MovieList.pyo"), "w")
                 MovieList_file.write(MovieList_text_neu)

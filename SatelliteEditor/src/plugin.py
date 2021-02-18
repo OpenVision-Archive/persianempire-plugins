@@ -191,7 +191,6 @@ class SatelliteImport(Screen):
 		print("importTransponders")
 		self.pollTransponders()
 
-	
 	def pollSatellites(self):
 		if self.getSatellites_state:
 			if self.getSatellites_state == self.thread_is_running:
@@ -224,7 +223,6 @@ class SatelliteImport(Screen):
 	
 	def getTransponders(self, dummy=None):
 		pass
-
 
 	def pollTransponders(self):
 		if self.getTransponders_state:
@@ -294,7 +292,6 @@ class KingOfSat(SatelliteImport):
 	thread_is_running = 1
 	thread_is_done = 2
 	
-	
 	transFec = {
 			"1/2": "1",
 			"2/3": "2",
@@ -323,9 +320,6 @@ class KingOfSat(SatelliteImport):
 		self.urlsSatellites = ("http://de.kingofsat.net", "http://en.kingofsat.net")
 		
 		self.mainTitle = "KingOfSat Import (www.kingofsat.net)"
-	
-
-	
 	
 	def getTransponders(self, dummy=None):
 		print("getTransponders")
@@ -410,7 +404,6 @@ class KingOfSat(SatelliteImport):
 					self.requestSatelliteslistRefresh = True
 		self.getTransponders_state = self.thread_is_done
 
- 
 	def getSatellites(self, dummy):
 		print("getSatellites")
 		satellites = []
@@ -512,6 +505,7 @@ class KingOfSat(SatelliteImport):
 			cleanList.append(a)
 		self.close(cleanList)
 
+
 class LyngSat(SatelliteImport):
 	thread_is_off = 0
 	thread_is_running = 1
@@ -533,7 +527,6 @@ class LyngSat(SatelliteImport):
 	listFec = ("1/2", "2/3", "3/4", "4/5", "5/6", "7/8", "?")
 	listFecAll = ("1/2", "2/3", "3/4", "4/5", "5/6", "7/8", "8/9", "3/5", "4/5", "9/10", "?")
 	
-
 	def __init__(self, session):
 		SatelliteImport.__init__(self, session)
 		
@@ -541,7 +534,6 @@ class LyngSat(SatelliteImport):
 		self.urlRegions = ("asia.html", "europe.html", "atlantic.html", "america.html")
 		self.mainTitle = "LyngSat Import (www.lyngsat.com)"
 
-	
 	def getTransponders(self, dummy=None):
 		print("getTransponders")
 		
@@ -644,7 +636,6 @@ class LyngSat(SatelliteImport):
 					self.requestSatelliteslistRefresh = True
 		self.getTransponders_state = self.thread_is_done
 
-
 	def getSatellites(self, dummy):
 		print("getSatellites")
 		satellites = []
@@ -713,6 +704,7 @@ class LyngSat(SatelliteImport):
 			a[0].update({"name": newName})
 			cleanList.append(a)
 		self.close(cleanList)
+
 
 class Lamedb:
 	def __init__(self):
@@ -827,6 +819,7 @@ class Lamedb:
 			print("Transponder: ", len(satlist.get(x)))
 		return satlist
 	
+
 class Transponder:
 	essential = [
 			"frequency",
@@ -1086,12 +1079,10 @@ class Transponder:
 	
 	symbolrate = property(getSymbolrate, setSymbolrate)
 	
-	
 	def setTsid(self, newTsid):
 		self.__tsid = str(newTsid)
 	
 	tsid = property(lambda self: self.__tsid, setTsid)
-	
 	
 	def getOnid(self):
 		return self.__onid
@@ -1109,7 +1100,6 @@ class Transponder:
 	
 	def exportFec(self):
 		return {"fec_inner": self.reTransFec.get(self.fec)}
-	
 	
 	def exportFrequency(self):
 		return {"frequency": self.__frequency}
@@ -1294,6 +1284,7 @@ class TransponderList(MenuList):
 			res.append(tp)
 		self.l.setList(res)
 
+
 class TransponderEditor(Screen, ConfigListScreen, Transponder):
 	
 	skin = """
@@ -1308,6 +1299,7 @@ class TransponderEditor(Screen, ConfigListScreen, Transponder):
 		<widget name="key_blue" position="420,0" zPosition="1" size="140,40" font="Regular;20" halign="center" valign="center" backgroundColor="#18188b" transparent="1" />
 		<widget name="config" position="10,50" size="540,325" scrollbarMode="showOnDemand" />
 		</screen>"""
+
 	def __init__(self, session, transponderData=None):
 		self.skin = TransponderEditor.skin
 		Screen.__init__(self, session)
@@ -1466,6 +1458,7 @@ class TransponderEditor(Screen, ConfigListScreen, Transponder):
 					self.useOnid = self.configTransponderUseOnid.value
 			self.createSetup()
 
+
 class TranspondersEditor(Screen):
 	skin = """
 		<screen position="90,95" size="560,430" title="Transponders Editor" >
@@ -1480,6 +1473,7 @@ class TranspondersEditor(Screen):
 		<widget name="list" position="0,64" size="560,240" scrollbarMode="showOnDemand" />
 		<widget name="head" position="0,40" size="560,24" scrollbarMode="showNever" />
 		</screen>"""
+
 	def __init__(self, session, satellite=None):
 		self.skin = TranspondersEditor.skin
 		Screen.__init__(self, session)
@@ -1666,12 +1660,12 @@ class TranspondersEditor(Screen):
 			self.row[self.currentSelectedColumn][2] = True
 		self["list"].setEntries(self.transponderslist)
 
+
 class SatelliteList(MenuList):
 	def __init__(self):
 		MenuList.__init__(self, list=[], content=eListboxPythonMultiContent)
 		self.l.setItemHeight(24)
 		self.l.setFont(0, gFont("Regular", 20))
-
 
 	def setEntries(self, satelliteslist):
 		print("setEntries", len(satelliteslist))
@@ -1728,7 +1722,6 @@ class SatelliteList(MenuList):
 		self.l.setList(res)
 
 
-
 class SatInfo(Screen):
 	skin = """
 		<screen position="90,95" size="560,430" title="Satellite Info" >
@@ -1763,8 +1756,6 @@ class SatInfo(Screen):
 		self["bandlist"].l.setItemHeight(24)
 		self["bandlist"].l.setFont(0, gFont("Regular", 20))
 		self.getInfo()
-
-		
 
 	def getInfo(self):
 		self.name = self.satellite[0].get("name")
@@ -1835,7 +1826,6 @@ class SatInfo(Screen):
 						self.tp_c_l2 += 1
 					elif pol == "3":
 						self.tp_c_r2 += 1
-
 
 		entryList = (_("Band"), _("Ku"), _("C"))
 		l = []
@@ -1930,6 +1920,7 @@ class SatInfo(Screen):
 		
 		self["infolist"].l.setList(l)
 
+
 class SatEditor(Screen, ConfigListScreen):
 	flagNetworkScan = 1
 	flagUseBAT = 2
@@ -1947,6 +1938,7 @@ class SatEditor(Screen, ConfigListScreen):
 		<widget name="key_blue" position="420,0" zPosition="1" size="140,40" font="Regular;20" halign="center" valign="center" backgroundColor="#18188b" transparent="1" />
 		<widget name="config" position="10,50" size="540,276" scrollbarMode="showOnDemand" />
 		</screen>"""
+
 	def __init__(self, session, satelliteData=None):
 		self.skin = SatEditor.skin
 		Screen.__init__(self, session)
@@ -2015,6 +2007,7 @@ class SatEditor(Screen, ConfigListScreen):
 		satelliteData = {"name": self.configSatelliteName.value, "flags": str(satelliteFlags), "position": str(satellitePosition)}
 		self.close(satelliteData)
 
+
 class Head(HTMLComponent, GUIComponent):
 	def __init__(self):
 		GUIComponent.__init__(self)
@@ -2045,6 +2038,7 @@ class Head(HTMLComponent, GUIComponent):
 					border_color=0x000C4E90))
 		self.l.setList([res])
 
+
 class MenuSelection(Screen):
 	skin = """
 		<screen position="140,165" size="400,130" title="Menu">
@@ -2074,6 +2068,7 @@ class MenuSelection(Screen):
 	def cancel(self):
 		self.close(None)
 		
+
 class SatellitesEditor(Screen):
 	version = "(20090331-alpha)"
 	skin = """
@@ -2092,6 +2087,7 @@ class SatellitesEditor(Screen):
 		<widget name="bandlist" position="0,334" size="55,72" />
 		<widget name="infolist" position="55,334" size="500,72" />
 		</screen>""" % version
+
 	def __init__(self, session):
 		self.skin = SatellitesEditor.skin
 		Screen.__init__(self, session)
@@ -2238,7 +2234,6 @@ class SatellitesEditor(Screen):
 		self["list"].down()
 		self.updateSelection()
 
-	
 	def getInfo(self):
 		print("getInfo")
 		cur_idx = self["list"].getSelectedIndex()
@@ -2313,7 +2308,6 @@ class SatellitesEditor(Screen):
 						self.tp_c_l2 += 1
 					elif pol == "3":
 						self.tp_c_r2 += 1
-
 
 		entryList = (_("Band"), _("Ku"), _("C"))
 		l = []
@@ -2408,8 +2402,6 @@ class SatellitesEditor(Screen):
 		
 		self["infolist"].l.setList(l)
 	
-	
-	
 	def readSatellites(self, file):
 		satellitesXML = xml.etree.cElementTree.parse(file)
 		satDict = satellitesXML.getroot()
@@ -2492,7 +2484,6 @@ class SatellitesEditor(Screen):
 		nimmanager.terrestrialsList = []
 		nimmanager.readTransponders()
 		
-	
 	def addSatellite(self):
 		print("addSatellite")
 		self.session.openWithCallback(self.finishedSatAdd, SatEditor)
@@ -2613,14 +2604,17 @@ class SatellitesEditor(Screen):
 	def showHelp(self):
 		print("showHelp")
 
+
 def SatellitesEditorMain(session, **kwargs):
 	session.open(SatellitesEditor)
+
 
 def SatellitesEditorStart(menuid, **kwargs):
 	if menuid == "scan":
 		return [(_("Satellites Editor"), SatellitesEditorMain, "Satellites Editor", None)]
 	else:
 		return []
+
 
 def Plugins(**kwargs):
 	if (nimmanager.hasNimType("DVB-S")):

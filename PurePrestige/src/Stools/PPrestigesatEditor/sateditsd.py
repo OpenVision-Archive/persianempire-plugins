@@ -32,6 +32,7 @@ import satellite
 from ServiceEditor.plugin import PrestigePanelServicesEditor
 from Plugins.Extensions.PurePrestige.Stools.setloader import PurePrestigesettingsserver
 
+
 class SatelliteImport(Screen):
     modeToggle = 0
     modeSelect = 1
@@ -1451,6 +1452,7 @@ class TransponderList(MenuList):
 
         self.l.setList(res)
 
+
 class TransponderEditor(Screen, ConfigListScreen, Transponder):
     skin = '\n\t\t<screen position="center,center" size="560,430" title="Edit" >\n\t\t<ePixmap pixmap="~/ddbuttons/red.png" position="0,0" size="140,40" alphatest="on" />\n\t\t<ePixmap pixmap="~/ddbuttons/green.png" position="140,0" size="140,40" alphatest="on" />\n\t\t<ePixmap pixmap="~/ddbuttons/yellow.png" position="280,0" size="140,40" alphatest="on" />\n\t\t<ePixmap pixmap="~/ddbuttons/blue.png" position="420,0" size="140,40" alphatest="on" />\n\t\t<widget name="key_red" position="0,0" zPosition="1" size="140,40" font="Regular;20" halign="center" valign="center" backgroundColor="#9f1313" transparent="1" />\n\t\t<widget name="key_green" position="140,0" zPosition="1" size="140,40" font="Regular;20" halign="center" valign="center" backgroundColor="#1f771f" transparent="1" />\n\t\t<widget name="key_yellow" position="280,0" zPosition="1" size="140,40" font="Regular;20" halign="center" valign="center" backgroundColor="#a08500" transparent="1" />\n\t\t<widget name="key_blue" position="420,0" zPosition="1" size="140,40" font="Regular;20" halign="center" valign="center" backgroundColor="#18188b" transparent="1" />\n\t\t<widget name="config" position="10,50" size="540,325" scrollbarMode="showOnDemand" />\n\t\t</screen>'
 
@@ -1579,6 +1581,7 @@ class TransponderEditor(Screen, ConfigListScreen, Transponder):
                 elif x == self.configTransponderUseOnid:
                     self.useOnid = self.configTransponderUseOnid.value
             self.createSetup()
+
 
 class TranspondersEditor(Screen):
     skin = '\n\t\t<screen position="center,center" size="560,430" title="Transponders Editor" >\n\t\t<ePixmap pixmap="~/ddbuttons/red.png" position="0,0" size="140,40" alphatest="on" />\n\t\t<ePixmap pixmap="~/ddbuttons/green.png" position="140,0" size="140,40" alphatest="on" />\n\t\t<ePixmap pixmap="~/ddbuttons/yellow.png" position="280,0" size="140,40" alphatest="on" />\n\t\t<ePixmap pixmap="~/ddbuttons/blue.png" position="420,0" size="140,40" alphatest="on" />\n\t\t<widget name="key_red" position="0,0" zPosition="1" size="140,40" font="Regular;20" halign="center" valign="center" backgroundColor="#9f1313" transparent="1" />\n\t\t<widget name="key_green" position="140,0" zPosition="1" size="140,40" font="Regular;20" halign="center" valign="center" backgroundColor="#1f771f" transparent="1" />\n\t\t<widget name="key_yellow" position="280,0" zPosition="1" size="140,40" font="Regular;20" halign="center" valign="center" backgroundColor="#a08500" transparent="1" />\n\t\t<widget name="key_blue" position="420,0" zPosition="1" size="140,40" font="Regular;20" halign="center" valign="center" backgroundColor="#18188b" transparent="1" />\n\t\t<widget name="list" position="0,64" size="560,240" scrollbarMode="showOnDemand" />\n\t\t<widget name="head" position="0,40" size="560,24" scrollbarMode="showNever" />\n\t\t</screen>'
@@ -2107,6 +2110,7 @@ class MenuSelection(Screen):
     def cancel(self):
         self.close(None)
         return
+
 
 class PrestigePanelSatellitesEditor(Screen):
     skin = '\n\t\t<screen name="PrestigePanelSatellitesEditor" position="center,center" size="560,430" title="Satellite-Transponders editor" >\n\t\t<ePixmap pixmap="~/ddbuttons/red.png" position="0,0" size="140,40" alphatest="on" />\n\t\t<ePixmap pixmap="~/ddbuttons/green.png" position="140,0" size="140,40" alphatest="on" />\n\t\t<ePixmap pixmap="~/ddbuttons/yellow.png" position="280,0" size="140,40" alphatest="on" />\n\t\t<ePixmap pixmap="~/ddbuttons/blue.png" position="420,0" size="140,40" alphatest="on" />\n\t\t<widget name="key_red" position="0,0" zPosition="1" size="140,40" font="Regular;20" halign="center" valign="center" backgroundColor="#9f1313" transparent="1" />\n\t\t<widget name="key_green" position="140,0" zPosition="1" size="140,40" font="Regular;20" halign="center" valign="center" backgroundColor="#1f771f" transparent="1" />\n\t\t<widget name="key_yellow" position="280,0" zPosition="1" size="140,40" font="Regular;20" halign="center" valign="center" backgroundColor="#a08500" transparent="1" />\n\t\t<widget name="key_blue" position="420,0" zPosition="1" size="140,40" font="Regular;20" halign="center" valign="center" backgroundColor="#18188b" transparent="1" />\n\t\t<widget name="list" position="0,64" size="560,240" scrollbarMode="showOnDemand" />\n\t\t<widget name="head" position="0,40" size="560,24" scrollbarMode="showNever" />\n\t\t<widget name="polhead" position="55,310" size="500,24" />\n\t\t<widget name="bandlist" position="0,334" size="55,72" />\n\t\t<widget name="infolist" position="55,334" size="500,72" />\n\t\t</screen>'

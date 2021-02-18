@@ -10,6 +10,7 @@ from skin import loadSkin
 PluginLanguageDomain = 'PEPanel'
 PluginLanguagePath = 'SystemPlugins/PEPanel/locale'
 
+
 def loadSkinReal(skinPath):
     if os.path.exists(skinPath):
         loadSkin(skinPath)

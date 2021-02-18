@@ -4,6 +4,7 @@ from Components.GUIComponent import GUIComponent
 from enigma import ePixmap
 from enigma import eTimer
 
+
 class Spinner(GUIComponent):
 
     def __init__(self, Bilder):

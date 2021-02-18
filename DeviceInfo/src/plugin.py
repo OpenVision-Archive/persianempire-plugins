@@ -5,6 +5,7 @@ from Components.ActionMap import ActionMap
 from Plugins.Plugin import PluginDescriptor
 from Tools.Directories import resolveFilename, SCOPE_PLUGINS
 
+
 class DeviceInfo(Screen):
     skin = """
         <screen position="250,100" size="650,550" title="Device Info">
@@ -75,10 +76,12 @@ class DeviceInfo(Screen):
 def startinfo(session, **kwargs):
 	session.open(DeviceInfo)
 
+
 def mainconf(menuid):
     if menuid != "information":                                                  
         return []                                                     
     return [(_("Device"), startinfo, "DeviceInfo", None)] 
+
 
 def Plugins(**kwargs):
 	return [PluginDescriptor(name=_("Device Info"), description=_("Information About Devices"), where=PluginDescriptor.WHERE_MENU, fnc=mainconf),

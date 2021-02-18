@@ -38,6 +38,7 @@ config.plugins.configurationbackup.backupdirs = ConfigLocations(default=['/etc/e
 config.plugins.softwaremanager = ConfigSubsection()
 config.plugins.softwaremanager.overwriteConfigFiles = ConfigSelection([('Y', _('Yes, always')), ('N', _('No, never')), ('ask', _('Always ask'))], 'Y')
 
+
 def getBackupPath():
     backuppath = '/media/hdd'
     try:
@@ -111,6 +112,7 @@ class PurePrestigeBackupScreen(Screen, ConfigListScreen):
     def runAsync(self, finished_cb):
         self.finished_cb = finished_cb
         self.doBackup()
+
 
 class PurePrestigeBackupSelection(Screen):
     skin = '\n                <screen  position="center,center" size="640,520" title=""  flags="wfNoBorder" >\n                <ePixmap pixmap="~/images/framesd.png" position="0,0" size="640,520" transparent="1"/>\t\n                <widget name="tspace" position="0,480" zPosition="4" size="640,40" font="Regular;20" foregroundColor="#ffffff" transparent="1" halign="center" valign="center" />\n                <ePixmap position="15,64" size="610,5" pixmap="~/images/slider.png" alphatest="blend" transparent="1" backgroundColor="transparent"/>\n\t\t\t\n                        <ePixmap pixmap="~/ddbuttons/red.png" position="15,15" size="140,40" alphatest="on" />\n\t\t        <ePixmap pixmap="~/ddbuttons/green.png" position="160,15" size="140,40" alphatest="on" />\n\t\t\t<ePixmap pixmap="~/ddbuttons/yellow.png" position="300,15" size="140,40" alphatest="on" />\n\t\t\t<widget source="key_red" render="Label" position="15,20" zPosition="1" size="140,40" font="Regular;20" halign="center" valign="center" backgroundColor="#9f1313" transparent="1" />\n\t\t\t<widget source="key_green" render="Label" position="160,20" zPosition="1" size="140,40" font="Regular;20" halign="center" valign="center" backgroundColor="#1f771f" transparent="1" />\n\t\t\t<widget source="key_yellow" render="Label" position="300,20" zPosition="1" size="140,40" font="Regular;20" halign="center" valign="center" backgroundColor="#a08500" transparent="1" />\n\t\t\t<widget name="checkList" position="15,80" size="610,380" transparent="1" scrollbarMode="showOnDemand" zPosition="2" />\n\t                <ePixmap position="15,470" size="610,5" pixmap="~/images/slider.png" alphatest="blend" transparent="1" backgroundColor="transparent"/>\n        \t</screen>'
@@ -199,6 +201,7 @@ class PurePrestigeBackupSelection(Screen):
     def okClicked(self):
         if self.filelist.canDescent():
             self.filelist.descent()
+
 
 class PurePrestigeRestoreMenu(Screen):
     skin = '\n                        <screen name="devicentery" position="center,center" size="640,520" title=""  flags="wfNoBorder" >\n                        <ePixmap pixmap="~/images/framesd.png" position="0,0" size="640,520"/>\t\t\n\t\t\t<ePixmap pixmap="~/nbuttons/green.png" position="140,25" size="140,40" alphatest="on" />\n\t\t\t<ePixmap pixmap="~/nbuttons/yellow.png" position="280,25" size="140,40" alphatest="on" />\n\t\t\n\t\t\t<widget source="key_green" render="Label" position="140,15" zPosition="1" size="140,40" font="Regular;20" halign="center" valign="center" backgroundColor="#1f771f" transparent="1" />\n\t\t\t<widget source="key_yellow" render="Label" position="280,15" zPosition="1" size="140,40" font="Regular;20" halign="center" valign="center" backgroundColor="#a08500" transparent="1" />\n\t\t\t<widget name="filelist" position="15,60" size="610,320" scrollbarMode="showOnDemand" transparent="1" zPosition="2" />\n\t\t</screen>'
@@ -324,6 +327,7 @@ class PurePrestigeRestoreScreen(Screen, ConfigListScreen):
     def runAsync(self, finished_cb):
         self.finished_cb = finished_cb
         self.doRestore()
+
 
 class PurePrestigeBackupSettingsScrean(Screen):
     skin = '\n                        <screen name="devicentery" position="center,center" size="640,520" title=""  flags="wfNoBorder" >\n                        <ePixmap pixmap="~/images/framesd.png" position="0,0" size="640,520"/>\t\t\n\t\t\n                <widget name="list" position="15,30" size="610,510" scrollbarMode="showOnDemand" transparent="1" zPosition="2" />\n\t        \n        </screen>'

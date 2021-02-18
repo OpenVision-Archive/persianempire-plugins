@@ -52,11 +52,13 @@ gettext.textdomain('enigma2')
 gettext.bindtextdomain('PEInfo', '%s%s' % (resolveFilename(SCOPE_PLUGINS), 'Extensions/PEInfo/locale/'))
 lenguaje = str(lang[:2])
 
+
 def _(txt):
     t = gettext.dgettext('PEInfo', txt)
     if t == txt:
         t = gettext.gettext(txt)
     return t
+
 
 filename = ''
 carpetaimg = resolveFilename(SCOPE_PLUGINS, 'Extensions/PEInfo/icons/')
@@ -72,6 +74,7 @@ listamenu.append((_('Display'), _('AV Settings - Skin Information'), 9))
 listamenu.append((_('OS'), _('Operating System Information'), 4))
 listamenu.append((_('Process'), _('Current Running Processes'), 8))
 listamenu.append((_('About'), _('About PE Info'), 10))
+
 
 def ImageVersionString():
 	return getImageVersionString()
@@ -341,6 +344,7 @@ def cargaosinfo(orden, nulo=False):
         else:
             ret = _('No Info Avaiable')
     return ret
+
 
 class PEInfoTexto(Screen):
     skin = '\n\t<screen position="center,center" size="1050,602" title="%s">\n\n\t<widget name="lista" position="0,0" size="250,602" scrollbarMode="showOnDemand" zPosition="12" transparent="1" />\n\t<widget name="textoinfo" position="288,37" size="745,522" valign="top" halign="left" text="%s" font="Regular; 18" zPosition="1" />\n\t<widget name="listainfo" position="288,37" size="745,522" zPosition="1" scrollbarMode="showOnDemand" transparent="1"/>\n\t<widget name="listaproc" position="288,37" size="745,522" zPosition="1" scrollbarMode="showOnDemand" transparent="1"/>\n\n\t<widget name="key_pup" position="295,568" size="220,25" valign="center" halign="left" zPosition="4" font="Regular;17" transparent="1" /> \n\t<widget name="img_pup" position="260,567" zPosition="2" size="35,25" pixmap="~/icons/pup.png" transparent="1" alphatest="on" />\n\n\t<widget name="key_pdown" position="435,568" size="220,25" valign="center" halign="left" zPosition="4" font="Regular;17" transparent="1" /> \n\t<widget name="img_pdown" position="400,567" zPosition="2" size="35,25" pixmap="~/icons/pdown.png" transparent="1" alphatest="on" />\t\n\t\n\t<widget name="key_red" position="548,567" size="120,40" valign="center" halign="center" backgroundColor="#000000" foregroundColor="#ffffff" zPosition="4" font="Regular;17" transparent="1" /> \n\t<widget name="key_green" position="674,567" size="120,40" valign="center" halign="center" backgroundColor="#000000" foregroundColor="#ffffff" zPosition="4" font="Regular;17" transparent="1" />  \n\t<widget name="key_yellow" position="801,567" size="120,40" valign="center" halign="center" backgroundColor="#000000" foregroundColor="#ffffff" zPosition="4" font="Regular;17" transparent="1" /> \n\t<widget name="key_blue" position="928,567" size="120,40" valign="center" halign="center" backgroundColor="#000000" foregroundColor="#ffffff" zPosition="4" font="Regular;17" transparent="1" /> \n\n\t\n\t<widget name="img_red" position="548,572" zPosition="2" size="130,40" pixmap="~/icons/red.png" transparent="1" alphatest="on" />\n\t<widget name="img_green" position="674,572" zPosition="2" size="130,40" pixmap="~/icons/green.png" transparent="1" alphatest="on" />\n\t\n\t<widget name="img_yellow" position="801,572" zPosition="2" size="130,40" pixmap="~/icons/yellow.png" transparent="1" alphatest="on" />\n\t<widget name="img_blue" position="928,572" zPosition="2" size="130,40" pixmap="~/icons/blue.png" transparent="1" alphatest="on" />\n\t<widget name="titulo" position="288,0" size="746,28" text=" " transparent="1" halign="center" font="Regular; 22" zPosition="1" />\n\t<ePixmap name="fondo" position="0, 0" size="1050, 602" pixmap="~/icons/peinfo.png" transparent="1" alphatest="blend"/>\n\t\t\t\n\t</screen>' % (_('PE') + ' ' + 'Information', _('Please Wait'))
@@ -1647,6 +1651,7 @@ def start_from_mainmenu(menuid, **kwargs):
           1)]
     return []
 
+
 def OVLock():
     try:
         from ov import gettitle
@@ -1654,6 +1659,7 @@ def OVLock():
         return ovtitle
     except:
         return False
+
 
 def iniciainfo(session, **kwargs):
     if OVLock() == False:

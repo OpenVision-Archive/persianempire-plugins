@@ -8,6 +8,7 @@ from Components.FileList import FileList
 from Screens.Console import Console
 import gettext
 
+
 def _(txt):
 	t = gettext.dgettext("PEPanel", txt)
 	if t == txt:
@@ -58,8 +59,6 @@ class Memory(Screen):
                 cmd = "df -h"
                 self.session.open(Console, _(title), [cmd])
                 self.close()
-
-
 
 	def callback(self, answer):
 		self.close()

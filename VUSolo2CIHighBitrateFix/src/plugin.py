@@ -7,6 +7,7 @@ from Plugins.Plugin import PluginDescriptor
 
 autoStartTimer = None
 
+
 def Plugins(**kwargs):
     return [PluginDescriptor(name_('vusolo2 CI high bitrate fix'), description=_('CI high bitrate fix for VuPlus Solo 2'), where=PluginDescriptor.WHERE_SESSIONSTART, fnc=autostart)]
 

@@ -32,6 +32,7 @@ import satellite
 from ServiceEditor.plugin import PrestigePanelServicesEditor
 from Plugins.Extensions.PurePrestige.Stools.setloader import PurePrestigesettingsserver
 
+
 class PrestigePanelSatelliteImport(Screen):
     modeToggle = 0
     modeSelect = 1
@@ -1511,6 +1512,7 @@ class TransponderList(MenuList):
             res.append(tp)
         self.l.setList(res)
 
+
 class PrestigePanelTransponderEditor(Screen, ConfigListScreen, Transponder):
     skin = '\n                <screen name="PrestigePanelTransponderEditor" position="center,center" size="640,520" title="Edit"  flags="wfNoBorder" >\n                <ePixmap pixmap="~/images/framesd.png" position="0,0" size="640,520"/>\t\t\n\t\t<ePixmap pixmap="~/ddbuttons/red.png" position="25,25" size="140,40" alphatest="on" />\n\t\t<ePixmap pixmap="~/ddbuttons/green.png" position="165,25" size="140,40" alphatest="on" />\n\t\t<ePixmap pixmap="~/ddbuttons/yellow.png" position="305,25" size="140,40" alphatest="on" />\n\t\t<ePixmap pixmap="~/ddbuttons/blue.png" position="445,25" size="140,40" alphatest="on" />\n\t\t<widget name="key_red" position="25,25" zPosition="1" size="140,40" font="Regular;20" halign="center" valign="center" backgroundColor="#9f1313" transparent="1" />\n\t\t<widget name="key_green" position="165,25" zPosition="1" size="140,40" font="Regular;20" halign="center" valign="center" backgroundColor="#1f771f" transparent="1" />\n\t\t<widget name="key_yellow" position="305,25" zPosition="1" size="140,40" font="Regular;20" halign="center" valign="center" backgroundColor="#a08500" transparent="1" />\n\t\t<widget name="key_blue" position="445,25" zPosition="1" size="140,40" font="Regular;20" halign="center" valign="center" backgroundColor="#18188b" transparent="1" />\n\t\t<widget name="config" position="25,75" size="590,340" scrollbarMode="showOnDemand" transparent="1" zPosition="2" />\n\t\t</screen>'
 
@@ -1887,6 +1889,7 @@ class SatelliteList(MenuList):
         self.l.setList(res)
         return
 
+
 class PrestigePanelSatInfo(Screen):
     skin = '\n                <screen name="PrestigePanelTransponderEditor" position="center,center" size="640,520" title="Satellite info"  flags="wfNoBorder" >\n                <ePixmap pixmap="~/images/framesd.png" position="0,0" size="640,520"/>\n\t\t<widget name="polhead" position="60,310" size="500,24" />\n\t\t<widget name="bandlist" position="15,334" size="55,72" />\n\t\t<widget name="infolist" position="70,334" size="500,72" />\n\t\t</screen>'
 
@@ -2052,6 +2055,7 @@ class PrestigePanelSatInfo(Screen):
         self['infolist'].l.setList(l)
         return
 
+
 class PrestigePanelSatEditor(Screen, ConfigListScreen):
     flagNetworkScan = 1
     flagUseBAT = 2
@@ -2148,6 +2152,7 @@ class Head(HTMLComponent, GUIComponent):
                 res.append(MultiContentEntryText(pos=(x[0], 0), size=(x[1], 24), font=0, flags=RT_HALIGN_CENTER | RT_VALIGN_TOP, text=x[2], color=12632256, backcolor=625428280, color_sel=16777215, backcolor_sel=627073024, border_width=1, border_color=15792383))
         self.l.setList([res])
         return
+
 
 class PrestigePanelMenuSelection(Screen):
     skin = '\n                <screen name="PrestigePanelMenuSelection" position="center,center" size="640,520" title="updates satellites"  flags="wfNoBorder" >\n                <ePixmap pixmap="~/images/framesd.png" position="0,0" size="640,520"/>\t\t\t\n                <widget name="menulist" position="15,15" size="610,455" scrollbarMode="showOnDemand" transparent="1" zPosition="2" />\t\n\n\t\t</screen>'

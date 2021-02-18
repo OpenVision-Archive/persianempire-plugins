@@ -5,6 +5,7 @@ import os
 import re
 from Components.Console import Console
 
+
 class Disks:
 
     def __init__(self):

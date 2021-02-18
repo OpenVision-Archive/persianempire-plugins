@@ -19,6 +19,7 @@ try:
 except IOError:
     pass
 
+
 class SpinnerSelector:
 
     def __init__(self, session):

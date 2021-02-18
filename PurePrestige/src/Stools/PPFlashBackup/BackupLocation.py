@@ -29,6 +29,7 @@ for p in harddiskmanager.getMountedPartitions(True):
 
 mounted_string = 'Nothing mounted at '
 
+
 def localeInit():
     lang = language.getLanguage()
     environ['LANGUAGE'] = lang[:2]
@@ -46,6 +47,7 @@ def _(txt):
 
 localeInit()
 language.addCallback(localeInit)
+
 
 class PurePrestigeFlashBackupBackupLocation(Screen, HelpableScreen):
     try:

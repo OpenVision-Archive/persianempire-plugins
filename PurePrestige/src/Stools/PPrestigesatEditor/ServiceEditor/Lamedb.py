@@ -6,6 +6,7 @@ try:
 except:
 	import _thread as thread
 
+
 class Lamedb():
 
     def __init__(self):

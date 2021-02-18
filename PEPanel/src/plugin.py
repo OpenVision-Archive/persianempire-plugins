@@ -91,6 +91,7 @@ tdtautostart = _('DVB Time check autostart') + ': '
 transponderupdate = _('Enigma 2 Timeupdate') + ': '
 iface = None
 
+
 class PEMainMenu(Screen):
 
     def __init__(self, session, args=0):
@@ -4185,15 +4186,18 @@ class PasswdScreen(Screen):
         except:
             print('self["title"] was not found in skin')
 
+
 def fw_test_dib0700():
     if os_path.exists('/lib/firmware/dvb-usb-dib0700-1.20.fw'):
         return 0
     return Console().ePopen('wget http://www.linuxtv.org/downloads/firmware/dvb-usb-dib0700-1.20.fw -O /lib/firmware/dvb-usb-dib0700-1.20.fw')
 
+
 def fw_test_smsusb():
     if os_path.exists('/lib/firmware/sms1xxx-hcw-55xxx-dvbt-02.fw'):
         return 0
     return Console().ePopen('wget http://www.steventoth.net/linux/sms1xxx/sms1xxx-hcw-55xxx-dvbt-02.fw -O /lib/firmware/sms1xxx-hcw-55xxx-dvbt-02.fw')
+
 
 def DVBNTPautostart(reason, **kwargs):
     global session
@@ -4206,6 +4210,7 @@ def DVBNTPautostart(reason, **kwargs):
             session = kwargs['session']
             session.open(NTPStartup)
 
+
 def find_in_list(list, search, listpos=0):
     index = -1
     for item in list:
@@ -4213,6 +4218,7 @@ def find_in_list(list, search, listpos=0):
         if item[listpos] == search:
             return index
     return -1
+
 
 def write_cache(cache_file, cache_data):
     if not os_path.isdir(os_path.dirname(cache_file)):
@@ -4224,6 +4230,7 @@ def write_cache(cache_file, cache_data):
     fd = open(cache_file, 'w')
     pickle.dump(cache_data, fd, -1)
     fd.close()
+
 
 def valid_cache(cache_file, cache_ttl):
     try:
@@ -4237,11 +4244,13 @@ def valid_cache(cache_file, cache_ttl):
     else:
         return 1
 
+
 def load_cache(cache_file):
     fd = open(cache_file)
     cache_data = pickle.load(fd)
     fd.close()
     return cache_data
+
 
 def find_in_list(list, search, listpos=0):
     for item in list:
@@ -4250,7 +4259,9 @@ def find_in_list(list, search, listpos=0):
 
     return False
 
+
 global_session = None
+
 
 def startPEmenu(menuid):
     if menuid == 'mainmenu':
@@ -4260,6 +4271,7 @@ def startPEmenu(menuid):
           2)]
     return []
 
+
 def OVLock():
     try:
         from ov import gettitle
@@ -4268,11 +4280,13 @@ def OVLock():
     except:
         return False
 
+
 def main(session, **kwargs):
     if OVLock() == False:
         return
     else:
         session.open(PEMainMenu)
+
 
 def Plugins(path, **kwargs):
     global plugin_path

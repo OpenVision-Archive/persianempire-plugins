@@ -27,6 +27,7 @@ from Tools.Directories import resolveFilename, SCOPE_PLUGINS
 
 plugin_path = resolveFilename(SCOPE_PLUGINS, 'Extensions/PurePrestige/Stools/')
 
+
 def localeInit():
     lang = language.getLanguage()
     environ['LANGUAGE'] = lang[:2]
@@ -44,6 +45,7 @@ def _(txt):
 
 localeInit()
 language.addCallback(localeInit)
+
 
 def getBackupPath():
     backuppath = config.plugins.PPFlashBackup.backuplocation.value

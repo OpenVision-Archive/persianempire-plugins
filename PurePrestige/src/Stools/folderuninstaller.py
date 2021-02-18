@@ -18,6 +18,7 @@ from Tools.LoadPixmap import LoadPixmap
 from Plugins.Extensions.PurePrestige.Console2 import *
 from Tools.Directories import resolveFilename, SCOPE_LIBDIR, SCOPE_PLUGINS
 
+
 def freespace():
     try:
         diskSpace = os.statvfs('/')

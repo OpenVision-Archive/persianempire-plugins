@@ -28,6 +28,7 @@ import Cronmanager.plugin
 from Plugins.Extensions.PurePrestige.Stools.passresetter import *
 from Components.Console import Console
 
+
 def getScale():
     return AVSwitch().getFramebufferScale()
 
@@ -37,6 +38,7 @@ T_FRAME_POS = 1
 T_PAGE = 2
 T_NAME = 3
 T_FULL = 4
+
 
 class showPurePrestigemoretoolsscreen(Screen):
 

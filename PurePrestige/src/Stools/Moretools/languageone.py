@@ -28,6 +28,7 @@ langpypath = resolveFilename(SCOPE_LIBDIR, 'enigma2/python/Components/Language.p
 locallangpypath = resolveFilename(SCOPE_PLUGINS, 'Extensions/PurePrestige/Stools/language/Language.pyo')
 defaultlanguagepack = ''
 
+
 def listskins():
     path = '/usr/share/enigma2/po'
     for x in os.listdir(path):

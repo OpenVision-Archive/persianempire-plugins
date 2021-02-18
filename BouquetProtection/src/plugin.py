@@ -29,10 +29,6 @@ config.BouquetProtect.unwanted.enalbed = ConfigYesNo(default=False)
 config.BouquetProtect.unwanted.showkey = ConfigSelection(default='none', choices=[('none', _('none')), ('breakAudio', 'AUDIO'), ('longAudio', _('long AUDIO')), ('breakVideo', _('VIDEO(Vkey)')), ('longVideo', _('long VIDEO(Vkey)'))])
 
 
-
-
-
-
 def newChannelContextMenu__init__(self, session, csel):
 	baseChannelContextMenu__init__(self, session, csel)
 	self["menu"].enableWrapAround = True
@@ -79,6 +75,7 @@ def newChannelContextMenu__init__(self, session, csel):
 			else:
 				self["menu"].list.insert(idx, ChoiceEntryComponent(text=(_("add to bouquets protection"), boundFunction(self.menuHideCurrentBouquet, True))))
 
+
 def menuHideUnwantedServices(self, hide):
 	if hide:
 		root = self.csel.servicelist.getCurrent()
@@ -103,6 +100,7 @@ def menuHideUnwantedServices(self, hide):
 			self.csel.showAllHiddenServices()
 	self.close()
 
+
 def menuHideUnwantedService(self, hide):
 	if not self.csel.checkpass and not self.csel.checkProtect(boundFunction(self.menuHideUnwantedService, hide)):
 		return
@@ -117,6 +115,7 @@ def menuHideUnwantedService(self, hide):
 	else:
 		self.session.open(MessageBox, _("Sorry, hide current service failed :("), MessageBox.TYPE_ERROR, timeout=10)
 	self.close()
+
 
 def menuHideCurrentBouquet(self, hide):
 	if not self.csel.checkpass and not self.csel.checkProtect(boundFunction(self.menuHideCurrentBouquet, hide)):
@@ -161,6 +160,7 @@ def menuHideCurrentBouquet(self, hide):
 			self.csel.servicelist.removeCurrent()
 	self.close()
 
+
 def menuHideCurrentService(self, hide):
 	if not self.csel.checkpass and not self.csel.checkProtect(boundFunction(self.menuHideCurrentService, hide)):
 		return
@@ -183,14 +183,12 @@ def menuHideCurrentService(self, hide):
 			self.csel.servicelist.removeCurrent()
 	self.close()
 
+
 def menuShowAllHiddenBouquetServices(self):
 	if not self.csel.checkpass and not self.csel.checkProtect(self.menuShowAllHiddenBouquetServices):
 		return
 	self.csel.showAllHiddenBouquetServices()
 	self.close()
-
-
-
 
 
 def getAllHiddenList():
@@ -227,6 +225,7 @@ def getAllHiddenList():
 		pass
 	return list
 
+
 def getHiddenList(exclude=['']):
 	list = []
 	try:
@@ -242,6 +241,7 @@ def getHiddenList(exclude=['']):
 		pass
 	return list
 
+
 def setHiddenList(servicelist=[]):
 	try:
 		file = open(resolveFilename(SCOPE_CONFIG, 'hidelist'), 'w')
@@ -252,6 +252,7 @@ def setHiddenList(servicelist=[]):
 	except:
 		return False
 	return True
+
 
 def getBouquetsList(filename, exclude=['']):
 	list = []
@@ -274,6 +275,7 @@ def getBouquetsList(filename, exclude=['']):
 		pass
 	return list
 
+
 def setBouquetsList(filename, bouquets=[]):
 	try:
 		file = open(resolveFilename(SCOPE_CONFIG, filename), 'w')
@@ -289,6 +291,7 @@ def setBouquetsList(filename, bouquets=[]):
 	except:
 		return False
 	return True
+
 
 def unlockAllHiddenBouquetServices(unlock):
 	tv_bouquets = []
@@ -331,9 +334,6 @@ def unlockAllHiddenBouquetServices(unlock):
 		db.reloadBouquets()
 
 
-
-
-
 def newChannelSelectionBase__init__(self, session):
 	ChannelSelectionBase.inst = self
 	baseChannelSelectionBase__init__(self, session)
@@ -344,6 +344,7 @@ def newChannelSelectionBase__init__(self, session):
 	
 	if config.BouquetProtect.unwanted.enalbed.value and config.BouquetProtect.unwanted.showkey.value != 'none':
 		self["ChannelSelectBaseActions"].actions.update({config.BouquetProtect.unwanted.showkey.value: self.showAllHiddenServices})
+
 
 def showAllHiddenBouquetServices(self):
 	self.hidden_shown = not self.hidden_shown
@@ -374,6 +375,7 @@ def showAllHiddenBouquetServices(self):
 				self.history.remove(path)
 		self.history_pos = max(0, len(self.history) - 1)
 
+
 def checkProtect(self, callback=None):
 	if self.checkpass or \
 	not config.BouquetProtect.protect.enable.value or \
@@ -382,6 +384,7 @@ def checkProtect(self, callback=None):
 	from Screens.InputBox import PinInput
 	self.session.openWithCallback(boundFunction(self.checkProtectEntered, callback), PinInput, triesEntry=config.BouquetProtect.protect, pinList=[config.BouquetProtect.protect.index.value], title=_("please enter the password"), windowTitle=_("Bouquets Protection"))
 	return self.checkpass
+
 
 def checkProtectEntered(self, callback, result):
 	if result:
@@ -396,15 +399,18 @@ def checkProtectEntered(self, callback, result):
 		if result is False:
 			self.session.open(MessageBox, _("The password you entered is wrong."), MessageBox.TYPE_ERROR)
 
+
 def protectTimerLoop(self):
 	self.checkpass = False
 	self.hidden_shown = not self.checkpass
 	self.showAllHiddenBouquetServices()
 	self.protectTimer.stop()
 
+
 def standbyCounterCallback(self, ConfigElement):
 	if config.BouquetProtect.protect.store.value == 'standby':
 		self.protectTimerLoop()
+
 
 def showAllHiddenServices(self):
 	if self.pathChangeDisabled:
@@ -438,9 +444,6 @@ def showAllHiddenServices(self):
 	return False
 
 
-
-
-
 def StartMainSession(session, **kwargs):
 	global baseChannelContextMenu__init__, baseChannelSelectionBase__init__
 	if baseChannelSelectionBase__init__ is None:
@@ -464,8 +467,10 @@ def StartMainSession(session, **kwargs):
 
 	unlockAllHiddenBouquetServices(config.BouquetProtect.enabled.value == 'none')
 
+
 def OpenBouquetProtectSetup(session, **kwargs):
 	session.open(BouquetProtect.BouquetProtectSetup)
+
 
 def OpenSetup(menuid, **kwargs):
 	if menuid == "setup":

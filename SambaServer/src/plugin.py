@@ -14,6 +14,7 @@ config.plugins.SambaServer = ConfigSubsection()
 config.plugins.SambaServer.Start = ConfigYesNo(default=False)
 config.plugins.SambaServer.StartOnStartup = ConfigYesNo(default=True)
 
+
 class SambaServer(Screen, ConfigListScreen):
 	def __init__(self, session):
 		Screen.__init__(self, session)
@@ -201,6 +202,7 @@ class SambaServer(Screen, ConfigListScreen):
 def main(session, **kwargs):
     session.open(SambaServer)
 
+
 def StartSamba(reason, **kwargs):
 	if config.plugins.SambaServer.Start.value \
 		and config.plugins.SambaServer.StartOnStartup.value:
@@ -214,6 +216,7 @@ def StartSamba(reason, **kwargs):
 				Console().ePopen("/etc/init.d/samba stop")
 			except:
 				pass
+
 
 def Plugins(**kwargs):
 	return [

@@ -36,6 +36,7 @@ crushfile = ''
 session = None
 crush_pluginversion = '0.3'
 
+
 def autostart(reason, **kwargs):
     global session
     if reason == 0 and 'session' in kwargs:

@@ -6,6 +6,7 @@ from Screens.Screen import Screen
 from Components.ActionMap import ActionMap
 from Components.ScrollLabel import ScrollLabel
 
+
 class Consoleall(Screen):
     global HD_Res
     try:

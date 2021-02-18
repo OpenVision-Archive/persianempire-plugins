@@ -25,6 +25,7 @@ sgmllib.tagfind = re.compile('[a-zA-Z][-_.:a-zA-Z0-9]*')
 markupbase._declname_match = re.compile('[a-zA-Z][-_.:a-zA-Z0-9]*\\s*').match
 DEFAULT_OUTPUT_ENCODING = 'utf-8'
 
+
 def _match_css_class(str):
     """Build a RE to match the given CSS class."""
     return re.compile('(^|.*\\s)%s($|\\s)' % str)
@@ -1447,6 +1448,7 @@ try:
     import iconv_codec
 except ImportError as e:
     pass
+
 
 class UnicodeDammit():
     """A class for detecting the encoding of a *ML document and

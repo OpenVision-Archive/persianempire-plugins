@@ -15,6 +15,7 @@ config.plugins.PECam.camdir = ConfigText(default="/usr/camd",
 
 checkconfigdir()
 
+
 def OVLock():
     try:
         from ov import gettitle
@@ -23,13 +24,16 @@ def OVLock():
     except:
         return False
 
+
 def main(session, **kwargs):
     if OVLock() == False:
         return
     else:
         session.open(PECamManager)
 
+
 EnigmaStart = False
+
 
 def startcam(reason, **kwargs):
 	if config.plugins.PECam.actcam.value != "none":
@@ -41,6 +45,7 @@ def startcam(reason, **kwargs):
 		elif reason == 1:
 			from Softcam import stopcam
 			stopcam(config.plugins.PECam.actcam.value)
+
 
 def Plugins(**kwargs):
 	return [PluginDescriptor(name=_("PE Cam Manager"),

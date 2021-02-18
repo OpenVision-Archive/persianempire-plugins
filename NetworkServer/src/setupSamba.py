@@ -15,6 +15,7 @@ import os
 from os import path
 from Components.Console import Console
 
+
 def isRunning(pname):
 	for f in os.listdir('/proc'):
 		try:
@@ -25,6 +26,7 @@ def isRunning(pname):
 		except IOError:
 			pass
 	return False
+
 
 def getAttribute(filename, section, attribute):
 	try:
@@ -45,6 +47,7 @@ def getAttribute(filename, section, attribute):
 		pass
 
 	return None
+
 
 def writeAttribute(filename, section, attribute, value):
 	try:
@@ -77,6 +80,7 @@ def writeAttribute(filename, section, attribute, value):
 		return retval
 	else:
 		return 0
+
 
 class setupSamba(Screen, ConfigListScreen):
 	skin = """

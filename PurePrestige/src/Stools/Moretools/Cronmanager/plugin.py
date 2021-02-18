@@ -41,6 +41,7 @@ cronmanager_script = '/etc/cron/cronmanager.sh'
 cronsyntax_path = '/etc/cron/cronsyntax.txt'
 cronmanager_pluginversion = '1.0'
 
+
 def main(session, **kwargs):
     try:
         session.open(PurePrestigecrondsscreen)

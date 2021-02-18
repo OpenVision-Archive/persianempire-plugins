@@ -14,6 +14,7 @@ import re
 from __init__ import _
 from Components.Console import Console
 
+
 class HddInfo(ConfigListScreen, Screen):
 
     def __init__(self, session, device):

@@ -38,6 +38,7 @@ from keymapparser import readKeymap, removeKeymap
 from Screens.InfoBarGenerics import InfoBarPlugins
 from Components.Console import Console
 
+
 def getScale():
     return AVSwitch().getFramebufferScale()
 
@@ -104,6 +105,7 @@ if sz_w > 800:
     HDSkn = True
 else:
     HDSkn = False
+
 
 def f2(seq):
     checked = []
@@ -408,6 +410,7 @@ class showPurePrestigescreen(Screen):
         except:
             return
 
+
 class checkupdateScreen(Screen):
     skin = '\n\n       \t<screen name="checkupdateScreen" position="center,center" size="640,520" title=""  flags="wfNoBorder" >\n                <ePixmap pixmap="~/images/framesd.png" position="0,0" size="640,520"/>\n\t\t<widget name="text" position="15,15" size="610,440" font="Regular;22" transparent="1" zPosition="2" />\n\n                \n\t        <ePixmap name="red"  position="195,450" zPosition="2" size="150,30" pixmap="~/ddbuttons/red.png" transparent="1" alphatest="on" />\n\t        <ePixmap name="yellow" position="321,450" zPosition="2" size="150,30" pixmap="~/ddbuttons/yellow.png" transparent="1" alphatest="on" /> \n        \t\n\n        \t\n        \t<widget name="key_red" position="182,457" size="150,45" valign="center" halign="center" zPosition="4"  foregroundColor="white" font="Regular;20" transparent="1" shadowColor="#25062748" shadowOffset="-2,-2" /> \n                <widget name="key_yellow" position="312,457" size="150,45" valign="center" halign="center" zPosition="4"  foregroundColor="white" font="Regular;18" transparent="1" shadowColor="#25062748" shadowOffset="-2,-2" />\n        \n                </screen>'
 
@@ -563,6 +566,7 @@ class PurePrestigebootlogo(Screen):
             return
         self.session.openWithCallback(self.close, showPurePrestigescreen)
 
+
 def OVLock():
     try:
         from ov import gettitle
@@ -570,6 +574,7 @@ def OVLock():
         return ovtitle
     except:
         return False
+
 
 class PurePrestigeAboutScreen(Screen):
     global HD_Res

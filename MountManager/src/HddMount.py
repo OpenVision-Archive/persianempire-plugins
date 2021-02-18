@@ -5,6 +5,7 @@ import os
 from time import sleep
 from Components.Console import Console
 
+
 def GetDevices():
 	device = []
 	try:
@@ -23,6 +24,7 @@ def GetDevices():
 		print("[MountManager] Failed to open /proc/partitions", ex)
 	return device
 
+
 def __ReadMounts():
 	try:
 		with open("/proc/mounts", "r") as f:
@@ -35,6 +37,7 @@ def __ReadMounts():
 		result = ""
 	return result
 
+
 def CheckMountDir(device):
 	hdd = "nothing"
 	movie = "nothing"
@@ -45,10 +48,12 @@ def CheckMountDir(device):
 			movie = GetDeviceFromList(device, line[0][5:])
 	return hdd, movie
 
+
 def GetDeviceFromList(list, device):
 	for line in list:
 		if line[:len(device)] == device:
 			return line
+
 
 def MountHddOnStart(MountOnHdd, MountOnMovie, enableswap):
 	device = GetDevices()
@@ -66,6 +71,7 @@ def MountHddOnStart(MountOnHdd, MountOnMovie, enableswap):
 		mountdevice.Mount("/dev/" + MountOnMovie[:4], "/media/hdd/movie")
 	if enableswap:
 		mountdevice.EnableSwap()
+
 
 class MountDevice:
 	def __init__(self):
@@ -118,5 +124,6 @@ class MountDevice:
 			else:
 				print("[MountManager] not found /media/hdd/swapfile")
 				self.enableswap = True
+
 
 mountdevice = MountDevice()

@@ -7,6 +7,7 @@ _declname_match = re.compile('[a-zA-Z][-_.a-zA-Z0-9]*\\s*').match
 _declstringlit_match = re.compile('(\\\'[^\\\']*\\\'|"[^"]*")\\s*').match
 del re
 
+
 class ParserBase:
     """Parser base class which provides some common support methods used
     by the SGML/HTML and XHTML parsers."""

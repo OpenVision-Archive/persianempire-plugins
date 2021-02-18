@@ -61,6 +61,7 @@ config.plugins.navibar.which = ConfigSelection(default='bar', choices=[('bar', _
 config.plugins.navibar.pw = ConfigPIN(default=0)
 config.plugins.navibar.dlpath = ConfigText(default=resolveFilename(SCOPE_PLUGINS, 'Extensions/NaviBarPE/icons'))
 
+
 class mylist(MenuList):
 
     def __init__(self, list):
@@ -641,6 +642,7 @@ class navibar_config1(Screen, ConfigListScreen, HelpableScreen):
 
 from Tools.BoundFunction import boundFunction
 import inspect
+
 
 class navi_wall(Screen):
 
@@ -1453,6 +1455,7 @@ class navi_bar(Screen):
     def exit(self):
         self.close(self.session, 'exit')
 
+
 def OVLock():
     try:
         from ov import gettitle
@@ -1460,6 +1463,7 @@ def OVLock():
         return ovtitle
     except:
         return False
+
 
 def main(session, **kwargs):
     if OVLock() == False:
@@ -1644,6 +1648,7 @@ def start(self):
 if config.plugins.navibar.blue.value:
     from Screens.InfoBar import InfoBar
     InfoBar.showExtensionSelection = start
+
 
 def Plugins(path, **kwargs):
     global plugin_path

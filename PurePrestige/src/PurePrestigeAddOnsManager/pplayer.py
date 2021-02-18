@@ -10,6 +10,7 @@ from enigma import ePicLoad, eTimer
 from twisted.web.client import downloadPage
 import os
 
+
 class PictureScreen(Screen):
     try:
         sz_w = getDesktop(0).size().width()

@@ -7,6 +7,7 @@ from Components.HTMLComponent import HTMLComponent
 from Tools.Directories import fileExists, resolveFilename, SCOPE_PLUGINS
 from Components.MultiContent import MultiContentEntryText, MultiContentEntryPixmapAlphaTest
 
+
 def SimpleEntry(name, picture):
     res = [(name, picture)]
     picture = resolveFilename(SCOPE_PLUGINS, 'SystemPlugins/PEPanel/pictures/' + picture)

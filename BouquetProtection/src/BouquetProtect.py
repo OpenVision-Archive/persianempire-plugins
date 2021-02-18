@@ -157,7 +157,6 @@ class BouquetProtectSetup(Screen, ConfigListScreen):
 		self.newConfig()
 
 
-
 class PasswordSetup(Screen, ConfigListScreen):
 	def __init__(self, session, pin, title=_("Change password")):
 		Screen.__init__(self, session)

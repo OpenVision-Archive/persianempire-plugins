@@ -36,6 +36,7 @@ c6color = 65407
 c8color = 13047173
 c9color = 13789470
 
+
 def getiteminfo(item):
     fname = resolveFilename(SCOPE_PLUGINS, 'Extensions/PurePrestige/scripts/ginfo.txt')
     fp = open(fname, 'r')
@@ -196,6 +197,7 @@ T_FRAME_POS = 1
 T_PAGE = 2
 T_NAME = 3
 T_FULL = 4
+
 
 class showPurePrestigeinfoscreenstandard(Screen):
 

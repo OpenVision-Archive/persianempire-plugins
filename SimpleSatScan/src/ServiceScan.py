@@ -10,6 +10,7 @@ from Components.FIFOList import FIFOList
 from Components.Sources.FrontendInfo import FrontendInfo
 from enigma import eServiceCenter
 
+
 class SimpleServiceScanSummary(Screen):
 	skin = """
 	<screen position="0,0" size="132,64">
@@ -30,6 +31,7 @@ class SimpleServiceScanSummary(Screen):
 
 	def updateService(self, name):
 		self["Service"].setText(name)
+
 
 class SimpleServiceScan(Screen):
 	skin = """

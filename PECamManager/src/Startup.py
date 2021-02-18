@@ -5,6 +5,7 @@ from Components.config import config
 from Components.Console import Console
 from Softcam import getcamcmd
 
+
 class StartCamOnStart:
 	def __init__(self):
 		self.Console = Console()
@@ -30,6 +31,7 @@ class StartCamOnStart:
 		if camnot:
 			cmd = getcamcmd(config.plugins.PECam.actcam.value)
 			Console().ePopen(cmd)
+
 
 startcamonstart = StartCamOnStart()
 

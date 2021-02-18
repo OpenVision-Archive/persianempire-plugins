@@ -20,6 +20,7 @@ from __init__ import _
 from Components.Console import Console
 from Tools.Directories import resolveFilename, SCOPE_PLUGINS
 
+
 def DiskEntry(model, size, removable):
     res = [(model, size, removable)]
     if removable:

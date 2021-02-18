@@ -6,6 +6,7 @@ try:
 except:
 	import _thread as thread
 
+
 class Lamedb:
 	def __init__(self):
 		self.readcnt = 0
@@ -112,7 +113,6 @@ class Lamedb:
 		print(" finished")
 		return services
 	
-	
 	def translateService(self, serviceData):
 		t1 = ["sid", "namespace", "tsid", "onid", "type", "number"]
 		if serviceData is None:
@@ -167,7 +167,6 @@ class Lamedb:
 		else:
 			self.databaseState = 4
 	
-
 	def getTransponders(self, lamedb):
 		if lamedb is None:
 			return
@@ -291,6 +290,7 @@ class Lamedb:
 				self.databaseState = 1
 		else:
 			self.databaseState = 2
+
 
 dxNoSDT = 1
 dxDontshow = 2

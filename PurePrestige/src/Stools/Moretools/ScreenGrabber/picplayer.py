@@ -13,6 +13,7 @@ from Components.Sources.List import List
 from Components.ConfigList import ConfigList, ConfigListScreen
 from Components.config import config, ConfigSubsection, ConfigInteger, ConfigSelection, ConfigText, ConfigEnableDisable, KEY_LEFT, KEY_RIGHT, KEY_0, getConfigListEntry
 
+
 def getScale():
     return AVSwitch().getFramebufferScale()
 
@@ -40,6 +41,7 @@ T_FRAME_POS = 1
 T_PAGE = 2
 T_NAME = 3
 T_FULL = 4
+
 
 class grabberPic_Thumb(Screen):
 

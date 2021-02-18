@@ -6,6 +6,7 @@ from Components.Label import Label
 from Components.ActionMap import ActionMap
 from __init__ import _
 
+
 class AboutTeam(Screen):
 
     def __init__(self, session, args=0):

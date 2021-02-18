@@ -9,6 +9,7 @@ import os
 import gettext
 from Components.Console import Console
 
+
 def _(txt):
     t = gettext.dgettext('PEPanel', txt)
     if t == txt:

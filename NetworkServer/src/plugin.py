@@ -7,6 +7,7 @@ from setupNfs import setupNfs
 
 plugin_path = ""
 
+
 def isInstalled(package):
 	package = 'Package: ' + package
 	try:
@@ -20,11 +21,14 @@ def isInstalled(package):
 
 	return False
 
+
 def setupSambaMain(session, iface=None, **kwargs):
 	session.open(setupSamba, iface, plugin_path)
 
+
 def setupNfsMain(session, iface=None, **kwargs):
 	session.open(setupNfs, iface, plugin_path)
+
 
 def setupSambaCallFunction(iface):
 	if isInstalled('sambaserver') and not isInstalled('samba'):
@@ -32,11 +36,13 @@ def setupSambaCallFunction(iface):
 	else:
 		return None
 
+
 def setupNfsCallFunction(iface):
 	if isInstalled('nfs-utils'):
 		return setupNfsMain
 	else:
 		return None
+
 
 def Plugins(path, **kwargs):
 	global plugin_path

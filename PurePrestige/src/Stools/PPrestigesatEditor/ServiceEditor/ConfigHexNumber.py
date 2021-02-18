@@ -3,6 +3,7 @@
 from __future__ import print_function
 from Components.config import config, ConfigText, KEY_NUMBERS, KEY_ASCII, getKeyNumber
 
+
 class ConfigHexNumber(ConfigText):
 
     def __init__(self, default='0000', size=4):

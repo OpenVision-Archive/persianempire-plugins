@@ -23,6 +23,7 @@ Cmenu_list = [_('Uninstall package'),
  _('Remove skin'),
  _('Remove crashlogs')]
 
+
 def CmenuListEntry(name, idx):
     res = [name]
     if idx == 0:

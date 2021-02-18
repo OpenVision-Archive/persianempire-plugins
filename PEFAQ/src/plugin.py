@@ -25,6 +25,7 @@ gettext.bindtextdomain('enigma2', resolveFilename(SCOPE_LANGUAGE))
 gettext.textdomain('enigma2')
 gettext.bindtextdomain('PEFAQ', '%s%s' % (resolveFilename(SCOPE_PLUGINS), 'Extensions/PEFAQ/locale/'))
 
+
 def _(txt):
     t = gettext.dgettext('PEFAQ', txt)
     if t == txt:
@@ -71,6 +72,7 @@ class IniciaSelList(MenuList):
         self.l.setItemHeight(70)
         self.l.setFont(0, gFont('Regular', 19))
         self.l.setFont(1, gFont('Regular', 17))
+
 
 class PEVerfaq(Screen):
     skin = '\n\t<screen name="PEVerfaqsScr" position="center,center" size="1000,610" title="%s">\n\n\t<widget name="reply" render="Listbox" position="8,87" size="970,470" scrollbarMode="showOnDemand" zPosition="12" text=" " font="Regular; 19" />\n\t<ePixmap name="new ePixmap" position="10,33" size="35,25" pixmap="~/img/question.png" alphatest="blend" transparent="1" zPosition="10"/>\n\n\t<widget name="mode" position="8,31" size="970,50" backgroundColor="#ffffff" foregroundColor="#000000" text=" " font="Regular; 22" />\n\n\t<widget name="key_red" position="654,585" size="162,22" transparent="1" text="Exit" font="Regular; 16"/>\n\n\t<widget name="key_mode" position="8,8" size="685,22" transparent="1" text=" " font="Regular; 15" halign="center" />\n\t<convert type="TemplatedMultiContent">{"template": [MultiContentEntryText(pos = (50, 0), size = (460, 26), font=0, flags = RT_HALIGN_LEFT, text = 1),MultiContentEntryPixmapAlphaTest(pos = (5, 0), size = (25, 24), png = 2),],"fonts": [gFont("Regular", 22)],"itemHeight": 26}</convert>\n\t</screen>' % _('FAQs')
@@ -131,6 +133,7 @@ class PEVerfaq(Screen):
                             self['mode'].setText('     ' + question + ' (' + category + ')')
                             self['reply'].setText(reply)
                             break
+
 
 class PEFaqs(Screen):
     skin = '\n\t<screen name="PEFaqsScr" position="center,center" size="1000,610" title="%s">\n\n\t<widget name="list" position="8,67" size="970,490" scrollbarMode="showOnDemand" zPosition="12" />\n\t<widget name="mode" position="8,31" size="970,30" backgroundColor="#ffffff" foregroundColor="#000000" text=" " font="Regular; 22" />\n\n\t<ePixmap name="new ePixmap" position="620,584" size="35,25" pixmap="~/img/red.png" alphatest="blend" transparent="1" />\n\t<widget name="key_red" position="654,585" size="162,22" transparent="1" text="Exit" font="Regular; 16"/>\n\t<ePixmap name="new ePixmap" position="715,584" size="35,25" pixmap="~/img/green.png" alphatest="blend" transparent="1" />\n\t<widget name="key_green" position="749,585" size="462,22" transparent="1" text="Update" font="Regular; 16"/>\n\t<widget name="key_mode" position="8,8" size="685,22" transparent="1" text=" " font="Regular; 15" halign="center" />\n\t</screen>' % _('Open Vision FAQs - https://openvision.tech')
@@ -271,6 +274,7 @@ class PEFaqs(Screen):
     def exit(self):
         self.close(True)
 
+
 def OVLock():
     try:
         from ov import gettitle
@@ -279,11 +283,13 @@ def OVLock():
     except:
         return False
 
+
 def main(session, **kwargs):
         if OVLock() == False:
             return
      	else:
             session.open(PEFaqs)
+
 
 def Plugins(**kwargs):
 	return PluginDescriptor(

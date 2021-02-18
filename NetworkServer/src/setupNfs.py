@@ -16,6 +16,7 @@ from enigma import eConsoleAppContainer
 import os
 from os import path
 
+
 def isRunning(pname):
 	for f in os.listdir('/proc'):
 		try:
@@ -26,6 +27,7 @@ def isRunning(pname):
 		except IOError:
 			pass
 	return False
+
 
 class editExportEntry(Screen, ConfigListScreen):
 	skin = """	
@@ -151,6 +153,7 @@ class editExportEntry(Screen, ConfigListScreen):
 		data.append(ipdata)
 		data.append(self.optionsConfigEntry.value)
 		self.close(data)
+
 
 class setupNfs(Screen, ConfigListScreen):
 	skin = """

@@ -8,6 +8,7 @@ from Components.Label import Label
 from Components.Button import Button
 from Components.FileList import FileList
 
+
 class dirSelectDlg(Screen):
 	skin = """
 		<screen name="dirSelectDlg" position="center,center" size="560,350">

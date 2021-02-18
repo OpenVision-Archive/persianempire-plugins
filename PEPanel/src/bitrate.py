@@ -4,6 +4,7 @@ from __future__ import print_function
 from enigma import eConsoleAppContainer, iServiceInformation
 from Components.Console import Console
 
+
 class Bitrate:
 
     def __init__(self, session, refresh_func=None, finished_func=None):

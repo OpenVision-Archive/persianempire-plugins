@@ -28,6 +28,7 @@ import os
 import thread
 import time
 
+
 class ServiceList(MenuList):
 
     def __init__(self):
@@ -101,6 +102,7 @@ class ServiceList(MenuList):
             pos = '0.0'
         serviceEntry.append(MultiContentEntryText(pos=(calc_xpos(serviceEntry), 0), size=(78, 24), font=0, flags=RT_HALIGN_CENTER | RT_VALIGN_TOP, text=pos, border_width=1, border_color=806544))
         return serviceEntry
+
 
 class PrestigePanelServiceEditor(Screen, ConfigListScreen):
     skin = '\n                <screen name="PrestigePanelTransponderEditor" position="center,center" size="640,520" title="Edit"  flags="wfNoBorder" >\n                <ePixmap pixmap="~/images/framesd.png" position="0,0" size="640,520"/>\t\t\n\t\t<ePixmap pixmap="~/ddbuttons/red.png" position="25,25" size="140,40" alphatest="on" />\n\t\t<ePixmap pixmap="~/ddbuttons/green.png" position="165,25" size="140,40" alphatest="on" />\n\t\t<ePixmap pixmap="~/ddbuttons/yellow.png" position="305,25" size="140,40" alphatest="on" />\n\t\t<ePixmap pixmap="~/ddbuttons/blue.png" position="445,25" size="140,40" alphatest="on" />\n\t\t<widget name="key_red" position="25,25" zPosition="1" size="140,40" font="Regular;20" halign="center" valign="center" backgroundColor="#9f1313" transparent="1" />\n\t\t<widget name="key_green" position="165,25" zPosition="1" size="140,40" font="Regular;20" halign="center" valign="center" backgroundColor="#1f771f" transparent="1" />\n\t\t<widget name="key_yellow" position="305,25" zPosition="1" size="140,40" font="Regular;20" halign="center" valign="center" backgroundColor="#a08500" transparent="1" />\n\t\t<widget name="key_blue" position="445,25" zPosition="1" size="140,40" font="Regular;20" halign="center" valign="center" backgroundColor="#18188b" transparent="1" />\n\t\t<widget name="config" position="25,75" size="590,375" scrollbarMode="showOnDemand" transparent="1" zPosition="2" />\n\t\t</screen>'
@@ -390,6 +392,7 @@ class ServiceHideMenuSelection(Screen):
     def cancel(self):
         self.close(None)
         return
+
 
 class PrestigePanelServicesEditor(Screen):
     version = '(20090418-alpha)'

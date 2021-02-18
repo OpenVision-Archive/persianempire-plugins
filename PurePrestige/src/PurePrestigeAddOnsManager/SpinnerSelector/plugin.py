@@ -12,10 +12,12 @@ import os
 from enigma import eTimer
 from Components.Console import Console
 
+
 def deletefiles(dr):
     for i in range(64):
         if os.path.isfile(dr + '/wait%d.png' % (i + 1)):
             os.remove(dr + '/wait%d.png' % (i + 1))
+
 
 class downloadScreen(Screen):
     skin = '\n\t<screen  position="center,center" size="640,520" title=""  flags="wfNoBorder" >\n                <ePixmap pixmap="~/images/framesd.png" position="0,0" size="640,520"/>\t\n               \n                <widget name="text" position="10,10" size="620,390" font="Regular;22" backgroundColor="transparent" halign="center" valign="center" transparent="1" zPosition="2" />\n\t\t\n\t\t\n\t\t\n\t</screen>'

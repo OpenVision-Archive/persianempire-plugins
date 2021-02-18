@@ -9,6 +9,7 @@ from Components.Label import Label
 from Components.MultiContent import MultiContentEntryText, MultiContentEntryPixmapAlphaTest
 from ExtrasList import ExtrasList
 
+
 def MessageBoxEntry(name, picture):
     res = [(name, picture)]
     picture = resolveFilename(SCOPE_PLUGINS, 'SystemPlugins/PEPanel/pictures/' + picture)

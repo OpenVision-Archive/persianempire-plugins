@@ -12,6 +12,7 @@ import os
 from Screens.Standby import TryQuitMainloop
 from Components.Console import Console
 
+
 class PurePrestigeConsole2(Screen):
     global HD_Res
     try:

@@ -64,6 +64,7 @@ config.plugins.settingsloader.keepterrestrialxml = ConfigYesNo(False)
 config.plugins.settingsloader.keepbouquets = ConfigText('', False)
 config.plugins.settingsloader.updatebouqeuts = ConfigSelection(default='no', choices=[('no', _('no')), ('select', _('select bouquets to keep')), ('yes', _('yes'))])
 
+
 def dirsremove(folder):
     try:
         for root, dirs, files in os.walk(folder):
@@ -1139,6 +1140,7 @@ class SL_SamiHelper():
     def show(self, ret=None):
         if self.loaded:
             self.session.open(PurePrestigeSL_Sami, self.list)
+
 
 class PurePrestigeSL_Sami(PurePrestigeSL_SettingsList):
     skin = '\n\t\n                <screen  position="center,center" size="640,520" title=""  flags="wfNoBorder" >\n                <ePixmap pixmap="~/images/framesd.png" position="0,0" size="640,520" transparent="1"/>\t\n\n                <ePixmap position="15,440" size="610,5" pixmap="~/images/slider.png" alphatest="blend" transparent="1" backgroundColor="transparent"/>\n                                <widget source="list" render="Listbox" position="15,20" size="610,400" scrollbarMode="showOnDemand" transparent="1" zPosition="2" >\n\t\t\t\t<convert type="TemplatedMultiContent">\n\t\t\t\t\t{"template": [\n\t\t\t\t\t\tMultiContentEntryText(pos = (10, 5), size = (440, 38), font=0, flags = RT_HALIGN_LEFT|RT_VALIGN_TOP, text = 0),\n\t\t\t\t\t\tMultiContentEntryText(pos = (480, 5), size = (130, 38), font=0, flags = RT_HALIGN_LEFT|RT_VALIGN_TOP, text = 1),\n\t\t\t\t\t\t],\n\t\t\t\t\t\t"fonts": [gFont("Regular", 20)],\n\t\t\t\t\t\t"itemHeight": 40\n\t\t\t\t\t}\n\t\t\t\t</convert>\n\t\t\t</widget>\n\t\t\t\n\t\t\t\n\t\t\t\n\t\t\t<widget name="key_yellow" position="270,460" size="140,20" valign="center" halign="center" zPosition="5" transparent="1" foregroundColor="white" font="Regular;18"/>\n\t\t\t\n\t\t\t\n\t\t\t\n\t\t\t<ePixmap name="yellow" pixmap="~/ddbuttons/yellow.png" position="270,450" size="140,40" zPosition="4" transparent="1" alphatest="on"/>\n\t\t\t\n\t\t</screen>'

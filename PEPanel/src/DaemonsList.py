@@ -18,6 +18,7 @@ from Screens.MessageBox import MessageBox
 from time import sleep
 from Tools.Directories import resolveFilename, SCOPE_PLUGINS
 
+
 def DaemonEntry(name, picture, description, started, installed):
     res = [(name,
       picture,

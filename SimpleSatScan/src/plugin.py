@@ -15,8 +15,6 @@ from Components.TuneTest import Tuner
 from ServiceScan import SimpleServiceScan
 
 
-
-
 class SimpleSatScan(ConfigListScreen, Screen):
 	skin = """
 	<screen position="center,center" size="520,480" title="Simple satellite scan">
@@ -639,7 +637,6 @@ class SimpleSatScan(ConfigListScreen, Screen):
 		else:
 			self.close()
 
-
 	def restartPrevService(self, answer):
 		if answer:
 			self.tuneTimer.stop()
@@ -677,11 +674,13 @@ def SimpleSatScanMain(session, **kwargs):
 		else:
 			session.open(SimpleSatScan)
 
+
 def SimpleSatScanStart(menuid, **kwargs):
 	if menuid == "scan":
 		return [(_("Simple satellite scan"), SimpleSatScanMain, "simple_sat_scan", None)]
 	else:
 		return []
+
 
 def Plugins(**kwargs):
 	if (nimmanager.hasNimType("DVB-S")):

@@ -12,11 +12,14 @@ config.plugins.HddMount.MountOnMovie = ConfigText(default="nothing")
 config.plugins.HddMount.SwapOnStart = ConfigYesNo(default=False)
 config.plugins.HddMount.SwapFile = ConfigText(default="no")
 
+
 def main(session, **kwargs):
 	from Manager import MountSetup
 	session.open(MountSetup)
 
+
 EnigmaStart = False
+
 
 def OnStart(reason, **kwargs):
 	global EnigmaStart
@@ -37,10 +40,12 @@ def OnStart(reason, **kwargs):
 		elif enableswap:
 			MountHddOnStart("nothing", "nothing", enableswap)
 
+
 def startMountManager(menuid):
 	if menuid != "system":
 		return []
 	return [(_("Mount Manager"), main, "mount_manager", None)]
+
 
 def Plugins(**kwargs):
 	return PluginDescriptor(name=_("Mount Manager"), description="Special version for Open Vision", where=PluginDescriptor.WHERE_MENU, fnc=startMountManager)

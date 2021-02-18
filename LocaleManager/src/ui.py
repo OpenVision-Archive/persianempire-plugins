@@ -39,6 +39,7 @@ if not pathExists(cfg.target.value):
 ENIGMA = resolveFilename(SCOPE_LANGUAGE).rstrip("/po/")
 PLUGINS = resolveFilename(SCOPE_PLUGINS)
 
+
 class LocaleManager(Screen, ConfigListScreen):
 	y_size = 175
 	skin = """

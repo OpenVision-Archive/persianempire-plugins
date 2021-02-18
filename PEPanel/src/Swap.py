@@ -15,6 +15,7 @@ import string
 from __init__ import _
 from Components.Console import Console
 
+
 class Swap(ConfigListScreen, Screen):
 
     def __init__(self, session, args=0):

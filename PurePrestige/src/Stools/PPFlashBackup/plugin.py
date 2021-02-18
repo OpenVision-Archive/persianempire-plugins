@@ -59,6 +59,7 @@ config.plugins.PPFlashBackup.disclaimer = ConfigBoolean(default=True)
 config.plugins.PPFlashBackup.update = ConfigYesNo(default=False)
 mounted_string = 'Nothing mounted at '
 
+
 def getBackupPath():
     backuppath = config.plugins.PPFlashBackup.backuplocation.value
     if backuppath.endswith('/'):
@@ -84,6 +85,7 @@ def _(txt):
 
 localeInit()
 language.addCallback(localeInit)
+
 
 def write_cache(cache_file, cache_data):
     if not os_path.isdir(os_path.dirname(cache_file)):

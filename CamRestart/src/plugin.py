@@ -26,18 +26,21 @@ gettext.bindtextdomain("enigma2", resolveFilename(SCOPE_LANGUAGE))
 gettext.textdomain("enigma2")
 gettext.bindtextdomain("camrestart", "%s%s" % (resolveFilename(SCOPE_PLUGINS), "Extensions/CamRestart/locale/"))
 
+
 def _(txt):
 	t = gettext.dgettext("camrestart", txt)
 	if t == txt:
 		t = gettext.gettext(txt)
 	return t
 	
+
 config.plugins.pecr = ConfigSubsection()
 config.plugins.pecr.keyname = ConfigSelection(default="KEY_TEXT", choices=[
 		("KEY_TEXT", "TEXT"),
 		("KEY_SUBTITLE", "SUBTITLE"),
 		("KEY_HELP", "HELP"),
 		])
+
 
 class QuickEmu():
 	def __init__(self):
@@ -90,6 +93,7 @@ class QuickEmu():
 			else: 
 				return None
 
+
 class pecr_setup(ConfigListScreen, Screen):
 	skin = """
 <screen name="pecr_setup" position="center,160" size="750,370" title="PE Cam Restart">
@@ -118,7 +122,6 @@ class pecr_setup(ConfigListScreen, Screen):
 			"ok": self.save
 		}, -2)
 	
-
 	def cancel(self):
 		for i in self["config"].list:
 			i[1].cancel()
@@ -133,14 +136,18 @@ class pecr_setup(ConfigListScreen, Screen):
 		self.mbox = self.session.open(MessageBox, (_("Saved")), MessageBox.TYPE_INFO, timeout=3)
 		plugins.reloadPlugins()
 
+
 def main(session, **kwargs):
 	session.open(pecr_setup)
 
+
 pEmu = QuickEmu()
+
 
 def sessionstart(reason, session=None, **kwargs):
 	if reason == 0:
 		pEmu.gotSession(session)
+
 
 def Plugins(**kwargs):
 	result = [

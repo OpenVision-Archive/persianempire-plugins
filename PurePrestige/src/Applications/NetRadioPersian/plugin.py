@@ -30,6 +30,7 @@ config.plugins.Cradio.stations_count = ConfigNumber(default=0)
 currversion = '3.0'
 currxmlversion = '3.0'
 
+
 def initProfileConfig():
     s = ConfigSubsection()
     s.name = ConfigText(default='')
@@ -48,6 +49,7 @@ def initConfig():
 
 
 initConfig()
+
 
 def PPListEntry(name, idx):
     name = ''
@@ -72,6 +74,7 @@ menu_list = [_('Favorites'),
  _('About'),
  _('Update')]
 
+
 def lsSelected():
     lst = []
     count = config.plugins.Cradio.stations_count.value
@@ -85,11 +88,13 @@ def lsSelected():
         lst = []
     return lst
 
+
 def AddOnCategoryComponent(name, png):
     res = [name]
     res.append(MultiContentEntryText(pos=(140, 5), size=(300, 35), font=0, text=name))
     res.append(MultiContentEntryPixmapAlphaTest(pos=(10, 0), size=(100, 60), png=png))
     return res
+
 
 class PPList(MenuList):
 
@@ -97,6 +102,7 @@ class PPList(MenuList):
         MenuList.__init__(self, list, False, eListboxPythonMultiContent)
         self.l.setItemHeight(92)
         self.l.setFont(0, gFont('Regular', 25))
+
 
 class persiancheckupdateScreen(Screen):
     skin = '\n\t<screen position="center,center" size="550,460" title="Persian Radio update" >\n\t\t<widget name="text" position="10,10" size="530,380" font="Regular;22" />\n\t\t<ePixmap name="yellow" position="200,400" zPosition="4" size="150,40" pixmap="~/Applications//NetRadioPersian/buttons/yellow.png" transparent="1" alphatest="on" />\n\t\t<widget name="key_yellow" position="200,400" zPosition="5" size="150,40" valign="center" halign="center" font="Regular;21" transparent="1" foregroundColor="white" shadowColor="black" shadowOffset="-1,-1" />                \n\t</screen>'

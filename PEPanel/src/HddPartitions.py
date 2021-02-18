@@ -16,6 +16,7 @@ import os
 import sys
 from __init__ import _
 
+
 def PartitionEntry(description, size):
     res = [(description, size)]
     picture = resolveFilename(SCOPE_PLUGINS, 'SystemPlugins/PEPanel/pictures/partitionmanager.png')

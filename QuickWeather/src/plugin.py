@@ -98,10 +98,12 @@ config.plugins.WeatherPlugin.hotkey = ConfigSelection([(x[0], x[1]) for x in Wea
 config.plugins.WeatherPlugin.anim3 = ConfigSelection(default="/media/hdd/AnimatedIcons", choices=[("/media/hdd/AnimatedIcons", _("/media/hdd/")), ("/media/usb/AnimatedIcons", _("/media/usb/")), ("/usr/share/enigma2/AnimatedIcons", _("/usr/share/enigma2/"))])
 config.plugins.WeatherPlugin.days = ConfigSelection(default="0", choices=[("0", _("Three day")), ("1", _("One day"))])
 
+
 def localeInit():
     lang = language.getLanguage()[:2]
     os_environ["LANGUAGE"] = lang
     gettext.bindtextdomain("QuickWeather", resolveFilename(SCOPE_PLUGINS, "Extensions/QuickWeather/locale"))
+
 
 def _(txt):
     t = gettext.dgettext("QuickWeather", txt)
@@ -109,6 +111,7 @@ def _(txt):
         print("[QuickWeather] fallback to default translation for", txt)
         t = gettext.gettext(txt)
     return t
+
 
 localeInit()
 language.addCallback(localeInit)
@@ -118,8 +121,10 @@ def WeatherInfoBar__init__(self, session):
 	baseInfoBar__init__(self, session)
 	self.Weatherinfobar = WeatherInfoBar(session, self)
 
+
 def main(session, **kwargs):
 	session.open(WeatherPluginMenu)
+
 
 def sessionstart(reason, **kwargs):
 	global gInfoBarWeather__init__
@@ -130,6 +135,7 @@ def sessionstart(reason, **kwargs):
 		InfoBarPlugins.__init__ = InfoBarPlugins__init__
 		InfoBarPlugins.switch = switch
 		InfoBarPlugins.swOff = swOff
+
 
 def InfoBarPlugins__init__(self):
 	global OnlyOneTime
@@ -142,6 +148,7 @@ def InfoBarPlugins__init__(self):
 		if config.plugins.WeatherPlugin.enabled.value:
 			self.onHide.append(lambda: self.Weatherdialog.hide())
 			self.onShow.append(lambda: self.Weatherdialog.show())
+
 		def CheckWeathertimer():
 			if self.Weathertimer.isActive():
 				self.Weathertimer.stop()
@@ -176,6 +183,7 @@ def switch(self):
 			else:
 				self.toggleShow()
 			   
+
 def swOff(self):
 	if isinstance(self, InfoBar):
                 if (self.shown and self.Weatherdialog.shown):
@@ -183,6 +191,7 @@ def swOff(self):
 		else:
 			self.Weatherdialog.hide()
 			self.hide()
+
 
 def autostart(reason, **kwargs):
 	if reason == 0:
@@ -201,6 +210,8 @@ def Plugins(**kwargs):
 
 
 HDSkn = False
+
+
 class WeatherPluginScreen2(Screen):
 	skin = """
 	    <screen position="center,center" size="230,245" zPosition="3" backgroundColor="#ff000000" flags="wfNoBorder">
@@ -212,6 +223,7 @@ class WeatherPluginScreen2(Screen):
             <widget name="Temp now" position="24,77" halign="left" size="80,30" zPosition="4" font="Regular;27" valign="top" backgroundColor="#00000000" transparent="1" />
             <widget name="Description now" position="24,150" halign="center" size="180,80" zPosition="4" font="Regular;18" valign="top" backgroundColor="#00000000" transparent="1" />
 	    </screen>"""
+
 	def __init__(self, session):
 		Screen.__init__(self, session)
 		self["lab1"] = Label(_("Started"))
@@ -221,6 +233,7 @@ class WeatherPluginScreen2(Screen):
 		self["Wind icons"] = Pixmap()
 		self["Temp now"] = Label("")
 		self["Description now"] = Label("")
+
 
 class WeatherPluginScreen(Screen):
 	skin = """
@@ -239,6 +252,7 @@ class WeatherPluginScreen(Screen):
             <widget name="Icons2" position="117,340" size="87,60" zPosition="3" transparent="1" alphatest="on" />
             <widget name="Description2" position="24,333" halign="left" size="180,60" zPosition="4" font="Regular;16" valign="top" backgroundColor="#00000000" transparent="1" />
 	    </screen>"""
+
 	def __init__(self, session):
 		Screen.__init__(self, session)
  		if config.plugins.WeatherPlugin.days.value == "0":
@@ -642,7 +656,6 @@ class WeatherPluginScreen(Screen):
                 self.timer3.stop()
                 self["Icons2"].instance.setPixmap(png3)                
                 
-
 	def get_Url(self):
 		url = 'http://api.worldweatheronline.com/free/v1/weather.ashx?q='
 		text = "Kiev"
@@ -1089,6 +1102,7 @@ class WeatherPluginScreen(Screen):
                            self.activityTimer.stop()
                 self.showTimer.start(50, 1)
 
+
 class WeatherPluginPositioner(Screen):
 	skin = """
 		 <screen position="center,center" size="230,415" zPosition="-1" backgroundColor="#ff000000" flags="wfNoBorder">
@@ -1114,6 +1128,7 @@ class WeatherPluginPositioner(Screen):
             <widget name="Temp now" position="24,77" halign="left" size="80,30" zPosition="4" font="Regular;27" valign="top" backgroundColor="#00000000" transparent="1" />
             <widget name="Description now" position="24,150" halign="center" size="180,80" zPosition="4" font="Regular;18" valign="top" backgroundColor="#00000000" transparent="1" />
 	    </screen>"""	
+
 	def __init__(self, session):
 		Screen.__init__(self, session)
 		self.skin_path = resolveFilename(SCOPE_PLUGINS, "Extensions/QuickWeather")
@@ -1199,6 +1214,7 @@ class WeatherPluginPositioner(Screen):
 		config.plugins.WeatherPlugin.position_x.cancel()
 		config.plugins.WeatherPlugin.position_y.cancel()
 		self.close()
+
 
 class WeatherPluginMenu(Screen):
 	skin = """
@@ -1353,6 +1369,7 @@ class WeatherPluginMenu(Screen):
             else:
                 self.close()			
 
+
 class SetupMenu(Screen, ConfigListScreen):
 	skin = """
 	<screen position="center,center" size="560,190" title="Setup Quick Weather" backgroundColor="#31000000" >
@@ -1393,6 +1410,7 @@ class SetupMenu(Screen, ConfigListScreen):
 
 	def exit(self):
 		self.close()
+
 
 class SetupMenu2(Screen):
     skin = """
@@ -1483,7 +1501,6 @@ class SetupMenu2(Screen):
 	    return b00klist        
 		
 
-
 class WeatherSelectCity(Screen):
 	def __init__(self, session, cmd):
 		Screen.__init__(self, session)
@@ -1510,6 +1527,7 @@ class WeatherSelectCity(Screen):
 	def workingFinished(self, callback=None):
 		self.working = False
 
+
 class WeatherCityInfobar(Screen):
 	def __init__(self, session, cmd):
 		Screen.__init__(self, session)
@@ -1534,6 +1552,7 @@ class WeatherCityInfobar(Screen):
 
 	def workingFinished(self, callback=None):
 		self.working = False		
+
 
 class WeatherInfoBar:
 	def __init__(self, session, infobar):
@@ -1562,6 +1581,7 @@ class WeatherInfoBar:
 
 	def showWeather(self):
 		self.session.open(WeatherPluginScreen)
+
 
 class SetupKeymap(Screen):
     skin = """
@@ -1630,6 +1650,7 @@ class SetupKeymap(Screen):
                       			b00klist.append((bname[0], name))                                 
         	b00klist.sort()                                                                        
 	        return b00klist		
+
 
 class SetupIcons(Screen):
     skin = """
@@ -1736,7 +1757,6 @@ class SetupIcons(Screen):
                 png2 = loadPic(filename, 420, 236, 0, 0, 0, 1)                
                 self["previem"].instance.setPixmap(png2)
 	
-
     def getList(self):
 		b00klist = []
 		setup = '%s%s' % (self.name(), "SetupIcons")
@@ -1747,6 +1767,7 @@ class SetupIcons(Screen):
                       			b00klist.append((bname[0], name))                                 
         	b00klist.sort()                                                                        
 	        return b00klist
+
 
 class SearchResults(list):
     def __str__(self):

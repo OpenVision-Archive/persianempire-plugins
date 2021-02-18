@@ -21,6 +21,7 @@ from Components.MultiContent import MultiContentEntryText, MultiContentEntryPixm
 
 myname = 'Pure Prestige RSS Reader'
 
+
 def main(session, **kwargs):
     session.open(PurePrestigeFeedScreenList)
 

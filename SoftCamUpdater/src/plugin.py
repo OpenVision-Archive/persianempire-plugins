@@ -58,6 +58,8 @@ config.plugins.SoftCamUpdater.keyname = ConfigSelection(default="SoftCam.Key", c
 		("ncam.keys", "ncam.keys"),
 		("ncam.biss", "ncam.biss"),
 		])
+
+
 class SoftCamUpdater(ConfigListScreen, Screen):
 	skin = """
 <screen name="SoftCamUpdater" position="center,160" size="670,200" title="SoftCam Updater for Persian Palace">
@@ -121,6 +123,7 @@ class SoftCamUpdater(ConfigListScreen, Screen):
 
 def main(session, **kwargs):
 	session.open(SoftCamUpdater)
+
 
 def Plugins(**kwargs):
 	return PluginDescriptor(

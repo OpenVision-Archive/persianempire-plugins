@@ -11,6 +11,7 @@ gettext.bindtextdomain("enigma2", resolveFilename(SCOPE_LANGUAGE))
 gettext.textdomain("enigma2")
 gettext.bindtextdomain("BouquetProtection", "%s%s" % (resolveFilename(SCOPE_PLUGINS), "SystemPlugins/BouquetProtection/locale/"))
 
+
 def _(txt):
 	t = gettext.dgettext("BouquetProtection", txt)
 	if t == txt:

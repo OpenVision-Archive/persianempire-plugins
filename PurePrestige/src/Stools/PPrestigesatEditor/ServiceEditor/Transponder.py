@@ -1,6 +1,8 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 from __future__ import print_function
+
+
 class Transponder:
     essential = ['frequency', 'polarization', 'symbol_rate']
     niceToHave = ['system',

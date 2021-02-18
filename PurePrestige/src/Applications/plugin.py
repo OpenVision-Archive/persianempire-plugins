@@ -23,6 +23,7 @@ from Plugins.Extensions.PurePrestige.Console2 import *
 from Components.Console import Console
 from Tools.Directories import resolveFilename, SCOPE_PLUGINS
 
+
 def gethostname():
     path = '/etc/hostname'
     hostname = 'None'
@@ -32,7 +33,9 @@ def gethostname():
         f.close()
     return 'None'
 
+
 hostname = gethostname()
+
 
 def getScale():
     return AVSwitch().getFramebufferScale()
@@ -43,6 +46,7 @@ T_FRAME_POS = 1
 T_PAGE = 2
 T_NAME = 3
 T_FULL = 4
+
 
 class showPurePrestigeappscreen(Screen):
 

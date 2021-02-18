@@ -23,6 +23,7 @@ from .Transponder import Transponder
 import os
 import time
 
+
 class ServiceList(MenuList):
 	def __init__(self):
 		MenuList.__init__(self, list=[], content=eListboxPythonMultiContent)
@@ -125,15 +126,18 @@ class ServiceList(MenuList):
 					border_color=0x000C4E90))
 		return serviceEntry
 		
+
 class ConfigCall(ConfigBoolean):
 	def __init__(self, descriptions="", fnc=None):
 		ConfigBoolean.__init__(self, descriptions=descriptions)
 		self.fnc = fnc
+
 	def handleKey(self, key):
 		if key in [KEY_LEFT, KEY_RIGHT]:
 			print_cy("ConfigCall")
 			if self.fnc is not None:
 				self.fnc()
+
 
 class ServiceEditor(Screen, ConfigListScreen):
 	
@@ -149,6 +153,7 @@ class ServiceEditor(Screen, ConfigListScreen):
 		<widget name="key_blue" position="420,0" zPosition="1" size="140,40" font="Regular;20" halign="center" valign="center" backgroundColor="#18188b" transparent="1" />
 		<widget name="config" position="10,50" size="540,375" scrollbarMode="showOnDemand" />
 		</screen>"""
+
 	def __init__(self, session, service=None, database=None):
 		self.skin = ServiceEditor.skin
 		Screen.__init__(self, session)
@@ -421,6 +426,7 @@ class ServiceEditor(Screen, ConfigListScreen):
 		self.service = tmp
 		self.close(self.service)
 
+
 class Newscaster(HTMLComponent, GUIComponent):
 	def __init__(self):
 		GUIComponent.__init__(self)
@@ -510,6 +516,7 @@ class Head(HTMLComponent, GUIComponent):
 				border_color=0x000C4E90))
 		self.l.setList([res])
 
+
 class ServiceHideMenuSelection(Screen):
 	skin = """
 		<screen position="90,165" size="500,130" title="">
@@ -550,6 +557,7 @@ class ServiceHideMenuSelection(Screen):
 	def cancel(self):
 		self.close(None)
 
+
 class ServicesEditor(Screen):
 
 	version = "(20090420-alpha)"
@@ -568,6 +576,7 @@ class ServicesEditor(Screen):
 		<widget name="list" position="0,64" size="560,240" scrollbarMode="showOnDemand" />
 		<widget name="infolist" position="0,334" size="560,96" />
 		</screen>"""
+
 	def __init__(self, session):
 		self.skin = ServicesEditor.skin
 		Screen.__init__(self, session)
@@ -997,7 +1006,6 @@ class ServicesEditor(Screen):
 		
 		self["infolist"].l.setList(l)
 
-
 	def addService(self):
 		print("addService")
 		if self.cur_service is None:
@@ -1270,14 +1278,17 @@ class ServicesEditor(Screen):
 		
 		self["infolist"].l.setList(l)
 
+
 def ServicesEditorMain(session, **kwargs):
 	session.open(ServicesEditor)
+
 
 def ServicesEditorStart(menuid, **kwargs):
 	if menuid == "scan":
 		return [(_("Services Editor"), ServicesEditorMain, "Services Editor", None)]
 	else:
 		return []
+
 
 def Plugins(**kwargs):
 	return PluginDescriptor(name=_("Services Editor"), description=_("Lets you edit services in your STB"), where=PluginDescriptor.WHERE_MENU, fnc=ServicesEditorStart)

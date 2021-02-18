@@ -23,12 +23,14 @@ gettext.bindtextdomain("enigma2", resolveFilename(SCOPE_LANGUAGE))
 gettext.textdomain("enigma2")
 gettext.bindtextdomain("PackageManager", "%s%s" % (resolveFilename(SCOPE_PLUGINS), "Extensions/PackageManager/locale/"))
 
+
 def _(txt):
 	t = gettext.dgettext("PackageManager", txt)
 	if t == txt:
 		t = gettext.gettext(txt)
 	return t
 	
+
 class PackageManagerScreen(Screen):
 	skin = """
 	<screen name="ipktoolsscreen" position="center,160" size="750,400" title="Package Manager for Open Vision">
@@ -123,6 +125,7 @@ class PackageManagerScreen(Screen):
 		elif item is "six":
 			self.session.openWithCallback(self.mList, downfeed)
 
+
 class InstallTarGZ(Screen):
 	skin = """
 <screen name="install tar.gz" position="center,160" size="750,370" title="Select tar.gz , bh.tgz , nab.tgz Files">
@@ -200,6 +203,7 @@ class InstallTarGZ(Screen):
 
 	def cancel(self):
 		self.close()
+
 
 class InstallIpk(Screen):
 	skin = """
@@ -283,6 +287,7 @@ class InstallIpk(Screen):
 	def cancel(self):
 		self.close()
 
+
 class InstallZip(Screen):
 	skin = """
 <screen name="install zip" position="center,160" size="750,370" title="Select zip Files">
@@ -360,6 +365,7 @@ class InstallZip(Screen):
 
 	def cancel(self):
 		self.close()
+
 
 class AdvInstallIpk(Screen):
 	skin = """
@@ -443,6 +449,7 @@ class AdvInstallIpk(Screen):
 	def cancel(self):
 		self.close()
 
+
 class InstallRar(Screen):
 	skin = """
 <screen name="install rar" position="center,160" size="750,370" title="Select rar Files">
@@ -521,6 +528,7 @@ class InstallRar(Screen):
 	def cancel(self):
 		self.close()		
 
+
 class RemoveIPK(Screen):
 	skin = """
 <screen name="RemoveIpk" position="center,100" size="750,570" title="ipk Remover">
@@ -592,6 +600,7 @@ class RemoveIPK(Screen):
 		self.mbox = self.session.open(MessageBox, _("%s UnInstalled" % item[0]), MessageBox.TYPE_INFO, timeout=3)
 		self.nList()
 
+
 class downfeed(Screen):
 	skin = """
 <screen name="downdown" position="center,100" size="750,570" title="Install Packages From feeds">
@@ -659,6 +668,7 @@ class downfeed(Screen):
 		msg = _("%s Installed" % name)
 		self.mbox = self.session.open(MessageBox, msg, MessageBox.TYPE_INFO, timeout=3)
 
+
 def OVLock():
     try:
         from ov import gettitle
@@ -667,11 +677,13 @@ def OVLock():
     except:
         return False
 
+
 def main(session, **kwargs):
     if OVLock() == False:
         return
     else:
         session.open(PackageManagerScreen)
+
 
 def Plugins(**kwargs):
 	return PluginDescriptor(

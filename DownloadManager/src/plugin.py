@@ -29,6 +29,7 @@ class Ipkremove2(Screen):
 			<!--eLabel position="70,100" zPosition="-1" size="100,69" backgroundColor="#222222" />
 			<widget name="info" position="100,230" zPosition="4" size="100,25" font="Regular;18" foregroundColor="#ffffff" transparent="1" halign="center" valign="center" /-->
 		</screen>"""
+
     def __init__(self, session):
 		self.skin = Ipkremove2.skin
 		Screen.__init__(self, session)
@@ -263,6 +264,7 @@ class Getipklist(Screen):
     def keyNumberGlobal(self, number):
         self['text'].number(number)
 
+
 class Getipk(Screen):
     skin = '\n\t\t<screen position="center,center" size="800,500" title="Open Vision - https://openvision.tech" >\n\t\t\t<!--widget name="text" position="0,0" size="550,25" font="Regular;20" /-->\n\t\t\t<widget name="list" position="10,20" size="750,350" scrollbarMode="showOnDemand" />\n\t\t\t<!--widget name="pixmap" position="200,0" size="190,250" /-->\n\t\t\t<eLabel position="70,100" zPosition="-1" size="100,69" backgroundColor="#222222" />\n\t\t\t<widget name="info" position="50,50" zPosition="4" size="500,400" font="Regular;22" foregroundColor="#ffffff" transparent="1" halign="left" valign="top" />\n\t\t        <ePixmap name="red"    position="0,450"   zPosition="2" size="140,40" pixmap="buttons/red.png" transparent="1" alphatest="on" />\n\t                <ePixmap name="green"  position="140,450" zPosition="2" size="140,40" pixmap="buttons/green.png" transparent="1" alphatest="on" />\n\t                <!--ePixmap name="yellow" position="280,450" zPosition="2" size="140,40" pixmap="buttons/yellow.png" transparent="1" alphatest="on" /> \n\t                <ePixmap name="blue"   position="420,450" zPosition="2" size="140,40" pixmap="buttons/blue.png" transparent="1" alphatest="on" /--> \n\n\t                <widget name="key_red" position="0,450" size="140,40" valign="center" halign="center" zPosition="4"  foregroundColor="#ffffff" font="Regular;20" transparent="1" shadowColor="#25062748" shadowOffset="-2,-2" /> \n\t                <widget name="key_green" position="140,450" size="140,40" valign="center" halign="center" zPosition="4"  foregroundColor="#ffffff" font="Regular;20" transparent="1" shadowColor="#25062748" shadowOffset="-2,-2" /> \n\t                <widget name="key_yellow" position="280,450" size="140,40" valign="center" halign="center" zPosition="4"  foregroundColor="#ffffff" font="Regular;20" transparent="1" shadowColor="#25062748" shadowOffset="-2,-2" />\n\t                <!--widget name="key_blue" position="420,450" size="140,50" valign="center" halign="center" zPosition="4"  foregroundColor="#ffffff" font="Regular;20" transparent="1" shadowColor="#25062748" shadowOffset="-2,-2" /-->\n                </screen>'
 
@@ -381,6 +383,7 @@ class Getipk(Screen):
     def keyNumberGlobal(self, number):
         self['text'].number(number)
 
+
 def OVLock():
     try:
         from ov import gettitle
@@ -389,11 +392,13 @@ def OVLock():
     except:
         return False
 
+
 def main(session, **kwargs):
     if OVLock() == False:
         return
     else:
         session.open(Downloads)
+
 
 def Plugins(**kwargs):
     return PluginDescriptor(name=_('Download Manager 5.0'), description=_('Special version for Open Vision'), where=[PluginDescriptor.WHERE_PLUGINMENU, PluginDescriptor.WHERE_EXTENSIONSMENU], icon='DownloadManager.png', fnc=main)

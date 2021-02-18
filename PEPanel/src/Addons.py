@@ -15,6 +15,7 @@ from Components.Ipkg import IpkgComponent
 from Screens.Ipkg import Ipkg
 from Components.Console import Console
 
+
 class AddonsFileBrowser(Screen):
 
     def __init__(self, session):

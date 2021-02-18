@@ -44,6 +44,7 @@ class Menusimple(Screen):
         	<widget name="key_blue" position="430,300" size="140,40" valign="center" halign="center" zPosition="4"  foregroundColor="#ffffff" font="Regular;20" transparent="1" shadowColor="#25062748" shadowOffset="-2,-2" />
         </screen>"""	
 		
+
 class ItemList(Screen):        
         
     skin = """

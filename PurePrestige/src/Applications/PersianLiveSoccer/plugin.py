@@ -38,6 +38,7 @@ c6color = 65407
 c8color = 13047173
 c9color = 13789470
 
+
 def wfile(st):
     fp = open('/tmp/lf.txt', 'a')
     fp.write('\n' + st)
@@ -100,6 +101,7 @@ def converttime(s, timediff, soccerstand):
         return s
     except:
         return pretime
+
 
 class persiansoccerTableScreen(Screen):
     skin = '\n\t\t<screen position="center,center" size="700,520" title="Tables and soccer stats" flags="wfNoBorder" >\n\t\t\t<ePixmap pixmap="~/Applications/PersianLiveSoccer/images/frame.png" position="0,0" size="700,520"/>\n                        <widget name="menu" position="15,15" size="670,490" scrollbarMode="showOnDemand" transparent="1" zPosition="2" />\n                        <widget name="info" position="0,0" zPosition="4" size="700,520" font="Regular;24" foregroundColor="#ffffff" transparent="1" halign="center" valign="center" />\n          \n                </screen>'

@@ -26,6 +26,7 @@ config.plugins.pepanel.configurationbackup.backupdirs = ConfigLocations(default=
  '/etc/default_gw',
  '/etc/hostname'])
 
+
 def getBackupPath():
     backuppath = config.plugins.pepanel.configurationbackup.backuplocation.value
     if backuppath.endswith('/'):

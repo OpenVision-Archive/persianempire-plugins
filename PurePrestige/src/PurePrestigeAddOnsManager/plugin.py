@@ -36,10 +36,12 @@ from Components.ConfigList import ConfigList, ConfigListScreen
 from Components.config import config, ConfigDirectory, ConfigSubsection, ConfigSubList, ConfigEnableDisable, ConfigNumber, ConfigText, ConfigSelection, ConfigYesNo, ConfigPassword, getConfigListEntry, configfile
 from Components.Console import Console
 
+
 def wfile(st):
     fp = open('/tmp/lf.txt', 'a')
     fp.write(st)
     fp.close()
+
 
 config.plugins.PurePrestige = ConfigSubsection()
 config.plugins.PurePrestige.items = ConfigSubList()
@@ -47,6 +49,7 @@ config.plugins.PurePrestige.items_count = ConfigNumber(default=0)
 config.plugins.PurePrestige.addstr = ConfigText(default='panel', fixed_size=False)
 currversion = '6.7'
 TMP_IMPORT_PWD = '/tmp/download_tmp'
+
 
 def gethostname():
     path = '/etc/hostname'
@@ -70,6 +73,7 @@ def gethostname():
 
 
 hostname = gethostname()
+
 
 def checkhostname(ipkfile):
     print('hostname', hostname)
@@ -111,6 +115,7 @@ def createstatus():
 
 
 createstatus()
+
 
 def getipkversion(ipkfile):
     try:
@@ -302,6 +307,7 @@ class PurePrestigeaddonsupdatesScreen(Screen):
         except:
             self['text'].setText('unable download data')
 
+
 class LSKServersScreen(Screen):
     skin = '\n                <screen  position="center,center" size="640,520" title=""  flags="wfNoBorder" >\n                <ePixmap pixmap="~/images/framesd.png" position="0,0" size="640,520"/>\t\n                <widget name="tspace" position="5,10" zPosition="4" size="630,25" font="Regular;22" foregroundColor="yellow" transparent="1" halign="center" valign="center" />\n                <ePixmap position="15,34" size="550,5" pixmap="~/images/slider.png" alphatest="blend" transparent="1" backgroundColor="transparent"/>\n  \t\t\n                <widget name="list" position="15,40" size="610,410" scrollbarMode="showOnDemand" transparent="1" zPosition="2" />\n\t        \n        </screen>'
 
@@ -366,6 +372,7 @@ class LSKServersScreen(Screen):
             self.session.open(PurePrestigeServerGroups, selectedserverurl, selectedservername)
         except:
             pass
+
 
 class FeedsServersScreen(Screen):
     skin = '\n                <screen  position="center,center" size="640,520" title=""  flags="wfNoBorder" >\n                <ePixmap pixmap="~/images/framesd.png" position="0,0" size="640,520"/>\t\n                <widget name="tspace" position="5,10" zPosition="4" size="630,25" font="Regular;22" foregroundColor="yellow" transparent="1" halign="center" valign="center" />\n                <ePixmap position="15,34" size="610,5" pixmap="~/images/slider.png" alphatest="blend" transparent="1" backgroundColor="transparent"/>\n  \t\t\n                <widget name="list" position="15,40" size="610,410" scrollbarMode="showOnDemand" transparent="1" zPosition="2" />\n\t        \n        </screen>'
@@ -1676,6 +1683,7 @@ class PurePrestigePackageFeeds(Screen):
                 self.session.open(MessageBox, _('No ipk package found'), type=1, timeout=4)
                 self.ipkgremove = False
 
+
 class Ipkgsearch(Screen):
     if HD_Res == True:
         skin = '\n        \t\n                <screen  position="center,center" size="920,600" title=""  flags="wfNoBorder" >\n                <ePixmap pixmap="~/images/frame.png" position="0,0" size="920,600"/>\t\n                <widget name="menu" position="50,50" size="850,420" scrollbarMode="showOnDemand" transparent="1" zPosition="2" />\n\t\t<ePixmap position="15,490" size="890,5" pixmap="~/images/slider.png" alphatest="blend" transparent="1" backgroundColor="transparent"/>\n\t\t\n                \n\t        <ePixmap name="green" position="140,510" zPosition="4" size="160,30" pixmap="~/ddbuttons/green.png" transparent="1" alphatest="on" />\n\t\t\t\n\t\t<widget name="key_green" position="110,520" zPosition="5" size="200,30" valign="center" halign="center" font="Regular;21" transparent="1" foregroundColor="white" shadowColor="black" shadowOffset="-1,-1" />\n        \t<ePixmap name="blue" position="390,510" zPosition="4" size="160,30" pixmap="~/ddbuttons/blue.png" transparent="1" alphatest="on" />\n\t\t\t\n\t\t<widget name="key_blue" position="360,520" zPosition="5" size="200,30" valign="center" halign="center" font="Regular;21" transparent="1" foregroundColor="white" shadowColor="black" shadowOffset="-1,-1" />\n                <ePixmap name="yellow" position="600,510" zPosition="4" size="160,30" pixmap="~/ddbuttons/yellow.png" transparent="1" alphatest="on" />\n\t\t\t\n\t\t\t  \n                <widget name="key_yellow" position="570,520" zPosition="5" size="200,30" valign="center" halign="center" font="Regular;21" transparent="1" foregroundColor="white" shadowColor="black" shadowOffset="-1,-1" />\n                                <widget name="info2" position="0,0" zPosition="4" size="920,600" font="Regular;22" foregroundColor="#ffffff" transparent="1" halign="center" valign="center" />                    \n                <widget name="info" position="0,550" zPosition="4" size="920,30" font="Regular;22" foregroundColor="#ffffff" transparent="1" halign="center" valign="center" />\n                </screen>'
@@ -2042,6 +2050,7 @@ class Ipkgsearch(Screen):
             else:
                 self.session.open(MessageBox, _('No ipk package found'), type=1, timeout=4)
                 self.ipkgremove = False
+
 
 class PurePrestigeIpkgLogos(Screen):
     if HD_Res == True:
@@ -2415,6 +2424,7 @@ class PurePrestigeIpkgLogos(Screen):
                 self.session.open(MessageBox, _('No ipk package found'), type=1, timeout=4)
                 self.ipkgremove = False
 
+
 class PurePrestigeIpkgPlugins(Screen):
     if HD_Res == True:
         skin = '\n        \t\n                <screen  position="center,center" size="920,600" title=""  flags="wfNoBorder" >\n                <ePixmap pixmap="~/images/frame.png" position="0,0" size="920,600"/>\t\n                <widget name="menu" position="50,50" size="850,420" scrollbarMode="showOnDemand" transparent="1" zPosition="2" />\n\t\t<ePixmap position="15,490" size="890,5" pixmap="~/images/slider.png" alphatest="blend" transparent="1" backgroundColor="transparent"/>\n\t\t\n                \n\t        <ePixmap name="green" position="140,510" zPosition="4" size="160,30" pixmap="~/ddbuttons/green.png" transparent="1" alphatest="on" />\n\t\t\t\n\t\t<widget name="key_green" position="110,520" zPosition="5" size="200,30" valign="center" halign="center" font="Regular;21" transparent="1" foregroundColor="white" shadowColor="black" shadowOffset="-1,-1" />\n        \t<ePixmap name="blue" position="390,510" zPosition="4" size="160,30" pixmap="~/ddbuttons/blue.png" transparent="1" alphatest="on" />\n\t\t\t\n\t\t<widget name="key_blue" position="360,520" zPosition="5" size="200,30" valign="center" halign="center" font="Regular;21" transparent="1" foregroundColor="white" shadowColor="black" shadowOffset="-1,-1" />\n                <ePixmap name="yellow" position="600,510" zPosition="4" size="160,30" pixmap="~/ddbuttons/yellow.png" transparent="1" alphatest="on" />\n\t\t\t\n\t\t\t  \n                <widget name="key_yellow" position="570,520" zPosition="5" size="200,30" valign="center" halign="center" font="Regular;21" transparent="1" foregroundColor="white" shadowColor="black" shadowOffset="-1,-1" />\n                          \n                <widget name="info" position="0,550" zPosition="4" size="920,30" font="Regular;22" foregroundColor="#ffffff" transparent="1" halign="center" valign="center" />\n                </screen>'
@@ -2753,6 +2763,7 @@ class PurePrestigeIpkgPlugins(Screen):
             else:
                 self.session.open(MessageBox, _('No ipk package found'), type=1, timeout=4)
                 self.ipkgremove = False
+
 
 class DescScreen(Screen):
     if HD_Res == True:

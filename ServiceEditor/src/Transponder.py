@@ -1,6 +1,8 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 from __future__ import print_function
+
+
 class Transponder:
 	essential = [
 			"frequency",
@@ -260,12 +262,10 @@ class Transponder:
 	
 	symbolrate = property(getSymbolrate, setSymbolrate)
 	
-	
 	def setTsid(self, newTsid):
 		self.__tsid = str(newTsid)
 	
 	tsid = property(lambda self: self.__tsid, setTsid)
-	
 	
 	def getOnid(self):
 		return self.__onid
@@ -283,7 +283,6 @@ class Transponder:
 	
 	def exportFec(self):
 		return {"fec_inner": self.reTransFec.get(self.fec)}
-	
 	
 	def exportFrequency(self):
 		return {"frequency": self.__frequency}

@@ -5,6 +5,7 @@ import gettext
 import locale
 from Tools.Directories import SCOPE_LANGUAGE, resolveFilename
 
+
 class Language:
 
     def __init__(self):

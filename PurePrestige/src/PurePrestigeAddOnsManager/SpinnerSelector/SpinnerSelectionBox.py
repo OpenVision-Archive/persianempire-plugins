@@ -14,6 +14,7 @@ from Spinner import Spinner
 import os
 from enigma import eTimer
 
+
 class SpinnerSelectionBox(Screen):
     skin = '\n\t<screen name="SpinnerSelectionBox" position="center,center" size="550,400" title="Spinner Preview" backgroundColor="transparent"  flags="wfNoBorder">\n\t\t\n                <widget name="text" position="200,300" size="250,100" font="Regular;24" backgroundColor="transparent" transparent="1" zPosition="2" />\n\t\t\n\t\t<widget name="bild" position="200,10"  size="300,200" transparent="1" zPosition="2" />\n\t\t\n\t</screen>'
 

@@ -18,6 +18,7 @@ commentclose = re.compile('--\\s*>')
 tagfind = re.compile('[a-zA-Z][-_.a-zA-Z0-9]*')
 attrfind = re.compile('\\s*([a-zA-Z_][-:.a-zA-Z_0-9]*)(\\s*=\\s*(\\\'[^\\\']*\\\'|"[^"]*"|[-a-zA-Z0-9./:;+*%?!&$\\(\\)_#=~\\\'"]*))?')
 
+
 class SGMLParseError(RuntimeError):
     """Exception raised for all parse errors."""
     pass
