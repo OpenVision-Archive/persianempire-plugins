@@ -46,4 +46,3 @@ def print_cy(txt):
 
 localeInit()
 language.addCallback(localeInit)
-

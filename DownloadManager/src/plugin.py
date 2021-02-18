@@ -54,7 +54,7 @@ class Ipkremove2(Screen):
             self["list"].setList(self.data)
         except:
             return
-    
+
     def okClicked(self):
 	        idx = self["list"].getSelectionIndex()
 		ipk = self.data[idx]
@@ -118,7 +118,7 @@ class Downloads(Screen):
 
     def uninstall(self):
         self.session.open(Ipkremove2)
-		
+
     def restartgui(self):
         quitMainloop(3)
 
@@ -192,9 +192,9 @@ class Getipklist(Screen):
         self.icount = 0
         self.names = []
         self.onLayoutFinish.append(self.openTest)
-        
+
     def ipkrem(self):
-        self.session.open(Ipkremove)    
+        self.session.open(Ipkremove)
 
     def cancel(self):
         cmd = 'rm -rf /tmp/*.ipk /tmp/.*.txt /etc/ipkinstalled'
@@ -253,7 +253,7 @@ class Getipklist(Screen):
         ipk = self.data[sel]
         addon = self.addon
         getipk = Getipk(self.session, ipk, addon)
-        getipk.openTest() 
+        getipk.openTest()
 
     def keyLeft(self):
         self['text'].left()
@@ -307,7 +307,7 @@ class Getipk(Screen):
 		source = slist.split()
                 self.found = 0
 		i = 0
-		while i < 12: 
+		while i < 12:
 				   addn = source[i]
 				   ftxt = '/tmp/.' + addn + '.txt'
 				   if not fileExists(ftxt):
@@ -319,7 +319,7 @@ class Getipk(Screen):
 						self.addon = addn
 						n4 = flist1.find(missing, 0)
 						n5 = flist1.find(".ipk", n4)
-						self.ipk = flist1[n4:(n5 + 4)]        
+						self.ipk = flist1[n4:(n5 + 4)]
                                                 self.found = 1
 						break
 				   else:
@@ -342,7 +342,7 @@ class Getipk(Screen):
         flog = myfile.read()
         if "Collected errors" not in flog:
             if len(self.depends) > 0:
-                   self.depends.pop(0)     
+                   self.depends.pop(0)
             self.openTest()
         else:
 		   n1 = flog.find("Cannot satisfy", 0)

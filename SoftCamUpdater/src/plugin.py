@@ -80,7 +80,7 @@ class SoftCamUpdater(ConfigListScreen, Screen):
 		self["information"] = Label(_("Latest Persian.BISS will be automatically merged."))
 		self.list = []
 		self.list.append(getConfigListEntry(_("Path"), config.plugins.SoftCamUpdater.path))
-		self.list.append(getConfigListEntry(_("File name"), config.plugins.SoftCamUpdater.keyname))		
+		self.list.append(getConfigListEntry(_("File name"), config.plugins.SoftCamUpdater.keyname))
 		ConfigListScreen.__init__(self, self.list)
 		self["Redkey"] = StaticText(_("Close"))
 		self["Greenkey"] = StaticText(_("Save"))
@@ -93,17 +93,17 @@ class SoftCamUpdater(ConfigListScreen, Screen):
 			"yellow": self.downkey,
 			"ok": self.save
 		}, -2)
-		
+
 	def cancel(self):
 		for i in self["config"].list:
 			i[1].cancel()
 		self.close(False)
-	
+
 	def save(self):
 		for i in self["config"].list:
 			i[1].save()
 		self.mbox = self.session.open(MessageBox, (_("Saved successfull!")), MessageBox.TYPE_INFO, timeout=3)
-		
+
 	def downkey(self):
 		try:
 			Console().ePopen("wget -P /tmp %s" % bissaddress)

@@ -41,7 +41,7 @@ class editExportEntry(Screen, ConfigListScreen):
 		</screen>"""
 
 	def __init__(self, session, exportDir, client, options):
-		self.skin = editExportEntry.skin		
+		self.skin = editExportEntry.skin
 		self.session = session
 		Screen.__init__(self, session)
 
@@ -185,7 +185,7 @@ class setupNfs(Screen, ConfigListScreen):
 		</screen>"""
 
 	def __init__(self, session, iface, plugin_path):
-		self.skin = setupNfs.skin		
+		self.skin = setupNfs.skin
 		self.session = session
 		Screen.__init__(self, session)
 
@@ -268,7 +268,7 @@ class setupNfs(Screen, ConfigListScreen):
 		except IOError:
 			pass
 			return None
-	
+
 	def writeExports(self, data):
 		exportfile = open('/etc/exports', 'w')
 		for line in data:
@@ -378,7 +378,7 @@ class setupNfs(Screen, ConfigListScreen):
 			for cnt, line in enumerate(self.tmpList):
 				if cnt != itemIndex:
 					self.exportlist.append((line[0], line[1], line[2]))
-			self["exportlist"].setList(self.exportlist)			
+			self["exportlist"].setList(self.exportlist)
 
 	def green(self):
 		if self.activeConfigEntry.value:

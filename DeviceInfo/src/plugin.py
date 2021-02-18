@@ -66,11 +66,11 @@ class DeviceInfo(Screen):
 	self.skin_path = resolveFilename(SCOPE_PLUGINS, "Extensions/DeviceInfo")
         self.session = session
         Screen.__init__(self, session)
-	self["actions"] = ActionMap(["SetupActions", "ColorActions", "DirectionActions"], 
+	self["actions"] = ActionMap(["SetupActions", "ColorActions", "DirectionActions"],
 			{
 				"cancel": self.close,
 				"ok": self.close,
-			})		
+			})
 
 
 def startinfo(session, **kwargs):
@@ -78,9 +78,9 @@ def startinfo(session, **kwargs):
 
 
 def mainconf(menuid):
-    if menuid != "information":                                                  
-        return []                                                     
-    return [(_("Device"), startinfo, "DeviceInfo", None)] 
+    if menuid != "information":
+        return []
+    return [(_("Device"), startinfo, "DeviceInfo", None)]
 
 
 def Plugins(**kwargs):

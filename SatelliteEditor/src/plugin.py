@@ -24,13 +24,13 @@ except:
 	import _thread as thread
 import urllib2
 import xml.etree.cElementTree
-	
- 
+
+
 class SatelliteImport(Screen):
 	modeToggle = 0
 	modeSelect = 1
 	modeUnSelect = 2
-	
+
 	skin = """
 		<screen position="90,95" size="560,430" title="connect ... please wait" >
 		<ePixmap pixmap="buttons/red.png" position="0,0" size="140,40" alphatest="on" />
@@ -44,7 +44,7 @@ class SatelliteImport(Screen):
 		<widget name="list" position="0,64" size="560,240" scrollbarMode="showOnDemand" />
 		<widget name="head" position="0,40" size="560,24" scrollbarMode="showNever" />
 		</screen>"""
-	
+
 	def __init__(self, session):
 		Screen.__init__(self, session)
 		self.skin = SatelliteImport.skin
@@ -71,22 +71,22 @@ class SatelliteImport(Screen):
 			"redUp": self.selectSatelliteFinish,
 			"yellow": self.importTransponders,
 			}, -1)
-			
+
 		self["head"] = Head()
 		self["list"] = SatelliteList()
-		
+
 		self["key_red"] = Button(_("unselect"))
 		self["key_green"] = Button(_("select"))
 		self["key_yellow"] = Button("download")
 		self["key_blue"] = Button(_("sort"))
-		
+
 		self.onLayoutFinish.append(self.layoutFinished)
 		self.currentSelectedColumn = 0
 		self.row = [
 			["name", _("Satellites"), False],
 			["position", _("Pos"), False]
 			]
-		
+
 		self.satelliteslist = []
 		self.getSatellites_state = self.thread_is_off
 		self.satTimer = eTimer()
@@ -113,7 +113,7 @@ class SatelliteImport(Screen):
 
 	def doNothing(self):
 		pass
-		
+
 	def left(self):
 		print("left")
 		if self.currentSelectedColumn:
@@ -123,7 +123,7 @@ class SatelliteImport(Screen):
 				return
 			data = data[self.currentSelectedColumn + 1]
 			self["head"].l.setSelectionClip(eRect(data[1], data[0], data[3], data[4]), True)
-	
+
 	def right(self):
 		print("right")
 		if self.currentSelectedColumn < len(self.row) - 1:
@@ -133,12 +133,12 @@ class SatelliteImport(Screen):
 				return
 			data = data[self.currentSelectedColumn + 1]
 			self["head"].l.setSelectionClip(eRect(data[1], data[0], data[3], data[4]), True)
-	
+
 	def nextPage(self):
 		self["list"].pageUp()
 		self.lastSelectedIndex = self["list"].getSelectedIndex()
 		self.updateSelection()
-	
+
 	def prevPage(self):
 		self["list"].pageDown()
 		self.lastSelectedIndex = self["list"].getSelectedIndex()
@@ -153,7 +153,7 @@ class SatelliteImport(Screen):
 		self["list"].down()
 		self.lastSelectedIndex = self["list"].getSelectedIndex()
 		self.updateSelection()
-	
+
 	def upUp(self):
 		cur_idx = self["list"].getSelectedIndex()
 		if self.lastSelectedIndex != cur_idx:
@@ -163,11 +163,11 @@ class SatelliteImport(Screen):
 		cur_idx = self["list"].getSelectedIndex()
 		if self.lastSelectedIndex != cur_idx:
 			self.lastSelectedIndex = cur_idx
-	
+
 	def upRepeated(self):
 		self["list"].up()
 		self.updateSelection()
-	
+
 	def downRepeated(self):
 		self["list"].down()
 		self.updateSelection()
@@ -220,7 +220,7 @@ class SatelliteImport(Screen):
 		else:
 			self.getSatellites_state = self.thread_is_running
 			thread.start_new_thread(self.getSatellites, (None,))
-	
+
 	def getTransponders(self, dummy=None):
 		pass
 
@@ -247,25 +247,25 @@ class SatelliteImport(Screen):
 
 	def layoutFinished(self):
 		self.satTimer.start(1000)
-		
+
 	def selectSatellite(self):
 		self.satelliteSelection(mode=self.modeSelect)
-	
+
 	def unSelectSatellite(self):
 		self.satelliteSelection(mode=self.modeUnSelect)
-	
+
 	def selectSatelliteRepeated(self):
 		self.down()
 		self.satelliteSelection(mode=self.modeSelect, update=False)
-	
+
 	def unSelectSatelliteRepeated(self):
 		self.down()
 		self.satelliteSelection(mode=self.modeUnSelect, update=False)
-	
+
 	def selectSatelliteFinish(self):
 		self["list"].down()
 		self["list"].setEntries(self.satelliteslist)
-	
+
 	def satelliteSelection(self, mode=modeToggle, update=True):
 		if len(self.satelliteslist):
 			cur_idx = self["list"].getSelectedIndex()
@@ -291,7 +291,7 @@ class KingOfSat(SatelliteImport):
 	thread_is_off = 0
 	thread_is_running = 1
 	thread_is_done = 2
-	
+
 	transFec = {
 			"1/2": "1",
 			"2/3": "2",
@@ -303,11 +303,11 @@ class KingOfSat(SatelliteImport):
 			"4/5": "8",
 			"9/10": "9",
 			}
-	
+
 	listFec2 = ("8/9", "3/5", "4/5", "9/10")
 	listFec = ("1/2", "2/3", "3/4", "4/5", "5/6", "7/8", "?")
 	listFecAll = ("1/2", "2/3", "3/4", "4/5", "5/6", "7/8", "8/9", "3/5", "4/5", "9/10", "?")
-	
+
 	transModulation = {
 			"qpsk": "1",
 			"8psk": "2",
@@ -316,17 +316,17 @@ class KingOfSat(SatelliteImport):
 
 	def __init__(self, session):
 		SatelliteImport.__init__(self, session)
-		
+
 		self.urlsSatellites = ("http://de.kingofsat.net", "http://en.kingofsat.net")
-		
+
 		self.mainTitle = "KingOfSat Import (www.kingofsat.net)"
-	
+
 	def getTransponders(self, dummy=None):
 		print("getTransponders")
-		
+
 		transSystem = {"dvb-s": "0", "dvb-s2": "1", }
 		transPolarisation = {"h": "0", "v": "1", "l": "2", "r": "3", }
-		
+
 		idle = False
 		while idle != True:
 			idle = True
@@ -354,13 +354,13 @@ class KingOfSat(SatelliteImport):
 						for x in l:
 							if len(x) < 6:
 								continue
-							
+
 							freq_raw = x[1].split("&nbsp;")
 							try:
 								freq = str(int(float(freq_raw[0].replace(">", "").strip()) * 1000))
 							except:
 								continue
-							
+
 							pol = freq_raw[1].split("<")[0].strip().lower()
 							if pol in ("v", "h", "l", "r"):
 								pass
@@ -374,13 +374,13 @@ class KingOfSat(SatelliteImport):
 								pass
 							else:
 								continue
-							
+
 							sym = x[4].split("<")
 							try:
 								sym = str(int(sym[0].replace(">", "").strip()) * 1000)
 							except:
 								continue
-							
+
 							fec = x[5].split("<")[0].replace(">", "").strip()
 							if fec in self.transFec:
 								pass
@@ -510,7 +510,7 @@ class LyngSat(SatelliteImport):
 	thread_is_off = 0
 	thread_is_running = 1
 	thread_is_done = 2
-	
+
 	transFec = {
 			"1/2": "1",
 			"2/3": "2",
@@ -522,25 +522,25 @@ class LyngSat(SatelliteImport):
 			"4/5": "8",
 			"9/10": "9",
 			}
-	
+
 	listFec2 = ("8/9", "3/5", "4/5", "9/10")
 	listFec = ("1/2", "2/3", "3/4", "4/5", "5/6", "7/8", "?")
 	listFecAll = ("1/2", "2/3", "3/4", "4/5", "5/6", "7/8", "8/9", "3/5", "4/5", "9/10", "?")
-	
+
 	def __init__(self, session):
 		SatelliteImport.__init__(self, session)
-		
+
 		self.baseurl = "http://lyngsat.com"
 		self.urlRegions = ("asia.html", "europe.html", "atlantic.html", "america.html")
 		self.mainTitle = "LyngSat Import (www.lyngsat.com)"
 
 	def getTransponders(self, dummy=None):
 		print("getTransponders")
-		
+
 		transSystem = {"dvb-s": "0", "dvb-s2": "1", }
 		transPolarisation = {"h": "0", "v": "1", "l": "2", "r": "3", }
 		transModulation = {"dvb-s": "1", "dvb-s2": "2", "qpsk": "1", "8psk": "2", "qam16": "3"}
-		
+
 		idle = False
 		while idle != True:
 			idle = True
@@ -578,7 +578,7 @@ class LyngSat(SatelliteImport):
 							else:
 								print("fail 3:", l[x])
 								continue
-							
+
 							sym_raw = l[x + 5].strip().split(">")
 							try:
 								sym_raw = sym_raw[2].split("-")
@@ -587,10 +587,10 @@ class LyngSat(SatelliteImport):
 								print("fail 5:", l[x + 5])
 								print(sym_raw)
 								continue
-							
+
 							sys = None
 							mod = None
-							
+
 							fec = sym_raw[1].split("<")[0].strip()
 							if fec in self.listFec2:
 								sys = "dvb-s2"
@@ -598,13 +598,13 @@ class LyngSat(SatelliteImport):
 								pass
 							else:
 								fec = "?"
-							
+
 							if sys is None:
 								if l[x + 4].find(">dvb-s2<") != -1:
 									sys = "dvb-s2"
 								else:
 									sys = "dvb-s"
-							
+
 							if l[x + 4].find("8psk") != -1:
 								sys = "dvb-s2"
 								mod = "8psk"
@@ -657,7 +657,7 @@ class LyngSat(SatelliteImport):
 			try:
 				posDir = pos[3].upper().replace("&#176;", "").replace("&deg;", "").split("<")[0].strip()
 				posStr = str(float(pos[1].split("<")[0].strip())) + pos[3].replace("&#176;", "").replace("&deg;", "").split("<")[0].strip()
-				
+
 				pos = int(float(pos[1].split("<")[0].strip()) * 10)
 				if posDir == "W":
 					pos = -pos
@@ -771,7 +771,7 @@ class Lamedb:
 			"rolloff",
 			"pilot"
 			]
-		
+
 		if transponders is None:
 			return
 		tplist = []
@@ -792,7 +792,7 @@ class Lamedb:
 				for y in range(0, len(x[0])):
 					tp.update({t1[y]: x[0][y]})
 				for y in range(0, len(x[1])):
-					if self.version == 3:	
+					if self.version == 3:
 						tp.update({t2_sv3[y]: x[1][y]})
 					elif self.version == 4:
 						tp.update({t2_sv4[y]: x[1][y]})
@@ -818,7 +818,7 @@ class Lamedb:
 			print("Position: ", x)
 			print("Transponder: ", len(satlist.get(x)))
 		return satlist
-	
+
 
 class Transponder:
 	essential = [
@@ -826,26 +826,26 @@ class Transponder:
 			"polarization",
 			"symbol_rate",
 			]
-		
+
 	niceToHave = [
 			"system",
 			"fec_inner",
 			"tsid",
 			"onid",
 			]
-		
+
 	transSystem = {
 			"0": "DVB-S",
 			"1": "DVB-S2",
 			"dvb-s": "DVB-S",
 			"dvb-s2": "DVB-S2",
 			}
-		
+
 	reTransSystem = {
 			"DVB-S": "0",
 			"DVB-S2": "1",
 			}
-		
+
 	transPolarisation = {
 			"0": "H",
 			"h": "H",
@@ -859,40 +859,40 @@ class Transponder:
 			"r": "R",
 			"i": "i",
 			}
-		
+
 	reTransPolarisation = {
 			"H": "0",
 			"V": "1",
 			"L": "2",
 			"R": "3",
 			}
-		
+
 	transModulation = {
 			"0": "AUTO",
 			"1": "QPSK",
 			"2": "8PSK",
 			"3": "QAM16",
 			}
-		
+
 	reTransModulation = {
 			"AUTO": "0",
 			"QPSK": "1",
 			"8PSK": "2",
 			"QAM16": "3",
 			}
-		
+
 	transRolloff = {
 			"0": "0_35",
 			"1": "0_25",
 			"2": "0_20",
 			}
-		
+
 	reTransRolloff = {
 			"0_35": "0",
 			"0_25": "1",
 			"0_20": "2",
 			}
-		
+
 	transOnOff = {
 			"0": "OFF",
 			"1": "ON",
@@ -903,7 +903,7 @@ class Transponder:
 			"ON": "1",
 			"AUTO": "2",
 			}
-		
+
 	transFec = {
 			"0": "FEC_AUTO",
 			"1": "FEC_1_2",
@@ -928,7 +928,7 @@ class Transponder:
 			"9/10": "FEC_9_10",
 			"none": "FEC_NONE",
 			}
-		
+
 	reTransFec = {
 			"FEC_AUTO": "0",
 			"FEC_1_2": "1",
@@ -949,15 +949,15 @@ class Transponder:
 			"FEC_4_5",
 			"FEC_9_10",
 			]
-	
+
 	transBand = {
 		"KU": ("10700000", "12750000"),
 		"C": ("3400000", "4200000"),
 	}
-	
+
 	def __init__(self, transponder):
 		self.rawData = transponder
-		
+
 		self.system = "DVB-S"
 		self.__frequency = "10700000"
 		self.__symbolrate = "27500000"
@@ -974,7 +974,7 @@ class Transponder:
 		self.band = "KU"
 		self.__importColor = None
 		self.transponderDoctor(self.rawData)
-	
+
 	def transponderDoctor(self, transponder):
 		if not isinstance(transponder, dict):
 			print("transponderDoctor: Transponderdaten muessen vom Type DICT sein")
@@ -997,28 +997,28 @@ class Transponder:
 		if len(missing):
 			print("transponderDoctor: Folgende Parameter fehlen:", missing)
 			return
-		
+
 		self.polarisation = self.transPolarisation.get(transponder.get(transParam.get("polarization"), "i").lower())
 		if self.polarisation == "i":
 			print("transponderDoctor: unbekannter Wert fuer Polarisation (%s)" % transParam.get("polarization"))
 			return
-		
+
 		self.__frequency = transponder.get(transParam.get("frequency"), "i").lower()
-		
+
 		self.__symbolrate = transponder.get(transParam.get("symbol_rate"), "i").lower()
 
 		dvb_s_cnt = 0
 		dvb_s2_cnt = 0
-			
+
 		self.__importColor = transponder.get("import", None)
-		
+
 		if "system" in transParam:
 			self.system = self.transSystem.get(transponder.get(transParam.get("system"), "i").lower())
 			if self.system == "DVB-S":
 				dvb_s_cnt += 1
 			if self.system == "DVB-S2":
 				dvb_s2_cnt += 1
-		
+
 		if "modulation" in transParam:
 			self.modulation = self.transModulation.get(transponder.get(transParam.get("modulation"), "i").lower())
 			if (self.modulation == "8PSK") or (self.modulation == "QAM16"):
@@ -1043,21 +1043,21 @@ class Transponder:
 			self.system = "DVB-S2"
 		else:
 			self.system = "DVB-S"
-		
+
 		if "inversion" in transParam:
 			self.inversion = self.transOnOff.get(transponder.get(transParam.get("inversion"), "i").lower())
 
 		if "tsid" in transParam:
 			self.__tsid = transponder.get(transParam.get("tsid"), "i").lower()
 			self.useTsid = True
-		
+
 		if "onid" in transParam:
 			self.__onid = transponder.get(transParam.get("onid"), "i").lower()
 			self.useOnid = True
 
 	def getFrequency(self):
 		return self.__frequency
-	
+
 	def setFrequency(self, frequency):
 		if isinstance(frequency, list):
 			if len(frequency) == 2:
@@ -1066,50 +1066,50 @@ class Transponder:
 					return
 		else:
 			self.__frequency = str(frequency)
-	
+
 	frequency = property(getFrequency, setFrequency)
-	
+
 	importColor = property(lambda self: self.__importColor)
-	
+
 	def getSymbolrate(self):
 		return self.__symbolrate
-	
+
 	def setSymbolrate(self, symbolrate):
 		self.__symbolrate = str(symbolrate)
-	
+
 	symbolrate = property(getSymbolrate, setSymbolrate)
-	
+
 	def setTsid(self, newTsid):
 		self.__tsid = str(newTsid)
-	
+
 	tsid = property(lambda self: self.__tsid, setTsid)
-	
+
 	def getOnid(self):
 		return self.__onid
-	
+
 	def setOnid(self, newOnid):
 		self.__onid = str(newOnid)
-	
+
 	onid = property(lambda self: self.__onid, setOnid)
-	
+
 	def exportImportColor(self):
 		return {"import": self.__importColor}
-	
+
 	def exportSystem(self):
 		return {"system": self.reTransSystem.get(self.system)}
-	
+
 	def exportFec(self):
 		return {"fec_inner": self.reTransFec.get(self.fec)}
-	
+
 	def exportFrequency(self):
 		return {"frequency": self.__frequency}
-	
+
 	def exportPolarisation(self):
 		return {"polarization": self.reTransPolarisation.get(self.polarisation)}
-	
+
 	def exportSymbolrate(self):
 		return {"symbol_rate": self.__symbolrate}
-	
+
 	def exportModulation(self):
 		return {"modulation": self.reTransModulation.get(self.modulation)}
 
@@ -1118,16 +1118,16 @@ class Transponder:
 
 	def exportTsid(self):
 		return {"tsid": self.__tsid}
-		
+
 	def exportInversion(self):
 		return {"inversion": self.reTransOnOff.get(self.inversion)}
-		
+
 	def exportPilot(self):
 		return {"pilot": self.reTransOnOff.get(self.pilot)}
-			
+
 	def exportRolloff(self):
 		return {"rolloff": self.reTransRolloff.get(self.rolloff)}
-	
+
 	def exportClean(self):
 		res = {}
 		res.update(self.exportSystem())
@@ -1148,12 +1148,12 @@ class Transponder:
 		if self.rolloff != "0_35":
 			res.update(self.exportRolloff())
 		return res
-	
+
 	def exportAll(self):
 		res = self.exportClean()
 		res.update(self.exportImportColor())
 		return res
-		
+
 
 class TransponderList(MenuList):
 	def __init__(self):
@@ -1181,7 +1181,7 @@ class TransponderList(MenuList):
 			"FEC_9_10": "9/10",
 			"FEC_NONE": "none",
 			}
-		
+
 		res = []
 		z = 0
 		for x in transponderlist:
@@ -1286,7 +1286,7 @@ class TransponderList(MenuList):
 
 
 class TransponderEditor(Screen, ConfigListScreen, Transponder):
-	
+
 	skin = """
 		<screen position="90,95" size="560,430" title="Edit" >
 		<ePixmap pixmap="buttons/red.png" position="0,0" size="140,40" alphatest="on" />
@@ -1303,7 +1303,7 @@ class TransponderEditor(Screen, ConfigListScreen, Transponder):
 	def __init__(self, session, transponderData=None):
 		self.skin = TransponderEditor.skin
 		Screen.__init__(self, session)
-		
+
 		Transponder.__init__(self, transponderData)
 
 		self.createConfig()
@@ -1322,12 +1322,12 @@ class TransponderEditor(Screen, ConfigListScreen, Transponder):
 		ConfigListScreen.__init__(self, self.list)
 		self.onLayoutFinish.append(self.layoutFinished)
 		self.createSetup()
-	
+
 	def layoutFinished(self):
 		self.setTitle("Edit ")
 
 	def createConfig(self):
-		
+
 		self.configTransponderSystem = ConfigSelection([
 							("DVB-S", _("DVB-S")),
 							("DVB-S2", _("DVB-S2"))], self.system)
@@ -1379,7 +1379,7 @@ class TransponderEditor(Screen, ConfigListScreen, Transponder):
 		self.configTransponderUseOnid = ConfigYesNo(default=self.useOnid)
 		self.configTransponderTsid = ConfigInteger(default=int(self.tsid), limits=(0, 65535))
 		self.configTransponderOnid = ConfigInteger(default=int(self.onid), limits=(0, 65535))
-	
+
 	def createSetup(self):
 		self.list = []
 
@@ -1388,22 +1388,22 @@ class TransponderEditor(Screen, ConfigListScreen, Transponder):
 			self.list.append(getConfigListEntry(_("Freqency"), self.configTransponderFrequency))
 			self.list.append(getConfigListEntry(_("Polarisation"), self.configTransponderPolarisation))
 			self.list.append(getConfigListEntry(_("Symbolrate"), self.configTransponderSymbolrate))
-		
+
 		if self.system == "DVB-S":
 			self.list.append(getConfigListEntry(_("FEC"), self.configTransponderFec))
 		elif self.system == "DVB-S2":
 			self.list.append(getConfigListEntry(_("FEC"), self.configTransponderFec2))
-			
+
 		if self.system == "DVB-S" or self.system == "DVB-S2":
 			self.list.append(getConfigListEntry(_("Inversion"), self.configTransponderInversion))
 			self.list.append(getConfigListEntry(_("use tsid"), self.configTransponderUseTsid))
 			self.list.append(getConfigListEntry(_("use onid"), self.configTransponderUseOnid))
-		
+
 		if self.system == "DVB-S2":
 			self.list.append(getConfigListEntry(_("Modulation"), self.configTransponderModulation))
 			self.list.append(getConfigListEntry(_("RollOff"), self.configTransponderRollOff))
 			self.list.append(getConfigListEntry(_("Pilot"), self.configTransponderPilot))
-		
+
 		if self.system == "DVB-S" or self.system == "DVB-S2":
 			if self.useTsid:
 				self.list.append(getConfigListEntry(_("TSID"), self.configTransponderTsid))
@@ -1440,7 +1440,7 @@ class TransponderEditor(Screen, ConfigListScreen, Transponder):
 	def keyRight(self):
 		ConfigListScreen.keyRight(self)
 		self.newConfig()
-	
+
 	def newConfig(self):
 		print("newConfig")
 		checkList = (
@@ -1501,17 +1501,17 @@ class TranspondersEditor(Screen):
 				"yellow": self.addTransponder,
 				"blue": self.sortColumn,
 			}, -1)
-		
+
 		self.transponderslist = satellite[1]
 		self.satelliteName = satellite[0].get("name")
-				
+
 		self["key_red"] = Button(_("remove"))
 		self["key_green"] = Button(_("edit"))
 		self["key_yellow"] = Button(_("add"))
 		self["key_blue"] = Button(_("sort"))
-		
+
 		self["head"] = Head()
-		self.currentSelectedColumn = 0	
+		self.currentSelectedColumn = 0
 		self["list"] = TransponderList()
 		self["list"].setEntries(self.transponderslist)
 		self.onLayoutFinish.append(self.layoutFinished)
@@ -1540,44 +1540,44 @@ class TranspondersEditor(Screen):
 		self["head"].setEntries(head)
 		data = self["head"].l.getCurrentSelection()
 		data = data[self.currentSelectedColumn + 1]
-		self["head"].l.setSelectionClip(eRect(data[1], data[0], data[3], data[4]), True)	
+		self["head"].l.setSelectionClip(eRect(data[1], data[0], data[3], data[4]), True)
 		self.updateSelection()
-	
+
 	def updateSelection(self):
 		row = self["list"].l.getCurrentSelection()
 		if row is None:
 			return
 		firstColumn = row[1]
 		lastColumn = row[len(row) - 1]
-		self["list"].l.setSelectionClip(eRect(firstColumn[1], firstColumn[0], lastColumn[1] + lastColumn[3], lastColumn[4]), True)	
-	
+		self["list"].l.setSelectionClip(eRect(firstColumn[1], firstColumn[0], lastColumn[1] + lastColumn[3], lastColumn[4]), True)
+
 	def doNothing(self):
 		pass
-		
+
 	def left(self):
 		print("left")
 		if self.currentSelectedColumn:
 			self.currentSelectedColumn -= 1
 			data = self["head"].l.getCurrentSelection()
 			data = data[self.currentSelectedColumn + 1]
-			self["head"].l.setSelectionClip(eRect(data[1], data[0], data[3], data[4]), True)	
-	
+			self["head"].l.setSelectionClip(eRect(data[1], data[0], data[3], data[4]), True)
+
 	def right(self):
 		print("right")
 		if self.currentSelectedColumn < len(self.row) - 1:
 			self.currentSelectedColumn += 1
 			data = self["head"].l.getCurrentSelection()
 			data = data[self.currentSelectedColumn + 1]
-			self["head"].l.setSelectionClip(eRect(data[1], data[0], data[3], data[4]), True)	
-	
+			self["head"].l.setSelectionClip(eRect(data[1], data[0], data[3], data[4]), True)
+
 	def upRepeated(self):
 		self["list"].up()
 		self.updateSelection()
-	
+
 	def downRepeated(self):
 		self["list"].down()
 		self.updateSelection()
-	
+
 	def nextPage(self):
 		self["list"].pageUp()
 		self.lastSelectedIndex = self["list"].getSelectedIndex()
@@ -1587,7 +1587,7 @@ class TranspondersEditor(Screen):
 		self["list"].pageDown()
 		self.lastSelectedIndex = self["list"].getSelectedIndex()
 		self.updateSelection()
-	
+
 	def up(self):
 		self["list"].up()
 		self.lastSelectedIndex = self["list"].getSelectedIndex()
@@ -1611,7 +1611,7 @@ class TranspondersEditor(Screen):
 	def addTransponder(self):
 		print("addTransponder")
 		self.session.openWithCallback(self.finishedTransponderAdd, TransponderEditor)
-	
+
 	def editTransponder(self):
 		print("editTransponder")
 		if not len(self.transponderslist):
@@ -1626,7 +1626,7 @@ class TranspondersEditor(Screen):
 		cur_idx = self["list"].getSelectedIndex()
 		self.transponderslist[cur_idx] = result
 		self["list"].setEntries(self.transponderslist)
-	
+
 	def finishedTransponderAdd(self, result):
 		print("finishedTransponderAdd")
 		if result is None:
@@ -1647,10 +1647,10 @@ class TranspondersEditor(Screen):
 
 	def cancel(self):
 		self.close(None)
-	
+
 	def compareColumn(self, a):
 		return int(a.get(self.row[self.currentSelectedColumn][0], "-1"))
-	
+
 	def sortColumn(self):
 		rev = self.row[self.currentSelectedColumn][2]
 		self.transponderslist.sort(key=self.compareColumn, reverse=rev)
@@ -1677,13 +1677,13 @@ class SatelliteList(MenuList):
 			if pos < 0:
 				pos += 3600
 			satentry.append(pos)
-			
+
 			color = None
 			color_sel = None
 			if satparameter.get("selected", False):
 				color = 0x0000FF40
 				color_sel = 0x0000FF40
-			
+
 			backcolor = None
 			backcolor_sel = None
 			if len(x) == 1:
@@ -1706,7 +1706,7 @@ class SatelliteList(MenuList):
 				posStr = posStr + " " + _("West")
 			if pos > 0:
 				posStr = posStr + " " + _("East")
-				
+
 			satentry.append(MultiContentEntryText(
 						pos=(430, 0),
 						size=(103, 24),
@@ -1729,7 +1729,7 @@ class SatInfo(Screen):
 		<widget name="bandlist" position="0,334" size="55,72" />
 		<widget name="infolist" position="55,334" size="500,72" />
 		</screen>"""
-	
+
 	def __init__(self, session, satellite):
 		Screen.__init__(self, session)
 		self.satellite = satellite
@@ -1743,13 +1743,13 @@ class SatInfo(Screen):
 		self["infolist"].l.setSelectionClip(eRect(0, 0, 0, 0))
 		self["infolist"].l.setItemHeight(24)
 		self["infolist"].l.setFont(0, gFont("Regular", 20))
-		
+
 		self["polhead"] = MenuList([])
 		self["polhead"].l = eListboxPythonMultiContent()
 		self["polhead"].l.setSelectionClip(eRect(0, 0, 0, 0))
 		self["polhead"].l.setItemHeight(24)
 		self["polhead"].l.setFont(0, gFont("Regular", 20))
-		
+
 		self["bandlist"] = MenuList([])
 		self["bandlist"].l = eListboxPythonMultiContent()
 		self["bandlist"].l.setSelectionClip(eRect(0, 0, 0, 0))
@@ -1840,7 +1840,7 @@ class SatInfo(Screen):
 				border_color=0x000C4E90))
 			l.append(bandList)
 		self["bandlist"].l.setList(l)
-		
+
 		calc_xpos = lambda a: a[len(a) - 1][1] + a[len(a) - 1][3]
 
 		entryList = (_("horizontal"), _("vertical"), _("left"), _("right"))
@@ -1871,7 +1871,7 @@ class SatInfo(Screen):
 				border_color=0x000C4E90))
 			xpos = calc_xpos(infolist)
 		l.append(infolist)
-		
+
 		infolist = [None]
 		entryList = (
 			(self.tp_ku_h, 60),
@@ -1894,7 +1894,7 @@ class SatInfo(Screen):
 				border_color=0x000C4E90))
 			xpos = calc_xpos(infolist)
 		l.append(infolist)
-		
+
 		infolist = [None]
 		entryList = (
 			(self.tp_c_h, 60),
@@ -1917,7 +1917,7 @@ class SatInfo(Screen):
 				border_color=0x000C4E90))
 			xpos = calc_xpos(infolist)
 		l.append(infolist)
-		
+
 		self["infolist"].l.setList(l)
 
 
@@ -1925,7 +1925,7 @@ class SatEditor(Screen, ConfigListScreen):
 	flagNetworkScan = 1
 	flagUseBAT = 2
 	flagUseONIT = 4
-	
+
 	skin = """
 		<screen position="90,95" size="560,430" title="Edit" >
 		<ePixmap pixmap="buttons/red.png" position="0,0" size="140,40" alphatest="on" />
@@ -1973,7 +1973,7 @@ class SatEditor(Screen, ConfigListScreen):
 		ConfigListScreen.__init__(self, self.list)
 		self.onLayoutFinish.append(self.layoutFinished)
 		self.createSetup()
-	
+
 	def layoutFinished(self):
 		self.setTitle("Edit " + self.satelliteName)
 
@@ -1984,7 +1984,7 @@ class SatEditor(Screen, ConfigListScreen):
 		self.configSatelliteFlagNetworkScan = ConfigYesNo(default=(self.satelliteFlags & self.flagNetworkScan) and True)
 		self.configSatelliteFlagUseBAT = ConfigYesNo(default=(self.satelliteFlags & self.flagUseBAT) and True)
 		self.configSatelliteFlagUseONIT = ConfigYesNo(default=(self.satelliteFlags & self.flagUseONIT) and True)
-	
+
 	def createSetup(self):
 		self.list = []
 		self.list.append(getConfigListEntry(_("Name"), self.configSatelliteName))
@@ -1995,7 +1995,7 @@ class SatEditor(Screen, ConfigListScreen):
 		self.list.append(getConfigListEntry(_("ONIT"), self.configSatelliteFlagUseONIT))
 		self["config"].list = self.list
 		self["config"].l.setList(self.list)
-	
+
 	def cancel(self):
 		self.close(None)
 
@@ -2044,7 +2044,7 @@ class MenuSelection(Screen):
 		<screen position="140,165" size="400,130" title="Menu">
 			<widget name="menulist" position="20,10" size="360,100" />
 		</screen>"""
-		
+
 	def __init__(self, session):
 		Screen.__init__(self, session)
 
@@ -2064,10 +2064,10 @@ class MenuSelection(Screen):
 	def okbuttonClick(self):
 		print("okbuttonClick")
 		self.close(self["menulist"].getCurrent())
-	
+
 	def cancel(self):
 		self.close(None)
-		
+
 
 class SatellitesEditor(Screen):
 	version = "(20090331-alpha)"
@@ -2119,32 +2119,32 @@ class SatellitesEditor(Screen):
 				"yellow": self.addSatellite,
 				"blue": self.sortColumn,
 			}, -1)
-		
+
 		self.satelliteslist = self.readSatellites("/etc/tuxbox/satellites.xml")
-		
+
 		self["key_red"] = Button(_("remove"))
 		self["key_green"] = Button(_("edit"))
 		self["key_yellow"] = Button(_("add"))
 		self["key_blue"] = Button(_("sort"))
-		
+
 		self["infolist"] = MenuList([])
 		self["infolist"].l = eListboxPythonMultiContent()
 		self["infolist"].l.setSelectionClip(eRect(0, 0, 0, 0))
 		self["infolist"].l.setItemHeight(24)
 		self["infolist"].l.setFont(0, gFont("Regular", 20))
-		
+
 		self["polhead"] = MenuList([])
 		self["polhead"].l = eListboxPythonMultiContent()
 		self["polhead"].l.setSelectionClip(eRect(0, 0, 0, 0))
 		self["polhead"].l.setItemHeight(24)
 		self["polhead"].l.setFont(0, gFont("Regular", 20))
-		
+
 		self["bandlist"] = MenuList([])
 		self["bandlist"].l = eListboxPythonMultiContent()
 		self["bandlist"].l.setSelectionClip(eRect(0, 0, 0, 0))
 		self["bandlist"].l.setItemHeight(24)
 		self["bandlist"].l.setFont(0, gFont("Regular", 20))
-		
+
 		self["head"] = Head()
 		self["list"] = SatelliteList()
 		self["list"].setEntries(self.satelliteslist)
@@ -2154,7 +2154,7 @@ class SatellitesEditor(Screen):
 			["name", _("Satellites"), False],
 			["position", _("Pos"), False]
 			]
-	
+
 	def layoutFinished(self):
 		row = self["list"].getCurrent()
 		head = []
@@ -2165,7 +2165,7 @@ class SatellitesEditor(Screen):
 		self["head"].setEntries(head)
 		data = self["head"].l.getCurrentSelection()
 		data = data[self.currentSelectedColumn + 1]
-		self["head"].l.setSelectionClip(eRect(data[1], data[0], data[3], data[4]), True)	
+		self["head"].l.setSelectionClip(eRect(data[1], data[0], data[3], data[4]), True)
 		self.updateSelection()
 
 	def updateSelection(self):
@@ -2174,28 +2174,28 @@ class SatellitesEditor(Screen):
 			return
 		firstColumn = row[1]
 		lastColumn = row[len(row) - 1]
-		self["list"].l.setSelectionClip(eRect(firstColumn[1], firstColumn[0], lastColumn[1] + lastColumn[3], lastColumn[4]), True)	
+		self["list"].l.setSelectionClip(eRect(firstColumn[1], firstColumn[0], lastColumn[1] + lastColumn[3], lastColumn[4]), True)
 		self.getInfo()
 
 	def doNothing(self):
 		pass
-		
+
 	def left(self):
 		print("left")
 		if self.currentSelectedColumn:
 			self.currentSelectedColumn -= 1
 			data = self["head"].l.getCurrentSelection()
 			data = data[self.currentSelectedColumn + 1]
-			self["head"].l.setSelectionClip(eRect(data[1], data[0], data[3], data[4]), True)	
-	
+			self["head"].l.setSelectionClip(eRect(data[1], data[0], data[3], data[4]), True)
+
 	def right(self):
 		print("right")
 		if self.currentSelectedColumn < len(self.row) - 1:
 			self.currentSelectedColumn += 1
 			data = self["head"].l.getCurrentSelection()
 			data = data[self.currentSelectedColumn + 1]
-			self["head"].l.setSelectionClip(eRect(data[1], data[0], data[3], data[4]), True)	
-	
+			self["head"].l.setSelectionClip(eRect(data[1], data[0], data[3], data[4]), True)
+
 	def nextPage(self):
 		self["list"].pageUp()
 		self.lastSelectedIndex = self["list"].getSelectedIndex()
@@ -2205,7 +2205,7 @@ class SatellitesEditor(Screen):
 		self["list"].pageDown()
 		self.lastSelectedIndex = self["list"].getSelectedIndex()
 		self.updateSelection()
-	
+
 	def up(self):
 		self["list"].up()
 		self.lastSelectedIndex = self["list"].getSelectedIndex()
@@ -2215,7 +2215,7 @@ class SatellitesEditor(Screen):
 		self["list"].down()
 		self.lastSelectedIndex = self["list"].getSelectedIndex()
 		self.updateSelection()
-	
+
 	def upUp(self):
 		cur_idx = self["list"].getSelectedIndex()
 		if self.lastSelectedIndex != cur_idx:
@@ -2225,11 +2225,11 @@ class SatellitesEditor(Screen):
 		cur_idx = self["list"].getSelectedIndex()
 		if self.lastSelectedIndex != cur_idx:
 			self.lastSelectedIndex = cur_idx
-	
+
 	def upRepeated(self):
 		self["list"].up()
 		self.updateSelection()
-	
+
 	def downRepeated(self):
 		self["list"].down()
 		self.updateSelection()
@@ -2238,7 +2238,7 @@ class SatellitesEditor(Screen):
 		print("getInfo")
 		cur_idx = self["list"].getSelectedIndex()
 		satellite = self.satelliteslist[cur_idx]
-		
+
 		self.name = satellite[0].get("name")
 		self.position = satellite[0].get("position")
 		self.tp_all = len(satellite[1])
@@ -2265,7 +2265,7 @@ class SatellitesEditor(Screen):
 		self.tp_ku_dvb_s2 = 0
 		self.tp_c_dvb_s = 0
 		self.tp_c_dvb_s2 = 0
-		
+
 		for tp in satellite[1]:
 			freq = int(tp.get("frequency"))
 			pol = tp.get("polarization")
@@ -2322,7 +2322,7 @@ class SatellitesEditor(Screen):
 				border_color=0x000C4E90))
 			l.append(bandList)
 		self["bandlist"].l.setList(l)
-		
+
 		calc_xpos = lambda a: a[len(a) - 1][1] + a[len(a) - 1][3]
 
 		entryList = (_("horizontal"), _("vertical"), _("left"), _("right"))
@@ -2353,7 +2353,7 @@ class SatellitesEditor(Screen):
 				border_color=0x000C4E90))
 			xpos = calc_xpos(infolist)
 		l.append(infolist)
-		
+
 		infolist = [None]
 		entryList = (
 			(self.tp_ku_h, 60),
@@ -2376,7 +2376,7 @@ class SatellitesEditor(Screen):
 				border_color=0x000C4E90))
 			xpos = calc_xpos(infolist)
 		l.append(infolist)
-		
+
 		infolist = [None]
 		entryList = (
 			(self.tp_c_h, 60),
@@ -2399,9 +2399,9 @@ class SatellitesEditor(Screen):
 				border_color=0x000C4E90))
 			xpos = calc_xpos(infolist)
 		l.append(infolist)
-		
+
 		self["infolist"].l.setList(l)
-	
+
 	def readSatellites(self, file):
 		satellitesXML = xml.etree.cElementTree.parse(file)
 		satDict = satellitesXML.getroot()
@@ -2413,7 +2413,7 @@ class SatellitesEditor(Screen):
 			sat.attrib.update({"name": sat.attrib.get("name", "new Satellite").encode("latin-1")})
 			satelliteslist.append([sat.attrib, transponderslist])
 		return satelliteslist
-		
+
 	def importLamedb(self):
 		print("importLamedb")
 		lamedb = Lamedb()
@@ -2475,7 +2475,7 @@ class SatellitesEditor(Screen):
 			transponder.tail = "\n\t"
 		if satellite is not None:
 			satellite.tail = "\n"
-		
+
 		tree = xml.etree.cElementTree.ElementTree(root)
 		os.rename("/etc/tuxbox/satellites.xml", "/etc/tuxbox/satellites.xml." + str(int(time.time())))
 		tree.write("/etc/tuxbox/satellites.xml")
@@ -2483,11 +2483,11 @@ class SatellitesEditor(Screen):
 		nimmanager.cablesList = []
 		nimmanager.terrestrialsList = []
 		nimmanager.readTransponders()
-		
+
 	def addSatellite(self):
 		print("addSatellite")
 		self.session.openWithCallback(self.finishedSatAdd, SatEditor)
-	
+
 	def editTransponders(self):
 		print("editTransponders")
 		if not len(self.satelliteslist):
@@ -2501,7 +2501,7 @@ class SatellitesEditor(Screen):
 			return
 		cur_idx = self["list"].getSelectedIndex()
 		self.satelliteslist[cur_idx][1] = result
-	
+
 	def editSatellite(self):
 		print("editSatellite")
 		if not len(self.satelliteslist):
@@ -2516,7 +2516,7 @@ class SatellitesEditor(Screen):
 		cur_idx = self["list"].getSelectedIndex()
 		self.satelliteslist[cur_idx][0] = result
 		self["list"].setEntries(self.satelliteslist)
-	
+
 	def finishedSatAdd(self, result):
 		print("finishedSatAdd")
 		if result is None:
@@ -2528,7 +2528,7 @@ class SatellitesEditor(Screen):
 		if len(self.satelliteslist):
 			self.satelliteslist.pop(self["list"].getSelectedIndex())
 			self["list"].setEntries(self.satelliteslist)
-		
+
 	def removeSatellite(self):
 		print("removeSatellite")
 		if len(self.satelliteslist):
@@ -2542,7 +2542,7 @@ class SatellitesEditor(Screen):
 			return a[0].get("name")
 		elif self.row[self.currentSelectedColumn][0] == "position":
 			return int(a[0].get("position"))
-	
+
 	def sortColumn(self):
 		rev = self.row[self.currentSelectedColumn][2]
 		self.satelliteslist.sort(key=self.compareColumn, reverse=rev)
@@ -2555,7 +2555,7 @@ class SatellitesEditor(Screen):
 
 	def openMenu(self):
 		self.session.openWithCallback(self.menu, MenuSelection)
-	
+
 	def menu(self, result):
 		if result is None:
 			return
@@ -2566,7 +2566,7 @@ class SatellitesEditor(Screen):
 			self.session.openWithCallback(self.finishedSatImport, KingOfSat)
 		elif result == "Import from LyngSat":
 			self.session.openWithCallback(self.finishedSatImport, LyngSat)
-	
+
 	def finishedSatImport(self, result):
 		print("finishedSatImport")
 		if result is None:
@@ -2575,7 +2575,7 @@ class SatellitesEditor(Screen):
 			for satelliteSrc in result:
 				posSrc = satelliteSrc[0].get("position", None)
 				print("posSrc")
-				if posSrc is not None:	
+				if posSrc is not None:
 					for satelliteDst in self.satelliteslist:
 						print(satelliteDst[0].get("position", None))
 						if satelliteDst[0].get("position", None) == posSrc:
@@ -2595,12 +2595,12 @@ class SatellitesEditor(Screen):
 		cb_func = lambda ret: not ret or self.writeSatellites()
 		self.session.openWithCallback(cb_func, MessageBox, _("Save satellites.xml? \n(This take some seconds.)"), MessageBox.TYPE_YESNO)
 		self.close()
-		
+
 	def showSatelliteInfo(self):
 		print("showSatelliteInfo")
 		cur_idx = self["list"].getSelectedIndex()
 		self.session.openWithCallback(None, SatInfo, self.satelliteslist[cur_idx])
-	
+
 	def showHelp(self):
 		print("showHelp")
 

@@ -29,7 +29,7 @@ def _(txt):
 	if t == txt:
 		t = gettext.gettext(txt)
 	return t
-	
+
 
 class PackageManagerScreen(Screen):
 	skin = """
@@ -87,24 +87,24 @@ class PackageManagerScreen(Screen):
 		self.list.append((_("Advanced ipk Installer"), "tree", _("--force-reinstall --force-overwrite"), twopng))
 		self.list.append((_("Online Installer"), "six", _("Install Packages From feeds (Requires Internet)"), twopng))
 		self.list.append((_("ipk Remover"), "four", _("Remove Installed ipk Packages"), treepng))
-		self.list.append((_("tar.gz , bh.tgz , nab.tgz Installer"), "one", _("Install Above Formats From /tmp /media/usb /media/hdd /media/cf"), onepng))		
-		self.list.append((_("zip Installer"), "seven", _("Install zip Files From /tmp /media/usb /media/hdd /media/cf"), sevenpng))	
+		self.list.append((_("tar.gz , bh.tgz , nab.tgz Installer"), "one", _("Install Above Formats From /tmp /media/usb /media/hdd /media/cf"), onepng))
+		self.list.append((_("zip Installer"), "seven", _("Install zip Files From /tmp /media/usb /media/hdd /media/cf"), sevenpng))
 		self.list.append((_("rar Installer"), "eight", _("Install rar Files From /tmp /media/usb /media/hdd /media/cf"), eightpng))
 		self.list.append((_("TMP USB HDD Cleaner"), "five", _("Remove ipk , tar.gz , bh.tgz , nab.tgz , zip , rar Files"), fivepng))
 		self["menu"].setList(self.list)
-		
+
 	def infoKey(self):
 		self.session.openWithCallback(self.mList, info)
-		
+
 	def exit(self):
 		self.close()
-		
+
 	def restartGUI(self):
 		Console().ePopen("killall -9 enigma2")
-		
+
 	def reboot(self):
-		Console().ePopen("reboot -f")		
-	
+		Console().ePopen("reboot -f")
+
 	def OK(self):
 		item = self["menu"].getCurrent()[1]
 		if item is "one":
@@ -116,7 +116,7 @@ class PackageManagerScreen(Screen):
 		elif item is "seven":
 			self.session.openWithCallback(self.mList, InstallZip)
 		elif item is "eight":
-			self.session.openWithCallback(self.mList, InstallRar)			
+			self.session.openWithCallback(self.mList, InstallRar)
 		elif item is "four":
 			self.session.openWithCallback(self.mList, RemoveIPK)
 		elif item is "five":
@@ -148,7 +148,7 @@ class InstallTarGZ(Screen):
 	<ePixmap position="360,358" zPosition="1" size="200,2" pixmap="~/images/yellow.png" transparent="1" alphatest="on" />
 	<widget source="key_yellow" render="Label" position="360,328" zPosition="2" size="200,30" valign="center" halign="center" font="Regular;22" transparent="1" />
 </screen>"""
-	  
+
 	def __init__(self, session, args=None):
 		Screen.__init__(self, session)
 		self.skin_path = resolveFilename(SCOPE_PLUGINS, "Extensions/PackageManager")
@@ -168,7 +168,7 @@ class InstallTarGZ(Screen):
 		self["key_red"] = StaticText(_("Close"))
 		self["key_green"] = StaticText(_("Install"))
 		self["key_yellow"] = StaticText(_("Install All"))
-		
+
 	def nList(self):
 		self.list = []
 		ipklist = os.popen("ls -lh  /tmp/*.tar.gz /tmp/*.bh.tgz /tmp/*.nab.tgz /media/usb/*.tar.gz /media/usb/*.bh.tgz /media/usb/*.nab.tgz /media/hdd/*.tar.gz /media/hdd/*.bh.tgz /media/hdd/*.nab.tgz /media/cf/*.tar.gz /media/cf/*.bh.tgz /media/cf/*.nab.tgz")
@@ -184,7 +184,7 @@ class InstallTarGZ(Screen):
 			except:
 				pass
 		self["menu"].setList(self.list)
-		
+
 	def okInst(self):
 		try:
 			item = self["menu"].getCurrent()
@@ -196,7 +196,7 @@ class InstallTarGZ(Screen):
 			self.session.open(Console, title=_("Install tar.gz , bh.tgz , nab.tgz"), cmdlist=[pecommand1, pecommand2, pecommand3, pecommand4])
 		except:
 			pass
-			
+
 	def okInstAll(self):
 			ipklist = os.popen("ls -1  /tmp/*.tar.gz /tmp/*.bh.tgz /tmp/*.nab.tgz /media/usb/*.tar.gz /media/usb/*.bh.tgz /media/usb/*.nab.tgz /media/hdd/*.tar.gz /media/hdd/*.bh.tgz /media/hdd/*.nab.tgz /media/cf/*.tar.gz /media/cf/*.bh.tgz /media/cf/*.nab.tgz")
 			self.session.open(Console, title=_("Install tar.gz , bh.tgz , nab.tgz"), cmdlist=["tar -C/ -xzpvf /tmp/*.tar.gz", "tar -C/ -xzpvf /tmp/*.bh.tgz", "tar -C/ -xzpvf /tmp/*.nab.tgz", "tar -C/ -xzpvf /media/usb/*.tar.gz", "tar -C/ -xzpvf /media/usb/*.bh.tgz", "tar -C/ -xzpvf /media/usb/*.nab.tgz", "tar -C/ -xzpvf /media/hdd/*.tar.gz", "tar -C/ -xzpvf /media/hdd/*.bh.tgz", "tar -C/ -xzpvf /media/hdd/*.nab.tgz", "tar -C/ -xzpvf /media/cf/*.tar.gz", "tar -C/ -xzpvf /media/cf/*.bh.tgz", "tar -C/ -xzpvf /media/cf/*.nab.tgz"])
@@ -227,7 +227,7 @@ class InstallIpk(Screen):
 	<ePixmap position="360,358" zPosition="1" size="200,2" pixmap="~/images/yellow.png" transparent="1" alphatest="on" />
 	<widget source="key_yellow"  render="Label" position="360,328" zPosition="2" size="200,30" valign="center" halign="center" font="Regular;22" transparent="1" />
 </screen>"""
-	  
+
 	def __init__(self, session, args=None):
 		Screen.__init__(self, session)
 		self.skin_path = resolveFilename(SCOPE_PLUGINS, "Extensions/PackageManager")
@@ -247,7 +247,7 @@ class InstallIpk(Screen):
 		self["key_red"] = StaticText(_("Close"))
 		self["key_green"] = StaticText(_("Install"))
 		self["key_yellow"] = StaticText(_("Install All"))
-		
+
 	def nList(self):
 		self.list = []
 		ipklist = os.popen("ls -lh  /tmp/*.ipk /media/usb/*.ipk /media/hdd/*.ipk /media/cf/*.ipk")
@@ -263,7 +263,7 @@ class InstallIpk(Screen):
 			except:
 				pass
 		self["menu"].setList(self.list)
-		
+
 	def okInst(self):
 		try:
 			item = self["menu"].getCurrent()
@@ -275,7 +275,7 @@ class InstallIpk(Screen):
 			self.session.open(Console, title="Install ipk Packages", cmdlist=[pecommand1, pecommand2, pecommand3, pecommand4])
 		except:
 			pass
-			
+
 	def okInstAll(self):
 		name = "*.ipk"
 		pecommand1 = ("opkg install /tmp/%s" % name)
@@ -283,7 +283,7 @@ class InstallIpk(Screen):
 		pecommand3 = ("opkg install /media/hdd/%s" % name)
 		pecommand4 = ("opkg install /media/cf/%s" % name)
 		self.session.open(Console, title="Install ipk Packages", cmdlist=[pecommand1, pecommand2, pecommand3, pecommand4])
-		
+
 	def cancel(self):
 		self.close()
 
@@ -310,7 +310,7 @@ class InstallZip(Screen):
 	<ePixmap position="360,358" zPosition="1" size="200,2" pixmap="~/images/yellow.png" transparent="1" alphatest="on" />
 	<widget source="key_yellow" render="Label" position="360,328" zPosition="2" size="200,30" valign="center" halign="center" font="Regular;22" transparent="1" />
 </screen>"""
-	  
+
 	def __init__(self, session, args=None):
 		Screen.__init__(self, session)
 		self.skin_path = resolveFilename(SCOPE_PLUGINS, "Extensions/PackageManager")
@@ -330,7 +330,7 @@ class InstallZip(Screen):
 		self["key_red"] = StaticText(_("Close"))
 		self["key_green"] = StaticText(_("Install"))
 		self["key_yellow"] = StaticText(_("Install All"))
-		
+
 	def nList(self):
 		self.list = []
 		ipklist = os.popen("ls -lh  /tmp/*.zip /media/usb/*.zip /media/hdd/*.zip /media/cf/*.zip")
@@ -346,7 +346,7 @@ class InstallZip(Screen):
 			except:
 				pass
 		self["menu"].setList(self.list)
-		
+
 	def okInst(self):
 		try:
 			item = self["menu"].getCurrent()
@@ -358,7 +358,7 @@ class InstallZip(Screen):
 			self.session.open(Console, title=_("Install zip"), cmdlist=[pecommand1, pecommand2, pecommand3, pecommand4])
 		except:
 			pass
-			
+
 	def okInstAll(self):
 			ipklist = os.popen("ls -1  /tmp/*.zip /media/usb/*.zip /media/hdd/*.zip /media/cf/*.zip")
 			self.session.open(Console, title=_("Install zip"), cmdlist=["unzip -o -d / /tmp/*.zip", "unzip -o -d / /media/usb/*.zip", "unzip -o -d / /media/hdd/*.zip", "unzip -o -d / /media/cf/*.zip"])
@@ -389,7 +389,7 @@ class AdvInstallIpk(Screen):
 	<ePixmap position="360,358" zPosition="1" size="200,2" pixmap="~/images/yellow.png" transparent="1" alphatest="on" />
 	<widget source ="key_yellow"  render="Label" position="360,328" zPosition="2" size="200,30" valign="center" halign="center" font="Regular;22" transparent="1" />
 </screen>"""
-	  
+
 	def __init__(self, session, args=None):
 		Screen.__init__(self, session)
 		self.skin_path = resolveFilename(SCOPE_PLUGINS, "Extensions/PackageManager")
@@ -409,7 +409,7 @@ class AdvInstallIpk(Screen):
 		self["key_red"] = StaticText(_("Close"))
 		self["key_green"] = StaticText(_("Install"))
 		self["key_yellow"] = StaticText(_("Install All"))
-		
+
 	def nList(self):
 		self.list = []
 		ipklist = os.popen("ls -lh  /tmp/*.ipk /media/usb/*.ipk /media/hdd/*.ipk /media/cf/*.ipk")
@@ -425,7 +425,7 @@ class AdvInstallIpk(Screen):
 			except:
 				pass
 		self["menu"].setList(self.list)
-		
+
 	def okInst(self):
 		try:
 			item = self["menu"].getCurrent()
@@ -434,10 +434,10 @@ class AdvInstallIpk(Screen):
 			pecommand2 = ("opkg install --force-reinstall --force-overwrite /media/usb/%s" % name)
 			pecommand3 = ("opkg install --force-reinstall --force-overwrite /media/hdd/%s" % name)
 			pecommand4 = ("opkg install --force-reinstall --force-overwrite /media/cf/%s" % name)
-			self.session.open(Console, title="Install ipk Packages", cmdlist=[pecommand1, pecommand2, pecommand3, pecommand4])			
+			self.session.open(Console, title="Install ipk Packages", cmdlist=[pecommand1, pecommand2, pecommand3, pecommand4])
 		except:
 			pass
-		
+
 	def okInstAll(self):
 		name = "*.ipk"
 		pecommand1 = ("opkg install --force-reinstall --force-overwrite /tmp/%s" % name)
@@ -445,7 +445,7 @@ class AdvInstallIpk(Screen):
 		pecommand3 = ("opkg install --force-reinstall --force-overwrite /media/hdd/%s" % name)
 		pecommand4 = ("opkg install --force-reinstall --force-overwrite /media/cf/%s" % name)
 		self.session.open(Console, title=_("Install ipk Packages"), cmdlist=[pecommand1, pecommand2, pecommand3, pecommand4])
-		
+
 	def cancel(self):
 		self.close()
 
@@ -472,7 +472,7 @@ class InstallRar(Screen):
 	<ePixmap position="360,358" zPosition="1" size="200,2" pixmap="~/images/yellow.png" transparent="1" alphatest="on" />
 	<widget source="key_yellow" render="Label" position="360,328" zPosition="2" size="200,30" valign="center" halign="center" font="Regular;22" transparent="1" />
 </screen>"""
-	  
+
 	def __init__(self, session, args=None):
 		Screen.__init__(self, session)
 		self.skin_path = resolveFilename(SCOPE_PLUGINS, "Extensions/PackageManager")
@@ -492,7 +492,7 @@ class InstallRar(Screen):
 		self["key_red"] = StaticText(_("Close"))
 		self["key_green"] = StaticText(_("Install"))
 		self["key_yellow"] = StaticText(_("Install All"))
-		
+
 	def nList(self):
 		self.list = []
 		ipklist = os.popen("ls -lh  /tmp/*.rar /media/usb/*.rar /media/hdd/*.rar /media/cf/*.rar")
@@ -508,7 +508,7 @@ class InstallRar(Screen):
 			except:
 				pass
 		self["menu"].setList(self.list)
-		
+
 	def okInst(self):
 		try:
 			item = self["menu"].getCurrent()
@@ -520,13 +520,13 @@ class InstallRar(Screen):
 			self.session.open(Console, title=_("Install rar"), cmdlist=[pecommand1, pecommand2, pecommand3, pecommand4])
 		except:
 			pass
-			
+
 	def okInstAll(self):
 			ipklist = os.popen("ls -1  /tmp/*.rar /media/usb/*.rar /media/hdd/*.rar /media/cf/*.rar")
 			self.session.open(Console, title=_("Install rar"), cmdlist=["unrar x -u /tmp/*.rar /", "unrar x -u /media/usb/*.rar /", "unrar x -u /media/hdd/*.rar /", "unrar x -u /media/cf/*.rar /"])
 
 	def cancel(self):
-		self.close()		
+		self.close()
 
 
 class RemoveIPK(Screen):
@@ -551,7 +551,7 @@ class RemoveIPK(Screen):
 	<widget source="key_green" render="Label" position="190,528" zPosition="2" size="170,30" valign="center" halign="center" font="Regular;22" transparent="1" />
 	<widget source="key_yellow" render="Label" position="360,528" zPosition="2" size="200,30" valign="center" halign="center" font="Regular;22" transparent="1" />
 </screen>"""
-	  
+
 	def __init__(self, session, args=None):
 		Screen.__init__(self, session)
 		self.skin_path = resolveFilename(SCOPE_PLUGINS, "Extensions/PackageManager")
@@ -570,7 +570,7 @@ class RemoveIPK(Screen):
 				"red": self.cancel,
 				"yellow": self.ARemove,
 			}, -1)
-		
+
 	def nList(self):
 		self.list = []
 		ipklist = os.popen("opkg list-installed")
@@ -583,10 +583,10 @@ class RemoveIPK(Screen):
 			except:
 				pass
 		self["menu"].setList(self.list)
-		
+
 	def cancel(self):
 		self.close()
-		
+
 	def Remove(self):
 		item = self["menu"].getCurrent()
 		name = item[0]
@@ -621,7 +621,7 @@ class downfeed(Screen):
 	<widget source="key_red" render="Label" position="20,528" zPosition="2" size="170,30" valign="center" halign="center" font="Regular;22" transparent="1" />
 	<widget source="key_green" render="Label" position="190,528" zPosition="2" size="170,30" valign="center" halign="center" font="Regular;22" transparent="1" />
 </screen>"""
-	  
+
 	def __init__(self, session, args=None):
 		Screen.__init__(self, session)
 		self.skin_path = resolveFilename(SCOPE_PLUGINS, "Extensions/PackageManager")
@@ -639,7 +639,7 @@ class downfeed(Screen):
 		self.list = []
 		self["key_red"] = StaticText(_("Close"))
 		self["key_green"] = StaticText(_("Install"))
-		
+
 	def nList(self):
 		self.list = []
 		Console().ePopen("opkg update")
@@ -657,10 +657,10 @@ class downfeed(Screen):
 			except:
 				pass
 		self["menu"].setList(self.list)
-		
+
 	def cancel(self):
 		self.close()
-		
+
 	def setup(self):
 		item = self["menu"].getCurrent()
 		name = item[0]

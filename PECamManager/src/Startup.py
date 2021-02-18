@@ -34,4 +34,3 @@ class StartCamOnStart:
 
 
 startcamonstart = StartCamOnStart()
-

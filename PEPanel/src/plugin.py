@@ -608,7 +608,7 @@ class PESubMenu(Screen):
                 plugin_prefix = ('enigma2-pe-', 'pe-', '-pe-')
                 cache_prefix = 'packetmanager-pe.cache'
                 title_prefix = _('Install, Remove PE Packages')
-                tlist = []				
+                tlist = []
             elif currentEntry == 'update-image':
                 if fileExists(resolveFilename(SCOPE_PLUGINS, 'SystemPlugins/SoftwareManager/plugin.pyo')):
                     try:

@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 from Screens.Screen import Screen
 
-        
+
 class Extramenu(Screen):
 
     skin = """
@@ -23,10 +23,10 @@ class Extramenu(Screen):
                 <widget name="key_red" position="360,350" size="140,40" valign="center" halign="center" zPosition="4"  foregroundColor="#ffffff" font="Regular;20" transparent="1" shadowColor="#25062748" shadowOffset="-2,-2" />
         	<!--widget name="key_red" position="430,300" size="140,40" valign="center" halign="center" zPosition="4"  foregroundColor="#ffffff" font="Regular;20" transparent="1" shadowColor="#25062748" shadowOffset="-2,-2" /-->
         </screen>"""
-        
 
-class Menusimple(Screen):        
-        
+
+class Menusimple(Screen):
+
     skin = """
         	<screen position="center,center" size="580,350" title="" >
 
@@ -42,11 +42,11 @@ class Menusimple(Screen):
         	<widget name="key_green" position="150,300" size="140,40" valign="center" halign="center" zPosition="4"  foregroundColor="#ffffff" font="Regular;20" transparent="1" shadowColor="#25062748" shadowOffset="-2,-2" /> 
                 <widget name="key_yellow" position="290,300" size="140,40" valign="center" halign="center" zPosition="4"  foregroundColor="#ffffff" font="Regular;20" transparent="1" shadowColor="#25062748" shadowOffset="-2,-2" />
         	<widget name="key_blue" position="430,300" size="140,40" valign="center" halign="center" zPosition="4"  foregroundColor="#ffffff" font="Regular;20" transparent="1" shadowColor="#25062748" shadowOffset="-2,-2" />
-        </screen>"""	
-		
+        </screen>"""
 
-class ItemList(Screen):        
-        
+
+class ItemList(Screen):
+
     skin = """
 
                  <screen position="center,center" size="1280,720" title="Choice Box" flags="wfNoBorder">

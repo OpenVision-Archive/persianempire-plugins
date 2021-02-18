@@ -22,9 +22,9 @@ class ConfigHexNumber(ConfigText):
 		self.mapping.append(u"7")
 		self.mapping.append(u"8")
 		self.mapping.append(u"9")
-		
+
 		self.size = size
-	
+
 	def getValue(self):
 		return self.text
 

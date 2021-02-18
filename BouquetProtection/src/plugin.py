@@ -36,7 +36,7 @@ def newChannelContextMenu__init__(self, session, csel):
 		return
 	if csel.bouquet_mark_edit != 0 or csel.movemode:
 		return
-	
+
 	idx = max(0, len(self["menu"].list) - 1)
 	current = csel.getCurrentSelection()
 	current_root = csel.getRoot()
@@ -59,7 +59,7 @@ def newChannelContextMenu__init__(self, session, csel):
 					self["menu"].list.insert(idx, ChoiceEntryComponent(text=(_("restore hidden service"), boundFunction(self.menuHideUnwantedService, False))))
 				else:
 					self["menu"].list.insert(idx, ChoiceEntryComponent(text=(_("hide as unwanted service"), boundFunction(self.menuHideUnwantedService, True))))
-			
+
 		else:
 			if config.BouquetProtect.unwanted.enalbed.value:
 				if not inBouquet and current.getPath().find("PROVIDERS") == -1:
@@ -341,7 +341,7 @@ def newChannelSelectionBase__init__(self, session):
 	self.checkpass = False
 	self.protectTimer = eTimer()
 	self.protectTimer.callback.append(self.protectTimerLoop)
-	
+
 	if config.BouquetProtect.unwanted.enalbed.value and config.BouquetProtect.unwanted.showkey.value != 'none':
 		self["ChannelSelectBaseActions"].actions.update({config.BouquetProtect.unwanted.showkey.value: self.showAllHiddenServices})
 
@@ -349,7 +349,7 @@ def newChannelSelectionBase__init__(self, session):
 def showAllHiddenBouquetServices(self):
 	self.hidden_shown = not self.hidden_shown
 	unlockAllHiddenBouquetServices(self.hidden_shown)
-	
+
 	ref = self.servicelist.getCurrent()
 	self.bouquetNumOffsetCache = {}
 	self.setRoot(self.getRoot())

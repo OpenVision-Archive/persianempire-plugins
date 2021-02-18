@@ -9,26 +9,26 @@ class Transponder:
 			"polarization",
 			"symbol_rate",
 			]
-		
+
 	niceToHave = [
 			"system",
 			"fec_inner",
 			"tsid",
 			"onid",
 			]
-		
+
 	transSystem = {
 			"0": "DVB-S",
 			"1": "DVB-S2",
 			"dvb-s": "DVB-S",
 			"dvb-s2": "DVB-S2",
 			}
-		
+
 	reTransSystem = {
 			"DVB-S": "0",
 			"DVB-S2": "1",
 			}
-		
+
 	transPolarisation = {
 			"0": "H",
 			"h": "H",
@@ -42,40 +42,40 @@ class Transponder:
 			"r": "R",
 			"i": "i",
 			}
-		
+
 	reTransPolarisation = {
 			"H": "0",
 			"V": "1",
 			"L": "2",
 			"R": "3",
 			}
-		
+
 	transModulation = {
 			"0": "AUTO",
 			"1": "QPSK",
 			"2": "8PSK",
 			"3": "QAM16",
 			}
-		
+
 	reTransModulation = {
 			"AUTO": "0",
 			"QPSK": "1",
 			"8PSK": "2",
 			"QAM16": "3",
 			}
-		
+
 	transRolloff = {
 			"0": "0_35",
 			"1": "0_25",
 			"2": "0_20",
 			}
-		
+
 	reTransRolloff = {
 			"0_35": "0",
 			"0_25": "1",
 			"0_20": "2",
 			}
-		
+
 	transOnOff = {
 			"0": "OFF",
 			"1": "ON",
@@ -86,7 +86,7 @@ class Transponder:
 			"ON": "1",
 			"AUTO": "2",
 			}
-		
+
 	transFec = {
 			"0": "FEC_AUTO",
 			"1": "FEC_1_2",
@@ -111,7 +111,7 @@ class Transponder:
 			"9/10": "FEC_9_10",
 			"none": "FEC_NONE",
 			}
-		
+
 	reTransFec = {
 			"FEC_AUTO": "0",
 			"FEC_1_2": "1",
@@ -132,15 +132,15 @@ class Transponder:
 			"FEC_4_5",
 			"FEC_9_10",
 			]
-	
+
 	transBand = {
 		"KU": ("10700000", "12750000"),
 		"C": ("3400000", "4200000"),
 	}
-	
+
 	def __init__(self, transponder):
 		self.rawData = transponder
-		
+
 		self.system = "DVB-S"
 		self.__frequency = "10700000"
 		self.__symbolrate = "27500000"
@@ -157,7 +157,7 @@ class Transponder:
 		self.band = "KU"
 		self.__importColor = None
 		self.transponderDoctor(self.rawData)
-	
+
 	def transponderDoctor(self, transponder):
 		if not isinstance(transponder, dict):
 			print("transponderDoctor: Transponder data must be from Type DICT")
@@ -180,28 +180,28 @@ class Transponder:
 		if len(missing):
 			print("transponderDoctor: The following Parameter is absence:", missing)
 			return
-		
+
 		self.polarisation = self.transPolarisation.get(transponder.get(transParam.get("polarization"), "i").lower())
 		if self.polarisation == "i":
 			print("transponderDoctor: unknown value for Polarisation (%s)" % transParam.get("polarization"))
 			return
-		
+
 		self.__frequency = transponder.get(transParam.get("frequency"), "i").lower()
-		
+
 		self.__symbolrate = transponder.get(transParam.get("symbol_rate"), "i").lower()
 
 		dvb_s_cnt = 0
 		dvb_s2_cnt = 0
-			
+
 		self.__importColor = transponder.get("import", None)
-		
+
 		if "system" in transParam:
 			self.system = self.transSystem.get(transponder.get(transParam.get("system"), "i").lower())
 			if self.system == "DVB-S":
 				dvb_s_cnt += 1
 			if self.system == "DVB-S2":
 				dvb_s2_cnt += 1
-		
+
 		if "modulation" in transParam:
 			self.modulation = self.transModulation.get(transponder.get(transParam.get("modulation"), "i").lower())
 			if (self.modulation == "8PSK") or (self.modulation == "QAM16"):
@@ -226,21 +226,21 @@ class Transponder:
 			self.system = "DVB-S2"
 		else:
 			self.system = "DVB-S"
-		
+
 		if "inversion" in transParam:
 			self.inversion = self.transOnOff.get(transponder.get(transParam.get("inversion"), "i").lower())
 
 		if "tsid" in transParam:
 			self.__tsid = transponder.get(transParam.get("tsid"), "i").lower()
 			self.useTsid = True
-		
+
 		if "onid" in transParam:
 			self.__onid = transponder.get(transParam.get("onid"), "i").lower()
 			self.useOnid = True
 
 	def getFrequency(self):
 		return self.__frequency
-	
+
 	def setFrequency(self, frequency):
 		if isinstance(frequency, list):
 			if len(frequency) == 2:
@@ -249,50 +249,50 @@ class Transponder:
 					return
 		else:
 			self.__frequency = str(frequency)
-	
+
 	frequency = property(getFrequency, setFrequency)
-	
+
 	importColor = property(lambda self: self.__importColor)
-	
+
 	def getSymbolrate(self):
 		return self.__symbolrate
-	
+
 	def setSymbolrate(self, symbolrate):
 		self.__symbolrate = str(symbolrate)
-	
+
 	symbolrate = property(getSymbolrate, setSymbolrate)
-	
+
 	def setTsid(self, newTsid):
 		self.__tsid = str(newTsid)
-	
+
 	tsid = property(lambda self: self.__tsid, setTsid)
-	
+
 	def getOnid(self):
 		return self.__onid
-	
+
 	def setOnid(self, newOnid):
 		self.__onid = str(newOnid)
-	
+
 	onid = property(lambda self: self.__onid, setOnid)
-	
+
 	def exportImportColor(self):
 		return {"import": self.__importColor}
-	
+
 	def exportSystem(self):
 		return {"system": self.reTransSystem.get(self.system)}
-	
+
 	def exportFec(self):
 		return {"fec_inner": self.reTransFec.get(self.fec)}
-	
+
 	def exportFrequency(self):
 		return {"frequency": self.__frequency}
-	
+
 	def exportPolarisation(self):
 		return {"polarization": self.reTransPolarisation.get(self.polarisation)}
-	
+
 	def exportSymbolrate(self):
 		return {"symbol_rate": self.__symbolrate}
-	
+
 	def exportModulation(self):
 		return {"modulation": self.reTransModulation.get(self.modulation)}
 
@@ -301,16 +301,16 @@ class Transponder:
 
 	def exportTsid(self):
 		return {"tsid": self.__tsid}
-		
+
 	def exportInversion(self):
 		return {"inversion": self.reTransOnOff.get(self.inversion)}
-		
+
 	def exportPilot(self):
 		return {"pilot": self.reTransOnOff.get(self.pilot)}
-			
+
 	def exportRolloff(self):
 		return {"rolloff": self.reTransRolloff.get(self.rolloff)}
-	
+
 	def exportClean(self):
 		res = {}
 		res.update(self.exportSystem())
@@ -331,7 +331,7 @@ class Transponder:
 		if self.rolloff != "0_35":
 			res.update(self.exportRolloff())
 		return res
-	
+
 	def exportAll(self):
 		res = self.exportClean()
 		res.update(self.exportImportColor())

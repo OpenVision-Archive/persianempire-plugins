@@ -53,13 +53,13 @@ class ServiceList(MenuList):
 				service = database[tp]["services"][usk]
 				res.append(self.buildEntry(service))
 		return res
-	
+
 	def buildEntry(self, service):
 		calc_xpos = lambda a: a[len(a) - 1][1] + a[len(a) - 1][3]
-		
+
 		serviceEntry = []
 		serviceEntry.append(service['usk'])
-		
+
 		servicetype = service['type']
 		if servicetype in ("1", "4", "5", "6", "11", "22", "23", "24",):
 			service_png = self.tv_pixmap
@@ -71,19 +71,19 @@ class ServiceList(MenuList):
 			service_png = self.data_pixmap
 		else:
 			service_png = self.unkonwn_pixmap
-		
+
 		serviceEntry.append(MultiContentEntryPixmapAlphaTest(
 					pos=(0, 0),
 					size=(24, 24),
 					png=service_png,))
-		
+
 		if int(service.get("flags", "0"), 16) & dxDontshow:
 			backcolor = 0x00FF0000
 			backcolor_sel = 0x00800080
 		else:
 			backcolor = None
 			backcolor_sel = None
-			
+
 		serviceEntry.append(MultiContentEntryText(
 					pos=(calc_xpos(serviceEntry), 0),
 					size=(276, 24),
@@ -93,7 +93,7 @@ class ServiceList(MenuList):
 					backcolor_sel=backcolor_sel,
 					border_width=1,
 					border_color=0x000C4E90))
-			
+
 		serviceEntry.append(MultiContentEntryText(
 					pos=(calc_xpos(serviceEntry), 0),
 					size=(155, 24),
@@ -101,7 +101,7 @@ class ServiceList(MenuList):
 					text=service['provider'],
 					border_width=1,
 					border_color=0x000C4E90))
-				
+
 		pos = int(service['namespace'], 16) >> 16
 		if pos == 0xFFFF:
 			pos = self.dvbc
@@ -125,7 +125,7 @@ class ServiceList(MenuList):
 					border_width=1,
 					border_color=0x000C4E90))
 		return serviceEntry
-		
+
 
 class ConfigCall(ConfigBoolean):
 	def __init__(self, descriptions="", fnc=None):
@@ -140,7 +140,7 @@ class ConfigCall(ConfigBoolean):
 
 
 class ServiceEditor(Screen, ConfigListScreen):
-	
+
 	skin = """
 		<screen position="90,95" size="560,430" title="Edit" >
 		<ePixmap pixmap="buttons/red.png" position="0,0" size="140,40" alphatest="on" />
@@ -159,7 +159,7 @@ class ServiceEditor(Screen, ConfigListScreen):
 		Screen.__init__(self, session)
 		self.service = service
 		self.database = database
-		
+
 		self.serviceVPid = "0000"
 		self.serviceVType = "0000"
 		self.serviceAPid = "0000"
@@ -170,7 +170,7 @@ class ServiceEditor(Screen, ConfigListScreen):
 		self.serviceAC3Delay = "0000"
 		self.servicePCMDelay = "0000"
 		self.serviceSubtitle = "0000"
-		
+
 		if self.service is not None:
 			self.serviceName = self.service["name"]
 			self.serviceProvider = self.service["provider"]
@@ -232,7 +232,7 @@ class ServiceEditor(Screen, ConfigListScreen):
 		ConfigListScreen.__init__(self, self.list)
 		self.onLayoutFinish.append(self.layoutFinished)
 		self.createSetup()
-	
+
 	def layoutFinished(self):
 		self.setTitle("Edit " + self.serviceName)
 
@@ -250,7 +250,7 @@ class ServiceEditor(Screen, ConfigListScreen):
 				pol = ""
 			else:
 				pol = {"0": "H", "1": "V", "2": "L", "3": "R"}.get(pol, "")
-		
+
 		pos = int(self.service["usk"][:4], 16)
 		if pos == 0xFFFF:
 			pos = "DVB-C"
@@ -278,18 +278,18 @@ class ServiceEditor(Screen, ConfigListScreen):
 		self.configServiceSPid = ConfigHexNumber(default=self.serviceSubtitle)
 		self.configServicePPid = ConfigHexNumber(default=self.servicePPid)
 		self.configServiceAC3Pid = ConfigHexNumber(default=self.serviceAC3Pid)
-		
+
 		self.configServiceAChannel = ConfigInteger(default=int(self.serviceAChannel, 16), limits=(0, 2))
-		
+
 		self.configServiceAC3Delay = ConfigInteger(default=int(self.serviceAC3Delay, 16), limits=(0, 65535))
 		self.configServicePCMDelay = ConfigInteger(default=int(self.servicePCMDelay, 16), limits=(0, 65535))
-		
+
 		self.configServiceFlag_dxNoSDT = ConfigYesNo(default=self.flag_dxNoSDT)
 		self.configServiceFlag_dxDontshow = ConfigYesNo(default=self.flag_dxDontshow)
 		self.configServiceFlag_dxNoDVB = ConfigYesNo(default=self.flag_dxNoDVB)
 		self.configServiceFlag_dxHoldName = ConfigYesNo(default=self.flag_dxHoldName)
 		self.configServiceFlag_dxNewFound = ConfigYesNo(default=self.flag_dxNewFound)
-	
+
 	def createSetup(self):
 		self.list = []
 		self.list.append(getConfigListEntry(_("Name"), self.configServiceName))
@@ -302,10 +302,10 @@ class ServiceEditor(Screen, ConfigListScreen):
 		self.list.append(getConfigListEntry(_("Audio PID (hex)"), self.configServiceAPid))
 		self.list.append(getConfigListEntry(_("AC3 PID (hex)"), self.configServiceAC3Pid))
 		self.list.append(getConfigListEntry(_("Audiochannel"), self.configServiceAChannel))
-		
+
 		self.list.append(getConfigListEntry(_("AC3 Delay (ms)"), self.configServiceAC3Delay))
 		self.list.append(getConfigListEntry(_("PCM Delay (ms)"), self.configServicePCMDelay))
-		
+
 		self.list.append(getConfigListEntry(_("TXT PID (hex)"), self.configServiceTPid))
 		self.list.append(getConfigListEntry(_("Subtitle PID (hex)"), self.configServiceSPid))
 		self.list.append(getConfigListEntry(_("dont use SDT"), self.configServiceFlag_dxNoSDT))
@@ -315,18 +315,18 @@ class ServiceEditor(Screen, ConfigListScreen):
 		self.list.append(getConfigListEntry(_("sign as new Service"), self.configServiceFlag_dxNewFound))
 		self["config"].list = self.list
 		self["config"].l.setList(self.list)
-	
+
 	def transponderEdit(self):
 		print_cy("transponderEdit")
 		self.session.open(SatellitesEditor, self.database)
-		
+
 	def cancel(self):
 		self.close(None)
 
 	def okExit(self):
 		tmp = self.service.copy()
 		flags = 0
-		
+
 		tmpFlagdxNoSDT = 0
 		if self.serviceVPid != self.configServiceVPid.value:
 			self.serviceVPid = self.configServiceVPid.value
@@ -395,17 +395,17 @@ class ServiceEditor(Screen, ConfigListScreen):
 				tmp["cacheIDs"].append(str(hex(SUBTITLE_PID)[2:].zfill(2) + self.serviceSubtitle))
 
 		tmp.update({"sid": str(self.configServiceSid.value)})
-		
+
 		tmp.update({"name": self.configServiceName.value})
-		
+
 		tmp.update({"provider": self.configServiceProvider.value})
-		
+
 		flags |= (self.configServiceFlag_dxNoSDT.value * dxNoSDT)
 		flags |= (self.configServiceFlag_dxDontshow.value * dxDontshow)
 		flags |= (self.configServiceFlag_dxNoDVB.value * dxNoDVB)
 		flags |= (self.configServiceFlag_dxHoldName.value * dxHoldName)
 		flags |= (self.configServiceFlag_dxNewFound.value * dxNewFound)
-		
+
 		uniqueTransponder = tmp["namespace"] + tmp["tsid"] + tmp["onid"]
 		uniqueService = uniqueTransponder + tmp["sid"]
 		if (flags & dxNoDVB):
@@ -444,7 +444,7 @@ class Newscaster(HTMLComponent, GUIComponent):
 		self.myTimer.start(60)
 		self.offset = 24
 		self.mylist = None
-	
+
 	GUI_WIDGET = eListbox
 
 	def postWidgetCreate(self, instance):
@@ -462,7 +462,7 @@ class Newscaster(HTMLComponent, GUIComponent):
 			else:
 				tmp.append(x)
 		self.l.setList([tmp])
-	
+
 	def setEntry(self):
 		res = [None]
 		res.append(MultiContentEntryPixmapAlphaTest(
@@ -489,10 +489,10 @@ class Head(HTMLComponent, GUIComponent):
 		self.l.setSelectionClip(eRect(0, 0, 0, 0))
 		self.l.setItemHeight(24)
 		self.l.setFont(0, gFont("Regular", 20))
-	
+
 	def getCurrent(self):
 		return self.l.getCurrentSelection()
-	
+
 	GUI_WIDGET = eListbox
 
 	def postWidgetCreate(self, instance):
@@ -522,7 +522,7 @@ class ServiceHideMenuSelection(Screen):
 		<screen position="90,165" size="500,130" title="">
 			<widget name="menulist" position="20,10" size="460,100" />
 		</screen>"""
-		
+
 	def __init__(self, session, service=None):
 		Screen.__init__(self, session)
 
@@ -546,14 +546,14 @@ class ServiceHideMenuSelection(Screen):
 			"cancel": self.cancel,
 		}, -1)
 		self.onLayoutFinish.append(self.layoutFinished)
-		
+
 	def layoutFinished(self):
 		self.setTitle(_("Options for hide"))
 
 	def okbuttonClick(self):
 		print("okbuttonClick")
 		self.close(self["menulist"].getSelectionIndex())
-	
+
 	def cancel(self):
 		self.close(None)
 
@@ -626,7 +626,7 @@ class ServicesEditor(Screen):
 		self["infolist"].l.setSelectionClip(eRect(0, 0, 0, 0))
 		self["infolist"].l.setItemHeight(24)
 		self["infolist"].l.setFont(0, gFont("Regular", 20))
-		
+
 		self["newscaster"] = Newscaster()
 		self["head"] = Head()
 		self["list"] = ServiceList()
@@ -639,7 +639,7 @@ class ServicesEditor(Screen):
 			["position", _("Pos"), False],
 			]
 		self.typesort = False
-		
+
 		self.myTimer = eTimer()
 		db = eDVBDB.getInstance()
 		db.saveServicelist()
@@ -672,7 +672,7 @@ class ServicesEditor(Screen):
 		self.myTimer.stop()
 		self.newServiceList = self["list"].buildServicesList(self.database)
 		self["list"].setEntries(self.newServiceList)
-		
+
 		row = self["list"].getCurrent()
 		if row is None:
 			return
@@ -683,7 +683,7 @@ class ServicesEditor(Screen):
 			head[x][2] = self.row[x][1]
 			if len(self.row[x]) > 3:
 				head[x].append(True)
-				
+
 		self["newscaster"].setEntry()
 		self["head"].setEntries(head)
 		if self.currentSelectedColumn:
@@ -692,7 +692,7 @@ class ServicesEditor(Screen):
 			self["head"].l.setSelectionClip(eRect(data[1], data[0], data[3], data[4]), True)
 		else:
 			self["head"].l.setSelectionClip(eRect(0, 0, 0, 0))
-		
+
 		self.initSort()
 		if self.usk is not None:
 			for idx in xrange(len(self.newServiceList)):
@@ -717,7 +717,7 @@ class ServicesEditor(Screen):
 
 	def doNothing(self):
 		pass
-		
+
 	def left(self):
 		print("left")
 		if self.currentSelectedColumn:
@@ -746,8 +746,8 @@ class ServicesEditor(Screen):
 				return
 			self.currentSelectedColumn += 1
 			data = data[self.currentSelectedColumn]
-			self["head"].l.setSelectionClip(eRect(data[1], data[0], data[3], data[4]), True)	
-	
+			self["head"].l.setSelectionClip(eRect(data[1], data[0], data[3], data[4]), True)
+
 	def nextPage(self):
 		self["list"].pageUp()
 		self.lastSelectedIndex = self["list"].getSelectedIndex()
@@ -757,19 +757,19 @@ class ServicesEditor(Screen):
 		self["list"].pageDown()
 		self.lastSelectedIndex = self["list"].getSelectedIndex()
 		self.updateSelection()
-	
+
 	def nextPageRepeated(self):
 		self["list"].pageUp()
 
 	def prevPageRepeated(self):
 		self["list"].pageDown()
-		
+
 	def selectionKeyUp(self):
 		cur_idx = self["list"].getSelectedIndex()
 		if self.lastSelectedIndex != cur_idx:
 			self.updateSelection()
 			self.lastSelectedIndex = cur_idx
-	
+
 	def up(self):
 		self["list"].up()
 		self.lastSelectedIndex = self["list"].getSelectedIndex()
@@ -779,11 +779,11 @@ class ServicesEditor(Screen):
 		self["list"].down()
 		self.lastSelectedIndex = self["list"].getSelectedIndex()
 		self.updateSelection()
-	
+
 	def upRepeated(self):
 		self["list"].up()
 		self.updateSelection()
-	
+
 	def downRepeated(self):
 		self["list"].down()
 		self.updateSelection()
@@ -820,7 +820,7 @@ class ServicesEditor(Screen):
 			"2": "8PSK",
 			"3": "QAM16",
 			}
-			
+
 		transModulationCable = {
 			"0": "auto",
 			"1": "QAM16",
@@ -829,14 +829,14 @@ class ServicesEditor(Screen):
 			"4": "QAM128",
 			"5": "QAM256",
 			}
-			
+
 		transModulationTerr = {
 			"0": "QPSK",
 			"1": "QAM16",
 			"2": "QAM64",
 			"3": "auto",
 			}
-			
+
 		transBandwidth = {
 			"0": "8MHz",
 			"1": "7MHz",
@@ -886,7 +886,7 @@ class ServicesEditor(Screen):
 				pol = tp["polarization"]
 				sym = tp["symbol_rate"]
 				fec = tp.get("fec_inner", "0")
-				info3 = (		
+				info3 = (
 					(100, freq[:-3] + "." + freq[-3:]),
 					(15, transPol.get(pol, "?")),
 					(60, sym[:-3]),
@@ -945,7 +945,7 @@ class ServicesEditor(Screen):
 		pcmdelay = "----"
 		spid = "----"
 		vtype = "----"
-	
+
 		if cacheIDs is not None:
 			for x in cacheIDs:
 				pidtype = int(x[:-4], 16)
@@ -970,7 +970,7 @@ class ServicesEditor(Screen):
 					spid = pid
 				elif pidtype == VIDEOTYPE:
 					vtype = pid
-					
+
 		info4 = (
 			(50, vpid),
 			(50, vtype),
@@ -983,7 +983,7 @@ class ServicesEditor(Screen):
 			(50, ac3delay),
 			(50, pcmdelay),
 			)
-		
+
 		entry = [None]
 		for i in info4:
 			if len(entry) == 1:
@@ -1003,7 +1003,7 @@ class ServicesEditor(Screen):
 					border_width=1,
 					border_color=0x000C8E90))
 		l.append(entry)
-		
+
 		self["infolist"].l.setList(l)
 
 	def addService(self):
@@ -1012,18 +1012,18 @@ class ServicesEditor(Screen):
 			return
 		newService = self.cur_service.copy()
 		self.session.openWithCallback(self.finishedServiceAdd, ServiceEditor, newService, self.database)
-	
+
 	def finishedServiceAdd(self, result):
 		if result is None:
 			return
 		self.updateSelection()
-	
+
 	def editService(self):
 		print("editService")
 		if self.cur_service is None:
 			return
 		self.session.openWithCallback(self.finishedServiceEdit, ServiceEditor, self.cur_service, self.database)
-	
+
 	def finishedServiceEdit(self, result):
 		if result is None:
 			return
@@ -1051,11 +1051,11 @@ class ServicesEditor(Screen):
 		self.cur_service["flags"] = hex(int(self.cur_service.get("flags", "0"), 16) ^ dxDontshow)[2:].zfill(4)
 		self.newServiceList[self["list"].l.getCurrentSelectionIndex()] = self["list"].buildEntry(self.cur_service)
 		self.down()
-	
+
 	def hideServiceMenu(self):
 		print("hideServiceMenu")
 		self.session.openWithCallback(self.serviceHideMenu, ServiceHideMenuSelection, self.cur_service)
-	
+
 	def serviceHideMenu(self, result):
 		if result == 0:
 			self.cur_service["flags"] = hex(int(self.cur_service.get("flags", "0"), 16) ^ dxDontshow)[2:].zfill(4)
@@ -1099,7 +1099,7 @@ class ServicesEditor(Screen):
 				return cmp(al, bl)
 		except:
 			return cmp(a, b)
-		
+
 	def keyColumn(self, a):
 		if self.currentSelectedColumn:
 			if self.row[self.currentSelectedColumn - 1][0] == "name":
@@ -1110,7 +1110,7 @@ class ServicesEditor(Screen):
 				return int(a[0][:4], 16)
 		else:
 			return int(self.database[a[0][:16]]["services"][a[0]].get('type', "0"), 10)
-	
+
 	def sortColumn(self):
 		if self.cur_service is None:
 			return
@@ -1159,10 +1159,10 @@ class ServicesEditor(Screen):
 				db.removeServices(-1, -1, -1, int(x[:4], 16))
 			db.reloadServicelist()
 		self.close()
-		
+
 	def showServiceInfo(self):
 		print("showServiceInfo")
-	
+
 	def showHelp(self):
 		print("showHelp")
 		if self.cur_service is None:
@@ -1243,7 +1243,7 @@ class ServicesEditor(Screen):
 		achannel = "Audio\nCannel"
 		ac3delay = "AC3\nDelay"
 		pcmdelay = "PCM\nDelay"
-	
+
 		info4 = (
 			(50, vpid),
 			(50, vtype),
@@ -1275,7 +1275,7 @@ class ServicesEditor(Screen):
 					border_width=1,
 					border_color=0x000C8E90))
 		l.append(entry)
-		
+
 		self["infolist"].l.setList(l)
 
 

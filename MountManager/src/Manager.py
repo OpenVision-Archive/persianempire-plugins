@@ -69,8 +69,8 @@ class MountSetup(Screen, ConfigListScreen):
 	def CreateList(self, configEntry=None):
 		if self.device and self.MountOnHdd.value != "nothing":
 			self.SwapFile = ConfigSelection(default=self.swap,
-				choices=[("no", _("no")), ("65536", _("64MB")), 
-				("131072", _("128MB")), ("262144", _("256MB")), 
+				choices=[("no", _("no")), ("65536", _("64MB")),
+				("131072", _("128MB")), ("262144", _("256MB")),
 				("524288", _("512MB"))] + self.swapdevice)
 		else:
 			if self.MountOnHdd.value == "nothing" \

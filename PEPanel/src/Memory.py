@@ -22,15 +22,15 @@ class Memory(Screen):
 			<!--widget name="text" position="0,0" size="550,25" font="Regular;20" /-->
 			<widget name="list" position="10,0" size="190,250" scrollbarMode="showOnDemand" />
 		</screen>"""
-		
+
 	def __init__(self, session, args=None):
 		self.skin = Memory.skin
 		Screen.__init__(self, session)
 
 		self["list"] = FileList("/", matchingPattern="^.*\.(png|avi|mp3|mpeg|ts)")
-		
+
 		self["text"] = Input("1234", maxSize=True, type=Input.NUMBER)
-				
+
 		self["actions"] = NumberActionMap(["WizardActions", "InputActions"],
 		{
 			"ok": self.ok,
@@ -62,19 +62,19 @@ class Memory(Screen):
 
 	def callback(self, answer):
 		self.close()
-	
+
 	def keyLeft(self):
 		self["text"].left()
-	
+
 	def keyRight(self):
 		self["text"].right()
-	
+
 	def ok(self):
 		selection = self["list"].getSelection()
 		if selection[1] == True:
 			self["list"].changeDir(selection[0])
 		else:
 			self["pixmap"].instance.setPixmapFromFile(selection[0])
-	
+
 	def keyNumberGlobal(self, number):
 		self["text"].number(number)

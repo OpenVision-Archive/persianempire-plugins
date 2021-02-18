@@ -80,7 +80,7 @@ class SimpleSatScan(ConfigListScreen, Screen):
 		if self.service is not None:
 			self.feinfo = self.service.frontendInfo()
 			frontendData = self.feinfo and self.feinfo.getAll(True)
-		
+
 		self.createConfig(frontendData)
 
 		del self.feinfo
@@ -97,7 +97,7 @@ class SimpleSatScan(ConfigListScreen, Screen):
 		self.tpslist_idx = 0
 		self.tuneTimer = eTimer()
 		self.tuneTimer.callback.append(self.updateTuneStatus)
-		
+
 		ConfigListScreen.__init__(self, self.list)
 		if not self.scan_nims.value == "":
 			self.createSetup()
@@ -305,10 +305,10 @@ class SimpleSatScan(ConfigListScreen, Screen):
 
 		self.tunerEntry = getConfigListEntry(_("Tuner"), self.scan_nims)
 		self.list.append(self.tunerEntry)
-		
+
 		if self.scan_nims == []:
 			return
-		
+
 		self.typeOfScanEntry = None
 		self.systemEntry = None
 		self.satelliteEntry = None
@@ -571,7 +571,7 @@ class SimpleSatScan(ConfigListScreen, Screen):
 		if self.scan_type.value.find("_transponder") != -1:
 			assert len(self.satList) > index_to_scan
 			assert len(self.scan_satselection) > index_to_scan
-			
+
 			nimsats = self.satList[index_to_scan]
 			selsatidx = self.scan_satselection[index_to_scan].index
 

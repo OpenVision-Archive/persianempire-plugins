@@ -426,7 +426,7 @@ class fmConfiguration(Screen, ConfigListScreen):
 
     def info(self):
         aboutbox = self.session.open(MessageBox, _("Font magnifier plugin\n\nThis plugin helps you to\nset up different font sizes.\n\n(c) 2012 - BigReaper"), MessageBox.TYPE_INFO)
-        aboutbox.setTitle(_("Info...")) 
+        aboutbox.setTitle(_("Info..."))
 
     def handle_menukey(self):
         self.session.open(fmOptions)
@@ -476,7 +476,7 @@ class fmOptions(Screen):
         else:
             self["optionslist"] = MenuList(self.list)
             self.setTitle(_("restore options"))
- 
+
     def cancel(self):
         self.close(False)
 
@@ -513,7 +513,7 @@ class fmOptions(Screen):
 
         try:
             if self.selection == "skin.xml":
-                Console().ePopen("mv -f /usr/share/enigma2/%s.bak /usr/share/enigma2/%s" % (config.skin.primary_skin.value, config.skin.primary_skin.value))            
+                Console().ePopen("mv -f /usr/share/enigma2/%s.bak /usr/share/enigma2/%s" % (config.skin.primary_skin.value, config.skin.primary_skin.value))
             elif self.selection == "EpgList.pyo":
                 Console().ePopen("mv -f %s %s") % (resolveFilename(SCOPE_LIBDIR, "enigma2/python/Components/EpgList.pyo.bak"), resolveFilename(SCOPE_LIBDIR, "enigma2/python/Components/EpgList.pyo"))
             elif self.selection == "MovieList.pyo":
@@ -521,7 +521,7 @@ class fmOptions(Screen):
             elif self.selection == "ServiceList.pyo":
                 Console().ePopen("mv -f %s %s") % (resolveFilename(SCOPE_LIBDIR, "enigma2/python/Components/ServiceList.pyo.bak"), resolveFilename(SCOPE_LIBDIR, "enigma2/python/Components/ServiceList.pyo"))
             elif self.selection == "skin_user.xml":
-                Console().ePopen("mv -f /etc/enigma2/skin_user.xml.bak /etc/enigma2/skin_user.xml")            
+                Console().ePopen("mv -f /etc/enigma2/skin_user.xml.bak /etc/enigma2/skin_user.xml")
 
             messagebox_text = self.selection + _(" restored.")
             confirmbox = self.session.open(MessageBox, messagebox_text, MessageBox.TYPE_INFO)
@@ -551,7 +551,7 @@ class fmOptions(Screen):
         lt = localtime()
         filename = "/tmp/"
         filename = filename + strftime("%Y-%m-%d_%H:%M:%S_FontMagnifierSettings.xml", lt)
-        try:    
+        try:
             file = open(filename, "w")
             for x in list:
                 file.write(x)
@@ -590,7 +590,7 @@ class fmRestoreSettings(Screen):
         self.list = []
         for sFile in savedSettingsList:
             self.list.append(sFile)
-        
+
         self.selection = ""
 
         if len(self.list) == 0:
@@ -600,7 +600,7 @@ class fmRestoreSettings(Screen):
         else:
             self["restorelist"] = MenuList(self.list)
             self.setTitle(_("Please select settings to restore"))
- 
+
     def cancel(self):
         self.close(False)
 

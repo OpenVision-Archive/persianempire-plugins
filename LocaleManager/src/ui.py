@@ -95,7 +95,7 @@ class LocaleManager(Screen, ConfigListScreen):
 			self["statusbar"].setText(_("Move To %s") % cfg.target.value)
 		else:
 			self["key_blue"].setText("")
-			self["statusbar"].setText("")	
+			self["statusbar"].setText("")
 
 	def runRemove(self):
 		language = cfg.usedlang.value
@@ -174,4 +174,3 @@ class LocaleManager(Screen, ConfigListScreen):
 		if res is not None:
 			cfg.target.value = res
 			self["statusbar"].setText("%s" % res)
-

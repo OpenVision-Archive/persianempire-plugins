@@ -65,13 +65,13 @@ class BouquetProtectSetup(Screen, ConfigListScreen):
 		self.nune_entry = getConfigListEntry(_("Bouquets protection:"), NoSave(ConfigNothing()))
 		self.nane_entry = getConfigListEntry(_("Advanced:"), NoSave(ConfigNothing()))
 		self.pass_entry = getConfigListEntry(_("Password setup:"), NoSave(ConfigNothing()))
-		
+
 		self.enable_hide = getConfigListEntry(_("enable bouquets protection"), self.BPS.enabled)
 		self.enable_protect = getConfigListEntry(_("enable password on protection"), self.BPS.protect.enable)
 		self.store_pass = getConfigListEntry(_("remember entered password"), self.BPS.protect.store)
 		self.setup_pass = getConfigListEntry(_("<< setup password (4 digits) >>"), NoSave(ConfigNothing()))
 		self.change_pass = getConfigListEntry(_("<< change password >>"), NoSave(ConfigNothing()))
-		
+
 		self.unwan_enabled = getConfigListEntry(_("hide unwanted services in channellist"), self.BPS.unwanted.enalbed)
 		self.unwan_showkey = getConfigListEntry(_("show unwanted services list on key press"), self.BPS.unwanted.showkey)
 
@@ -81,7 +81,7 @@ class BouquetProtectSetup(Screen, ConfigListScreen):
 			list.append(self.unwan_showkey)
 		if self.BPS.enabled.value != 'none' or self.BPS.unwanted.enalbed.value:
 			list.append(self.none_entry)
-			
+
 			list.append(self.pass_entry)
 			list.append(self.enable_protect)
 			if self.BPS.protect.enable.value:
@@ -90,7 +90,7 @@ class BouquetProtectSetup(Screen, ConfigListScreen):
 					list.append(self.setup_pass)
 				else:
 					list.append(self.change_pass)
-		
+
 		self["config"].list = list
 		self["config"].l.setList(list)
 
@@ -133,7 +133,7 @@ class BouquetProtectSetup(Screen, ConfigListScreen):
 				del CSB.inst["ChannelSelectBaseActions"].actions[self.prev_showkey]
 			if self.BPS.unwanted.enalbed.value and self.BPS.unwanted.showkey.value != 'none':
 				CSB.inst["ChannelSelectBaseActions"].actions.update({self.BPS.unwanted.showkey.value: boundFunction(CSB.showAllHiddenServices, CSB.inst)})
-		
+
 		if self.BPS.protect.enable.value and self.BPS.protect.index.value == self.BPS.protect.index.default:
 			self.BPS.protect.enable.value = False
 		if self.access or self.BPS.protect.index.value == self.BPS.protect.index.default or \
@@ -173,7 +173,7 @@ class PasswordSetup(Screen, ConfigListScreen):
 		self.list.append(getConfigListEntry(_("Enter new password"), NoSave(self.pass1)))
 		self.list.append(getConfigListEntry(_("Reenter new password"), NoSave(self.pass2)))
 		ConfigListScreen.__init__(self, self.list)
-		
+
 		self["key_red"] = StaticText(_("Cancel"))
 		self["key_green"] = StaticText(_("OK"))
 		self["actions"] = NumberActionMap(["DirectionActions", "ColorActions", "OkCancelActions"],
@@ -207,4 +207,3 @@ class PasswordSetup(Screen, ConfigListScreen):
 
 	def keyNumberGlobal(self, number):
 		ConfigListScreen.keyNumberGlobal(self, number)
-

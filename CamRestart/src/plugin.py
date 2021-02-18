@@ -19,7 +19,7 @@ from Components.PluginComponent import plugins
 
 if fileExists(resolveFilename(SCOPE_PLUGINS, "Extensions/PECamManager/Softcam.pyo")):
 	from Plugins.Extensions.PECamManager.Softcam import getcamcmd
-	
+
 lang = language.getLanguage()
 environ["LANGUAGE"] = lang[:2]
 gettext.bindtextdomain("enigma2", resolveFilename(SCOPE_LANGUAGE))
@@ -32,7 +32,7 @@ def _(txt):
 	if t == txt:
 		t = gettext.gettext(txt)
 	return t
-	
+
 
 config.plugins.pecr = ConfigSubsection()
 config.plugins.pecr.keyname = ConfigSelection(default="KEY_TEXT", choices=[
@@ -53,7 +53,7 @@ class QuickEmu():
 		global globalActionMap
 		readKeymap(keymap)
 		globalActionMap.actions['showCamRestart'] = self.restartCam
-		
+
 	def restartCam(self):
 		camname = ""
 		emunam = ""
@@ -87,10 +87,10 @@ class QuickEmu():
 			except:
 				return None
 
-		elif fileExists(resolveFilename(SCOPE_PLUGINS, "Extensions/PECamManager/plugin.pyo")): 
-			if config.plugins.PECam.actcam.value != "none": 
-				return config.plugins.PECam.actcam.value 
-			else: 
+		elif fileExists(resolveFilename(SCOPE_PLUGINS, "Extensions/PECamManager/plugin.pyo")):
+			if config.plugins.PECam.actcam.value != "none":
+				return config.plugins.PECam.actcam.value
+			else:
 				return None
 
 
@@ -121,7 +121,7 @@ class pecr_setup(ConfigListScreen, Screen):
 			"green": self.save,
 			"ok": self.save
 		}, -2)
-	
+
 	def cancel(self):
 		for i in self["config"].list:
 			i[1].cancel()

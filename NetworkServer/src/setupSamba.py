@@ -96,7 +96,7 @@ class setupSamba(Screen, ConfigListScreen):
 		</screen>"""
 
 	def __init__(self, session, iface, plugin_path):
-		self.skin = setupSamba.skin		
+		self.skin = setupSamba.skin
 		self.session = session
 		Screen.__init__(self, session)
 
@@ -211,7 +211,7 @@ class setupSamba(Screen, ConfigListScreen):
 	def green(self):
 		if self.activeConfigEntry.value:
 			self.sambaDown()
-	
+
 			confError = 0
 			confError += writeAttribute('/etc/samba/smb.conf', 'global', 'server string', self.serverStringConfigEntry.value)
 			confError += writeAttribute('/etc/samba/smb.conf', 'global', 'netbios name', self.netbiosNameConfigEntry.value)

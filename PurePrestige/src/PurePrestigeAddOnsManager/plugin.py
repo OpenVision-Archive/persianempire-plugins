@@ -2433,7 +2433,7 @@ class PurePrestigeIpkgPlugins(Screen):
 
     def __init__(self, session, xmlparse, selection):
         self.skin = PurePrestigeIpkgPlugins.skin
-        
+
         Screen.__init__(self, session)
         self.xmlparse = xmlparse
         self.selection = selection

@@ -5,7 +5,7 @@ from __future__ import print_function
 blockcontent_version = "0.15"
 
 from RecordTimer import parseEvent
-from Components.ServiceEventTracker import ServiceEventTracker        
+from Components.ServiceEventTracker import ServiceEventTracker
 from Plugins.Plugin import PluginDescriptor
 from Components.config import config, ConfigSubsection, ConfigInteger, ConfigBoolean, ConfigPIN, getConfigListEntry
 from enigma import eTimer, eServiceCenter, iPlayableService
@@ -16,7 +16,7 @@ from Components.Label import Label
 from Screens.MessageBox import MessageBox
 from Screens.InputBox import PinInput
 from ServiceReference import ServiceReference
-from Screens.ParentalControlSetup import ProtectedScreen     
+from Screens.ParentalControlSetup import ProtectedScreen
 from time import time, localtime, strftime
 import os
 import Screens.Standby
@@ -34,7 +34,7 @@ global blockedcontent_asking
 blockedcontent_asking = False
 
 
-def startConfig(session, **kwargs):                                         
+def startConfig(session, **kwargs):
         session.open(BlockContentConfiguration)
 
 
@@ -59,9 +59,9 @@ def mainext(session, **kwargs):
 
 
 def mainconf(menuid):
-    if menuid != "system":                                                  
-        return []                                                     
-    return [(_("Block Content"), startConfig, "blockcontent", None)]    
+    if menuid != "system":
+        return []
+    return [(_("Block Content"), startConfig, "blockcontent", None)]
 
 
 class BlockContentConfiguration(Screen, ConfigListScreen, ProtectedScreen):
@@ -74,7 +74,7 @@ class BlockContentConfiguration(Screen, ConfigListScreen, ProtectedScreen):
 
     def __init__(self, session, args=0):
 	Screen.__init__(self, session)
-	ProtectedScreen.__init__(self)       
+	ProtectedScreen.__init__(self)
        	self.list = []
         self.list.append(getConfigListEntry(_("Blocking after 1-30 sec [0 = disabled]"), config.plugins.blockcontent.viewingtime))
         self.list.append(getConfigListEntry(_("Freeview after 0-23h [24=disabled]  ]"), config.plugins.blockcontent.freeview))
@@ -117,10 +117,10 @@ class BlockContentConfiguration(Screen, ConfigListScreen, ProtectedScreen):
             self.cancel()
         elif not result:
             self.session.openWithCallback(self.pinCancel, MessageBox, _("The pin code you entered is wrong."), MessageBox.TYPE_ERROR)
-    
+
     def pinCancel(self, result):
         self.cancel()
-               
+
     def protectedWithPin(self):
         return config.plugins.blockcontent.pin.getValue()
 
@@ -132,8 +132,8 @@ class BlockContentEnableDisable(Screen, ProtectedScreen):
 
     def __init__(self, session, args=0):
 	Screen.__init__(self, session)
-	ProtectedScreen.__init__(self)       
-    
+	ProtectedScreen.__init__(self)
+
     def pinCancel(self, result):
         self.close(True)
 
@@ -150,7 +150,7 @@ class BlockContentEnableDisable(Screen, ProtectedScreen):
             		self.session.openWithCallback(self.pinCancel, MessageBox, _("Block Content is now deactivated"), MessageBox.TYPE_INFO)
         elif not result:
             self.session.openWithCallback(self.pinCancel, MessageBox, _("The pin code you entered is wrong."), MessageBox.TYPE_ERROR)
-               
+
     def protectedWithPin(self):
         return config.plugins.blockcontent.pin.getValue()
 
@@ -170,21 +170,21 @@ class BlockContentCheck(Screen):
 	self.blockedcontent_authorized = "Sesamestrasse"
 	self.blockedcontent_check = ""
         self.blockedcontent_begin_time = 0
-       	self.__event_tracker = ServiceEventTracker(screen=self, eventmap={                                 
+       	self.__event_tracker = ServiceEventTracker(screen=self, eventmap={
        		iPlayableService.evUpdatedEventInfo: self.EventInfoChanged,
-      		})                                                      
+      		})
 
-    def EventInfoChanged(self):                                         
-   	service = self.session.nav.getCurrentService()                          
-        old_begin_time = self.blockedcontent_begin_time                                
-        info = service and service.info()                                       
-        ptr = info and info.getEvent(0)                                         
-        self.blockedcontent_begin_time = ptr and ptr.getBeginTime() or 0               
+    def EventInfoChanged(self):
+   	service = self.session.nav.getCurrentService()
+        old_begin_time = self.blockedcontent_begin_time
+        info = service and service.info()
+        ptr = info and info.getEvent(0)
+        self.blockedcontent_begin_time = ptr and ptr.getBeginTime() or 0
         print("[BlockContent] planning check")
         self.TimerBlockContentCheck = eTimer()
         self.TimerBlockContentCheck.stop()
         self.TimerBlockContentCheck.timeout.get().append(self.CheckBlockContent)
-       	self.TimerBlockContentCheck.start(config.plugins.blockcontent.viewingtime.value * 1000, True) 
+       	self.TimerBlockContentCheck.start(config.plugins.blockcontent.viewingtime.value * 1000, True)
 
     def CheckBlockContent(self):
 	global blockedcontent_deactive
@@ -203,7 +203,7 @@ class BlockContentCheck(Screen):
 		        	self.TimerBlockContentReactivate = eTimer()
 		        	self.TimerBlockContentReactivate.stop()
 		        	self.TimerBlockContentReactivate.timeout.get().append(self.ReactivateBlockContent)
-        			self.TimerBlockContentReactivate.start(config.plugins.blockcontent.reactivetime.value * 60000, True) 
+        			self.TimerBlockContentReactivate.start(config.plugins.blockcontent.reactivetime.value * 60000, True)
 				self.blockedcontent_reactive = True
 	else:
 		eventid = None
@@ -231,14 +231,14 @@ class BlockContentCheck(Screen):
                         	description = curEvent[3]
 				eventid = curEvent[4]
 
-				text = event.getEventName()                     
-               			short = event.getShortDescription()                      
-               			ext = event.getExtendedDescription()                     
-               			if short and short != text:                              
-                       			text += '\n\n' + short                           
-               			if ext:                                                         
-                       			if text:                                                
-                               			text += '\n\n'                                  
+				text = event.getEventName()
+               			short = event.getShortDescription()
+               			ext = event.getExtendedDescription()
+               			if short and short != text:
+                       			text += '\n\n' + short
+               			if ext:
+                       			if text:
+                               			text += '\n\n'
                        			text += ext
 		check = "%s %s %s %s %s" % (servicerefstr, station, name, description, text)
         	if config.plugins.blockcontent.casesensitive.value is False:
@@ -249,20 +249,20 @@ class BlockContentCheck(Screen):
 			f = open("/etc/enigma2/blockedcontent")
 			while blockedcontent and not blockedcontent_found:
 				blockedcontent = f.readline().lstrip().rstrip().rstrip("\r\n")
-				if blockedcontent.startswith("userbouquet."):	
+				if blockedcontent.startswith("userbouquet."):
 					if os.path.exists("/etc/enigma2/%s" % blockedcontent):
 						blockedbouquet = True
 						u = open("/etc/enigma2/%s" % blockedcontent, "r")
 						while blockedbouquet and not blockedcontent_found:
 							blockedbouquet = u.readline().lstrip().rstrip().rstrip("\r\n")
 				 			blockedbouquet = blockedbouquet.replace("#SERVICE", "").replace(" ", "")
-							if blockedbouquet.startswith("#") is False and check.find(blockedbouquet) is not -1 and len(blockedbouquet) > 1:	
+							if blockedbouquet.startswith("#") is False and check.find(blockedbouquet) is not -1 and len(blockedbouquet) > 1:
    								print("[BlockedContent] %s found in %s" % (blockedbouquet, check))
 								blockedcontent_found = True
 						u.close()
         			if config.plugins.blockcontent.casesensitive.value is False:
 					blockedcontent = blockedcontent.upper()
-				if blockedcontent.startswith("#") is False and check.find(blockedcontent) is not -1 and len(blockedcontent) > 1:	
+				if blockedcontent.startswith("#") is False and check.find(blockedcontent) is not -1 and len(blockedcontent) > 1:
    					print("[BlockedContent] %s found in %s" % (blockedcontent, check))
 					blockedcontent_found = True
 			f.close()
@@ -277,7 +277,7 @@ class BlockContentCheck(Screen):
 					self.prev_running_service = serviceref
 					self.blockedcontent_check = check
 					self.session.nav.stopService()
-					try:	
+					try:
    						self.session.openWithCallback(self.pinEntered, PinInput, pinList=[config.plugins.blockcontent.pin.getValue()], triesEntry=self.getTriesEntry(), title=_("Please enter the correct pin code"), windowTitle=_("Enter pin code"))
 					except:
 						self.session.nav.playService(self.prev_running_service)
@@ -285,7 +285,7 @@ class BlockContentCheck(Screen):
 						pass
         			else:
 				        self.session.open(MessageBox, _("Block Content found %s") % blockedcontent, MessageBox.TYPE_WARNING, timeout=config.plugins.blockcontent.popuptime.value)
-    
+
     def getTriesEntry(self):
         return config.ParentalControl.retries.setuppin
 

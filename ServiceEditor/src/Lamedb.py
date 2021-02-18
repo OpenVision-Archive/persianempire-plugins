@@ -13,7 +13,7 @@ class Lamedb:
 		self.database = {}
 		self.databaseState = 0
 		thread.start_new_thread(self._initDatabase, (None,))
-		
+
 	def _initDatabase(self, dummy):
 		self.database.clear()
 		self.databaseState = 0
@@ -57,7 +57,7 @@ class Lamedb:
 					puffer.append(("\ts %s:%s:%s:%s:%s:%s:%s\n") % (tp["frequency"], tp["symbol_rate"], tp["polarization"], tp["fec_inner"], tp["position"], tp["inversion"], tp["flags"]))
 				else:
 					puffer.append(("\ts %s:%s:%s:%s:%s:%s:%s:%s:%s:%s:%s\n") % (tp["frequency"], tp["symbol_rate"], tp["polarization"], tp["fec_inner"], tp["position"], tp["inversion"], tp["flags"], tp["system"], tp["modulation"], tp["rolloff"], tp["pilot"]))
-			puffer.append("/\n")	
+			puffer.append("/\n")
 		puffer.append("end\n")
 		puffer.append("services\n")
 		for tp in self.database:
@@ -82,7 +82,7 @@ class Lamedb:
 		f = open("/etc/enigma2/lamedb", "w")
 		f.writelines(puffer)
 		f.close()
-		
+
 	def getServices(self, lamedb):
 		print("getServices",)
 		if lamedb is None:
@@ -112,7 +112,7 @@ class Lamedb:
 							services.append((lamedb[x], lamedb[x + 1], lamedb[x + 2],))
 		print(" finished")
 		return services
-	
+
 	def translateService(self, serviceData):
 		t1 = ["sid", "namespace", "tsid", "onid", "type", "number"]
 		if serviceData is None:
@@ -158,7 +158,7 @@ class Lamedb:
 			self.database[uniqueTransponder]["services"][uniqueService] = service
 			self.readcnt += 1
 			self.databaseState = 3
-	
+
 	def translateServices(self, services):
 		if services is None:
 			return
@@ -166,7 +166,7 @@ class Lamedb:
 			self.translateService(x)
 		else:
 			self.databaseState = 4
-	
+
 	def getTransponders(self, lamedb):
 		if lamedb is None:
 			return
@@ -253,7 +253,7 @@ class Lamedb:
 				for y in xrange(len(x[0])):
 					tp.update({t1[y]: x[0][y]})
 				for y in xrange(len(x[1])):
-					if self.version == 3:	
+					if self.version == 3:
 						tp.update({t2_sv3[y]: x[1][y]})
 					elif self.version == 4:
 						tp.update({t2_sv4[y]: x[1][y]})
