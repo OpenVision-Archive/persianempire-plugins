@@ -1150,7 +1150,7 @@ class Transponder:
 			res.update(self.exportOnid())
 		if self.useTsid:
 			res.update(self.exportTsid())
-		if self.inversion != "AUTO" :
+		if self.inversion != "AUTO":
 			res.update(self.exportInversion())
 		if self.system == "DVB-S2":
 			if self.pilot != "OFF":
@@ -1643,7 +1643,7 @@ class TranspondersEditor(Screen):
 	def removeTransponder(self):
 		print("removeTransponder")
 		if len(self.transponderslist):
-			cb_func = lambda ret : not ret or self.deleteTransponder()
+			cb_func = lambda ret: not ret or self.deleteTransponder()
 			self.session.openWithCallback(cb_func, MessageBox, _("Remove Transponder?"), MessageBox.TYPE_YESNO)
 
 	def deleteTransponder(self):
@@ -1655,7 +1655,7 @@ class TranspondersEditor(Screen):
 		self.close(None)
 	
 	def compareColumn(self, a):
-		return int(a.get( self.row[self.currentSelectedColumn][0], "-1"))
+		return int(a.get(self.row[self.currentSelectedColumn][0], "-1"))
 	
 	def sortColumn(self):
 		rev = self.row[self.currentSelectedColumn][2]
@@ -1840,7 +1840,7 @@ class SatInfo(Screen):
 		entryList = (_("Band"), _("Ku"), _("C"))
 		l = []
 		for entry in entryList:
-			bandList = [ None ]
+			bandList = [None]
 			bandList.append(MultiContentEntryText(
 				pos=(0, 0),
 				size=(55, 24),
@@ -1855,7 +1855,7 @@ class SatInfo(Screen):
 
 		entryList = (_("horizontal"), _("vertical"), _("left"), _("right"))
 		xpos = 0
-		polarisationList = [ None ]
+		polarisationList = [None]
 		for entry in entryList:
 			polarisationList.append(MultiContentEntryText(
 				pos=(xpos, 0),
@@ -1868,7 +1868,7 @@ class SatInfo(Screen):
 		self["polhead"].l.setList([polarisationList])
 
 		l = []
-		infolist = [ None ]
+		infolist = [None]
 		entryList = (("dvb-s", 60), ("dvb-s2", 65), ("dvb-s", 60), ("dvb-s2", 65), ("dvb-s", 60), ("dvb-s2", 65), ("dvb-s", 60), ("dvb-s2", 65),)
 		xpos = 0
 		for entry in entryList:
@@ -1882,7 +1882,7 @@ class SatInfo(Screen):
 			xpos = calc_xpos(infolist)
 		l.append(infolist)
 		
-		infolist = [ None ]
+		infolist = [None]
 		entryList = (
 			(self.tp_ku_h, 60),
 			(self.tp_ku_h2, 65),
@@ -1905,7 +1905,7 @@ class SatInfo(Screen):
 			xpos = calc_xpos(infolist)
 		l.append(infolist)
 		
-		infolist = [ None ]
+		infolist = [None]
 		entryList = (
 			(self.tp_c_h, 60),
 			(self.tp_c_h2, 65),
@@ -2029,7 +2029,7 @@ class Head(HTMLComponent, GUIComponent):
 		instance.setContent(self.l)
 
 	def setEntries(self,data=None):
-		res = [ None ]
+		res = [None]
 		if data is not None:
 			for x in data:
 				res.append(MultiContentEntryText(
@@ -2318,7 +2318,7 @@ class SatellitesEditor(Screen):
 		entryList = (_("Band"), _("Ku"), _("C"))
 		l = []
 		for entry in entryList:
-			bandList = [ None ]
+			bandList = [None]
 			bandList.append(MultiContentEntryText(
 				pos=(0, 0),
 				size=(55, 24),
@@ -2333,7 +2333,7 @@ class SatellitesEditor(Screen):
 
 		entryList = (_("horizontal"), _("vertical"), _("left"), _("right"))
 		xpos = 0
-		polarisationList = [ None ]
+		polarisationList = [None]
 		for entry in entryList:
 			polarisationList.append(MultiContentEntryText(
 				pos=(xpos, 0),
@@ -2346,7 +2346,7 @@ class SatellitesEditor(Screen):
 		self["polhead"].l.setList([polarisationList])
 
 		l = []
-		infolist = [ None ]
+		infolist = [None]
 		entryList = (("dvb-s", 60), ("dvb-s2", 65), ("dvb-s", 60), ("dvb-s2", 65), ("dvb-s", 60), ("dvb-s2", 65), ("dvb-s", 60), ("dvb-s2", 65),)
 		xpos = 0
 		for entry in entryList:
@@ -2360,7 +2360,7 @@ class SatellitesEditor(Screen):
 			xpos = calc_xpos(infolist)
 		l.append(infolist)
 		
-		infolist = [ None ]
+		infolist = [None]
 		entryList = (
 			(self.tp_ku_h, 60),
 			(self.tp_ku_h2, 65),
@@ -2383,7 +2383,7 @@ class SatellitesEditor(Screen):
 			xpos = calc_xpos(infolist)
 		l.append(infolist)
 		
-		infolist = [ None ]
+		infolist = [None]
 		entryList = (
 			(self.tp_c_h, 60),
 			(self.tp_c_h2, 65),
@@ -2450,7 +2450,7 @@ class SatellitesEditor(Screen):
 				elif int(x) > 0:
 					posString += "E"
 				newName = "new Satellite (%s)" % posString
-				newSat = [{"name":newName, "flags": "0", "position": x }, []]
+				newSat = [{"name":newName, "flags": "0", "position": x}, []]
 				for tp in lamedb.satellitesList.get(x):
 					tsid = tp.get("tsid", "-1")
 					if tsid != "-1":
@@ -2487,7 +2487,7 @@ class SatellitesEditor(Screen):
 		tree = xml.etree.cElementTree.ElementTree(root)
 		os.rename("/etc/tuxbox/satellites.xml", "/etc/tuxbox/satellites.xml." + str(int(time.time())))
 		tree.write("/etc/tuxbox/satellites.xml")
-		nimmanager.satList = [ ]
+		nimmanager.satList = []
 		nimmanager.cablesList = []
 		nimmanager.terrestrialsList = []
 		nimmanager.readTransponders()
@@ -2543,7 +2543,7 @@ class SatellitesEditor(Screen):
 		if len(self.satelliteslist):
 			cur_idx = self["list"].getSelectedIndex()
 			satellite = self.satelliteslist[cur_idx][0].get("name")
-			cb_func = lambda ret : not ret or self.deleteSatellite()
+			cb_func = lambda ret: not ret or self.deleteSatellite()
 			self.session.openWithCallback(cb_func, MessageBox, _("Remove Satellite %s?" % satellite), MessageBox.TYPE_YESNO)
 
 	def compareColumn(self, a):
@@ -2601,7 +2601,7 @@ class SatellitesEditor(Screen):
 			self["list"].setEntries(self.satelliteslist)
 
 	def Exit(self):
-		cb_func = lambda ret : not ret or self.writeSatellites()
+		cb_func = lambda ret: not ret or self.writeSatellites()
 		self.session.openWithCallback(cb_func, MessageBox, _("Save satellites.xml? \n(This take some seconds.)"), MessageBox.TYPE_YESNO)
 		self.close()
 		

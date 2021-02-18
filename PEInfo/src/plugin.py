@@ -1156,7 +1156,7 @@ class PEInfoTexto(Screen):
 
     def infored(self):
         ret = ''
-        adapters = [ (iNetwork.getFriendlyAdapterName(x), x) for x in iNetwork.getAdapterList() ]
+        adapters = [(iNetwork.getFriendlyAdapterName(x), x) for x in iNetwork.getAdapterList()]
         if not adapters:
             return '\n' + _('No Network Adapters Configured')
         else:

@@ -526,7 +526,7 @@ class PESubMenu(Screen):
         if current:
             currentEntry = current[0]
             if currentEntry == 'backuplocation':
-                parts = [ (r.description, r.mountpoint, self.session) for r in harddiskmanager.getMountedPartitions(onlyhotplug=False) ]
+                parts = [(r.description, r.mountpoint, self.session) for r in harddiskmanager.getMountedPartitions(onlyhotplug=False)]
                 for x in parts:
                     if not access(x[1], F_OK | R_OK | W_OK) or x[1] == '/':
                         parts.remove(x)

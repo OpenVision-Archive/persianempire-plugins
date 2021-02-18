@@ -526,7 +526,7 @@ class navibar_config1(Screen, ConfigListScreen, HelpableScreen):
                 self.readconfig()
             else:
                 self.now_plugin_name = self['config2'].getCurrent()[0][0]
-                self.now_newidx = [ y[0] for y in self.config_list_select ].index(self.now_plugin_name)
+                self.now_newidx = [y[0] for y in self.config_list_select].index(self.now_plugin_name)
                 count_move = 0
                 config_tmp = open(self.plugin_path + '/config_tmp', 'w')
                 for each in self.config_list_select:
@@ -1496,13 +1496,13 @@ def getPluginList(self):
     dupelist = []
     for p in plugins.getPlugins(where=PluginDescriptor.WHERE_PLUGINMENU):
         dupelist.append(p.name)
-        l.append(((boundFunction(self.getPluginName, p.name), boundFunction(self.runPlugin, p), lambda : True), None, p.name))
+        l.append(((boundFunction(self.getPluginName, p.name), boundFunction(self.runPlugin, p), lambda: True), None, p.name))
 
     for p in plugins.getPlugins(where=PluginDescriptor.WHERE_EXTENSIONSMENU):
         if p.name not in dupelist:
             args = inspect.getargspec(p.__call__)[0]
             if len(args) == 1 or len(args) == 2 and isinstance(InfoBar.instance, InfoBarChannelSelection):
-                l.append(((boundFunction(self.getPluginName, p.name), boundFunction(self.runPlugin, p), lambda : True), None, p.name))
+                l.append(((boundFunction(self.getPluginName, p.name), boundFunction(self.runPlugin, p), lambda: True), None, p.name))
 
     print('dupelist', dupelist)
     l.sort(key=lambda e: e[2])

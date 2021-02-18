@@ -53,7 +53,7 @@ class Memory(Screen):
 
 	def openTest(self):
 
-                self.session.open(Console, _("Availabe memory"), ["" ])
+                self.session.open(Console, _("Availabe memory"), [""])
                 title = "Availabe memory"
                 cmd = "df -h"
                 self.session.open(Console, _(title), [cmd])

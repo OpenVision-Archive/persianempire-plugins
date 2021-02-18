@@ -167,7 +167,7 @@ class LocaleManager(Screen, ConfigListScreen):
 		txt = _("Language Files Will Be Moved To")
 		self.session.openWithCallback(self.targetDirSelected, LocationBox, text=txt, currDir=cfg.target.value,
 						autoAdd=False, editDir=True,
-						inhibitDirs=self.inhibitDirs, minFree=10 )
+						inhibitDirs=self.inhibitDirs, minFree=10)
 
 	def targetDirSelected(self, res):
 		if res is not None:

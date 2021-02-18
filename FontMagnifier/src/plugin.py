@@ -101,9 +101,9 @@ class fmConfiguration(Screen, ConfigListScreen):
         self.getcurrent_font_channel_list()
         self.getcurrent_font_subtitles()
         self.getcurrent_font_movie_list()
-        self.getcurrent_font_infobar_event_now ()
-        self.getcurrent_font_infobar_event_next ()
-        self.getcurrent_regularFont ()
+        self.getcurrent_font_infobar_event_now()
+        self.getcurrent_font_infobar_event_next()
+        self.getcurrent_regularFont()
         self.createSetup()
 
     def keyLeft(self):
@@ -246,7 +246,7 @@ class fmConfiguration(Screen, ConfigListScreen):
         config.plugins.fm.Subtitle_Regular.value = 0
         config.plugins.fm.Subtitle_Bold.value = 0
         config.plugins.fm.Subtitle_Italic.value = 0
-        if len (self.list_of_subtitles) != 0:
+        if len(self.list_of_subtitles) != 0:
             for element in self.list_of_subtitles:
                 if element.getchildren():
                     for child in element:
@@ -344,7 +344,7 @@ class fmConfiguration(Screen, ConfigListScreen):
     def getcurrent_regularFont(self):
         global regularFontExistInXML
         global regularFontList
-        if len (self.list_of_fonts) != 0:
+        if len(self.list_of_fonts) != 0:
             for element in self.list_of_fonts:
                 if element.getchildren():
                     for child in element:
@@ -413,12 +413,12 @@ class fmConfiguration(Screen, ConfigListScreen):
            x[1].save()
 
         self.session.open(fmWaitScreen, self.tree)
-        self.close ()
+        self.close()
 
     def cancel(self):
         for x in self["config"].list:
             x[1].cancel()
-        self.close (False)
+        self.close(False)
 
     def info(self):
         aboutbox = self.session.open(MessageBox, _("Font magnifier plugin\n\nThis plugin helps you to\nset up different font sizes.\n\n(c) 2012 - BigReaper"), MessageBox.TYPE_INFO)
@@ -537,9 +537,9 @@ class fmOptions(Screen):
 
         for key, val in config.plugins.fm.dict().iteritems():
             if key != "regular_Font":
-                list.append( key + '="' + str(val.getValue()) + '" ' )
+                list.append(key + '="' + str(val.getValue()) + '" ')
             else:
-                list.append( key + '="' + str(val.value) + '" ' )
+                list.append(key + '="' + str(val.value) + '" ')
         list.append('/>\n')
         list.append('</FontMagnifier-Settings>\n')
 
@@ -915,7 +915,7 @@ class fmWaitScreen(Screen):
                                     if children_modified==6:
                                         break
 
-            if len (self.list_of_subtitles) != 0:
+            if len(self.list_of_subtitles) != 0:
                 for element in self.list_of_subtitles:
                     if element.getchildren():
                         for child in element:
@@ -948,7 +948,7 @@ class fmWaitScreen(Screen):
                                     if config.plugins.fm.Subtitle_Italic.value != 0:
                                         child.set("font", new_font)
 
-            if len (self.list_of_fonts) != 0:
+            if len(self.list_of_fonts) != 0:
                 for element in self.list_of_fonts:
                     if element.getchildren():
                         for child in element:

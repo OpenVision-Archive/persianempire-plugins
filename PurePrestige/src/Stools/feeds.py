@@ -711,7 +711,7 @@ class RSS:
     def node_data(self, node, tagName, possibleNamespaces=DEFAULT_NAMESPACES):
         children = self.getElementsByTagName(node, tagName, possibleNamespaces)
         node = len(children) and children[0] or None
-        return node and ''.join([ child.data.encode('utf-8') for child in node.childNodes ]) or None
+        return node and ''.join([child.data.encode('utf-8') for child in node.childNodes]) or None
 
     def get_txt(self, node, tagName, default_txt=''):
         """

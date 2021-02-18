@@ -324,7 +324,7 @@ class Transponder:
 			res.update(self.exportOnid())
 		if self.useTsid:
 			res.update(self.exportTsid())
-		if self.inversion != "AUTO" :
+		if self.inversion != "AUTO":
 			res.update(self.exportInversion())
 		if self.system == "DVB-S2":
 			if self.pilot != "OFF":

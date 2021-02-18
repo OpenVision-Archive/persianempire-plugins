@@ -106,7 +106,7 @@ def localeInit():
 def _(txt):
     t = gettext.dgettext("QuickWeather", txt)
     if t == txt:
-        print("[QuickWeather] fallback to default translation for", txt )
+        print("[QuickWeather] fallback to default translation for", txt)
         t = gettext.gettext(txt)
     return t
 
@@ -525,14 +525,14 @@ class WeatherPluginScreen(Screen):
                 pathanimicon  = '%s/%s/a'% (config.plugins.WeatherPlugin.anim3.value, id)
                 path = '%s/%s'% (config.plugins.WeatherPlugin.anim3.value, id)
                 dir_work = os.listdir(path) 
-                total = len (dir_work)
+                total = len(dir_work)
                 self.slideicon = total
                 animokicon = True
             else:
                 pathanimicon  = resolveFilename(SCOPE_PLUGINS, 'Extensions/QuickWeather/NA/a')
                 path = resolveFilename(SCOPE_PLUGINS, 'Extensions/QuickWeather/NA')
                 dir_work = os.listdir(path) 
-                total = len (dir_work)
+                total = len(dir_work)
                 self.slideicon = total
                 animokicon = True
             if (animokicon== True):
@@ -1311,7 +1311,7 @@ class WeatherPluginMenu(Screen):
                                 print(ekran)
                             elif key == 'config.plugins.WeatherPlugin.days':
                                 ekransmol = value
-                                print(ekransmol                                )
+                                print(ekransmol)
             finally:
                 f.close()
 
@@ -1334,7 +1334,7 @@ class WeatherPluginMenu(Screen):
                                 print(ekran2)
                             elif key == 'config.plugins.WeatherPlugin.days':
                                 ekransmol2 = value
-                                print(ekransmol2                                 )
+                                print(ekransmol2)
             finally:
                 f.close()
 
@@ -1472,13 +1472,13 @@ class SetupMenu2(Screen):
            		for name in os.listdir(resolveFilename(SCOPE_PLUGINS, "Extensions/QuickWeather/background")):                                       
               			if name.endswith(".png") is True:                                                  
                  			bname=name.split(".png")                                                        
-                      			b00klist.append(( bname[0], name))
+                      			b00klist.append((bname[0], name))
 	    else:
 		if os.path.exists(resolveFilename(SCOPE_PLUGINS, "Extensions/QuickWeather/background1")) == True:
            		for name in os.listdir(resolveFilename(SCOPE_PLUGINS, "Extensions/QuickWeather/background1")):                                       
               			if name.endswith(".png") is True:                                                  
                  			bname=name.split(".png")                                                        
-                      			b00klist.append(( bname[0], name))                      			
+                      			b00klist.append((bname[0], name))                      			
             b00klist.sort()                                                                        
 	    return b00klist        
 		
@@ -1540,7 +1540,7 @@ class WeatherInfoBar:
 		self.session = session
 		self.infobar = infobar
 		self.lastKey = None
-		self.hotkeys = { }
+		self.hotkeys = {}
 		self.dialog = None
 		for x in WeatherInfoBarKeys:
 			self.hotkeys[x[0]] = [KEYIDS[key] for key in x[2]]
@@ -1627,7 +1627,7 @@ class SetupKeymap(Screen):
            		for name in os.listdir(resolveFilename(SCOPE_PLUGINS, "Extensions/QuickWeather/SetupKeymap")):                                       
               			if name.endswith(".xml") is True:                                                  
                  			bname=name.split(".xml")                                                        
-                      			b00klist.append(( bname[0], name))                                 
+                      			b00klist.append((bname[0], name))                                 
         	b00klist.sort()                                                                        
 	        return b00klist		
 
@@ -1744,7 +1744,7 @@ class SetupIcons(Screen):
            		for name in os.listdir(setup):                                       
               			if name.endswith(".png") is True:                                                  
                  			bname=name.split(".png")                                                        
-                      			b00klist.append(( bname[0], name))                                 
+                      			b00klist.append((bname[0], name))                                 
         	b00klist.sort()                                                                        
 	        return b00klist
 

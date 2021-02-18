@@ -261,12 +261,12 @@ class ConfigEdit(Screen, ConfigListScreen):
 		self["config"].setList(configlist)
 
 	def ok(self):
-		msg = [ ]
+		msg = []
 		if not path.exists(config.plugins.PECam.camconfig.value):
 			msg.append("%s " % config.plugins.PECam.camconfig.value)
 		if not path.exists(config.plugins.PECam.camdir.value):
 			msg.append("%s " % config.plugins.PECam.camdir.value)
-		if msg == [ ]:
+		if msg == []:
 			if config.plugins.PECam.camconfig.value[-1] == "/":
 				config.plugins.PECam.camconfig.value = \
 					config.plugins.PECam.camconfig.value[:-1]

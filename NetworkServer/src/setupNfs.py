@@ -104,9 +104,9 @@ class editExportEntry(Screen, ConfigListScreen):
 		self["actions"] = ActionMap(["OkCancelActions", "ColorActions"],
 		{
 			"cancel": self.cancel,
-			"red"   : self.cancel,
-			"green" : self.green,
-			"ok"    : self.ok
+			"red": self.cancel,
+			"green": self.green,
+			"ok": self.ok
 		}, -2)
 
 		self["ButtonGreen"] = Pixmap()
@@ -235,12 +235,12 @@ class setupNfs(Screen, ConfigListScreen):
 
 		self["actions"] = ActionMap(["OkCancelActions", "ColorActions"],
 		{
-			"cancel" : self.cancel,
-			"ok"     : self.editExportEntry,
-			"green"  : self.green,
-			"red"	 : self.cancel,
-			"yellow" : self.newExportEntry,
-			"blue"   : self.deleteExportEntry
+			"cancel": self.cancel,
+			"ok": self.editExportEntry,
+			"green": self.green,
+			"red": self.cancel,
+			"yellow": self.newExportEntry,
+			"blue": self.deleteExportEntry
 		}, -2)
 
 	def readExports(self):

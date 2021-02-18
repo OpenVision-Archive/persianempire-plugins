@@ -55,7 +55,7 @@ def mainext(session,**kwargs):
 
 def mainconf(menuid):
     if menuid != "system":                                                  
-        return [ ]                                                     
+        return []                                                     
     return [(_("Block Content"), startConfig, "blockcontent", None)]    
 
 class BlockContentConfiguration(Screen, ConfigListScreen, ProtectedScreen):
@@ -83,7 +83,7 @@ class BlockContentConfiguration(Screen, ConfigListScreen, ProtectedScreen):
 
        	self["buttonred"] = Label(_("Cancel"))
        	self["buttongreen"] = Label(_("OK"))
-        self["setupActions"] = ActionMap([ "ColorActions", "SetupActions" ],
+        self["setupActions"] = ActionMap(["ColorActions", "SetupActions"],
        	{
        		"green": self.save,
         	"red": self.cancel,

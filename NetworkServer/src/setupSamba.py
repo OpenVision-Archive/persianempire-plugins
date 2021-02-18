@@ -151,8 +151,8 @@ class setupSamba(Screen, ConfigListScreen):
 		self["actions"] = ActionMap(["OkCancelActions", "ColorActions"],
 		{
 			"cancel": self.cancel,
-			"red"   : self.cancel,
-			"green" : self.green
+			"red": self.cancel,
+			"green": self.green
 		}, -2)
 
 		if confError:

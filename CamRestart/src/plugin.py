@@ -130,7 +130,7 @@ class pecr_setup(ConfigListScreen, Screen):
 		keyfile = open(resolveFilename(SCOPE_PLUGINS, "Extensions/CamRestart/keymap.xml"), "w")
 		keyfile.write('<keymap>\n\t<map context="GlobalActions">\n\t\t<key id="%s" mapto="showCamRestart" flags="l" />\n\t</map>\n</keymap>' % config.plugins.pecr.keyname.value)
 		keyfile.close()
-		self.mbox = self.session.open(MessageBox, (_("Saved")), MessageBox.TYPE_INFO, timeout=3 )
+		self.mbox = self.session.open(MessageBox, (_("Saved")), MessageBox.TYPE_INFO, timeout=3)
 		plugins.reloadPlugins()
 
 def main(session, **kwargs):

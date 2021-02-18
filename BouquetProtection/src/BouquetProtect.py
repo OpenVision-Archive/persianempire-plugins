@@ -16,7 +16,7 @@ class BouquetProtectSetup(Screen, ConfigListScreen):
 		Screen.__init__(self, session)
 		self.skinName = ["BouquetProtectSetup", "Setup"]
 		self.setup_title = _("Bouquet Protection Setup")
-		self.onChangedEntry = [ ]
+		self.onChangedEntry = []
 
 		self["key_green"] = StaticText(_("Save"))
 		self["key_red"] = StaticText(_("Cancel"))
@@ -76,7 +76,7 @@ class BouquetProtectSetup(Screen, ConfigListScreen):
 		self.unwan_showkey  = getConfigListEntry(_("show unwanted services list on key press"), self.BPS.unwanted.showkey)
 
 	def createSetup(self):
-		list = [ self.nune_entry, self.enable_hide, self.none_entry, self.nane_entry, self.unwan_enabled ]
+		list = [self.nune_entry, self.enable_hide, self.none_entry, self.nane_entry, self.unwan_enabled]
 		if self.BPS.unwanted.enalbed.value:
 			list.append(self.unwan_showkey)
 		if self.BPS.enabled.value != 'none' or  self.BPS.unwanted.enalbed.value:
@@ -163,7 +163,7 @@ class PasswordSetup(Screen, ConfigListScreen):
 		Screen.__init__(self, session)
 		self.skinName = ["PasswordSetup", "Setup"]
 		self.setup_title = title
-		self.onChangedEntry = [ ]
+		self.onChangedEntry = []
 
 		self.pin = pin
 		self.list = []

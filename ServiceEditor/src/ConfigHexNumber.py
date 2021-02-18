@@ -11,16 +11,16 @@ class ConfigHexNumber(ConfigText):
 			default="0"*size
 		ConfigText.__init__(self, default, fixed_size=False)
 		self.mapping = []
-		self.mapping.append (u"0")
-		self.mapping.append (u"1")
-		self.mapping.append (u"2ABC")
-		self.mapping.append (u"3DEF")
-		self.mapping.append (u"4")
-		self.mapping.append (u"5")
-		self.mapping.append (u"6")
-		self.mapping.append (u"7")
-		self.mapping.append (u"8")
-		self.mapping.append (u"9")
+		self.mapping.append(u"0")
+		self.mapping.append(u"1")
+		self.mapping.append(u"2ABC")
+		self.mapping.append(u"3DEF")
+		self.mapping.append(u"4")
+		self.mapping.append(u"5")
+		self.mapping.append(u"6")
+		self.mapping.append(u"7")
+		self.mapping.append(u"8")
+		self.mapping.append(u"9")
 		
 		self.size = size
 	

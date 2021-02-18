@@ -39,7 +39,7 @@ def OnStart(reason, **kwargs):
 
 def startMountManager(menuid):
 	if menuid != "system":
-		return [ ]
+		return []
 	return [(_("Mount Manager"), main, "mount_manager", None)]
 
 def Plugins(**kwargs):

@@ -81,17 +81,17 @@ class PackageManagerScreen(Screen):
 		fivepng = LoadPixmap(cached=True, path=resolveFilename(SCOPE_PLUGINS, "Extensions/PackageManager/images/clear.png"))
 		sevenpng = LoadPixmap(cached=True, path=resolveFilename(SCOPE_PLUGINS, "Extensions/PackageManager/images/zip.png"))
 		eightpng = LoadPixmap(cached=True, path=resolveFilename(SCOPE_PLUGINS, "Extensions/PackageManager/images/rar.png"))
-		self.list.append((_("ipk Installer"), "two", _("Install ipk Files From /tmp /media/usb /media/hdd /media/cf"), twopng ))
-		self.list.append((_("Advanced ipk Installer"), "tree", _("--force-reinstall --force-overwrite"), twopng ))
-		self.list.append((_("Online Installer"), "six", _("Install Packages From feeds (Requires Internet)"), twopng ))
-		self.list.append((_("ipk Remover"), "four", _("Remove Installed ipk Packages"), treepng ))
-		self.list.append((_("tar.gz , bh.tgz , nab.tgz Installer"), "one", _("Install Above Formats From /tmp /media/usb /media/hdd /media/cf"), onepng ))		
+		self.list.append((_("ipk Installer"), "two", _("Install ipk Files From /tmp /media/usb /media/hdd /media/cf"), twopng))
+		self.list.append((_("Advanced ipk Installer"), "tree", _("--force-reinstall --force-overwrite"), twopng))
+		self.list.append((_("Online Installer"), "six", _("Install Packages From feeds (Requires Internet)"), twopng))
+		self.list.append((_("ipk Remover"), "four", _("Remove Installed ipk Packages"), treepng))
+		self.list.append((_("tar.gz , bh.tgz , nab.tgz Installer"), "one", _("Install Above Formats From /tmp /media/usb /media/hdd /media/cf"), onepng))		
 		self.list.append((_("zip Installer"), "seven", _("Install zip Files From /tmp /media/usb /media/hdd /media/cf"), sevenpng))	
 		self.list.append((_("rar Installer"), "eight", _("Install rar Files From /tmp /media/usb /media/hdd /media/cf"), eightpng))
 		self.list.append((_("TMP USB HDD Cleaner"), "five", _("Remove ipk , tar.gz , bh.tgz , nab.tgz , zip , rar Files"), fivepng))
 		self["menu"].setList(self.list)
 		
-	def infoKey (self):
+	def infoKey(self):
 		self.session.openWithCallback(self.mList, info)
 		
 	def exit(self):
@@ -119,7 +119,7 @@ class PackageManagerScreen(Screen):
 			self.session.openWithCallback(self.mList, RemoveIPK)
 		elif item is "five":
 			Console().ePopen("rm -rf /tmp/*.ipk /tmp/*.gz /tmp/*.tgz /tmp/*.zip /tmp/*.rar /media/usb/*.ipk /media/usb/*.gz /media/usb/*.tgz /media/usb/*.zip /media/usb/*.rar /media/hdd/*.ipk /media/hdd/*.gz /media/hdd/*.tgz /media/hdd/*.zip /media/hdd/*.rar /media/cf/*.ipk /media/cf/*.gz /media/cf/*.tgz /media/cf/*.zip /media/cf/*.rar")
-			self.mbox = self.session.open(MessageBox, _("All ipk , tar.gz , bh.tgz , nab.tgz , zip , rar Files Removed From /tmp /media/usb /media/hdd /media/cf"), MessageBox.TYPE_INFO, timeout=3 )
+			self.mbox = self.session.open(MessageBox, _("All ipk , tar.gz , bh.tgz , nab.tgz , zip , rar Files Removed From /tmp /media/usb /media/hdd /media/cf"), MessageBox.TYPE_INFO, timeout=3)
 		elif item is "six":
 			self.session.openWithCallback(self.mList, downfeed)
 
@@ -161,7 +161,7 @@ class InstallTarGZ(Screen):
 				"red": self.cancel,
 				"yellow": self.okInstAll,
 			}, -1)
-		self.list = [ ]
+		self.list = []
 		self["key_red"] = StaticText(_("Close"))
 		self["key_green"] = StaticText(_("Install"))
 		self["key_yellow"] = StaticText(_("Install All"))
@@ -239,7 +239,7 @@ class InstallIpk(Screen):
 				"red": self.cancel,
 				"yellow": self.okInstAll,
 			}, -1)
-		self.list = [ ]
+		self.list = []
 		self["key_red"] = StaticText(_("Close"))
 		self["key_green"] = StaticText(_("Install"))
 		self["key_yellow"] = StaticText(_("Install All"))
@@ -321,7 +321,7 @@ class InstallZip(Screen):
 				"red": self.cancel,
 				"yellow": self.okInstAll,
 			}, -1)
-		self.list = [ ]
+		self.list = []
 		self["key_red"] = StaticText(_("Close"))
 		self["key_green"] = StaticText(_("Install"))
 		self["key_yellow"] = StaticText(_("Install All"))
@@ -399,7 +399,7 @@ class AdvInstallIpk(Screen):
 				"red": self.cancel,
 				"yellow": self.okInstAll,
 			}, -1)
-		self.list = [ ]
+		self.list = []
 		self["key_red"] = StaticText(_("Close"))
 		self["key_green"] = StaticText(_("Install"))
 		self["key_yellow"] = StaticText(_("Install All"))
@@ -481,7 +481,7 @@ class InstallRar(Screen):
 				"red": self.cancel,
 				"yellow": self.okInstAll,
 			}, -1)
-		self.list = [ ]
+		self.list = []
 		self["key_red"] = StaticText(_("Close"))
 		self["key_green"] = StaticText(_("Install"))
 		self["key_yellow"] = StaticText(_("Install All"))
@@ -583,13 +583,13 @@ class RemoveIPK(Screen):
 		item = self["menu"].getCurrent()
 		name = item[0]
 		Console().ePopen("opkg remove %s" % item[0])
-		self.mbox = self.session.open(MessageBox, _("%s UnInstalled" % item[0]), MessageBox.TYPE_INFO, timeout=3 )
+		self.mbox = self.session.open(MessageBox, _("%s UnInstalled" % item[0]), MessageBox.TYPE_INFO, timeout=3)
 		self.nList()
 
 	def ARemove(self):
 		item = self["menu"].getCurrent()
 		Console().ePopen("opkg remove --force-depends %s" % item[0])
-		self.mbox = self.session.open(MessageBox, _("%s UnInstalled" % item[0]), MessageBox.TYPE_INFO, timeout=3 )
+		self.mbox = self.session.open(MessageBox, _("%s UnInstalled" % item[0]), MessageBox.TYPE_INFO, timeout=3)
 		self.nList()
 
 class downfeed(Screen):
@@ -627,7 +627,7 @@ class downfeed(Screen):
 				"green": self.setup,
 				"red": self.cancel,
 			}, -1)
-		self.list = [ ]
+		self.list = []
 		self["key_red"] = StaticText(_("Close"))
 		self["key_green"] = StaticText(_("Install"))
 		
@@ -657,7 +657,7 @@ class downfeed(Screen):
 		name = item[0]
 		Console().ePopen("opkg install %s" % name)
 		msg  = _("%s Installed" % name)
-		self.mbox = self.session.open(MessageBox, msg, MessageBox.TYPE_INFO, timeout=3 )
+		self.mbox = self.session.open(MessageBox, msg, MessageBox.TYPE_INFO, timeout=3)
 
 def OVLock():
     try:

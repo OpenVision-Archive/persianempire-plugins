@@ -77,7 +77,7 @@ def startinfo(session, **kwargs):
 
 def mainconf(menuid):
     if menuid != "information":                                                  
-        return [ ]                                                     
+        return []                                                     
     return [(_("Device"), startinfo, "DeviceInfo", None)] 
 
 def Plugins(**kwargs):

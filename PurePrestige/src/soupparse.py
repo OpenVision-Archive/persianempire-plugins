@@ -225,9 +225,9 @@ class PageElement(object):
             strainer = name
         elif text is None and not limit and not attrs and not kwargs:
             if name is True:
-                return [ element for element in generator() if isinstance(element, Tag) ]
+                return [element for element in generator() if isinstance(element, Tag)]
             if isinstance(name, basestring):
-                return [ element for element in generator() if isinstance(element, Tag) and element.name == name ]
+                return [element for element in generator() if isinstance(element, Tag) and element.name == name]
             strainer = SoupStrainer(name, attrs, text, **kwargs)
         else:
             strainer = SoupStrainer(name, attrs, text, **kwargs)
@@ -1037,7 +1037,7 @@ class BeautifulStoneSoup(Tag, SGMLParser):
     def endData(self, containerClass=NavigableString):
         if self.currentData:
             currentData = u''.join(self.currentData)
-            if currentData.translate(self.STRIP_ASCII_SPACES) == '' and not set([ tag.name for tag in self.tagStack ]).intersection(self.PRESERVE_WHITESPACE_TAGS):
+            if currentData.translate(self.STRIP_ASCII_SPACES) == '' and not set([tag.name for tag in self.tagStack]).intersection(self.PRESERVE_WHITESPACE_TAGS):
                 if '\n' in currentData:
                     currentData = '\n'
                 else:
@@ -1112,7 +1112,7 @@ class BeautifulStoneSoup(Tag, SGMLParser):
 
     def unknown_starttag(self, name, attrs, selfClosing=0):
         if self.quoteStack:
-            attrs = ''.join([ ' %s="%s"' % (x, y) for x, y in attrs ])
+            attrs = ''.join([' %s="%s"' % (x, y) for x, y in attrs])
             self.handle_data('<%s%s>' % (name, attrs))
             return
         self.endData()

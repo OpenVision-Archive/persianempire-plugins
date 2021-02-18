@@ -284,7 +284,7 @@ class Getipk(Screen):
         self.addon = addon
         self.depends = []
         self.idx = 0
-        n1 = self.ipk.find ("_", 0)
+        n1 = self.ipk.find("_", 0)
         self.ipk = self.ipk[:n1]
         self.depends.append(self.ipk)
         self.found = 0

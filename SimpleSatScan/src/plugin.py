@@ -95,7 +95,7 @@ class SimpleSatScan(ConfigListScreen, Screen):
 		}, -2)
 
 		self.list = []
-		self.tpslist = [ ]
+		self.tpslist = []
 		self.tpslist_idx = 0
 		self.tuneTimer = eTimer()
 		self.tuneTimer.callback.append(self.updateTuneStatus)
@@ -177,12 +177,12 @@ class SimpleSatScan(ConfigListScreen, Screen):
 
 	def retune(self, configElement):
 		self.tuneTimer.stop()
-		if self.scan_nims == [ ]:
+		if self.scan_nims == []:
 			return
 		if self.scan_nims.value == "":
 			return
 		self.tpslist_idx = 0
-		tpslist = [ ]
+		tpslist = []
 		status_text = ""
 		multi_tune = False
 		index_to_scan = int(self.scan_nims.value)
@@ -308,7 +308,7 @@ class SimpleSatScan(ConfigListScreen, Screen):
 		self.tunerEntry = getConfigListEntry(_("Tuner"), self.scan_nims)
 		self.list.append(self.tunerEntry)
 		
-		if self.scan_nims == [ ]:
+		if self.scan_nims == []:
 			return
 		
 		self.typeOfScanEntry = None
@@ -401,7 +401,7 @@ class SimpleSatScan(ConfigListScreen, Screen):
 			"polarization": eDVBFrontendParametersSatellite.Polarisation_Horizontal,
 			"fec": eDVBFrontendParametersSatellite.FEC_Auto,
 			"fec_s2": eDVBFrontendParametersSatellite.FEC_9_10,
-			"modulation": eDVBFrontendParametersSatellite.Modulation_QPSK }
+			"modulation": eDVBFrontendParametersSatellite.Modulation_QPSK}
 
 		if frontendData is not None:
 			ttype = frontendData.get("tuner_type", "UNKNOWN")
@@ -563,7 +563,7 @@ class SimpleSatScan(ConfigListScreen, Screen):
 		startScan = True
 		removeAll = True
 		self.prev_ref = True
-		if self.scan_nims == [ ]:
+		if self.scan_nims == []:
 			self.session.open(MessageBox, _("No tuner is enabled!\nPlease setup your tuner settings before you start a service scan."), MessageBox.TYPE_ERROR)
 			return
 

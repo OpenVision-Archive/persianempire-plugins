@@ -131,7 +131,7 @@ def menuHideCurrentBouquet(self, hide):
 			service = servicelist.getNext()
 			if not service.valid():
 				break
-			excludelist.append( service.toString() )
+			excludelist.append(service.toString())
 
 	services = getHiddenList(excludelist)
 	if hide:
@@ -156,7 +156,7 @@ def menuHideCurrentBouquet(self, hide):
 			else:
 				db.removeFlag(curref, 0x00000002)
 		db.saveServicelist()
-		self.csel.bouquetNumOffsetCache = { }
+		self.csel.bouquetNumOffsetCache = {}
 		if hide:
 			self.csel.servicelist.removeCurrent()
 	self.close()
@@ -194,7 +194,7 @@ def menuShowAllHiddenBouquetServices(self):
 
 
 def getAllHiddenList():
-	list = [ ]
+	list = []
 	try:
 		f = open(resolveFilename(SCOPE_CONFIG, 'lamedb'), 'r')
 		services_found = False
@@ -219,7 +219,7 @@ def getAllHiddenList():
 					data = ln1.strip().split(':')
 					if len(data) > 4:
 						name = ln2.strip().replace('\xc2\x86', '').replace('\xc2\x87', '')
-						list.append( (name, "1:0:%s:%s:%s:%s:%s:0:0:0:"%(data[4], data[0], data[2], data[3], data[1])) )
+						list.append((name, "1:0:%s:%s:%s:%s:%s:0:0:0:"%(data[4], data[0], data[2], data[3], data[1])))
 			elif ln1 == "services\n":
 				services_found = True
 		f.close()
@@ -228,7 +228,7 @@ def getAllHiddenList():
 	return list
 
 def getHiddenList(exclude=['']):
-	list = [ ]
+	list = []
 	try:
 		file = open(resolveFilename(SCOPE_CONFIG, 'hidelist'), 'r')
 		lines = file.readlines()
@@ -254,7 +254,7 @@ def setHiddenList(servicelist=[]):
 	return True
 
 def getBouquetsList(filename, exclude=['']):
-	list = [ ]
+	list = []
 	try:
 		file = open(resolveFilename(SCOPE_CONFIG, filename), 'r')
 		lines = file.readlines()
@@ -350,7 +350,7 @@ def showAllHiddenBouquetServices(self):
 	unlockAllHiddenBouquetServices(self.hidden_shown)
 	
 	ref = self.servicelist.getCurrent()
-	self.bouquetNumOffsetCache = { }
+	self.bouquetNumOffsetCache = {}
 	self.setRoot(self.getRoot())
 	serviceHandler = eServiceCenter.getInstance()
 	servicelist = serviceHandler.list(self.getRoot())
