@@ -25,7 +25,11 @@ from Tools.BoundFunction import boundFunction
 from Screens.InfoBarGenerics import InfoBarChannelSelection
 from enigma import eListboxPythonMultiContent, eListbox, gFont, RT_HALIGN_LEFT, loadPNG
 from Tools.Directories import fileExists, resolveFilename, SCOPE_PLUGINS
-import os, re, time, shutil, inspect
+import os
+import re
+import time
+import shutil
+import inspect
 from dirSelect import dirSelectDlg1
 
 found_new = False

@@ -3,7 +3,8 @@
 from Components.Language import language
 from Components.config import config
 from Tools.Directories import resolveFilename, SCOPE_PLUGINS
-import os, gettext
+import os
+import gettext
 from skin import loadSkin
 
 PluginLanguageDomain = 'PEPanel'
