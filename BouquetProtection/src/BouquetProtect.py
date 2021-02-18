@@ -132,7 +132,7 @@ class BouquetProtectSetup(Screen, ConfigListScreen):
 			if self.prev_showkey in CSB.inst["ChannelSelectBaseActions"].actions:
 				del CSB.inst["ChannelSelectBaseActions"].actions[self.prev_showkey]
 			if self.BPS.unwanted.enalbed.value and self.BPS.unwanted.showkey.value != 'none':
-				CSB.inst["ChannelSelectBaseActions"].actions.update({self.BPS.unwanted.showkey.value:boundFunction(CSB.showAllHiddenServices, CSB.inst)})
+				CSB.inst["ChannelSelectBaseActions"].actions.update({self.BPS.unwanted.showkey.value: boundFunction(CSB.showAllHiddenServices, CSB.inst)})
 		
 		if self.BPS.protect.enable.value and self.BPS.protect.index.value == self.BPS.protect.index.default:
 			self.BPS.protect.enable.value = False

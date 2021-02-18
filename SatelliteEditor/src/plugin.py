@@ -330,8 +330,8 @@ class KingOfSat(SatelliteImport):
 	def getTransponders(self, dummy=None):
 		print("getTransponders")
 		
-		transSystem = {"dvb-s": "0", "dvb-s2": "1",}
-		transPolarisation = {"h": "0", "v": "1", "l": "2", "r": "3",}
+		transSystem = {"dvb-s": "0", "dvb-s2": "1", }
+		transPolarisation = {"h": "0", "v": "1", "l": "2", "r": "3", }
 		
 		idle = False
 		while idle != True:
@@ -392,7 +392,7 @@ class KingOfSat(SatelliteImport):
 								pass
 							else:
 								continue
-							tp.update({freq + transPolarisation.get(pol):{
+							tp.update({freq + transPolarisation.get(pol): {
 								"frequency": freq,
 								"system": transSystem.get(sys, "0"),
 								"polarization": transPolarisation.get(pol),
@@ -406,7 +406,7 @@ class KingOfSat(SatelliteImport):
 							transponders.append(tp[key])
 						transponders.sort(key=self.compareFrequency)
 						satellite.append(transponders)
-					satellite[0].update({"selected":False})
+					satellite[0].update({"selected": False})
 					self.requestSatelliteslistRefresh = True
 		self.getTransponders_state = self.thread_is_done
 
@@ -504,7 +504,7 @@ class KingOfSat(SatelliteImport):
 				if pos in posList:
 					posList.get(pos)[1].extend(sat[1])
 				else:
-					posList.update({pos:sat})
+					posList.update({pos: sat})
 		cleanList = []
 		for sat in posList:
 			a = posList.get(sat)
@@ -545,9 +545,9 @@ class LyngSat(SatelliteImport):
 	def getTransponders(self, dummy=None):
 		print("getTransponders")
 		
-		transSystem = {"dvb-s": "0", "dvb-s2": "1",}
-		transPolarisation = {"h": "0", "v": "1", "l": "2", "r": "3",}
-		transModulation = {"dvb-s":"1","dvb-s2":"2","qpsk":"1","8psk":"2","qam16":"3"}
+		transSystem = {"dvb-s": "0", "dvb-s2": "1", }
+		transPolarisation = {"h": "0", "v": "1", "l": "2", "r": "3", }
+		transModulation = {"dvb-s": "1", "dvb-s2": "2", "qpsk": "1", "8psk": "2", "qam16": "3"}
 		
 		idle = False
 		while idle != True:
@@ -626,7 +626,7 @@ class LyngSat(SatelliteImport):
 							print(mod)
 							if mod is None:
 								mod = sys
-							tp.update({freq + transPolarisation.get(pol):{
+							tp.update({freq + transPolarisation.get(pol): {
 								"frequency": freq,
 								"system": transSystem.get(sys, "0"),
 								"polarization": transPolarisation.get(pol),
@@ -640,7 +640,7 @@ class LyngSat(SatelliteImport):
 							transponders.append(tp[key])
 						transponders.sort(key=self.compareFrequency)
 						satellite.append(transponders)
-					satellite[0].update({"selected":False})
+					satellite[0].update({"selected": False})
 					self.requestSatelliteslistRefresh = True
 		self.getTransponders_state = self.thread_is_done
 
@@ -701,7 +701,7 @@ class LyngSat(SatelliteImport):
 				if pos in posList:
 					posList.get(pos)[1].extend(sat[1])
 				else:
-					posList.update({pos:sat})
+					posList.update({pos: sat})
 		cleanList = []
 		for sat in posList:
 			a = posList.get(sat)
@@ -710,7 +710,7 @@ class LyngSat(SatelliteImport):
 			newPos = newName[len(newName) - 1].split()
 			newPos = newPos[len(newPos) - 1].replace(")", "").replace("(", "").strip()
 			newName = newName[0].strip() + " (" + newPos + ")"
-			a[0].update({"name":newName})
+			a[0].update({"name": newName})
 			cleanList.append(a)
 		self.close(cleanList)
 
@@ -798,13 +798,13 @@ class Lamedb:
 					print("zu viele Parameter (t2) in ", x[1])
 					continue
 				for y in range(0, len(x[0])):
-					tp.update({t1[y]:x[0][y]})
+					tp.update({t1[y]: x[0][y]})
 				for y in range(0, len(x[1])):
 					if self.version == 3:	
-						tp.update({t2_sv3[y]:x[1][y]})
+						tp.update({t2_sv3[y]: x[1][y]})
 					elif self.version == 4:
-						tp.update({t2_sv4[y]:x[1][y]})
-				tp.update({"import":0x00CD853F})
+						tp.update({t2_sv4[y]: x[1][y]})
+				tp.update({"import": 0x00CD853F})
 				if int(tp.get("namespace"), 16) / 65536 != int(tp.get("position")):
 					print("Namespace %s und Position %s sind  nicht identisch" % (tp.get("namespace"), tp.get("position")))
 					continue
@@ -819,7 +819,7 @@ class Lamedb:
 		for x in tplist:
 			tmp = satlist.get(x.get("position"), [])
 			tmp.append(x)
-			satlist.update({x.get("position"):tmp})
+			satlist.update({x.get("position"): tmp})
 		del tplist
 		print("Anzahl der Satelliten: ", len(satlist))
 		for x in satlist:
@@ -994,7 +994,7 @@ class Transponder:
 		for x in param:
 			transParam[x] = x.lower()
 		if "polarisation" in transParam:
-			transParam.update({"polarization":transParam.get("polarisation").lower()})
+			transParam.update({"polarization": transParam.get("polarisation").lower()})
 			del transParam["polarisation"]
 
 		missing = []
@@ -1076,7 +1076,7 @@ class Transponder:
 	
 	frequency = property(getFrequency, setFrequency)
 	
-	importColor = property(lambda self:self.__importColor)
+	importColor = property(lambda self: self.__importColor)
 	
 	def getSymbolrate(self):
 		return self.__symbolrate
@@ -1090,7 +1090,7 @@ class Transponder:
 	def setTsid(self, newTsid):
 		self.__tsid = str(newTsid)
 	
-	tsid = property(lambda self:self.__tsid, setTsid)
+	tsid = property(lambda self: self.__tsid, setTsid)
 	
 	
 	def getOnid(self):
@@ -1099,44 +1099,44 @@ class Transponder:
 	def setOnid(self, newOnid):
 		self.__onid = str(newOnid)
 	
-	onid = property(lambda self:self.__onid, setOnid)
+	onid = property(lambda self: self.__onid, setOnid)
 	
 	def exportImportColor(self):
-		return {"import":self.__importColor}
+		return {"import": self.__importColor}
 	
 	def exportSystem(self):
-		return {"system":self.reTransSystem.get(self.system)}
+		return {"system": self.reTransSystem.get(self.system)}
 	
 	def exportFec(self):
-		return {"fec_inner":self.reTransFec.get(self.fec)}
+		return {"fec_inner": self.reTransFec.get(self.fec)}
 	
 	
 	def exportFrequency(self):
-		return {"frequency":self.__frequency}
+		return {"frequency": self.__frequency}
 	
 	def exportPolarisation(self):
-		return {"polarization":self.reTransPolarisation.get(self.polarisation)}
+		return {"polarization": self.reTransPolarisation.get(self.polarisation)}
 	
 	def exportSymbolrate(self):
-		return {"symbol_rate":self.__symbolrate}
+		return {"symbol_rate": self.__symbolrate}
 	
 	def exportModulation(self):
-		return {"modulation":self.reTransModulation.get(self.modulation)}
+		return {"modulation": self.reTransModulation.get(self.modulation)}
 
 	def exportOnid(self):
-		return {"onid":self.__onid}
+		return {"onid": self.__onid}
 
 	def exportTsid(self):
-		return {"tsid":self.__tsid}
+		return {"tsid": self.__tsid}
 		
 	def exportInversion(self):
-		return {"inversion":self.reTransOnOff.get(self.inversion)}
+		return {"inversion": self.reTransOnOff.get(self.inversion)}
 		
 	def exportPilot(self):
-		return {"pilot":self.reTransOnOff.get(self.pilot)}
+		return {"pilot": self.reTransOnOff.get(self.pilot)}
 			
 	def exportRolloff(self):
-		return {"rolloff":self.reTransRolloff.get(self.rolloff)}
+		return {"rolloff": self.reTransRolloff.get(self.rolloff)}
 	
 	def exportClean(self):
 		res = {}
@@ -1199,7 +1199,7 @@ class TransponderList(MenuList):
 			tp = []
 			tp.append(z)
 			z += 1
-			calc_xpos = lambda a:a[len(a) - 1][1] + a[len(a) - 1][3]
+			calc_xpos = lambda a: a[len(a) - 1][1] + a[len(a) - 1][3]
 
 			color = transponder.importColor
 
@@ -1851,7 +1851,7 @@ class SatInfo(Screen):
 			l.append(bandList)
 		self["bandlist"].l.setList(l)
 		
-		calc_xpos = lambda a:a[len(a) - 1][1] + a[len(a) - 1][3]
+		calc_xpos = lambda a: a[len(a) - 1][1] + a[len(a) - 1][3]
 
 		entryList = (_("horizontal"), _("vertical"), _("left"), _("right"))
 		xpos = 0
@@ -2012,7 +2012,7 @@ class SatEditor(Screen, ConfigListScreen):
 		satellitePosition = self.configSatellitePosition.value[0] * 10 + self.configSatellitePosition.value[1]
 		if self.configSatelliteOrientation.value == "west":
 			satellitePosition = -satellitePosition
-		satelliteData = {"name":self.configSatelliteName.value, "flags": str(satelliteFlags), "position": str(satellitePosition)}
+		satelliteData = {"name": self.configSatelliteName.value, "flags": str(satelliteFlags), "position": str(satellitePosition)}
 		self.close(satelliteData)
 
 class Head(HTMLComponent, GUIComponent):
@@ -2028,7 +2028,7 @@ class Head(HTMLComponent, GUIComponent):
 	def postWidgetCreate(self, instance):
 		instance.setContent(self.l)
 
-	def setEntries(self,data=None):
+	def setEntries(self, data=None):
 		res = [None]
 		if data is not None:
 			for x in data:
@@ -2329,7 +2329,7 @@ class SatellitesEditor(Screen):
 			l.append(bandList)
 		self["bandlist"].l.setList(l)
 		
-		calc_xpos = lambda a:a[len(a) - 1][1] + a[len(a) - 1][3]
+		calc_xpos = lambda a: a[len(a) - 1][1] + a[len(a) - 1][3]
 
 		entryList = (_("horizontal"), _("vertical"), _("left"), _("right"))
 		xpos = 0
@@ -2418,7 +2418,7 @@ class SatellitesEditor(Screen):
 			transponderslist = []
 			for transponder in sat.getiterator('transponder'):
 				transponderslist.append(transponder.attrib)
-			sat.attrib.update({"name":sat.attrib.get("name", "new Satellite").encode("latin-1")})
+			sat.attrib.update({"name": sat.attrib.get("name", "new Satellite").encode("latin-1")})
 			satelliteslist.append([sat.attrib, transponderslist])
 		return satelliteslist
 		
@@ -2450,17 +2450,17 @@ class SatellitesEditor(Screen):
 				elif int(x) > 0:
 					posString += "E"
 				newName = "new Satellite (%s)" % posString
-				newSat = [{"name":newName, "flags": "0", "position": x}, []]
+				newSat = [{"name": newName, "flags": "0", "position": x}, []]
 				for tp in lamedb.satellitesList.get(x):
 					tsid = tp.get("tsid", "-1")
 					if tsid != "-1":
-						tp.update({"tsid":str(int(tsid, 16))})
+						tp.update({"tsid": str(int(tsid, 16))})
 					onid = tp.get("onid", "-1")
 					if onid != "-1":
-						tp.update({"onid":str(int(onid, 16))})
+						tp.update({"onid": str(int(onid, 16))})
 					newTp = Transponder(tp).exportAll()
 					newSat[1].append(newTp)
-				newSat[0].update({"flags":newTp.get("flags", "1")})
+				newSat[0].update({"flags": newTp.get("flags", "1")})
 				self.satelliteslist.append(newSat)
 		self["list"].setEntries(self.satelliteslist)
 
@@ -2530,7 +2530,7 @@ class SatellitesEditor(Screen):
 		print("finishedSatAdd")
 		if result is None:
 			return
-		self.satelliteslist.append([result,])
+		self.satelliteslist.append([result, ])
 		self["list"].setEntries(self.satelliteslist)
 
 	def deleteSatellite(self):
@@ -2590,7 +2590,7 @@ class SatellitesEditor(Screen):
 						if satelliteDst[0].get("position", None) == posSrc:
 							satelliteDst[1].extend(satelliteSrc[1])
 							if satelliteDst[0].get("name", "new Satellite").find("new Satellite") != -1 and satelliteSrc[0].get("name", None) is not None:
-								satelliteDst[0].update({"name":satelliteSrc[0].get("name")})
+								satelliteDst[0].update({"name": satelliteSrc[0].get("name")})
 							print("extended:", posSrc)
 							break
 						else:

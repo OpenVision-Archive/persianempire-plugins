@@ -343,7 +343,7 @@ def newChannelSelectionBase__init__(self, session):
 	self.protectTimer.callback.append(self.protectTimerLoop)
 	
 	if config.BouquetProtect.unwanted.enalbed.value and config.BouquetProtect.unwanted.showkey.value != 'none':
-		self["ChannelSelectBaseActions"].actions.update({config.BouquetProtect.unwanted.showkey.value:self.showAllHiddenServices})
+		self["ChannelSelectBaseActions"].actions.update({config.BouquetProtect.unwanted.showkey.value: self.showAllHiddenServices})
 
 def showAllHiddenBouquetServices(self):
 	self.hidden_shown = not self.hidden_shown

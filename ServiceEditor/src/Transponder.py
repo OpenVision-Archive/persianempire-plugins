@@ -168,7 +168,7 @@ class Transponder:
 		for x in param:
 			transParam[x] = x.lower()
 		if "polarisation" in transParam:
-			transParam.update({"polarization":transParam.get("polarisation").lower()})
+			transParam.update({"polarization": transParam.get("polarisation").lower()})
 			del transParam["polarisation"]
 
 		missing = []
@@ -250,7 +250,7 @@ class Transponder:
 	
 	frequency = property(getFrequency, setFrequency)
 	
-	importColor = property(lambda self:self.__importColor)
+	importColor = property(lambda self: self.__importColor)
 	
 	def getSymbolrate(self):
 		return self.__symbolrate
@@ -264,7 +264,7 @@ class Transponder:
 	def setTsid(self, newTsid):
 		self.__tsid = str(newTsid)
 	
-	tsid = property(lambda self:self.__tsid, setTsid)
+	tsid = property(lambda self: self.__tsid, setTsid)
 	
 	
 	def getOnid(self):
@@ -273,44 +273,44 @@ class Transponder:
 	def setOnid(self, newOnid):
 		self.__onid = str(newOnid)
 	
-	onid = property(lambda self:self.__onid, setOnid)
+	onid = property(lambda self: self.__onid, setOnid)
 	
 	def exportImportColor(self):
-		return {"import":self.__importColor}
+		return {"import": self.__importColor}
 	
 	def exportSystem(self):
-		return {"system":self.reTransSystem.get(self.system)}
+		return {"system": self.reTransSystem.get(self.system)}
 	
 	def exportFec(self):
-		return {"fec_inner":self.reTransFec.get(self.fec)}
+		return {"fec_inner": self.reTransFec.get(self.fec)}
 	
 	
 	def exportFrequency(self):
-		return {"frequency":self.__frequency}
+		return {"frequency": self.__frequency}
 	
 	def exportPolarisation(self):
-		return {"polarization":self.reTransPolarisation.get(self.polarisation)}
+		return {"polarization": self.reTransPolarisation.get(self.polarisation)}
 	
 	def exportSymbolrate(self):
-		return {"symbol_rate":self.__symbolrate}
+		return {"symbol_rate": self.__symbolrate}
 	
 	def exportModulation(self):
-		return {"modulation":self.reTransModulation.get(self.modulation)}
+		return {"modulation": self.reTransModulation.get(self.modulation)}
 
 	def exportOnid(self):
-		return {"onid":self.__onid}
+		return {"onid": self.__onid}
 
 	def exportTsid(self):
-		return {"tsid":self.__tsid}
+		return {"tsid": self.__tsid}
 		
 	def exportInversion(self):
-		return {"inversion":self.reTransOnOff.get(self.inversion)}
+		return {"inversion": self.reTransOnOff.get(self.inversion)}
 		
 	def exportPilot(self):
-		return {"pilot":self.reTransOnOff.get(self.pilot)}
+		return {"pilot": self.reTransOnOff.get(self.pilot)}
 			
 	def exportRolloff(self):
-		return {"rolloff":self.reTransRolloff.get(self.rolloff)}
+		return {"rolloff": self.reTransRolloff.get(self.rolloff)}
 	
 	def exportClean(self):
 		res = {}

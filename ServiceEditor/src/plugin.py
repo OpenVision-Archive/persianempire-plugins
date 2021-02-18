@@ -54,7 +54,7 @@ class ServiceList(MenuList):
 		return res
 	
 	def buildEntry(self, service):
-		calc_xpos = lambda a:a[len(a) - 1][1] + a[len(a) - 1][3]
+		calc_xpos = lambda a: a[len(a) - 1][1] + a[len(a) - 1][3]
 		
 		serviceEntry = []
 		serviceEntry.append(service['usk'])
@@ -244,7 +244,7 @@ class ServiceEditor(Screen, ConfigListScreen):
 			if pol is None:
 				pol = ""
 			else:
-				pol = {"0":"H","1":"V","2":"L","3":"R"}.get(pol, "")
+				pol = {"0": "H", "1": "V", "2": "L", "3": "R"}.get(pol, "")
 		
 		pos = int(self.service["usk"][:4], 16)
 		if pos == 0xFFFF:
@@ -389,11 +389,11 @@ class ServiceEditor(Screen, ConfigListScreen):
 			if self.serviceSubtitle != "0000":
 				tmp["cacheIDs"].append(str(hex(SUBTITLE_PID)[2:].zfill(2) + self.serviceSubtitle))
 
-		tmp.update({"sid":str(self.configServiceSid.value)})
+		tmp.update({"sid": str(self.configServiceSid.value)})
 		
-		tmp.update({"name":self.configServiceName.value})
+		tmp.update({"name": self.configServiceName.value})
 		
-		tmp.update({"provider":self.configServiceProvider.value})
+		tmp.update({"provider": self.configServiceProvider.value})
 		
 		flags |= (self.configServiceFlag_dxNoSDT.value * dxNoSDT)
 		flags |= (self.configServiceFlag_dxDontshow.value * dxDontshow)
@@ -417,7 +417,7 @@ class ServiceEditor(Screen, ConfigListScreen):
 				flags |= dxHoldName
 			if tmp["provider"] != self.service["provider"]:
 				flags |= dxNoSDT
-		tmp.update({"flags":hex(flags)[2:].zfill(4)})
+		tmp.update({"flags": hex(flags)[2:].zfill(4)})
 		self.service = tmp
 		self.close(self.service)
 
@@ -492,7 +492,7 @@ class Head(HTMLComponent, GUIComponent):
 	def postWidgetCreate(self, instance):
 		instance.setContent(self.l)
 
-	def setEntries(self,data=None):
+	def setEntries(self, data=None):
 		if data is None:
 			return
 		res = [None]
@@ -886,7 +886,7 @@ class ServicesEditor(Screen):
 					(55, self.cur_service.get("type", "?")),
 					)
 
-		calc_xpos = lambda a:a[len(a) - 1][1] + a[len(a) - 1][3]
+		calc_xpos = lambda a: a[len(a) - 1][1] + a[len(a) - 1][3]
 		l = []
 		entry = [None]
 		entry.append(MultiContentEntryText(
@@ -1160,7 +1160,7 @@ class ServicesEditor(Screen):
 		if self.cur_service is None:
 			return
 		self["infolist"].l.setFont(0, gFont("Regular", 11))
-		calc_xpos = lambda a:a[len(a) - 1][1] + a[len(a) - 1][3]
+		calc_xpos = lambda a: a[len(a) - 1][1] + a[len(a) - 1][3]
 		l = []
 		entry = [None]
 		entry.append(MultiContentEntryText(

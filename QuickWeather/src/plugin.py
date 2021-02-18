@@ -118,7 +118,7 @@ def WeatherInfoBar__init__(self, session):
 	baseInfoBar__init__(self, session)
 	self.Weatherinfobar = WeatherInfoBar(session, self)
 
-def main(session,**kwargs):
+def main(session, **kwargs):
 	session.open(WeatherPluginMenu)
 
 def sessionstart(reason, **kwargs):
@@ -135,7 +135,7 @@ def InfoBarPlugins__init__(self):
 	global OnlyOneTime
 	if not OnlyOneTime: 
 		OnlyOneTime = True    
-                self["WeatherActions"] = ActionMap(["WeatherActions"], {"ok_but": self.switch,"exit_but": self.swOff}, -1)
+                self["WeatherActions"] = ActionMap(["WeatherActions"], {"ok_but": self.switch, "exit_but": self.swOff}, -1)
 		self.Weathertimer = eTimer()
 		self.Weathertimer.callback.append(self.swOff)
 		self.Weatherdialog = self.session.instantiateDialog(WeatherPluginScreen)

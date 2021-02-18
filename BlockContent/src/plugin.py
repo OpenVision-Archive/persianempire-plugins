@@ -47,7 +47,7 @@ def Plugins(**kwargs):
 		PluginDescriptor(name="Block Content", description=_("never shown"), where=PluginDescriptor.WHERE_EXTENSIONSMENU, fnc=mainext),
 		PluginDescriptor(name=_("Block Content"), description=_("never shown"), where=PluginDescriptor.WHERE_MENU, fnc=mainconf)]
 
-def mainext(session,**kwargs):
+def mainext(session, **kwargs):
     if config.plugins.blockcontent.viewingtime.value == 0:
         session.open(MessageBox, _("Block Content is disabled"), MessageBox.TYPE_ERROR)
     else:

@@ -36,7 +36,7 @@ class Lamedb:
 		print("import version %d" % self.version)
 		return lamedb
 
-	def writeLamedb(self,version=4):
+	def writeLamedb(self, version=4):
 		if version <> 4:
 			print("only version 4 yet")
 			return
@@ -123,9 +123,9 @@ class Lamedb:
 			print("wrong number Parameter (6 expected) in ", serviceData[0])
 			return
 		for y in xrange(len(t1)):
-			service.update({t1[y]:tp_data[y]})
+			service.update({t1[y]: tp_data[y]})
 		name = serviceData[1].strip().replace('\xc2\x86', '').replace('\xc2\x87', '')
-		service.update({"name":name})
+		service.update({"name": name})
 		provider_data = serviceData[2].strip().split(",")
 		for y in provider_data:
 			raw = y.split(":")
@@ -134,13 +134,13 @@ class Lamedb:
 			elif raw[0] == "c":
 				cacheIDs = service.get("cacheIDs", None)
 				if cacheIDs is None:
-					service["cacheIDs"] = [raw[1].strip().lower(),]
+					service["cacheIDs"] = [raw[1].strip().lower(), ]
 				else:
 					cacheIDs.append(raw[1].strip().lower())
 			elif raw[0] == "C":
 				caIDs = service.get("caIDs", None)
 				if caIDs is None:
-					service["caIDs"] = [raw[1].strip().lower(),]
+					service["caIDs"] = [raw[1].strip().lower(), ]
 				else:
 					caIDs.append(raw[1].strip().lower())
 			elif raw[0] == "f":
@@ -245,19 +245,19 @@ class Lamedb:
 			if len(freq) != 2:
 				print("two Parameter expected in ", freq)
 				continue
-			tp = {"services":[]}
+			tp = {"services": []}
 			x[1][0] = freq[1]
 			if freq[0] == "s":
 				if ((self.version == 3) and len(x[1]) > len(t2_sv3)) or ((self.version == 4) and len(x[1]) > len(t2_sv4)):
 					print("too many Parameter (t2) in ", x[1])
 					continue
 				for y in xrange(len(x[0])):
-					tp.update({t1[y]:x[0][y]})
+					tp.update({t1[y]: x[0][y]})
 				for y in xrange(len(x[1])):
 					if self.version == 3:	
-						tp.update({t2_sv3[y]:x[1][y]})
+						tp.update({t2_sv3[y]: x[1][y]})
 					elif self.version == 4:
-						tp.update({t2_sv4[y]:x[1][y]})
+						tp.update({t2_sv4[y]: x[1][y]})
 				pos = int(tp.get("namespace"), 16) >> 16
 				if pos > 1799:
 					pos -= 3600
@@ -272,9 +272,9 @@ class Lamedb:
 					print("too many Parameter (t2) in ", x[1])
 					continue
 				for y in xrange(len(x[0])):
-					tp.update({t1[y]:x[0][y]})
+					tp.update({t1[y]: x[0][y]})
 				for y in xrange(len(x[1])):
-					tp.update({t2_c[y]:x[1][y]})
+					tp.update({t2_c[y]: x[1][y]})
 				self.database[tp["namespace"] + tp["tsid"] + tp["onid"]] = tp
 				self.database[tp["namespace"] + tp["tsid"] + tp["onid"]]["services"] = {}
 				self.databaseState = 1
@@ -283,9 +283,9 @@ class Lamedb:
 					print("too many Parameter (t2) in ", x[1])
 					continue
 				for y in xrange(len(x[0])):
-					tp.update({t1[y]:x[0][y]})
+					tp.update({t1[y]: x[0][y]})
 				for y in xrange(len(x[1])):
-					tp.update({t2_t[y]:x[1][y]})
+					tp.update({t2_t[y]: x[1][y]})
 				self.database[tp["namespace"] + tp["tsid"] + tp["onid"]] = tp
 				self.database[tp["namespace"] + tp["tsid"] + tp["onid"]]["services"] = {}
 				self.databaseState = 1
