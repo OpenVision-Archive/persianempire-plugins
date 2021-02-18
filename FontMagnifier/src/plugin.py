@@ -1,6 +1,6 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-fm_version="0.6.2"
+fm_version = "0.6.2"
 
 from Plugins.Plugin import PluginDescriptor
 from Screens.Screen import Screen
@@ -115,7 +115,7 @@ class fmConfiguration(Screen, ConfigListScreen):
         self.createSetup()
 
     def getcurrent_font_epg_description(self):
-        tag_gefunden=0
+        tag_gefunden = 0
         for element in self.list_of_screens:
             if element.keys():
                 for name, value in element.items():
@@ -125,17 +125,17 @@ class fmConfiguration(Screen, ConfigListScreen):
                                 if child.get("name") == "epg_description":
                                     epg_description_font = child.get("font")
                                     font_elements = epg_description_font.split(";")
-                                    if len(font_elements)==2:
+                                    if len(font_elements) == 2:
                                         config.plugins.fm.evv_fontsize.value = int(font_elements[1])
-                                        tag_gefunden=1
+                                        tag_gefunden = 1
                                         break
-                            if tag_gefunden==1:
+                            if tag_gefunden == 1:
                                 break
-                if tag_gefunden==1:
+                if tag_gefunden == 1:
                     break
 
     def getcurrent_font_single_epg_description(self):
-        tag_gefunden=0
+        tag_gefunden = 0
         for element in self.list_of_screens:
             if element.keys():
                 for name, value in element.items():
@@ -146,17 +146,17 @@ class fmConfiguration(Screen, ConfigListScreen):
                                     for sub_child in child:
                                         if sub_child.tag == "convert":
                                             if sub_child.text == "ExtendedDescription":
-                                                tag_gefunden=1
+                                                tag_gefunden = 1
                                                 break
                                     if tag_gefunden == 1:
                                         epg_description_font = child.get("font")
                                         font_elements = epg_description_font.split(";")
-                                        if len(font_elements)==2:
+                                        if len(font_elements) == 2:
                                             config.plugins.fm.single_epg_description_fontsize.value = int(font_elements[1])
                                         break
-                            if tag_gefunden==1:
+                            if tag_gefunden == 1:
                                 break
-                if tag_gefunden==1:
+                if tag_gefunden == 1:
                     break
 
     def getcurrent_font_single_epg_service_list(self):
@@ -191,8 +191,8 @@ class fmConfiguration(Screen, ConfigListScreen):
 
     def getcurrent_font_epg_descr_channel_list(self):
         try:
-            tag_gefunden=0
-            config.plugins.fm.channel_list_epg_description_fontsize.value=0
+            tag_gefunden = 0
+            config.plugins.fm.channel_list_epg_description_fontsize.value = 0
             for element in self.list_of_screens:
                 if element.keys():
                     for name, value in element.items():
@@ -203,7 +203,7 @@ class fmConfiguration(Screen, ConfigListScreen):
                                         for sub_child in child:
                                             if sub_child.tag == "convert":
                                                 if sub_child.text == "ExtendedDescription":
-                                                    tag_gefunden=1
+                                                    tag_gefunden = 1
                                                     break
                                         if tag_gefunden == 1:
                                             epg_description_font = child.get("font")
@@ -220,7 +220,7 @@ class fmConfiguration(Screen, ConfigListScreen):
 
     def getcurrent_font_channel_list(self):
         try:
-            tag_gefunden=0
+            tag_gefunden = 0
             for element in self.list_of_screens:
                 if element.keys():
                     for name, value in element.items():
@@ -230,13 +230,13 @@ class fmConfiguration(Screen, ConfigListScreen):
                                     if child.get("name") == "list":
                                         epg_description_font = child.get("serviceNameFont")
                                         font_elements = epg_description_font.split(";")
-                                        if len(font_elements)==2:
+                                        if len(font_elements) == 2:
                                             config.plugins.fm.channel_list_fontsize.value = int(font_elements[1])
-                                            tag_gefunden=1
+                                            tag_gefunden = 1
                                             break
-                                if tag_gefunden==1:
+                                if tag_gefunden == 1:
                                     break
-                    if tag_gefunden==1:
+                    if tag_gefunden == 1:
                         break
         except:
             config.plugins.fm.channel_list_fontsize.value = 0
@@ -253,22 +253,22 @@ class fmConfiguration(Screen, ConfigListScreen):
                         if child.get("name") == "Subtitle_TTX":
                             font = child.get("font")
                             font_elements = font.split(";")
-                            if len(font_elements)==2:
+                            if len(font_elements) == 2:
                                 config.plugins.fm.Subtitle_TTX.value = int(font_elements[1])
                         elif child.get("name") == "Subtitle_Regular":
                             font = child.get("font")
                             font_elements = font.split(";")
-                            if len(font_elements)==2:
+                            if len(font_elements) == 2:
                                 config.plugins.fm.Subtitle_Regular.value = int(font_elements[1])
                         elif child.get("name") == "Subtitle_Bold":
                             font = child.get("font")
                             font_elements = font.split(";")
-                            if len(font_elements)==2:
+                            if len(font_elements) == 2:
                                 config.plugins.fm.Subtitle_Bold.value = int(font_elements[1])
                         elif child.get("name") == "Subtitle_Italic":
                             font = child.get("font")
                             font_elements = font.split(";")
-                            if len(font_elements)==2:
+                            if len(font_elements) == 2:
                                 config.plugins.fm.Subtitle_Italic.value = int(font_elements[1])
 
     def getcurrent_font_movie_list(self):
@@ -289,8 +289,8 @@ class fmConfiguration(Screen, ConfigListScreen):
             config.plugins.fm.movie_list_fontsize.value = 0
 
     def getcurrent_font_infobar_event_now(self):
-        config.plugins.fm.infobar_fontsize_event_now.value=0
-        tag_gefunden=0
+        config.plugins.fm.infobar_fontsize_event_now.value = 0
+        tag_gefunden = 0
         for element in self.list_of_screens:
             if element.keys():
                 for name, value in element.items():
@@ -302,7 +302,7 @@ class fmConfiguration(Screen, ConfigListScreen):
                                         for sub_child in child:
                                             if sub_child.tag == "convert":
                                                 if sub_child.text == "Name":
-                                                    tag_gefunden=1
+                                                    tag_gefunden = 1
                                                     break
                                         if tag_gefunden == 1:
                                             infobar_font = child.get("font")
@@ -316,8 +316,8 @@ class fmConfiguration(Screen, ConfigListScreen):
                         break
 
     def getcurrent_font_infobar_event_next(self):
-        config.plugins.fm.infobar_fontsize_event_next.value=0
-        tag_gefunden=0
+        config.plugins.fm.infobar_fontsize_event_next.value = 0
+        tag_gefunden = 0
         for element in self.list_of_screens:
             if element.keys():
                 for name, value in element.items():
@@ -329,7 +329,7 @@ class fmConfiguration(Screen, ConfigListScreen):
                                         for sub_child in child:
                                             if sub_child.tag == "convert":
                                                 if sub_child.text == "Name":
-                                                    tag_gefunden=1
+                                                    tag_gefunden = 1
                                                     break
                                         if tag_gefunden == 1:
                                             infobar_font = child.get("font")
@@ -354,7 +354,7 @@ class fmConfiguration(Screen, ConfigListScreen):
                             regularFontExistInXML = 1
 
         if regularFontExistInXML == 1:
-            fontList=[]
+            fontList = []
             fontListWithPath = glob.glob("/usr/share/fonts/*.ttf")
             for sFile in fontListWithPath:
                 fontList.append(sFile.replace("/usr/share/fonts/", ""))
@@ -616,7 +616,7 @@ class fmRestoreSettings(Screen):
                     if self.xmlAttributesToConfig(node, config.plugins.fm) is False:
                         xmlAttributesToConfig_errors = True
 
-            font_with_path="/usr/share/fonts/"+str(config.plugins.fm.regular_Font.value)
+            font_with_path = "/usr/share/fonts/" + str(config.plugins.fm.regular_Font.value)
             if os.path.exists(font_with_path):
                 regularFontList.setValue(str(config.plugins.fm.regular_Font.value))
             else:
@@ -633,8 +633,8 @@ class fmRestoreSettings(Screen):
             self.close(False)
 
     def xmlAttributesToConfig(self, node, config):
-        attribute_error_string=""
-        XML_attribute_error_string=""
+        attribute_error_string = ""
+        XML_attribute_error_string = ""
         try:
             i = 0
             while i < node.attributes.length:
@@ -647,11 +647,11 @@ class fmRestoreSettings(Screen):
                 try:
                     config.dict()[key].setValue(val)
                 except (KeyError):
-                    attribute_error_string="Unknown attribute '%s'" % (key)
+                    attribute_error_string = "Unknown attribute '%s'" % (key)
                     raise AttributeError
                 i += 1
         except AttributeError:
-            XML_attribute_error_string="Restore failed: XML attribute error '%s' / " % (node.toxml("utf-8"))
+            XML_attribute_error_string = "Restore failed: XML attribute error '%s' / " % (node.toxml("utf-8"))
             messagebox_text = XML_attribute_error_string + attribute_error_string
             confirmbox = self.session.open(MessageBox, messagebox_text, MessageBox.TYPE_ERROR)
             confirmbox.setTitle(_("Error..."))
@@ -760,14 +760,14 @@ class fmWaitScreen(Screen):
                                             child.set("font", new_font)
                                             break
                         elif name == "name" and value == "EPGSelection":
-                            tag_gefunden=0
+                            tag_gefunden = 0
                             if element.getchildren():
                                 for child in element:
                                     if child.getchildren():
                                         for sub_child in child:
                                             if sub_child.tag == "convert":
                                                 if sub_child.text == "ExtendedDescription":
-                                                    tag_gefunden=1
+                                                    tag_gefunden = 1
                                                     break
                                         if tag_gefunden == 1:
                                             epg_description_font = child.get("font")
@@ -777,7 +777,7 @@ class fmWaitScreen(Screen):
                                                 child.set("font", new_font)
                                                 break
                         elif name == "name" and value == "ChannelSelection":
-                            tag_gefunden=0
+                            tag_gefunden = 0
                             if element.getchildren():
                                 for child in element:
                                     if (child.get("name") == "list"):
@@ -793,11 +793,11 @@ class fmWaitScreen(Screen):
 
                                         font_elements = service_info_font.split(";")
                                         if len(font_elements) == 2:
-                                            new_font = font_elements[0] + ";" + "%s" % (config.plugins.fm.channel_list_fontsize.value-2)
+                                            new_font = font_elements[0] + ";" + "%s" % (config.plugins.fm.channel_list_fontsize.value - 2)
                                             if (config.plugins.fm.channel_list_fontsize.value != 0):
                                                 child.set("serviceInfoFont", new_font)
 
-                                        new_font = "%s" % (config.plugins.fm.channel_list_fontsize.value+6)
+                                        new_font = "%s" % (config.plugins.fm.channel_list_fontsize.value + 6)
                                         if (config.plugins.fm.channel_list_fontsize.value != 0):
                                             child.set("serviceItemHeight", new_font)
 
@@ -811,7 +811,7 @@ class fmWaitScreen(Screen):
                                         for sub_child in child:
                                             if sub_child.tag == "convert":
                                                 if sub_child.text == "ExtendedDescription":
-                                                    tag_gefunden=1
+                                                    tag_gefunden = 1
                                                     break
                                         if tag_gefunden == 1:
                                             epg_description_font = child.get("font")
@@ -822,15 +822,15 @@ class fmWaitScreen(Screen):
                                                     child.set("font", new_font)
                         elif name == "name" and value == "InfoBar":
                             if element.getchildren():
-                                children_modified=0
+                                children_modified = 0
                                 for child in element:
                                     if child.get("source") == "session.Event_Now":
                                         if child.getchildren():
-                                            tag_gefunden=0
+                                            tag_gefunden = 0
                                             for sub_child in child:
                                                 if sub_child.tag == "convert":
                                                     if sub_child.text == "Name":
-                                                        tag_gefunden=1
+                                                        tag_gefunden = 1
                                                         break
                                             if tag_gefunden == 1:
                                                 infobar_event_next_font = child.get("font")
@@ -839,12 +839,12 @@ class fmWaitScreen(Screen):
                                                     new_font = font_elements[0] + ";" + "%s" % (config.plugins.fm.infobar_fontsize_event_now.value)
                                                     if (config.plugins.fm.infobar_fontsize_event_now.value != 0):
                                                         child.set("font", new_font)
-                                                        children_modified=children_modified+1
-                                            tag_gefunden=0
+                                                        children_modified = children_modified + 1
+                                            tag_gefunden = 0
                                             for sub_child in child:
                                                 if sub_child.tag == "convert":
                                                     if sub_child.text == "StartTime":
-                                                        tag_gefunden=1
+                                                        tag_gefunden = 1
                                                         break
                                             if tag_gefunden == 1:
                                                 infobar_event_next_font = child.get("font")
@@ -853,12 +853,12 @@ class fmWaitScreen(Screen):
                                                     new_font = font_elements[0] + ";" + "%s" % (config.plugins.fm.infobar_fontsize_event_now.value)
                                                     if (config.plugins.fm.infobar_fontsize_event_now.value != 0):
                                                         child.set("font", new_font)
-                                                        children_modified=children_modified+1
-                                            tag_gefunden=0
+                                                        children_modified = children_modified + 1
+                                            tag_gefunden = 0
                                             for sub_child in child:
                                                 if sub_child.tag == "convert":
                                                     if sub_child.text == "Remaining":
-                                                        tag_gefunden=1
+                                                        tag_gefunden = 1
                                                         break
                                             if tag_gefunden == 1:
                                                 infobar_event_next_font = child.get("font")
@@ -867,14 +867,14 @@ class fmWaitScreen(Screen):
                                                     new_font = font_elements[0] + ";" + "%s" % (config.plugins.fm.infobar_fontsize_event_now.value)
                                                     if (config.plugins.fm.infobar_fontsize_event_now.value != 0):
                                                         child.set("font", new_font)
-                                                        children_modified=children_modified+1
+                                                        children_modified = children_modified + 1
                                     elif child.get("source") == "session.Event_Next":
                                         if child.getchildren():
-                                            tag2_gefunden=0
+                                            tag2_gefunden = 0
                                             for sub_child in child:
                                                 if sub_child.tag == "convert":
                                                     if sub_child.text == "Name":
-                                                        tag2_gefunden=1
+                                                        tag2_gefunden = 1
                                                         break
                                             if tag2_gefunden == 1:
                                                 infobar_event_next_font = child.get("font")
@@ -883,12 +883,12 @@ class fmWaitScreen(Screen):
                                                     new_font = font_elements[0] + ";" + "%s" % (config.plugins.fm.infobar_fontsize_event_next.value)
                                                     if (config.plugins.fm.infobar_fontsize_event_next.value != 0):
                                                         child.set("font", new_font)
-                                                        children_modified=children_modified+1
-                                            tag2_gefunden=0
+                                                        children_modified = children_modified + 1
+                                            tag2_gefunden = 0
                                             for sub_child in child:
                                                 if sub_child.tag == "convert":
                                                     if sub_child.text == "StartTime":
-                                                        tag2_gefunden=1
+                                                        tag2_gefunden = 1
                                                         break
                                             if tag2_gefunden == 1:
                                                 infobar_event_next_font = child.get("font")
@@ -897,12 +897,12 @@ class fmWaitScreen(Screen):
                                                     new_font = font_elements[0] + ";" + "%s" % (config.plugins.fm.infobar_fontsize_event_next.value)
                                                     if (config.plugins.fm.infobar_fontsize_event_next.value != 0):
                                                         child.set("font", new_font)
-                                                        children_modified=children_modified+1
-                                            tag2_gefunden=0
+                                                        children_modified = children_modified + 1
+                                            tag2_gefunden = 0
                                             for sub_child in child:
                                                 if sub_child.tag == "convert":
                                                     if sub_child.text == "Duration":
-                                                        tag2_gefunden=1
+                                                        tag2_gefunden = 1
                                                         break
                                             if tag2_gefunden == 1:
                                                 infobar_event_next_font = child.get("font")
@@ -911,8 +911,8 @@ class fmWaitScreen(Screen):
                                                     new_font = font_elements[0] + ";" + "%s" % (config.plugins.fm.infobar_fontsize_event_next.value)
                                                     if (config.plugins.fm.infobar_fontsize_event_next.value != 0):
                                                         child.set("font", new_font)
-                                                        children_modified=children_modified+1
-                                    if children_modified==6:
+                                                        children_modified = children_modified + 1
+                                    if children_modified == 6:
                                         break
 
             if len(self.list_of_subtitles) != 0:
@@ -922,28 +922,28 @@ class fmWaitScreen(Screen):
                             if child.get("name") == "Subtitle_TTX":
                                 font = child.get("font")
                                 font_elements = font.split(";")
-                                if len(font_elements)==2:
+                                if len(font_elements) == 2:
                                     new_font = font_elements[0] + ";" + "%s" % (config.plugins.fm.Subtitle_TTX.value)
                                     if config.plugins.fm.Subtitle_TTX.value != 0:
                                         child.set("font", new_font)
                             elif child.get("name") == "Subtitle_Regular":
                                 font = child.get("font")
                                 font_elements = font.split(";")
-                                if len(font_elements)==2:
+                                if len(font_elements) == 2:
                                     new_font = font_elements[0] + ";" + "%s" % (config.plugins.fm.Subtitle_Regular.value)
                                     if config.plugins.fm.Subtitle_Regular.value != 0:
                                         child.set("font", new_font)
                             elif child.get("name") == "Subtitle_Bold":
                                 font = child.get("font")
                                 font_elements = font.split(";")
-                                if len(font_elements)==2:
+                                if len(font_elements) == 2:
                                     new_font = font_elements[0] + ";" + "%s" % (config.plugins.fm.Subtitle_Bold.value)
                                     if config.plugins.fm.Subtitle_Bold.value != 0:
                                         child.set("font", new_font)
                             elif child.get("name") == "Subtitle_Italic":
                                 font = child.get("font")
                                 font_elements = font.split(";")
-                                if len(font_elements)==2:
+                                if len(font_elements) == 2:
                                     new_font = font_elements[0] + ";" + "%s" % (config.plugins.fm.Subtitle_Italic.value)
                                     if config.plugins.fm.Subtitle_Italic.value != 0:
                                         child.set("font", new_font)
@@ -962,7 +962,7 @@ class fmWaitScreen(Screen):
         try:
             if config.plugins.fm.single_epg_list_fontsize.value != 0:
                 EpgList_file = open(resolveFilename(SCOPE_LIBDIR, "enigma2/python/Components/EpgList.pyo"), "r")
-                EpgList_text=EpgList_file.read()
+                EpgList_text = EpgList_file.read()
                 if EpgList_text.find("\t\tself.l.setItemHeight") is not -1:
                     item_height_gefunden = 1
                 else:
@@ -974,12 +974,12 @@ class fmWaitScreen(Screen):
                 for zeile in EpgList_file:
                     if zeile.find("\t\tself.l.setFont(0") is not -1:
                         if item_height_gefunden == 0:
-                            EpgList_text_neu = EpgList_text_neu + "\t\tself.l.setItemHeight(%d)\n" % (config.plugins.fm.single_epg_list_fontsize.value+5)
+                            EpgList_text_neu = EpgList_text_neu + "\t\tself.l.setItemHeight(%d)\n" % (config.plugins.fm.single_epg_list_fontsize.value + 5)
                         EpgList_text_neu = EpgList_text_neu + "\t\tself.l.setFont(0, gFont(\"Regular\", %d))\n" % (config.plugins.fm.single_epg_list_fontsize.value)
                     elif zeile.find("\t\tself.l.setFont(1") is not -1:
                         EpgList_text_neu = EpgList_text_neu + "\t\tself.l.setFont(1, gFont(\"Regular\", %d))\n" % (config.plugins.fm.single_epg_list_fontsize2.value)
                     elif zeile.find("\t\tself.l.setItemHeight") is not -1:
-                        EpgList_text_neu = EpgList_text_neu + "\t\tself.l.setItemHeight(%d)\n" % (config.plugins.fm.single_epg_list_fontsize.value+5)
+                        EpgList_text_neu = EpgList_text_neu + "\t\tself.l.setItemHeight(%d)\n" % (config.plugins.fm.single_epg_list_fontsize.value + 5)
                     else:
                         EpgList_text_neu = EpgList_text_neu + zeile
 

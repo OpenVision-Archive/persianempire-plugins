@@ -1656,7 +1656,7 @@ def OVLock():
         return False
 
 def iniciainfo(session, **kwargs):
-    if OVLock()==False:
+    if OVLock() == False:
         return
     else:
         session.open(PEInfo)

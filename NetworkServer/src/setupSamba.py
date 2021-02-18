@@ -35,7 +35,7 @@ def getAttribute(filename, section, attribute):
 				continue
 			if line[0] == '[' and flag:
 				flag = False
-			if '['+section+']' in line:
+			if '[' + section + ']' in line:
 				flag = True
 			if attribute in line and flag:
 				value = line.strip().split('=')
@@ -54,7 +54,7 @@ def writeAttribute(filename, section, attribute, value):
 		for line in inifile:
 			if line[0] == '[' and flag:
 				flag = False
-			if '['+section+']' in line:
+			if '[' + section + ']' in line:
 				flag = True
 			if attribute in line and flag:
 				attrib = line.strip().split('=')
@@ -265,7 +265,7 @@ class setupSamba(Screen, ConfigListScreen):
 		self.container.execute(self.cmdlist[self.run])
 
 	def createUpScript(self):
-		scriptfile= open("/etc/network/if-up.d/01samba-start", "w")
+		scriptfile = open("/etc/network/if-up.d/01samba-start", "w")
 		scriptfile.write("#!/bin/sh\n")
 		scriptfile.write("nmbd -D\n")
 		scriptfile.write("smbd -D\n")
@@ -273,7 +273,7 @@ class setupSamba(Screen, ConfigListScreen):
 		Console().ePopen("chmod 755 /etc/network/if-up.d/01samba-start")
 
 	def createDownScript(self):
-		scriptfile= open("/etc/network/if-down.d/01samba-kill", "w")
+		scriptfile = open("/etc/network/if-down.d/01samba-kill", "w")
 		scriptfile.write("#!/bin/sh\n")
 		scriptfile.write("killall -9 smbd\n")
 		scriptfile.write("rm -rf /var/log/log.smbd\n")

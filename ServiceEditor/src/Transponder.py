@@ -181,7 +181,7 @@ class Transponder:
 		
 		self.polarisation = self.transPolarisation.get(transponder.get(transParam.get("polarization"), "i").lower())
 		if self.polarisation == "i":
-			print("transponderDoctor: unknown value for Polarisation (%s)" %transParam.get("polarization"))
+			print("transponderDoctor: unknown value for Polarisation (%s)" % transParam.get("polarization"))
 			return
 		
 		self.__frequency = transponder.get(transParam.get("frequency"), "i").lower()
@@ -243,7 +243,7 @@ class Transponder:
 		if isinstance(frequency, list):
 			if len(frequency) == 2:
 				if isinstance(frequency[0], int) and isinstance(frequency[1], int):
-					self.__frequency = str(frequency[0]*1000 + frequency[1])
+					self.__frequency = str(frequency[0] * 1000 + frequency[1])
 					return
 		else:
 			self.__frequency = str(frequency)

@@ -30,7 +30,7 @@ class ServiceList(MenuList):
 		self.l.setFont(0, gFont("Regular", 20))
 		path_raw = __file__.split("/")
 		path = ""
-		for x in range(len(path_raw)-1):
+		for x in range(len(path_raw) - 1):
 			path += (path_raw[x] + "/")
 		self.tv_pixmap = LoadPixmap(path + 'tv.png')
 		self.hdtv_pixmap = LoadPixmap(path + 'hdtv.png')
@@ -54,7 +54,7 @@ class ServiceList(MenuList):
 		return res
 	
 	def buildEntry(self, service):
-		calc_xpos = lambda a:a[len(a)-1][1]+a[len(a)-1][3]
+		calc_xpos = lambda a:a[len(a) - 1][1] + a[len(a) - 1][3]
 		
 		serviceEntry = []
 		serviceEntry.append(service['usk'])
@@ -103,17 +103,17 @@ class ServiceList(MenuList):
 				
 		pos = int(service['namespace'], 16) >> 16
 		if pos == 0xFFFF:
-			pos =  self.dvbc
+			pos = self.dvbc
 		elif pos == 0xEEEE:
-			pos =  self.dvbt
+			pos = self.dvbt
 		else:
 			if pos > 3599:
 				pos = _("Error")
 			elif pos > 1799:
 				pos = 3600 - pos
-				pos = "%s.%s %s" %(str(pos/10), str(pos%10), self.west)
+				pos = "%s.%s %s" % (str(pos / 10), str(pos % 10), self.west)
 			elif pos > 0:
-				pos = "%s.%s %s" %(str(pos/10), str(pos%10), self.east)
+				pos = "%s.%s %s" % (str(pos / 10), str(pos % 10), self.east)
 			else:
 				pos = "0.0"
 		serviceEntry.append(MultiContentEntryText(
@@ -175,7 +175,7 @@ class ServiceEditor(Screen, ConfigListScreen):
 			cacheIDs = self.service.get("cacheIDs", None)
 			if cacheIDs is not None:
 				for x in cacheIDs:
-					pidtype=int(x[:-4], 16)
+					pidtype = int(x[:-4], 16)
 					pid = x[-4:]
 					if pidtype == VIDEO_PID:
 						self.serviceVPid = pid
@@ -236,10 +236,10 @@ class ServiceEditor(Screen, ConfigListScreen):
 		tp = self.database.get(utk, None)
 		if tp is not None:
 			freq = tp["frequency"]
-			if self.service["usk"][:4].lower()=="eeee":
-				freq = "%s.%s"%(freq[:-6], freq[-6:-3])
+			if self.service["usk"][:4].lower() == "eeee":
+				freq = "%s.%s" % (freq[:-6], freq[-6:-3])
 			else:
-				freq = "%s.%s"%(freq[:-3], freq[-3:])
+				freq = "%s.%s" % (freq[:-3], freq[-3:])
 			pol = tp.get("polarization", None)
 			if pol is None:
 				pol = ""
@@ -256,12 +256,12 @@ class ServiceEditor(Screen, ConfigListScreen):
 				pos = _("Error")
 			elif pos > 1799:
 				pos = 3600 - pos
-				pos = "%s.%s°%s" %(str(pos/10), str(pos%10), _("W"))
+				pos = "%s.%s°%s" % (str(pos / 10), str(pos % 10), _("W"))
 			elif pos > 0:
-				pos = "%s.%s°%s" %(str(pos/10), str(pos%10), _("O"))
+				pos = "%s.%s°%s" % (str(pos / 10), str(pos % 10), _("O"))
 			else:
 				pos = "0.0°"
-		transponder = "%sMHz %s %s"%(freq, pol, pos)
+		transponder = "%sMHz %s %s" % (freq, pol, pos)
 		self.configServiceTransponder = ConfigCall(descriptions=[transponder], fnc=self.transponderEdit)
 		self.configServiceName = ConfigText(default=self.serviceName, visible_width=150, fixed_size=False)
 		self.configServiceProvider = ConfigText(default=self.serviceProvider, visible_width=150, fixed_size=False)
@@ -401,7 +401,7 @@ class ServiceEditor(Screen, ConfigListScreen):
 		flags |= (self.configServiceFlag_dxHoldName.value * dxHoldName)
 		flags |= (self.configServiceFlag_dxNewFound.value * dxNewFound)
 		
-		uniqueTransponder = tmp["namespace"]+tmp["tsid"]+tmp["onid"]
+		uniqueTransponder = tmp["namespace"] + tmp["tsid"] + tmp["onid"]
 		uniqueService = uniqueTransponder + tmp["sid"]
 		if (flags & dxNoDVB):
 			for cacheID in tmp.get("cacheIDs", []):
@@ -430,7 +430,7 @@ class Newscaster(HTMLComponent, GUIComponent):
 		self.l.setFont(0, gFont("Regular", 20))
 		path_raw = __file__.split("/")
 		path = ""
-		for x in range(len(path_raw)-1):
+		for x in range(len(path_raw) - 1):
 			path += (path_raw[x] + "/")
 		self.type_pixmap = LoadPixmap(path + 'type.png')
 		self.myTimer = eTimer()
@@ -447,11 +447,11 @@ class Newscaster(HTMLComponent, GUIComponent):
 	def newscaster(self):
 		if self.mylist is None:
 			return
-		self.offset=-((abs(self.offset)+1)%43)
-		self.mylist[1][1]=self.offset
+		self.offset = -((abs(self.offset) + 1) % 43)
+		self.mylist[1][1] = self.offset
 		tmp = []
 		for x in self.mylist:
-			if x is not None and len(x)>1:
+			if x is not None and len(x) > 1:
 				tmp.append(tuple(x))
 			else:
 				tmp.append(x)
@@ -465,7 +465,7 @@ class Newscaster(HTMLComponent, GUIComponent):
 			png=self.type_pixmap,))
 		tmp = []
 		for x in res:
-			if x is not None and len(x)>1:
+			if x is not None and len(x) > 1:
 				tmp2 = []
 				for y in x:
 					tmp2.append(y)
@@ -524,12 +524,12 @@ class ServiceHideMenuSelection(Screen):
 
 		actionList = []
 		if int(service.get("flags", "0"), 16) & dxDontshow:
-			actionList.append(_("unhide Service %s" %service["name"]))
+			actionList.append(_("unhide Service %s" % service["name"]))
 		else:
-			actionList.append(_("hide Service %s" %service["name"]))
-		actionList.append(_("hide Provider %s") %service["provider"])
-		actionList.append(_("unhide Provider %s") %service["provider"])
-		actionList.append(_("toggle hide attibutes for %s") %service["provider"])
+			actionList.append(_("hide Service %s" % service["name"]))
+		actionList.append(_("hide Provider %s") % service["provider"])
+		actionList.append(_("unhide Provider %s") % service["provider"])
+		actionList.append(_("toggle hide attibutes for %s") % service["provider"])
 
 		self["menulist"] = MenuList(actionList)
 
@@ -574,7 +574,7 @@ class ServicesEditor(Screen):
 
 		self.usk = None
 		self.cur_service = None
-		self.mainTitle = "ServicesEditor %s" %self.version
+		self.mainTitle = "ServicesEditor %s" % self.version
 		self["actions"] = ActionMap(["ServicesEditorActions"],
 			{
 				"nextPage": self.nextPage,
@@ -640,8 +640,8 @@ class ServicesEditor(Screen):
 		self.gpsr = session.nav.getCurrentlyPlayingServiceReference().toString().lower()
 		print_cy(self.gpsr)
 		tmp = self.gpsr.split(":")
-		if tmp[0]=="1" and tmp[1]=="0" and tmp[10]=="":
-			self.usk = tmp[6].zfill(8)+tmp[4].zfill(4)+tmp[5].zfill(4)+tmp[3].zfill(4)
+		if tmp[0] == "1" and tmp[1] == "0" and tmp[10] == "":
+			self.usk = tmp[6].zfill(8) + tmp[4].zfill(4) + tmp[5].zfill(4) + tmp[3].zfill(4)
 		print_cy(self.usk)
 
 	def layoutFinished(self):
@@ -654,7 +654,7 @@ class ServicesEditor(Screen):
 			self.setTitle(_("reading lamedb - please wait - get transponders"))
 			return
 		elif self.lamedb.databaseState == 3:
-			self.setTitle(_("reading lamedb - please wait - get services %s"%str(self.lamedb.readcnt)))
+			self.setTitle(_("reading lamedb - please wait - get services %s" % str(self.lamedb.readcnt)))
 			return
 		elif self.lamedb.databaseState == 4:
 			self.setTitle(_("reading lamedb - please wait - build database"))
@@ -669,10 +669,10 @@ class ServicesEditor(Screen):
 			return
 		head = []
 		for x in xrange(2, len(row)):
-			head.append([row[x][1]-row[1][3], row[x][3], ""])
+			head.append([row[x][1] - row[1][3], row[x][3], ""])
 		for x in xrange(len(self.row)):
-			head[x][2]= self.row[x][1]
-			if len(self.row[x])>3:
+			head[x][2] = self.row[x][1]
+			if len(self.row[x]) > 3:
 				head[x].append(True)
 				
 		self["newscaster"].setEntry()
@@ -702,8 +702,8 @@ class ServicesEditor(Screen):
 		self.usk = self["list"].getCurrent()[0]
 		self.cur_service = self.database[self.usk[:16]]["services"][self.usk]
 		firstColumn = row[1]
-		lastColumn = row[len(row)-1]
-		self["list"].l.setSelectionClip(eRect(firstColumn[1], lastColumn[0], lastColumn[1]+lastColumn[3], lastColumn[4]), True)
+		lastColumn = row[len(row) - 1]
+		self["list"].l.setSelectionClip(eRect(firstColumn[1], lastColumn[0], lastColumn[1] + lastColumn[3], lastColumn[4]), True)
 		self.getInfo()
 
 	def doNothing(self):
@@ -713,17 +713,17 @@ class ServicesEditor(Screen):
 		print("left")
 		if self.currentSelectedColumn:
 			data = self["head"].getCurrent()
-			if data is  None:
+			if data is None:
 				return
 			self.currentSelectedColumn -= 1
 			if self.currentSelectedColumn:
 				data_c = data[self.currentSelectedColumn]
-				data_c2 = data[self.currentSelectedColumn +1]
+				data_c2 = data[self.currentSelectedColumn + 1]
 				x1 = data_c2[1]
 				x0 = data_c[1]
 				if x0 < 0:
 					x0 = 0
-				self["head"].l.setSelectionClip(eRect(x0, data_c[0], x1-x0, data_c[4]), True)
+				self["head"].l.setSelectionClip(eRect(x0, data_c[0], x1 - x0, data_c[4]), True)
 			else:
 				self["head"].l.setSelectionClip(eRect(0, 0, 0, 0), True)
 		elif self["head"].getCurrent() is not None:
@@ -733,7 +733,7 @@ class ServicesEditor(Screen):
 		print("right")
 		if self.currentSelectedColumn < len(self.row):
 			data = self["head"].getCurrent()
-			if data is  None:
+			if data is None:
 				return
 			self.currentSelectedColumn += 1
 			data = data[self.currentSelectedColumn]
@@ -844,24 +844,24 @@ class ServicesEditor(Screen):
 		tp = self.database.get(utk, None)
 		if tp is not None:
 			freq = tp["frequency"]
-			if self.usk[:4].lower()=="ffff":
+			if self.usk[:4].lower() == "ffff":
 				sym = tp["symbol_rate"]
 				fec = tp.get("fec_inner", "0")
 				mod = tp.get("modulation", "0")
 				info3 = (
-					(100, freq[:-3]+"."+freq[-3:]),
+					(100, freq[:-3] + "." + freq[-3:]),
 					(60, sym[:-3]),
 					(50, transFec.get(fec, "?")),
 					(80, transModulationCable.get(mod, "?")),
 					(55, self.cur_service.get("type", "?")),
 				)
-			elif self.usk[:4].lower()=="eeee":
+			elif self.usk[:4].lower() == "eeee":
 				bw = tp["bandwidth"]
 				fecHP = tp["code_rate_HP"]
 				fecLP = tp["code_rate_LP"]
 				mod = tp["modulation"]
 				info3 = (
-					(100, freq[:-6]+"."+freq[-6:-3]),
+					(100, freq[:-6] + "." + freq[-6:-3]),
 					(50, transBandwidth.get(bw, "?")),
 					(50, transFecTerr.get(fecHP, "?")),
 					(50, transFecTerr.get(fecLP, "?")),
@@ -878,7 +878,7 @@ class ServicesEditor(Screen):
 				sym = tp["symbol_rate"]
 				fec = tp.get("fec_inner", "0")
 				info3 = (		
-					(100, freq[:-3]+"."+freq[-3:]),
+					(100, freq[:-3] + "." + freq[-3:]),
 					(15, transPol.get(pol, "?")),
 					(60, sym[:-3]),
 					(50, transFec.get(fec, "?")),
@@ -886,7 +886,7 @@ class ServicesEditor(Screen):
 					(55, self.cur_service.get("type", "?")),
 					)
 
-		calc_xpos = lambda a:a[len(a)-1][1]+a[len(a)-1][3]
+		calc_xpos = lambda a:a[len(a) - 1][1] + a[len(a) - 1][3]
 		l = []
 		entry = [None]
 		entry.append(MultiContentEntryText(
@@ -908,7 +908,7 @@ class ServicesEditor(Screen):
 		l.append(entry)
 		entry = [None]
 		for i in info3:
-			if len(entry)==1:
+			if len(entry) == 1:
 				entry.append(MultiContentEntryText(
 					pos=(0, 0),
 					size=(i[0], 24),
@@ -925,7 +925,7 @@ class ServicesEditor(Screen):
 					border_width=1,
 					border_color=0x000C8E90))
 		l.append(entry)
-		cacheIDs =self.cur_service.get("cacheIDs", None)
+		cacheIDs = self.cur_service.get("cacheIDs", None)
 		vpid = "----"
 		apid = "----"
 		tpid = "----"
@@ -939,7 +939,7 @@ class ServicesEditor(Screen):
 	
 		if cacheIDs is not None:
 			for x in cacheIDs:
-				pidtype=int(x[:-4], 16)
+				pidtype = int(x[:-4], 16)
 				pid = x[-4:]
 				if pidtype == VIDEO_PID:
 					vpid = pid
@@ -977,7 +977,7 @@ class ServicesEditor(Screen):
 		
 		entry = [None]
 		for i in info4:
-			if len(entry)==1:
+			if len(entry) == 1:
 				entry.append(MultiContentEntryText(
 					pos=(0, 0),
 					size=(i[0], 24),
@@ -1040,8 +1040,8 @@ class ServicesEditor(Screen):
 
 	def hideService(self):
 		print_cy("hideService")
-		self.cur_service["flags"]=hex(int(self.cur_service.get("flags", "0"), 16) ^ dxDontshow)[2:].zfill(4)
-		self.newServiceList[self["list"].l.getCurrentSelectionIndex()] =  self["list"].buildEntry(self.cur_service)
+		self.cur_service["flags"] = hex(int(self.cur_service.get("flags", "0"), 16) ^ dxDontshow)[2:].zfill(4)
+		self.newServiceList[self["list"].l.getCurrentSelectionIndex()] = self["list"].buildEntry(self.cur_service)
 		self.down()
 	
 	def hideServiceMenu(self):
@@ -1050,15 +1050,15 @@ class ServicesEditor(Screen):
 	
 	def serviceHideMenu(self, result):
 		if result == 0:
-			self.cur_service["flags"]=hex(int(self.cur_service.get("flags", "0"), 16) ^ dxDontshow)[2:].zfill(4)
-			self.newServiceList[self["list"].l.getCurrentSelectionIndex()] =  self["list"].buildEntry(self.cur_service)
+			self.cur_service["flags"] = hex(int(self.cur_service.get("flags", "0"), 16) ^ dxDontshow)[2:].zfill(4)
+			self.newServiceList[self["list"].l.getCurrentSelectionIndex()] = self["list"].buildEntry(self.cur_service)
 		elif result == 1:
 			print("hide all")
 			for idx in xrange(len(self.newServiceList)):
 				usk = self.newServiceList[idx][0]
 				service = self.database[usk[:16]]["services"][usk]
 				if service["provider"] == self.cur_service["provider"]:
-					service["flags"]=hex(int(service.get("flags", "0")) | dxDontshow)[2:].zfill(4)
+					service["flags"] = hex(int(service.get("flags", "0")) | dxDontshow)[2:].zfill(4)
 					self.newServiceList[idx] = self["list"].buildEntry(service)
 		elif result == 2:
 			print("unhide all")
@@ -1066,7 +1066,7 @@ class ServicesEditor(Screen):
 				usk = self.newServiceList[idx][0]
 				service = self.database[usk[:16]]["services"][usk]
 				if service["provider"] == self.cur_service["provider"]:
-					service["flags"]=hex(int(service.get("flags", "0")) & ~dxDontshow)[2:].zfill(4)
+					service["flags"] = hex(int(service.get("flags", "0")) & ~dxDontshow)[2:].zfill(4)
 					self.newServiceList[idx] = self["list"].buildEntry(service)
 		elif result == 3:
 			print("toggle")
@@ -1074,7 +1074,7 @@ class ServicesEditor(Screen):
 				usk = self.newServiceList[idx][0]
 				service = self.database[usk[:16]]["services"][usk]
 				if service["provider"] == self.cur_service["provider"]:
-					service["flags"]=hex(int(service.get("flags", "0")) ^ dxDontshow)[2:].zfill(4)
+					service["flags"] = hex(int(service.get("flags", "0")) ^ dxDontshow)[2:].zfill(4)
 					self.newServiceList[idx] = self["list"].buildEntry(service)
 		else:
 			print("Menu error:", result)
@@ -1083,9 +1083,9 @@ class ServicesEditor(Screen):
 
 	def cmpColumn(self, a, b):
 		try:
-			al=a.lower()
-			bl=b.lower()
-			if al==bl:
+			al = a.lower()
+			bl = b.lower()
+			if al == bl:
 				return cmp(a, b)
 			else:
 				return cmp(al, bl)
@@ -1094,11 +1094,11 @@ class ServicesEditor(Screen):
 		
 	def keyColumn(self, a):
 		if self.currentSelectedColumn:
-			if self.row[self.currentSelectedColumn-1][0] == "name":
+			if self.row[self.currentSelectedColumn - 1][0] == "name":
 				return a[2][7]
-			elif self.row[self.currentSelectedColumn-1][0] == "provider":
+			elif self.row[self.currentSelectedColumn - 1][0] == "provider":
 				return a[3][7]
-			elif self.row[self.currentSelectedColumn-1][0] == "position":
+			elif self.row[self.currentSelectedColumn - 1][0] == "position":
 				return int(a[0][:4], 16)
 		else:
 			return int(self.database[a[0][:16]]["services"][a[0]].get('type', "0"), 10)
@@ -1107,12 +1107,12 @@ class ServicesEditor(Screen):
 		if self.cur_service is None:
 			return
 		if self.currentSelectedColumn:
-			rev = self.row[self.currentSelectedColumn-1][2]
+			rev = self.row[self.currentSelectedColumn - 1][2]
 			self.newServiceList.sort(key=self.keyColumn, reverse=rev, cmp=self.cmpColumn)
 			if rev:
-				self.row[self.currentSelectedColumn-1][2] = False
+				self.row[self.currentSelectedColumn - 1][2] = False
 			else:
-				self.row[self.currentSelectedColumn-1][2] = True
+				self.row[self.currentSelectedColumn - 1][2] = True
 		else:
 			rev = self.typesort
 			self.newServiceList.sort(key=self.keyColumn, reverse=rev)
@@ -1160,7 +1160,7 @@ class ServicesEditor(Screen):
 		if self.cur_service is None:
 			return
 		self["infolist"].l.setFont(0, gFont("Regular", 11))
-		calc_xpos = lambda a:a[len(a)-1][1]+a[len(a)-1][3]
+		calc_xpos = lambda a:a[len(a) - 1][1] + a[len(a) - 1][3]
 		l = []
 		entry = [None]
 		entry.append(MultiContentEntryText(
@@ -1181,7 +1181,7 @@ class ServicesEditor(Screen):
 			border_color=0x000C8E90))
 		l.append(entry)
 		entry = [None]
-		if self.usk[:4].lower()=="ffff":
+		if self.usk[:4].lower() == "ffff":
 			info3 = (
 				(100, _("Frequency\nMHz")),
 				(60, "Symbolrate\nkSym"),
@@ -1189,7 +1189,7 @@ class ServicesEditor(Screen):
 				(80, "Modulation"),
 				(55, "Service\nType"),
 			)
-		elif self.usk[:4].lower()=="eeee":
+		elif self.usk[:4].lower() == "eeee":
 			info3 = (
 				(100, _("Frequency\nMHz")),
 				(50, "Bandwidth"),
@@ -1208,7 +1208,7 @@ class ServicesEditor(Screen):
 				(55, "Service\nType"),
 				)
 		for i in info3:
-			if len(entry)==1:
+			if len(entry) == 1:
 				entry.append(MultiContentEntryText(
 					pos=(0, 0),
 					size=(i[0], 24),
@@ -1250,7 +1250,7 @@ class ServicesEditor(Screen):
 			)
 		entry = [None]
 		for i in info4:
-			if len(entry)==1:
+			if len(entry) == 1:
 				entry.append(MultiContentEntryText(
 					pos=(0, 0),
 					size=(i[0], 24),

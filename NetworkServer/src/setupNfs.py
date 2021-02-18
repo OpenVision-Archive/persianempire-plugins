@@ -131,7 +131,7 @@ class editExportEntry(Screen, ConfigListScreen):
 
 	def ok(self):
 		if self["config"].getCurrent()[1] == self.exportDirConfigEntry:
-			self.session.openWithCallback(self.dirSelectDlgClosed, dirSelectDlg, self.exportDirConfigEntry.value+'/')
+			self.session.openWithCallback(self.dirSelectDlgClosed, dirSelectDlg, self.exportDirConfigEntry.value + '/')
 
 	def dirSelectDlgClosed(self, path):
 		if path != False:

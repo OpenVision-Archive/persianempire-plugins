@@ -287,7 +287,7 @@ class SimpleSatScan(ConfigListScreen, Screen):
 			tps = nimmanager.getTransponders(orbpos)
 			for x in tps:
 				if x[0] == 0:
-					s = str(x[1]/1000) + " " + self.PolToStr(x[3]) + " / " + str(x[2]/1000) + " / " + self.FecToStr(x[4])
+					s = str(x[1] / 1000) + " " + self.PolToStr(x[3]) + " / " + str(x[2] / 1000) + " / " + self.FecToStr(x[4])
 					list.append((str(index), s))
 					index += 1
 			self.scan_transponders = ConfigSelection(choices=list, default="0")

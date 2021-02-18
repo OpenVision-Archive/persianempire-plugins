@@ -57,7 +57,7 @@ class LocaleManager(Screen, ConfigListScreen):
 				<convert type="ClockToText">Default</convert>
 			</widget>
 			<widget name="statusbar" position="10,%d" size="480,20" font="Regular;18" zPosition="2" transparent="0" foregroundColor="white" />
-		</screen>""" % (y_size, y_size-25, y_size-19, y_size-22, y_size-20)
+		</screen>""" % (y_size, y_size - 25, y_size - 19, y_size - 22, y_size - 20)
 
 	def __init__(self, session):
 		self.skin = LocaleManager.skin

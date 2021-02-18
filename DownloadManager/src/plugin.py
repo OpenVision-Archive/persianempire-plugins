@@ -58,7 +58,7 @@ class Ipkremove2(Screen):
 	        idx = self["list"].getSelectionIndex()
 		ipk = self.data[idx]
 		cmd = "opkg remove " + ipk
-                title = _("Removing %s" %(ipk))
+                title = _("Removing %s" % (ipk))
                 self.session.open(Console, _(title), [cmd])
 
 
@@ -305,7 +305,7 @@ class Getipk(Screen):
 		source = slist.split()
                 self.found = 0
 		i = 0
-		while i<12: 
+		while i < 12: 
 				   addn = source[i]
 				   ftxt = '/tmp/.' + addn + '.txt'
 				   if not fileExists(ftxt):
@@ -317,11 +317,11 @@ class Getipk(Screen):
 						self.addon = addn
 						n4 = flist1.find(missing, 0)
 						n5 = flist1.find(".ipk", n4)
-						self.ipk = flist1[n4:(n5+4)]        
+						self.ipk = flist1[n4:(n5 + 4)]        
                                                 self.found = 1
 						break
 				   else:
-						i = i+1
+						i = i + 1
                 if self.found == 0:
                        txt = name1 + "\nNot Found On The Server !"
                        self.session.open(MessageBox, txt, type=1)
@@ -331,7 +331,7 @@ class Getipk(Screen):
                        xurl2 = xurl1 + self.ipk
                        self.idx = self.idx + 1
                        cmd2 = 'opkg install --force-reinstall --force-overwrite ' + xurl2 + ' > /tmp/.log' + str(self.idx) + '.txt'
-                       title = _("Installing addons %s" %(self.ipk))
+                       title = _("Installing addons %s" % (self.ipk))
                        self.session.openWithCallback(self.newdeps, Console, _(title), [cmd2])
 
     def newdeps(self):
@@ -345,15 +345,15 @@ class Getipk(Screen):
         else:
 		   n1 = flog.find("Cannot satisfy", 0)
 		   n2 = flog.find(":", n1)
-		   n3 = flog.find("opkg_install", (n2+1))
-		   deps = flog[(n2+1):n3]
+		   n3 = flog.find("opkg_install", (n2 + 1))
+		   deps = flog[(n2 + 1):n3]
 		   deps = deps.replace("*", "")
 		   ipks = deps.split()
 		   ik = len(ipks)
 		   i2 = 0
 		   while i2 < ik:
 		          self.depends.insert(0, ipks[i2])
-		          i2 = i2+1
+		          i2 = i2 + 1
                    self.openTest()
 
     def viewLog(self):

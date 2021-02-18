@@ -164,7 +164,7 @@ class PECamManager(Screen):
 	def stop(self):
 		if self.iscam and self.actcam != "none" and self.finish:
 			stopcam(self.actcam)
-			msg  = _("Stopping : %s") % self.actcam
+			msg = _("Stopping : %s") % self.actcam
 			self.actcam = "none"
 			self.mbox = self.session.open(MessageBox, msg, MessageBox.TYPE_INFO)
 			self.closestopTimer.start(1000, False)

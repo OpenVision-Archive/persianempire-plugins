@@ -33,7 +33,7 @@ class BouquetProtectSetup(Screen, ConfigListScreen):
 		self.BPS = config.BouquetProtect
 		self.prev_enabled = self.BPS.enabled.value
 		self.prev_protect = self.BPS.protect.enable.value
-		self.prev_store   = self.BPS.protect.store.value
+		self.prev_store = self.BPS.protect.store.value
 		self.prev_showkey = self.BPS.unwanted.showkey.value
 		self.initConfig()
 		self.createSetup()
@@ -54,32 +54,32 @@ class BouquetProtectSetup(Screen, ConfigListScreen):
 		cur = self["config"].getCurrent()
 		index = self["config"].getCurrentIndex()
 		if cur == self.none_entry:
-			self["config"].setCurrentIndex(index+2)
+			self["config"].setCurrentIndex(index + 2)
 		elif cur in (self.nane_entry, self.pass_entry):
-			self["config"].setCurrentIndex(index-2)
+			self["config"].setCurrentIndex(index - 2)
 		elif cur == self.nune_entry:
 			self["config"].setCurrentIndex(1)
 
 	def initConfig(self):
-		self.none_entry     = getConfigListEntry("", NoSave(ConfigNothing()))
-		self.nune_entry     = getConfigListEntry(_("Bouquets protection:"), NoSave(ConfigNothing()))
-		self.nane_entry     = getConfigListEntry(_("Advanced:"), NoSave(ConfigNothing()))
-		self.pass_entry     = getConfigListEntry(_("Password setup:"), NoSave(ConfigNothing()))
+		self.none_entry = getConfigListEntry("", NoSave(ConfigNothing()))
+		self.nune_entry = getConfigListEntry(_("Bouquets protection:"), NoSave(ConfigNothing()))
+		self.nane_entry = getConfigListEntry(_("Advanced:"), NoSave(ConfigNothing()))
+		self.pass_entry = getConfigListEntry(_("Password setup:"), NoSave(ConfigNothing()))
 		
-		self.enable_hide    = getConfigListEntry(_("enable bouquets protection"), self.BPS.enabled)
+		self.enable_hide = getConfigListEntry(_("enable bouquets protection"), self.BPS.enabled)
 		self.enable_protect = getConfigListEntry(_("enable password on protection"), self.BPS.protect.enable)
-		self.store_pass     = getConfigListEntry(_("remember entered password"), self.BPS.protect.store)
-		self.setup_pass     = getConfigListEntry(_("<< setup password (4 digits) >>"), NoSave(ConfigNothing()))
-		self.change_pass    = getConfigListEntry(_("<< change password >>"), NoSave(ConfigNothing()))
+		self.store_pass = getConfigListEntry(_("remember entered password"), self.BPS.protect.store)
+		self.setup_pass = getConfigListEntry(_("<< setup password (4 digits) >>"), NoSave(ConfigNothing()))
+		self.change_pass = getConfigListEntry(_("<< change password >>"), NoSave(ConfigNothing()))
 		
-		self.unwan_enabled  = getConfigListEntry(_("hide unwanted services in channellist"), self.BPS.unwanted.enalbed)
-		self.unwan_showkey  = getConfigListEntry(_("show unwanted services list on key press"), self.BPS.unwanted.showkey)
+		self.unwan_enabled = getConfigListEntry(_("hide unwanted services in channellist"), self.BPS.unwanted.enalbed)
+		self.unwan_showkey = getConfigListEntry(_("show unwanted services list on key press"), self.BPS.unwanted.showkey)
 
 	def createSetup(self):
 		list = [self.nune_entry, self.enable_hide, self.none_entry, self.nane_entry, self.unwan_enabled]
 		if self.BPS.unwanted.enalbed.value:
 			list.append(self.unwan_showkey)
-		if self.BPS.enabled.value != 'none' or  self.BPS.unwanted.enalbed.value:
+		if self.BPS.enabled.value != 'none' or self.BPS.unwanted.enalbed.value:
 			list.append(self.none_entry)
 			
 			list.append(self.pass_entry)

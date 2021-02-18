@@ -165,7 +165,7 @@ def switch(self):
 				self.Weatherdialog.show()
 				idx = config.usage.infobar_timeout.index
 				if (idx > 0):
-					self.Weathertimer.start(idx*1000, True)
+					self.Weathertimer.start(idx * 1000, True)
 			elif not self.shown and self.Weatherdialog.shown:
 				self.Weatherdialog.hide()
 				self.toggleShow()
@@ -301,7 +301,7 @@ class WeatherPluginScreen(Screen):
 		     self["lab1"].setText("Connession...")
 		     self.updateInfo()
 		     if config.plugins.WeatherPlugin.usebutton.value == False:
-		          self.activityTimer.start(int(config.plugins.WeatherPlugin.timeout.value)*60000) 		     
+		          self.activityTimer.start(int(config.plugins.WeatherPlugin.timeout.value) * 60000) 		     
 	        else:
                      self.delTimer()
 
@@ -313,7 +313,7 @@ class WeatherPluginScreen(Screen):
 		if not fileExists("/tmp/indbweather.xml"):
 		      Console().ePopen("wget -P /tmp -T2 '%s' -O /tmp/indbweather.xml" % myurl)
 		if fileExists("/tmp/indbweather.xml"):
-                        if int((time.time() - os.stat("/tmp/indbweather.xml").st_mtime)/60) >= RESET_TIME:
+                        if int((time.time() - os.stat("/tmp/indbweather.xml").st_mtime) / 60) >= RESET_TIME:
                             Console().ePopen("rm -f /tmp/indbweather.xml")
                             Console().ePopen("wget -P /tmp -T2 '%s' -O /tmp/indbweather.xml" % myurl)
                         if fileExists("/tmp/indbweather.xml"):     
@@ -328,7 +328,7 @@ class WeatherPluginScreen(Screen):
                                 id = "NA" 
                                 self.runiconanim(id)
 			    maintext = "Error getting XML document!"                                
-		            decode ='<data><error><msg>Unable to find any matching weather location to the query submitted!</msg></error></data>'	
+		            decode = '<data><error><msg>Unable to find any matching weather location to the query submitted!</msg></error></data>'	
                             temp_file = open("/tmp/indbweather.xml", 'w')
                             temp_file.write(decode)
                             temp_file.close()
@@ -369,7 +369,7 @@ class WeatherPluginScreen(Screen):
         				    tmp_conditions = {}
        					    for tag2 in list_of_tags2:
             					    try: 
-                					tmp_conditions[tag2] =  weather_dom.getElementsByTagName(tag)[0].getElementsByTagName(tag2)[0].firstChild.wholeText
+                					tmp_conditions[tag2] = weather_dom.getElementsByTagName(tag)[0].getElementsByTagName(tag2)[0].firstChild.wholeText
             					    except IndexError:
                 					pass
         				    weather_data[tag] = tmp_conditions
@@ -388,9 +388,9 @@ class WeatherPluginScreen(Screen):
 				          maintext = "%s" % (maintext)
 				    else:
                                           maintext = str(weather_data['current_condition']['observation_time'])
-				    mytime =  str(weather_data['request']['query'])
-			            mytime3 =  str(weather_data['current_condition']['temp_C'])
-				    mytime2 =  str(weather_data['current_condition']['humidity'])
+				    mytime = str(weather_data['request']['query'])
+			            mytime3 = str(weather_data['current_condition']['temp_C'])
+				    mytime2 = str(weather_data['current_condition']['humidity'])
 				    if config.plugins.WeatherPlugin.city.value == "0":
 				         self["City"].setText("" + mytime)
 				    if config.plugins.WeatherPlugin.city.value == "1":
@@ -418,9 +418,9 @@ class WeatherPluginScreen(Screen):
 				         tmptext2 = int(weather_data['current_condition']['windspeedKmph'])
 				         tmptext4 = self.eXtendedDay(" Kmph")
 				    if config.plugins.WeatherPlugin.wind.value == "1":
-                                         tmptext2 = int(weather_data['current_condition']['windspeedKmph'])*1000/3600
+                                         tmptext2 = int(weather_data['current_condition']['windspeedKmph']) * 1000 / 3600
                                          tmptext4 = self.eXtendedDay(" m/s")
-				    tmptext3 =  '%s' % (tmptext2)
+				    tmptext3 = '%s' % (tmptext2)
 				    tmptext5 = str(weather_data['current_condition']['winddir16Point'])
 				    tmptext = self.eXtendedDay(str(weather_data['current_condition']['weatherDesc'])) + "   " + self.eXtendedDay("Humidity: ") + mytime2 + "   " + self.eXtendedDay("Wind: ") + self.Wind(tmptext5) + "   " + tmptext3 + tmptext4
 				    self["Description now"].setText(tmptext)
@@ -464,7 +464,7 @@ class WeatherPluginScreen(Screen):
 			    if config.plugins.WeatherPlugin.anim.value == "2":
                                 id = "NA" 
                                 self.runiconanim(id)				    
-		            decode ='<data><error><msg>Unable to find any matching weather location to the query submitted!</msg></error></data>'	
+		            decode = '<data><error><msg>Unable to find any matching weather location to the query submitted!</msg></error></data>'	
                             temp_file = open("/tmp/indbweather.xml", 'w')
                             temp_file.write(decode)
                             temp_file.close()
@@ -474,21 +474,21 @@ class WeatherPluginScreen(Screen):
                     tm = localtime()
                     name = strftime("%H:%M", tm)
                     self["lab1"].setText(name)
-                    self.timer.startLongTimer(60-tm.tm_sec)
+                    self.timer.startLongTimer(60 - tm.tm_sec)
 		if config.plugins.WeatherPlugin.clock.value == "2":
                     tm = localtime()
                     if config.plugins.WeatherPlugin.language.value == "0":
-                        name =  str(tm[2]) + " " + shortMONTHSRU[tm[1]-1] + " " + strftime("%H:%M", tm)
+                        name = str(tm[2]) + " " + shortMONTHSRU[tm[1] - 1] + " " + strftime("%H:%M", tm)
                     else:
-                        name =  str(tm[2]) + " " + shortMONTHS[tm[1]-1] + " " + strftime("%H:%M", tm)                        
+                        name = str(tm[2]) + " " + shortMONTHS[tm[1] - 1] + " " + strftime("%H:%M", tm)                        
                     self["lab1"].setText(name)
-                    self.timer.startLongTimer(60-tm.tm_sec)
+                    self.timer.startLongTimer(60 - tm.tm_sec)
                 if config.plugins.WeatherPlugin.clock.value == "3":
                     maintext2 = 0 
-                    maintext2 = int((time.time() - os.stat("/tmp/indbweather.xml").st_mtime)/60)
+                    maintext2 = int((time.time() - os.stat("/tmp/indbweather.xml").st_mtime) / 60)
                     maintext = int(config.plugins.WeatherPlugin.timeout.value) - maintext2
                     maintext1 = _("Before update:")
-                    maintext =  "%s %s min" % (maintext1, maintext) 
+                    maintext = "%s %s min" % (maintext1, maintext) 
 		    self["lab1"].setText(maintext)                    
  		if config.plugins.WeatherPlugin.days.value == "0":
 		    self["zastavka"].instance.setPixmapFromFile(resolveFilename(SCOPE_PLUGINS, "Extensions/QuickWeather/backg.png"))
@@ -502,7 +502,7 @@ class WeatherPluginScreen(Screen):
 	def checkIconanim(self, filename):
                 localfile = ""
 		parts = filename.split("/")
-		totsp = (len(parts) -1)
+		totsp = (len(parts) - 1)
 		localfile = parts[totsp].replace('.png', '')
 		return localfile
 
@@ -521,21 +521,21 @@ class WeatherPluginScreen(Screen):
         def runiconanim(self, id):
             global png2, total
             animokicon = False
-            if fileExists('%s/%s'% (config.plugins.WeatherPlugin.anim3.value, id)):
-                pathanimicon  = '%s/%s/a'% (config.plugins.WeatherPlugin.anim3.value, id)
-                path = '%s/%s'% (config.plugins.WeatherPlugin.anim3.value, id)
+            if fileExists('%s/%s' % (config.plugins.WeatherPlugin.anim3.value, id)):
+                pathanimicon = '%s/%s/a' % (config.plugins.WeatherPlugin.anim3.value, id)
+                path = '%s/%s' % (config.plugins.WeatherPlugin.anim3.value, id)
                 dir_work = os.listdir(path) 
                 total = len(dir_work)
                 self.slideicon = total
                 animokicon = True
             else:
-                pathanimicon  = resolveFilename(SCOPE_PLUGINS, 'Extensions/QuickWeather/NA/a')
+                pathanimicon = resolveFilename(SCOPE_PLUGINS, 'Extensions/QuickWeather/NA/a')
                 path = resolveFilename(SCOPE_PLUGINS, 'Extensions/QuickWeather/NA')
                 dir_work = os.listdir(path) 
                 total = len(dir_work)
                 self.slideicon = total
                 animokicon = True
-            if (animokicon== True):
+            if (animokicon == True):
                 self.picsicon = []
                 for x in range(self.slideicon):
                     self.picsicon.append(LoadPixmap(((pathanimicon + str(x)) + '.png')))
@@ -563,9 +563,9 @@ class WeatherPluginScreen(Screen):
             self.slide = 8
             animok2 = False
             if fileExists(resolveFilename(SCOPE_PLUGINS, 'Extensions/QuickWeather/anim/a7.png')):
-                pathanim  = resolveFilename(SCOPE_PLUGINS, 'Extensions/QuickWeather/anim/a')
+                pathanim = resolveFilename(SCOPE_PLUGINS, 'Extensions/QuickWeather/anim/a')
                 animok2 = True
-            if (animok2== True):
+            if (animok2 == True):
                 self.pics = []
                 for x in range(self.slide):
                     self.pics.append(LoadPixmap(((pathanim + str(x)) + '.png')))
@@ -591,12 +591,12 @@ class WeatherPluginScreen(Screen):
             self.slide1 = 8
             animok = False
             if fileExists(resolveFilename(SCOPE_PLUGINS, 'Extensions/QuickWeather/anim/n7.png')):
-                pathanim1  = resolveFilename(SCOPE_PLUGINS, 'Extensions/QuickWeather/anim/n')
+                pathanim1 = resolveFilename(SCOPE_PLUGINS, 'Extensions/QuickWeather/anim/n')
                 animok = True
             if (animok == True):
                 self.pics1 = []
                 for x in range(self.slide1):
-                    self.pics1.append(LoadPixmap(((pathanim1+ str(x)) + '.png')))
+                    self.pics1.append(LoadPixmap(((pathanim1 + str(x)) + '.png')))
                 self.timer1 = eTimer()
                 self.timer1.callback.append(self.timerEvent1)
                 self.timer1.start(70, True)
@@ -619,12 +619,12 @@ class WeatherPluginScreen(Screen):
             self.slide3 = 8
             animok = False
             if fileExists(resolveFilename(SCOPE_PLUGINS, 'Extensions/QuickWeather/anim/n7.png')):
-                pathanim3  = resolveFilename(SCOPE_PLUGINS, 'Extensions/QuickWeather/anim/n')
+                pathanim3 = resolveFilename(SCOPE_PLUGINS, 'Extensions/QuickWeather/anim/n')
                 animok = True
             if (animok == True):
                 self.pics3 = []
                 for x in range(self.slide3):
-                    self.pics3.append(LoadPixmap(((pathanim3+ str(x)) + '.png')))
+                    self.pics3.append(LoadPixmap(((pathanim3 + str(x)) + '.png')))
                 self.timer3 = eTimer()
                 self.timer3.callback.append(self.timerEvent2)
                 self.timer3.start(70, True)
@@ -657,7 +657,7 @@ class WeatherPluginScreen(Screen):
 			f.close()
 		else:
                         text = "Kiev"
-		url = url + text+ "&format=xml&num_of_days=5&key=9mujy42c6ptawhunprq7yvps"
+		url = url + text + "&format=xml&num_of_days=5&key=9mujy42c6ptawhunprq7yvps"
 		url = url.replace(' ', '%20')
 		return url    
 	
@@ -681,7 +681,7 @@ class WeatherPluginScreen(Screen):
 		
 	def checkIcon(self, filename):
 		parts = filename.split("/")
-		totsp = (len(parts) -1)
+		totsp = (len(parts) - 1)
 		localfile = pluginpath + "/" + parts[totsp]
 		if fileExists(localfile):
 			pass
@@ -700,35 +700,35 @@ class WeatherPluginScreen(Screen):
                 if config.plugins.WeatherPlugin.language.value == "0":
 		     if (day == 'W'):
 			     day1 = "З"
-		     elif (day =='WNW'):
+		     elif (day == 'WNW'):
 			     day1 = "ЗСЗ"
-		     elif (day =='NW'):
+		     elif (day == 'NW'):
 			     day1 = "СЗ"
-		     elif (day =='NNW'):
+		     elif (day == 'NNW'):
 			     day1 = "ССЗ"
-		     elif (day =='N'):
+		     elif (day == 'N'):
 			     day1 = "С"
-		     elif (day =='NNE'):
+		     elif (day == 'NNE'):
 			     day1 = "ССВ"
-		     elif (day =='NE'):
+		     elif (day == 'NE'):
 			     day1 = "СВ"
-		     elif (day =='ENE'):
+		     elif (day == 'ENE'):
 			     day1 = "ВСВ"
-		     elif (day =='E'):
+		     elif (day == 'E'):
 			     day1 = "В"
-		     elif (day =='ESE'):
+		     elif (day == 'ESE'):
 			     day1 = "ВЮВ"
-		     elif (day =='SE'):
+		     elif (day == 'SE'):
 			     day1 = "ЮВ"
-		     elif (day =='SSE'):
+		     elif (day == 'SSE'):
 			     day1 = "ЮЮВ"
-		     elif (day =='S'):
+		     elif (day == 'S'):
 			     day1 = "Ю"
-		     elif (day =='SSW'):
+		     elif (day == 'SSW'):
 			     day1 = "ЮЮЗ"
-		     elif (day =='SW'):
+		     elif (day == 'SW'):
 			     day1 = "ЮЗ"
-		     elif (day =='WSW'):
+		     elif (day == 'WSW'):
 			     day1 = "ЗЮЗ"		     
 		     return day1
 		else:
@@ -776,7 +776,7 @@ class WeatherPluginScreen(Screen):
 			    info = '9'			    
 		    elif direct >= 12 and direct < 18:
 			    info = '15'
-		    elif direct >= 18 and direct <=  23:
+		    elif direct >= 18 and direct <= 23:
 			    info = '21'
 		    return info
 		
@@ -1395,7 +1395,7 @@ class SetupMenu(Screen, ConfigListScreen):
 		self.close()
 
 class SetupMenu2(Screen):
-    skin =  """
+    skin = """
         <screen position="center,center" size="560,400" title="Change background image" backgroundColor="#31000000" >
 	<widget name="menu" position="10,5" size="330,380" zPosition="1" transparent="0" backgroundColor="#31000000" scrollbarMode="showOnDemand" />
         <widget name="previem" position="345,4" size="211,380" zPosition="3" transparent="1" alphatest="on" />
@@ -1466,18 +1466,18 @@ class SetupMenu2(Screen):
                 self["previem"].instance.setPixmap(png2)	
 
     def getList(self):
-	    b00klist=[]
+	    b00klist = []
 	    if config.plugins.WeatherPlugin.days.value == "0":
 		if os.path.exists(resolveFilename(SCOPE_PLUGINS, "Extensions/QuickWeather/background")) == True:
            		for name in os.listdir(resolveFilename(SCOPE_PLUGINS, "Extensions/QuickWeather/background")):                                       
               			if name.endswith(".png") is True:                                                  
-                 			bname=name.split(".png")                                                        
+                 			bname = name.split(".png")                                                        
                       			b00klist.append((bname[0], name))
 	    else:
 		if os.path.exists(resolveFilename(SCOPE_PLUGINS, "Extensions/QuickWeather/background1")) == True:
            		for name in os.listdir(resolveFilename(SCOPE_PLUGINS, "Extensions/QuickWeather/background1")):                                       
               			if name.endswith(".png") is True:                                                  
-                 			bname=name.split(".png")                                                        
+                 			bname = name.split(".png")                                                        
                       			b00klist.append((bname[0], name))                      			
             b00klist.sort()                                                                        
 	    return b00klist        
@@ -1564,7 +1564,7 @@ class WeatherInfoBar:
 		self.session.open(WeatherPluginScreen)
 
 class SetupKeymap(Screen):
-    skin =  """
+    skin = """
 	<screen position="center,center" size="500,190" title="Change background image" backgroundColor="#31000000" >
 	<widget name="menu" position="10,10" size="480,145" zPosition="1" transparent="0" backgroundColor="#31000000" scrollbarMode="showOnDemand" />
 	<widget name="key_green" position="0,155" zPosition="2" size="250,35" valign="center" halign="center" font="Regular;22" transparent="1" foregroundColor="#00389416" />
@@ -1622,17 +1622,17 @@ class SetupKeymap(Screen):
         self['menu'].l.setList(self.resultlist)
 
     def getList(self):
-		b00klist=[]
+		b00klist = []
 		if os.path.exists(resolveFilename(SCOPE_PLUGINS, "Extensions/QuickWeather/SetupKeymap")) == True:
            		for name in os.listdir(resolveFilename(SCOPE_PLUGINS, "Extensions/QuickWeather/SetupKeymap")):                                       
               			if name.endswith(".xml") is True:                                                  
-                 			bname=name.split(".xml")                                                        
+                 			bname = name.split(".xml")                                                        
                       			b00klist.append((bname[0], name))                                 
         	b00klist.sort()                                                                        
 	        return b00klist		
 
 class SetupIcons(Screen):
-    skin =  """
+    skin = """
 	<screen position="center,center" size="460,400" title="Change background image" backgroundColor="#31000000" >
 	<widget name="menu" position="10,5" size="440,120" zPosition="1" transparent="0" backgroundColor="#31000000" scrollbarMode="showOnDemand" />
         <widget name="previem" position="22,160" size="420,236" zPosition="3" transparent="1" alphatest="on" />
@@ -1675,7 +1675,7 @@ class SetupIcons(Screen):
 			f.close()
 	else:
              text = "/media/hdd/"
-        return  text    
+        return text    
 
     def ShowsearchBarracuda(self, cmd):
 	    if cmd is not None:
@@ -1738,12 +1738,12 @@ class SetupIcons(Screen):
 	
 
     def getList(self):
-		b00klist=[]
+		b00klist = []
 		setup = '%s%s' % (self.name(), "SetupIcons")
 		if os.path.exists(setup) == True:
            		for name in os.listdir(setup):                                       
               			if name.endswith(".png") is True:                                                  
-                 			bname=name.split(".png")                                                        
+                 			bname = name.split(".png")                                                        
                       			b00klist.append((bname[0], name))                                 
         	b00klist.sort()                                                                        
 	        return b00klist

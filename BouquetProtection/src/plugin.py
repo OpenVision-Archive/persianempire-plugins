@@ -20,10 +20,10 @@ config.BouquetProtect = ConfigSubsection()
 config.BouquetProtect.enabled = ConfigSelection(default='none', choices=[('none', 'no'), ('bouq', 'yes')])
 config.BouquetProtect.protect = ConfigSubsection()
 config.BouquetProtect.protect.enable = ConfigYesNo(default=False)
-config.BouquetProtect.protect.index  = ConfigPIN(default=-1)
-config.BouquetProtect.protect.tries  = ConfigInteger(default=3)
-config.BouquetProtect.protect.time   = ConfigInteger(default=3)
-config.BouquetProtect.protect.store  = ConfigSelection(default="standby", choices=[("1", _("1 minute")), ("5", _("5 minutes")), ("15", _("15 minutes")), ("30", _("30 minutes")), ("45", _("45 minutes")), ("60", _("60 minutes")), ("120", _("2 hours")), ("180", _("3 hours")), ("360", _("6 hours")), ("720", _("12 hours")), ("1440", _("24 hours")), ("standby", _("until standby/restart"))])
+config.BouquetProtect.protect.index = ConfigPIN(default=-1)
+config.BouquetProtect.protect.tries = ConfigInteger(default=3)
+config.BouquetProtect.protect.time = ConfigInteger(default=3)
+config.BouquetProtect.protect.store = ConfigSelection(default="standby", choices=[("1", _("1 minute")), ("5", _("5 minutes")), ("15", _("15 minutes")), ("30", _("30 minutes")), ("45", _("45 minutes")), ("60", _("60 minutes")), ("120", _("2 hours")), ("180", _("3 hours")), ("360", _("6 hours")), ("720", _("12 hours")), ("1440", _("24 hours")), ("standby", _("until standby/restart"))])
 config.BouquetProtect.unwanted = ConfigSubsection()
 config.BouquetProtect.unwanted.enalbed = ConfigYesNo(default=False)
 config.BouquetProtect.unwanted.showkey = ConfigSelection(default='none', choices=[('none', _('none')), ('breakAudio', 'AUDIO'), ('longAudio', _('long AUDIO')), ('breakVideo', _('VIDEO(Vkey)')), ('longVideo', _('long VIDEO(Vkey)'))])
@@ -41,12 +41,12 @@ def newChannelContextMenu__init__(self, session, csel):
 	if csel.bouquet_mark_edit != 0 or csel.movemode:
 		return
 	
-	idx = max(0, len(self["menu"].list)-1)
+	idx = max(0, len(self["menu"].list) - 1)
 	current = csel.getCurrentSelection()
 	current_root = csel.getRoot()
 	if not (current_root and current_root.getPath().find('FROM BOUQUET "bouquets.') != -1):
 		inBouquet = csel.getMutableList() is not None
-		if not (current.flags & (eServiceReference.isMarker|eServiceReference.isDirectory)):
+		if not (current.flags & (eServiceReference.isMarker | eServiceReference.isDirectory)):
 			if inBouquet and config.BouquetProtect.enabled.value in ('bouq'):
 				if not csel.hidden_shown:
 					self["menu"].list.insert(idx, ChoiceEntryComponent(text=(_("unlock protected services"), self.menuShowAllHiddenBouquetServices)))
@@ -212,14 +212,14 @@ def getAllHiddenList():
 					break
 				pos = ln3.find(',f:')
 				if pos != -1:
-					s = ln3[pos+3:]
+					s = ln3[pos + 3:]
 					pos = s.find(',')
-					flags = int('0x'+s[:pos], 0x10)
+					flags = int('0x' + s[:pos], 0x10)
 				if (flags & 2):
 					data = ln1.strip().split(':')
 					if len(data) > 4:
 						name = ln2.strip().replace('\xc2\x86', '').replace('\xc2\x87', '')
-						list.append((name, "1:0:%s:%s:%s:%s:%s:0:0:0:"%(data[4], data[0], data[2], data[3], data[1])))
+						list.append((name, "1:0:%s:%s:%s:%s:%s:0:0:0:" % (data[4], data[0], data[2], data[3], data[1])))
 			elif ln1 == "services\n":
 				services_found = True
 		f.close()
@@ -298,7 +298,7 @@ def unlockAllHiddenBouquetServices(unlock):
 		if service[2] == '7':
 			pos = service.rfind(':#')
 			if pos != -1:
-				index = int(service[pos+2:])
+				index = int(service[pos + 2:])
 				service = service[:pos]
 			if service[4] == '1':
 				if not tv_bouquets:
@@ -372,7 +372,7 @@ def showAllHiddenBouquetServices(self):
 		for path in self.history:
 			if path[-1].toString() in hidden:
 				self.history.remove(path)
-		self.history_pos = max(0, len(self.history)-1)
+		self.history_pos = max(0, len(self.history) - 1)
 
 def checkProtect(self, callback=None):
 	if self.checkpass or \
@@ -391,7 +391,7 @@ def checkProtectEntered(self, callback, result):
 		if config.BouquetProtect.protect.store.value == 'standby':
 			config.misc.standbyCounter.addNotifier(self.standbyCounterCallback, initial_call=False)
 		else:
-			self.protectTimer.start(int(config.BouquetProtect.protect.store.value)*60*1000, True)
+			self.protectTimer.start(int(config.BouquetProtect.protect.store.value) * 60 * 1000, True)
 	else:
 		if result is False:
 			self.session.open(MessageBox, _("The password you entered is wrong."), MessageBox.TYPE_ERROR)
@@ -412,7 +412,7 @@ def showAllHiddenServices(self):
 	if not self.checkpass and not self.checkProtect(self.showAllHiddenServices):
 		return False
 	pos = self.service_types.rfind(':')
-	refstr = '%s (flags == 2) && %s ORDER BY flags' %(self.service_types[:pos+1], self.service_types[pos+1:])
+	refstr = '%s (flags == 2) && %s ORDER BY flags' % (self.service_types[:pos + 1], self.service_types[pos + 1:])
 	if not self.preEnterPath(refstr):
 		ref = eServiceReference(refstr)
 		ref.setName(_("All hidden services"))

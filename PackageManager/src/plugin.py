@@ -642,9 +642,9 @@ class downfeed(Screen):
 		for line in ipklist.readlines():
 			dstring = line.split(" ")
 			try:
-				endstr = len(dstring[0] + dstring[1]+ dstring[2]+dstring[3]) + 4
+				endstr = len(dstring[0] + dstring[1] + dstring[2] + dstring[3]) + 4
 
-				self.list.append((dstring[0]  + " " + dstring[1] + " " + dstring[2], line[endstr:], png))
+				self.list.append((dstring[0] + " " + dstring[1] + " " + dstring[2], line[endstr:], png))
 			except:
 				pass
 		self["menu"].setList(self.list)
@@ -656,7 +656,7 @@ class downfeed(Screen):
 		item = self["menu"].getCurrent()
 		name = item[0]
 		Console().ePopen("opkg install %s" % name)
-		msg  = _("%s Installed" % name)
+		msg = _("%s Installed" % name)
 		self.mbox = self.session.open(MessageBox, msg, MessageBox.TYPE_INFO, timeout=3)
 
 def OVLock():
@@ -668,7 +668,7 @@ def OVLock():
         return False
 
 def main(session, **kwargs):
-    if OVLock()==False:
+    if OVLock() == False:
         return
     else:
         session.open(PackageManagerScreen)

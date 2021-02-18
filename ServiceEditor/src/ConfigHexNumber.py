@@ -8,7 +8,7 @@ class ConfigHexNumber(ConfigText):
 		try:
 			dummy = int(default, 16)
 		except:
-			default="0"*size
+			default = "0" * size
 		ConfigText.__init__(self, default, fixed_size=False)
 		self.mapping = []
 		self.mapping.append(u"0")
@@ -38,7 +38,7 @@ class ConfigHexNumber(ConfigText):
 		self.text = self.text[-self.size:].zfill(self.size)
 		print(self.text)
 		if self.marked_pos >= self.size:
-			self.marked_pos = self.size-1
+			self.marked_pos = self.size - 1
 		pos = len(self.text) - self.marked_pos
 		print(pos)
 		print(self.marked_pos)

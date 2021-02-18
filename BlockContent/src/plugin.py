@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 from __future__ import print_function
 
-blockcontent_version="0.15"
+blockcontent_version = "0.15"
 
 from RecordTimer import parseEvent
 from Components.ServiceEventTracker import ServiceEventTracker        
@@ -31,7 +31,7 @@ config.plugins.blockcontent.popuptime = ConfigInteger(default=10, limits=(5, 60)
 config.plugins.blockcontent.pin = ConfigPIN(default=1111, censor="*")
 
 global blockedcontent_asking
-blockedcontent_asking=False
+blockedcontent_asking = False
 
 def startConfig(session, **kwargs):                                         
         session.open(BlockContentConfiguration)
@@ -135,10 +135,10 @@ class BlockContentEnableDisable(Screen, ProtectedScreen):
             self.close()
 	elif result:
 		if blockedcontent_deactive:
-			blockedcontent_deactive=False
+			blockedcontent_deactive = False
             		self.session.openWithCallback(self.pinCancel, MessageBox, _("Block Content is now activated"), MessageBox.TYPE_INFO)
 		else:
-			blockedcontent_deactive=True
+			blockedcontent_deactive = True
             		self.session.openWithCallback(self.pinCancel, MessageBox, _("Block Content is now deactivated"), MessageBox.TYPE_INFO)
         elif not result:
             self.session.openWithCallback(self.pinCancel, MessageBox, _("The pin code you entered is wrong."), MessageBox.TYPE_ERROR)
@@ -155,11 +155,11 @@ class BlockContentCheck(Screen):
 	self.session = session
 	Screen.__init__(self, session)
 	global blockedcontent_deactive
-	blockedcontent_deactive=False
-	self.blockedcontent_reactive=False
-	self.blockedcontent_authorized="Sesamestrasse"
-	self.blockedcontent_check=""
-        self.blockedcontent_begin_time=0
+	blockedcontent_deactive = False
+	self.blockedcontent_reactive = False
+	self.blockedcontent_authorized = "Sesamestrasse"
+	self.blockedcontent_check = ""
+        self.blockedcontent_begin_time = 0
        	self.__event_tracker = ServiceEventTracker(screen=self, eventmap={                                 
        		iPlayableService.evUpdatedEventInfo: self.EventInfoChanged,
       		})                                                      
@@ -174,37 +174,37 @@ class BlockContentCheck(Screen):
         self.TimerBlockContentCheck = eTimer()
         self.TimerBlockContentCheck.stop()
         self.TimerBlockContentCheck.timeout.get().append(self.CheckBlockContent)
-       	self.TimerBlockContentCheck.start(config.plugins.blockcontent.viewingtime.value*1000, True) 
+       	self.TimerBlockContentCheck.start(config.plugins.blockcontent.viewingtime.value * 1000, True) 
 
     def CheckBlockContent(self):
 	global blockedcontent_deactive
 	global blockedcontent_asking
-	blockedcontent_asking=False
+	blockedcontent_asking = False
         self.TimerBlockContentCheck.stop()
-	current_hour=int(strftime("%H", localtime()))
+	current_hour = int(strftime("%H", localtime()))
         if Screens.Standby.inStandby or config.plugins.blockcontent.viewingtime.value == 0 or config.plugins.blockcontent.freeview.value <= current_hour:
 		print("[BlockedContent] resets")
-		self.blockedcontent_authorized=""
+		self.blockedcontent_authorized = ""
 		if blockedcontent_deactive:
-			blockedcontent_deactive=False
+			blockedcontent_deactive = False
 	elif blockedcontent_deactive:
 		if config.plugins.blockcontent.reactivetime.value > 0 and not self.blockedcontent_reactive:
 		      		print("[BlockContent] reactivate in %s min\n" % config.plugins.blockcontent.reactivetime.value)
 		        	self.TimerBlockContentReactivate = eTimer()
 		        	self.TimerBlockContentReactivate.stop()
 		        	self.TimerBlockContentReactivate.timeout.get().append(self.ReactivateBlockContent)
-        			self.TimerBlockContentReactivate.start(config.plugins.blockcontent.reactivetime.value*60000, True) 
-				self.blockedcontent_reactive=True
+        			self.TimerBlockContentReactivate.start(config.plugins.blockcontent.reactivetime.value * 60000, True) 
+				self.blockedcontent_reactive = True
 	else:
 		eventid = None
-		text=""
-		station=""
-		name=""
-		description=""
-		servicerefstr=""
+		text = ""
+		station = ""
+		name = ""
+		description = ""
+		servicerefstr = ""
 		serviceref = self.session.nav.getCurrentlyPlayingServiceReference()
 		if serviceref is not None:
-			servicerefstr=serviceref.toString()
+			servicerefstr = serviceref.toString()
       	 		serviceHandler = eServiceCenter.getInstance()
 			info = serviceHandler.info(serviceref)
 			station = info.getName(serviceref)
@@ -232,46 +232,46 @@ class BlockContentCheck(Screen):
                        			text += ext
 		check = "%s %s %s %s %s" % (servicerefstr, station, name, description, text)
         	if config.plugins.blockcontent.casesensitive.value is False:
-			check=check.upper()
-		blockedcontent_found=False
-		blockedcontent=True
+			check = check.upper()
+		blockedcontent_found = False
+		blockedcontent = True
 		if os.path.exists("/etc/enigma2/blockedcontent"):
-			f=open("/etc/enigma2/blockedcontent")
+			f = open("/etc/enigma2/blockedcontent")
 			while blockedcontent and not blockedcontent_found:
-				blockedcontent=f.readline().lstrip().rstrip().rstrip("\r\n")
+				blockedcontent = f.readline().lstrip().rstrip().rstrip("\r\n")
 				if blockedcontent.startswith("userbouquet."):	
 					if os.path.exists("/etc/enigma2/%s" % blockedcontent):
-						blockedbouquet=True
-						u=open("/etc/enigma2/%s" % blockedcontent, "r")
+						blockedbouquet = True
+						u = open("/etc/enigma2/%s" % blockedcontent, "r")
 						while blockedbouquet and not blockedcontent_found:
-							blockedbouquet=u.readline().lstrip().rstrip().rstrip("\r\n")
-				 			blockedbouquet=blockedbouquet.replace("#SERVICE", "").replace(" ", "")
+							blockedbouquet = u.readline().lstrip().rstrip().rstrip("\r\n")
+				 			blockedbouquet = blockedbouquet.replace("#SERVICE", "").replace(" ", "")
 							if blockedbouquet.startswith("#") is False and check.find(blockedbouquet) is not -1 and len(blockedbouquet) > 1:	
    								print("[BlockedContent] %s found in %s" % (blockedbouquet, check))
-								blockedcontent_found=True
+								blockedcontent_found = True
 						u.close()
         			if config.plugins.blockcontent.casesensitive.value is False:
-					blockedcontent=blockedcontent.upper()
+					blockedcontent = blockedcontent.upper()
 				if blockedcontent.startswith("#") is False and check.find(blockedcontent) is not -1 and len(blockedcontent) > 1:	
    					print("[BlockedContent] %s found in %s" % (blockedcontent, check))
-					blockedcontent_found=True
+					blockedcontent_found = True
 			f.close()
 		else:
 			print("[BlockedContent] /etc/enigma2/blockedcontent not found")
  		if self.blockedcontent_authorized != check:
-			self.blockedcontent_authorized=""
+			self.blockedcontent_authorized = ""
  		if blockedcontent_found and self.blockedcontent_authorized != check and not blockedcontent_asking:
         			if config.plugins.blockcontent.popup.value is False:
-					blockedcontent_asking=True
+					blockedcontent_asking = True
 					print("[BlockedContent] asks for PIN")
-					self.prev_running_service=serviceref
-					self.blockedcontent_check=check
+					self.prev_running_service = serviceref
+					self.blockedcontent_check = check
 					self.session.nav.stopService()
 					try:	
    						self.session.openWithCallback(self.pinEntered, PinInput, pinList=[config.plugins.blockcontent.pin.getValue()], triesEntry=self.getTriesEntry(), title=_("Please enter the correct pin code"), windowTitle=_("Enter pin code"))
 					except:
 						self.session.nav.playService(self.prev_running_service)
-						blockedcontent_asking=False
+						blockedcontent_asking = False
 						pass
         			else:
 				        self.session.open(MessageBox, _("Block Content found %s") % blockedcontent, MessageBox.TYPE_WARNING, timeout=config.plugins.blockcontent.popuptime.value)
@@ -286,13 +286,13 @@ class BlockContentCheck(Screen):
         elif not result:
 		pass
         else:
-		blockedcontent_asking=False
+		blockedcontent_asking = False
 		self.session.nav.playService(self.prev_running_service)
-		self.blockedcontent_authorized=self.blockedcontent_check
+		self.blockedcontent_authorized = self.blockedcontent_check
 
     def ReactivateBlockContent(self):
 	print("[BlockContent] reactivated")
 	global blockedcontent_deactive
-	blockedcontent_deactive=False
-	self.blockedcontent_authorized=""
-	self.blockedcontent_reactive=False
+	blockedcontent_deactive = False
+	self.blockedcontent_authorized = ""
+	self.blockedcontent_reactive = False
