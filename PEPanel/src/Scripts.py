@@ -46,7 +46,7 @@ class Scripts(Screen):
 
 	def populate_List(self):
 		if not path.exists('/usr/script'):
-			mkdir('/usr/script', 0755)
+			mkdir('/usr/script', 0o755)
 		self['lab1'].setText(_("Select a script to run:"))
 		del self.list[:]
 		f = listdir('/usr/script')
@@ -69,7 +69,7 @@ class Scripts(Screen):
 	def Run(self, answer):
 		if answer is True:
 			if not access("/usr/script/" + self.sel, X_OK):
-				chmod("/usr/script/" + self.sel, 0755)
+				chmod("/usr/script/" + self.sel, 0o755)
 			cmd1 = ". /usr/script/" + self.sel
 			self.session.open(Console, title=self.sel, cmdlist=[cmd1], closeOnSuccess=False)
 
