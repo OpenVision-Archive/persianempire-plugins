@@ -1205,7 +1205,7 @@ class TransponderList(MenuList):
 						pos=(calc_xpos(tp), 0),
 						size=(60, self.rowHight),
 						font=0, flags=RT_HALIGN_RIGHT | RT_VALIGN_TOP,
-						text =str(int(transponder.frequency) / 1000),
+						text=str(int(transponder.frequency) / 1000),
 						color=color,
 						border_width=1,
 						border_color=0x000C4E90))
@@ -1221,7 +1221,7 @@ class TransponderList(MenuList):
 						pos=(calc_xpos(tp), 0),
 						size=(60, self.rowHight),
 						font=0, flags=RT_HALIGN_RIGHT | RT_VALIGN_TOP,
-						text =str(int(transponder.symbolrate) / 1000),
+						text=str(int(transponder.symbolrate) / 1000),
 						color=color,
 						border_width=1,
 						border_color=0x000C4E90))
