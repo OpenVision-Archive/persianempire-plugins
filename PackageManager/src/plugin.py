@@ -36,7 +36,7 @@ class PackageManagerScreen(Screen):
 	<screen name="ipktoolsscreen" position="center,160" size="750,400" title="Package Manager for Open Vision">
 	<ePixmap position="20,385" zPosition="1" size="170,2" pixmap="~/images/red.png" transparent="1" alphatest="on" />
 	<ePixmap position="190,385" zPosition="1" size="230,2" pixmap="~/images/green.png" transparent="1" alphatest="on" />
-	<ePixmap position="420,385" zPosition="1" size="170,2" pixmap="~/images/yellow.png" transparent="1" alphatest="on" />	
+	<ePixmap position="420,385" zPosition="1" size="170,2" pixmap="~/images/yellow.png" transparent="1" alphatest="on" />
 	<widget source = "key_red" render="Label" position="20,358" zPosition="2" size="170,30" valign="center" halign="center" font="Regular;22" transparent="1" />
 	<widget source = "key_green" render="Label" position="190,358" zPosition="2" size="230,30" valign="center" halign="center" font="Regular;22" transparent="1" />
 	<widget source = "key_yellow" render="Label" position="420,358" zPosition="2" size="170,30" valign="center" halign="center" font="Regular;22" transparent="1" />

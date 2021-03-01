@@ -42,21 +42,21 @@ class SGMLParser(markupbase.ParserBase):
 
     def setnomoretags(self):
         """Enter literal mode (CDATA) till EOF.
-        
+
         Intended for derived classes only.
         """
         self.nomoretags = self.literal = 1
 
     def setliteral(self, *args):
         """Enter literal mode (CDATA).
-        
+
         Intended for derived classes only.
         """
         self.literal = 1
 
     def feed(self, data):
         """Feed some data to the parser.
-        
+
                 Call this as often as you want, with as little or as much text
                 as you want (may include '
         ').  (This just saves the text,
@@ -355,7 +355,7 @@ class SGMLParser(markupbase.ParserBase):
 
     def handle_entityref(self, name):
         """Handle entity references.
-        
+
         There should be no need to override this method; it can be
         tailored by setting up the self.entitydefs mapping appropriately.
         """

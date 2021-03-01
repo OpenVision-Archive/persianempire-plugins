@@ -30,7 +30,7 @@ def isRunning(pname):
 
 
 class editExportEntry(Screen, ConfigListScreen):
-	skin = """	
+	skin = """
 		<screen name="editExportEntry" position="center,center" size="560,350" title="edit Export Entry">
 			<widget name="config" position="10,10" size="540,150" scrollbarMode="showOnDemand" />
 			<widget name="ButtonGreentext" position="50,270" size="460,21" halign="left" zPosition="10" font="Regular;21" transparent="1" />

@@ -9,8 +9,8 @@ from Tools.Directories import resolveFilename, SCOPE_PLUGINS
 class DeviceInfo(Screen):
     skin = """
         <screen position="250,100" size="650,550" title="Device Info">
-          <eLabel backgroundColor="blue" position="70,50" size="420,5" zPosition="2" />	
-          <eLabel font="Regular;29" position="70,10" size="400,40" text="PE Device Information" transparent="1" zPosition="2" />	
+          <eLabel backgroundColor="blue" position="70,50" size="420,5" zPosition="2" />
+          <eLabel font="Regular;29" position="70,10" size="400,40" text="PE Device Information" transparent="1" zPosition="2" />
           <ePixmap alphatest="blend" pixmap="~/images/dev_flash.png" position="80,70" size="48,48" />
           <widget source="session.Event_Now" render="Progress" pixmap="~/images/device.png" position="160,78" size="100,15" transparent="1" borderWidth="1" borderColor="grey" zPosition="1">
            <convert type="ProgressDiskSpaceInfo">FlashInfo</convert>

@@ -21,15 +21,15 @@ by the assembler.  So for example:
                 <co_code><![CDATA[
  33           0 LOAD_FAST                0 (x)
               3 LOAD_CONST               1 (7)
-              6 BINARY_ADD          
-              7 RETURN_VALUE        
+              6 BINARY_ADD
+              7 RETURN_VALUE
                 ]]></co_code>
 and
                 <co_code><![CDATA[
  48          73 LOAD_FAST                0 (y22)
               4 LOAD_CONST               1 (324517)
-#            26 ROT_TWO  
-       ------ 6 BINARY_ADD          
+#            26 ROT_TWO
+       ------ 6 BINARY_ADD
 =========== 217 RETURN_VALUE
                 ]]></co_code>
 
