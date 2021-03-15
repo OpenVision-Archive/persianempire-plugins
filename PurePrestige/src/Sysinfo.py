@@ -18,7 +18,7 @@ from Components.ConfigList import ConfigList, ConfigListScreen
 from Components.ScrollLabel import ScrollLabel
 from Components.config import config, ConfigSubsection, ConfigInteger, ConfigSelection, ConfigText, ConfigEnableDisable, KEY_LEFT, KEY_RIGHT, KEY_0, getConfigListEntry
 from os import popen, system, path, listdir, remove
-from Screens.About import About as screenabout
+from Screens.Information import ReceiverInformation as screenabout
 from Components.About import about as compabout
 import os
 import sys

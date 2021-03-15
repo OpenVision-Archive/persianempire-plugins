@@ -16,7 +16,6 @@ from Components.ConfigList import ConfigList, ConfigListScreen
 from Components.ScrollLabel import ScrollLabel
 from Components.config import config, ConfigSubsection, ConfigInteger, ConfigSelection, ConfigText, ConfigEnableDisable, KEY_LEFT, KEY_RIGHT, KEY_0, getConfigListEntry
 from os import popen, system, path, listdir, remove
-from Screens.About import About
 import os
 import sys
 from Plugins.Extensions.PurePrestige.Console2 import *
