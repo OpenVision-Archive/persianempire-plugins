@@ -102,7 +102,7 @@ class LocaleManager(Screen, ConfigListScreen):
 		if cfg.plugins.value:
 			dirs = self.lookDirs(PLUGINS, "locale", language)
 			self.removeFiles(dirs, "locale", language)
-		if cfg.enigma.value in["delete", "move"]:
+		if cfg.enigma.value in ["delete", "move"]:
 			dirs = self.lookDirs(ENIGMA, "po", language)
 			if cfg.enigma.value == "delete":
 				self["statusbar"].setText(_("Deleting ..."))
