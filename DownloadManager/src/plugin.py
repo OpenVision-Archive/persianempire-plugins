@@ -3,7 +3,7 @@
 from Plugins.Plugin import PluginDescriptor
 from Components.Sources.List import List
 from Components.MultiContent import MultiContentEntryText, MultiContentEntryPixmapAlphaTest
-from enigma import quitMainloop, eListboxPythonMultiContent, gFont, getDesktop, getBoxType
+from enigma import quitMainloop, eListboxPythonMultiContent, gFont, getDesktop
 from Tools.LoadPixmap import LoadPixmap
 from Components.MenuList import MenuList
 from Components.Label import Label
@@ -18,6 +18,9 @@ import os
 from Components.Button import Button
 from Screens.Console import Console
 from Components.Console import Console
+from Components.SystemInfo import BoxInfo
+
+model = BoxInfo.getItem("model")
 
 
 class Ipkremove2(Screen):
@@ -130,7 +133,7 @@ class Downloads(Screen):
         self.data = []
         icount = 0
         self.data = html.splitlines()
-        self.data.append(getBoxType())
+        self.data.append(model)
         self['info'].setText('')
         self['list'].setList(self.data)
 
@@ -303,7 +306,7 @@ class Getipk(Screen):
         else:
                 name1 = self.depends[0]
                 missing = name1 + "_"
-                slist = 'cams eglibc firmware fonts gstreamer lib mips32el perl plugins python qt4 skins ' + str(getBoxType())
+                slist = 'cams eglibc firmware fonts gstreamer lib mips32el perl plugins python qt4 skins ' + model
 		source = slist.split()
                 self.found = 0
 		i = 0

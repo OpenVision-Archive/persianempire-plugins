@@ -3,7 +3,7 @@
 from Components.Label import Label
 from Components.MenuList import MenuList
 from Components.MultiContent import MultiContentEntryText
-from enigma import eListboxPythonMultiContent, eServiceCenter, gFont, eServiceReference, iServiceInformation, RT_HALIGN_RIGHT, RT_HALIGN_LEFT, RT_HALIGN_CENTER, eTimer, getBoxType, getImageVersionString
+from enigma import eListboxPythonMultiContent, eServiceCenter, gFont, eServiceReference, iServiceInformation, RT_HALIGN_RIGHT, RT_HALIGN_LEFT, RT_HALIGN_CENTER, eTimer, getImageVersionString
 from ServiceReference import ServiceReference
 from Screens.InfoBarGenerics import *
 from Screens.InfoBar import InfoBar
@@ -44,6 +44,7 @@ from Tools.Transponder import ConvertToHumanReadable
 from Components.Network import iNetwork
 import urllib2
 from Components.Console import Console
+from Components.SystemInfo import BoxInfo
 
 lang = language.getLanguage()
 environ['LANGUAGE'] = lang[:2]
@@ -1285,7 +1286,7 @@ class PEInfoTexto(Screen):
                 texto = texto + _('Instant Record Path') + ': ' + str(config.usage.instantrec_path.value) + '\n'
         if self.inicio == 3:
             texto = ''
-            texto = _('STB') + ' : ' + getBoxType() + '\n\n'
+            texto = _('STB') + ' : ' + BoxInfo.getItem("model") + '\n\n'
             texto = texto + cargaosinfo('cat /proc/cpuinfo')
         elif self.inicio == 7:
             texto = '  '

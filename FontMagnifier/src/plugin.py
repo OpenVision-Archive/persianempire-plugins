@@ -13,15 +13,13 @@ from Tools.Directories import resolveFilename, SCOPE_PLUGINS, SCOPE_LIBDIR
 from Components.Label import Label
 from Components.MenuList import MenuList
 from Screens.MessageBox import MessageBox
-from enigma import eTimer, getBoxType
+from enigma import eTimer
 from time import *
 from __init__ import _
 import os
 import xml.etree.cElementTree
 import glob
 from Components.Console import Console
-
-model = getBoxType()
 
 config.plugins.fm = ConfigSubsection()
 config.plugins.fm.display_manipulation_active = ConfigEnableDisable(default=False)
@@ -53,11 +51,6 @@ def Plugins(**kwargs):
 
 
 def main(session, **kwargs):
-        hw_type_string = model
-        hw_type_string = hw_type_string + "\n"
-        hw_type_file = open("/tmp/fontmagnifier_hw_type.txt", "w")
-        hw_type_file.write(hw_type_string)
-        hw_type_file.close()
         session.open(fmConfiguration)
 
 
@@ -709,36 +702,21 @@ class fmWaitScreen(Screen):
                     skin_user_xml_file = open("/etc/enigma2/skin_user.xml", "w")
                     skin_user_xml_text = "<skin>\n"
                     if config.plugins.fm.active.value:
-                        if model == "dm800se":
-                            skin_user_xml_text = skin_user_xml_text + "\t<screen name=\"InfoBarSummary\" position=\"0,0\" size=\"96,64\" id=\"2\">\n"
-                            skin_user_xml_text = skin_user_xml_text + "\t\t<widget font=\"Regular;%s\" halign=\"center\" position=\"1,1\" render=\"Label\" size=\"92,64\" source=\"session.CurrentService\" valign=\"center\">\n" % (config.plugins.fm.fontsize.value)
-                        else:
-                            skin_user_xml_text = skin_user_xml_text + "\t<screen name=\"InfoBarSummary\" position=\"0,0\" size=\"132,64\">\n"
-                            skin_user_xml_text = skin_user_xml_text + "\t\t<widget font=\"Regular;%s\" halign=\"center\" position=\"1,1\" render=\"Label\" size=\"128,64\" source=\"session.CurrentService\" valign=\"center\">\n" % (config.plugins.fm.fontsize.value)
+                        skin_user_xml_text = skin_user_xml_text + "\t<screen name=\"InfoBarSummary\" position=\"0,0\" size=\"132,64\">\n"
+                        skin_user_xml_text = skin_user_xml_text + "\t\t<widget font=\"Regular;%s\" halign=\"center\" position=\"1,1\" render=\"Label\" size=\"128,64\" source=\"session.CurrentService\" valign=\"center\">\n" % (config.plugins.fm.fontsize.value)
                         skin_user_xml_text = skin_user_xml_text + "\t\t\t<convert type=\"ExtendedServiceInfo\">ServiceNumber</convert>\n"
                         skin_user_xml_text = skin_user_xml_text + "\t\t</widget>\n"
                         skin_user_xml_text = skin_user_xml_text + "\t</screen>\n"
                     if config.plugins.fm.show_only_clock.value:
-                        if model == "dm800se":
-                            skin_user_xml_text = skin_user_xml_text + "\t<screen name=\"StandbySummary\" position=\"0,0\" size=\"96,64\">\n"
-                            skin_user_xml_text = skin_user_xml_text + "\t\t<widget font=\"Regular;40\" halign=\"center\" position=\"0,0\" render=\"Label\" size=\"96,64\" source=\"global.CurrentTime\" valign=\"center\">\n"
-                            skin_user_xml_text = skin_user_xml_text + "\t\t\t<convert type=\"ClockToText\">Format:%H:%M</convert>\n"
-                            skin_user_xml_text = skin_user_xml_text + "\t\t</widget>\n"
-                            skin_user_xml_text = skin_user_xml_text + "\t\t<widget position=\"6,0\" render=\"FixedLabel\" size=\"84,64\" source=\"session.RecordState\" text=\" \" zPosition=\"1\">\n"
-                            skin_user_xml_text = skin_user_xml_text + "\t\t\t<convert type=\"ConfigEntryTest\">config.usage.blinking_display_clock_during_recording,True,CheckSourceBoolean</convert>\n"
-                            skin_user_xml_text = skin_user_xml_text + "\t\t\t<convert type=\"ConditionalShowHide\">Blink</convert>\n"
-                            skin_user_xml_text = skin_user_xml_text + "\t\t</widget>\n"
-                            skin_user_xml_text = skin_user_xml_text + "\t</screen>\n"
-                        else:
-                            skin_user_xml_text = skin_user_xml_text + "\t<screen name=\"StandbySummary\" position=\"0,0\" size=\"132,64\">\n"
-                            skin_user_xml_text = skin_user_xml_text + "\t\t<widget font=\"Regular;44\" halign=\"center\" position=\"0,0\" render=\"Label\" size=\"132,64\" source=\"global.CurrentTime\" valign=\"center\">\n"
-                            skin_user_xml_text = skin_user_xml_text + "\t\t\t<convert type=\"ClockToText\">Format:%H:%M</convert>\n"
-                            skin_user_xml_text = skin_user_xml_text + "\t\t</widget>\n"
-                            skin_user_xml_text = skin_user_xml_text + "\t\t<widget position=\"6,0\" render=\"FixedLabel\" size=\"120,64\" source=\"session.RecordState\" text=\" \" zPosition=\"1\">\n"
-                            skin_user_xml_text = skin_user_xml_text + "\t\t\t<convert type=\"ConfigEntryTest\">config.usage.blinking_display_clock_during_recording,True,CheckSourceBoolean</convert>\n"
-                            skin_user_xml_text = skin_user_xml_text + "\t\t\t<convert type=\"ConditionalShowHide\">Blink</convert>\n"
-                            skin_user_xml_text = skin_user_xml_text + "\t\t</widget>\n"
-                            skin_user_xml_text = skin_user_xml_text + "\t</screen>\n"
+                        skin_user_xml_text = skin_user_xml_text + "\t<screen name=\"StandbySummary\" position=\"0,0\" size=\"132,64\">\n"
+                        skin_user_xml_text = skin_user_xml_text + "\t\t<widget font=\"Regular;44\" halign=\"center\" position=\"0,0\" render=\"Label\" size=\"132,64\" source=\"global.CurrentTime\" valign=\"center\">\n"
+                        skin_user_xml_text = skin_user_xml_text + "\t\t\t<convert type=\"ClockToText\">Format:%H:%M</convert>\n"
+                        skin_user_xml_text = skin_user_xml_text + "\t\t</widget>\n"
+                        skin_user_xml_text = skin_user_xml_text + "\t\t<widget position=\"6,0\" render=\"FixedLabel\" size=\"120,64\" source=\"session.RecordState\" text=\" \" zPosition=\"1\">\n"
+                        skin_user_xml_text = skin_user_xml_text + "\t\t\t<convert type=\"ConfigEntryTest\">config.usage.blinking_display_clock_during_recording,True,CheckSourceBoolean</convert>\n"
+                        skin_user_xml_text = skin_user_xml_text + "\t\t\t<convert type=\"ConditionalShowHide\">Blink</convert>\n"
+                        skin_user_xml_text = skin_user_xml_text + "\t\t</widget>\n"
+                        skin_user_xml_text = skin_user_xml_text + "\t</screen>\n"
 
                     skin_user_xml_text = skin_user_xml_text + "</skin>\n"
                     skin_user_xml_file.write(skin_user_xml_text)
