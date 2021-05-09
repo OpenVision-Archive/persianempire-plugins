@@ -34,7 +34,7 @@ from Applications.plugin import showPurePrestigeappscreen
 from twisted.web.client import downloadPage
 import urllib
 from GlobalActions import globalActionMap
-from keymapparser import readKeymap, removeKeymap
+from Components.ActionMap import readKeymap, removeKeymap
 from Screens.InfoBarGenerics import InfoBarPlugins
 from Components.Console import Console
 

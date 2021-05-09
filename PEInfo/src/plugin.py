@@ -10,7 +10,7 @@ from Screens.InfoBar import InfoBar
 from Components.Pixmap import Pixmap, MovingPixmap
 from Tools.LoadPixmap import LoadPixmap
 import calendar
-import keymapparser
+from Components.ActionMap import ActionMap
 from Components.Harddisk import harddiskmanager
 from RecordTimer import AFTEREVENT
 from Screens.ChoiceBox import ChoiceBox
