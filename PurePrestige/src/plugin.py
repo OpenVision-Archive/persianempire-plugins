@@ -34,7 +34,7 @@ from Applications.plugin import showPurePrestigeappscreen
 from twisted.web.client import downloadPage
 import urllib
 from GlobalActions import globalActionMap
-from Components.ActionMap import readKeymap, removeKeymap
+from Components.ActionMap import loadKeymap, removeKeymap
 from Screens.InfoBarGenerics import InfoBarPlugins
 from Components.Console import Console
 
@@ -748,7 +748,7 @@ class classScreenGrabber():
 
         ScreenGrabber_keymap = resolveFilename(SCOPE_PLUGINS, 'Extensions/PurePrestige/Stools/Moretools/ScreenGrabber/keymaps/' + rcbutton + '_keymap.xml')
         self.session = session
-        readKeymap(ScreenGrabber_keymap)
+        loadKeymap(ScreenGrabber_keymap)
         globalActionMap.actions['ShowScreenGrabber'] = self.ShowHide
 
     def ShowHide(self):
