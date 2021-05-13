@@ -4,7 +4,7 @@ from Components.ActionMap import ActionMap
 from Screens.MessageBox import MessageBox
 from Tools.Directories import fileExists
 from GlobalActions import globalActionMap
-from keymapparser import readKeymap
+from Components.ActionMap import loadKeymap
 from os import environ
 from Plugins.Plugin import PluginDescriptor
 from Screens.Screen import Screen
@@ -51,7 +51,7 @@ class QuickEmu():
 		self.Console = Console()
 		keymap = resolveFilename(SCOPE_PLUGINS, "Extensions/CamRestart/keymap.xml")
 		global globalActionMap
-		readKeymap(keymap)
+		loadKeymap(keymap)
 		globalActionMap.actions['showCamRestart'] = self.restartCam
 
 	def restartCam(self):
