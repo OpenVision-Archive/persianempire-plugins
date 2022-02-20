@@ -10,7 +10,7 @@ from Components.ActionMap import ActionMap
 from Components.Label import Label
 from Components.MenuList import MenuList
 from Components.Sources.StaticText import StaticText
-from Spinner import Spinner
+from .Spinner import Spinner
 import os
 from enigma import eTimer
 

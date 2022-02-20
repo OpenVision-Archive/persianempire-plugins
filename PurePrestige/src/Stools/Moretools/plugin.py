@@ -17,13 +17,13 @@ from Components.config import config, ConfigSubsection, ConfigInteger, ConfigSel
 from os import popen, system, path, listdir, remove
 import os
 import sys
-import crashreader
-import languageone
-import datetimechanger
-import ScreenGrabber.ScreenGrabber
+from . import crashreader
+from . import languageone
+from . import datetimechanger
+from . import ScreenGrabber.ScreenGrabber
 import Plugins.Extensions.PurePrestige.plugin
 import Plugins.Extensions.PurePrestige.Stools.plugin
-import Cronmanager.plugin
+from . import Cronmanager.plugin
 from Plugins.Extensions.PurePrestige.Stools.passresetter import *
 from Components.Console import Console
 

@@ -19,7 +19,7 @@ from Components.Sources.StaticText import StaticText
 from random import randint
 from Components.ActionMap import ActionMap
 from Components.Scanner import openFile, openList
-from picplayer import grabberPic_Thumb
+from .picplayer import grabberPic_Thumb
 from mimetypes import guess_type
 from Components.ConfigList import ConfigList, ConfigListScreen
 from Components.config import config, ConfigDirectory, ConfigSubsection, ConfigSubList, ConfigEnableDisable, ConfigNumber, ConfigText, ConfigSelection, ConfigYesNo, ConfigPassword, getConfigListEntry, configfile

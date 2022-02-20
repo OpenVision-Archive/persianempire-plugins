@@ -22,7 +22,7 @@ from Components.Label import Label
 from enigma import iPlayableService, iServiceInformation, eServiceReference, eListboxPythonMultiContent, getDesktop, gFont, loadPNG
 from Tools.LoadPixmap import LoadPixmap
 from Plugins.Extensions.PurePrestige.Console2 import *
-import download
+from . import download
 
 langpypath = resolveFilename(SCOPE_LIBDIR, 'enigma2/python/Components/Language.pyo')
 locallangpypath = resolveFilename(SCOPE_PLUGINS, 'Extensions/PurePrestige/Stools/language/Language.pyo')

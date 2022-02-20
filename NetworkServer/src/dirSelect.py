@@ -1,6 +1,6 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-from __init__ import _
+from .__init__ import _
 from Screens.Screen import Screen
 from Components.ActionMap import ActionMap
 from Components.Pixmap import Pixmap

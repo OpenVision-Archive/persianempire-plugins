@@ -30,7 +30,7 @@ import re
 import time
 import shutil
 import inspect
-from dirSelect import dirSelectDlg1
+from .dirSelect import dirSelectDlg1
 
 found_new = False
 version = '1.8.1'

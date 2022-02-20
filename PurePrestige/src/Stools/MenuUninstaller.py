@@ -12,9 +12,9 @@ from Tools.Directories import fileExists, resolveFilename, SCOPE_PLUGINS
 from Components.Button import Button
 from Components.ScrollLabel import ScrollLabel
 from Screens.MessageBox import MessageBox
-import packuninstaller
-import skinuninstaller
-import folderuninstaller
+from . import packuninstaller
+from . import skinuninstaller
+from . import folderuninstaller
 import os
 from Plugins.Extensions.PurePrestige.Console2 import *
 

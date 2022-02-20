@@ -8,11 +8,11 @@ from Components.Button import Button
 from Components.ActionMap import ActionMap
 from Components.config import *
 from Components.ConfigList import *
-from Extra.BoxInfo import BoxInfo
+from .Extra.BoxInfo import BoxInfo
 import os
 import re
 import string
-from __init__ import _
+from .__init__ import _
 from Components.Console import Console
 
 

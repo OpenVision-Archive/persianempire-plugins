@@ -22,7 +22,7 @@ from Screens.Information import ReceiverInformation as screenabout
 from Components.About import about as compabout
 import os
 import sys
-import Console2
+from . import Console2
 from Tools.LoadPixmap import LoadPixmap
 from Components.Console import Console
 

@@ -6,15 +6,15 @@ from Components.ActionMap import ActionMap
 from Tools.Directories import fileExists, resolveFilename, SCOPE_PLUGINS
 from Components.MultiContent import MultiContentEntryText, MultiContentEntryPixmapAlphaTest
 from Components.Button import Button
-from Extra.ExtrasList import ExtrasList
+from .Extra.ExtrasList import ExtrasList
 from Screens.MessageBox import MessageBox
-from Extra.Disks import Disks
-from Extra.ExtraActionBox import ExtraActionBox
-from Extra.MountPoints import MountPoints
-from HddMount import HddMount
+from .Extra.Disks import Disks
+from .Extra.ExtraActionBox import ExtraActionBox
+from .Extra.MountPoints import MountPoints
+from .HddMount import HddMount
 import os
 import sys
-from __init__ import _
+from .__init__ import _
 
 
 def PartitionEntry(description, size):

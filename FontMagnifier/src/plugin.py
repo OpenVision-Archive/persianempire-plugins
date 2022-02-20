@@ -15,7 +15,7 @@ from Components.MenuList import MenuList
 from Screens.MessageBox import MessageBox
 from enigma import eTimer
 from time import *
-from __init__ import _
+from .__init__ import _
 import os
 import xml.etree.cElementTree
 import glob

@@ -7,10 +7,10 @@ from Components.ActionMap import ActionMap
 from Components.Button import Button
 from Components.FileList import FileList
 from Components.config import config
-from Extra.ExtraActionBox import ExtraActionBox
+from .Extra.ExtraActionBox import ExtraActionBox
 import re
 import os
-from __init__ import _
+from .__init__ import _
 from Components.Ipkg import IpkgComponent
 from Screens.Ipkg import Ipkg
 from Components.Console import Console

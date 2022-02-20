@@ -50,15 +50,15 @@ from stat import ST_MTIME
 from time import *
 import string
 import sys
-from BackupRestore import BackupSelection, RestoreMenu, BackupScreen, RestoreScreen, getBackupPath, getBackupFilename
-from bitrate import Bitrate
-from HddSetup import HddSetup
-from Scripts import Scripts
-from About import AboutTeam
-from DaemonsList import DaemonsList
-from Swap import Swap
-from Addons import AddonsFileBrowser
-from __init__ import _, loadPluginSkin
+from .BackupRestore import BackupSelection, RestoreMenu, BackupScreen, RestoreScreen, getBackupPath, getBackupFilename
+from .bitrate import Bitrate
+from .HddSetup import HddSetup
+from .Scripts import Scripts
+from .About import AboutTeam
+from .DaemonsList import DaemonsList
+from .Swap import Swap
+from .Addons import AddonsFileBrowser
+from .__init__ import _, loadPluginSkin
 
 config.plugins.pepanel = ConfigSubsection()
 config.plugins.pepanel.configurationbackup = ConfigSubsection()

@@ -21,10 +21,10 @@ import urllib
 from Components.Label import Label
 from Plugins.Extensions.PurePrestige.Console2 import *
 from Tools.Notifications import AddPopup
-import pplayer
+from . import pplayer
 from enigma import eTimer, eListboxPythonMultiContent, gFont, RT_HALIGN_LEFT, RT_HALIGN_RIGHT, RT_HALIGN_CENTER, getDesktop, loadPNG, loadPic
 from Components.MultiContent import MultiContentEntryText, MultiContentEntryPixmapAlphaTest
-from SpinnerSelector.plugin import downloadScreen
+from .SpinnerSelector.plugin import downloadScreen
 try:
 	from urlparse import urlparse
 except:

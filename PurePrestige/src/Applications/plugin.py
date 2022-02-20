@@ -262,7 +262,7 @@ class showPurePrestigeappscreen(Screen):
             self.pluginurl = 'http://mfaraj57.dreamoem.net/applications/enigma2-plugin-extensions-netradiopersian.ipk'
             self.dom = 'NetRadioPersian'
             if fileExists(pluginpath):
-                from NetRadioPersian.plugin import persianMenuscrn
+                from .NetRadioPersian.plugin import persianMenuscrn
                 self.session.open(persianMenuscrn)
                 return
             self.session.openWithCallback(self.download, MessageBox, _('Application is not available,install now?'), MessageBox.TYPE_YESNO)
@@ -281,7 +281,7 @@ class showPurePrestigeappscreen(Screen):
             self.pluginurl = 'http://mfaraj57.dreamoem.net/applications/enigma2-plugin-extensions-persianlivesoccer.ipk'
             self.dom = 'PersianLiveSoccer'
             if fileExists(pluginpath):
-                from PersianLiveSoccer.plugin import psoccerbootlogo
+                from .PersianLiveSoccer.plugin import psoccerbootlogo
                 self.session.open(psoccerbootlogo)
                 return
             self.session.openWithCallback(self.download, MessageBox, _('Application is not available,install now?'), MessageBox.TYPE_YESNO)

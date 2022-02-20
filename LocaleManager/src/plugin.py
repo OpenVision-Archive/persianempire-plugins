@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 from . import _
 from Plugins.Plugin import PluginDescriptor
-import ui
+from . import ui
 
 
 def main(session, **kwargs):

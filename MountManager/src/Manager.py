@@ -11,7 +11,7 @@ from Components.config import config, ConfigSelection, getConfigListEntry
 from Components.Sources.StaticText import StaticText
 from Screens.MessageBox import MessageBox
 from Screens.Screen import Screen
-from HddMount import CheckMountDir, GetDeviceFromList, GetDevices, mountdevice
+from .HddMount import CheckMountDir, GetDeviceFromList, GetDevices, mountdevice
 
 
 class MountSetup(Screen, ConfigListScreen):

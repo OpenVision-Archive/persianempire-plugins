@@ -20,17 +20,17 @@ from Components.config import config, ConfigSubsection, ConfigInteger, ConfigSel
 from os import popen, system, path, listdir, remove
 import os
 import sys
-import Console2
+from . import Console2
 from Screens.Standby import TryQuitMainloop
 from Components.About import about
 from Components.config import config, ConfigDirectory, ConfigSubsection, ConfigSubList, ConfigEnableDisable, ConfigNumber, ConfigText, ConfigSelection, ConfigYesNo, ConfigPassword, getConfigListEntry, configfile
-import PurePrestigeAddOnsManager.plugin
-import Stools.MenuUninstaller
-import Stools.feeds
-import Applications.plugin
-from Sysinfo import showPurePrestigeinfoscreenstandard
-from Stools.plugin import showPurePrestigetoolsscreen
-from Applications.plugin import showPurePrestigeappscreen
+from . import PurePrestigeAddOnsManager.plugin
+from . import Stools.MenuUninstaller
+from . import Stools.feeds
+from . import Applications.plugin
+from .Sysinfo import showPurePrestigeinfoscreenstandard
+from .Stools.plugin import showPurePrestigetoolsscreen
+from .Applications.plugin import showPurePrestigeappscreen
 from twisted.web.client import downloadPage
 import urllib
 from GlobalActions import globalActionMap

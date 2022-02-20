@@ -8,12 +8,12 @@ from Components.ActionMap import ActionMap
 from Components.MenuList import MenuList
 from Components.Button import Button
 from Screens.MessageBox import MessageBox
-from Extra.MountPoints import MountPoints
-from Extra.ExtraMessageBox import ExtraMessageBox
+from .Extra.MountPoints import MountPoints
+from .Extra.ExtraMessageBox import ExtraMessageBox
 import os
 import sys
 import re
-from __init__ import _
+from .__init__ import _
 from Components.Console import Console
 
 

@@ -3,8 +3,8 @@
 from . import _
 from Components.config import config, ConfigSubsection, ConfigText
 from Plugins.Plugin import PluginDescriptor
-from Softcam import checkconfigdir
-from Manager import PECamManager
+from .Softcam import checkconfigdir
+from .Manager import PECamManager
 
 config.plugins.PECam = ConfigSubsection()
 config.plugins.PECam.actcam = ConfigText(default="none")
@@ -39,11 +39,11 @@ def startcam(reason, **kwargs):
 	if config.plugins.PECam.actcam.value != "none":
 		global EnigmaStart
 		if reason == 0 and not EnigmaStart:
-			from Startup import startcamonstart
+			from .Startup import startcamonstart
 			EnigmaStart = True
 			startcamonstart.start()
 		elif reason == 1:
-			from Softcam import stopcam
+			from .Softcam import stopcam
 			stopcam(config.plugins.PECam.actcam.value)
 
 

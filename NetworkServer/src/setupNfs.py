@@ -1,7 +1,7 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 from __future__ import print_function
-from __init__ import _
+from .__init__ import _
 from Screens.Screen import Screen
 from Screens.MessageBox import MessageBox
 from Components.ActionMap import ActionMap
@@ -11,7 +11,7 @@ from Components.Button import Button
 from Components.ConfigList import ConfigListScreen
 from Components.config import NoSave, ConfigEnableDisable, ConfigSelection, ConfigIP, ConfigDirectory, getConfigListEntry
 from Components.Sources.List import List
-from dirSelect import dirSelectDlg
+from .dirSelect import dirSelectDlg
 from enigma import eConsoleAppContainer
 import os
 from os import path

@@ -3,7 +3,7 @@
 from . import _
 from Components.config import config, ConfigSubsection, ConfigText, ConfigYesNo
 from Plugins.Plugin import PluginDescriptor
-from HddMount import MountHddOnStart
+from .HddMount import MountHddOnStart
 
 config.plugins.HddMount = ConfigSubsection()
 config.plugins.HddMount.MountOnStart = ConfigYesNo(default=True)
@@ -14,7 +14,7 @@ config.plugins.HddMount.SwapFile = ConfigText(default="no")
 
 
 def main(session, **kwargs):
-	from Manager import MountSetup
+	from .Manager import MountSetup
 	session.open(MountSetup)
 
 

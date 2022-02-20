@@ -18,8 +18,8 @@ from os import path, stat, rename, remove, makedirs
 from os import environ
 import os
 import gettext
-import Consolef
-import Consoleall
+from . import Consolef
+from . import Consoleall
 from Screens.Standby import TryQuitMainloop
 from Components.Label import Label
 from Components.Language import language

@@ -4,7 +4,7 @@ from enigma import *
 from Screens.Screen import Screen
 from Components.Label import Label
 from Components.ActionMap import ActionMap
-from __init__ import _
+from .__init__ import _
 
 
 class AboutTeam(Screen):

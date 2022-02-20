@@ -7,11 +7,11 @@ from Components.ActionMap import ActionMap
 from Tools.Directories import fileExists, crawlDirectory
 from Components.MultiContent import MultiContentEntryText, MultiContentEntryPixmapAlphaTest
 from Components.Button import Button
-from Extra.ExtrasList import ExtrasList
-from Extra.ExtraActionBox import ExtraActionBox
+from .Extra.ExtrasList import ExtrasList
+from .Extra.ExtraActionBox import ExtraActionBox
 import os
 import sys
-from __init__ import _
+from .__init__ import _
 from Components.Ipkg import IpkgComponent
 from Screens.Ipkg import Ipkg
 from Screens.MessageBox import MessageBox
@@ -141,13 +141,13 @@ class DaemonsList(Screen):
             if self.installed[index]:
                 if self.daemons[index][6]:
                     if self.daemons[index][6] == 'PEOpenvpn':
-                        from plugin import PEOpenvpn
+                        from .plugin import PEOpenvpn
                         self.session.open(PEOpenvpn)
                     elif self.daemons[index][6] == 'NFSServerSetup':
                         from Plugins.PLi.NFSServer.plugin import NFSServerSetup
                         self.session.open(NFSServerSetup)
                     elif self.daemons[index][6] == 'PECronMang':
-                        from plugin import PECronMang
+                        from .plugin import PECronMang
                         self.session.open(PECronMang)
                     elif self.daemons[index][6] == 'PENTPdConf':
                         self.session.open(MessageBox, _('Please visit the following Website:\nhttp://linux-fuer-alle.de/doc_show.php?docid=7\nto gain further instructions how to configure your STB as NTP-Client/Server.'), MessageBox.TYPE_INFO)

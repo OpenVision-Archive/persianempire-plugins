@@ -1,7 +1,7 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 from Plugins.Plugin import PluginDescriptor
-from SpinnerSelectionBox import *
+from .SpinnerSelectionBox import *
 from Screens.MessageBox import MessageBox
 from Screens.Standby import TryQuitMainloop
 from Components.config import config

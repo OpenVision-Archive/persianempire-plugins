@@ -14,7 +14,7 @@ from Screens.MessageBox import MessageBox
 from Screens.Screen import Screen
 from Tools.Directories import resolveFilename, SCOPE_PLUGINS
 from Tools.LoadPixmap import LoadPixmap
-from Softcam import checkconfigdir, getcamcmd, getcamscript, stopcam
+from .Softcam import checkconfigdir, getcamcmd, getcamscript, stopcam
 
 
 class PECamManager(Screen):

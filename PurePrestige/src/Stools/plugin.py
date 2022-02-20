@@ -17,16 +17,16 @@ from os import popen, system, path, listdir, remove
 import os
 import sys
 import Plugins.Extensions.PurePrestige.plugin
-import feeds
-from Moretools.ScreenGrabber.ScreenGrabber import PurePrestigeScreenGrabberSetup
-from Moretools.crashreader import CrashReader
-from Moretools.datetimechanger import PurePrestigeSetTimeChanger
-from Moretools.languageone import PurePrestigelangsScreen
-import PPFlashBackup.plugin
-import setloader
-import SetBackupRestore
-import PPrestigesatEditor.satedithd
-import PPrestigesatEditor.sateditsd
+from . import feeds
+from .Moretools.ScreenGrabber.ScreenGrabber import PurePrestigeScreenGrabberSetup
+from .Moretools.crashreader import CrashReader
+from .Moretools.datetimechanger import PurePrestigeSetTimeChanger
+from .Moretools.languageone import PurePrestigelangsScreen
+from . import PPFlashBackup.plugin
+from . import setloader
+from . import SetBackupRestore
+from . import PPrestigesatEditor.satedithd
+from . import PPrestigesatEditor.sateditsd
 from Components.Console import Console
 
 

@@ -1,6 +1,6 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-from BoxInfo import BoxInfo
+from .BoxInfo import BoxInfo
 import os
 import re
 from Tools.Directories import fileExists

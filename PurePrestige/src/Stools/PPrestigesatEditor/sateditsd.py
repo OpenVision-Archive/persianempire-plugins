@@ -28,8 +28,8 @@ except:
 	import _thread as thread
 import urllib2
 import xml.etree.cElementTree
-import satellite
-from ServiceEditor.plugin import PrestigePanelServicesEditor
+from . import satellite
+from .ServiceEditor.plugin import PrestigePanelServicesEditor
 from Plugins.Extensions.PurePrestige.Stools.setloader import PurePrestigesettingsserver
 
 

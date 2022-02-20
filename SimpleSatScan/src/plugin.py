@@ -12,7 +12,7 @@ from Screens.MessageBox import MessageBox
 from enigma import eTimer, eDVBFrontendParametersSatellite, eComponentScan, eDVBResourceManager
 from Components.Sources.FrontendStatus import FrontendStatus
 from Components.TuneTest import Tuner
-from ServiceScan import SimpleServiceScan
+from .ServiceScan import SimpleServiceScan
 
 
 class SimpleSatScan(ConfigListScreen, Screen):

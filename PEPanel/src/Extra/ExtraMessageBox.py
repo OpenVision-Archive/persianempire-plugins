@@ -7,7 +7,7 @@ from Components.MenuList import MenuList
 from Tools.Directories import fileExists, resolveFilename, SCOPE_PLUGINS
 from Components.Label import Label
 from Components.MultiContent import MultiContentEntryText, MultiContentEntryPixmapAlphaTest
-from ExtrasList import ExtrasList
+from .ExtrasList import ExtrasList
 
 
 def MessageBoxEntry(name, picture):

@@ -6,17 +6,17 @@ from Components.ActionMap import ActionMap
 from Tools.Directories import fileExists
 from Components.MultiContent import MultiContentEntryText, MultiContentEntryPixmapAlphaTest
 from Components.Button import Button
-from Extra.ExtrasList import ExtrasList
+from .Extra.ExtrasList import ExtrasList
 from Screens.MessageBox import MessageBox
-from HddPartitions import HddPartitions
-from HddInfo import HddInfo
-from Extra.Disks import Disks
-from Extra.ExtraMessageBox import ExtraMessageBox
-from Extra.ExtraActionBox import ExtraActionBox
-from Extra.MountPoints import MountPoints
+from .HddPartitions import HddPartitions
+from .HddInfo import HddInfo
+from .Extra.Disks import Disks
+from .Extra.ExtraMessageBox import ExtraMessageBox
+from .Extra.ExtraActionBox import ExtraActionBox
+from .Extra.MountPoints import MountPoints
 import os
 import sys
-from __init__ import _
+from .__init__ import _
 from Components.Console import Console
 from Tools.Directories import resolveFilename, SCOPE_PLUGINS
 

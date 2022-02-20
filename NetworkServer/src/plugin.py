@@ -1,9 +1,9 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-from __init__ import _
+from .__init__ import _
 from Plugins.Plugin import PluginDescriptor
-from setupSamba import setupSamba
-from setupNfs import setupNfs
+from .setupSamba import setupSamba
+from .setupNfs import setupNfs
 
 plugin_path = ""
 

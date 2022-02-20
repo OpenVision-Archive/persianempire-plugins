@@ -7,11 +7,11 @@ from Components.Button import Button
 from Components.Label import Label
 from Components.ConfigList import ConfigListScreen
 from Components.config import getConfigListEntry, config
-from Extra.BoxInfo import BoxInfo
+from .Extra.BoxInfo import BoxInfo
 import os
 import sys
 import re
-from __init__ import _
+from .__init__ import _
 from Components.Console import Console
 
 

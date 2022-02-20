@@ -42,8 +42,8 @@ from os import environ
 import gettext
 import os
 from Components.MultiContent import MultiContentEntryText, MultiContentEntryPixmapAlphaTest
-from BackupLocation import PurePrestigeFlashBackupBackupLocation
-from BackupStartopenTelnet import makePurePrestigeFlashBackupTelnet
+from .BackupLocation import PurePrestigeFlashBackupBackupLocation
+from .BackupStartopenTelnet import makePurePrestigeFlashBackupTelnet
 
 config.plugins.PPFlashBackup = ConfigSubsection()
 config.plugins.PPFlashBackup.backuplocation = ConfigText(default='/media/hdd/', visible_width=50, fixed_size=False)

@@ -9,7 +9,7 @@ from enigma import eServiceReference, eServiceCenter, eDVBDB, eTimer
 from Components.ChoiceList import ChoiceEntryComponent
 from Tools.BoundFunction import boundFunction
 from Tools.Directories import resolveFilename, SCOPE_CONFIG
-import BouquetProtect
+from . import BouquetProtect
 
 
 baseChannelContextMenu__init__ = None

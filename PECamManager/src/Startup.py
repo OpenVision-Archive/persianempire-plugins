@@ -3,7 +3,7 @@
 from enigma import eTimer
 from Components.config import config
 from Components.Console import Console
-from Softcam import getcamcmd
+from .Softcam import getcamcmd
 
 
 class StartCamOnStart:
