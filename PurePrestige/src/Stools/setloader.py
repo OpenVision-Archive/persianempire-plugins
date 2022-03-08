@@ -599,7 +599,7 @@ class PurePrestigeSL_ActionBox(Screen):
         self.timer.start(200, 1)
 
     def __setTitle(self):
-        if self['logo'].instance is not None:
+        if self['logo'].instance != None:
             self['logo'].instance.setPixmapFromFile(os.path.dirname(sys.modules[__name__].__file__) + '/images/download.png')
         self.setTitle(self.ctitle)
         self.timer = eTimer()
@@ -1179,7 +1179,7 @@ class PurePrestigeSL_KeepBouquets(Screen):
         self.drawList = []
         self.listAll = []
         self.bouquets = config.plugins.settingsloader.keepbouquets.value.split('|')
-        if self.listTv is not None and self.listRadio is not None:
+        if self.listTv != None and self.listRadio != None:
             for x in self.listTv:
                 if x[0] in self.bouquets:
                     self.drawList.append(self.buildListEntry(True, str(x[1]), 'TV'))

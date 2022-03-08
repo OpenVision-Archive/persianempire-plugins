@@ -64,7 +64,7 @@ class SimpleServiceScan(Screen):
 		print("ok")
 		if self["scan"].isDone():
 			if `self.currentInfobar`.endswith(".InfoBar'>"):
-				if self.currentServiceList is not None:
+				if self.currentServiceList != None:
 					self.currentServiceList.setTvMode()
 					bouquets = self.currentServiceList.getBouquetList()
 					for x in bouquets:

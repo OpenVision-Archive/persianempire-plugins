@@ -317,7 +317,7 @@ class PurePrestigeFlashBackup(Screen):
 
     def backuplocation_choosen(self, option):
         self.updateTarget()
-        if option is not None:
+        if option != None:
             config.plugins.PPFlashBackup.backuplocation.value = str(option[1])
         config.plugins.PPFlashBackup.backuplocation.save()
         config.plugins.PPFlashBackup.save()
@@ -468,7 +468,7 @@ class PurePrestigeFlashBackupUpdateCheck(Screen):
                 self.close()
 
     def exitAnswer(self, result):
-        if result is not None and result:
+        if result != None and result:
             quitMainloop(2)
         self.close()
         return

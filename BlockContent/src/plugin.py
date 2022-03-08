@@ -213,7 +213,7 @@ class BlockContentCheck(Screen):
 		description = ""
 		servicerefstr = ""
 		serviceref = self.session.nav.getCurrentlyPlayingServiceReference()
-		if serviceref is not None:
+		if serviceref != None:
 			servicerefstr = serviceref.toString()
       	 		serviceHandler = eServiceCenter.getInstance()
 			info = serviceHandler.info(serviceref)
@@ -223,7 +223,7 @@ class BlockContentCheck(Screen):
 	                service = self.session.nav.getCurrentService()
 	                info = service and service.info()
         	        event = info and info.getEvent(0)
-                	if event is not None:
+                	if event != None:
                         	curEvent = parseEvent(event)
                       		begin = curEvent[0]
             			end = curEvent[1]

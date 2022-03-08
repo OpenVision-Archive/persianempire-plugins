@@ -73,7 +73,7 @@ class PurePrestigeConsole2(Screen):
             str += '\n' + _('Execution finished!!')
             self['text'].setText(str)
             self['text'].lastPage()
-            if self.finishedCallback is not None and not retval:
+            if self.finishedCallback != None and not retval:
                 self.finishedCallback()
             if not retval and self.closeOnSuccess:
                 self.cancel()

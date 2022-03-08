@@ -164,7 +164,7 @@ class PurePrestigeFlashBackupBackupLocation(Screen, HelpableScreen):
 
     def updateTarget(self):
         currFolder = self.getPreferredFolder()
-        if currFolder is not None:
+        if currFolder != None:
             self['target'].setText(''.join((currFolder, self.filename)))
         else:
             self['target'].setText(_('Invalid Location'))
@@ -236,8 +236,8 @@ class PurePrestigeFlashBackupBackupLocation(Screen, HelpableScreen):
             pass
         else:
             return
-        if currentFolder is not None:
-            if self.minFree is not None:
+        if currentFolder != None:
+            if self.minFree != None:
                 try:
                     s = os.statvfs(currentFolder)
                     if s.f_bavail * s.f_bsize / 314572800 > self.minFree:

@@ -106,17 +106,17 @@ class Lamedb():
                     puffer.append('%s\n' % service['name'])
                     tmp = ''
                     cacheIDs = service.get('cacheIDs', None)
-                    if cacheIDs is not None:
+                    if cacheIDs != None:
                         for cacheID in cacheIDs:
                             tmp += ',c:' + cacheID
 
                     caIDs = service.get('caIDs', None)
-                    if caIDs is not None:
+                    if caIDs != None:
                         for caID in caIDs:
                             tmp += ',C:' + caID
 
                     flags = service.get('flags', None)
-                    if flags is not None and int(flags, 16) != 0:
+                    if flags != None and int(flags, 16) != 0:
                         tmp += ',f:' + flags
                     puffer.append('p:%s%s\n' % (service['provider'], tmp))
 

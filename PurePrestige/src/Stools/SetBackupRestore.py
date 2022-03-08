@@ -418,7 +418,7 @@ class PurePrestigeBackupSettingsScrean(Screen):
 
     def backuplocation_choosen(self, option):
         oldpath = config.plugins.configurationbackup.backuplocation.getValue()
-        if option is not None:
+        if option != None:
             config.plugins.configurationbackup.backuplocation.value = str(option[1])
         config.plugins.configurationbackup.backuplocation.save()
         config.plugins.configurationbackup.save()

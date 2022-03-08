@@ -103,7 +103,7 @@ class PageElement(object):
         if isinstance(newChild, basestring) and not isinstance(newChild, NavigableString):
             newChild = NavigableString(newChild)
         position = min(position, len(self.contents))
-        if hasattr(newChild, 'parent') and newChild.parent is not None:
+        if hasattr(newChild, 'parent') and newChild.parent != None:
             if newChild.parent is self:
                 index = self.index(newChild)
                 if index > position:
@@ -251,7 +251,7 @@ class PageElement(object):
 
     def nextGenerator(self):
         i = self
-        while i is not None:
+        while i != None:
             i = i.next
             yield i
 
@@ -259,7 +259,7 @@ class PageElement(object):
 
     def nextSiblingGenerator(self):
         i = self
-        while i is not None:
+        while i != None:
             i = i.nextSibling
             yield i
 
@@ -267,7 +267,7 @@ class PageElement(object):
 
     def previousGenerator(self):
         i = self
-        while i is not None:
+        while i != None:
             i = i.previous
             yield i
 
@@ -275,7 +275,7 @@ class PageElement(object):
 
     def previousSiblingGenerator(self):
         i = self
-        while i is not None:
+        while i != None:
             i = i.previousSibling
             yield i
 
@@ -283,7 +283,7 @@ class PageElement(object):
 
     def parentGenerator(self):
         i = self
-        while i is not None:
+        while i != None:
             i = i.parent
             yield i
 
@@ -638,7 +638,7 @@ class Tag(PageElement):
             return
         else:
             current = self.contents[0]
-            while current is not None:
+            while current != None:
                 next = current.next
                 if isinstance(current, Tag):
                     del current.contents[:]
@@ -814,7 +814,7 @@ class SoupStrainer():
     def _matches(self, markup, matchAgainst):
         result = False
         if matchAgainst is True:
-            result = markup is not None
+            result = markup != None
         elif callable(matchAgainst):
             result = matchAgainst(markup)
         else:
@@ -1101,7 +1101,7 @@ class BeautifulStoneSoup(Tag, SGMLParser):
             if (not p or p.name == name) and not isNestable:
                 popTo = name
                 break
-            if nestingResetTriggers is not None and p.name in nestingResetTriggers or nestingResetTriggers is None and isResetNesting and p.name in self.RESET_NESTING_TAGS:
+            if nestingResetTriggers != None and p.name in nestingResetTriggers or nestingResetTriggers is None and isResetNesting and p.name in self.RESET_NESTING_TAGS:
                 popTo = p.name
                 inclusive = False
                 break
@@ -1319,7 +1319,7 @@ class BeautifulSoup(BeautifulStoneSoup):
         if httpEquiv and contentType:
             match = self.CHARSET_RE.search(contentType)
             if match:
-                if self.declaredHTMLEncoding is not None or self.originalEncoding == self.fromEncoding:
+                if self.declaredHTMLEncoding != None or self.originalEncoding == self.fromEncoding:
 
                     def rewrite(match):
                         return match.group(1) + '%SOUP-ENCODING%'
@@ -1585,7 +1585,7 @@ class UnicodeDammit():
         if not xml_encoding_match and isHTML:
             regexp = re.compile('<\\s*meta[^>]+charset=([^>]*?)[;\'">]', re.I)
             xml_encoding_match = regexp.search(xml_data)
-        if xml_encoding_match is not None:
+        if xml_encoding_match != None:
             xml_encoding = xml_encoding_match.groups()[0].lower()
             if isHTML:
                 self.declaredHTMLEncoding = xml_encoding

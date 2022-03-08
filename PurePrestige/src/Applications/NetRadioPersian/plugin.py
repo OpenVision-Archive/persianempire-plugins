@@ -465,7 +465,7 @@ class persianplayingscrn(Screen):
     def __evUpdatedInfo(self):
         sTitle = ''
         currPlay = self.session.nav.getCurrentService()
-        if currPlay is not None:
+        if currPlay != None:
             sTitle = currPlay.info().getInfoString(iServiceInformation.sTagTitle)
         self['titel'].setText(sTitle)
         return

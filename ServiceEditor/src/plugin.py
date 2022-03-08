@@ -135,7 +135,7 @@ class ConfigCall(ConfigBoolean):
 	def handleKey(self, key):
 		if key in [KEY_LEFT, KEY_RIGHT]:
 			print_cy("ConfigCall")
-			if self.fnc is not None:
+			if self.fnc != None:
 				self.fnc()
 
 
@@ -171,14 +171,14 @@ class ServiceEditor(Screen, ConfigListScreen):
 		self.servicePCMDelay = "0000"
 		self.serviceSubtitle = "0000"
 
-		if self.service is not None:
+		if self.service != None:
 			self.serviceName = self.service["name"]
 			self.serviceProvider = self.service["provider"]
 			self.serviceFlags = self.service.get("flags", "0")
 			self.serviceSid = self.service["sid"]
 			self.serviceType = self.service["type"]
 			cacheIDs = self.service.get("cacheIDs", None)
-			if cacheIDs is not None:
+			if cacheIDs != None:
 				for x in cacheIDs:
 					pidtype = int(x[:-4], 16)
 					pid = x[-4:]
@@ -239,7 +239,7 @@ class ServiceEditor(Screen, ConfigListScreen):
 	def createConfig(self):
 		utk = self.service["usk"][:16]
 		tp = self.database.get(utk, None)
-		if tp is not None:
+		if tp != None:
 			freq = tp["frequency"]
 			if self.service["usk"][:4].lower() == "eeee":
 				freq = "%s.%s" % (freq[:-6], freq[-6:-3])
@@ -457,7 +457,7 @@ class Newscaster(HTMLComponent, GUIComponent):
 		self.mylist[1][1] = self.offset
 		tmp = []
 		for x in self.mylist:
-			if x is not None and len(x) > 1:
+			if x != None and len(x) > 1:
 				tmp.append(tuple(x))
 			else:
 				tmp.append(x)
@@ -471,7 +471,7 @@ class Newscaster(HTMLComponent, GUIComponent):
 			png=self.type_pixmap,))
 		tmp = []
 		for x in res:
-			if x is not None and len(x) > 1:
+			if x != None and len(x) > 1:
 				tmp2 = []
 				for y in x:
 					tmp2.append(y)
@@ -694,7 +694,7 @@ class ServicesEditor(Screen):
 			self["head"].l.setSelectionClip(eRect(0, 0, 0, 0))
 
 		self.initSort()
-		if self.usk is not None:
+		if self.usk != None:
 			for idx in xrange(len(self.newServiceList)):
 				if self.newServiceList[idx][0] == self.usk:
 					self["list"].instance.moveSelectionTo(idx)
@@ -735,7 +735,7 @@ class ServicesEditor(Screen):
 				self["head"].l.setSelectionClip(eRect(x0, data_c[0], x1 - x0, data_c[4]), True)
 			else:
 				self["head"].l.setSelectionClip(eRect(0, 0, 0, 0), True)
-		elif self["head"].getCurrent() is not None:
+		elif self["head"].getCurrent() != None:
 			self["head"].l.setSelectionClip(eRect(0, 0, 0, 0))
 
 	def right(self):
@@ -851,7 +851,7 @@ class ServicesEditor(Screen):
 		provider = self.cur_service["provider"]
 		flags = self.cur_service.get("flags", "0")
 		tp = self.database.get(utk, None)
-		if tp is not None:
+		if tp != None:
 			freq = tp["frequency"]
 			if self.usk[:4].lower() == "ffff":
 				sym = tp["symbol_rate"]
@@ -946,7 +946,7 @@ class ServicesEditor(Screen):
 		spid = "----"
 		vtype = "----"
 
-		if cacheIDs is not None:
+		if cacheIDs != None:
 			for x in cacheIDs:
 				pidtype = int(x[:-4], 16)
 				pid = x[-4:]

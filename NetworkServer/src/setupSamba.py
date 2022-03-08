@@ -111,21 +111,21 @@ class setupSamba(Screen, ConfigListScreen):
 
 		confError = False
 		tmp = getAttribute('/etc/samba/smb.conf', 'global', 'server string')
-		if tmp is not None:
+		if tmp != None:
 			serverString = tmp
 		else:
 			serverString = 'READERROR server string'
 			confError = True
 
 		tmp = getAttribute('/etc/samba/smb.conf', 'global', 'netbios name')
-		if tmp is not None:
+		if tmp != None:
 			netbiosName = tmp
 		else:
 			netbiosName = 'READERROR netbios name'
 			confError = True
 
 		tmp = getAttribute('/etc/samba/smb.conf', 'global', 'workgroup')
-		if tmp is not None:
+		if tmp != None:
 			workgroup = tmp
 		else:
 			workgroup = 'READERROR workgroup'

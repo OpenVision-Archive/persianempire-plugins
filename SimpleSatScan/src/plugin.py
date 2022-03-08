@@ -77,7 +77,7 @@ class SimpleSatScan(ConfigListScreen, Screen):
 		self.service = session and session.nav.getCurrentService()
 		self.feinfo = None
 		frontendData = None
-		if self.service is not None:
+		if self.service != None:
 			self.feinfo = self.service.frontendInfo()
 			frontendData = self.feinfo and self.feinfo.getAll(True)
 
@@ -170,7 +170,7 @@ class SimpleSatScan(ConfigListScreen, Screen):
 
 	def tune(self, transponder):
 		if self.initcomplete:
-			if transponder is not None and self.tuner is not None:
+			if transponder != None and self.tuner != None:
 				self.tuner.tune(transponder)
 
 	def retune(self, configElement):
@@ -279,7 +279,7 @@ class SimpleSatScan(ConfigListScreen, Screen):
 			(fec == 8 and "4/5") or (fec == 9 and "9/10") or (fec == 15 and "None") or "Unknown"
 
 	def updateTranspondersList(self, orbpos):
-		if orbpos is not None:
+		if orbpos != None:
 			index = 0
 			list = []
 			tps = nimmanager.getTransponders(orbpos)
@@ -401,7 +401,7 @@ class SimpleSatScan(ConfigListScreen, Screen):
 			"fec_s2": eDVBFrontendParametersSatellite.FEC_9_10,
 			"modulation": eDVBFrontendParametersSatellite.Modulation_QPSK}
 
-		if frontendData is not None:
+		if frontendData != None:
 			ttype = frontendData.get("tuner_type", "UNKNOWN")
 			if ttype == "DVB-S":
 				defaultSat["system"] = frontendData.get("system", eDVBFrontendParametersSatellite.System_DVB_S)

@@ -218,7 +218,7 @@ class setupNfs(Screen, ConfigListScreen):
 
 		self.exportlist = []
 		data = self.readExports()
-		if data is not None:
+		if data != None:
 			for line in data:
 				exportDir = line[0]
 				client = line[1]

@@ -122,14 +122,14 @@ class PrestigePanelServiceEditor(Screen, ConfigListScreen):
         self.serviceAC3Delay = '0000'
         self.servicePCMDelay = '0000'
         self.serviceSubtitle = '0000'
-        if self.service is not None:
+        if self.service != None:
             self.serviceName = self.service['name']
             self.serviceProvider = self.service['provider']
             self.serviceFlags = self.service.get('flags', '0')
             self.serviceSid = self.service['sid']
             self.serviceType = self.service['type']
             cacheIDs = self.service.get('cacheIDs', None)
-            if cacheIDs is not None:
+            if cacheIDs != None:
                 for x in cacheIDs:
                     pidtype = int(x[:-4], 16)
                     pid = x[-4:]
@@ -308,7 +308,7 @@ class Laufschrift(HTMLComponent, GUIComponent):
             self.mylist[1][1] = self.offset
             tmp = []
             for x in self.mylist:
-                if x is not None and len(x) > 1:
+                if x != None and len(x) > 1:
                     tmp.append(tuple(x))
                 else:
                     tmp.append(x)
@@ -321,7 +321,7 @@ class Laufschrift(HTMLComponent, GUIComponent):
         res.append(MultiContentEntryPixmapAlphaTest(pos=(0, 0), size=(97, 24), png=self.type_pixmap))
         tmp = []
         for x in res:
-            if x is not None and len(x) > 1:
+            if x != None and len(x) > 1:
                 tmp2 = []
                 for y in x:
                     tmp2.append(y)
@@ -539,7 +539,7 @@ class PrestigePanelServicesEditor(Screen):
                 self['head'].l.setSelectionClip(eRect(x0, data_c[0], x1 - x0, data_c[4]), True)
             else:
                 self['head'].l.setSelectionClip(eRect(0, 0, 0, 0), True)
-        elif self['head'].l.getCurrentSelection() is not None:
+        elif self['head'].l.getCurrentSelection() != None:
             self['head'].l.setSelectionClip(eRect(0, 0, 0, 0))
         return
 
@@ -639,7 +639,7 @@ class PrestigePanelServicesEditor(Screen):
         provider = self.cur_service['provider']
         flags = self.cur_service.get('flags', '0')
         tp = self.database.get(utk, None)
-        if tp is not None:
+        if tp != None:
             freq = tp['frequency']
             if self.usk[:4].lower() == 'ffff':
                 sym = tp['symbol_rate']
@@ -703,7 +703,7 @@ class PrestigePanelServicesEditor(Screen):
         pcmdelay = '----'
         spid = '----'
         vtype = '----'
-        if cacheIDs is not None:
+        if cacheIDs != None:
             for x in cacheIDs:
                 pidtype = int(x[:-4], 16)
                 pid = x[-4:]

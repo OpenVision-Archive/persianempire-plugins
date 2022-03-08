@@ -1944,7 +1944,7 @@ class SatEditor(Screen, ConfigListScreen):
 		Screen.__init__(self, session)
 		self.satelliteData = satelliteData
 		self.satelliteOrientation = "east"
-		if self.satelliteData is not None:
+		if self.satelliteData != None:
 			self.satelliteName = self.satelliteData.get("name", "new satellite")
 			satellitePosition = int(self.satelliteData.get("position", "0"))
 			if satellitePosition < 0:
@@ -2023,7 +2023,7 @@ class Head(HTMLComponent, GUIComponent):
 
 	def setEntries(self, data=None):
 		res = [None]
-		if data is not None:
+		if data != None:
 			for x in data:
 				res.append(MultiContentEntryText(
 					pos=(x[0], 0),
@@ -2469,11 +2469,11 @@ class SatellitesEditor(Screen):
 				y = Transponder(y).exportClean()
 				transponder = xml.etree.cElementTree.SubElement(satellite, "transponder", y)
 				transponder.tail = "\n\t\t"
-			if transponder is not None:
+			if transponder != None:
 				transponder.tail = "\n\t"
-		if transponder is not None:
+		if transponder != None:
 			transponder.tail = "\n\t"
-		if satellite is not None:
+		if satellite != None:
 			satellite.tail = "\n"
 
 		tree = xml.etree.cElementTree.ElementTree(root)
@@ -2571,16 +2571,16 @@ class SatellitesEditor(Screen):
 		print("finishedSatImport")
 		if result is None:
 			return
-		if result is not None and len(result):
+		if result != None and len(result):
 			for satelliteSrc in result:
 				posSrc = satelliteSrc[0].get("position", None)
 				print("posSrc")
-				if posSrc is not None:
+				if posSrc != None:
 					for satelliteDst in self.satelliteslist:
 						print(satelliteDst[0].get("position", None))
 						if satelliteDst[0].get("position", None) == posSrc:
 							satelliteDst[1].extend(satelliteSrc[1])
-							if satelliteDst[0].get("name", "new Satellite").find("new Satellite") != -1 and satelliteSrc[0].get("name", None) is not None:
+							if satelliteDst[0].get("name", "new Satellite").find("new Satellite") != -1 and satelliteSrc[0].get("name", None) != None:
 								satelliteDst[0].update({"name": satelliteSrc[0].get("name")})
 							print("extended:", posSrc)
 							break

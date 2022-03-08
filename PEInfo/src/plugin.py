@@ -333,7 +333,7 @@ def cargaosinfo(orden, nulo=False):
         except:
             pass
 
-        if booklist is not None:
+        if booklist != None:
             for oneline in booklist:
                 ret = ret + oneline
 
@@ -385,7 +385,7 @@ class PEInfoTexto(Screen):
         self['key_pup'] = Label('')
         self['key_pdown'] = Label('')
         service = session.nav.getCurrentService()
-        if service is not None:
+        if service != None:
             self.info = service.info()
             self.feinfo = service.frontendInfo()
         else:
@@ -559,7 +559,7 @@ class PEInfoTexto(Screen):
             ret = ''
             for x in root.findall('menu'):
                 y = x.find('id')
-                if y is not None:
+                if y != None:
                     id = y.get('val')
                     if id and id == 'setup':
                         for j in x:
@@ -648,7 +648,7 @@ class PEInfoTexto(Screen):
                 dei = self.session.open(MessageBox, _('Error !'), MessageBox.TYPE_ERROR)
                 dei.setTitle(_('PEInfo'))
 
-            if newbooklist is not None:
+            if newbooklist != None:
                 newbooklist.write(cadena)
                 for i in lalista:
                     newbooklist.write(str(i[0]) + '')
@@ -726,19 +726,19 @@ class PEInfoTexto(Screen):
         root = xmdom.getroot()
         for x in root.findall('menu'):
             y = x.find('id')
-            if y is not None:
+            if y != None:
                 id = y.get('val')
                 ret = ret + str(id) + '\n'
                 if id and id == 'setup':
                     for j in x.findall('menu'):
                         m = j.find('id')
-                        if m is not None:
+                        if m != None:
                             id2 = m.get('val')
                             ret = ret + str(id2) + '\n'
                             if id2 and id2 == 'system':
                                 for j2 in j.findall('menu'):
                                     m2 = j2.find('id')
-                                    if m2 is not None:
+                                    if m2 != None:
                                         id3 = m2.get('val')
                                         ret = ret + str(id3) + '\n'
                                         if id3 and id3 == nombreid:
@@ -753,12 +753,12 @@ class PEInfoTexto(Screen):
         root = xmdom.getroot()
         for x in root.findall('menu'):
             y = x.find('id')
-            if y is not None:
+            if y != None:
                 id = y.get('val')
                 if id and id == 'setup':
                     for j in x.findall('menu'):
                         m = j.find('id')
-                        if m is not None:
+                        if m != None:
                             id2 = m.get('val')
                             if id2 and id2 == nombreid:
                                 self.session.infobar = self
@@ -826,7 +826,7 @@ class PEInfoTexto(Screen):
             booklist = None
             booklist = open('/tmp/tempinfo1', 'r')
             temparray = []
-            if booklist is not None:
+            if booklist != None:
                 for oneline in booklist:
                     temparray.append(oneline)
 
@@ -914,7 +914,7 @@ class PEInfoTexto(Screen):
             booklist = None
             booklist = open(archivo, 'r')
             temparray = []
-            if booklist is not None:
+            if booklist != None:
                 for oneline in booklist:
                     temparray.append(oneline)
 
@@ -1111,11 +1111,11 @@ class PEInfoTexto(Screen):
 
     def readSatXml(self):
         satXml = parse('/etc/tuxbox/satellites.xml').getroot()
-        if satXml is not None:
+        if satXml != None:
             for sat in satXml.findall('sat'):
                 name = sat.get('name') or None
                 position = sat.get('position') or None
-                if name is not None and position is not None:
+                if name != None and position != None:
                     position = '%s.%s' % (position[:-1], position[-1:])
                     if position.startswith('-'):
                         position = '%sW' % position[1:]
@@ -1130,7 +1130,7 @@ class PEInfoTexto(Screen):
     def getOrbitalPosition(self, info):
         transponderData = info.getInfoObject(iServiceInformation.sTransponderData)
         orbital = 0
-        if transponderData is not None:
+        if transponderData != None:
             if isinstance(transponderData, float):
                 return ''
             if 'tuner_type' in transponderData:

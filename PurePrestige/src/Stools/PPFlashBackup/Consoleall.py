@@ -60,7 +60,7 @@ class Consoleall(Screen):
             str += _('Execution finished!!')
             self['text'].setText(str)
             self['text'].lastPage()
-            if self.finishedCallback is not None:
+            if self.finishedCallback != None:
                 self.finishedCallback()
             if not retval and self.closeOnSuccess:
                 self.cancel()

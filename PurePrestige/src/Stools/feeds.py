@@ -301,7 +301,7 @@ class PurePrestigeFeedreaderMenuMain(Screen):
 
     def go(self):
         selection = self['menu'].getCurrent()
-        if selection is not None:
+        if selection != None:
             cmd = selection[1]
             if cmd is 'feed_delete':
                 if self.selectedfeed:
@@ -463,7 +463,7 @@ class PurePrestigeFeedScreenContent(Screen):
         i = self['mylist'].getSelectedIndex()
         self.currentindex = i
         selection = self['mylist'].l.getCurrentSelection()
-        if selection is not None:
+        if selection != None:
             item = self.itemlist[i]
             if item['type'].startswith('folder') is True:
                 newitem = Feed(item['title'], item['desc'], item['link'])
@@ -524,7 +524,7 @@ class PurePrestigeFeedScreenItemviewer(Screen):
     def gofill(self):
         i = self.currentindex
         selection = self.itemlist
-        if selection is not None:
+        if selection != None:
             item = self.itemlist[i]
             self.item = item
             self.filllist()

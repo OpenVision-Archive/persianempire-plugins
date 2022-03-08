@@ -61,7 +61,7 @@ class PictureScreen(Screen):
         self.ShowPicture()
 
     def ShowPicture(self):
-        if self.path is not None:
+        if self.path != None:
             self.PicLoad.setPara([self['myPic'].instance.size().width(),
              self['myPic'].instance.size().height(),
              self.Scale[0],
@@ -73,7 +73,7 @@ class PictureScreen(Screen):
         return
 
     def DecodePicture(self, PicInfo=''):
-        if self.path is not None:
+        if self.path != None:
             ptr = self.PicLoad.getData()
             self['myPic'].instance.setPixmap(ptr)
         return

@@ -48,7 +48,7 @@ class Consolef(Screen):
             str += _('Execution finished!!')
             self['text'].setText(str)
             self['text'].lastPage()
-            if self.finishedCallback is not None:
+            if self.finishedCallback != None:
                 self.finishedCallback()
                 try:
                     self.cancel()
