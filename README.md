@@ -1,3 +1,3 @@
-persianempire-plugins [![Build Status](https://travis-ci.org/OpenVisionE2/persianempire-plugins.svg?branch=master)](https://travis-ci.org/OpenVisionE2/persianempire-plugins) [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
+persianempire-plugins [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0) [![persianempireplugins](https://github.com/OpenVision-Archive/persianempire-plugins/actions/workflows/persianempireplugins.yml/badge.svg)](https://github.com/OpenVision-Archive/persianempire-plugins/actions/workflows/persianempireplugins.yml) [![ovbot](https://github.com/OpenVision-Archive/persianempire-plugins/actions/workflows/ovbot.yml/badge.svg)](https://github.com/OpenVision-Archive/persianempire-plugins/actions/workflows/ovbot.yml)
 =====================
 Persian Empire plugins for Open Vision

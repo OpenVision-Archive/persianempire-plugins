@@ -14,11 +14,15 @@ commit_files() {
   rm -rf *.pyo
   rm -rf *.mo
   git checkout master
-  ./PEP8.sh
+  ./CI/chmod.sh
+  ./CI/dos2unix.sh
+  ./CI/PEP8.sh
+  ./CI/futurize.sh
+  ./CI/header.sh
 }
 
 upload_files() {
-  git remote add upstream https://${GH_TOKEN}@github.com/OpenVisionE2/persianempire-plugins.git > /dev/null 2>&1
+  git remote add upstream https://${GITHUB_TOKEN}@github.com/OpenVision-Archive/persianempire-plugins.git > /dev/null 2>&1
   git push --quiet upstream master || echo "failed to push with error $?"
 }
 
