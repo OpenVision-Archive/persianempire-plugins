@@ -642,7 +642,7 @@ class DreamCCAuto():
         except:
             return
 
-        if clist != None:
+        if clist is not None:
             for line in clist:
                 current = line
 

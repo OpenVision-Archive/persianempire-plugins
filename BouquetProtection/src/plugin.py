@@ -41,7 +41,7 @@ def newChannelContextMenu__init__(self, session, csel):
 	current = csel.getCurrentSelection()
 	current_root = csel.getRoot()
 	if not (current_root and current_root.getPath().find('FROM BOUQUET "bouquets.') != -1):
-		inBouquet = csel.getMutableList() != None
+		inBouquet = csel.getMutableList() is not None
 		if not (current.flags & (eServiceReference.isMarker | eServiceReference.isDirectory)):
 			if inBouquet and config.BouquetProtect.enabled.value in ('bouq'):
 				if not csel.hidden_shown:

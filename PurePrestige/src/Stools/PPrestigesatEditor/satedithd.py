@@ -499,7 +499,7 @@ class SatcoDX(PrestigePanelSatelliteImport):
                     href = satellite_raw[0].replace('href=', '').strip()
                     satellite = satellite_raw[1].split('<b>')[1].split('/>')[0].split('</a>')[0].strip()
                     tmp = href.split('/')
-                    if len(tmp) == 3 and tmp[1].isdigit() and tmp[2] == u'eng' and satellite != None:
+                    if len(tmp) == 3 and tmp[1].isdigit() and tmp[2] == u'eng' and satellite is not None:
                         pos_raw = satellite.split()
                         pos_raw = pos_raw[len(pos_raw) - 1]
                         pos_raw = pos_raw.split('-')
@@ -2068,7 +2068,7 @@ class PrestigePanelSatEditor(Screen, ConfigListScreen):
         Screen.__init__(self, session)
         self.satelliteData = satelliteData
         self.satelliteOrientation = 'east'
-        if self.satelliteData != None:
+        if self.satelliteData is not None:
             self.satelliteName = self.satelliteData.get('name', 'new satellite')
             satellitePosition = int(self.satelliteData.get('position', '0'))
             if satellitePosition < 0:
@@ -2147,7 +2147,7 @@ class Head(HTMLComponent, GUIComponent):
 
     def setEntries(self, data=None):
         res = [None]
-        if data != None:
+        if data is not None:
             for x in data:
                 res.append(MultiContentEntryText(pos=(x[0], 0), size=(x[1], 24), font=0, flags=RT_HALIGN_CENTER | RT_VALIGN_TOP, text=x[2], color=12632256, backcolor=625428280, color_sel=16777215, backcolor_sel=627073024, border_width=1, border_color=15792383))
         self.l.setList([res])
@@ -2561,12 +2561,12 @@ class PrestigePanelSatellitesEditor(Screen):
                 transponder = xml.etree.cElementTree.SubElement(satellite, 'transponder', y)
                 transponder.tail = '\n\t\t'
 
-            if transponder != None:
+            if transponder is not None:
                 transponder.tail = '\n\t'
 
-        if transponder != None:
+        if transponder is not None:
             transponder.tail = '\n\t'
-        if satellite != None:
+        if satellite is not None:
             satellite.tail = '\n'
         tree = xml.etree.cElementTree.ElementTree(root)
         os.rename('/etc/tuxbox/satellites.xml', '/etc/tuxbox/satellites.xml.' + str(int(time.time())))
@@ -2727,16 +2727,16 @@ class PrestigePanelSatellitesEditor(Screen):
         if result is None:
             return
         else:
-            if result != None and len(result):
+            if result is not None and len(result):
                 for satelliteSrc in result:
                     posSrc = satelliteSrc[0].get('position', None)
                     print('posSrc')
-                    if posSrc != None:
+                    if posSrc is not None:
                         for satelliteDst in self.satelliteslist:
                             print(satelliteDst[0].get('position', None))
                             if satelliteDst[0].get('position', None) == posSrc:
                                 satelliteDst[1].extend(satelliteSrc[1])
-                                if satelliteDst[0].get('name', 'new Satellite').find('new Satellite') != -1 and satelliteSrc[0].get('name', None) != None:
+                                if satelliteDst[0].get('name', 'new Satellite').find('new Satellite') != -1 and satelliteSrc[0].get('name', None) is not None:
                                     satelliteDst[0].update({'name': satelliteSrc[0].get('name')})
                                 print('extended:', posSrc)
                                 break

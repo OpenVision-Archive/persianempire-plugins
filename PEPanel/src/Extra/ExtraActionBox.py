@@ -23,7 +23,7 @@ class ExtraActionBox(Screen):
         self.timer.start(200, 1)
 
     def __setTitle(self):
-        if self['logo'].instance != None:
+        if self['logo'].instance is not None:
             self['logo'].instance.setPixmapFromFile(resolveFilename(SCOPE_PLUGINS, 'SystemPlugins/PEPanel/pictures/run.png'))
         self.setTitle(self.ctitle)
         self.timer = eTimer()

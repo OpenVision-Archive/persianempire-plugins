@@ -308,7 +308,7 @@ class PEMeteoMain(Screen):
         self.session.openWithCallback(self.goSelect, InputBox, title=msg, windowTitle='Change city', text='Tehran')
 
     def goSelect(self, city):
-        if city != None:
+        if city is not None:
             self.session.openWithCallback(self.updateInfo, BhMeteoSelectCity, city)
 
 

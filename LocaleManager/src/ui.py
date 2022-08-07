@@ -171,6 +171,6 @@ class LocaleManager(Screen, ConfigListScreen):
 						inhibitDirs=self.inhibitDirs, minFree=10)
 
 	def targetDirSelected(self, res):
-		if res != None:
+		if res is not None:
 			cfg.target.value = res
 			self["statusbar"].setText("%s" % res)

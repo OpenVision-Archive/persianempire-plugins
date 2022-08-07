@@ -783,7 +783,7 @@ class PESubMenu(Screen):
         self.backupdirs = ' '.join(config.plugins.pepanel.configurationbackup.backupdirs.value)
 
     def backuplocation_choosen(self, option):
-        if option != None:
+        if option is not None:
             config.plugins.pepanel.configurationbackup.backuplocation.value = str(option[1])
         config.plugins.pepanel.configurationbackup.backuplocation.save()
         config.plugins.pepanel.configurationbackup.save()
@@ -1294,7 +1294,7 @@ class PEStatusListMenu(Screen):
             print('[PEPanel] stopswap not confirmed')
         else:
             cur_swap = self.checkSwap()
-            if cur_swap[0] != None:
+            if cur_swap[0] is not None:
                 swapfile = cur_swap[0] + '/swapfile'
                 stopcmd = 'echo ' + _('stopping swap for ') + swapfile + ' && swapoff ' + swapfile + ' && rm -rf ' + swapstarter + ' ' + swapfile + ' && free && echo ' + _('swapfile was deleted successfully')
                 self.session.open(Console, title=_('Create SwapFile'), cmdlist=[stopcmd])
@@ -1977,12 +1977,12 @@ class PEDVBNTPTime(Screen):
 
     def autostartntpchecknetwork(self, callback=None):
         self.session.open(MessageBox, _('Check Network status.\nPlease wait...'), MessageBox.TYPE_INFO, timeout=10)
-        if callback != None:
+        if callback is not None:
             self.NotifierCallback = callback
         iNetwork.checkNetworkState(self.checkNetworkCBautontp)
 
     def checkNetworkCBautontp(self, data):
-        if data != None:
+        if data is not None:
             if data <= 2:
                 PEDVBNTPTime.NetworkConnectionAvailable = True
                 self.session.openWithCallback(self.autostartntpcheck, MessageBox, _('Restart Enigma 2 for automatic NTP-Server check on startup (on/off) ?'), MessageBox.TYPE_YESNO)
@@ -2105,12 +2105,12 @@ class PEDVBNTPTime(Screen):
         self.session.open(MessageBox, _('DVB Time setting aborted:\n\n%s') % reason, MessageBox.TYPE_ERROR)
 
     def startnetworkcheck(self, callback=None):
-        if callback != None:
+        if callback is not None:
             self.NotifierCallback = callback
         iNetwork.checkNetworkState(self.checkNetworkCB)
 
     def checkNetworkCB(self, data):
-        if data != None:
+        if data is not None:
             if data <= 2:
                 PEDVBNTPTime.NetworkConnectionAvailable = True
                 self.container = eConsoleAppContainer()
@@ -2176,12 +2176,12 @@ class NTPStartup(Screen):
         self.TimerPEDVBNTPTimeStartup.start(3000, True)
 
     def startnetworkcheckntp(self, callback=None):
-        if callback != None:
+        if callback is not None:
             self.NotifierCallback = callback
         iNetwork.checkNetworkState(self.checkNetworkCBntp)
 
     def checkNetworkCBntp(self, data):
-        if data != None:
+        if data is not None:
             if data <= 2:
                 PEDVBNTPTime.NetworkConnectionAvailable = True
                 self.TimerPEDVBNTPTimeStartup.stop()
@@ -3543,7 +3543,7 @@ class ECMBluePanel(Screen):
         videosize = 'N/A'
         myserviceinfo = ''
         myservice = self.session.nav.getCurrentService()
-        if myservice != None:
+        if myservice is not None:
             myserviceinfo = myservice.info()
             if self.session.nav.getCurrentlyPlayingServiceReference():
                 name = ServiceReference(self.session.nav.getCurrentlyPlayingServiceReference()).getServiceName()
@@ -3715,7 +3715,7 @@ class PEPacketManager(Screen, NumericalTextInput):
 
     def keyNumberGlobal(self, val):
         key = self.getKey(val)
-        if key != None:
+        if key is not None:
             keyvalue = key.encode('utf-8')
             if len(keyvalue) == 1:
                 self.setNextIdx(keyvalue[0])
@@ -3742,7 +3742,7 @@ class PEPacketManager(Screen, NumericalTextInput):
 
     def exit(self):
         self.ipkg.stop()
-        if self.Console != None:
+        if self.Console is not None:
             if len(self.Console.appContainers):
                 for name in self.Console.appContainers.keys():
                     self.Console.kill(name)
@@ -4175,7 +4175,7 @@ class PasswdScreen(Screen):
         self.session.openWithCallback(self.VirtualKeyBoardTextEntry, VirtualKeyBoard, title=_('Enter your password here:'), text=self.password)
 
     def VirtualKeyBoardTextEntry(self, callback=None):
-        if callback != None and len(callback):
+        if callback is not None and len(callback):
             self.buildList(callback)
 
     def setWindowTitle(self, title=None):

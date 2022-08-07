@@ -1300,11 +1300,11 @@ class WeatherPluginMenu(Screen):
 		 self.working = False
 
 	def ShowsearchBarracuda(self, cmd):
-		if cmd != None:
+		if cmd is not None:
 			self.session.open(WeatherSelectCity, cmd)
 
 	def ShowsearchBarracuda2(self, cmd):
-		if cmd != None:
+		if cmd is not None:
 			self.session.open(WeatherCityInfobar, cmd)
 
         def reed(self):
@@ -1699,7 +1699,7 @@ class SetupIcons(Screen):
         return text
 
     def ShowsearchBarracuda(self, cmd):
-	    if cmd != None:
+	    if cmd is not None:
                             localfile = resolveFilename(SCOPE_PLUGINS, "Extensions/QuickWeather/weathericons.cfg")
 		            temp_file = open(localfile, "w")
                             temp_file.write(cmd)

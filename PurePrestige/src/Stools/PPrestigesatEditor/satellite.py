@@ -223,7 +223,7 @@ class NewPrestigesatEditor(Screen, HelpableScreen):
         self['info'].setText('To edit satellite.xml,select satellites to be included,then Save')
 
     def cbDownloadError(self, error):
-        if error != None:
+        if error is not None:
             print('[PrestigesatEditor] error downloading satellite file:', str(error.getErrorMessage()))
             self.session.open(MessageBox, _('Unable to download satellite file. Please try again later.\n%s') % str(error.getErrorMessage()), MessageBox.TYPE_ERROR)
             self['info'].setText('To edit satellite.xml,select satellites to be included,then save')
