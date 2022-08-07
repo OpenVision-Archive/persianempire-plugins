@@ -139,7 +139,7 @@ class LocaleManager(Screen, ConfigListScreen):
 				try:
 					self.osSystem("rm -R %s" % (path))
 				except:
-					print("[LocaleManager] error", path				)
+					print("[LocaleManager] error", path)
 		self["statusbar"].setText(_("Removed"))
 
 	def moveEnigmaFiles(self, dirs, language):
