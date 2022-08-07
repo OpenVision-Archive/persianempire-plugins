@@ -1,6 +1,4 @@
-#!/usr/bin/python
 # -*- coding: utf-8 -*-
-from __future__ import print_function
 from Components.ActionMap import *
 from Components.Label import Label
 from Components.MenuList import MenuList

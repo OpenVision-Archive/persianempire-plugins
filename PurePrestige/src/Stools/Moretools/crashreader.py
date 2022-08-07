@@ -1,6 +1,4 @@
-#!/usr/bin/python
 # -*- coding: utf-8 -*-
-from __future__ import print_function
 from struct import pack
 from enigma import *
 from Screens.Screen import Screen

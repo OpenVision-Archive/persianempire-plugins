@@ -1,4 +1,3 @@
-#!/usr/bin/python
 # -*- coding: utf-8 -*-
 from os import environ
 from gettext import bindtextdomain, dgettext, gettext

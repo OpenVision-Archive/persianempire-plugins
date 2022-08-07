@@ -1,6 +1,4 @@
-#!/usr/bin/python
 # -*- coding: utf-8 -*-
-from __future__ import print_function
 from os import mkdir, path, remove
 from Components.config import config
 from Components.Console import Console

@@ -1,6 +1,4 @@
-#!/usr/bin/python
 # -*- coding: utf-8 -*-
-from __future__ import print_function
 from enigma import ePicLoad, eTimer, getDesktop
 from Plugins.Plugin import PluginDescriptor
 from Screens.Screen import Screen

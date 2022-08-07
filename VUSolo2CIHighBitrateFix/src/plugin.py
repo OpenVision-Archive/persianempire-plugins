@@ -1,6 +1,4 @@
-#!/usr/bin/python
 # -*- coding: utf-8 -*-
-from __future__ import print_function
 import enigma
 from enigma import eTimer, eDVBCI_UI, eDVBCIInterfaces, iServiceInformation
 from Plugins.Plugin import PluginDescriptor

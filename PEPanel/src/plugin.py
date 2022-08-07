@@ -1,6 +1,4 @@
-#!/usr/bin/python
 # -*- coding: utf-8 -*-
-from __future__ import print_function
 from Screens.Information import ReceiverInformation as About
 from Screens.ChannelSelection import *
 from Screens.ChoiceBox import ChoiceBox
