@@ -17,7 +17,7 @@ def _(txt):
 
 
 class Ipkinstall(Screen):
-    skin = '\n\t\t<screen position="center,center" size="550,400" title=" " >\n\t\t\t<!--widget name="text" position="0,0" size="550,25" font="Regular;20" /-->\n\t\t\t<widget name="list" position="10,0" size="500,350" scrollbarMode="showOnDemand" />\n\t\t\t<!--widget name="pixmap" position="200,0" size="190,250" /-->\n\t\t\t<eLabel position="70,100" zPosition="-1" size="100,69" backgroundColor="#222222" />\n\t\t\t<widget name="info" position="100,230" zPosition="4" size="300,25" font="Regular;18" foregroundColor="#ffffff" transparent="1" halign="center" valign="center" />\n\t\t</screen>'
+    skin = '\n\t\t<screen position="center,center" size="550,400" title=" " >\n\t\t\t<!--widget name="text" position="0,0" size="550,25" font="Regular;20" /-->\n\t\t\t<widget name="list" position="10,0" size="500,350" scrollbarMode="showOnDemand" />\n\t\t\t<!--widget name="pixmap" position="200,0" size="190,250" /-->\n\t\t\t<eLabel position="70,100" zPosition="-1" size="100,69" backgroundColor="#222222" />\n\t\t\t<widget name="info" position="100,230" zPosition="4" size="300,25" font="Regular;18" foregroundColor="#ffffff" transparent="1" horizontalAlignment="center" verticalAlignment="center" />\n\t\t</screen>'
 
     def __init__(self, session):
         self.skin = Ipkinstall.skin
@@ -74,7 +74,7 @@ class Ipkinstall(Screen):
 
 
 class Getipk(Screen):
-    skin = '\n\t\t<screen position="80,70" size="600,470" title="Install status" >\n\t\t\t<!--widget name="text" position="0,0" size="550,25" font="Regular;20" /-->\n\t\t\t<widget name="list" position="10,0" size="590,400" scrollbarMode="showOnDemand" />\n\t\t\t<!--widget name="pixmap" position="200,0" size="190,250" /-->\n\t\t\t<eLabel position="70,100" zPosition="-1" size="100,69" backgroundColor="#222222" />\n\t\t\t<widget name="info" position="100,420" zPosition="4" size="300,25" font="Regular;18" foregroundColor="#ffffff" transparent="1" halign="center" valign="center" />\n\t\t</screen>'
+    skin = '\n\t\t<screen position="80,70" size="600,470" title="Install status" >\n\t\t\t<!--widget name="text" position="0,0" size="550,25" font="Regular;20" /-->\n\t\t\t<widget name="list" position="10,0" size="590,400" scrollbarMode="showOnDemand" />\n\t\t\t<!--widget name="pixmap" position="200,0" size="190,250" /-->\n\t\t\t<eLabel position="70,100" zPosition="-1" size="100,69" backgroundColor="#222222" />\n\t\t\t<widget name="info" position="100,420" zPosition="4" size="300,25" font="Regular;18" foregroundColor="#ffffff" transparent="1" horizontalAlignment="center" verticalAlignment="center" />\n\t\t</screen>'
 
     def __init__(self, session, ipk):
         self.skin = Getipk.skin

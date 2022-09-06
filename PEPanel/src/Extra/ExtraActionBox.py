@@ -7,7 +7,7 @@ from Tools.Directories import resolveFilename, SCOPE_PLUGINS
 
 
 class ExtraActionBox(Screen):
-    skin = '\n\t<screen name="ExtraActionBox" position="360,325" size="560,70" title=" ">\n\t\t<widget alphatest="on" name="logo" position="10,10" size="48,48" transparent="1" zPosition="2"/>\n\t\t<widget font="Regular;20" halign="center" name="message" position="60,10" size="490,48" valign="center"/>\n\t</screen>'
+    skin = '\n\t<screen name="ExtraActionBox" position="360,325" size="560,70" title=" ">\n\t\t<widget alphaTest="on" name="logo" position="10,10" size="48,48" transparent="1" zPosition="2"/>\n\t\t<widget font="Regular;20" horizontalAlignment="center" name="message" position="60,10" size="490,48" verticalAlignment="center"/>\n\t</screen>'
 
     def __init__(self, session, message, title, action):
         self.skin = ExtraActionBox.skin

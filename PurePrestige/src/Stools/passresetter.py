@@ -11,7 +11,7 @@ import os
 
 
 class passreset(Screen):
-    skin = '\n\t\t<screen position="center,center" size="250,120" title="PurePrestige-Password reset" >\n\t\t<widget name="buttonred" position="10,60" size="120,40" backgroundColor="red" valign="center" halign="center" zPosition="2"  foregroundColor="white" font="Regular;18"/>\n\t\t\n\t\t<widget name="buttongreen" position="130,60" size="120,40" backgroundColor="green" valign="center" halign="center" zPosition="2"  foregroundColor="white" font="Regular;18"/>\n\t\t\n\t\t</screen>'
+    skin = '\n\t\t<screen position="center,center" size="250,120" title="PurePrestige-Password reset" >\n\t\t<widget name="buttonred" position="10,60" size="120,40" backgroundColor="red" verticalAlignment="center" horizontalAlignment="center" zPosition="2"  foregroundColor="white" font="Regular;18"/>\n\t\t\n\t\t<widget name="buttongreen" position="130,60" size="120,40" backgroundColor="green" verticalAlignment="center" horizontalAlignment="center" zPosition="2"  foregroundColor="white" font="Regular;18"/>\n\t\t\n\t\t</screen>'
 
     def __init__(self, session):
         Screen.__init__(self, session)

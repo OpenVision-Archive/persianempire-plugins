@@ -76,7 +76,7 @@ class mylist(MenuList):
 
 
 class navibar_config1(Screen, ConfigListScreen, HelpableScreen):
-    skin = '\n\t\t<screen position="center,center" size="800,455" title="NaviBarPE Setup">\n\t\t\t<widget name="config" position="25,5" size="750,125" scrollbarMode="showOnDemand" />\n\t\t\t<eLabel position="0,138" size="800,3" zPosition="10" backgroundColor="#aaaaaa"/>\n\t\t\t<widget name="config2" position="5,145" size="610,245" scrollbarMode="showOnDemand" />\n\t\t\t<widget name="label_green" position="180,429" size="120,39" zPosition="2" backgroundColor="#404040" font="Regular;20"/>\n\t\t\t<widget name="label_red" position="375,429" size="120,39" zPosition="2" backgroundColor="#404040" font="Regular;20"/>\n\t\t\t<widget name="label_blue" position="260,429" size="160,39" zPosition="2" backgroundColor="#404040" font="Regular;20"/>\n\t\t\t<widget name="balken" position="10,425" size="800,30" valign="center" backgroundColor="#404040" font="Regular;20"/>\n\t\t\t<widget name="config3" position="620,145" size="180,245" scrollbarMode="showOnDemand" />\n\t\t\t<widget name="descrip2" position="10,395" valign="center" halign="left" zPosition="2" size="610,24" backgroundColor="#404040" font="Regular;20" />\n                \t<widget name="pic_red" pixmap="~/images/button_red.png" zPosition="3" position="340,427" size="35,25" alphatest="blend" />\n                \t<widget name="pic_green" pixmap="~/images/button_green.png" position="145,427" size="35,25" alphatest="blend" />\n                \t<widget name="pic_blue" pixmap="~/images/button_blue.png" position="220,427" zPosition="2" size="35,25" alphatest="blend" />\n\t\t\t<widget name="ok" position="620,427" size="35,25" pixmap="~/images/button_ok.png" zPosition="2" alphatest="blend" />\n                        <widget name="info" position="580,427" size="35,25" pixmap="~/images/button_info.png" zPosition="2" alphatest="blend" />\n\t\t\t<widget name="pvr" position="500,427" size="35,25" pixmap="~/images/button_pvr.png" zPosition="2" alphatest="blend" />\n                        <widget name="menu" position="540,427" size="35,25" pixmap="~/images/button_menu.png" zPosition="2" alphatest="blend" />\n\t\t\t<ePixmap  position="660,427" size="35,25" pixmap="~/images/button_bouquet.png" alphatest="blend" />\n\t\t\t<ePixmap  position="730,427" size="35,25" pixmap="~/images/button_help.png" alphatest="blend" />\n\t\t</screen>'
+    skin = '\n\t\t<screen position="center,center" size="800,455" title="NaviBarPE Setup">\n\t\t\t<widget name="config" position="25,5" size="750,125" scrollbarMode="showOnDemand" />\n\t\t\t<eLabel position="0,138" size="800,3" zPosition="10" backgroundColor="#aaaaaa"/>\n\t\t\t<widget name="config2" position="5,145" size="610,245" scrollbarMode="showOnDemand" />\n\t\t\t<widget name="label_green" position="180,429" size="120,39" zPosition="2" backgroundColor="#404040" font="Regular;20"/>\n\t\t\t<widget name="label_red" position="375,429" size="120,39" zPosition="2" backgroundColor="#404040" font="Regular;20"/>\n\t\t\t<widget name="label_blue" position="260,429" size="160,39" zPosition="2" backgroundColor="#404040" font="Regular;20"/>\n\t\t\t<widget name="balken" position="10,425" size="800,30" verticalAlignment="center" backgroundColor="#404040" font="Regular;20"/>\n\t\t\t<widget name="config3" position="620,145" size="180,245" scrollbarMode="showOnDemand" />\n\t\t\t<widget name="descrip2" position="10,395" verticalAlignment="center" horizontalAlignment="left" zPosition="2" size="610,24" backgroundColor="#404040" font="Regular;20" />\n                \t<widget name="pic_red" pixmap="~/images/button_red.png" zPosition="3" position="340,427" size="35,25" alphaTest="blend" />\n                \t<widget name="pic_green" pixmap="~/images/button_green.png" position="145,427" size="35,25" alphaTest="blend" />\n                \t<widget name="pic_blue" pixmap="~/images/button_blue.png" position="220,427" zPosition="2" size="35,25" alphaTest="blend" />\n\t\t\t<widget name="ok" position="620,427" size="35,25" pixmap="~/images/button_ok.png" zPosition="2" alphaTest="blend" />\n                        <widget name="info" position="580,427" size="35,25" pixmap="~/images/button_info.png" zPosition="2" alphaTest="blend" />\n\t\t\t<widget name="pvr" position="500,427" size="35,25" pixmap="~/images/button_pvr.png" zPosition="2" alphaTest="blend" />\n                        <widget name="menu" position="540,427" size="35,25" pixmap="~/images/button_menu.png" zPosition="2" alphaTest="blend" />\n\t\t\t<ePixmap  position="660,427" size="35,25" pixmap="~/images/button_bouquet.png" alphaTest="blend" />\n\t\t\t<ePixmap  position="730,427" size="35,25" pixmap="~/images/button_help.png" alphaTest="blend" />\n\t\t</screen>'
 
     def __init__(self, session, plugin_path):
         Screen.__init__(self, session)
@@ -681,8 +681,8 @@ class navi_wall(Screen):
         start_pagebar = int(ok) / 2
         for x in range(1, len(self.mainlist) + 1):
             normal = 572
-            skincontent += '<widget name="page' + str(x) + '" position="' + str(start_pagebar) + ',' + str(normal) + '" size="18,18" zPosition="2" transparent="1" alphatest="blend" />'
-            skincontent += '<widget name="page_sel' + str(x) + '" position="' + str(start_pagebar) + ',' + str(normal) + '" size="18,18" zPosition="2" transparent="1" alphatest="blend" />'
+            skincontent += '<widget name="page' + str(x) + '" position="' + str(start_pagebar) + ',' + str(normal) + '" size="18,18" zPosition="2" transparent="1" alphaTest="blend" />'
+            skincontent += '<widget name="page_sel' + str(x) + '" position="' + str(start_pagebar) + ',' + str(normal) + '" size="18,18" zPosition="2" transparent="1" alphaTest="blend" />'
             start_pagebar += 30
 
         posx = 25
@@ -694,10 +694,10 @@ class navi_wall(Screen):
             elif x == 21 or x == 41 or x == 61 or x == 81 or x == 101:
                 posx = 25
                 posy = 20
-            skincontent += '<widget name="zeile' + str(x) + '" position="' + str(posx) + ',' + str(posy) + '" size="100,100" zPosition="2" transparent="1" alphatest="blend" />'
+            skincontent += '<widget name="zeile' + str(x) + '" position="' + str(posx) + ',' + str(posy) + '" size="100,100" zPosition="2" transparent="1" alphaTest="blend" />'
             posx += 135
 
-        self.skin = '<screen position="center,center" size="700,600" flags="wfNoBorder" backgroundColor="' + self.color + '" title=""><eLabel position="0,55" zPosition="0" size="1280,120" backgroundColor="' + self.color + '" /><widget name="frame" position="0,0" size="110,115" pixmap="~/images/sel.png" zPosition="5" alphatest="blend" /><widget name="info" position="0,535" size="700,30" valign="center" halign="center" zPosition="10" font="Regular;' + self.fontsize + '" transparent="1" backgroundColor="#000000" /><widget name="disc" position="0,378" size="610,20" valign="center" halign="center" zPosition="10" font="Regular;19" transparent="1" />' + skincontent + '</screen>'
+        self.skin = '<screen position="center,center" size="700,600" flags="wfNoBorder" backgroundColor="' + self.color + '" title=""><eLabel position="0,55" zPosition="0" size="1280,120" backgroundColor="' + self.color + '" /><widget name="frame" position="0,0" size="110,115" pixmap="~/images/sel.png" zPosition="5" alphaTest="blend" /><widget name="info" position="0,535" size="700,30" verticalAlignment="center" horizontalAlignment="center" zPosition="10" font="Regular;' + self.fontsize + '" transparent="1" backgroundColor="#000000" /><widget name="disc" position="0,378" size="610,20" verticalAlignment="center" horizontalAlignment="center" zPosition="10" font="Regular;19" transparent="1" />' + skincontent + '</screen>'
         Screen.__init__(self, session)
         self['frame'] = MovingPixmap()
         self['info'] = Label('')
@@ -1031,8 +1031,8 @@ class navi_bar(Screen):
         start_pagebar = int(ok) / 2
         for x in range(1, len(self.mainlist) + 1):
             normal = 150
-            skincontent += '<widget name="page' + str(x) + '" position="' + str(start_pagebar) + ',' + str(normal) + '" size="18,18" zPosition="2" transparent="1" alphatest="blend" />'
-            skincontent += '<widget name="page_sel' + str(x) + '" position="' + str(start_pagebar) + ',' + str(normal) + '" size="18,18" zPosition="2" transparent="1" alphatest="blend" />'
+            skincontent += '<widget name="page' + str(x) + '" position="' + str(start_pagebar) + ',' + str(normal) + '" size="18,18" zPosition="2" transparent="1" alphaTest="blend" />'
+            skincontent += '<widget name="page_sel' + str(x) + '" position="' + str(start_pagebar) + ',' + str(normal) + '" size="18,18" zPosition="2" transparent="1" alphaTest="blend" />'
             start_pagebar += 30
 
         posx = 50
@@ -1040,10 +1040,10 @@ class navi_bar(Screen):
         for x in range(1, len(self.pluginlist) + 1):
             if x == 10 or x == 19 or x == 28 or x == 37 or x == 46 or x == 55 or x == 64 or x == 73 or x == 82 or x == 91:
                 posx = 50
-            skincontent += '<widget name="zeile' + str(x) + '" position="' + str(posx) + ',' + str(posy) + '" size="100,100" zPosition="2" transparent="1" alphatest="blend" />'
+            skincontent += '<widget name="zeile' + str(x) + '" position="' + str(posx) + ',' + str(posy) + '" size="100,100" zPosition="2" transparent="1" alphaTest="blend" />'
             posx += 135
 
-        self.skin = '<screen position="center,' + self.placesize + '" size="1280,200" flags="wfNoBorder" backgroundColor="transparent" title=""><eLabel position="0,55" zPosition="0" size="1280,120" backgroundColor="' + self.color + '" /><widget name="frame" position="0,0" size="110,115" pixmap="~/images/sel.png" zPosition="5" alphatest="blend" /><widget name="info" position="0,115" size="1280,30" valign="center" halign="center" zPosition="10" font="Regular;' + self.fontsize + '" transparent="1" backgroundColor="#000000" /><widget name="disc" position="0,378" size="610,20" valign="center" halign="center" zPosition="10" font="Regular;19" transparent="1" />' + skincontent + '</screen>'
+        self.skin = '<screen position="center,' + self.placesize + '" size="1280,200" flags="wfNoBorder" backgroundColor="transparent" title=""><eLabel position="0,55" zPosition="0" size="1280,120" backgroundColor="' + self.color + '" /><widget name="frame" position="0,0" size="110,115" pixmap="~/images/sel.png" zPosition="5" alphaTest="blend" /><widget name="info" position="0,115" size="1280,30" verticalAlignment="center" horizontalAlignment="center" zPosition="10" font="Regular;' + self.fontsize + '" transparent="1" backgroundColor="#000000" /><widget name="disc" position="0,378" size="610,20" verticalAlignment="center" horizontalAlignment="center" zPosition="10" font="Regular;19" transparent="1" />' + skincontent + '</screen>'
         Screen.__init__(self, session)
         self['frame'] = MovingPixmap()
         self['info'] = Label('')

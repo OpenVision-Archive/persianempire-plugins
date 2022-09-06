@@ -86,11 +86,11 @@ class setupSamba(Screen, ConfigListScreen):
 			<widget name="config" position="10,10" size="540,150" scrollbarMode="showOnDemand" />
 			<widget name="smbdLabel" position="20,160" size="520,30" font="Regular;21"/>
 			<widget name="nmbdLabel" position="20,190" size="520,30" font="Regular;21"/>
-			<widget name="ButtonGreentext" position="50,270" size="460,21" halign="left" zPosition="10" font="Regular;21" transparent="1" />
-			<widget name="ButtonGreen" pixmap="buttons/button_green.png" position="30,273" zPosition="10" size="15,16" transparent="1" alphatest="on" />
-			<widget name="ButtonRedtext" position="50,300" size="460,21" halign="left" zPosition="10" font="Regular;21" transparent="1" />
-			<widget name="ButtonRed" pixmap="buttons/button_red.png" position="30,303" zPosition="10" size="15,16" transparent="1" alphatest="on" />
-			<ePixmap pixmap="bottombar.png" position="10,250" size="540,120" zPosition="1" transparent="1" alphatest="on" />
+			<widget name="ButtonGreentext" position="50,270" size="460,21" horizontalAlignment="left" zPosition="10" font="Regular;21" transparent="1" />
+			<widget name="ButtonGreen" pixmap="buttons/button_green.png" position="30,273" zPosition="10" size="15,16" transparent="1" alphaTest="on" />
+			<widget name="ButtonRedtext" position="50,300" size="460,21" horizontalAlignment="left" zPosition="10" font="Regular;21" transparent="1" />
+			<widget name="ButtonRed" pixmap="buttons/button_red.png" position="30,303" zPosition="10" size="15,16" transparent="1" alphaTest="on" />
+			<ePixmap pixmap="bottombar.png" position="10,250" size="540,120" zPosition="1" transparent="1" alphaTest="on" />
 		</screen>"""
 
 	def __init__(self, session, iface, plugin_path):

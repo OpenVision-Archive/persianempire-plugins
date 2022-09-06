@@ -213,13 +213,13 @@ HDSkn = False
 class WeatherPluginScreen2(Screen):
 	skin = """
 	    <screen position="center,center" size="230,245" zPosition="3" backgroundColor="#ff000000" flags="wfNoBorder">
-            <widget name="zastavka" position="0,0" size="230,245" zPosition="2" transparent="1" alphatest="on" />
-            <widget name="lab1" position="24,25" halign="center" size="180,20" zPosition="4" font="Regular;20" foregroundColor="#00ffcc33" backgroundColor="#30000000" valign="top" transparent="1" />
-            <widget name="City" position="24,48" halign="center" size="180,18" zPosition="4" font="Regular;16" foregroundColor="#00ffcc33" backgroundColor="#30000000" valign="top" transparent="1" />
-            <widget name="Icons now" position="67,66" size="138,95" zPosition="3" transparent="1" alphatest="on" />
-            <widget name="Wind icons" position="24,106" size="50,50" zPosition="3" transparent="1" alphatest="on" />
-            <widget name="Temp now" position="24,77" halign="left" size="80,30" zPosition="4" font="Regular;27" valign="top" backgroundColor="#00000000" transparent="1" />
-            <widget name="Description now" position="24,150" halign="center" size="180,80" zPosition="4" font="Regular;18" valign="top" backgroundColor="#00000000" transparent="1" />
+            <widget name="zastavka" position="0,0" size="230,245" zPosition="2" transparent="1" alphaTest="on" />
+            <widget name="lab1" position="24,25" horizontalAlignment="center" size="180,20" zPosition="4" font="Regular;20" foregroundColor="#00ffcc33" backgroundColor="#30000000" verticalAlignment="top" transparent="1" />
+            <widget name="City" position="24,48" horizontalAlignment="center" size="180,18" zPosition="4" font="Regular;16" foregroundColor="#00ffcc33" backgroundColor="#30000000" verticalAlignment="top" transparent="1" />
+            <widget name="Icons now" position="67,66" size="138,95" zPosition="3" transparent="1" alphaTest="on" />
+            <widget name="Wind icons" position="24,106" size="50,50" zPosition="3" transparent="1" alphaTest="on" />
+            <widget name="Temp now" position="24,77" horizontalAlignment="left" size="80,30" zPosition="4" font="Regular;27" verticalAlignment="top" backgroundColor="#00000000" transparent="1" />
+            <widget name="Description now" position="24,150" horizontalAlignment="center" size="180,80" zPosition="4" font="Regular;18" verticalAlignment="top" backgroundColor="#00000000" transparent="1" />
 	    </screen>"""
 
 	def __init__(self, session):
@@ -236,19 +236,19 @@ class WeatherPluginScreen2(Screen):
 class WeatherPluginScreen(Screen):
 	skin = """
 	    <screen position="center,center" size="230,415" zPosition="3" backgroundColor="#ff000000" flags="wfNoBorder">
-            <widget name="zastavka" position="0,0" size="230,415" zPosition="2" transparent="1" alphatest="on" />
-            <widget name="lab1" position="24,25" halign="center" size="180,20" zPosition="4" font="Regular;20" foregroundColor="#00ffcc33" backgroundColor="#30000000" valign="top" transparent="1" />
-            <widget name="City" position="24,48" halign="center" size="180,18" zPosition="4" font="Regular;16" foregroundColor="#00ffcc33" backgroundColor="#30000000" valign="top" transparent="1" />
-            <widget name="Icons now" position="67,66" size="138,95" zPosition="3" transparent="1" alphatest="on" />
-            <widget name="Wind icons" position="24,106" size="50,50" zPosition="3" transparent="1" alphatest="on" />
-            <widget name="Temp now" position="24,77" halign="left" size="80,30" zPosition="4" font="Regular;27" valign="top" backgroundColor="#00000000" transparent="1" />
-            <widget name="Description now" position="24,150" halign="center" size="180,80" zPosition="4" font="Regular;18" valign="top" backgroundColor="#00000000" transparent="1" />
-            <widget name="Date of tomorrow" position="24,229" halign="center" size="180,20" zPosition="4" foregroundColor="#00ffcc33" backgroundColor="#30000000" font="Regular;20" valign="top" transparent="1" />
-            <widget name="Icons tomorrow" position="117,260" size="87,60" zPosition="3" transparent="1" alphatest="on" />
-            <widget name="Description tomorrow" position="24,252" halign="left" size="180,60" zPosition="4" font="Regular;16" valign="top" backgroundColor="#00000000" transparent="1" />
-            <widget name="day after tomorrow" position="24,312" halign="center" size="180,20" zPosition="4" foregroundColor="#00ffcc33" backgroundColor="#30000000" font="Regular;20" valign="top" transparent="1" />
-            <widget name="Icons2" position="117,340" size="87,60" zPosition="3" transparent="1" alphatest="on" />
-            <widget name="Description2" position="24,333" halign="left" size="180,60" zPosition="4" font="Regular;16" valign="top" backgroundColor="#00000000" transparent="1" />
+            <widget name="zastavka" position="0,0" size="230,415" zPosition="2" transparent="1" alphaTest="on" />
+            <widget name="lab1" position="24,25" horizontalAlignment="center" size="180,20" zPosition="4" font="Regular;20" foregroundColor="#00ffcc33" backgroundColor="#30000000" verticalAlignment="top" transparent="1" />
+            <widget name="City" position="24,48" horizontalAlignment="center" size="180,18" zPosition="4" font="Regular;16" foregroundColor="#00ffcc33" backgroundColor="#30000000" verticalAlignment="top" transparent="1" />
+            <widget name="Icons now" position="67,66" size="138,95" zPosition="3" transparent="1" alphaTest="on" />
+            <widget name="Wind icons" position="24,106" size="50,50" zPosition="3" transparent="1" alphaTest="on" />
+            <widget name="Temp now" position="24,77" horizontalAlignment="left" size="80,30" zPosition="4" font="Regular;27" verticalAlignment="top" backgroundColor="#00000000" transparent="1" />
+            <widget name="Description now" position="24,150" horizontalAlignment="center" size="180,80" zPosition="4" font="Regular;18" verticalAlignment="top" backgroundColor="#00000000" transparent="1" />
+            <widget name="Date of tomorrow" position="24,229" horizontalAlignment="center" size="180,20" zPosition="4" foregroundColor="#00ffcc33" backgroundColor="#30000000" font="Regular;20" verticalAlignment="top" transparent="1" />
+            <widget name="Icons tomorrow" position="117,260" size="87,60" zPosition="3" transparent="1" alphaTest="on" />
+            <widget name="Description tomorrow" position="24,252" horizontalAlignment="left" size="180,60" zPosition="4" font="Regular;16" verticalAlignment="top" backgroundColor="#00000000" transparent="1" />
+            <widget name="day after tomorrow" position="24,312" horizontalAlignment="center" size="180,20" zPosition="4" foregroundColor="#00ffcc33" backgroundColor="#30000000" font="Regular;20" verticalAlignment="top" transparent="1" />
+            <widget name="Icons2" position="117,340" size="87,60" zPosition="3" transparent="1" alphaTest="on" />
+            <widget name="Description2" position="24,333" horizontalAlignment="left" size="180,60" zPosition="4" font="Regular;16" verticalAlignment="top" backgroundColor="#00000000" transparent="1" />
 	    </screen>"""
 
 	def __init__(self, session):
@@ -1104,27 +1104,27 @@ class WeatherPluginScreen(Screen):
 class WeatherPluginPositioner(Screen):
 	skin = """
 		 <screen position="center,center" size="230,415" zPosition="-1" backgroundColor="#ff000000" flags="wfNoBorder">
-                 <ePixmap pixmap="~/backg.png" zPosition="2" position="0,0" size="230,415" alphatest="on" />
-                 <widget name="lab1" position="24,25" halign="center" size="180,20" zPosition="4" font="Regular;20" foregroundColor="#33bab329" backgroundColor="#00000000" valign="top" transparent="1" />
-                 <widget name="City" position="24,48" halign="center" size="180,18" zPosition="4" font="Regular;16" foregroundColor="#33bab329" backgroundColor="#00000000" valign="top" transparent="1" />
-                 <ePixmap pixmap="~/NA.png" position="67,66" size="138,95" zPosition="3" transparent="1" alphatest="on" />
-                 <widget name="Temp now" position="24,81" halign="left" size="80,60" zPosition="4" font="Regular;27" valign="top" backgroundColor="#00000000" transparent="1" />
-                 <widget name="Description now" position="24,150" halign="center" size="180,80" zPosition="4" font="Regular;18" valign="top" backgroundColor="#00000000" transparent="1" />
-                 <widget name="Date of tomorrow" position="24,229" halign="center" size="180,20" zPosition="4" foregroundColor="#33bab329" backgroundColor="#00000000" font="Regular;20" valign="top" transparent="1" />
-                 <ePixmap pixmap="~/na2.png"  position="117,260" size="87,60" zPosition="3" transparent="1" alphatest="on" />
-                 <widget name="Description tomorrow" position="24,252" halign="left" size="180,60" zPosition="4" font="Regular;16" valign="top" backgroundColor="#00000000" transparent="1" />
-                 <widget name="day after tomorrow" position="24,312" halign="center" size="180,20" zPosition="4" foregroundColor="#33bab329" backgroundColor="#00000000" font="Regular;20" valign="top" transparent="1" />
-                 <ePixmap pixmap="~/na2.png" position="117,340" size="87,60" zPosition="3" transparent="1" alphatest="on" />
-                 <widget name="Description2" position="24,333" halign="left" size="180,60" zPosition="4" font="Regular;16" valign="top" backgroundColor="#00000000" transparent="1" />
+                 <ePixmap pixmap="~/backg.png" zPosition="2" position="0,0" size="230,415" alphaTest="on" />
+                 <widget name="lab1" position="24,25" horizontalAlignment="center" size="180,20" zPosition="4" font="Regular;20" foregroundColor="#33bab329" backgroundColor="#00000000" verticalAlignment="top" transparent="1" />
+                 <widget name="City" position="24,48" horizontalAlignment="center" size="180,18" zPosition="4" font="Regular;16" foregroundColor="#33bab329" backgroundColor="#00000000" verticalAlignment="top" transparent="1" />
+                 <ePixmap pixmap="~/NA.png" position="67,66" size="138,95" zPosition="3" transparent="1" alphaTest="on" />
+                 <widget name="Temp now" position="24,81" horizontalAlignment="left" size="80,60" zPosition="4" font="Regular;27" verticalAlignment="top" backgroundColor="#00000000" transparent="1" />
+                 <widget name="Description now" position="24,150" horizontalAlignment="center" size="180,80" zPosition="4" font="Regular;18" verticalAlignment="top" backgroundColor="#00000000" transparent="1" />
+                 <widget name="Date of tomorrow" position="24,229" horizontalAlignment="center" size="180,20" zPosition="4" foregroundColor="#33bab329" backgroundColor="#00000000" font="Regular;20" verticalAlignment="top" transparent="1" />
+                 <ePixmap pixmap="~/na2.png"  position="117,260" size="87,60" zPosition="3" transparent="1" alphaTest="on" />
+                 <widget name="Description tomorrow" position="24,252" horizontalAlignment="left" size="180,60" zPosition="4" font="Regular;16" verticalAlignment="top" backgroundColor="#00000000" transparent="1" />
+                 <widget name="day after tomorrow" position="24,312" horizontalAlignment="center" size="180,20" zPosition="4" foregroundColor="#33bab329" backgroundColor="#00000000" font="Regular;20" verticalAlignment="top" transparent="1" />
+                 <ePixmap pixmap="~/na2.png" position="117,340" size="87,60" zPosition="3" transparent="1" alphaTest="on" />
+                 <widget name="Description2" position="24,333" horizontalAlignment="left" size="180,60" zPosition="4" font="Regular;16" verticalAlignment="top" backgroundColor="#00000000" transparent="1" />
                  </screen>"""
 	skin1 = """
 	    <screen position="center,center" size="230,245" zPosition="3" backgroundColor="#ff000000" flags="wfNoBorder">
-	    <ePixmap pixmap="~/backg2.png" zPosition="2" position="0,0" size="230,245" alphatest="on" />
-            <widget name="lab1" position="24,25" halign="center" size="180,20" zPosition="4" font="Regular;20" foregroundColor="#00ffcc33" backgroundColor="#30000000" valign="top" transparent="1" />
-            <widget name="City" position="24,48" halign="center" size="180,18" zPosition="4" font="Regular;16" foregroundColor="#00ffcc33" backgroundColor="#30000000" valign="top" transparent="1" />
-            <ePixmap pixmap="~/NA.png" position="67,66" size="138,95" zPosition="3" transparent="1" alphatest="on" />
-            <widget name="Temp now" position="24,77" halign="left" size="80,30" zPosition="4" font="Regular;27" valign="top" backgroundColor="#00000000" transparent="1" />
-            <widget name="Description now" position="24,150" halign="center" size="180,80" zPosition="4" font="Regular;18" valign="top" backgroundColor="#00000000" transparent="1" />
+	    <ePixmap pixmap="~/backg2.png" zPosition="2" position="0,0" size="230,245" alphaTest="on" />
+            <widget name="lab1" position="24,25" horizontalAlignment="center" size="180,20" zPosition="4" font="Regular;20" foregroundColor="#00ffcc33" backgroundColor="#30000000" verticalAlignment="top" transparent="1" />
+            <widget name="City" position="24,48" horizontalAlignment="center" size="180,18" zPosition="4" font="Regular;16" foregroundColor="#00ffcc33" backgroundColor="#30000000" verticalAlignment="top" transparent="1" />
+            <ePixmap pixmap="~/NA.png" position="67,66" size="138,95" zPosition="3" transparent="1" alphaTest="on" />
+            <widget name="Temp now" position="24,77" horizontalAlignment="left" size="80,30" zPosition="4" font="Regular;27" verticalAlignment="top" backgroundColor="#00000000" transparent="1" />
+            <widget name="Description now" position="24,150" horizontalAlignment="center" size="180,80" zPosition="4" font="Regular;18" verticalAlignment="top" backgroundColor="#00000000" transparent="1" />
 	    </screen>"""
 
 	def __init__(self, session):
@@ -1218,8 +1218,8 @@ class WeatherPluginMenu(Screen):
 	skin = """
 		<screen position="center,center" size="420,260" title="Quick Weather Menu">
 		<widget name="list" position="10,10" size="400,180" />
-                <ePixmap pixmap="~/info.png" position="0,183" zPosition="1" size="420,80" alphatest="on" />
-                <widget name="info" position="11,203" halign="center" size="400,50" zPosition="4" font="Regular;18" valign="top" backgroundColor="#00000000" transparent="1" />
+                <ePixmap pixmap="~/info.png" position="0,183" zPosition="1" size="420,80" alphaTest="on" />
+                <widget name="info" position="11,203" horizontalAlignment="center" size="400,50" zPosition="4" font="Regular;18" verticalAlignment="top" backgroundColor="#00000000" transparent="1" />
 		</screen>"""
 
 	def __init__(self, session):
@@ -1372,8 +1372,8 @@ class SetupMenu(Screen, ConfigListScreen):
 	skin = """
 	<screen position="center,center" size="560,190" title="Setup Quick Weather" backgroundColor="#31000000" >
 	<widget name="config" position="10,10" size="540,145" zPosition="1" transparent="0" backgroundColor="#31000000" scrollbarMode="showOnDemand" />
-	<widget name="key_green" position="0,155" zPosition="2" size="250,35" valign="center" halign="center" font="Regular;22" transparent="1" foregroundColor="#00389416" />
-	<widget name="key_red" position="250,155" zPosition="2" size="250,35" valign="center" halign="center" font="Regular;22" transparent="1" foregroundColor="#00ff2525" />
+	<widget name="key_green" position="0,155" zPosition="2" size="250,35" verticalAlignment="center" horizontalAlignment="center" font="Regular;22" transparent="1" foregroundColor="#00389416" />
+	<widget name="key_red" position="250,155" zPosition="2" size="250,35" verticalAlignment="center" horizontalAlignment="center" font="Regular;22" transparent="1" foregroundColor="#00ff2525" />
 	</screen>"""
 
 	def __init__(self, session):
@@ -1414,7 +1414,7 @@ class SetupMenu2(Screen):
     skin = """
         <screen position="center,center" size="560,400" title="Change background image" backgroundColor="#31000000" >
 	<widget name="menu" position="10,5" size="330,380" zPosition="1" transparent="0" backgroundColor="#31000000" scrollbarMode="showOnDemand" />
-        <widget name="previem" position="345,4" size="211,380" zPosition="3" transparent="1" alphatest="on" />
+        <widget name="previem" position="345,4" size="211,380" zPosition="3" transparent="1" alphaTest="on" />
 	</screen>"""
 
     def __init__(self, session):
@@ -1585,8 +1585,8 @@ class SetupKeymap(Screen):
     skin = """
 	<screen position="center,center" size="500,190" title="Change background image" backgroundColor="#31000000" >
 	<widget name="menu" position="10,10" size="480,145" zPosition="1" transparent="0" backgroundColor="#31000000" scrollbarMode="showOnDemand" />
-	<widget name="key_green" position="0,155" zPosition="2" size="250,35" valign="center" halign="center" font="Regular;22" transparent="1" foregroundColor="#00389416" />
-	<widget name="key_red" position="250,155" zPosition="2" size="250,35" valign="center" halign="center" font="Regular;22" transparent="1" foregroundColor="#00ff2525" />
+	<widget name="key_green" position="0,155" zPosition="2" size="250,35" verticalAlignment="center" horizontalAlignment="center" font="Regular;22" transparent="1" foregroundColor="#00389416" />
+	<widget name="key_red" position="250,155" zPosition="2" size="250,35" verticalAlignment="center" horizontalAlignment="center" font="Regular;22" transparent="1" foregroundColor="#00ff2525" />
 	</screen>"""
 
     def __init__(self, session):
@@ -1654,9 +1654,9 @@ class SetupIcons(Screen):
     skin = """
 	<screen position="center,center" size="460,400" title="Change background image" backgroundColor="#31000000" >
 	<widget name="menu" position="10,5" size="440,120" zPosition="1" transparent="0" backgroundColor="#31000000" scrollbarMode="showOnDemand" />
-        <widget name="previem" position="22,160" size="420,236" zPosition="3" transparent="1" alphatest="on" />
-        <ePixmap pixmap="buttons/key_menu.png" position="16,132" zPosition="1" size="35,25" alphatest="on" />
-        <widget name="menutext" position="51,134" halign="left" size="380,18" zPosition="4" font="Regular;18" foregroundColor="#33bab329" backgroundColor="#00000000" valign="top" transparent="1" />
+        <widget name="previem" position="22,160" size="420,236" zPosition="3" transparent="1" alphaTest="on" />
+        <ePixmap pixmap="buttons/key_menu.png" position="16,132" zPosition="1" size="35,25" alphaTest="on" />
+        <widget name="menutext" position="51,134" horizontalAlignment="left" size="380,18" zPosition="4" font="Regular;18" foregroundColor="#33bab329" backgroundColor="#00000000" verticalAlignment="top" transparent="1" />
 	</screen>"""
 
     def __init__(self, session):

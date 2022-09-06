@@ -34,17 +34,17 @@ class SimpleServiceScanSummary(Screen):
 class SimpleServiceScan(Screen):
 	skin = """
 		<screen name="SimpleServiceScan" position="340,134" size="600,502" title="Simple service scan">
-			<widget source="FrontendInfo" render="Pixmap" pixmap="icons/scan-s.png" position="15,15" size="64,64" transparent="1" alphatest="on">
+			<widget source="FrontendInfo" render="Pixmap" pixmap="icons/scan-s.png" position="15,15" size="64,64" transparent="1" alphaTest="on">
 				<convert type="FrontendInfo">TYPE</convert>
 				<convert type="ValueRange">0,0</convert>
 				<convert type="ConditionalShowHide" />
 			</widget>
-			<widget source="FrontendInfo" render="Pixmap" pixmap="icons/scan-c.png" position="15,15" size="64,64" transparent="1" alphatest="on">
+			<widget source="FrontendInfo" render="Pixmap" pixmap="icons/scan-c.png" position="15,15" size="64,64" transparent="1" alphaTest="on">
 				<convert type="FrontendInfo">TYPE</convert>
 				<convert type="ValueRange">1,1</convert>
 				<convert type="ConditionalShowHide" />
 			</widget>
-			<widget source="FrontendInfo" render="Pixmap" pixmap="icons/scan-t.png" position="15,15" size="64,64" transparent="1" alphatest="on">
+			<widget source="FrontendInfo" render="Pixmap" pixmap="icons/scan-t.png" position="15,15" size="64,64" transparent="1" alphaTest="on">
 				<convert type="FrontendInfo">TYPE</convert>
 				<convert type="ValueRange">2,2</convert>
 				<convert type="ConditionalShowHide" />

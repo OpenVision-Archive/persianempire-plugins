@@ -68,9 +68,9 @@ class grabberPic_Thumb(Screen):
             absY = self.spaceY + posY * (self.spaceY + self.picY)
             self.positionlist.append((absX, absY))
             skincontent += '<widget source="label' + str(x) + '" render="Label" position="' + str(absX + 5) + ',' + str(absY + self.picY - textsize) + '" size="' + str(self.picX - 10) + ',' + str(textsize) + '" font="Regular;14" zPosition="2" transparent="1" noWrap="1" foregroundColor="' + self.textcolor + '" />'
-            skincontent += '<widget name="thumb' + str(x) + '" position="' + str(absX + 5) + ',' + str(absY + 5) + '" size="' + str(self.picX - 10) + ',' + str(self.picY - textsize * 2) + '" zPosition="2" transparent="1" alphatest="on" />'
+            skincontent += '<widget name="thumb' + str(x) + '" position="' + str(absX + 5) + ',' + str(absY + 5) + '" size="' + str(self.picX - 10) + ',' + str(self.picY - textsize * 2) + '" zPosition="2" transparent="1" alphaTest="on" />'
 
-        self.skin = '<screen position="0,0" size="' + str(size_w) + ',' + str(size_h) + '" flags="wfNoBorder" > \t\t\t<eLabel position="0,0" zPosition="0" size="' + str(size_w) + ',' + str(size_h) + '" backgroundColor="' + self.color + '" /><widget name="frame" position="35,30" size="190,200" pixmap="pic_frame.png" zPosition="1" alphatest="on" />' + skincontent + '</screen>'
+        self.skin = '<screen position="0,0" size="' + str(size_w) + ',' + str(size_h) + '" flags="wfNoBorder" > \t\t\t<eLabel position="0,0" zPosition="0" size="' + str(size_w) + ',' + str(size_h) + '" backgroundColor="' + self.color + '" /><widget name="frame" position="35,30" size="190,200" pixmap="pic_frame.png" zPosition="1" alphaTest="on" />' + skincontent + '</screen>'
         Screen.__init__(self, session)
         self['actions'] = ActionMap(['OkCancelActions',
          'ColorActions',
@@ -218,7 +218,7 @@ class grabberPic_Full_View(Screen):
         space = config.pic1.framesize.value
         size_w = getDesktop(0).size().width()
         size_h = getDesktop(0).size().height()
-        self.skin = '<screen position="0,0" size="' + str(size_w) + ',' + str(size_h) + '" flags="wfNoBorder" > \t\t\t<eLabel position="0,0" zPosition="0" size="' + str(size_w) + ',' + str(size_h) + '" backgroundColor="' + self.bgcolor + '" /><widget name="pic" position="' + str(space) + ',' + str(space) + '" size="' + str(size_w - space * 2) + ',' + str(size_h - space * 2) + '" zPosition="1" alphatest="on" /> \t\t\t<widget name="point" position="' + str(space + 5) + ',' + str(space + 2) + '" size="20,20" zPosition="2" pixmap="icons/record.png" alphatest="on" /> \t\t\t<widget name="play_icon" position="' + str(space + 25) + ',' + str(space + 2) + '" size="20,20" zPosition="2" pixmap="icons/ico_mp_play.png"  alphatest="on" /> \t\t\t<widget source="file" render="Label" position="' + str(space + 45) + ',' + str(space) + '" size="' + str(size_w - space * 2 - 50) + ',25" font="Regular;20"   halign="left" foregroundColor="' + self.textcolor + '" zPosition="2" noWrap="1" transparent="1" /></screen>'
+        self.skin = '<screen position="0,0" size="' + str(size_w) + ',' + str(size_h) + '" flags="wfNoBorder" > \t\t\t<eLabel position="0,0" zPosition="0" size="' + str(size_w) + ',' + str(size_h) + '" backgroundColor="' + self.bgcolor + '" /><widget name="pic" position="' + str(space) + ',' + str(space) + '" size="' + str(size_w - space * 2) + ',' + str(size_h - space * 2) + '" zPosition="1" alphaTest="on" /> \t\t\t<widget name="point" position="' + str(space + 5) + ',' + str(space + 2) + '" size="20,20" zPosition="2" pixmap="icons/record.png" alphaTest="on" /> \t\t\t<widget name="play_icon" position="' + str(space + 25) + ',' + str(space + 2) + '" size="20,20" zPosition="2" pixmap="icons/ico_mp_play.png"  alphaTest="on" /> \t\t\t<widget source="file" render="Label" position="' + str(space + 45) + ',' + str(space) + '" size="' + str(size_w - space * 2 - 50) + ',25" font="Regular;20"   horizontalAlignment="left" foregroundColor="' + self.textcolor + '" zPosition="2" noWrap="1" transparent="1" /></screen>'
         Screen.__init__(self, session)
         self['actions'] = ActionMap(['OkCancelActions',
          'ColorActions',

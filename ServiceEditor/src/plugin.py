@@ -141,14 +141,14 @@ class ServiceEditor(Screen, ConfigListScreen):
 
 	skin = """
 		<screen position="90,95" size="560,430" title="Edit" >
-		<ePixmap pixmap="buttons/red.png" position="0,0" size="140,40" alphatest="on" />
-		<ePixmap pixmap="buttons/green.png" position="140,0" size="140,40" alphatest="on" />
-		<ePixmap pixmap="buttons/yellow.png" position="280,0" size="140,40" alphatest="on" />
-		<ePixmap pixmap="buttons/blue.png" position="420,0" size="140,40" alphatest="on" />
-		<widget name="key_red" position="0,0" zPosition="1" size="140,40" font="Regular;20" halign="center" valign="center" backgroundColor="#9f1313" transparent="1" />
-		<widget name="key_green" position="140,0" zPosition="1" size="140,40" font="Regular;20" halign="center" valign="center" backgroundColor="#1f771f" transparent="1" />
-		<widget name="key_yellow" position="280,0" zPosition="1" size="140,40" font="Regular;20" halign="center" valign="center" backgroundColor="#a08500" transparent="1" />
-		<widget name="key_blue" position="420,0" zPosition="1" size="140,40" font="Regular;20" halign="center" valign="center" backgroundColor="#18188b" transparent="1" />
+		<ePixmap pixmap="buttons/red.png" position="0,0" size="140,40" alphaTest="on" />
+		<ePixmap pixmap="buttons/green.png" position="140,0" size="140,40" alphaTest="on" />
+		<ePixmap pixmap="buttons/yellow.png" position="280,0" size="140,40" alphaTest="on" />
+		<ePixmap pixmap="buttons/blue.png" position="420,0" size="140,40" alphaTest="on" />
+		<widget name="key_red" position="0,0" zPosition="1" size="140,40" font="Regular;20" horizontalAlignment="center" verticalAlignment="center" backgroundColor="#9f1313" transparent="1" />
+		<widget name="key_green" position="140,0" zPosition="1" size="140,40" font="Regular;20" horizontalAlignment="center" verticalAlignment="center" backgroundColor="#1f771f" transparent="1" />
+		<widget name="key_yellow" position="280,0" zPosition="1" size="140,40" font="Regular;20" horizontalAlignment="center" verticalAlignment="center" backgroundColor="#a08500" transparent="1" />
+		<widget name="key_blue" position="420,0" zPosition="1" size="140,40" font="Regular;20" horizontalAlignment="center" verticalAlignment="center" backgroundColor="#18188b" transparent="1" />
 		<widget name="config" position="10,50" size="540,375" scrollbarMode="showOnDemand" />
 		</screen>"""
 
@@ -561,14 +561,14 @@ class ServicesEditor(Screen):
 	version = "(20090420-alpha)"
 	skin = """
 		<screen position="90,95" size="560,430" title="reading lamedb - please wait" >
-		<ePixmap pixmap="buttons/red.png" position="0,0" size="140,40" alphatest="on" />
-		<ePixmap pixmap="buttons/green.png" position="140,0" size="140,40" alphatest="on" />
-		<ePixmap pixmap="buttons/yellow.png" position="280,0" size="140,40" alphatest="on" />
-		<ePixmap pixmap="buttons/blue.png" position="420,0" size="140,40" alphatest="on" />
-		<widget name="key_red" position="0,0" zPosition="1" size="140,40" font="Regular;20" halign="center" valign="center" backgroundColor="#9f1313" transparent="1" />
-		<widget name="key_green" position="140,0" zPosition="1" size="140,40" font="Regular;20" halign="center" valign="center" backgroundColor="#1f771f" transparent="1" />
-		<widget name="key_yellow" position="280,0" zPosition="1" size="140,40" font="Regular;20" halign="center" valign="center" backgroundColor="#a08500" transparent="1" />
-		<widget name="key_blue" position="420,0" zPosition="1" size="140,40" font="Regular;20" halign="center" valign="center" backgroundColor="#18188b" transparent="1" />
+		<ePixmap pixmap="buttons/red.png" position="0,0" size="140,40" alphaTest="on" />
+		<ePixmap pixmap="buttons/green.png" position="140,0" size="140,40" alphaTest="on" />
+		<ePixmap pixmap="buttons/yellow.png" position="280,0" size="140,40" alphaTest="on" />
+		<ePixmap pixmap="buttons/blue.png" position="420,0" size="140,40" alphaTest="on" />
+		<widget name="key_red" position="0,0" zPosition="1" size="140,40" font="Regular;20" horizontalAlignment="center" verticalAlignment="center" backgroundColor="#9f1313" transparent="1" />
+		<widget name="key_green" position="140,0" zPosition="1" size="140,40" font="Regular;20" horizontalAlignment="center" verticalAlignment="center" backgroundColor="#1f771f" transparent="1" />
+		<widget name="key_yellow" position="280,0" zPosition="1" size="140,40" font="Regular;20" horizontalAlignment="center" verticalAlignment="center" backgroundColor="#a08500" transparent="1" />
+		<widget name="key_blue" position="420,0" zPosition="1" size="140,40" font="Regular;20" horizontalAlignment="center" verticalAlignment="center" backgroundColor="#18188b" transparent="1" />
 		<widget name="newscaster" position="0,40" size="24,24" scrollbarMode="showNever" />
 		<widget name="head" position="24,40" size="536,24" scrollbarMode="showNever" />
 		<widget name="list" position="0,64" size="560,240" scrollbarMode="showOnDemand" />

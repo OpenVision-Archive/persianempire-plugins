@@ -56,12 +56,12 @@ def main(session, **kwargs):
 class fmConfiguration(Screen, ConfigListScreen):
     skin = """
         <screen name="FontMagnifierConfigScreen" position="center,center" size="560,425" title="Font Magnifier V%s">
-            <ePixmap pixmap="buttons/red.png" position="0,0" size="140,40" alphatest="on" />
-            <ePixmap pixmap="buttons/green.png" position="140,0" size="140,40" alphatest="on" />
-            <ePixmap pixmap="buttons/key_info.png" position="520,0" size="140,40" alphatest="on" />
-            <ePixmap pixmap="buttons/key_menu.png" position="470,0" size="140,40" alphatest="on" />
-            <widget source="key_red" render="Label" position="0,0" zPosition="1" size="140,40" font="Regular;20" halign="center" valign="center" backgroundColor="#9f1313" transparent="1" />
-            <widget source="key_green" render="Label" position="140,0" zPosition="1" size="140,40" font="Regular;20" halign="center" valign="center" backgroundColor="#1f771f" transparent="1" />
+            <ePixmap pixmap="buttons/red.png" position="0,0" size="140,40" alphaTest="on" />
+            <ePixmap pixmap="buttons/green.png" position="140,0" size="140,40" alphaTest="on" />
+            <ePixmap pixmap="buttons/key_info.png" position="520,0" size="140,40" alphaTest="on" />
+            <ePixmap pixmap="buttons/key_menu.png" position="470,0" size="140,40" alphaTest="on" />
+            <widget source="key_red" render="Label" position="0,0" zPosition="1" size="140,40" font="Regular;20" horizontalAlignment="center" verticalAlignment="center" backgroundColor="#9f1313" transparent="1" />
+            <widget source="key_green" render="Label" position="140,0" zPosition="1" size="140,40" font="Regular;20" horizontalAlignment="center" verticalAlignment="center" backgroundColor="#1f771f" transparent="1" />
             <widget name="config" position="5,50" size="550,385" scrollbarMode="showOnDemand" zPosition="1"/>
         </screen>""" % fm_version
 
@@ -660,7 +660,7 @@ class fmRestoreSettings(Screen):
 class fmWaitScreen(Screen):
     skin = """
         <screen name="fmWaitScreen" position="center,center" size="450,110" zPosition="1" title=" ">
-            <ePixmap position="30,10" size="64,64" pixmap="%s" transparent="1" alphatest="blend" />
+            <ePixmap position="30,10" size="64,64" pixmap="%s" transparent="1" alphaTest="blend" />
             <widget source="label" render="Label" position="130,25" size="350,50" font="Regular;32" transparent="1"  />
         </screen>""" % resolveFilename(SCOPE_PLUGINS, "Extensions/FontMagnifier/wait-icon.png")
 
@@ -702,13 +702,13 @@ class fmWaitScreen(Screen):
                     skin_user_xml_text = "<skin>\n"
                     if config.plugins.fm.active.value:
                         skin_user_xml_text = skin_user_xml_text + "\t<screen name=\"InfoBarSummary\" position=\"0,0\" size=\"132,64\">\n"
-                        skin_user_xml_text = skin_user_xml_text + "\t\t<widget font=\"Regular;%s\" halign=\"center\" position=\"1,1\" render=\"Label\" size=\"128,64\" source=\"session.CurrentService\" valign=\"center\">\n" % (config.plugins.fm.fontsize.value)
+                        skin_user_xml_text = skin_user_xml_text + "\t\t<widget font=\"Regular;%s\" horizontalAlignment=\"center\" position=\"1,1\" render=\"Label\" size=\"128,64\" source=\"session.CurrentService\" verticalAlignment=\"center\">\n" % (config.plugins.fm.fontsize.value)
                         skin_user_xml_text = skin_user_xml_text + "\t\t\t<convert type=\"ExtendedServiceInfo\">ServiceNumber</convert>\n"
                         skin_user_xml_text = skin_user_xml_text + "\t\t</widget>\n"
                         skin_user_xml_text = skin_user_xml_text + "\t</screen>\n"
                     if config.plugins.fm.show_only_clock.value:
                         skin_user_xml_text = skin_user_xml_text + "\t<screen name=\"StandbySummary\" position=\"0,0\" size=\"132,64\">\n"
-                        skin_user_xml_text = skin_user_xml_text + "\t\t<widget font=\"Regular;44\" halign=\"center\" position=\"0,0\" render=\"Label\" size=\"132,64\" source=\"global.CurrentTime\" valign=\"center\">\n"
+                        skin_user_xml_text = skin_user_xml_text + "\t\t<widget font=\"Regular;44\" horizontalAlignment=\"center\" position=\"0,0\" render=\"Label\" size=\"132,64\" source=\"global.CurrentTime\" verticalAlignment=\"center\">\n"
                         skin_user_xml_text = skin_user_xml_text + "\t\t\t<convert type=\"ClockToText\">Format:%H:%M</convert>\n"
                         skin_user_xml_text = skin_user_xml_text + "\t\t</widget>\n"
                         skin_user_xml_text = skin_user_xml_text + "\t\t<widget position=\"6,0\" render=\"FixedLabel\" size=\"120,64\" source=\"session.RecordState\" text=\" \" zPosition=\"1\">\n"

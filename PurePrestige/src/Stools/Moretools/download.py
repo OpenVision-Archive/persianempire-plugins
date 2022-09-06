@@ -21,7 +21,7 @@ currversion = '3.0'
 
 
 class PurePrestigelangdownload(Screen):
-    skin = '\n\n                <screen name="PurePrestigeSatelliteImport" position="center,center" size="640,520" title="Language download"  flags="wfNoBorder" >\n                <ePixmap pixmap="~/images/framesd.png" position="0,0" size="640,520"/>\t\t\t\t\n                        <widget name="list" position="25,25" size="590,475" scrollbarMode="showOnDemand" transparent="1" zPosition="2" />\n\t\t\t<eLabel position="70,100" zPosition="-1" size="100,69" backgroundColor="#222222" />\n\t\t\t<widget name="info" position="0,100" zPosition="4" size="640,300" font="Regular;24" foregroundColor="#ffffff" transparent="1" halign="center" valign="center" />\n\t\n                </screen>'
+    skin = '\n\n                <screen name="PurePrestigeSatelliteImport" position="center,center" size="640,520" title="Language download"  flags="wfNoBorder" >\n                <ePixmap pixmap="~/images/framesd.png" position="0,0" size="640,520"/>\t\t\t\t\n                        <widget name="list" position="25,25" size="590,475" scrollbarMode="showOnDemand" transparent="1" zPosition="2" />\n\t\t\t<eLabel position="70,100" zPosition="-1" size="100,69" backgroundColor="#222222" />\n\t\t\t<widget name="info" position="0,100" zPosition="4" size="640,300" font="Regular;24" foregroundColor="#ffffff" transparent="1" horizontalAlignment="center" verticalAlignment="center" />\n\t\n                </screen>'
 
     def __init__(self, session):
         self.skin = PurePrestigelangdownload.skin

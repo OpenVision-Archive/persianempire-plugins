@@ -42,17 +42,17 @@ class LocaleManager(Screen, ConfigListScreen):
 	y_size = 175
 	skin = """
 		<screen name="LocaleManager" position="center,center" size="560,%d" backgroundColor="#31000000" title="Locale Manager">
-			<ePixmap name="red"    position="0,0"   zPosition="2" size="140,40" pixmap="buttons/red.png" transparent="1" alphatest="on" />
-			<ePixmap name="green"  position="140,0" zPosition="2" size="140,40" pixmap="buttons/green.png" transparent="1" alphatest="on" />
-			<ePixmap name="yellow" position="280,0" zPosition="2" size="140,40" pixmap="buttons/yellow.png" transparent="1" alphatest="on" />
-			<ePixmap name="blue"   position="420,0" zPosition="2" size="140,40" pixmap="buttons/blue.png" transparent="1" alphatest="on" />
-			<widget name="key_red" position="0,0" size="140,40" valign="center" halign="center" zPosition="4"  foregroundColor="white" font="Regular;20" transparent="1" shadowColor="background" shadowOffset="-2,-2" />
-			<widget name="key_green" position="140,0" size="140,40" valign="center" halign="center" zPosition="4"  foregroundColor="white" font="Regular;20" transparent="1" shadowColor="background" shadowOffset="-2,-2" />
-			<widget name="key_blue" position="420,0" size="140,40" valign="center" halign="center" zPosition="4"  foregroundColor="white" font="Regular;20" transparent="1" shadowColor="background" shadowOffset="-2,-2" />
+			<ePixmap name="red"    position="0,0"   zPosition="2" size="140,40" pixmap="buttons/red.png" transparent="1" alphaTest="on" />
+			<ePixmap name="green"  position="140,0" zPosition="2" size="140,40" pixmap="buttons/green.png" transparent="1" alphaTest="on" />
+			<ePixmap name="yellow" position="280,0" zPosition="2" size="140,40" pixmap="buttons/yellow.png" transparent="1" alphaTest="on" />
+			<ePixmap name="blue"   position="420,0" zPosition="2" size="140,40" pixmap="buttons/blue.png" transparent="1" alphaTest="on" />
+			<widget name="key_red" position="0,0" size="140,40" verticalAlignment="center" horizontalAlignment="center" zPosition="4"  foregroundColor="white" font="Regular;20" transparent="1" shadowColor="background" shadowOffset="-2,-2" />
+			<widget name="key_green" position="140,0" size="140,40" verticalAlignment="center" horizontalAlignment="center" zPosition="4"  foregroundColor="white" font="Regular;20" transparent="1" shadowColor="background" shadowOffset="-2,-2" />
+			<widget name="key_blue" position="420,0" size="140,40" verticalAlignment="center" horizontalAlignment="center" zPosition="4"  foregroundColor="white" font="Regular;20" transparent="1" shadowColor="background" shadowOffset="-2,-2" />
 			<widget name="config" position="10,40" size="540,100" zPosition="1" transparent="0" scrollbarMode="showOnDemand" />
 			<ePixmap pixmap="div-h.png" position="0,%d" zPosition="1" size="560,2" />
-			<ePixmap alphatest="on" pixmap="icons/clock.png" position="480,%d" size="14,14" zPosition="3"/>
-			<widget font="Regular;18" halign="right" position="495,%d" render="Label" size="55,20" source="global.CurrentTime" transparent="1" valign="center" zPosition="3">
+			<ePixmap alphaTest="on" pixmap="icons/clock.png" position="480,%d" size="14,14" zPosition="3"/>
+			<widget font="Regular;18" horizontalAlignment="right" position="495,%d" render="Label" size="55,20" source="global.CurrentTime" transparent="1" verticalAlignment="center" zPosition="3">
 				<convert type="ClockToText">Default</convert>
 			</widget>
 			<widget name="statusbar" position="10,%d" size="480,20" font="Regular;18" zPosition="2" transparent="0" foregroundColor="white" />

@@ -35,22 +35,22 @@ class PECamManager(Screen):
 					}
 				</convert>
 			</widget>
-			<eLabel halign="center" position="390,10" size="210,35" font="Regular;20" \
+			<eLabel horizontalAlignment="center" position="390,10" size="210,35" font="Regular;20" \
 				text="ECM Info" transparent="1" />
 			<widget name="status" position="360,50" size="320,300" font="Regular;16" \
-				halign="left" />
+				horizontalAlignment="left" />
 			<eLabel position="12,358" size="148,2" backgroundColor="#00ff2525" />
 			<eLabel position="165,358" size="148,2" backgroundColor="#00389416" />
 			<eLabel position="318,358" size="148,2" backgroundColor="#00baa329" />
 			<eLabel position="471,358" size="148,2" backgroundColor="#006565ff" />
 			<widget source="key_red" render="Label" position="12,328" zPosition="2" size="148,30" \
-				valign="center" halign="center" font="Regular;22" transparent="1" />
+				verticalAlignment="center" horizontalAlignment="center" font="Regular;22" transparent="1" />
 			<widget source="key_green" render="Label" position="165,328" zPosition="2" size="148,30" \
-				valign="center" halign="center" font="Regular;22" transparent="1" />
+				verticalAlignment="center" horizontalAlignment="center" font="Regular;22" transparent="1" />
 			<widget source="key_yellow" render="Label" position="318,328" zPosition="2" size="148,30" \
-				valign="center" halign="center" font="Regular;22" transparent="1" />
+				verticalAlignment="center" horizontalAlignment="center" font="Regular;22" transparent="1" />
 			<widget source="key_blue" render="Label" position="471,328" zPosition="2" size="148,30" \
-				valign="center" halign="center" font="Regular;22" transparent="1" />
+				verticalAlignment="center" horizontalAlignment="center" font="Regular;22" transparent="1" />
 		</screen>"""
 
 	def __init__(self, session):
@@ -234,9 +234,9 @@ class ConfigEdit(Screen, ConfigListScreen):
 			<eLabel position="85,180" size="166,2" backgroundColor="#00ff2525" />
 			<eLabel position="255,180" size="166,2" backgroundColor="#00389416" />
 			<widget source="key_red" render="Label" position="85,150" zPosition="2" size="170,30" \
-				valign="center" halign="center" font="Regular;22" transparent="1" />
+				verticalAlignment="center" horizontalAlignment="center" font="Regular;22" transparent="1" />
 			<widget source="key_green" render="Label" position="255,150" zPosition="2" size="170,30" \
-				valign="center" halign="center" font="Regular;22" transparent="1" />
+				verticalAlignment="center" horizontalAlignment="center" font="Regular;22" transparent="1" />
 		</screen>"""
 
 	def __init__(self, session):

@@ -14,11 +14,11 @@ import time
 
 class Scripts(Screen):
 	skin = """<screen name="ScriptRunner" position="center,center" size="560,400" title="Script Runner" flags="wfBorder" >
-		<ePixmap pixmap="buttons/red.png" position="0,0" size="140,40" alphatest="on" />
-		<ePixmap pixmap="buttons/green.png" position="140,0" size="140,40" alphatest="on" />
-		<widget name="key_red" position="0,0" zPosition="1" size="140,40" font="Regular;20" halign="center" valign="center" backgroundColor="#9f1313" transparent="1" />
-		<widget name="key_green" position="140,0" zPosition="1" size="140,40" font="Regular;20" halign="center" valign="center" backgroundColor="#1f771f" transparent="1" />
-		<widget name="lab1" position="0,50" size="560,50" font="Regular; 20" zPosition="2" transparent="0" halign="center"/>
+		<ePixmap pixmap="buttons/red.png" position="0,0" size="140,40" alphaTest="on" />
+		<ePixmap pixmap="buttons/green.png" position="140,0" size="140,40" alphaTest="on" />
+		<widget name="key_red" position="0,0" zPosition="1" size="140,40" font="Regular;20" horizontalAlignment="center" verticalAlignment="center" backgroundColor="#9f1313" transparent="1" />
+		<widget name="key_green" position="140,0" zPosition="1" size="140,40" font="Regular;20" horizontalAlignment="center" verticalAlignment="center" backgroundColor="#1f771f" transparent="1" />
+		<widget name="lab1" position="0,50" size="560,50" font="Regular; 20" zPosition="2" transparent="0" horizontalAlignment="center"/>
 		<widget name="list" position="10,105" size="540,300" scrollbarMode="showOnDemand" />
 		<applet type="onLayoutFinish">
 			self["list"].instance.setItemHeight(25)

@@ -63,13 +63,13 @@ class SoftCamUpdater(ConfigListScreen, Screen):
 	skin = """
 <screen name="SoftCamUpdater" position="center,160" size="670,200" title="SoftCam Updater for Persian Palace">
 		<widget position="15,10" size="640,50" name="config" scrollbarMode="showOnDemand" />
-		<ePixmap position="80,170" zPosition="1" size="165,2" pixmap="~/images/red.png" alphatest="blend" />
-		<widget source="Redkey" render="Label" position="80,170" zPosition="2" size="165,30" font="Regular;20" halign="center" valign="center" backgroundColor="background" foregroundColor="foreground" transparent="1" />
-		<ePixmap position="245,170" zPosition="1" size="165,2" pixmap="~/images/green.png" alphatest="blend" />
-		<widget source="Greenkey" render="Label" position="245,170" zPosition="2" size="165,30" font="Regular;20" halign="center" valign="center" backgroundColor="background" foregroundColor="foreground" transparent="1" />
-		<ePixmap position="410,170" zPosition="1" size="165,2" pixmap="~/images/yellow.png" alphatest="blend" />
-		<widget source="Yellowkey" render="Label" position="410,170" zPosition="2" size="165,30" font="Regular;20" halign="center" valign="center" backgroundColor="background" foregroundColor="foreground" transparent="1" />
-		<widget name="information" position="10,60" font="Regular;20" halign="center" valign="center" size="640,100" />
+		<ePixmap position="80,170" zPosition="1" size="165,2" pixmap="~/images/red.png" alphaTest="blend" />
+		<widget source="Redkey" render="Label" position="80,170" zPosition="2" size="165,30" font="Regular;20" horizontalAlignment="center" verticalAlignment="center" backgroundColor="background" foregroundColor="foreground" transparent="1" />
+		<ePixmap position="245,170" zPosition="1" size="165,2" pixmap="~/images/green.png" alphaTest="blend" />
+		<widget source="Greenkey" render="Label" position="245,170" zPosition="2" size="165,30" font="Regular;20" horizontalAlignment="center" verticalAlignment="center" backgroundColor="background" foregroundColor="foreground" transparent="1" />
+		<ePixmap position="410,170" zPosition="1" size="165,2" pixmap="~/images/yellow.png" alphaTest="blend" />
+		<widget source="Yellowkey" render="Label" position="410,170" zPosition="2" size="165,30" font="Regular;20" horizontalAlignment="center" verticalAlignment="center" backgroundColor="background" foregroundColor="foreground" transparent="1" />
+		<widget name="information" position="10,60" font="Regular;20" horizontalAlignment="center" verticalAlignment="center" size="640,100" />
 </screen>"""
 
 	def __init__(self, session):

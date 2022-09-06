@@ -87,13 +87,13 @@ class showPurePrestigeappscreen(Screen):
             absX = self.spaceX + posX * (self.spaceX + self.picX)
             absY = self.spaceY + posY * (self.spaceY + self.picY)
             self.positionlist.append((absX, absY))
-            skincontent += '<widget source="label' + str(x) + '" render="Label" position="' + str(absX - 25) + ',' + str(absY + self.picY - textsize + 5) + '" size="' + str(self.picX + 15) + ',' + str(textsize) + '" font="Regular;20" zPosition="2" transparent="1" noWrap="1" halign="' + 'center' + '" valign="' + 'center' + '"  foregroundColor="' + self.textcolor + '" />'
-            skincontent += '<widget name="thumb' + str(x) + '" position="' + str(absX + 5) + ',' + str(absY + 5) + '" size="' + str(self.picX - 30) + ',' + str(self.picY - 20) + '" zPosition="2" transparent="1" alphatest="on" />'
+            skincontent += '<widget source="label' + str(x) + '" render="Label" position="' + str(absX - 25) + ',' + str(absY + self.picY - textsize + 5) + '" size="' + str(self.picX + 15) + ',' + str(textsize) + '" font="Regular;20" zPosition="2" transparent="1" noWrap="1" horizontalAlignment="' + 'center' + '" verticalAlignment="' + 'center' + '"  foregroundColor="' + self.textcolor + '" />'
+            skincontent += '<widget name="thumb' + str(x) + '" position="' + str(absX + 5) + ',' + str(absY + 5) + '" size="' + str(self.picX - 30) + ',' + str(self.picY - 20) + '" zPosition="2" transparent="1" alphaTest="on" />'
 
         if dwidth == 1280:
-            self.skin = '<screen position="center,77"  title="' + self.mtitle + '"  size="' + str(size_w) + ',' + str(size_h) + '" > \t\t\t<eLabel position="0,0" zPosition="0" size="' + str(size_w) + ',' + str(size_h) + '" backgroundColor="' + self.color + '" /><widget name="frame" position="20,20" size="145,145" pixmap="~/pic_frame.png" zPosition="1" alphatest="on" />' + skincontent + '</screen>'
+            self.skin = '<screen position="center,77"  title="' + self.mtitle + '"  size="' + str(size_w) + ',' + str(size_h) + '" > \t\t\t<eLabel position="0,0" zPosition="0" size="' + str(size_w) + ',' + str(size_h) + '" backgroundColor="' + self.color + '" /><widget name="frame" position="20,20" size="145,145" pixmap="~/pic_frame.png" zPosition="1" alphaTest="on" />' + skincontent + '</screen>'
         else:
-            self.skin = '<screen position="20,center" flags="wfNoBorder" title="TSimage Panel"  size="' + str(size_w) + ',' + str(size_h) + '" > \t\t\t<eLabel position="0,0" zPosition="0" size="' + str(size_w) + ',' + str(size_h) + '" backgroundColor="' + self.color + '" /><widget name="frame" position="20,20" size="145,145" pixmap="~/pic_frame.png" zPosition="1" alphatest="on" />' + skincontent + '</screen>'
+            self.skin = '<screen position="20,center" flags="wfNoBorder" title="TSimage Panel"  size="' + str(size_w) + ',' + str(size_h) + '" > \t\t\t<eLabel position="0,0" zPosition="0" size="' + str(size_w) + ',' + str(size_h) + '" backgroundColor="' + self.color + '" /><widget name="frame" position="20,20" size="145,145" pixmap="~/pic_frame.png" zPosition="1" alphaTest="on" />' + skincontent + '</screen>'
 
         Screen.__init__(self, session)
         self.skin_path = resolveFilename(SCOPE_PLUGINS, "Extensions/PurePrestige")

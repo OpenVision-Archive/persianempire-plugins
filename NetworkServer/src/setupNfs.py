@@ -31,11 +31,11 @@ class editExportEntry(Screen, ConfigListScreen):
 	skin = """
 		<screen name="editExportEntry" position="center,center" size="560,350" title="edit Export Entry">
 			<widget name="config" position="10,10" size="540,150" scrollbarMode="showOnDemand" />
-			<widget name="ButtonGreentext" position="50,270" size="460,21" halign="left" zPosition="10" font="Regular;21" transparent="1" />
-			<widget name="ButtonGreen" pixmap="buttons/button_green.png" position="30,273" zPosition="10" size="15,16" transparent="1" alphatest="on" />
-			<widget name="ButtonRedtext" position="50,300" size="460,21" halign="left" zPosition="10" font="Regular;21" transparent="1" />
-			<widget name="ButtonRed" pixmap="buttons/button_red.png" position="30,303" zPosition="10" size="15,16" transparent="1" alphatest="on" />
-			<ePixmap pixmap="bottombar.png" position="10,250" size="540,120" zPosition="1" transparent="1" alphatest="on" />
+			<widget name="ButtonGreentext" position="50,270" size="460,21" horizontalAlignment="left" zPosition="10" font="Regular;21" transparent="1" />
+			<widget name="ButtonGreen" pixmap="buttons/button_green.png" position="30,273" zPosition="10" size="15,16" transparent="1" alphaTest="on" />
+			<widget name="ButtonRedtext" position="50,300" size="460,21" horizontalAlignment="left" zPosition="10" font="Regular;21" transparent="1" />
+			<widget name="ButtonRed" pixmap="buttons/button_red.png" position="30,303" zPosition="10" size="15,16" transparent="1" alphaTest="on" />
+			<ePixmap pixmap="bottombar.png" position="10,250" size="540,120" zPosition="1" transparent="1" alphaTest="on" />
 		</screen>"""
 
 	def __init__(self, session, exportDir, client, options):
@@ -171,15 +171,15 @@ class setupNfs(Screen, ConfigListScreen):
 			</widget>
 			<widget name="nfsdLabel" position="20,170" size="520,30" font="Regular;21"/>
 			<widget name="portmapLabel" position="20,200" size="520,30" font="Regular;21"/>
-			<widget name="ButtonGreentext" position="50,270" size="460,21" halign="left" zPosition="10" font="Regular;20" transparent="1" />
-			<widget name="ButtonGreen" pixmap="buttons/button_green.png" position="30,273" zPosition="10" size="15,16" transparent="1" alphatest="on" />
-			<widget name="ButtonRedtext" position="50,300" size="145,21" halign="left" zPosition="10" font="Regular;20" transparent="1" />
-			<widget name="ButtonRed" pixmap="buttons/button_red.png" position="30,303" zPosition="10" size="15,16" transparent="1" alphatest="on" />
-			<widget name="ButtonYellowtext" position="220,300" size="145,21" halign="left" zPosition="10" font="Regular;20" transparent="1" />
-			<widget name="ButtonYellow" pixmap="buttons/button_yellow.png" position="200,303" zPosition="10" size="15,16" transparent="1" alphatest="on" />
-			<widget name="ButtonBluetext" position="390,300" size="145,21" halign="left" zPosition="10" font="Regular;20" transparent="1" />
-			<widget name="ButtonBlue" pixmap="buttons/button_blue.png" position="370,303" zPosition="10" size="15,16" transparent="1" alphatest="on" />
-			<ePixmap pixmap="bottombar.png" position="10,250" size="540,120" zPosition="1" transparent="1" alphatest="on" />
+			<widget name="ButtonGreentext" position="50,270" size="460,21" horizontalAlignment="left" zPosition="10" font="Regular;20" transparent="1" />
+			<widget name="ButtonGreen" pixmap="buttons/button_green.png" position="30,273" zPosition="10" size="15,16" transparent="1" alphaTest="on" />
+			<widget name="ButtonRedtext" position="50,300" size="145,21" horizontalAlignment="left" zPosition="10" font="Regular;20" transparent="1" />
+			<widget name="ButtonRed" pixmap="buttons/button_red.png" position="30,303" zPosition="10" size="15,16" transparent="1" alphaTest="on" />
+			<widget name="ButtonYellowtext" position="220,300" size="145,21" horizontalAlignment="left" zPosition="10" font="Regular;20" transparent="1" />
+			<widget name="ButtonYellow" pixmap="buttons/button_yellow.png" position="200,303" zPosition="10" size="15,16" transparent="1" alphaTest="on" />
+			<widget name="ButtonBluetext" position="390,300" size="145,21" horizontalAlignment="left" zPosition="10" font="Regular;20" transparent="1" />
+			<widget name="ButtonBlue" pixmap="buttons/button_blue.png" position="370,303" zPosition="10" size="15,16" transparent="1" alphaTest="on" />
+			<ePixmap pixmap="bottombar.png" position="10,250" size="540,120" zPosition="1" transparent="1" alphaTest="on" />
 		</screen>"""
 
 	def __init__(self, session, iface, plugin_path):

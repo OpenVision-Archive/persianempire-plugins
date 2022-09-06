@@ -176,7 +176,7 @@ class makePurePrestigeFlashBackupTelnet(Screen):
 
 
 class backuprunning(Screen):
-    skin = '\n        \t\n                <screen  position="20,20" size="200,100" title=""  flags="wfNoBorder" >\n  \n\n                <widget name="info" position="20,20" zPosition="4" size="180,80" font="Regular;20" foregroundColor="#ffffff" transparent="1" halign="center" valign="center" />\n                </screen>'
+    skin = '\n        \t\n                <screen  position="20,20" size="200,100" title=""  flags="wfNoBorder" >\n  \n\n                <widget name="info" position="20,20" zPosition="4" size="180,80" font="Regular;20" foregroundColor="#ffffff" transparent="1" horizontalAlignment="center" verticalAlignment="center" />\n                </screen>'
 
     def __init__(self, session, com=None, starttime=None):
         self.skin = backuprunning.skin
