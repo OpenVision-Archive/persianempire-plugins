@@ -286,7 +286,7 @@ def OVLock():
 def main(session, **kwargs):
     if OVLock() == False:
         return
-    	else:
+       	else:
         session.open(PEFaqs)
 
 
