@@ -51,7 +51,7 @@ class ConfigHexNumber(ConfigText):
 			if key == KEY_ASCII:
 				owr = False
 				ascii = getPrevAsciiCode()
-				if not (48 <= ascii <= 57) or not(65 <= ascii <= 70) or not(97 <= ascii <= 102):
+				if not (48 <= ascii <= 57) or not (65 <= ascii <= 70) or not (97 <= ascii <= 102):
 					return
 	  			newChar = unichr(ascii)
 			else:
