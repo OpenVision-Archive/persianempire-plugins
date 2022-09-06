@@ -143,7 +143,7 @@ class LocaleManager(Screen, ConfigListScreen):
 	def moveEnigmaFiles(self, dirs, language):
 		newPath = cfg.target.value + "po"
 		if not os.path.exists(newPath):
-    			os.makedirs(newPath)
+            			os.makedirs(newPath)
 		for path in dirs:
 			try:
 				subDir = "".join((newPath, "/", path.split("/")[-1], "/LC_MESSAGES"))

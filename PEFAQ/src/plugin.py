@@ -284,10 +284,10 @@ def OVLock():
 
 
 def main(session, **kwargs):
-        if OVLock() == False:
-            return
-     	else:
-            session.open(PEFaqs)
+    if OVLock() == False:
+        return
+    	else:
+        session.open(PEFaqs)
 
 
 def Plugins(**kwargs):

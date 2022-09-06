@@ -37,10 +37,10 @@ class Ipkremove2(Screen):
 		Screen.__init__(self, session)
         	self["list"] = MenuList([])
 		self["info"] = Label()
-                self["actions"] = ActionMap(["OkCancelActions"], {"ok": self.okClicked, "cancel": self.close}, -1)
-                self.data = []
-                self.ict = 0
-                self.onLayoutFinish.append(self.startSession)
+        self["actions"] = ActionMap(["OkCancelActions"], {"ok": self.okClicked, "cancel": self.close}, -1)
+        self.data = []
+        self.ict = 0
+        self.onLayoutFinish.append(self.startSession)
 
     def startSession(self):
         if os.path.isfile('/etc/ipkinstalled') is not True:
@@ -61,8 +61,8 @@ class Ipkremove2(Screen):
 	        idx = self["list"].getSelectionIndex()
 		ipk = self.data[idx]
 		cmd = "opkg remove " + ipk
-                title = _("Removing %s" % (ipk))
-                self.session.open(Console, _(title), [cmd])
+        title = _("Removing %s" % (ipk))
+        self.session.open(Console, _(title), [cmd])
 
 
 class RSList(MenuList):
@@ -301,13 +301,13 @@ class Getipk(Screen):
     def openTest(self):
         ldeps = len(self.depends)
         if ldeps == 0:
-                self.viewLog()
+            self.viewLog()
         else:
-                name1 = self.depends[0]
-                missing = name1 + "_"
-                slist = 'cams eglibc firmware fonts gstreamer lib mips32el perl plugins python qt4 skins ' + model
+            name1 = self.depends[0]
+            missing = name1 + "_"
+            slist = 'cams eglibc firmware fonts gstreamer lib mips32el perl plugins python qt4 skins ' + model
 		source = slist.split()
-                self.found = 0
+            self.found = 0
 		i = 0
 		while i < 12:
 				   addn = source[i]
@@ -322,21 +322,21 @@ class Getipk(Screen):
 						n4 = flist1.find(missing, 0)
 						n5 = flist1.find(".ipk", n4)
 						self.ipk = flist1[n4:(n5 + 4)]
-                                                self.found = 1
+                    self.found = 1
 						break
 				   else:
 						i = i + 1
-                if self.found == 0:
-                       txt = name1 + "\nNot Found On The Server !"
-                       self.session.open(MessageBox, txt, type=1)
-                       self.close
-                else:
-                       xurl1 = 'https://openvision.tech/pedm/mipsel/' + self.addon + '/'
-                       xurl2 = xurl1 + self.ipk
-                       self.idx = self.idx + 1
-                       cmd2 = 'opkg install --force-reinstall --force-overwrite ' + xurl2 + ' > /tmp/.log' + str(self.idx) + '.txt'
-                       title = _("Installing addons %s" % (self.ipk))
-                       self.session.openWithCallback(self.newdeps, Console, _(title), [cmd2])
+            if self.found == 0:
+                txt = name1 + "\nNot Found On The Server !"
+                self.session.open(MessageBox, txt, type=1)
+                self.close
+            else:
+                xurl1 = 'https://openvision.tech/pedm/mipsel/' + self.addon + '/'
+                xurl2 = xurl1 + self.ipk
+                self.idx = self.idx + 1
+                cmd2 = 'opkg install --force-reinstall --force-overwrite ' + xurl2 + ' > /tmp/.log' + str(self.idx) + '.txt'
+                title = _("Installing addons %s" % (self.ipk))
+                self.session.openWithCallback(self.newdeps, Console, _(title), [cmd2])
 
     def newdeps(self):
         dfile = '/tmp/.log' + str(self.idx) + '.txt'
@@ -344,7 +344,7 @@ class Getipk(Screen):
         flog = myfile.read()
         if "Collected errors" not in flog:
             if len(self.depends) > 0:
-                   self.depends.pop(0)
+                self.depends.pop(0)
             self.openTest()
         else:
 		   n1 = flog.find("Cannot satisfy", 0)
@@ -358,20 +358,20 @@ class Getipk(Screen):
 		   while i2 < ik:
 		          self.depends.insert(0, ipks[i2])
 		          i2 = i2 + 1
-                   self.openTest()
+            self.openTest()
 
     def viewLog(self):
-         cmd = 'rm -rf /tmp/.installed'
-         Console().ePopen(cmd)
-         cmd1 = 'cat /tmp/.log*.txt | grep Configuring | cut -d " " -f2- | cut -d. -f1 > /tmp/.installed'
-         Console().ePopen(cmd1)
-         cmd2 = 'rm -rf /tmp/*.ipk /tmp/.*.txt'
-         Console().ePopen(cmd2)
-         txt = " "
-         dfile = '/tmp/.installed'
-         myfile = file(dfile)
-         txt = myfile.read() + '\nInstalled !'
-         self.session.open(MessageBox, txt, type=1)
+        cmd = 'rm -rf /tmp/.installed'
+        Console().ePopen(cmd)
+        cmd1 = 'cat /tmp/.log*.txt | grep Configuring | cut -d " " -f2- | cut -d. -f1 > /tmp/.installed'
+        Console().ePopen(cmd1)
+        cmd2 = 'rm -rf /tmp/*.ipk /tmp/.*.txt'
+        Console().ePopen(cmd2)
+        txt = " "
+        dfile = '/tmp/.installed'
+        myfile = file(dfile)
+        txt = myfile.read() + '\nInstalled !'
+        self.session.open(MessageBox, txt, type=1)
 
     def cancel(self):
         self.close()

@@ -196,7 +196,7 @@ class PEMainMenu(Screen):
         self.session.open(PESubMenu, 4)
 
     def yellowPressed(self):
-         self.session.open(PESubMenu, 3)
+        self.session.open(PESubMenu, 3)
 
     def cancel(self):
         self.close()

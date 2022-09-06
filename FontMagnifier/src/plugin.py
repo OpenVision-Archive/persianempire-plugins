@@ -50,7 +50,7 @@ def Plugins(**kwargs):
 
 
 def main(session, **kwargs):
-        session.open(fmConfiguration)
+    session.open(fmConfiguration)
 
 
 class fmConfiguration(Screen, ConfigListScreen):
@@ -406,7 +406,7 @@ class fmConfiguration(Screen, ConfigListScreen):
 
     def save(self):
         for x in self["config"].list:
-           x[1].save()
+            x[1].save()
 
         self.session.open(fmWaitScreen, self.tree)
         self.close()
@@ -609,10 +609,10 @@ class fmRestoreSettings(Screen):
             xmlAttributesToConfig_errors = False
             projectfiledom = xml.dom.minidom.parseString(data)
             for node in projectfiledom.childNodes[0].childNodes:
-              if node.nodeType == xml.dom.minidom.Element.nodeType:
-                if node.tagName == 'settings':
-                    if self.xmlAttributesToConfig(node, config.plugins.fm) is False:
-                        xmlAttributesToConfig_errors = True
+                if node.nodeType == xml.dom.minidom.Element.nodeType:
+                    if node.tagName == 'settings':
+                        if self.xmlAttributesToConfig(node, config.plugins.fm) is False:
+                            xmlAttributesToConfig_errors = True
 
             font_with_path = "/usr/share/fonts/" + str(config.plugins.fm.regular_Font.value)
             if os.path.exists(font_with_path):

@@ -48,16 +48,16 @@ class Memory(Screen):
 			"0": self.keyNumberGlobal
 		}, -1)
 		title = _("Memory")
-                self.setTitle(title)
-                self.onShown.append(self.openTest)
+        self.setTitle(title)
+        self.onShown.append(self.openTest)
 
 	def openTest(self):
 
-                self.session.open(Console, _("Availabe memory"), [""])
-                title = "Availabe memory"
-                cmd = "df -h"
-                self.session.open(Console, _(title), [cmd])
-                self.close()
+        self.session.open(Console, _("Availabe memory"), [""])
+        title = "Availabe memory"
+        cmd = "df -h"
+        self.session.open(Console, _(title), [cmd])
+        self.close()
 
 	def callback(self, answer):
 		self.close()

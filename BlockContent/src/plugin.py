@@ -33,14 +33,14 @@ blockedcontent_asking = False
 
 
 def startConfig(session, **kwargs):
-        session.open(BlockContentConfiguration)
+    session.open(BlockContentConfiguration)
 
 
 def autostart(reason, **kwargs):
     if "session" in kwargs and reason == 0:
-       session = kwargs["session"]
-       print("[BlockContent] autostart check")
-       session.open(BlockContentCheck)
+        session = kwargs["session"]
+        print("[BlockContent] autostart check")
+        session.open(BlockContentCheck)
 
 
 def Plugins(**kwargs):
@@ -53,7 +53,7 @@ def mainext(session, **kwargs):
     if config.plugins.blockcontent.viewingtime.value == 0:
         session.open(MessageBox, _("Block Content is disabled"), MessageBox.TYPE_ERROR)
     else:
-    	session.open(BlockContentEnableDisable)
+        	session.open(BlockContentEnableDisable)
 
 
 def mainconf(menuid):
@@ -102,12 +102,12 @@ class BlockContentConfiguration(Screen, ConfigListScreen, ProtectedScreen):
 
     def save(self):
         for x in self["config"].list:
-           x[1].save()
+            x[1].save()
         self.close(True)
 
     def cancel(self):
         for x in self["config"].list:
-           x[1].cancel()
+            x[1].cancel()
         self.close(False)
 
     def pinEntered(self, result):
@@ -142,10 +142,10 @@ class BlockContentEnableDisable(Screen, ProtectedScreen):
 	elif result:
 		if blockedcontent_deactive:
 			blockedcontent_deactive = False
-            		self.session.openWithCallback(self.pinCancel, MessageBox, _("Block Content is now activated"), MessageBox.TYPE_INFO)
+               		self.session.openWithCallback(self.pinCancel, MessageBox, _("Block Content is now activated"), MessageBox.TYPE_INFO)
 		else:
 			blockedcontent_deactive = True
-            		self.session.openWithCallback(self.pinCancel, MessageBox, _("Block Content is now deactivated"), MessageBox.TYPE_INFO)
+               		self.session.openWithCallback(self.pinCancel, MessageBox, _("Block Content is now deactivated"), MessageBox.TYPE_INFO)
         elif not result:
             self.session.openWithCallback(self.pinCancel, MessageBox, _("The pin code you entered is wrong."), MessageBox.TYPE_ERROR)
 
@@ -169,11 +169,11 @@ class BlockContentCheck(Screen):
 	self.blockedcontent_check = ""
         self.blockedcontent_begin_time = 0
        	self.__event_tracker = ServiceEventTracker(screen=self, eventmap={
-       		iPlayableService.evUpdatedEventInfo: self.EventInfoChanged,
-      		})
+        		iPlayableService.evUpdatedEventInfo: self.EventInfoChanged,
+       		})
 
     def EventInfoChanged(self):
-   	service = self.session.nav.getCurrentService()
+        	service = self.session.nav.getCurrentService()
         old_begin_time = self.blockedcontent_begin_time
         info = service and service.info()
         ptr = info and info.getEvent(0)
@@ -182,7 +182,7 @@ class BlockContentCheck(Screen):
         self.TimerBlockContentCheck = eTimer()
         self.TimerBlockContentCheck.stop()
         self.TimerBlockContentCheck.timeout.get().append(self.CheckBlockContent)
-       	self.TimerBlockContentCheck.start(config.plugins.blockcontent.viewingtime.value * 1000, True)
+        	self.TimerBlockContentCheck.start(config.plugins.blockcontent.viewingtime.value * 1000, True)
 
     def CheckBlockContent(self):
 	global blockedcontent_deactive
@@ -201,7 +201,7 @@ class BlockContentCheck(Screen):
 		        	self.TimerBlockContentReactivate = eTimer()
 		        	self.TimerBlockContentReactivate.stop()
 		        	self.TimerBlockContentReactivate.timeout.get().append(self.ReactivateBlockContent)
-        			self.TimerBlockContentReactivate.start(config.plugins.blockcontent.reactivetime.value * 60000, True)
+                			self.TimerBlockContentReactivate.start(config.plugins.blockcontent.reactivetime.value * 60000, True)
 				self.blockedcontent_reactive = True
 	else:
 		eventid = None
@@ -213,33 +213,33 @@ class BlockContentCheck(Screen):
 		serviceref = self.session.nav.getCurrentlyPlayingServiceReference()
 		if serviceref is not None:
 			servicerefstr = serviceref.toString()
-      	 		serviceHandler = eServiceCenter.getInstance()
+                	 		serviceHandler = eServiceCenter.getInstance()
 			info = serviceHandler.info(serviceref)
 			station = info.getName(serviceref)
 			begin = time()
 			event = None
 	                service = self.session.nav.getCurrentService()
 	                info = service and service.info()
-        	        event = info and info.getEvent(0)
+                	        event = info and info.getEvent(0)
                 	if event is not None:
-                        	curEvent = parseEvent(event)
-                      		begin = curEvent[0]
-            			end = curEvent[1]
-                        	name = curEvent[2]
-                        	description = curEvent[3]
+                    	curEvent = parseEvent(event)
+                    		begin = curEvent[0]
+                    			end = curEvent[1]
+                    	name = curEvent[2]
+                    	description = curEvent[3]
 				eventid = curEvent[4]
 
 				text = event.getEventName()
-               			short = event.getShortDescription()
-               			ext = event.getExtendedDescription()
-               			if short and short != text:
-                       			text += '\n\n' + short
-               			if ext:
-                       			if text:
-                               			text += '\n\n'
-                       			text += ext
+                    			short = event.getShortDescription()
+                    			ext = event.getExtendedDescription()
+                    			if short and short != text:
+                        			text += '\n\n' + short
+                    			if ext:
+                        			if text:
+                            			text += '\n\n'
+                        			text += ext
 		check = "%s %s %s %s %s" % (servicerefstr, station, name, description, text)
-        	if config.plugins.blockcontent.casesensitive.value is False:
+            	if config.plugins.blockcontent.casesensitive.value is False:
 			check = check.upper()
 		blockedcontent_found = False
 		blockedcontent = True
@@ -255,33 +255,33 @@ class BlockContentCheck(Screen):
 							blockedbouquet = u.readline().lstrip().rstrip().rstrip("\r\n")
 				 			blockedbouquet = blockedbouquet.replace("#SERVICE", "").replace(" ", "")
 							if blockedbouquet.startswith("#") is False and check.find(blockedbouquet) is not -1 and len(blockedbouquet) > 1:
-   								print("[BlockedContent] %s found in %s" % (blockedbouquet, check))
+                                    								print("[BlockedContent] %s found in %s" % (blockedbouquet, check))
 								blockedcontent_found = True
 						u.close()
-        			if config.plugins.blockcontent.casesensitive.value is False:
+                    			if config.plugins.blockcontent.casesensitive.value is False:
 					blockedcontent = blockedcontent.upper()
 				if blockedcontent.startswith("#") is False and check.find(blockedcontent) is not -1 and len(blockedcontent) > 1:
-   					print("[BlockedContent] %s found in %s" % (blockedcontent, check))
+                        					print("[BlockedContent] %s found in %s" % (blockedcontent, check))
 					blockedcontent_found = True
 			f.close()
 		else:
 			print("[BlockedContent] /etc/enigma2/blockedcontent not found")
- 		if self.blockedcontent_authorized != check:
+            		if self.blockedcontent_authorized != check:
 			self.blockedcontent_authorized = ""
- 		if blockedcontent_found and self.blockedcontent_authorized != check and not blockedcontent_asking:
-        			if config.plugins.blockcontent.popup.value is False:
+            		if blockedcontent_found and self.blockedcontent_authorized != check and not blockedcontent_asking:
+                			if config.plugins.blockcontent.popup.value is False:
 					blockedcontent_asking = True
 					print("[BlockedContent] asks for PIN")
 					self.prev_running_service = serviceref
 					self.blockedcontent_check = check
 					self.session.nav.stopService()
 					try:
-   						self.session.openWithCallback(self.pinEntered, PinInput, pinList=[config.plugins.blockcontent.pin.getValue()], triesEntry=self.getTriesEntry(), title=_("Please enter the correct pin code"), windowTitle=_("Enter pin code"))
+                        						self.session.openWithCallback(self.pinEntered, PinInput, pinList=[config.plugins.blockcontent.pin.getValue()], triesEntry=self.getTriesEntry(), title=_("Please enter the correct pin code"), windowTitle=_("Enter pin code"))
 					except:
 						self.session.nav.playService(self.prev_running_service)
 						blockedcontent_asking = False
 						pass
-        			else:
+                			else:
 				        self.session.open(MessageBox, _("Block Content found %s") % blockedcontent, MessageBox.TYPE_WARNING, timeout=config.plugins.blockcontent.popuptime.value)
 
     def getTriesEntry(self):
