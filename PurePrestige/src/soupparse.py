@@ -332,7 +332,7 @@ class NavigableString(unicode, PageElement):
         get the string without the CData wrapper."""
         if attr == 'string':
             return self
-        raise AttributeError, "'%s' object has no attribute '%s'" % (self.__class__.__name__, attr)
+        raise AttributeError("'%s' object has no attribute '%s'" % (self.__class__.__name__, attr))
 
     def __unicode__(self):
         return str(self).decode(DEFAULT_OUTPUT_ENCODING)
@@ -535,7 +535,7 @@ class Tag(PageElement):
             return self.find(tag[:-3])
         if tag.find('__') != 0:
             return self.find(tag)
-        raise AttributeError, "'%s' object has no attribute '%s'" % (self.__class__, tag)
+        raise AttributeError("'%s' object has no attribute '%s'" % (self.__class__, tag))
 
     def __eq__(self, other):
         """Returns true iff this tag has the same name, the same attributes,

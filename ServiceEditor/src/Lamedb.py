@@ -36,7 +36,7 @@ class Lamedb:
 		return lamedb
 
 	def writeLamedb(self, version=4):
-		if version <> 4:
+		if version != 4:
 			print("only version 4 yet")
 			return
 		puffer = []
