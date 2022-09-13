@@ -876,8 +876,8 @@ class PrestigePanelServicesEditor(Screen):
         if self.lamedb.databaseState == 5:
             self.lamedb.writeLamedb()
             db = eDVBDB.getInstance()
-            db.removeServices(int('-0x10000', 16), -1, -1, 4294967295L)
-            db.removeServices(int('-0x11120000', 16), -1, -1, 4294967295L)
+            db.removeServices(int('-0x10000', 16), -1, -1, 4294967295)
+            db.removeServices(int('-0x11120000', 16), -1, -1, 4294967295)
             for x in self.database:
                 db.removeServices(-1, -1, -1, int(x[:4], 16))
 

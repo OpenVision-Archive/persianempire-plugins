@@ -181,7 +181,7 @@ class Disks:
         else:
             oldmp = ''
         cmd = '/sbin/mkfs.ext3 '
-        if size > 4294967296L:
+        if size > 4294967296:
             cmd += '-T largefile '
         cmd += '-m0 /dev/' + dev
         ret = Console().ePopen(cmd)
