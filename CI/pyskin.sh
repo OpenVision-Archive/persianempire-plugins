@@ -26,6 +26,7 @@ find . -type f -name "*.py" -exec sed -i "s|selectionDisabled=|selection=|g" {} 
 find . -type f -name "*.py" -exec sed -i "s|sliderPixmap=|scrollbarForegroundPixmap=|g" {} \;
 find . -type f -name "*.py" -exec sed -i "s|valign=|verticalAlignment=|g" {} \;
 find . -type f -name "*.py" -exec sed -i "s|vAlign=|verticalAlignment=|g" {} \;
+find . -type f -name "*.py" -exec sed -i 's|pixmap="skin_default/|pixmap="|g' {} \;
 
 git add -u
 git add *
